@@ -21,6 +21,8 @@ the skills it creates. Two OKF skills operate on Open Knowledge Format bundles.
 - `skills/ris-plan-roadmap-base/` — prepare and check a bounded roadmap proposal
   from explicitly supplied inputs, marking unaccepted goals and gaps, without
   RIS project dependencies or tracker writes.
+- `skills/ris-beads-tech/` — execute and verify authorized Beads issue operations
+  with `bd` 1.3.1; includes a separately authorized initialization procedure.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -29,8 +31,10 @@ using it. For OpenCode 1.18.33, one project-local location is
 for authoring operations requiring RIS project settings, `ris-context`.
 `ris-okf` needs `ris-common`; `ris-project-okf` needs `ris-common`,
 `ris-context` and `ris-okf` installed with their resources.
+`ris-beads-tech` needs `ris-common` and, when project settings must be
+resolved, `ris-context` installed with their resources.
 Installing a source folder does not install skills created by the author.
-This repository installs all six source skills in `.opencode/skills/` for its
+This repository installs all seven source skills in `.opencode/skills/` for its
 own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode once the author skill is discoverable;
