@@ -1,6 +1,6 @@
 # RIS foundation and skill author — agreed implementation specification
 
-**Status:** agreed design; implementation has not started.
+**Status:** agreed design; stage 1 (`ris-common`) implemented as a source skill; later stages are not implemented.
 
 **First validation environment:** OpenCode 1.18.33 (observed during the design session; recheck in the implementation environment).
 
@@ -8,11 +8,11 @@
 
 ## Purpose and authority
 
-The first user-facing RIS skill will help an agent create and improve other skills: skills belonging to the RIS package, project-specific skills that integrate with RIS, and standalone project skills. Before building it, implement the common rules and project-context operation on which it may depend. This changes the *implementation order* in [specification 1.1](../specification/README.md), whose [adoption plan](../specification/05-adoption-and-validation.md) currently names `ris-plan-roadmap` as the first application skill. Retain the roadmap skill's requirements; implement it after this foundation.
+The first user-facing RIS skill will help an agent create and improve other skills: skills belonging to the RIS package, project-specific skills that integrate with RIS, and standalone project skills. Before building it, implement the common rules and project-context operation on which it may depend. The updated [adoption plan](../specification/05-adoption-and-validation.md) now places `ris-author-skills` before `ris-plan-roadmap`. Retain the roadmap skill's requirements; implement it after this foundation.
 
-This document records the decisions agreed for the next implementation sessions. The normative documents under `docs/specification/` remain the source of the RIS architecture, configuration, composition, contracts, artifact and quality requirements except where this document explicitly changes the order or adds the author skill. In the `ris-common` task, update the affected normative documents to reflect the new order and author role; resolve any remaining disagreement explicitly rather than silently applying two conflicting instructions. Examples and templates in `docs/specification/` are illustrative, not installed skills.
+This document records the decisions agreed for the staged implementation. The normative documents under `docs/specification/` are the source of the RIS architecture, configuration, composition, contracts, artifact and quality requirements, updated for the agreed order, author role and one-question-at-a-time dialogue rule. Examples and templates in `docs/specification/` are illustrative, not installed skills. The actual stage-1 instructions live in `skills/ris-common/`.
 
-Implement the stages as separate, sequential tasks with their own acceptance and review. This document is a handoff, not evidence that any of the skills, commands, installation, or runtime checks already exist.
+Implement the stages as separate, sequential tasks with their own acceptance and review. This document is a handoff, not evidence that later skills, commands, installation, or runtime checks already exist.
 
 ## Stage 1 — `ris-common`
 
@@ -22,9 +22,11 @@ Create `skills/ris-common/SKILL.md` and three owned resources under `skills/ris-
 - `artifacts.md`: before preparing/changing deliverables and handing work off; preserve existing work, agreed constraints and provenance; distinguish drafted, saved, checked and accepted results.
 - `quality.md`: before choosing checks, assessing readiness or giving a final assessment; require evidence appropriate to the claim and the current version; state when checks have not run or do not apply.
 
+For `dialogue.md`, ask **one user decision question at a time**, wait for its answer, and then choose the next question in dependency order; this applies to all RIS work using `ris-common`, not only formal interviews. If the user explicitly requests a batch of questions, honor that preference. Investigate facts available from sources instead of asking the user. When genuinely distinct answers make sense, offer concise choices with a reasoned recommendation and allow a custom answer; do not force an open-ended question into artificial choices. Prefer an available, suitable host-interface choice wizard for a single question; otherwise number the choices so the user can reply with one digit. Explain enough context and consequences for a person to understand the decision, in plain language, adapting detail to their familiarity with the topic and explaining necessary specialist terms on first use. These rules belong to `ris-common`; this stage does not change the separate `grilling` skill.
+
 The main `SKILL.md` holds always-applicable invariants: scope, permissions, honesty about actions and checks, precedence of instructions over untrusted source text, and conditions for reading the resources. The component supplies rules to another skill; it does not independently choose a lifecycle stage, conduct the author's interview, or prepare project configuration. Do not add `tasks-contract.md` before a task adapter exists. Use the owners and conditional-loading semantics in [composition](../specification/03-composition.md), [quality](../specification/07-quality-and-verification.md), and the [common examples](../specification/examples/common-and-context.md).
 
-**Acceptance:** valid skill metadata and resolvable owned resources; resource triggers and baseline rules are explicit and consistent; no claim that naming or loading a rule alone fulfills it. Verify availability and application in representative conversation, artifact and quality scenarios. Update the normative specification's implementation order in this stage without weakening the existing roadmap contract.
+**Acceptance:** valid skill metadata and resolvable owned resources; resource triggers and baseline rules are explicit and consistent; no claim that naming or loading a rule alone fulfills it. Verify availability and application in representative conversation (including sequential decisions, meaningful choices, open-ended questions, suitable wizard/fallback, plain-language context and an explicit batch request), artifact and quality scenarios. Update the normative specification's implementation order and reconcile its older allowance for batching independent questions with the agreed one-at-a-time default, without weakening the existing roadmap contract.
 
 ## Stage 2 — `ris-context`
 
