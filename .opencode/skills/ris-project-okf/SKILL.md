@@ -1,51 +1,43 @@
 ---
 name: ris-project-okf
 description: >-
-  Resolve and operate on a specific OKF bundle in a RIS project's configured
-  rules, concepts, or specifications. Use for explicit project OKF work; not
-  for ordinary Markdown in those directories, direct named bundles elsewhere,
-  or generic project context preparation.
+  Read, create, edit, or check an explicitly rooted OKF specification in a RIS
+  project's configured specifications directory. Use for project-scoped OKF
+  specification work; not for ordinary Markdown, bundle discovery, or direct
+  bundle work without project path resolution.
 ---
 
-# Operate on a RIS project's OKF bundle
+# Operate on a RIS project's OKF specification
 
-Own the combined project-facing result: prepare paths, select **one** bundle,
-apply `ris-okf` to it and verify/report the operation. Do not infer OKF merely
-because a document is under a configured directory. For a directly selected
-bundle without project path resolution, use `ris-okf` alone.
+Own the combined result for an explicitly specified OKF bundle root and
+read/create/edit/check operation in the project's `sources.specs` directory.
+For ordinary Markdown specifications use the calling specification workflow;
+for direct bundle work without project path resolution use `ris-okf` alone.
 
 Ensure current `ris-common`, `ris-context` and `ris-okf` instructions are
 available via the host loader or their actual installed locations. Apply
-`ris-common` and its conditional resources, then apply `ris-context` including
-its installed `references/configuration.md` to the selected project's current
-operation; loading a skill name is not executing it. If a required dependency
-is unavailable, stop the dependent part without substituting hard-coded paths
-or a homemade validator. Direct invocation of this wrapper must perform the
-whole composition, not wait for an external orchestrator.
+`ris-common` and its conditional resources. For this operation, apply
+`ris-context` with its installed `references/configuration.md`; check the
+returned status, provenance and permission scope. Direct invocation must
+perform the composition, not merely name or load dependencies. If a required
+dependency is unavailable, report the blocked part without inventing paths
+or an OKF validator.
 
-Determine the project root and operation from the request and project
-instructions. Ask `ris-context` to prepare only the needed `sources.rules`,
-`sources.concepts`, or `sources.specs` paths (input or prospective output as
-appropriate), configuration provenance, diagnostics and permission scope. If
-the optional config is absent use its package defaults; if a selected config
-is invalid or lacks a required field, do not fill it from defaults. Check the
-returned status and path authorization before inspecting or writing. A path
-preparation result never selects a document or grants write permission.
+Determine the project and requested operation from the request and project
+instructions. Require the caller to supply the bundle root explicitly. If it
+is missing or ambiguous, ask for it before bundle-dependent work; do not
+discover bundles in the directory or infer the root from a document or link.
+Have `ris-context` prepare only `sources.specs` as an input or prospective
+output, as appropriate. Check that the supplied root lies within the resolved
+specifications area and authorized scope, including its actual target when
+symlinks are involved. Context preparation does not grant write permission.
 
-Inspect the relevant configured directory and the request for a uniquely
-identifiable OKF bundle. A root `index.md` with `okf_version`, a named OKF
-concept or links can help locate a candidate, but a missing index does not
-disqualify a bundle. Directories may contain ordinary Markdown, multiple
-bundles, or nothing. Select only when the request and available documents
-identify exactly one intended bundle/root. If no unique target is established,
-ask which bundle is intended before bundle-dependent work; do not coerce the
-entire directory into OKF or edit a plausible neighbor. For creation, obtain
-an unambiguous target root and requested content; context may prepare a
-prospective output directory, but it cannot choose its name or contents.
+For creation, require the requested content and authorization to write the
+supplied root. Do not treat other Markdown files in `sources.specs` as OKF or
+modify neighboring bundles.
 
-Once selected, actually follow the installed `ris-okf` procedure and its
-pinned local specification for the requested read/create/edit/check operation.
-Respect the base skill's version, permission and partial-result rules. Check
-the resulting files and report project/config provenance, selected area and
-bundle root, selection evidence, the base operation's result, format findings,
-verification and limits together. Stop after the requested project OKF work.
+Apply the installed `ris-okf` procedure and its pinned specification to the
+supplied root for the requested operation; its format, version and
+partial-result rules remain authoritative. Verify the outcome and report the
+project/config provenance, bundle root, operation, actual result and limits
+together. Stop after the requested project OKF specification work.

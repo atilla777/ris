@@ -16,8 +16,8 @@ the skills it creates. Two OKF skills operate on Open Knowledge Format bundles.
 - `skills/ris-okf/` — read, create, edit and check a selected OKF bundle using
   a pinned local copy of the official OKF 0.2 specification; direct use does
   not require RIS project configuration.
-- `skills/ris-project-okf/` — resolve a RIS project's configured document
-  paths and operate on a uniquely selected OKF bundle there via `ris-okf`.
+- `skills/ris-project-okf/` — resolve a RIS project's configured specifications
+  directory and operate on an explicitly rooted OKF specification via `ris-okf`.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before

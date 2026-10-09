@@ -10,11 +10,11 @@ description: >-
 
 Own the result of reading, creating, editing, or checking **one selected bundle**.
 The bundle may be anywhere the user authorizes. Do not require `ris.yaml` for
-direct use. For project-specific selection from RIS document directories use
-`ris-project-okf` instead. Apply `ris-common`: load its current instructions
-from its installed location and read its conditional resources before the
-corresponding action. Missing dependencies block the dependent action; loading
-them alone does not perform it.
+direct use. For project-scoped work on an explicitly rooted OKF specification
+in the configured `sources.specs` area use `ris-project-okf`. Apply
+`ris-common`: load its current instructions from its installed location and
+read its conditional resources before the corresponding action. Missing
+dependencies block the dependent action; loading them alone does not perform it.
 
 ## Source of format rules
 
