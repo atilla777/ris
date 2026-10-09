@@ -1,0 +1,6 @@
+version: 1
+sources:
+  rules: docs/rules/
+  specs: docs/specs/
+workspace:
+  tasks: tasks/
