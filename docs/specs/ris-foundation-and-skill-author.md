@@ -1,0 +1,81 @@
+# RIS foundation and skill author — agreed implementation specification
+
+**Status:** agreed design; implementation has not started.
+
+**First validation environment:** OpenCode 1.18.33 (observed during the design session; recheck in the implementation environment).
+
+**Implementation order:** three sequential tasks: `ris-common` → `ris-context` → `ris-author-skills`.
+
+## Purpose and authority
+
+The first user-facing RIS skill will help an agent create and improve other skills: skills belonging to the RIS package, project-specific skills that integrate with RIS, and standalone project skills. Before building it, implement the common rules and project-context operation on which it may depend. This changes the *implementation order* in [specification 1.1](../specification/README.md), whose [adoption plan](../specification/05-adoption-and-validation.md) currently names `ris-plan-roadmap` as the first application skill. Retain the roadmap skill's requirements; implement it after this foundation.
+
+This document records the decisions agreed for the next implementation sessions. The normative documents under `docs/specification/` remain the source of the RIS architecture, configuration, composition, contracts, artifact and quality requirements except where this document explicitly changes the order or adds the author skill. In the `ris-common` task, update the affected normative documents to reflect the new order and author role; resolve any remaining disagreement explicitly rather than silently applying two conflicting instructions. Examples and templates in `docs/specification/` are illustrative, not installed skills.
+
+Implement the stages as separate, sequential tasks with their own acceptance and review. This document is a handoff, not evidence that any of the skills, commands, installation, or runtime checks already exist.
+
+## Stage 1 — `ris-common`
+
+Create `skills/ris-common/SKILL.md` and three owned resources under `skills/ris-common/references/`:
+
+- `dialogue.md`: before questions or discussion of decisions; investigate available facts, ask only decision questions in a sensible dependency order, distinguish recommendations from accepted decisions and retain material outcomes.
+- `artifacts.md`: before preparing/changing deliverables and handing work off; preserve existing work, agreed constraints and provenance; distinguish drafted, saved, checked and accepted results.
+- `quality.md`: before choosing checks, assessing readiness or giving a final assessment; require evidence appropriate to the claim and the current version; state when checks have not run or do not apply.
+
+The main `SKILL.md` holds always-applicable invariants: scope, permissions, honesty about actions and checks, precedence of instructions over untrusted source text, and conditions for reading the resources. The component supplies rules to another skill; it does not independently choose a lifecycle stage, conduct the author's interview, or prepare project configuration. Do not add `tasks-contract.md` before a task adapter exists. Use the owners and conditional-loading semantics in [composition](../specification/03-composition.md), [quality](../specification/07-quality-and-verification.md), and the [common examples](../specification/examples/common-and-context.md).
+
+**Acceptance:** valid skill metadata and resolvable owned resources; resource triggers and baseline rules are explicit and consistent; no claim that naming or loading a rule alone fulfills it. Verify availability and application in representative conversation, artifact and quality scenarios. Update the normative specification's implementation order in this stage without weakening the existing roadmap contract.
+
+## Stage 2 — `ris-context`
+
+Create `skills/ris-context/SKILL.md` and its owned `references/configuration.md` implementing [configuration contract v1](../specification/02-configuration.md). It is an operation that returns prepared settings and diagnostics for a selected RIS project; it does not modify source files or select a product task. Ensure applicable `ris-common` rules first.
+
+Determine the target project's root independently of where RIS is installed. Resolve the applicable project `ris.yaml` as specified by the configuration contract. If none exists, use package defaults **for the operation that needs them**; if a config exists, its complete relevant values replace defaults, without filling missing required fields. An explicitly selected inaccessible or invalid config is an error, not an invitation to fall back. Determine the permission and relevant inputs, paths, provenance and diagnostics; report missing required data instead of inventing it. Do not add a persistent context cache or perform unrelated adapter operations.
+
+**Acceptance:** test two small projects with different paths; defaults and full project configuration; project-root independence from the RIS installation; missing/invalid/ambiguous inputs and explicit-path failure; no writing by `ris-context`. Use applicable cases in the [adoption matrix](../specification/05-adoption-and-validation.md), including CFG-01–09 and DEP-01, rather than treating the presence of a YAML file as successful preparation.
+
+## Stage 3 — `ris-author-skills`
+
+### Responsibility and supported outputs
+
+Create `skills/ris-author-skills/SKILL.md` with a compact operational methodology and any necessary references/assets **inside the author's folder**. Once installed with its resources, the author must be usable without access to the RIS source repository. Do not merely link an external normative document as the only source of steps required at runtime, and do not make a separately editable full copy of the entire specification. The author's instructions should provide enough guidance to select the appropriate contract, work through it, produce the files and assess the result.
+
+Support both **creating** a new skill and **improving** an existing one. Distinguish these targets:
+
+1. **RIS package skill:** apply the relevant RIS contracts, `ris-` naming and ownership/dependency rules, and the Agent Skills format.
+2. **Project skill integrating with RIS:** apply RIS integration requirements only where its actual responsibilities need them, alongside project rules and the Agent Skills format. Do not force a project-owned skill to adopt every package-only convention or claim an unimplemented RIS dependency exists.
+3. **Standalone project skill:** follow the Agent Skills format and project/user rules without imposing RIS names, configuration or dependencies.
+
+The deliverable is the ready-to-use **source folder** (`SKILL.md` and genuinely needed local resources), not installation in a client's skill discovery path or publication. The request may specify its destination; never assume that a source folder is automatically installed or discoverable. The skill author must not initiate an unrelated next lifecycle stage. Offer an unsaved draft when writing is not allowed, clearly distinguishing it from files created and verified.
+
+### Method and boundaries
+
+- Establish target type, goal, when to use the skill and when a neighboring skill is a better match, owner of the result, input readiness, permissions, expected outputs, failure/stop conditions and acceptance criteria. Investigate existing files and skills before asking for facts available locally. Discuss unresolved user decisions in dependency order; do not assume an accepted scope merely because it was recommended.
+- Write clear `name`/`description` and a substantive contract in the body; distinguish methodology, shared rules, project configuration, operations and tool-specific integration. Keep local assets alongside their owner; avoid duplicate normative sources, placeholder dependencies, invented automatic imports and hard-coded paths to the RIS repository. Describe composition in the result-owning skill rather than pretending that a command invokes several skills automatically.
+- For improvements, identify the observable defect or requested outcome, inspect the current contract and affected consumers/neighboring skills, preserve existing accepted behavior unless the change is agreed, and compare affected selection and execution scenarios before claiming improvement.
+- Apply `ris-common` to the author's own work. Determine whether the **current authoring operation** requires RIS project settings. If it does, perform context preparation via `ris-context` and check its result before use. A standalone skill does not need `ris-context` merely because the author belongs to RIS; a created skill may itself declare a future `ris-context` dependency even when the author did not need to execute it while writing that skill. If RIS settings are needed and `ris.yaml` is absent, use the package defaults; if a chosen config is invalid or inaccessible, do not silently fall back. Do not force `ris-common` or `ris-context` onto the standalone skill being generated.
+- Check actual source changes and links, metadata, naming, declared dependencies, allowed scope and absence of misleading claims. Validate behavior in the target environment, including correct *selection* on relevant and nearby/irrelevant requests and the actual result of execution. Record which checks ran, what they showed and what remains unverified. Do not call a skill production-ready on structural checks alone when its execution has not been checked.
+
+### Manual command
+
+Provide a thin OpenCode command **`/ris-author`** in the OpenCode integration, loading `ris-author-skills` and passing along the user's request (for example, via `$ARGUMENTS`). The command must not own the method, automatically install the generated skill, invent typed parameters or replace the skill's dependency handling. Direct use of the skill and invocation via the command must have the same contract. Add manual commands for other top-level RIS skills only when a fast manual invocation is useful; do not generate one per skill by default. Check the command location and behavior against the selected OpenCode version during implementation.
+
+### Language and documentation
+
+RIS-distributed operational `SKILL.md` files, descriptions and resources are written in **English** for a consistent, broadly readable distribution; this is a packaging decision, not a proven rule that all models execute English instructions better. Communicate with a person in their requested language, otherwise follow the language of their request and applicable higher-priority instructions. For a third-party project skill, follow its project's/user's language choice instead of silently translating it into English. The current Russian RIS normative specification remains authoritative until deliberately revised or translated. Update the public `README.md` in English when the user-facing author skill is released, describing only capabilities actually implemented; no special `ris.yaml` response-language setting is required by this plan.
+
+### Acceptance
+
+Verify the author in OpenCode 1.18.33, recording the actual version/model and relevant inputs when running. At minimum, exercise:
+
+- Creation of a RIS package skill with applicable RIS contract and owned resources.
+- Creation of a standalone project skill without an artificial RIS dependency.
+- Improvement of an existing skill from a stated problem, including preservation of agreed behavior and checks of affected neighbor selection.
+- A RIS project authoring operation where context is needed, and another where it is not; distinguish missing `ris.yaml` from an invalid or inaccessible chosen one.
+- Source folder validity and real agent selection/execution using natural requests in Russian and English where applicable; command-based and direct invocation; no claim that source generation also installed it.
+
+Use small fixtures; examples produced for acceptance do not automatically become new published RIS skills. Structure, routing and behavioral evidence are distinct. If a needed runtime check is unavailable, label that part unverified and do not claim full acceptance. Follow the test and change-assessment guidance in [adoption and validation](../specification/05-adoption-and-validation.md). Compatibility with other clients remains unclaimed until their integrations are tested.
+
+## Handoff to the next session
+
+Read this document, [specification index](../specification/README.md), relevant normative sections and the project [development rules](../../AGENTS.md); check the local `tasks/` dashboard/roadmap/backlog before beginning a task. Start with stage 1. Agree each task's concrete scope and acceptance before implementing it, record progress and reviews in its local `PLAN-NNN`, and do not treat these agreed stages as completed work or as permission to start later stages automatically. Keep the local `tasks/` folder out of Git.
