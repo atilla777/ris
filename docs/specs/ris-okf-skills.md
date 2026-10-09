@@ -1,6 +1,6 @@
 # RIS OKF skills — agreed implementation specification
 
-**Status:** approved design and implementation plan; neither skill is implemented by this document.
+**Status:** approved design and implementation plan; implementation lives in `skills/ris-okf/` and `skills/ris-project-okf/`, not in this document.
 
 **Source of OKF rules:** [GoogleCloudPlatform/open-knowledge-format `SPEC.md`](https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/0b87c52c6ef999286c745e19998fdfcd03d5dbee/SPEC.md), version 0.2, commit `0b87c52c6ef999286c745e19998fdfcd03d5dbee`. The upstream repository is licensed under Apache-2.0. This is the format authority; third-party implementations and skills are not normative. Any RIS convenience policy must be identified separately from OKF conformance.
 
