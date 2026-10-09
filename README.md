@@ -1,7 +1,35 @@
 # RIS — Ready-to-use Infrastructure Skills
 
-RIS — набор готовых скиллов для AI-агентов, помогающих решать задачи на всех этапах жизненного цикла разработки ПО (SDLC): от планирования и разработки до тестирования, развёртывания и сопровождения.
+RIS is a growing collection of source skills for AI agents working across the
+software development lifecycle. The first application skill,
+`ris-author-skills`, creates and improves skill source folders for the RIS
+package, RIS-integrating projects, and standalone projects. It does not install
+the skills it creates.
 
-## Лицензия
+## Available source skills
 
-MIT — см. [LICENSE](LICENSE).
+- `skills/ris-author-skills/` — author or revise an agent skill and check its
+  source, selection, and behavior.
+- `skills/ris-common/` — shared rules applied by RIS skills.
+- `skills/ris-context/` — read-only preparation of project settings when an
+  operation needs them; an optional `ris.yaml` can override package defaults.
+
+Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
+resources** into a skill discovery location supported by your client before
+using it. For OpenCode 1.18.33, one project-local location is
+`.opencode/skills/<name>/`; `ris-author-skills` also needs `ris-common` and,
+for authoring operations requiring RIS project settings, `ris-context`.
+Installing a source folder does not install skills created by the author.
+The optional project command `.opencode/command/ris-author.md` exposes
+`/ris-author <request>` in OpenCode once the author skill is discoverable;
+direct requests use the same skill contract. Restart OpenCode after changing
+skill or command files so a running session picks them up.
+
+The [specification](docs/specification/README.md) describes RIS architecture
+and future components; it is not a list of installed skills. A staged
+[implementation specification](docs/specs/ris-foundation-and-skill-author.md)
+records the agreed scope of the initial source skills.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
