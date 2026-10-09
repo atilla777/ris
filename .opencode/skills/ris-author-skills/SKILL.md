@@ -71,6 +71,20 @@ agreed change and identify comparable before/after scenarios, including
 selection failures, before modifying it. If the desired change contradicts
 accepted behavior, resolve the decision rather than silently changing it.
 
+For each proposed step, identify whether it is necessary to the promised
+result, already owned by a dependency (for example, project path preparation
+by `ris-context`), or a distinct operation with its own inputs and checks.
+Keep target selection with the owner of the result when it is needed to perform
+that result; split independently useful discovery or a different substantive
+operation into its own skill only when its contract warrants it. Put coordination
+of multiple results in the calling composite skill. Do not split by line count
+or add a wrapper solely for symmetry. For RIS package skills record the reason
+for a portable base/project wrapper or a single skill. A separated portable
+base must work without required `ris-common`, `ris-context`, `ris.yaml` or RIS
+project directories; the project wrapper depends on the base and owns its RIS
+integration. For other targets apply the same ownership test without imposing
+RIS dependencies.
+
 ## Build the source
 
 Write `SKILL.md` in the selected source folder with Agent Skills frontmatter:
@@ -89,6 +103,13 @@ Keep reusable shared rules with their existing owner; include only necessary
 local references/assets/scripts inside the target folder. Resolve owned
 resources relative to that folder's **installed location**, not the source
 repository. Do not make a separately editable copy of another contract.
+Keep the main `SKILL.md` sufficient to select the skill, activate dependencies,
+and own and check its result. Put lengthy detail for a conditional branch in
+an owned reference with an explicit trigger, read before that branch; do not
+load it for unrelated requests. Moving text to a reference does not make a
+second responsibility belong to this skill. Keep mandatory instructions
+available when their conditions apply; context savings never justify skipping
+required behavior or evidence.
 Distinguish workflow method, common rules, project configuration, restricted
 operations and host-specific commands. Put a thin command in host integration
 only when manual invocation is useful; it must not replace the skill contract.
@@ -107,6 +128,12 @@ for an improvement compare the affected before/after cases. Check the resulting
 files/actions, not just the agent's assertion. Separate structural, routing and
 behavioral evidence and label any unrun check; structure alone does not prove
 production readiness. Do not claim compatibility with an untested client.
+
+Review for unrelated operations, duplicated dependency methods and unnecessary
+loading on a typical request. If the skill has a conditional branch, check that
+its instructions and evidence are available when triggered, not loaded for an
+unrelated request. For an improvement, compare before/after loading where
+observable; shorter text or more skills alone are not evidence of improvement.
 
 Report the source location or unsaved draft, actual changes, checks and
 observations, remaining limitations and any unresolved decisions. If a
