@@ -1,6 +1,6 @@
 # RIS foundation and skill author — agreed implementation specification
 
-**Status:** agreed design; stage 1 (`ris-common`) implemented as a source skill; stage 2 (`ris-context`) scope agreed for planning, not yet implemented; later stages are not implemented.
+**Status:** agreed design; stage 1 (`ris-common`) implemented as a source skill; stage 2 (`ris-context`) implemented as a source skill under `skills/ris-context/`; later stages are not implemented.
 
 **First validation environment:** OpenCode 1.18.33 (observed during the design session; recheck in the implementation environment).
 
