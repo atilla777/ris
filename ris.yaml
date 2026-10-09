@@ -1,6 +1,11 @@
 version: 1
 sources:
   rules: docs/rules/
+  concepts: docs/concepts/
   specs: docs/specs/
 workspace:
-  tasks: tasks/
+  tasks: .sdlc/tasks/
+  worktrees: .sdlc/worktrees/
+adapters:
+  tasks:
+    skill: ris-beads-tech

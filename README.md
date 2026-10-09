@@ -34,12 +34,14 @@ The optional project command `.opencode/command/ris-author.md` exposes
 direct requests use the same skill contract. Restart OpenCode after changing
 skill or command files so a running session picks them up.
 
-The [specification](docs/specs/README.md) describes RIS architecture
+The [normative specification](docs/concepts/README.md) describes RIS architecture
 and future components; it is not a list of installed skills. A staged
 [implementation specification](docs/specs/ris-foundation-and-skill-author.md)
 records the agreed scope of the initial source skills.
 This repository's [development rules](docs/rules/development.md) and root
-[`ris.yaml`](ris.yaml) identify its actual document and local task directories.
+[`ris.yaml`](ris.yaml) identify its document and future SDLC workspace directories.
+The development queue remains in Git-ignored `tasks/`; it is separate from
+the configured `.sdlc/tasks/` for future tracker task artifacts.
 
 ## License
 
