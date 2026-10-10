@@ -27,6 +27,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-interview-base/` — interview about interdependent decisions within
   a bounded topic, with a full or explicitly limited mode and a read-only handoff;
   runs without RIS or `grilling`.
+- `skills/ris-formulate-spec-base/` — formulate portable feature specification
+  content from supplied decisions, preserving provenance and open questions;
+  does not save or approve a project document.
 - `skills/ris-beads-adapter/` — execute and verify authorized Beads issue operations
   with `bd` 1.3.1, including optional `tasks` v1 feature-task operations;
   includes a separately authorized initialization procedure.
@@ -58,8 +61,9 @@ available task adapter for read operations.
 `ris-interview-base` has no required RIS dependencies.
 `ris-interview-feature` needs `ris-common`, `ris-context` and
 `ris-interview-base` installed with their resources.
-This repository installs all twelve source skills in `.opencode/skills/` for its
-own OpenCode project; the copies there must be kept in sync with `skills/`.
+This repository installs twelve source skills in `.opencode/skills/` for its
+own OpenCode project; installed copies must be kept in sync with `skills/`.
+`ris-formulate-spec-base` is currently provided as source only.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
