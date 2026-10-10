@@ -30,6 +30,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-formulate-spec-base/` — formulate portable feature specification
   content from supplied decisions, preserving provenance and open questions;
   does not save or approve a project document.
+- `skills/ris-decompose-spec-base/` — propose verifiable work units from a
+  supplied feature specification, tracing requirement coverage and necessary
+  dependencies without creating tracker records.
 - `skills/ris-specify-feature/` — obtain acceptance for a selected feature's
   specification, save it by the project's rules and verify its feature task
   through the selected adapter.
@@ -70,8 +73,8 @@ answers are missing, `ris-interview-feature`; OKF-specific operations are
 needed only for an OKF document.
 This repository installs twelve source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
-`ris-formulate-spec-base` and `ris-specify-feature` are currently provided as
-source only.
+`ris-formulate-spec-base`, `ris-decompose-spec-base` and `ris-specify-feature`
+are currently provided as source only.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
