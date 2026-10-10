@@ -93,12 +93,33 @@ boundary and completion condition, scenario coverage, justified acyclic
 blocking dependencies and order, and a reasoned next-epic recommendation.
 Nearest epic should be actionable for refinement; farther ones may be coarser.
 Do not silently drop a required scenario or weaken numerical/negative
-requirements. If coverage or identity cannot be demonstrated, stop dependent
-writes and return the proposal with the specific gap.
+requirements. Check that every proposed epic has a justified independent
+outcome or bounded uncertainty: one epic may be sufficient; phases of one
+delivery do not become separate epics just to reach a target count. If
+coverage or identity cannot be demonstrated, stop dependent writes and return
+the proposal with the specific gap.
 
-Translate approved changes into bounded adapter operations on confirmed IDs:
-create or update only roadmap epics in scope, and add only required `blocks`
-edges in the correct direction (blocked epic → prerequisite). Do not use a
+Before any tracker mutation, show the proposed epic boundaries, outcomes,
+exclusions, completion conditions, first end-to-end slice, and material
+dependencies to the person and obtain agreement to the **specific breakdown**.
+For `update`, show and agree material changes to existing outcomes, boundaries,
+exclusions, completion conditions, dependencies or order, and any new epics;
+do not demand renewed acceptance of unchanged content. A generic
+"create/update the roadmap" request or write permission does not approve the
+breakdown. An explicit instruction to plan the epics **without consulting the
+person** waives this agreement step, even when the person did not supply the
+breakdown; a specific breakdown already explicitly accepted by the person
+does not need re-approval. Neither exception supplies write permission,
+accepted inputs, a mode, or adapter guarantees. If agreement is needed but
+not obtained, return the unsaved proposal with `changes: []` and stop. If a
+material change to the agreed breakdown becomes necessary before writing,
+present the changed part again unless the explicit waiver applies. Do not
+hold a tracker lock while waiting for a decision.
+
+Translate agreed (or explicitly consultation-waived) changes into bounded
+adapter operations on confirmed IDs: create or update only roadmap epics in
+scope, and add only required `blocks` edges in the correct direction (blocked
+epic → prerequisite). Do not use a
 parent-child edge as a blocking edge, create tasks or modify unrelated
 records. Confirm the adapter's writer/quiescence guarantee for noncommutative
 content and no-duplicate creation; if unavailable, stop with `conflict`
@@ -115,12 +136,14 @@ No automatic rollback, close, assignment or launch of the recommended epic.
 
 Finally re-enumerate the goal's complete open and closed set, re-read saved
 records and typed dependencies, and compare the **persisted whole** with the
-accepted goal and proposal: content, coverage, first result, exclusions,
-unchanged closed accomplishments, IDs, status, links, order and recommendation.
+accepted goal and agreed or explicitly consultation-waived proposal: content,
+coverage, first result, exclusions, unchanged closed accomplishments, IDs,
+status, links, order and recommendation.
 If the check is incomplete, do not claim a saved complete roadmap. Report
 `ok|blocked|conflict|error`, mode, project, goal/input acceptance, actual
-confirmed IDs and changes (including partial changes), evidence and its
-limits, unsaved proposal/gaps and the recommended next epic with readiness.
+confirmed IDs and changes (including partial changes), breakdown agreement or
+explicit waiver, evidence and its limits, unsaved proposal/gaps and the
+recommended next epic with readiness.
 Without write permission, return only a labelled unsaved proposal and
 `changes: []`; even a complete proposal is not an accepted or persisted
 roadmap. Stop at the roadmap: no feature decomposition, implementation,
