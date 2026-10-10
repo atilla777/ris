@@ -24,6 +24,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-plan-roadmap-base/` — prepare and check a bounded roadmap proposal
   from explicitly supplied inputs, marking unaccepted goals and gaps, without
   RIS project dependencies or tracker writes.
+- `skills/ris-interview-base/` — interview about interdependent decisions within
+  a bounded topic, with a full or explicitly limited mode and a read-only handoff;
+  runs without RIS or `grilling`.
 - `skills/ris-beads-tech/` — execute and verify authorized Beads issue operations
   with `bd` 1.3.1; includes a separately authorized initialization procedure.
 - `skills/ris-plan-roadmap/` — create or update a project's goal-level roadmap
@@ -48,7 +51,8 @@ the project's tracker.
 Installing a source folder does not install skills created by the author.
 `ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
 available task adapter for read operations.
-This repository installs all ten source skills in `.opencode/skills/` for its
+`ris-interview-base` has no required RIS dependencies.
+This repository installs all eleven source skills in `.opencode/skills/` for its
 own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
