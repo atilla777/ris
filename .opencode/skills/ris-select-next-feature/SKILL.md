@@ -32,13 +32,16 @@ different project, use that project's own selected configuration and rules.
 Do not confuse a planned skill or target behavior with an implemented one.
 
 Load and **apply the selected available task adapter** for read operations;
-confirm it supports the needed Beads epic, child/task and typed dependency
-reads in the selected workspace. With `ris-beads-tech`, verify `bd` version,
-workspace and CLI responses through its contract; enumerate untruncated,
-all-status epics (`bd list --all --limit 0 --type epic --json`), inspect confirmed
-IDs (`bd show <id> --json`) and typed links (`bd dep list <id> --json`). Read
-related tasks including closed records using its unlimited selection where
-applicable. A configured name alone is not availability. If a required source,
+confirm it supports the needed epic, child/task and typed dependency reads in
+the selected workspace. `tasks` v1 standardizes only roadmap epic and blocking
+reads: child/task reads remain adapter-specific and this feature selector is
+not yet interchangeable with an arbitrary tasks v1 adapter. With
+`ris-beads-adapter`, have the adapter verify its supported CLI version,
+workspace and responses. Require the `tasks` v1 all-status complete epic list,
+confirmed-ID epic reads and typed `blocks` reads. Read related tasks including
+closed records using the selected adapter's own task-read contract and complete
+selection where applicable; this operation is not part of `tasks` v1. A
+configured name alone is not availability. If a required source,
 resource, adapter or tracker is inaccessible, report which inference is blocked;
 do not guess from a file, a default list, or direct tracker storage.
 

@@ -1,14 +1,14 @@
 ---
-name: ris-beads-tech
+name: ris-beads-adapter
 description: >-
-  Execute and verify bounded Beads issue operations via an available bd CLI:
+  Serve the tasks v1 roadmap adapter role and verify bounded Beads operations via bd:
   read/list epics and tasks, create/update by confirmed ID, manage parent and
   blocking links, claim, and explicitly close. Use for authorized tracker
   operations, not for deciding roadmap content, planning a feature, configuring
   Dolt remotes, or automatically advancing work.
 ---
 
-# Beads technical operations
+# Beads tasks adapter
 
 Own only the requested tracker operation and its verified result. The caller
 owns the choice of records, required content, completeness of mandatory work,
@@ -19,6 +19,33 @@ conditional resources before their respective actions). If project settings
 must be resolved, use installed `ris-context` and its configuration resource
 for that preparation; otherwise take the explicit project root from the caller.
 Neither loading a dependency nor `adapters.tasks.skill` grants write access.
+
+## Role contract: tasks v1
+
+Implement the roadmap portion of the shared `tasks` version 1 contract:
+`tasks.epics.list`, `tasks.epics.read`, `tasks.epics.create`,
+`tasks.epics.update`, `tasks.blocks.list`, `tasks.blocks.add`,
+`tasks.blocks.remove`. These names describe semantic operations, **not** CLI
+commands. Report this version, supported operations and guarantees to the
+caller before dependent writes. For all-status, unlimited epic selection use
+`bd list --all --limit 0 --type epic --json`; for an exact ID use `bd show
+<id> --json`; for typed directed edges use `bd dep list <id> --json`.
+The caller owns the goal and membership identity, acceptable content, scope,
+and required guarantees. Return actual ID, issue type, status, content and
+applicable `blocks` edges with fresh-read evidence; an incomplete list cannot
+establish absence. `bd`'s status values are tracker data, not RIS result codes.
+
+Guarantees by operation: list/read/list-blocks provide complete inspected
+results or an explicit failure; create is best-effort and cannot promise unique
+external references under concurrency without an exclusive writer window;
+update of noncommutative content needs an established exclusive writer window
+unless the caller separately accepts the specific lost-update risk; blocks.add
+checks endpoints, direction and cycles and verifies the resulting edge;
+blocks.remove requires the exact selected edge, authorized scope, and an
+exclusive writer window against a concurrent replacement before removal.
+Read/write/read is **not** such a window. If a necessary guarantee is absent,
+return `conflict` before writing. Other Beads operations below remain available
+as tool-specific operations, not as interchangeable tasks v1 capabilities.
 
 ## Inputs and boundary
 
@@ -115,7 +142,8 @@ never blindly recreate, reparent, remove an edge, or close.
   `bd dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
   edge removal. Check both IDs and existing typed edges. Confirm the dependent
   is blocked by the blocker after add; before remove require the exact edge
-  and a writer guarantee against deleting a concurrent replacement. Keep the
+  and an established exclusive writer window against deleting a concurrent
+  replacement; read-back alone cannot provide it. Keep the
   default cycle check: never pass `--no-cycle-check`. `bd` rejects cycles and
   ancestor-blocking descendants; re-read on failure. A repeated add may say
   `added`: confirm actual edge rather than infer a new change.

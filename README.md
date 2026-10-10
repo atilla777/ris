@@ -27,7 +27,7 @@ on Open Knowledge Format bundles.
 - `skills/ris-interview-base/` — interview about interdependent decisions within
   a bounded topic, with a full or explicitly limited mode and a read-only handoff;
   runs without RIS or `grilling`.
-- `skills/ris-beads-tech/` — execute and verify authorized Beads issue operations
+- `skills/ris-beads-adapter/` — execute and verify authorized Beads issue operations
   with `bd` 1.3.1; includes a separately authorized initialization procedure.
 - `skills/ris-plan-roadmap/` — create or update a project's goal-level roadmap
   as verified epics through its selected adapter, or propose one without writing.
@@ -45,7 +45,7 @@ and `ris-common`, plus `ris-context` when its authoring operation requires
 RIS project settings.
 `ris-okf` needs `ris-common`; `ris-project-okf` needs `ris-common`,
 `ris-context` and `ris-okf` installed with their resources.
-`ris-author-skills-base` has no required RIS dependencies. `ris-beads-tech`
+`ris-author-skills-base` has no required RIS dependencies. `ris-beads-adapter`
 needs `ris-common` and, when project settings must be
 resolved, `ris-context` installed with their resources.
 `ris-plan-roadmap` needs `ris-common`, `ris-context`, `ris-plan-roadmap-base`

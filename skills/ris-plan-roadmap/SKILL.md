@@ -3,7 +3,7 @@ name: ris-plan-roadmap
 description: >-
   Create or update a project's goal-level roadmap as verified tracker epics,
   or propose it without writing. Use for project MVP outcomes, epic boundaries
-  and dependencies; not for a single feature's tasks, raw Beads operations,
+  and dependencies; not for a single feature's tasks, raw tracker operations,
   initializing a tracker, or implementing an epic.
 ---
 
@@ -50,14 +50,19 @@ block claims depending on it.
 ## Reconcile before any write
 
 For tracker reads and writes, load the **selected and available** task adapter
-and apply its actual contract. With `ris-beads-tech`, use its full all-status,
-unlimited epic selection, confirmed-ID reads and typed-edge inspection in the
-selected workspace. Its instructions govern `bd` calls, safe retries,
-permissions and concurrency; never bypass it with direct storage edits or a
-fallback roadmap file. If the adapter is missing, incompatible or the
-workspace is unavailable, no tracker write is possible; an explicitly
-requested proposal without writing can still be returned as **unsaved**, with
-unknown tracker state identified. No implicit `bd init`.
+and apply its declared `tasks` version 1 contract. Check compatibility and the
+operations and guarantees needed for this request: `tasks.epics.list/read`,
+`tasks.blocks.list` for reconciliation; `tasks.epics.create/update` and
+`tasks.blocks.add/remove` when the agreed changes need them. Require complete
+all-status epic enumeration (including closed), confirmed-ID reads and typed
+directed-edge inspection in the selected workspace. The adapter owns tracker
+commands, safe retries, permissions, and concurrency; do not bypass it with
+direct storage edits, another adapter or a roadmap file. If no adapter is
+selected in `adapters.tasks.skill`, or the selected adapter is missing,
+incompatible (version, required operation or guarantee), or the workspace is
+unavailable, no tracker write is possible; an explicitly requested proposal
+without writing can still be returned as **unsaved**, with
+unknown tracker state identified. No implicit tracker initialization.
 
 Determine the full applicable set, **including closed epics**. Match by
 confirmed IDs, a stable goal/roadmap membership reference in saved content
@@ -118,16 +123,20 @@ hold a tracker lock while waiting for a decision.
 
 Translate agreed (or explicitly consultation-waived) changes into bounded
 adapter operations on confirmed IDs: create or update only roadmap epics in
-scope, and add only required `blocks` edges in the correct direction (blocked
-epic → prerequisite). Do not use a
-parent-child edge as a blocking edge, create tasks or modify unrelated
-records. Authorized epic creation uses the adapter's default best-effort
-semantics without a separate concurrency-risk question. If the caller requires
-no-duplicate creation, confirm an exclusive writer/quiescent window or stop
-with `conflict`. For noncommutative content updates, require the adapter's
-writer guarantee or explicit acceptance of its limited best-effort lost-update
-risk; otherwise stop with `conflict`. Do not present a mere read/write/read
-sequence or `external-ref` as a lock. Re-read relevant
+scope; add required `blocks` edges and remove **only** explicitly agreed
+obsolete edges (blocked epic → prerequisite). Confirm exact endpoints, type,
+direction, existing edge, scope and deletion permission before removal. Require
+the adapter's guarantee against deleting a concurrent replacement; if it is
+unavailable, stop before removal with `conflict`, leaving the link unchanged.
+Never silently retain an agreed obsolete edge and claim a complete update.
+Do not use a parent-child edge as a blocking edge, create tasks or modify unrelated
+records. Authorized epic creation uses best-effort semantics without a
+separate concurrency-risk question only when supported by the selected adapter;
+if the caller requires no-duplicate creation, require its proven strict writer
+guarantee or stop with `conflict`. For noncommutative content updates, require
+the adapter's writer guarantee or explicit acceptance of its specific limited
+lost-update risk; otherwise stop with `conflict`. Never present a mere
+read/write/read sequence or an identity reference as a lock. Re-read relevant
 records and edges before each mutation, compare with expected state, execute
 one bounded action, and verify the returned ID, content, status and links by
 fresh reads before proceeding. An uncertain response requires full

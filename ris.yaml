@@ -8,4 +8,4 @@ workspace:
   worktrees: .sdlc/worktrees/
 adapters:
   tasks:
-    skill: ris-beads-tech
+    skill: ris-beads-adapter
