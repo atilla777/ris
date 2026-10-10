@@ -57,8 +57,12 @@ limited; do not silently substitute a question count or time limit.
    branches just to make the tree look complete.
 3. Choose the next material frontier question. Explain its context and the
    consequences of genuinely different options; offer short options with a
-   reasoned recommendation and room for a free answer when choices are useful.
-   For an open question do not fabricate a menu. Ask **one decision question
+   reasoned recommendation and room for a free answer when choices are useful
+   and a recommendation is supportable. For an open or factual question do not
+   fabricate a menu. When continuing, distinguish the confirmed previous
+   answer from proposals before asking the next question; use the caller's
+   dialogue presentation rules when provided, without requiring RIS or a
+   particular visual format for direct use. Ask **one decision question
    per message**, wait for the answer, update its status and dependencies, then
    recompute the frontier. Ask several independent questions in one message
    only if the user expressly requests that; never ask a dependent question
