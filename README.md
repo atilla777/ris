@@ -24,6 +24,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-plan-roadmap-base/` — prepare and check a bounded roadmap proposal
   from explicitly supplied inputs, marking unaccepted goals and gaps, without
   RIS project dependencies or tracker writes.
+- `skills/ris-plan-epic/` — refine one unclear roadmap epic into bounded
+  candidate feature outcomes and prerequisites; optionally verify an agreed
+  update of the existing epic through the selected adapter.
 - `skills/ris-interview-base/` — interview about interdependent decisions within
   a bounded topic, with a full or explicitly limited mode and a read-only handoff;
   runs without RIS or `grilling`.
@@ -64,6 +67,9 @@ resolved, `ris-context` installed with their resources.
 `ris-plan-roadmap` needs `ris-common`, `ris-context`, `ris-plan-roadmap-base`
 and an available selected adapter for tracker operations; it does not initialize
 the project's tracker.
+`ris-plan-epic` needs `ris-common`, `ris-context` and a selected compatible
+task adapter for tracker reads and conditional epic updates; its interview-base
+dependency applies only to interdependent unresolved decisions.
 Installing a source folder does not install skills created by the author.
 `ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
 available task adapter for read operations.
@@ -78,8 +84,8 @@ needed only for an OKF document.
 `ris-decompose-spec-base` and a selected compatible task adapter.
 This repository installs twelve source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
-`ris-formulate-spec-base`, `ris-decompose-spec-base`, `ris-specify-feature` and
-`ris-decompose-feature` are currently provided as source only.
+`ris-formulate-spec-base`, `ris-decompose-spec-base`, `ris-specify-feature`,
+`ris-decompose-feature` and `ris-plan-epic` are currently provided as source only.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
