@@ -15,6 +15,11 @@ accepted specification. This is one RIS project skill: its evidence and result
 depend on the selected project's roadmap, actual tracker, work in progress and
 rules; no independently useful RIS-free base result is required. Do not start
 another lifecycle operation as a side effect.
+The semantic execution role is `feature-selection` when a caller assigns this
+work to a subagent. The caller verifies the configured agent's availability
+and actual launch and supplies bounded inputs; a role name alone does not
+provide isolation or a model. **Direct invocation** runs in the current agent
+without requiring `execution` or claiming isolation.
 
 ## Prepare and establish the epic
 
@@ -34,9 +39,8 @@ Do not confuse a planned skill or target behavior with an implemented one.
 Load and **apply the selected available task adapter** for read operations;
 confirm it supports the needed epic, child/task and typed dependency reads in
 the selected workspace. `tasks` v1 includes optional feature-task and direct-child
-reads alongside roadmap epic and blocking reads; this selector has not yet
-been checked against that new capability set and is not automatically
-interchangeable with an arbitrary tasks v1 adapter. With
+reads alongside roadmap epic and blocking reads; verify the selected adapter's
+actual operations and guarantees rather than inferring support from v1. With
 `ris-beads-adapter`, have the adapter verify its supported CLI version,
 workspace and responses. Require the `tasks` v1 all-status complete epic list,
 confirmed-ID epic reads and typed `blocks` reads. Read related tasks including
@@ -59,6 +63,9 @@ unconfirmed or ambiguous epic cannot support a next-feature recommendation:
 give the specific reason and the next resolution action. Suggest epic
 refinement only when its outcome or boundary is too unclear to choose a
 feature; epic size alone is not a reason. Do not redo goal-to-epic planning.
+When invoked as a subagent, return the verified ready choices and the needed
+human decision to the caller instead of opening a separate user dialogue;
+on direct invocation, ask the person in the current dialogue.
 
 ## Compare bounded feature candidates
 
@@ -82,6 +89,9 @@ specification may refine. If the person chooses an alternative, assess it by
 the same criteria, state the tradeoff and hand off **their** choice without
 rerunning the selection. If none is defensible, identify concrete missing
 evidence or blockers and a next action instead of fabricating a feature.
+When a subagent needs the person's feature choice, return the bounded options
+to the caller and stop until it supplies the confirmed choice; do not silently
+accept the recommendation on the person's behalf.
 
 ## Return a usable handoff and stop
 
