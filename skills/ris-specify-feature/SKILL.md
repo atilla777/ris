@@ -1,0 +1,142 @@
+---
+name: ris-specify-feature
+description: >-
+  Formulate, obtain acceptance for, and save a selected feature's specification
+  in its RIS project, then verify its feature task under a confirmed epic.
+  Use when preparing an accepted feature specification and linked tracker record;
+  not for selecting a feature, interviewing alone, decomposing it into child
+  tasks, or drafting portable content without project writes.
+---
+
+# Specify a selected feature in a RIS project
+
+Own the **combined project result**: a specific accepted specification, its
+verified saved version and a correctly linked feature `task` under a confirmed
+`epic`. `ris-formulate-spec-base` owns portable content; `ris-interview-feature`
+owns a feature-requirements handoff when material answers are missing; the
+selected task adapter owns bounded tracker operations. Apply their results and
+check the whole, rather than repeating their methods or treating a loaded name
+as an executed operation. This is the project wrapper for the portable base:
+project sources, acceptance, document format, permission and tracker identity
+cannot be determined by the base. Direct invocation works in the current agent;
+no execution role or encompassing workflow is required.
+
+## Establish project, feature and authority
+
+Identify the selected project and feature, its bounded result and confirmed
+parent epic ID (if already known), existing feature/task/spec links and
+acceptance evidence. A feature proposal is not a chosen feature; a title is not
+an epic or task ID. Do not select the next feature or refine an unclear epic.
+Confirm the permission to write the exact specification and feature task;
+without it prepare an explicitly unsaved proposal, `changes: []`, and stop
+before either write. A general request to work toward tasks does not accept the
+particular requirements that will be formulated.
+
+Ensure installed `ris-common` is available and apply its rules; read its
+conditional dialogue, artifact and quality resources before their respective
+actions. Use installed `ris-context` with its configuration resource to prepare
+this project's `sources.rules`, relevant `sources.concepts` and `sources.specs`,
+and `adapters.tasks.skill` for task operations. Check status, provenance,
+diagnostics, project root and write scope. Select applicable instructions,
+accepted documents, profile and existing linked artifacts by relevance and
+status, not by listing every file or using RIS's own document layout. Resolve
+document paths from this project's sources and links, including in a worktree;
+`sources.specs` is a directory, not a default filename. An explicit missing or
+invalid project configuration is a blocker, not a reason to use package defaults.
+For a new file establish its exact project-approved path and format under the
+permitted scope before writing; for an existing file read and reconcile its
+actual content and status. An unresolved ownership, path or feature identity
+conflict blocks dependent writes. No path or acceptance evidence is inferred
+from a proposed tracker ID, file presence, or a past conversation not supplied.
+
+## Compose one content and acceptance dialogue
+
+Ensure installed `ris-formulate-spec-base` is available. Provide it the
+confirmed feature scope, already known decisions with sources/status, relevant
+project rules and content profile; **apply** its method to produce and check
+proposed substantive behavior, exclusions, limits, exceptions and observable
+criteria. Check material coverage and distinguish confirmed inputs, new
+wording, proposals and decisions still open. If substantial requirement gaps
+remain, ensure installed `ris-interview-feature` is available and apply its
+project-specific coverage and handoff in the **same user conversation**; pass
+known answers and sources, do not start a second full interview or re-ask
+confirmed decisions. Then apply the base to the updated answers. If an
+essential dependency or answer is unavailable, preserve the supported partial
+content and name what prevents acceptance or saving. A single focused
+clarification need not launch a full feature interview.
+
+Show the **specific proposed content** and material open questions to the
+person or the acceptance authority defined by this project's rules. Obtain and
+verify acceptance of **this version and scope** by that mechanism *before*
+writing to the agreed accepted-spec path; a generic request, approval of an
+earlier version or a successful format check is insufficient. If acceptance
+occurs in the current dialogue, establish how the decision and version will be
+recoverable to a later recipient, with a precise accessible address under the
+project's rules. If no project mechanism or durable verifiable address for the
+decision is available, do not create a tracker feature task. Never manufacture
+an acceptance record or treat an unaccepted candidate as the accepted file.
+After a material change to accepted content, obtain acceptance of the changed
+version again; do not silently append requirements during formatting.
+
+## Save and reconcile the selected document
+
+Before any write, identify the selected available task adapter and verify a
+compatible `tasks` v1 with the **optional** `tasks.epics.read`, `tasks.items.list`,
+`tasks.items.read` and `tasks.items.create` operations and required guarantees:
+complete all-status search, confirmed type/parent, stable retry identity,
+specification link and acceptance-evidence address, read-back and applicable
+concurrency level. Confirm an open parent epic by exact ID and its intended
+scope; agree the feature's stable key in that epic/goal and approved task
+content. A configured adapter name alone proves none of this. Preflight these
+requirements before saving to avoid a predictable orphan file; if an
+independent document-only result is explicitly authorized, report that smaller
+scope as such rather than calling this combined result complete. Never bypass
+an unavailable/incompatible adapter by editing its storage or calling `bd`
+directly. Strict no-duplicate creation requires a separately established
+exclusive writer window; ordinary authorized create is best-effort with a
+reported concurrency limit.
+
+Choose the project's actual document format. Ordinary Markdown can be written
+directly under its rules; for an OKF bundle apply the installed suitable OKF
+operation and its format checks only when OKF is actually chosen. Do not impose
+OKF on other projects or assume validation establishes acceptance. Check write
+permissions and concurrent state of the exact path, reread an existing file
+before a permitted update and preserve unrelated decisions/links; do not
+silently overwrite a draft or a different accepted version. Follow the
+project's prescribed writer or file concurrency protocol; if it is unavailable
+or state changed, return `conflict` instead of using a different storage path.
+Write only the accepted content and evidence address in the agreed location,
+with no intermediate draft there. Read the saved document/bundle back; check
+its substantive coverage, actual format/links, version and acceptance evidence
+against the agreed content. An uncertain write is reconciled from disk before
+any retry; never treat an apparent success or mere file presence as proof.
+
+Only after the document and acceptance evidence are verifiable, have the
+selected adapter search all relevant feature tasks including closed ones and
+apply `tasks.items.create` with `type: task`, confirmed open epic parent,
+approved title/content, scoped stable retry key, exact saved-spec link and
+verifiable acceptance-decision address. The adapter may return an existing ID
+only on a full match including content, parent, link and decision address; a
+stale task, moved parent, changed specification or multiple matches are a
+`conflict`, not permission to update it silently. Verify from fresh reads the
+real ID, type, status, parent membership, saved content, spec link and
+acceptance decision for the **same** version. Do not create children, add task
+dependencies, claim or close anything in this operation.
+
+## Report actual outcome and stop
+
+Return `ok|blocked|conflict|error`, selected project/config provenance,
+feature and parent epic identity, actual spec address and accepted version,
+source of its acceptance, verified task ID and parent (only when confirmed),
+status of decisions, actual changes and read-back evidence, plus limitations
+and next needed substantive result. `ok` for the combined result requires both
+the accepted saved spec and matching tracker task. If a document write succeeds
+but tracker creation fails, or a response is ambiguous, reread both states,
+report the saved address and all confirmed IDs/changes, stop further writes
+and leave a precise handoff for reconciliation; do not roll back, blind-retry
+or claim the task exists. On interruption before acceptance, return the known
+decisions and accessible sources in the response without creating a mandatory
+draft store. Give a recipient without this chat enough references, version,
+statuses, rights, verified effects and unresolved decisions to continue. Stop
+after this feature specification and task are checked; do not initiate
+decomposition, technical planning or implementation.
