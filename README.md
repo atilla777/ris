@@ -64,8 +64,12 @@ The optional project command `.opencode/command/ris-author.md` exposes
 and the RIS author for integrated ones. Direct requests use the corresponding
 skill contract. The project command `.opencode/command/ris-next.md` exposes
 `/ris-next [epic ID or context]` for read-only next-feature selection in the
-current project using `ris-select-next-feature`. Restart OpenCode after changing
-skill or command files so a running session picks them up.
+current project using `ris-select-next-feature`. The project command
+`.opencode/command/ris-interview-feature.md` exposes
+`/ris-interview-feature [feature ID or description]` to discuss a selected
+feature's requirements in the current project and return a read-only handoff;
+without arguments it asks which feature to discuss. Restart OpenCode after
+changing skill or command files so a running session picks them up.
 
 The [normative specification](docs/concepts/README.md) describes RIS architecture
 and future components; it is not a list of installed skills. A staged
