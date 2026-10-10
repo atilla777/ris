@@ -53,7 +53,9 @@ own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
-skill contract. Restart OpenCode after changing
+skill contract. The project command `.opencode/command/ris-next.md` exposes
+`/ris-next [epic ID or context]` for read-only next-feature selection in the
+current project using `ris-select-next-feature`. Restart OpenCode after changing
 skill or command files so a running session picks them up.
 
 The [normative specification](docs/concepts/README.md) describes RIS architecture
