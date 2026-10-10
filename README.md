@@ -33,6 +33,9 @@ on Open Knowledge Format bundles.
   as verified epics through its selected adapter, or propose one without writing.
 - `skills/ris-select-next-feature/` — recommend a small verifiable feature in a
   current epic from project evidence, without writing tracker or project state.
+- `skills/ris-interview-feature/` — interview about a selected feature's
+  requirements using project evidence and `ris-interview-base`; return a
+  status-aware handoff without writing a specification or task.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -52,7 +55,9 @@ Installing a source folder does not install skills created by the author.
 `ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
 available task adapter for read operations.
 `ris-interview-base` has no required RIS dependencies.
-This repository installs all eleven source skills in `.opencode/skills/` for its
+`ris-interview-feature` needs `ris-common`, `ris-context` and
+`ris-interview-base` installed with their resources.
+This repository installs all twelve source skills in `.opencode/skills/` for its
 own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
