@@ -9,3 +9,9 @@ workspace:
 adapters:
   tasks:
     skill: ris-beads-adapter
+execution:
+  roles:
+    feature-selection:
+      agent: general
+    task-decomposition:
+      agent: general

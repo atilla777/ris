@@ -82,10 +82,12 @@ answers are missing, `ris-interview-feature`; OKF-specific operations are
 needed only for an OKF document.
 `ris-decompose-feature` needs `ris-common`, `ris-context`,
 `ris-decompose-spec-base` and a selected compatible task adapter.
-This repository installs twelve source skills in `.opencode/skills/` for its
+This repository installs seventeen source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
-`ris-formulate-spec-base`, `ris-decompose-spec-base`, `ris-specify-feature`,
-`ris-decompose-feature` and `ris-plan-epic` are currently provided as source only.
+The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
+available OpenCode `general` subagent. A caller of these roles must still
+verify that the agent actually launches and check its result; direct calls to
+the component skills do not require an execution role.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
