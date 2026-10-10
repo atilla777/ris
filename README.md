@@ -28,6 +28,8 @@ on Open Knowledge Format bundles.
   with `bd` 1.3.1; includes a separately authorized initialization procedure.
 - `skills/ris-plan-roadmap/` — create or update a project's goal-level roadmap
   as verified epics through its selected adapter, or propose one without writing.
+- `skills/ris-select-next-feature/` — recommend a small verifiable feature in a
+  current epic from project evidence, without writing tracker or project state.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -44,7 +46,9 @@ resolved, `ris-context` installed with their resources.
 and an available selected adapter for tracker operations; it does not initialize
 the project's tracker.
 Installing a source folder does not install skills created by the author.
-This repository installs all nine source skills in `.opencode/skills/` for its
+`ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
+available task adapter for read operations.
+This repository installs all ten source skills in `.opencode/skills/` for its
 own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
