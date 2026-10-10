@@ -6,5 +6,6 @@
 - [Скилы OKF](ris-okf-skills.md).
 - [Первый срез roadmap RIS](ris-roadmap-first-slice.md).
 - [Ограниченное интервью для будущего `ris-interview-base`](ris-interview-base.md).
+- [Соглашение об адаптерах и контракт роли `tasks`](ris-tasks-adapter-contract.md).
 
 Согласованные планы не свидетельствуют о реализации перечисленных в них будущих возможностей.
