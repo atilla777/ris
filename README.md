@@ -33,6 +33,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-decompose-spec-base/` — propose verifiable work units from a
   supplied feature specification, tracing requirement coverage and necessary
   dependencies without creating tracker records.
+- `skills/ris-decompose-feature/` — verify an accepted project feature and its
+  tracker task, then check the one-task case or persist and verify child tasks
+  and dependencies through the selected adapter.
 - `skills/ris-specify-feature/` — obtain acceptance for a selected feature's
   specification, save it by the project's rules and verify its feature task
   through the selected adapter.
@@ -71,10 +74,12 @@ available task adapter for read operations.
 `ris-formulate-spec-base`, the selected task adapter and, when substantive
 answers are missing, `ris-interview-feature`; OKF-specific operations are
 needed only for an OKF document.
+`ris-decompose-feature` needs `ris-common`, `ris-context`,
+`ris-decompose-spec-base` and a selected compatible task adapter.
 This repository installs twelve source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
-`ris-formulate-spec-base`, `ris-decompose-spec-base` and `ris-specify-feature`
-are currently provided as source only.
+`ris-formulate-spec-base`, `ris-decompose-spec-base`, `ris-specify-feature` and
+`ris-decompose-feature` are currently provided as source only.
 The optional project command `.opencode/command/ris-author.md` exposes
 `/ris-author <request>` in OpenCode; it selects the base for autonomous skills
 and the RIS author for integrated ones. Direct requests use the corresponding
