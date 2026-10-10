@@ -66,13 +66,27 @@ adapter. Declare how and when direct invocations load applicable dependencies
 and owned resources and verify availability and application. Do not embed
 their methods or claim that merely listing them performs their work.
 
-For each action, distinguish necessary work toward the promised result from
-another owner's operation. A composed skill owns coordination, sufficiency
-and verification of the combined result. When specifying a RIS package skill,
-record why an autonomous portable base plus RIS wrapper is warranted, or why
-one skill suffices. A portable base must work without RIS rules, config and
-project directories; a wrapper has an actual RIS result beyond loading it.
-Keep optional branches conditional without losing necessary instructions.
+For each action, identify its owner, input, output, activation condition and
+verification: necessary work toward this result, a dependency's work, or a
+separate operation. Distinguish a portable base, an optional reusable domain
+or format specialist with its own contract, a project wrapper, an adapter and
+an end-to-end scenario. When specifying a RIS package skill, record why an
+autonomous portable base plus RIS wrapper is warranted, or why one skill
+suffices; do not create layers for symmetry. A portable base must work without
+RIS rules, config and project directories; a wrapper has an actual RIS result
+beyond loading it and handles project inputs, permissions and output format.
+An adapter executes bounded tool operations, not subject-matter decisions.
+A scenario owns the sequence, permissions to advance, one dialogue and the
+sufficiency and verification of the combined result; its component skills
+retain their own results and direct invocation. A standalone wrapper may name
+dependencies required for **its** result and describe a possible next result
+in plain terms, but must not name, select or start the next skill. Only an
+explicit scenario or external workflow decides that transition. Keep optional
+branches conditional without losing necessary instructions; do not move an
+unrelated operation into a mandatory resource just to shrink the main file.
+Declare an execution role only when an actual caller consumes it; describe
+the kind of work, not a model or an unverified isolation guarantee. Direct
+invocation must still work without a configured role.
 For critical risks, ensure the resulting skill includes concrete subject-
 specific shortcuts and observable failure signals with corrective reactions.
 
@@ -84,8 +98,15 @@ responsibility boundaries, dependency availability and cycles, correct
 activation on direct invocation, project-path provenance where applicable,
 permissions, negative requirements, links and installed-relative resources.
 Check typical and conditional instruction loading, adjacent operations and
-improvement before/after behavior. Inspect actual files and effects, not only
-an agent's success statement. Label unrun checks and untested clients honestly.
+improvement before/after behavior: the ordinary request must not load another
+operation's instructions or a rare branch without cause; a conditional request
+must apply that branch when needed. For a scenario, verify each component's
+contribution, transition permissions and the combined result in its promised
+form, including persisted state only when writing is part of its contract;
+do not accept mere mentions of dependencies. Check an independent direct
+invocation of a wrapper and a neighboring request that belongs to another
+owner. Inspect actual files and effects, not only an agent's success statement.
+Label unrun checks and untested clients honestly.
 
 Deliver only the requested ready-to-use source folder or explicitly unsaved
 draft. Do not install it into the user's working project, publish it, change

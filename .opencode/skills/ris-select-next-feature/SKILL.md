@@ -95,9 +95,7 @@ or a feature. Verify references and distinguish observed evidence from
 proposals. No tracker or file mutations, claims, assignments or status changes
 are permitted even after agreement with a feature.
 
-Once the person accepts a feature, **offer** to work out its specification as
-a separate, explicitly authorized step; name that next result in plain terms.
-`ris-specify-feature` may be mentioned as an optional pointer if available,
-but it is not a runtime dependency and need not be installed. Do not start
-its interview, save a specification, create a task or launch implementation
+Once the person accepts a feature, identify working out its specification as
+a possible separate, explicitly authorized next result in plain terms. Do not
+start an interview, save a specification, create a task or launch implementation
 here. Stop after the checked recommendation or an honest blocked handoff.

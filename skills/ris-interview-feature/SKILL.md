@@ -91,7 +91,7 @@ inapplicable areas with reasons, unresolved decisions and dependent areas,
 impact on subsequent specification work, interview mode and stopping reason.
 An earlier handoff is reusable only insofar as its content is current and
 accessible; a later conversation needs this handoff explicitly or an accessible
-confirmed document. `ris-specify-feature`, if subsequently available, owns
-the decision about sufficiency, formulation, acceptance, file format and path.
+confirmed document. The owner of subsequent specification work decides
+sufficiency, formulation, acceptance, file format and path.
 Do not create a specification, intermediate interview file, Beads issue or
 link, choose a specification path, or start the next stage here.
