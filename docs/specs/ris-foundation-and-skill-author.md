@@ -1,6 +1,6 @@
 # RIS foundation and skill author — agreed implementation specification
 
-**Status:** original stages 1–3 implemented as source skills; a later, agreed redesign of the author is specified below but **not implemented**. Source folders are not automatically installed.
+**Status:** original stages 1–3 implemented as source skills; the later agreed redesign is implemented in `ris-author-skills-base` and `ris-author-skills` (PLAN-026). Verification evidence and limits are recorded in PLAN-026. Authored source folders are not automatically installed.
 
 **First validation environment:** OpenCode 1.18.33 (observed during the design session; recheck in the implementation environment).
 
@@ -12,7 +12,7 @@ The first user-facing RIS skill will help an agent create and improve other skil
 
 This document records the original staged implementation and the subsequently agreed author redesign. The normative documents under `docs/concepts/` are the source of the RIS architecture, configuration, composition, contracts, artifact and quality requirements, updated for the agreed order, author role and one-question-at-a-time dialogue rule. Examples and templates in `docs/concepts/` are illustrative, not installed skills. The actual stage-1 instructions live in `skills/ris-common/`.
 
-The original stages were implemented as separate, sequential tasks with their own acceptance and review. The redesign below is a future task, not evidence that its base skill, revised wrapper, installation, or runtime checks already exist.
+The original stages were implemented as separate, sequential tasks with their own acceptance and review. The redesign below records the scope of PLAN-026; its checks and limitations are recorded in that task note.
 
 ## Stage 1 — `ris-common`
 
@@ -93,9 +93,9 @@ Verify the author in OpenCode 1.18.33, recording the actual version/model and re
 
 Use small fixtures; examples produced for acceptance do not automatically become new published RIS skills. Structure, routing and behavioral evidence are distinct. If a needed runtime check is unavailable, label that part unverified and do not claim full acceptance. Follow the test and change-assessment guidance in [adoption and validation](../concepts/05-adoption-and-validation.md). Compatibility with other clients remains unclaimed until their integrations are tested.
 
-## Agreed author redesign — 2026-10-10 (planned, not implemented)
+## Agreed author redesign — 2026-10-10 (PLAN-026)
 
-This section supersedes the **target design** of stage 3 above for a future change; stage 3 remains the historical record of what was shipped. The current `ris-author-skills` still supports all three target types in one skill. The review found that its general authoring method and RIS integration need a clearer boundary. Apply the portable-method/project-result criteria in [architecture](../concepts/01-architecture.md), [composition](../concepts/03-composition.md), [contracts](../concepts/04-contracts-and-adapters.md) and [validation](../concepts/05-adoption-and-validation.md). The difference in independent inputs, dependencies and RIS-specific result justifies a base and a result-owning wrapper, not a wrapper whose only job is loading another skill.
+This section supersedes the **target design** of stage 3 above; stage 3 remains the historical record of what was shipped. The earlier `ris-author-skills` supported all three target types in one skill. The review found that its general authoring method and RIS integration needed a clearer boundary. Apply the portable-method/project-result criteria in [architecture](../concepts/01-architecture.md), [composition](../concepts/03-composition.md), [contracts](../concepts/04-contracts-and-adapters.md) and [validation](../concepts/05-adoption-and-validation.md). The difference in independent inputs, dependencies and RIS-specific result justifies a base and a result-owning wrapper, not a wrapper whose only job is loading another skill.
 
 ### Scope and ownership
 
@@ -126,4 +126,4 @@ The historical acceptance above remains evidence for the original stage 3, not f
 
 ## Handoff to the next session
 
-Read this document, [normative index](../concepts/README.md), relevant normative sections and the project [development rules](../rules/development.md); check the local `tasks/` dashboard/roadmap/backlog before beginning a task. Original stages 1–3 are complete; the redesign above remains planned. Agree a separately authorized implementation start, record progress and reviews in its local `PLAN-NNN`, and do not treat agreement on a specification as permission to implement it. Keep the local `tasks/` folder out of Git.
+Read this document, [normative index](../concepts/README.md), relevant normative sections and the project [development rules](../rules/development.md); check the local `tasks/` dashboard/roadmap/backlog before beginning a task. Original stages 1–3 and the PLAN-026 redesign are implemented; consult the task note for verification limits. For further changes agree a separately authorized implementation start, record progress and reviews in the relevant local `PLAN-NNN`, and do not treat agreement on a specification as permission to implement it. Keep the local `tasks/` folder out of Git.

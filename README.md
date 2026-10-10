@@ -1,15 +1,18 @@
 # RIS — Ready-to-use Infrastructure Skills
 
 RIS is a growing collection of source skills for AI agents working across the
-software development lifecycle. The application skill
-`ris-author-skills` creates and improves skill source folders for the RIS
-package, RIS-integrating projects, and standalone projects. It does not install
-the skills it creates. Two OKF skills operate on Open Knowledge Format bundles.
+software development lifecycle. The portable `ris-author-skills-base` creates
+and improves autonomous Agent Skills source folders. `ris-author-skills`
+composes that method with RIS integration for package and RIS-integrating
+project skills. Neither installs the skills it creates. Two OKF skills operate
+on Open Knowledge Format bundles.
 
 ## Available source skills
 
-- `skills/ris-author-skills/` — author or revise an agent skill and check its
-  source, selection, and behavior.
+- `skills/ris-author-skills-base/` — author or revise an autonomous agent skill
+  and check its source, selection, and behavior without RIS dependencies.
+- `skills/ris-author-skills/` — own and check the combined result for a RIS
+  package or RIS-integrating project skill, using the base method.
 - `skills/ris-common/` — shared rules applied by RIS skills.
 - `skills/ris-context/` — read-only preparation of project settings when an
   operation needs them; an optional `ris.yaml` can override package defaults.
@@ -29,21 +32,24 @@ the skills it creates. Two OKF skills operate on Open Knowledge Format bundles.
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
 using it. For OpenCode 1.18.33, one project-local location is
-`.opencode/skills/<name>/`; `ris-author-skills` also needs `ris-common` and,
-for authoring operations requiring RIS project settings, `ris-context`.
+`.opencode/skills/<name>/`; `ris-author-skills` needs `ris-author-skills-base`
+and `ris-common`, plus `ris-context` when its authoring operation requires
+RIS project settings.
 `ris-okf` needs `ris-common`; `ris-project-okf` needs `ris-common`,
 `ris-context` and `ris-okf` installed with their resources.
-`ris-beads-tech` needs `ris-common` and, when project settings must be
+`ris-author-skills-base` has no required RIS dependencies. `ris-beads-tech`
+needs `ris-common` and, when project settings must be
 resolved, `ris-context` installed with their resources.
 `ris-plan-roadmap` needs `ris-common`, `ris-context`, `ris-plan-roadmap-base`
 and an available selected adapter for tracker operations; it does not initialize
 the project's tracker.
 Installing a source folder does not install skills created by the author.
-This repository installs all eight source skills in `.opencode/skills/` for its
+This repository installs all nine source skills in `.opencode/skills/` for its
 own OpenCode project; the copies there must be kept in sync with `skills/`.
 The optional project command `.opencode/command/ris-author.md` exposes
-`/ris-author <request>` in OpenCode once the author skill is discoverable;
-direct requests use the same skill contract. Restart OpenCode after changing
+`/ris-author <request>` in OpenCode; it selects the base for autonomous skills
+and the RIS author for integrated ones. Direct requests use the corresponding
+skill contract. Restart OpenCode after changing
 skill or command files so a running session picks them up.
 
 The [normative specification](docs/concepts/README.md) describes RIS architecture

@@ -1,143 +1,94 @@
 ---
 name: ris-author-skills
 description: >-
-  Create or improve ready-to-use source folders for RIS package skills,
-  RIS-integrating project skills, and standalone project skills. Use for a
-  request to write or revise an agent skill's instructions and resources;
-  not for installing skills, configuring OpenCode alone, or executing the
-  lifecycle task described by a skill.
+  Create or improve RIS package skills and project skills that actually
+  integrate with RIS, using ris-author-skills-base and checking the combined
+  result. Use for RIS-dependent skill source authoring; route standalone skill
+  requests to the base instead. Not for installing skills or executing them.
 ---
 
-# Author an agent skill
+# Author a RIS-integrated Agent Skill
 
-Own the source skill folder (`SKILL.md` and only resources it actually needs).
-Work on the requested skill, not the lifecycle stage the skill will eventually
-perform. A source folder is not an installation, a discovered skill, or a
-publication. Follow the person's language for the conversation and the
-target project's/user's language for a project skill. Use English for
-RIS-distributed operational instructions and metadata.
+Own the complete RIS skill source result, including correct integration and
+verification. First classify the target by its **responsibility**, not merely
+the presence of RIS in its project. For an autonomous skill (even inside a RIS
+project), load `ris-author-skills-base` via the host skill loader or its actual
+installed location and hand the request to its method **before** loading
+`ris-common`, `ris-context`, or any RIS-only resource. Do not add RIS rules to
+that target. If the base is unavailable, report the blocker; do not silently
+substitute an incomplete method. Direct base invocation has the same scope.
 
-## Dependencies and preparation
+For a RIS package skill or a project skill whose operation actually integrates
+with RIS, ensure `ris-author-skills-base` and `ris-common` (including the
+applicable conditional resources it owns) are available and applied, not just
+named. Use the base's authoring method to examine worked-out requirements,
+build source and check structure, selection and execution; **this** skill
+chooses RIS dependencies, applies the integration rules below, checks the
+combined result and owns its stop condition. Follow the person's language in
+conversation, the project's/user's language for a project skill, and English
+for RIS-distributed operational instructions and metadata. Use project rules
+and actual permissions. If a dependency or required resource is unavailable,
+report the independent progress and block the dependent claim.
 
-Ensure the current `ris-common` instructions are available in this session via
-the host skill loader or its actual installed location; apply its baseline
-rules now and read its owned conditional resources before dialogue, artifact
-work, and checking respectively. Do not assume it lives beside this skill or
-that merely naming it loads or applies it. If unavailable, report what part
-cannot be completed. Investigate the request, project instructions, existing
-skills, nearby owners, and affected consumers before asking for facts available
-locally. Check the destination and write permission before editing; do not
-overwrite an existing folder as though it were a new skill.
+## RIS scope and inputs
 
-Determine whether **this authoring operation** needs RIS project settings
-(for example, resolving a configured project document directory for an input
-or output). If so, ensure `ris-context` and its owned configuration resource
-are available, prepare context for this specific operation, and check its
-status, provenance, relevant paths, diagnostics and permission scope before
-using them. An absent optional `ris.yaml` uses package defaults; an explicitly
-chosen inaccessible/invalid config is an error, not a fallback. A project
-skill that will later need context may declare that dependency even if the
-author does not need project settings to write it today. Do not call
-`ris-context` just because this author is a RIS skill, or force RIS
-dependencies onto a standalone target. Neither dependency automatically
-installs the result or authorizes writing.
+Use sufficiently worked-out requirements in a request or document, without
+requiring a saved specification or a separate interview skill. Inspect local
+facts, existing contracts, consumers and neighboring skills. If a substantive
+behavior decision or essential subject-matter contract is absent, state the
+gap for clarification without inventing it or starting a full interview.
+Preserve accepted behavior in improvements and compare affected before/after
+cases. Match the finished skill to accepted constraints and exclusions.
 
-## Establish the contract
+Determine whether **this authoring operation** needs RIS project settings,
+for instance to locate a configured project document input or output. Only
+then load and apply `ris-context` and its owned configuration resource via the
+host loader or actual installed location; check its status, provenance,
+relevant paths, diagnostics and permission scope before using them. A missing
+optional `ris.yaml` uses package defaults; an explicitly chosen inaccessible
+or invalid file is an error, never a fallback. A target skill's future context
+needs do not imply the author needs context today. Loading a dependency does
+not authorize writing or install the resulting skill.
 
-Identify the target type, owner and destination, goal and observable defect
-(for improvement), use triggers and nearest non-use cases, inputs and their
-readiness, expected output, allowed changes, acceptance checks and stop/error
-conditions. Resolve missing user decisions in dependency order under
-`ris-common` dialogue rules; a suggestion is not an accepted requirement.
-Choose among these targets explicitly:
+## Integrate the target
 
-- **RIS package skill:** name the folder and skill `ris-*`; apply the relevant
-  RIS result/operation contract, ownership and dependency rules. An applied
-  skill owns its result and stop condition, even when it composes other skills.
-  Shared rules belong to `ris-common`; project settings preparation belongs
-  to `ris-context` only when needed. Do not assert that an illustrative or
-  future RIS skill or adapter has been implemented.
-- **RIS-integrating project skill:** follow the project's conventions and
-  Agent Skills format; apply RIS rules only for its actual RIS responsibilities.
-  Declare and execute relevant dependencies at the right time, including for
-  direct invocation, without imposing package naming on the project skill.
-- **Standalone project skill:** follow the project's and user's rules and
-  Agent Skills format; do not introduce RIS naming, configuration, or runtime
-  dependencies just because this author is part of RIS.
+For a package skill use `ris-*` naming and identify the applicable supplied
+RIS result/operation contract, owner, inputs, boundary, checks and stop
+condition. For a project-owned skill retain its conventions and apply only
+RIS rules relevant to its real RIS responsibilities; do not force package
+naming or unrelated infrastructure. Do not claim future or illustrative
+components are installed. Determine dependencies **from the target's actual
+operation**, not a preselected list: shared RIS scope, dialogue, artifact and
+quality rules belong to `ris-common`; selected project configuration and
+paths belong to `ris-context` only when needed; a portable method can be a
+base skill; restricted tracker operations require an actually available
+adapter. Declare how and when direct invocations load applicable dependencies
+and owned resources and verify availability and application. Do not embed
+their methods or claim that merely listing them performs their work.
 
-For an improvement, inspect the existing contract, the reported problem and
-affected consumers/neighbor skills. Preserve accepted behavior outside the
-agreed change and identify comparable before/after scenarios, including
-selection failures, before modifying it. If the desired change contradicts
-accepted behavior, resolve the decision rather than silently changing it.
+For each action, distinguish necessary work toward the promised result from
+another owner's operation. A composed skill owns coordination, sufficiency
+and verification of the combined result. When specifying a RIS package skill,
+record why an autonomous portable base plus RIS wrapper is warranted, or why
+one skill suffices. A portable base must work without RIS rules, config and
+project directories; a wrapper has an actual RIS result beyond loading it.
+Keep optional branches conditional without losing necessary instructions.
+For critical risks, ensure the resulting skill includes concrete subject-
+specific shortcuts and observable failure signals with corrective reactions.
 
-For each proposed step, identify whether it is necessary to the promised
-result, already owned by a dependency (for example, project path preparation
-by `ris-context`), or a distinct operation with its own inputs and checks.
-Keep target selection with the owner of the result when it is needed to perform
-that result; split independently useful discovery or a different substantive
-operation into its own skill only when its contract warrants it. Put coordination
-of multiple results in the calling composite skill. Do not split by line count
-or add a wrapper solely for symmetry. For RIS package skills record the reason
-for a portable base/project wrapper or a single skill. A separated portable
-base must work without required `ris-common`, `ris-context`, `ris.yaml` or RIS
-project directories; the project wrapper depends on the base and owns its RIS
-integration. For other targets apply the same ownership test without imposing
-RIS dependencies.
+## Verify and stop
 
-## Build the source
+Apply the base's structural, natural-request routing and representative
+execution checks, then additionally inspect the **combined RIS result**:
+responsibility boundaries, dependency availability and cycles, correct
+activation on direct invocation, project-path provenance where applicable,
+permissions, negative requirements, links and installed-relative resources.
+Check typical and conditional instruction loading, adjacent operations and
+improvement before/after behavior. Inspect actual files and effects, not only
+an agent's success statement. Label unrun checks and untested clients honestly.
 
-Write `SKILL.md` in the selected source folder with Agent Skills frontmatter:
-`name` (matching the folder; lowercase alphanumeric words separated by single
-hyphens, at most 64 characters) and a nonempty `description` (at most 1024
-characters). Describe the result, positive triggers and nearest exclusion in
-the description; make the body the actual usable contract. In plain, actionable
-language cover purpose and owner, when to use or defer, inputs and readiness,
-dependencies and their activation, permissions, method, outputs, verification,
-failure/partial result and stopping point. For a composite skill state who
-combines the results and how, rather than claiming loading alone performs work.
-Avoid invented frontmatter imports, parameters, automatic dependency loading,
-unavailable tools or hard-coded RIS-repository paths.
-
-Keep reusable shared rules with their existing owner; include only necessary
-local references/assets/scripts inside the target folder. Resolve owned
-resources relative to that folder's **installed location**, not the source
-repository. Do not make a separately editable copy of another contract.
-Keep the main `SKILL.md` sufficient to select the skill, activate dependencies,
-and own and check its result. Put lengthy detail for a conditional branch in
-an owned reference with an explicit trigger, read before that branch; do not
-load it for unrelated requests. Moving text to a reference does not make a
-second responsibility belong to this skill. Keep mandatory instructions
-available when their conditions apply; context savings never justify skipping
-required behavior or evidence.
-Distinguish workflow method, common rules, project configuration, restricted
-operations and host-specific commands. Put a thin command in host integration
-only when manual invocation is useful; it must not replace the skill contract.
-Respect the selected destination and scope; never install the generated skill
-unless separately requested and permitted. If writing is not permitted, give
-an explicitly unsaved draft instead of claiming a file exists.
-
-## Check and finish
-
-Inspect actual saved files/diff and resource links. Check metadata, name vs
-folder, declared dependencies' actual availability and absence of dependency
-cycles, scope and permissions, and preservation of accepted behavior. Test
-selection with natural relevant, neighboring and irrelevant requests, and
-exercise execution in the target environment on small representative inputs;
-for an improvement compare the affected before/after cases. Check the resulting
-files/actions, not just the agent's assertion. Separate structural, routing and
-behavioral evidence and label any unrun check; structure alone does not prove
-production readiness. Do not claim compatibility with an untested client.
-
-Review for unrelated operations, duplicated dependency methods and unnecessary
-loading on a typical request. If the skill has a conditional branch, check that
-its instructions and evidence are available when triggered, not loaded for an
-unrelated request. For an improvement, compare before/after loading where
-observable; shorter text or more skills alone are not evidence of improvement.
-
-Report the source location or unsaved draft, actual changes, checks and
-observations, remaining limitations and any unresolved decisions. If a
-required input, dependency or verification is missing, report the independent
-part and what is blocked rather than calling the whole result complete. Stop
-after authoring and checking the requested source; do not initiate another
-lifecycle stage or imply it is installed.
+Deliver only the requested ready-to-use source folder or explicitly unsaved
+draft. Do not install it into the user's working project, publish it, change
+tracker state or perform its future subject-matter operation without separate
+authorization. Report location, changes, structural/routing/behavioral
+evidence, limitations and blockers; do not call a partial result complete.
