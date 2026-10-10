@@ -71,12 +71,13 @@ never blindly recreate, reparent, remove an edge, or close.
 
 - **Create:** search all relevant records (including closed) for the caller's
   stable identity and compare content/parent; an exact confirmed prior creation
-  returns the existing ID, ambiguous matches are a `conflict`. For a guarantee
-  of no duplicate across concurrent creators, require a separately established
-  exclusive writer/quiescent window over search/create/verification; `bd` does
-  not enforce unique external references. Without it, creation is explicitly
-  best-effort only if the caller accepts duplicates as a possibility; otherwise
-  stop `conflict` before writing. Run `bd create
+  returns the existing ID, ambiguous matches are a `conflict`. An authorized
+  creation defaults to best-effort without a separate concurrency-risk question:
+  `bd` does not enforce unique external references, so concurrent creators can
+  still make duplicates. Do not claim a no-duplicate guarantee from the search
+  and read-back. If the caller explicitly requires that guarantee, require a
+  separately established exclusive writer/quiescent window over
+  search/create/verification; without it stop `conflict`. Run `bd create
   --type epic|task --title ... --description ... --acceptance ... --json`
   with only supplied fields (optional `--external-ref` or `--spec-id` for
   identity; neither is a uniqueness constraint). Prefer `--parent <id>` for

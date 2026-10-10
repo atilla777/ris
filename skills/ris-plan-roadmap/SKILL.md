@@ -121,11 +121,13 @@ adapter operations on confirmed IDs: create or update only roadmap epics in
 scope, and add only required `blocks` edges in the correct direction (blocked
 epic → prerequisite). Do not use a
 parent-child edge as a blocking edge, create tasks or modify unrelated
-records. Confirm the adapter's writer/quiescence guarantee for noncommutative
-content and no-duplicate creation; if unavailable, stop with `conflict`
-unless the caller **explicitly accepts** the adapter's limited best-effort
-guarantee and its duplicate/lost-update risk. Do not present a mere
-read/write/read sequence or `external-ref` as a lock. Re-read relevant
+records. Authorized epic creation uses the adapter's default best-effort
+semantics without a separate concurrency-risk question. If the caller requires
+no-duplicate creation, confirm an exclusive writer/quiescent window or stop
+with `conflict`. For noncommutative content updates, require the adapter's
+writer guarantee or explicit acceptance of its limited best-effort lost-update
+risk; otherwise stop with `conflict`. Do not present a mere read/write/read
+sequence or `external-ref` as a lock. Re-read relevant
 records and edges before each mutation, compare with expected state, execute
 one bounded action, and verify the returned ID, content, status and links by
 fresh reads before proceeding. An uncertain response requires full
