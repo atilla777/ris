@@ -28,7 +28,8 @@ on Open Knowledge Format bundles.
   a bounded topic, with a full or explicitly limited mode and a read-only handoff;
   runs without RIS or `grilling`.
 - `skills/ris-beads-adapter/` — execute and verify authorized Beads issue operations
-  with `bd` 1.3.1; includes a separately authorized initialization procedure.
+  with `bd` 1.3.1, including optional `tasks` v1 feature-task operations;
+  includes a separately authorized initialization procedure.
 - `skills/ris-plan-roadmap/` — create or update a project's goal-level roadmap
   as verified epics through its selected adapter, or propose one without writing.
 - `skills/ris-select-next-feature/` — recommend a small verifiable feature in a

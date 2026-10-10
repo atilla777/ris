@@ -33,14 +33,16 @@ Do not confuse a planned skill or target behavior with an implemented one.
 
 Load and **apply the selected available task adapter** for read operations;
 confirm it supports the needed epic, child/task and typed dependency reads in
-the selected workspace. `tasks` v1 standardizes only roadmap epic and blocking
-reads: child/task reads remain adapter-specific and this feature selector is
-not yet interchangeable with an arbitrary tasks v1 adapter. With
+the selected workspace. `tasks` v1 includes optional feature-task and direct-child
+reads alongside roadmap epic and blocking reads; this selector has not yet
+been checked against that new capability set and is not automatically
+interchangeable with an arbitrary tasks v1 adapter. With
 `ris-beads-adapter`, have the adapter verify its supported CLI version,
 workspace and responses. Require the `tasks` v1 all-status complete epic list,
 confirmed-ID epic reads and typed `blocks` reads. Read related tasks including
 closed records using the selected adapter's own task-read contract and complete
-selection where applicable; this operation is not part of `tasks` v1. A
+selection where applicable; do not assume a v1 adapter supports the optional
+task reads without verifying the operations and guarantees. A
 configured name alone is not availability. If a required source,
 resource, adapter or tracker is inaccessible, report which inference is blocked;
 do not guess from a file, a default list, or direct tracker storage.

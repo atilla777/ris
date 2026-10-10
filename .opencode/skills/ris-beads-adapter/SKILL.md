@@ -1,10 +1,10 @@
 ---
 name: ris-beads-adapter
 description: >-
-  Serve the tasks v1 roadmap adapter role and verify bounded Beads operations via bd:
-  read/list epics and tasks, create/update by confirmed ID, manage parent and
-  blocking links, claim, and explicitly close. Use for authorized tracker
-  operations, not for deciding roadmap content, planning a feature, configuring
+  Serve the tasks v1 roadmap and feature-task adapter role and verify bounded
+  Beads operations via bd: read/list epics and tasks, create/update by confirmed
+  ID, manage parent and blocking links, claim, and explicitly close. Use for
+  authorized tracker operations, not for deciding roadmap content, planning a feature, configuring
   Dolt remotes, or automatically advancing work.
 ---
 
@@ -44,8 +44,35 @@ checks endpoints, direction and cycles and verifies the resulting edge;
 blocks.remove requires the exact selected edge, authorized scope, and an
 exclusive writer window against a concurrent replacement before removal.
 Read/write/read is **not** such a window. If a necessary guarantee is absent,
-return `conflict` before writing. Other Beads operations below remain available
-as tool-specific operations, not as interchangeable tasks v1 capabilities.
+return `conflict` before writing.
+
+Also implement the optional feature-task operations of `tasks` v1:
+`tasks.items.list`, `tasks.items.read`, `tasks.items.create`,
+`tasks.children.list`, `tasks.dependencies.list`, `tasks.dependencies.add`.
+This is an additive capability set, not a change to roadmap operations or a
+claim that any v1 adapter automatically supports feature tasks. Report the
+specific supported operations and guarantees; a caller requiring feature-task
+work must check each before a dependent write. The common record type is
+`task` for the feature and its children; the feature's parent is an `epic`.
+Neither task status nor `bd`'s `feature` issue type substitutes for this type.
+
+For `items.list`, use `bd list --all --limit 0 --type task --json`, covering
+closed tasks and inspecting ID, type, parent, stable key, spec link and content;
+do not rely on a default-limited or open-only search for absence. For
+`items.read`, require exactly one matching ID and `issue_type: task` from
+`bd show <id> --json`. For `children.list`, use `bd list --parent <feature-id>
+--all --limit 0 --json`, check every child's `parent` and type; explicitly
+  distinguish an empty complete set from an error. For `dependencies.list`,
+  read `bd dep list <task-id> --type blocks --direction=down --json` for
+  blockers, or `--direction=up` for tasks blocked by that ID; normalize each
+  returned edge to blocked → blocker and distinguish empty from an error;
+for `dependencies.add`, use `bd dep add <blocked-task-id>
+<blocker-task-id> --type blocks --json` with cycle checks enabled. Verify
+typed direction after the call. `parent-child` is membership, not a `blocks`
+edge. An unsupported version, operation, full-selection guarantee or required
+concurrency guarantee blocks the dependent write, regardless of the existence
+of another `bd` command. Claim, complete, reparent, content update and edge
+removal remain tool-specific unless covered by the original roadmap operations.
 
 ## Inputs and boundary
 
@@ -82,7 +109,9 @@ needs explicit authorization even if the CLI accepts it.
   is useful for inspection but does not expose an explicit unlimited flag.
   `bd dep list <id> --json` and `bd show <id> --json` inspect typed edges;
   distinguish `parent-child` from `blocks`. A clean empty array is not an error.
-  If a query fails or is truncated, do not claim completeness.
+  If a query fails or is truncated, do not claim completeness. A list filtered
+  to one parent cannot exclude duplicate feature tasks under a different
+  parent; search the entire relevant task scope before feature creation.
 
 Before every mutation, re-read affected IDs and relevant children/edges;
 compare with the caller's confirmed expected state. On unexpected differences
@@ -111,7 +140,33 @@ never blindly recreate, reparent, remove an edge, or close.
   a child only after checking the parent. Extract the returned ID, `show` it
   and verify content and parent. On uncertain creation, re-list all records
   and reconcile the stable identity before another attempt. With no reliable
-  identity evidence, do not retry an ambiguous create: `conflict`.
+  identity evidence, do not retry an ambiguous create: `conflict`. For common
+  `tasks.items.create`, require a confirmed open epic as parent of a feature
+  task, or a confirmed open feature task as parent of a direct child. Require
+  caller-approved task content, a stable retry key and expected absence; for
+  the feature also require the exact accepted-spec link and a verifiable
+  address of the acceptance decision (do not infer acceptance from a file or
+  `--spec-id`). Persist that address in the approved description, or verify it
+  is accessible in the linked specification, and reread it on return/retry.
+  If the evidence cannot be retrieved or does not match the accepted version,
+  report `blocked` rather than declaring acceptance. Use
+  `--type task --parent <id>` with supplied content and `--external-ref` for
+  the stable key; use `--spec-id` only when the caller supplied it and retain
+  the exact link in the approved description or other readable field. Scope
+  child keys to their feature parent and feature keys to their epic/goal; a
+  globally reused raw key is insufficient. On retry, compare key, type,
+  parent, content, spec link and acceptance evidence address for a feature,
+  including all-status records. Reuse only an
+  exact match; changed content, moved parent, closed parent or multiple matches
+  are `conflict`, not permission to update. Verify the new child's `parent`,
+  typed `parent-child` edge (child → parent), parent direct-child selection,
+  and the reread content. For a feature verify the epic and the same membership.
+  A feature with no children needs no artificial child. If strict no-duplicate
+  creation is requested, establish an external exclusive writer window across
+  search/create/verification or stop before creation: `--external-ref` is not
+  unique in Beads. If a multi-child request partially succeeds, reread every
+  affected ID, return the persisted IDs and stop further writes on the first
+  failure; on retry reconcile all existing children before creating missing ones.
 - **Update:** use `bd update <id> --title/--description/--acceptance/... --json`
   only for explicitly supplied fields, never send a whole stale snapshot.
   A request to set `status: closed` (or any configured done status) is always
@@ -146,7 +201,14 @@ never blindly recreate, reparent, remove an edge, or close.
   replacement; read-back alone cannot provide it. Keep the
   default cycle check: never pass `--no-cycle-check`. `bd` rejects cycles and
   ancestor-blocking descendants; re-read on failure. A repeated add may say
-  `added`: confirm actual edge rather than infer a new change.
+  `added`: confirm actual edge rather than infer a new change. For common
+  `tasks.dependencies.add`, both endpoints must reread as `task` in the
+  confirmed feature scope; refuse wrong type, unknown ID, cross-scope edge,
+  cycle or an unexpected prior edge. An existing exact edge may be returned as
+  unchanged after verification. Check membership and blockers again after add;
+  concurrent membership change is `conflict` with the actual persisted edge,
+  not `ok` for the requested scope. `bd` cycle checking does not provide an
+  exclusive writer window against all concurrent changes; report this limit.
 - **Claim:** `bd --actor <actor> update <id> --claim --json` atomically guards
   claim ownership; require an open, unblocked issue (or a claim already owned
   by the same actor), and verify `in_progress`, `assignee` and current blockers
