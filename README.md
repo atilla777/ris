@@ -52,6 +52,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-interview-feature/` — interview about a selected feature's
   requirements using project evidence and `ris-interview-base`; return a
   status-aware handoff without writing a specification or task.
+- `skills/ris-prepare-feature-work/` — coordinate one project feature from a
+  verified roadmap choice through accepted specification to verified tracker
+  tasks in a single dialogue, using two real subagent roles.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -82,7 +85,11 @@ answers are missing, `ris-interview-feature`; OKF-specific operations are
 needed only for an OKF document.
 `ris-decompose-feature` needs `ris-common`, `ris-context`,
 `ris-decompose-spec-base` and a selected compatible task adapter.
-This repository installs seventeen source skills in `.opencode/skills/` for its
+`ris-prepare-feature-work` needs `ris-common`, `ris-context`,
+`ris-select-next-feature`, `ris-specify-feature`, `ris-decompose-feature`, a
+selected compatible task adapter, and `ris-plan-epic` only if the epic's
+boundary needs refinement; its two subagent roles must actually launch.
+This repository installs eighteen source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
