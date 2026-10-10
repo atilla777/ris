@@ -2,7 +2,8 @@
 name: ris-context
 description: >-
   Prepare selected RIS project configuration, document and shared workspace
-  paths, permissions, and input diagnostics for a specific project operation.
+  paths, optional execution roles, permissions, and input diagnostics for a
+  specific project operation.
   Use before that operation or after a project, config, or worktree change;
   not for product planning, OKF validation, or task-tracker execution.
 ---
@@ -27,9 +28,12 @@ Obtain the calling operation, target project, needed configuration fields,
 input vs prospective output roles, parameters, and permitted scope from the
 request and applicable project instructions. If ambiguous, diagnose the
 affected part rather than inventing a root, document, ID, or permission.
-Prepare the paths and required inputs following the owned configuration
-resource. Return applicable resolved settings, source/provenance, run scope,
-status, and actionable diagnostics. Confirm that the result pertains to the
-current project and operation; `ok` is only preparation, not downstream
-completion. Never write a config, output, task, or persistent context, even
-when the caller has write permission. Stop at the context result.
+Prepare the paths, requested execution role (if any), and required inputs
+following the owned configuration resource. Return applicable resolved settings,
+source/provenance, run scope, status, and actionable diagnostics. Confirm that
+the result pertains to the current project and operation; `ok` is only
+preparation, not downstream completion. A configured agent name is not proof
+that the subagent exists or was launched; the caller checks that when its
+operation requires isolation. Never select a fallback agent, switch models,
+launch a subagent or skill, or write a config, output, task, or persistent
+context, even when the caller has write permission. Stop at the context result.

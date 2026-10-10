@@ -7,6 +7,7 @@ contract; do not require access to RIS's documentation repository at runtime.
 
 1. Establish the calling operation and its **specific** required settings,
    which directories are existing inputs and which are prospective outputs,
+   any execution role required by the caller (or that none is required),
    task parameters, and allowed actions. Investigate available facts before
    asking a user; if a necessary decision is missing, report what it blocks.
    No operation makes all settings universally mandatory. A concrete document
@@ -43,11 +44,19 @@ workspace:
 If any project config is selected, use **only its values**. Never merge or
 patch missing operation-required fields from defaults. Require `version: 1`
 (an integer, not a boolean). Optional sections `sources`, `workspace`,
-`adapters`, `adapters.tasks` must be mappings when present. Allowed leaf
+`adapters`, `adapters.tasks`, `execution`, `execution.roles` and each
+`execution.roles.<role>` must be mappings when present. Allowed leaf
 settings: `sources.rules`, `sources.concepts`, `sources.specs`,
 `workspace.tasks`, `workspace.worktrees` (each a nonempty path string), and
 `adapters.tasks.skill` (a nonempty skill-name string) plus optional
-`adapters.tasks.options` (a mapping of adapter-owned data). Reject unknown
+`adapters.tasks.options` (a mapping of adapter-owned data). The only other
+top-level key is optional `execution`; within it only `roles` is allowed.
+Within `roles`, each nonempty, non-whitespace role identifier maps to a
+record with exactly one allowed key, `agent`, whose value is a nonempty,
+non-whitespace string naming a project-provided OpenCode subagent. The caller
+determines which semantic role identifiers its operation requires; do not
+invent or enforce a global role list. An empty roles mapping or absent roles
+is not a substitute for a role required by the caller. Reject unknown
 keys except within `options`, wrong types, null/empty values in place of
 required settings, duplicate or merge keys, YAML aliases, custom tags,
 executable expressions, and malformed YAML. No `extends` or imports. Do not
@@ -55,7 +64,22 @@ silently ignore an invalid present field even if this operation does not use
 it. Missing fields only block operations that require them; do not require
 adapter selection for unrelated document preparation. Adapter `options`
 belong to its own contract, not an invented RIS schema. A configured adapter
-is not proof it is installed or supports an operation.
+is not proof it is installed or supports an operation. There is no package
+default for `execution`; do not supplement an absent role in a selected
+project config (or a missing section) from any other config or example.
+
+For a caller requiring an isolated role, return the configured `agent` with
+its provenance if present. If the role is absent, report `blocked` for that
+dependent step and name the missing role; do not silently run it in the
+current agent. A present record without a valid `agent` is an `error` for the
+selected config, even when another operation is requested. For a direct
+operation that does not require a role, absence of `execution` is valid:
+prepare its other settings without claiming isolation or a model tier.
+Merely reading `agent` cannot establish that the project-provided subagent
+exists, can run in this environment, has a particular model, or has been
+invoked. The caller checks availability and actual launch before relying on
+isolation. Do not launch agents, select a fallback, switch models, or run a
+skill as part of context preparation. This field grants no write permission.
 
 ## Path bases and checks
 
@@ -103,7 +127,8 @@ missing inputs or permission, `conflict` for ambiguity, `error` for invalid
 or inaccessible selected config); `project_root` and `primary_root` when
 needed and established; selected `config_file` or `config_source: package
 defaults`; relevant resolved `settings`; `run` operation, task parameters
-and write scope; provenance for each returned setting; specific diagnostics,
+and write scope; provenance for each returned setting (including a requested
+`execution.roles.<role>.agent`); specific diagnostics,
 limitations and independent usable partial data; `changes: []`. State when a
 required field is absent instead of filling it. A missing optional `ris.yaml`
 is not an error. A missing goal or selected document is a caller input gap,
