@@ -36,6 +36,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-decompose-spec-base/` — propose verifiable work units from a
   supplied feature specification, tracing requirement coverage and necessary
   dependencies without creating tracker records.
+- `skills/ris-plan-task-base/` — prepare a portable technical plan for one
+  selected task from requirements, inspected code and constraints; return
+  approach, ordered steps and acceptance-check coverage without project writes.
 - `skills/ris-decompose-feature/` — verify an accepted project feature and its
   tracker task, then check the one-task case or persist and verify child tasks
   and dependencies through the selected adapter.
@@ -92,7 +95,7 @@ selected compatible task adapter with separately verified remote publication,
 and `ris-plan-epic` only if the epic's boundary needs refinement; its two
 subagent roles must actually launch. A successful full scenario also requires
 authorized publication of the accepted document in the project's Git remote.
-This repository installs eighteen source skills in `.opencode/skills/` for its
+This repository installs nineteen source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
