@@ -56,14 +56,24 @@ confirmed feature scope, already known decisions with sources/status, relevant
 project rules and content profile; **apply** its method to produce and check
 proposed substantive behavior, exclusions, limits, exceptions and observable
 criteria. Check material coverage and distinguish confirmed inputs, new
-wording, proposals and decisions still open. If substantial requirement gaps
-remain, ensure installed `ris-interview-feature` is available and apply its
+wording, proposals and decisions still open. Before deciding that an interview
+is unnecessary, check the feature's material areas against accessible evidence:
+outcome and actors, main/alternative behavior, exceptions, interfaces and
+constraints where applicable, material quality conditions, observable criteria
+and decision provenance. For each area identify its confirmed source, the
+decision still needed, or why it does not apply; a catalogue entry or plausible
+draft alone does not close a branch. If readiness of inputs, handling of
+conflicting or stale evidence, or another material area remains unresolved,
+ensure installed `ris-interview-feature` is available and apply its
 project-specific coverage and handoff in the **same user conversation**; pass
 known answers and sources, do not start a second full interview or re-ask
-confirmed decisions. Then apply the base to the updated answers. If an
-essential dependency or answer is unavailable, preserve the supported partial
-content and name what prevents acceptance or saving. A single focused
-clarification need not launch a full feature interview.
+confirmed decisions. Use its `ris-interview-base` decision tree across remaining
+material branches, not a fixed question count; then apply the base to updated
+answers. A single clarification suffices only if other material branches have
+been checked. If an essential dependency or answer is unavailable, preserve
+the supported partial content and name what prevents acceptance or saving.
+Report evidence and reasons when no interview was needed; user approval of a
+draft alone does not establish that unexamined branches were covered.
 
 Show the **specific proposed content** and material open questions to the
 person or the acceptance authority defined by this project's rules. Obtain and

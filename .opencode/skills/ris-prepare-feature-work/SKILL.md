@@ -2,7 +2,8 @@
 name: ris-prepare-feature-work
 description: >-
   Guide one RIS project feature from a verified roadmap choice through an
-  accepted saved specification to verified tracker tasks in one conversation.
+  accepted published specification and remotely verified tracker tasks in one
+  conversation.
   Use for the full interactive feature-preparation workflow; not for only
   selecting a feature, interviewing, drafting a specification, decomposing an
   already accepted feature, technical planning, or implementing work.
@@ -16,8 +17,9 @@ project-specific sources, two actual execution roles, a single user dialogue,
 acceptance and tracker state. There is no useful independent RIS-free base
 method to extract. Direct invocation runs in the primary conversation; no
 universal orchestrator, separate CLI session or mandatory draft store is
-required. Stop before technical planning, claiming, implementation, publishing
-or closing a tracker record. Never treat a workflow request as approval of
+required. Publish preparation artifacts as part of the combined result; stop
+before technical planning, claiming, implementation or closing a tracker
+record. Never treat a workflow request as approval of
 specific, not-yet-shown requirements or tracker mutations.
 
 ## Establish project and gates
@@ -40,6 +42,28 @@ Check status, provenance, diagnostics, project/worktree paths and scope. An
 invalid explicit config is an error, not a reason to use package defaults;
 `sources.specs` and `workspace.tasks` are base directories, not required
 filenames. Select relevant documents by links, content and acceptance state.
+
+Because `ok` promises remote availability, preflight publication **before
+writing either the accepted specification or tracker tasks**: determine the
+project's authorized Git destination/branch and publication rules for the
+specific document, the selected adapter's separately supported remote
+publication mechanism (not assumed from `tasks` v1), configured destination
+and ability to verify it. Establish permission to commit/push the accepted
+document and publish these tracker records; permission to save locally or the
+command invocation alone does not grant remote rights. Inspect current Git
+branch, index, working changes and remote tracking without including other
+work. Inspect all commits outgoing to the destination and active commit/push
+hooks for side effects (including tracker auto-publication); require a way to
+keep tracker writes local until their own publication gate. Ask the adapter to
+check outgoing tracker history and unrelated records now, not only at push
+time. If either channel or isolation cannot be established, return a read-only
+proposal or `blocked`; do not knowingly create artifacts that cannot reach
+this scenario's required result. Direct component invocations retain their own local stop
+conditions. Do not require a Git/Dolt remote from a project using a different
+authorized publication mechanism; require equivalent checked availability.
+For Beads pass the checked `bd --sandbox` isolation condition to both the
+feature-task creation and child/edge operations; verify neither publishes
+implicitly. A local adapter success is not remote evidence.
 
 The scenario requires semantic roles `feature-selection` and
 `task-decomposition` for its two bounded operations. From the prepared project
@@ -137,22 +161,58 @@ an established exclusive writer window; the default best-effort create does
 not promise it. Do not improvise a missing adapter operation with direct CLI
 or use read/write/read as a content-update lock.
 
+## Publish the verified preparation result
+
+After the task set and acceptance source are verified, run project-required
+checks and independent review of the **specific document version** before
+publishing. If findings change accepted requirements, return for renewed
+acceptance and reconcile dependent tasks rather than pushing stale links. In
+projects using Git, stage only authorized specification files, inspect the
+index/final diff and refuse to include unrelated staged or working changes.
+Commit only those files; after hooks ran, inspect the new commit's tree and
+every commit outgoing to the confirmed remote ref. If hooks changed accepted
+content or published tasks before the tracker gate, stop and reconcile; never
+push a changed or unrelated commit. Push only to the confirmed project-authorized
+branch/remote. Check the remote ref and that the pushed version contains the
+exact accepted spec and decision address. Never assume a branch named `main`, silently force-push,
+or treat a successful local commit as publication. The scenario owns this
+limited preparation-artifact publication; it does not invoke an
+implementation-change publisher or publish unrelated source code.
+
+Then request the selected adapter's **separate** remote-publication operation
+for the confirmed feature, all required children and typed edges. For Beads it
+must verify the configured Dolt remote, not infer publication from Git push;
+for another tracker require its own checked mechanism and guarantees. Check
+remote-backed reads of exact task IDs, content, parent, spec link and decision
+address, children and blockers, and confirm the published document can be
+resolved from the recipient's project copy. Neither command output alone nor
+local read-back clears this gate. If Git publication fails, stop before tracker
+publication; if tracker publication fails after Git succeeded, do not undo or
+claim an atomic result. Report each channel's actual state and recovery action.
+On retry reread the remote Git version, exact acceptance source and all
+affected remote tracker records before any new push or creation; reconcile
+changed identity, content or edges as `conflict`. Do not overwrite someone
+else's concurrent changes or blindly repeat writes.
+
 ## Verify combined result and hand off
 
-Verify the person's chosen outcome and epic, accepted **saved version** with
+Verify the person's chosen outcome and epic, accepted **published version** with
 reachable acceptance source, open feature task and parent/link identity, all
 direct children and blockers where applicable, requirement coverage and
-readiness of one selected unit for subsequent technical planning. Check actual
-file and adapter reads and the subagents' results; neither a status line nor
+readiness of one selected unit for subsequent technical planning and remote
+availability of the specification and tasks. Check actual file, remote Git
+and adapter reads and the subagents' results; neither a status line nor
 their reports alone prove the combined result. Reconcile competing or changed
 sources as `conflict`; never mask partial effects with an `ok` from a component.
 Return `ok|blocked|conflict|error` for the **whole scenario**, project/config
 provenance, confirmed epic/feature/child IDs, exact spec/version/acceptance
 address and status, scope and decisions, task coverage and directed blockers,
-actual changes (`[]` if none), checked evidence and limitations. For a partial
+actual local and remote changes (`[]` if none), Git commit/ref and tracker
+publication evidence, checked limitations. For a partial
 result include confirmed saved files/records and unmade work, open decisions,
 permissions and the exact recovery action. Give a future recipient accessible
 addresses and sources without depending on this chat or a newly invented
-handoff store. `ok` requires the whole accepted specification and verified
-task set; a user may instead receive an honest unsaved proposal or blocker.
+handoff store. `ok` requires the whole accepted published specification and
+remotely verified task set; a user may instead receive an honest unsaved
+proposal or blocker, or a saved but not fully published partial result.
 Stop without technical planning or implementation.

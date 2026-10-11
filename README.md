@@ -53,8 +53,9 @@ on Open Knowledge Format bundles.
   requirements using project evidence and `ris-interview-base`; return a
   status-aware handoff without writing a specification or task.
 - `skills/ris-prepare-feature-work/` — coordinate one project feature from a
-  verified roadmap choice through accepted specification to verified tracker
-  tasks in a single dialogue, using two real subagent roles.
+  verified roadmap choice through an accepted, published specification and
+  remotely verified tracker tasks in a single dialogue, using two real
+  subagent roles. Direct component calls retain their narrower results.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -87,8 +88,10 @@ needed only for an OKF document.
 `ris-decompose-spec-base` and a selected compatible task adapter.
 `ris-prepare-feature-work` needs `ris-common`, `ris-context`,
 `ris-select-next-feature`, `ris-specify-feature`, `ris-decompose-feature`, a
-selected compatible task adapter, and `ris-plan-epic` only if the epic's
-boundary needs refinement; its two subagent roles must actually launch.
+selected compatible task adapter with separately verified remote publication,
+and `ris-plan-epic` only if the epic's boundary needs refinement; its two
+subagent roles must actually launch. A successful full scenario also requires
+authorized publication of the accepted document in the project's Git remote.
 This repository installs eighteen source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
@@ -106,8 +109,9 @@ current project using `ris-select-next-feature`. The project command
 feature's requirements in the current project and return a read-only handoff;
 without arguments it asks which feature to discuss. The project command
 `.opencode/command/ris-prepare-feature-work.md` exposes
-`/ris-prepare-feature-work [epic ID or context]` to prepare one feature from
-roadmap choice through an accepted specification to verified tasks; without
+`/ris-prepare-feature-work [epic ID or context]` to prepare and publish one
+feature from roadmap choice through an accepted specification to remotely
+verified tasks; without
 arguments it establishes the epic scope with the user as needed. Restart
 OpenCode after changing skill or command files so a running session picks them
 up.

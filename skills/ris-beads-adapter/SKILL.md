@@ -3,9 +3,9 @@ name: ris-beads-adapter
 description: >-
   Serve the tasks v1 roadmap and feature-task adapter role and verify bounded
   Beads operations via bd: read/list epics and tasks, create/update by confirmed
-  ID, manage parent and blocking links, claim, and explicitly close. Use for
-  authorized tracker operations, not for deciding roadmap content, planning a feature, configuring
-  Dolt remotes, or automatically advancing work.
+  ID, manage parent and blocking links, claim, explicitly close, and separately
+  synchronize authorized records to a configured Dolt remote. Use for bounded
+  tracker operations, not for planning a feature or configuring Dolt remotes.
 ---
 
 # Beads tasks adapter
@@ -228,6 +228,45 @@ never blindly recreate, reparent, remove an edge, or close.
   `bd`'s refusal is a backstop, not proof that all required children exist.
   Closure has no general revision guard: if concurrent structural change is
   possible, require an exclusive writer/quiescent window or stop `conflict`.
+
+## Separately requested Dolt publication (outside tasks v1)
+
+When a caller's authorized result requires **remote** tracker availability,
+offer a bounded `dolt.publish` operation, not a `tasks` v1 capability or an
+implicit side effect of create. `bd dolt push` sends the database's outgoing
+history, not a caller-selected subset of issue IDs. **Before dependent writes**
+check the selected Beads project, `bd` version, configured Dolt remote/address
+and publication permission. Inspect the existing outgoing history and compare
+complete remote-backed and local issue/edge state across all statuses; new
+feature/child IDs need not exist yet. **After creation and immediately before
+push**, reread the now-confirmed exact feature/child IDs, content, spec and
+decision references and typed edges, then compare outgoing history and complete
+remote/local state again. For task/edge mutations in a publication-gated
+scenario, use `bd --sandbox` to suppress automatic Dolt push; verify that this
+flag is supported and that project hooks or other routes cannot auto-publish
+the changes. If isolation cannot be established, block dependent writes rather
+than promising a later gate. If unrelated outgoing changes cannot be excluded
+or separately authorized, stop rather than publish them. A Git remote name
+alone does not prove a Dolt remote exists; do
+not adopt or configure one, use `--yes`, `--force`, or substitute Git push. If
+the remote or publish authority is absent, return `blocked` before the caller's
+dependent writes when publication is
+required for its result.
+
+Use `bd dolt push --remote <confirmed-name>` only for the authorized project;
+on refusal or ambiguous output inspect local and remote state before a retry,
+never force away concurrent remote changes. A remote rejection is `conflict`
+if histories diverge; reconcile through an authorized pull and verify exact
+IDs, links and spec/decision references before deciding whether a new push is
+safe. After a successful push, confirm remote-backed visibility from an
+independent copy that fetches the **selected remote** and compare the exact
+IDs, content and edges; local reads, even after a pull in the same working
+copy, are insufficient by themselves. Command success alone is not proof
+that the expected records were published. If remote verification is unavailable,
+report `blocked` with the push effect and no `ok`. Distinguish a no-op already
+published state from newly pushed records. This operation does not commit or
+publish the Git specification, create issues, change task status or close a
+parent; return the remote, evidence and persisted partial state to the caller.
 
 ## Result and stop
 
