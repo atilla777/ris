@@ -46,6 +46,15 @@ ask for resolution where evidence cannot settle it, rather than silently
 choosing one. Treat a prior handoff by its actual answers and gaps, not the
 assertion that an interview once happened.
 
+When a material choice about feature behavior has established alternatives,
+check accessible relevant standards, common solutions and practices before
+recommending an option or asking the person to choose. Compare their
+fit with the feature's goal, accepted requirements and project rules; cite
+the source and explain applicability. Surface a conflict as a decision rather
+than overriding project rules or promoting an external practice to an accepted
+requirement. Do not require a survey for a small feature or an already
+confirmed choice, or turn this evidence gathering into implementation design.
+
 ## Map the material requirements
 
 Use the following **semantic map**, not mandatory headings or a questionnaire.
@@ -88,7 +97,8 @@ requirements are accepted or complete. Return **in the response**, without
 writing: project, feature identity and bounds (confirmed ID only), relevant
 sources with status, material map areas and answers with their sources/status,
 inapplicable areas with reasons, unresolved decisions and dependent areas,
-impact on subsequent specification work, interview mode and stopping reason.
+applicable recommendations with sources and proposed status (if any), impact
+on subsequent specification work, interview mode and stopping reason.
 An earlier handoff is reusable only insofar as its content is current and
 accessible; a later conversation needs this handoff explicitly or an accessible
 confirmed document. The owner of subsequent specification work decides
