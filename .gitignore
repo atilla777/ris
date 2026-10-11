@@ -1,4 +1,5 @@
 /tasks/
+/.sdlc/tasks/
 
 # Beads / Dolt files (added by bd init)
 .dolt/

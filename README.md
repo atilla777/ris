@@ -121,9 +121,12 @@ and future components; it is not a list of installed skills. A staged
 [implementation specification](docs/specs/ris-foundation-and-skill-author.md)
 records the agreed scope of the initial source skills.
 This repository's [development rules](docs/rules/development.md) and root
-[`ris.yaml`](ris.yaml) identify its document and future SDLC workspace directories.
-The development queue remains in Git-ignored `tasks/`; it is separate from
-the configured `.sdlc/tasks/` for future tracker task artifacts.
+[`ris.yaml`](ris.yaml) identify its documents, Beads task adapter and workspace
+directories. RIS development tasks and their status are tracked in Beads (Dolt);
+Git push does not sync Beads, which requires separate Dolt publication. The
+Git-ignored `tasks/` retains the completed PLAN-001–054 history; new local,
+Git-ignored working notes live under `.sdlc/tasks/<confirmed Beads ID>/`.
+Accepted specifications remain published in `docs/specs/`.
 
 ## License
 
