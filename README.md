@@ -104,8 +104,13 @@ current project using `ris-select-next-feature`. The project command
 `.opencode/command/ris-interview-feature.md` exposes
 `/ris-interview-feature [feature ID or description]` to discuss a selected
 feature's requirements in the current project and return a read-only handoff;
-without arguments it asks which feature to discuss. Restart OpenCode after
-changing skill or command files so a running session picks them up.
+without arguments it asks which feature to discuss. The project command
+`.opencode/command/ris-prepare-feature-work.md` exposes
+`/ris-prepare-feature-work [epic ID or context]` to prepare one feature from
+roadmap choice through an accepted specification to verified tasks; without
+arguments it establishes the epic scope with the user as needed. Restart
+OpenCode after changing skill or command files so a running session picks them
+up.
 
 The [normative specification](docs/concepts/README.md) describes RIS architecture
 and future components; it is not a list of installed skills. A staged
