@@ -42,3 +42,11 @@ resources merely because they exist. If a required resource is unavailable,
 do not claim the dependent part complete; independent work may continue with
 the limitation stated explicitly. These references belong to this skill, not
 to the calling project or the RIS source repository.
+
+## Optional rules-layout example
+
+`assets/rules-example/index.md` roots one non-binding OKF 0.2 example bundle.
+Only a caller needing an illustration of a first rules bundle's layout reads
+it and the relevant subject example; routine operations do not load it. It is
+not shared project policy, a new authoring method or an automatic template
+layer. Subject methods/profiles remain owned by their respective bases.

@@ -144,6 +144,20 @@ their resources. Direct invocation needs no tracker or execution role. It
 requires explicit acceptance of the final content before normative writes,
 checks only the agreed scope on update and blocks hidden format migration.
 Document checks establish neither code compliance nor remote publication.
+The two authors can contribute independently to one rules bundle, preserving
+the neighboring subject and existing delivery process. Architecture owns what
+must hold; engineering owns supporting versions, practices and tools. Neither
+author configures tools or starts the other author. The portable bases return
+proposals without acceptance or writes; the project authors require explicit
+acceptance of the final content before saving.
+`skills/ris-common/assets/rules-example/index.md` is the single **non-binding**
+OKF 0.2 layout example, with architecture nested in the same bundle. Install
+the complete `ris-common` folder to retain it. Authors consult only the useful
+subject illustration when needed; bounded updates do not require it. Rails,
+DragonRuby and Odin resources remain under each subject's portable base and
+load only for the applicable stack. Project rules are assembled from facts
+and accepted decisions, not installed as a template layer; they remain usable
+after installed source materials change or disappear.
 `ris-interview-feature` needs `ris-common`, `ris-context` and
 `ris-interview-base` installed with their resources.
 `ris-specify-feature` needs `ris-common`, `ris-context`,

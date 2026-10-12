@@ -83,6 +83,13 @@ or producing a migration backlog. Recommendations are not configured gates.
 
 ## Present, accept, save and check
 
+For a first bundle, **only if a layout illustration is useful**, read
+`assets/rules-example/index.md` and `assets/rules-example/development.md` from
+installed `ris-common`. This non-binding example does not replace the base/profile
+or require reading the architecture example/author. Do not copy its whole
+bundle or example status into project rules. Existing bounded updates need no
+example.
+
 1. Assemble the concrete candidate in the project's language using `ris-okf`.
    Show normative content (update: old → new norms), exact files/sections,
    necessary navigation changes, candidate version and source-material identity.

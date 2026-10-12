@@ -80,6 +80,13 @@ overall consistency while a related conflict remains unresolved.
 
 ## Present, accept, save and check
 
+For a first bundle, **only if a layout illustration is useful**, read
+`assets/rules-example/index.md`, `assets/rules-example/architecture/index.md`
+and `assets/rules-example/architecture/principles.md` from installed `ris-common`.
+This non-binding example does not replace the base/profile or require reading
+the engineering example/author. Do not copy its whole bundle or example status
+into project rules. Existing bounded updates need no example.
+
 1. Assemble a concrete candidate in the project's language using `ris-okf` for
    format. Show the actual normative content (update: old → new norms), exact
    file/section scope, necessary navigation changes, candidate version and
