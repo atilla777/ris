@@ -36,6 +36,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-author-architecture-rules/` — apply that method to a selected RIS
   project, obtain scoped acceptance and save/check architecture rules as OKF in
   `sources.rules`, preserving neighboring rules and the project's process.
+- `skills/ris-formulate-development-rules-base/` — propose portable engineering
+  rules and bounded amendments with justified, customizable tool/practice sets
+  for Rails web and DragonRuby/Odin games, preserving existing tools and process.
 - `skills/ris-formulate-spec-base/` — formulate portable feature specification
   content from supplied decisions, preserving provenance and open questions;
   does not save or approve a project document.
@@ -113,6 +116,10 @@ Installing a source folder does not install skills created by the author.
 `ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
 available task adapter for read operations.
 `ris-interview-base` has no required RIS dependencies.
+`ris-formulate-development-rules-base` has no required RIS dependencies; it
+loads its engineering foundation, only applicable profiles, and
+`ris-interview-base` only for interdependent unresolved decisions. It proposes
+norms without accepting/saving them, configuring tools or auditing compliance.
 `ris-formulate-architecture-rules-base` has no required RIS dependencies; it
 loads `ris-interview-base` only for interdependent unresolved decisions and
 loads only applicable Rails, DragonRuby or Odin profile resources.
@@ -159,7 +166,7 @@ OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
 implementation and review have no required RIS dependencies. These components
 are direct operations, not a universal task workflow engine.
-This repository installs thirty source skills in `.opencode/skills/` for its
+This repository installs thirty-one source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
