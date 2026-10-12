@@ -1,6 +1,10 @@
+---
+type: Specification
+---
+
 # 01. Архитектура и структура ris
 
-[Оглавление](README.md) · [Целевая методика SDLC](08-sdlc-methodology.md)
+[Оглавление](index.md) · [Целевая методика SDLC](08-sdlc-methodology.md)
 
 ## 1. Цели
 

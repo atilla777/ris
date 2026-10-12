@@ -1,6 +1,10 @@
+---
+type: Specification
+---
+
 # 06. Артефакты, решения и передача работы
 
-[Оглавление](README.md) · [Product, Architecture и Delivery](08-sdlc-methodology.md)
+[Оглавление](index.md) · [Product, Architecture и Delivery](08-sdlc-methodology.md)
 
 ## 1. Назначение
 

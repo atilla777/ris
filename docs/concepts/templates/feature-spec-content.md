@@ -1,3 +1,7 @@
+---
+type: Template
+---
+
 # Пример содержания спецификации фичи для RIS
 
 [Каталог SDLC MVP](../ris-sdlc-mvp-skills.md)

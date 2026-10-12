@@ -190,7 +190,7 @@ arguments it establishes the epic scope with the user as needed. Restart
 OpenCode after changing skill or command files so a running session picks them
 up.
 
-The [normative specification](docs/concepts/README.md) and its
+The [normative specification](docs/concepts/index.md) and its
 [target SDLC methodology](docs/concepts/08-sdlc-methodology.md) describe RIS architecture
 and future components; it is not a list of installed skills. A staged
 [implementation specification](docs/specs/ris-foundation-and-skill-author.md)
@@ -208,9 +208,16 @@ with decision baselines. Material changes yield linked AC/task/evidence impact
 and coordination proposals; missing baselines leave currency unconfirmed, and
 independent work remains available. Representative checks are recorded in
 [`ris-capability-impact-checks.md`](docs/specs/ris-capability-impact-checks.md).
-The v2 `sources.product` path is reserved for author-owned product material;
-this repository's existing `docs/concepts/` is RIS normative documentation,
-not a substitute for `docs/product/`. Its own OKF migration is a separate task.
+The v2 `sources.product` path is reserved for author-owned product material.
+This repository's `docs/concepts/` and `docs/rules/` are separate OKF 0.2
+bundles with root `index.md` files, as described in the
+[knowledge profile](docs/concepts/knowledge-profile.md). The concepts bundle
+contains RIS's normative methodology; the [rules bundle](docs/rules/index.md)
+contains this repository's development rules and current architecture map.
+`docs/concepts/` does not replace `docs/product/`. `docs/specs/` remains ordinary
+Markdown, including existing flat specification paths. The former
+`docs/concepts/README.md` address retains a transition to the overview and
+index for historical links.
 
 ## License
 
