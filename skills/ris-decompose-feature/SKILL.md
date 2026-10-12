@@ -1,7 +1,8 @@
 ---
 name: ris-decompose-feature
 description: >-
-  Verify an accepted feature specification and its tracker task in a RIS project,
+  Verify independently accepted current requirements and design and their feature
+  task in a RIS project,
   then check the one-task case or create and verify necessary child tasks and
   dependencies through the selected tasks adapter. Use for project-scoped feature
   task decomposition; not for choosing or specifying a feature, drafting a
@@ -67,10 +68,43 @@ Cross-check their identity and status; a closed feature or mismatched link
 blocks child creation. Read all existing direct children and relevant blockers,
 including closed tasks, before deciding whether new work is needed.
 
+## Compute readiness before dependent work
+
+Require the selected adapter's optional `tasks.feature-record/1` capability
+with `tasks.features.read` in addition to the v1 reads. Read its owned record
+resource for the encoding/version checks. A legacy task without supported
+identity/evidence is blocked, not permission to infer a slug or migrate it.
+Confirm the permanent project-unique slug and spec association with complete
+all-status task reads. Independently read **both** requirements and design
+path/scope/SHA-256 and their accessible acceptance decisions; hash their actual
+scoped bytes under the declared protocol and match each decision's approved
+scope/version. Shared-file scopes must be unambiguous and nonoverlapping;
+requirements approval cannot accept design, and `design: null` blocks writes.
+
+Compute readiness anew on every invocation; do not write a `ready` status.
+Check sufficient design/test seams, accessible applicable architectural
+contracts and versions, related product source currency, and resolved product/
+architecture conflicts. Missing source baselines leave currency unconfirmed;
+material unconfirmed applicability blocks dependent writes. Read feature and
+relevant task blockers; active feature blockers prevent child writes even if
+the CLI allows them. Accepted future contracts may justify prerequisite work,
+but readiness to execute a particular unit requires their integration first
+where needed. A necessary unresolved external prerequisite is a partial result,
+not silently completed work. Do not confuse parent membership with blockers.
+With any failed gate return supported coverage analysis and exact gaps with no
+dependent child/edge mutations; do not use an old design or fabricate acceptance.
+
+On design revision, compare requirements and design scopes separately, inspect
+impact on existing tasks, AC, seams and blockers, and preserve unchanged
+requirements acceptance. Changed task content cannot be silently updated by
+v1 create operations: return `conflict` and the specific reconciliation needed.
+This wrapper neither accepts/revises design nor starts another skill.
+
 ## Apply the method and reconcile actual work
 
 Ensure installed `ris-decompose-spec-base` is available and **apply** its
-method to the current accepted version, feature scope, relevant rules and
+method to both checked accepted versions, feature slug/AC, design/contracts/
+test seams, feature scope, relevant rules and
 technical inputs, and verified existing work. Obtain its bounded work units,
 observable checks, requirements mapping, justified directed prerequisites
 and explicit gaps. Do not duplicate its partitioning algorithm here. If a
@@ -94,12 +128,16 @@ multiple units, require exact authorized scope only
 for missing child or `blocks` writes; a fully persisted set can be verified
 read-only. Agree approved task content and stable retry keys scoped to the
 confirmed feature; preserve spec reference, requirement coverage, observable
-criteria, exclusions and justified edge direction (blocked → blocker). Do not
+criteria (`slug#AC-nnn`), both accepted scope/version references, technical
+contracts/versions, test seams, exclusions and justified edge direction
+(blocked → blocker). Do not
 invent tracker IDs from titles, equate parent membership with a blocker, or
 turn a preferred order into a dependency.
 
 Before each mutation, compare current all-status children, candidate identities
-and blockers with expected state. Through the adapter, create only missing
+and blockers with expected state. Recheck both saved scopes/digests, decisions
+and applicable contracts; changes invalidate the earlier readiness check.
+Through the adapter, create only missing
 children with `tasks.items.create` under the confirmed open feature task;
 reuse only exact matches on key, type, parent, content and relevant links.
 Different content, closed/moved parent, multiple matches or unmatched existing
@@ -125,14 +163,17 @@ provides, stop instead of substituting a direct tracker operation.
 
 Fresh-read the feature and full child set, each task's actual content, status,
 parent and applicable links, and all required directed blockers. Recheck the
-saved specification and its acceptance evidence for the same version; map
+saved requirements and design and their independent acceptance evidence for
+the same scopes/versions, and applicable contract currency; map
 every accepted criterion to the verified feature or child tasks, and name where
 combined behavior will be checked. Confirm no contradictory extras or cyclic
 dependencies. A dependency on unconfirmed external work or a missing
 criterion prevents `ok`; mere presence of children or an adapter `ok` does
 not prove coverage. Report `ok|blocked|conflict|error` for **this combined
 result**, the project/config source, feature and epic IDs, spec address and
-version with acceptance-evidence address, actual child IDs/keys and statuses,
+version, permanent slug, both scopes/digests/acceptance addresses, contract
+versions/test seams and computed readiness (including per-unit integration
+prerequisites), actual child IDs/keys and statuses,
 directed dependencies, requirement coverage, `changes` (including `[]`),
 read-back evidence, limitations and exact next needed substantive result.
 For partial outcomes use the reason's non-`ok` status and distinguish confirmed

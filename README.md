@@ -34,12 +34,14 @@ on Open Knowledge Format bundles.
   content from supplied decisions, preserving provenance and open questions;
   does not save or approve a project document.
 - `skills/ris-decompose-spec-base/` — propose verifiable work units from a
-  supplied feature specification, tracing requirement coverage and necessary
+  supplied requirements and sufficient design, tracing criteria, contracts,
+  test seams and necessary
   dependencies without creating tracker records.
 - `skills/ris-plan-task-base/` — prepare a portable technical plan for one
   selected task from requirements, inspected code and constraints; return
   approach, ordered steps and acceptance-check coverage without project writes.
-- `skills/ris-decompose-feature/` — verify an accepted project feature and its
+- `skills/ris-decompose-feature/` — compute readiness from independently accepted
+  current requirements/design and verify the project feature and its
   tracker task, then check the one-task case or persist and verify child tasks
   and dependencies through the selected adapter.
 - `skills/ris-specify-feature/` — obtain acceptance for a selected feature's
@@ -63,8 +65,8 @@ on Open Knowledge Format bundles.
   requirements using project evidence and `ris-interview-base`; return a
   status-aware handoff without writing a specification or task.
 - `skills/ris-prepare-feature-work/` — coordinate one project feature from a
-  verified roadmap choice through an accepted, published specification and
-  remotely verified tracker tasks in a single dialogue, using two real
+  verified roadmap choice through independently accepted, published requirements
+  and design to remotely verified tracker tasks in a single dialogue, using two real
   subagent roles. Direct component calls retain their narrower results.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
@@ -105,13 +107,18 @@ the required conditional-write guarantee; `ris-interview-base` is loaded only
 for unresolved interdependent technical decisions. Direct invocation checks
 the local document/record result and does not publish Git or Dolt.
 `ris-decompose-feature` needs `ris-common`, `ris-context`,
-`ris-decompose-spec-base` and a selected compatible task adapter.
+`ris-decompose-spec-base` and a selected compatible task adapter with
+`tasks.feature-record/1` read support. It checks both scoped versions and
+decisions, applicable contracts, source currency and blockers before child
+writes; a feature task without accepted design remains blocked.
 `ris-prepare-feature-work` needs `ris-common`, `ris-context`,
-`ris-select-next-feature`, `ris-specify-feature`, `ris-decompose-feature`, a
-selected compatible task adapter with separately verified remote publication,
+`ris-select-next-feature`, `ris-specify-feature`, `ris-design-feature`,
+`ris-decompose-feature`, a selected compatible task adapter with conditional
+feature-record update support and separately verified remote publication,
 and `ris-plan-epic` only if the epic's boundary needs refinement; its two
 subagent roles must actually launch. A successful full scenario also requires
-authorized publication of the accepted document in the project's Git remote.
+authorized publication of both accepted scopes and their decision evidence in
+the project's Git remote, independently checked against the remote feature record.
 This repository installs twenty-one source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the

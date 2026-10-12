@@ -2,8 +2,8 @@
 name: ris-decompose-spec-base
 description: >-
   Propose and check verifiable work units from a supplied feature specification,
-  tracing requirement coverage and only necessary dependencies. Use when the
-  feature's behavior and acceptance criteria are ready to break into work;
+  tracing criteria, accepted design, test seams and necessary dependencies. Use
+  when feature requirements and sufficient design are ready to break into work;
   not for eliciting or approving requirements, planning one task's technical
   implementation, or creating tracker records.
 ---
@@ -30,6 +30,18 @@ does not prove it; if the supplied version is only proposed, label every
 derived task proposal as conditional on its acceptance. Do not assume a
 particular task type, tracker key, branch, file format, or ID.
 
+Require the supplied sufficient design and its independently known acceptance
+scope/version, applicable contracts and versions, component/state owners,
+allowed dependency direction, error/data flows and test seams. A short design
+confirming existing contracts can suffice; no separate design file or new
+abstraction is mandatory. Check relevant observed code and whether contracts
+are current, accepted future prerequisites, or unavailable. Missing or disputed
+design/test boundaries prevent a ready task set: return supported analysis as
+partial, without inventing architecture or treating requirements approval as
+design approval. An explicitly requested provisional proposal stays conditional.
+On changed design, identify affected units/criteria/checks and retain unchanged
+requirements decisions; return substantive contract conflicts to their owner.
+
 Check that the specification actually states the behavior and observable
 results needed to bound the work. If the feature identity, scope or material
 criterion is missing or contradictory, identify precisely which tasks and
@@ -54,13 +66,23 @@ effect and boundary are explicit; do not pre-plan it as accepted scope.
    technology layer, test type, or lifecycle phase. Keep units small enough to
    finish and check independently where feasible, yet retain end-to-end
    behavior; explain why the split is needed. Do not plan the technical steps
-   inside every unit or prescribe a stack without supporting input.
+    inside every unit or prescribe a stack without supporting input. Prefer
+    tracer-bullet units that verify complete behavior through the necessary
+    components using the accepted design, not autonomous stacks per feature.
+    A headless outcome need not add UI. Justify a preparatory migration or
+    infrastructure unit by the contract/result it enables; do not relabel it
+    as a user capability or introduce a mandatory model → API → UI chain.
 3. For each proposed unit give its useful result and boundary, significant
    exclusions, the observable completion check, and the specific source
-   requirements it covers. Retain conditions of numerical limits and negative
+    requirements it covers, the needed design/contracts and versions, and test
+    seams/check ownership. Preserve supplied stable AC IDs; when a permanent
+    feature slug is supplied, qualify them as `slug#AC-nnn` without inventing
+    global product IDs or a second registry. Retain conditions of numerical limits and negative
    requirements in the checks. A task may cover several requirements and one
    requirement may span tasks; name where the **combined behavior** will be
-   checked instead of assuming that isolated successes prove the feature.
+    checked on a common integrated revision instead of assuming that isolated
+    successes prove the feature. A shared integration check need not be a
+    separate task or acceptance phase.
 4. Add only prerequisite relationships justified by an outcome that must be
    available first. State direction unambiguously (blocked unit → prerequisite)
    with a reason; distinguish necessity from preferred order or shared scope.
@@ -77,7 +99,8 @@ effect and boundary are explicit; do not pre-plan it as accepted scope.
 
 ## Return and stop
 
-Return the feature/spec identity and status, observed existing work (if any),
+Return the feature/spec and independent design identities, scopes, versions and
+acceptance status, applicable contracts/test seams, observed existing work (if any),
 one task or a bounded set of task proposals with outcomes, checks, boundaries
 and traceable source coverage; for multiple units return a clear mapping of
 requirements to proposed/existing units and combined checks. List necessary

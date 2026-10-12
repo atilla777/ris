@@ -1,5 +1,5 @@
 ---
-description: Prepare and publish one RIS project feature with accepted specification and remotely verified tasks.
+description: Prepare and publish one RIS project feature with independently accepted requirements/design and remotely verified tasks.
 ---
 
 Load `ris-prepare-feature-work` with the skill tool and follow it for one
@@ -10,5 +10,5 @@ $ARGUMENTS
 
 If no arguments are provided, establish the roadmap scope with the user as
 required by the skill; ask which epic to use when the choice is ambiguous.
-Invocation does not itself approve specific requirements, tracker writes or
+Invocation does not itself approve specific requirements or design, tracker writes or
 remote publication; establish these permissions as required by the skill.
