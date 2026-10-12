@@ -195,6 +195,12 @@ Git push does not sync Beads, which requires separate Dolt publication. The
 Git-ignored `tasks/` retains the completed PLAN-001–054 history; new local,
 Git-ignored working notes live under `.sdlc/tasks/<confirmed Beads ID>/`.
 Accepted specifications remain published in `docs/specs/`.
+Roadmap, epic refinement and feature selection perform light responsibility/
+shared-contract boundary checks and compare relevant product source versions
+with decision baselines. Material changes yield linked AC/task/evidence impact
+and coordination proposals; missing baselines leave currency unconfirmed, and
+independent work remains available. Representative checks are recorded in
+[`ris-capability-impact-checks.md`](docs/specs/ris-capability-impact-checks.md).
 The v2 `sources.product` path is reserved for author-owned product material;
 this repository's existing `docs/concepts/` is RIS normative documentation,
 not a substitute for `docs/product/`. Its own OKF migration is a separate task.

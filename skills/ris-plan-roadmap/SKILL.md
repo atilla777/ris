@@ -3,7 +3,8 @@ name: ris-plan-roadmap
 description: >-
   Create or update a project's goal-level roadmap as verified tracker epics,
   or propose it without writing. Use for project MVP outcomes, epic boundaries
-  and dependencies; not for a single feature's tasks, raw tracker operations,
+  and dependencies, including bounded product/architecture impact on revision;
+  not for a single feature's tasks, raw tracker operations,
   initializing a tracker, or implementing an epic.
 ---
 
@@ -38,9 +39,27 @@ relevant specifications and evidence of the current state. Do not require
 OKF, all documents in a directory, or a pre-existing output directory. If
 accepted sources conflict, identify the affected content and stop its write.
 
+Use author product material in its own structure, separating accepted rules,
+examples, atmosphere and open questions; never rewrite it or demand global IDs.
+For revision, retrieve the relevant prior source addresses and versions from
+existing epics/specs/designs, and compare the linked scopes with current sources.
+No whole-product scan: expand only through evidenced affected links. Retrieve
+related active accepted designs/current contracts when a boundary may intersect;
+check their acceptance scopes/versions rather than treating any design file as
+accepted. Missing baselines or unavailable designs leave those claims unverified.
+For task/AC/evidence tracing require the adapter's actual all-status task and
+dependency reads only when needed; a roadmap-only adapter does not imply them.
+Read confirmed feature identity/slug/AC/spec links through its declared capability
+when needed, or use verified readable existing links; do not guess legacy slugs.
+If a needed read is unavailable, return a partial impact report and block only
+dependent writes. Link permanent `slug#AC-nnn`, task IDs and existing tests/evidence
+where available, without creating a parallel index or requiring test annotations.
+
 Ensure installed `ris-plan-roadmap-base` is available; provide the selected
 high-level specification, goal, observed starting state, constraints and,
-for update, existing epics and confirmed accomplishments. Apply its method
+for update, existing epics and confirmed accomplishments; also provide relevant
+source versions/baselines, architecture/code facts and overlapping active accepted
+contract scopes. Apply its boundary/currency/impact method to these actual inputs
 to obtain a bounded proposal and gaps, not merely a loaded dependency. The
 base does not receive project configuration as a required input. Coordinate
 one dialogue across dependencies; resolve material decisions before writing.
@@ -96,6 +115,13 @@ check the **combined** result: goal scenarios and MVP boundary/constraints,
 exclusions, first verifiable end-to-end result, each epic's useful outcome,
 boundary and completion condition, scenario coverage, justified acyclic
 blocking dependencies and order, and a reasoned next-epic recommendation.
+Check its source-currency verdicts and bounded impact against retrieved project
+links. Material product changes are proposals for the requirements owner, not
+automatic changes to AC or acceptance. Common-contract conflicts need an agreed
+owner/version/integration prerequisite before dependent roadmap writes can claim
+readiness. Propose missing coordination; do not accept design or create task-level
+blockers here. Independent epics can proceed with their separate evidence. Preserve
+unchanged decisions on editorial changes; unknown source currency is not approval.
 Nearest epic should be actionable for refinement; farther ones may be coarser.
 Do not silently drop a required scenario or weaken numerical/negative
 requirements. Check that every proposed epic has a justified independent
@@ -155,6 +181,10 @@ If the check is incomplete, do not claim a saved complete roadmap. Report
 confirmed IDs and changes (including partial changes), breakdown agreement or
 explicit waiver, evidence and its limits, unsaved proposal/gaps and the
 recommended next epic with readiness.
+Include source addresses and compared versions/scopes, currency/impact verdicts,
+affected existing epic/AC/task/test/design links, proposed owner/contract version
+and blocker direction, missing evidence, and available independent work. No
+read-only impact finding authorizes changes outside the agreed roadmap epic scope.
 Without write permission, return only a labelled unsaved proposal and
 `changes: []`; even a complete proposal is not an accepted or persisted
 roadmap. Stop at the roadmap: no feature decomposition, implementation,

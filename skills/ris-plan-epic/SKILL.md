@@ -4,6 +4,7 @@ description: >-
   Clarify one existing RIS roadmap epic whose outcome or boundary is too unclear
   to choose a feature: propose bounded feature outcomes and prerequisites, and
   optionally verify an agreed update to that epic through the selected adapter.
+  Include light product/architecture boundary and linked-source impact checks.
   Use for epic refinement, not goal-level roadmap planning, selecting a feature,
   creating feature tasks, or specifying every feature in advance.
 ---
@@ -66,6 +67,29 @@ blockers, completed work, and overlap with other epics. Do not silently move
 scope between epics, contradict a closed result or change the goal-level
 roadmap. An unresolved cross-epic change requires the goal-roadmap owner, not
 an implicit update here.
+
+Extract relevant accepted behavior from freely structured product material, not
+from document/module boundaries; do not require global product IDs or rewrite
+author text. Compare only linked source scopes/current versions to baselines in
+the epic and related specs/designs. Distinguish editorial change from material
+behavior change; missing baseline leaves currency unconfirmed. Trace a material
+delta via existing permanent `slug#AC-nnn`, task IDs, tests/evidence and design
+links; inspect supported task/identity reads when needed and report missing links
+instead of guessing slugs or creating a registry. Unavailable reads block the
+dependent conclusion/write, not independent documentary analysis.
+
+Before settling candidate boundaries do a light check against current code/rules
+and related active accepted design scopes: responsibility/state ownership,
+existing/shared interfaces, incompatible or undefined contracts and research risks.
+For a new project use its minimal foundation; do not design every candidate or
+mandate a technical style. Shared files are not themselves a conflict. Identify
+conflicting owners/scopes/versions and propose one coordinating integration owner,
+a common contract version to agree and necessary blocked → prerequisite direction;
+keep unrelated candidate work available. Missing architecture evidence is a gap,
+not permission to declare all boundaries compatible. Substantial design changes
+go to their design owner, changed behavior to requirements authority and changed
+global invariants to architecture authority. Preserve unaffected acceptance and
+local implementation freedom. Do not accept/rewrite designs or add task blockers.
 
 Describe the smallest coherent set of **candidate feature outcomes** needed
 to account for the epic's mandatory scope and a nearest verifiable slice;
@@ -133,6 +157,10 @@ observed baseline and updated fields, candidate outcomes and requirement
 coverage, proposed prerequisites versus existing typed blockers, open
 decisions, evidence of agreement, permission scope, `changes` (including `[]`),
 read-back evidence, concurrency limits and the exact next substantive result.
+Include compared source scopes/versions and currency verdict, located impact
+links/gaps, light boundary-check evidence, proposed contract coordinator/version/
+prerequisites, and independent candidates still available. Unresolved material
+source or contract decisions block only the affected refinement/write.
 Where input, approval, operation or guarantee is missing, give the verified
 partial result and reason without claiming a saved refinement. Include enough
 accessible addresses and IDs for continuation without this chat. Do not choose

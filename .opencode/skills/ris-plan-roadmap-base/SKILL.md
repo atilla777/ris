@@ -2,7 +2,8 @@
 name: ris-plan-roadmap-base
 description: >-
   Draft and check a bounded, portable project roadmap proposal from an explicitly
-  supplied high-level specification, chosen goal, and observed starting state.
+  supplied product knowledge or high-level specification, chosen goal, and
+  observed starting state, with light architecture and source-impact checks.
   Use for goal-to-epic planning or revising proposed epics without a tracker;
   not for decomposing one feature into implementation tasks or persisting epics.
 ---
@@ -18,7 +19,7 @@ own that integration and the final persisted result.
 
 ## Inputs and readiness
 
-Identify the high-level specification and its acceptance status, the selected
+Identify the supplied product knowledge/specification and its acceptance status, the selected
 goal and its acceptance status, the supported starting state (what already
 works or is done, with evidence), applicable constraints, and the scope of the
 requested proposal. For a revision, take any existing proposed epics and
@@ -26,6 +27,15 @@ confirmed accomplishments as inputs; retain their identity and completed
 results rather than rewriting history. Do not infer acceptance from a document's
 existence, or infer the present state from a future vision. Separate observed
 facts, accepted requirements, proposals, assumptions, and unknowns.
+
+Author material may freely mix mechanics, content, atmosphere, examples and
+questions across systems. Extract only goal-relevant accepted rules; do not
+require feature-shaped documents, global requirement IDs or a specification of
+the entire product. Input document boundaries are not delivery boundaries.
+Take relevant source addresses (path + heading/anchor or URI), available versions
+and prior decision baselines, current architecture/code evidence and, when
+related, active accepted design scopes/contracts supplied by the caller. No
+fixed directory layout or whole-project scan is required.
 
 If the accepted goal is missing, offer a **draft goal** when the supplied
 material permits, labelled unaccepted; do not present a goal-dependent roadmap
@@ -62,13 +72,38 @@ Do not invent requirements to fill missing inputs.
    epics coarser. Name a concrete nearest outcome when supported by the inputs;
    if choosing the feature is a material open decision, identify it rather
    than inventing one. Do not pre-split future work into implementation tasks.
-4. Explain only necessary prerequisite relationships: which prior outcome
+4. Perform a **light architecture-boundary check** before finalizing boundaries:
+   likely component responsibility and state ownership, existing interfaces to
+   reuse, shared undefined or incompatible contracts, material technical risks
+   and named research needs. For a new project use its minimal foundation
+   (stack, constraints, likely responsibility zones and state principles), not
+   an invented complete architecture; mark missing boundary-affecting decisions.
+   Do not prescribe a technical style or fully design future features. Distinguish
+   current implementation from accepted future designs. Compare related active
+   accepted contract scopes when supplied: shared files alone are not a conflict.
+   For incompatibility identify affected outcomes, proposed coordination/integration
+   owner, a common contract version to agree and necessary blocked → prerequisite
+   relationships; these remain proposals until the responsible owners decide.
+   Keep independent outcomes available; do not claim disputed work ready.
+5. On revision or when prior decisions depend on supplied sources, compare only
+   the relevant source scopes/versions against their baselines. A version change
+   alone is not changed behavior: distinguish editorial edits from material rule
+   changes. Missing/inaccessible baseline means **currency unconfirmed**, not
+   current or necessarily stale. For a material delta trace available links to
+   epic outcomes, permanent feature-slug AC references, tasks, tests/evidence and
+   design/contracts; report missing links rather than inventing IDs or coverage.
+   Propose a bounded impact decision, preserving unaffected accepted scopes and
+   completed history. Changed desired behavior needs its requirements owner;
+   substantial design changes need focused design revision; global invariants
+   need architecture authority. Local implementation choices do not reopen design.
+   Do not rewrite author material, acceptance or evidence, or add a second registry.
+6. Explain only necessary prerequisite relationships: which prior outcome
    enables which later outcome. Distinguish dependency from priority, check
    for cycles and for reliance on unconfirmed work, and propose an order that
    tests important assumptions early. Existing verified results need not be
    re-planned. Recommend the next epic with a reason and note whether it is
    ready for refinement or blocked by an input; recommendation is not a start.
-5. Cross-check every required scenario, MVP constraint, and the first end-to-end
+7. Cross-check every required scenario, MVP constraint, and the first end-to-end
    result against the epic outcomes. Explicitly identify uncovered requirements,
    unsupported epic boundaries, hidden exclusions, vague completion tests,
    unjustified dependencies, or cycles; revise the proposal or mark the
@@ -86,6 +121,10 @@ next epic. Clearly label what is proposed rather than accepted, and say whether
 the content is complete against available accepted inputs or which claims are
 blocked. If acceptance or evidence is insufficient, return the useful partial
 proposal with its limits instead of claiming full coverage.
+Include relevant source addresses/baselines/current versions and currency verdicts,
+the light boundary check, located impact links and missing evidence, contract
+coordination/version/prerequisite proposals, and the independent outcomes still
+available. No source revision or proposed dependency is an accepted design.
 
 This skill does not create or update files, tracker records, links, statuses,
 assignments, or tasks; it neither approves the proposal nor starts another

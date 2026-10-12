@@ -3,7 +3,8 @@ name: ris-select-next-feature
 description: >-
   Recommend the next small verifiable feature within a current project roadmap
   epic, or explain why selection is blocked. Use when choosing what feature to
-  pursue next or whether to continue one already started; not for planning
+  pursue next or whether to continue one already started, with light linked-source
+  currency and shared-contract checks; not for planning
   epics, refining an unclear epic, specifying a feature, creating tasks, or
   implementing work.
 ---
@@ -77,6 +78,30 @@ or blocked work; do not design each candidate's implementation. Identify any
 existing feature specification and its known status without deciding whether
 it is sufficient or whether another interview is necessary.
 
+This restraint does not waive the **light boundary/currency check** needed for
+selection. Use freely structured author material as desired-product evidence;
+do not derive candidates from its document headings or impose global IDs. Compare
+only related source scopes/current versions with the baselines behind existing
+epic/feature decisions. Mark editorial deltas separately from changed behavior;
+a missing/inaccessible baseline makes currency unconfirmed, not automatically
+current or stale. Follow actual links through permanent `slug#AC-nnn`, task IDs,
+tests/evidence and design/contracts where available; use declared adapter identity
+reads when required, never guess a slug or infer coverage from a test's presence.
+Report missing links without building a second registry or scanning all product.
+
+Check current architecture/code and related **active accepted** design scopes for
+responsibility/state ownership overlaps, shared undefined/incompatible interfaces
+and boundary-affecting risks/research. Verify their versions and acceptance addresses;
+do not treat a proposed file as accepted or shared-file edits as a conflict. For a
+new project use minimal architecture evidence, not full future design. On conflict
+identify affected features/tasks/contracts, propose coordination/integration owner,
+common version to agree and necessary blocked → prerequisite relationships. Do
+not call dependent work available until those decisions are evidenced; independent
+candidates remain selectable. Distinguish a material product change (requirements
+owner), substantive design change (focused design revision) and changed global
+invariant (architecture authority) from a local implementation choice. Preserve
+unaffected accepted scopes. Do not revise/accept any document or add tracker links.
+
 First test whether an already-started feature remains relevant, available and
 contributes to the nearest verifiable epic outcome. Prefer finishing it over
 starting something new when these conditions hold; otherwise explain why not.
@@ -106,6 +131,11 @@ confirmed facts, the concrete reason and the next action; do not invent an ID
 or a feature. Verify references and distinguish observed evidence from
 proposals. No tracker or file mutations, claims, assignments or status changes
 are permitted even after agreement with a feature.
+Include relevant source addresses/scopes and baseline/current versions, currency
+and bounded impact verdicts, stable AC/task/test/design links and evidence gaps,
+boundary/contract check, proposed coordinating owner/version/blocker direction,
+and independent work. Explain if started work loses preference due to a specific
+affected decision; absence of a version is uncertainty, not proof it is obsolete.
 
 Once the person accepts a feature, identify working out its specification as
 a possible separate, explicitly authorized next result in plain terms. Do not
