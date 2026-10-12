@@ -30,6 +30,12 @@ on Open Knowledge Format bundles.
 - `skills/ris-interview-base/` — interview about interdependent decisions within
   a bounded topic, with a full or explicitly limited mode and a read-only handoff;
   runs without RIS or `grilling`.
+- `skills/ris-formulate-architecture-rules-base/` — formulate portable normative
+  architecture rules or a bounded amendment from explicit evidence; conditionally
+  interview unresolved decisions, without acceptance or project writes.
+- `skills/ris-author-architecture-rules/` — apply that method to a selected RIS
+  project, obtain scoped acceptance and save/check architecture rules as OKF in
+  `sources.rules`, preserving neighboring rules and the project's process.
 - `skills/ris-formulate-spec-base/` — formulate portable feature specification
   content from supplied decisions, preserving provenance and open questions;
   does not save or approve a project document.
@@ -90,6 +96,15 @@ Installing a source folder does not install skills created by the author.
 `ris-select-next-feature` needs `ris-common`, `ris-context` and a selected,
 available task adapter for read operations.
 `ris-interview-base` has no required RIS dependencies.
+`ris-formulate-architecture-rules-base` has no required RIS dependencies; it
+loads `ris-interview-base` only for interdependent unresolved decisions and
+loads only applicable Rails, DragonRuby or Odin profile resources.
+`ris-author-architecture-rules` needs `ris-common`, `ris-context`,
+`ris-formulate-architecture-rules-base` and direct `ris-okf`, installed with
+their resources. Direct invocation needs no tracker or execution role. It
+requires explicit acceptance of the final content before normative writes,
+checks only the agreed scope on update and blocks hidden format migration.
+Document checks establish neither code compliance nor remote publication.
 `ris-interview-feature` needs `ris-common`, `ris-context` and
 `ris-interview-base` installed with their resources.
 `ris-specify-feature` needs `ris-common`, `ris-context`,
@@ -119,7 +134,7 @@ and `ris-plan-epic` only if the epic's boundary needs refinement; its two
 subagent roles must actually launch. A successful full scenario also requires
 authorized publication of both accepted scopes and their decision evidence in
 the project's Git remote, independently checked against the remote feature record.
-This repository installs twenty-one source skills in `.opencode/skills/` for its
+This repository installs twenty-three source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
