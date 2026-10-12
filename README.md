@@ -39,6 +39,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-formulate-development-rules-base/` — propose portable engineering
   rules and bounded amendments with justified, customizable tool/practice sets
   for Rails web and DragonRuby/Odin games, preserving existing tools and process.
+- `skills/ris-author-development-rules/` — apply that engineering method to a
+  selected RIS project, obtain scoped acceptance and save/check only its accepted
+  engineering rules as OKF in `sources.rules`.
 - `skills/ris-formulate-spec-base/` — formulate portable feature specification
   content from supplied decisions, preserving provenance and open questions;
   does not save or approve a project document.
@@ -120,6 +123,12 @@ available task adapter for read operations.
 loads its engineering foundation, only applicable profiles, and
 `ris-interview-base` only for interdependent unresolved decisions. It proposes
 norms without accepting/saving them, configuring tools or auditing compliance.
+`ris-author-development-rules` needs `ris-common`, `ris-context`,
+`ris-formulate-development-rules-base` and direct `ris-okf` with resources.
+It requires explicit acceptance before normative writes, preserves existing
+tools/process and architecture, and blocks hidden storage-format migration.
+Direct calls need no tracker or execution role. Document checks do not establish
+tool setup, code compliance or remote publication.
 `ris-formulate-architecture-rules-base` has no required RIS dependencies; it
 loads `ris-interview-base` only for interdependent unresolved decisions and
 loads only applicable Rails, DragonRuby or Odin profile resources.
@@ -166,7 +175,7 @@ OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
 implementation and review have no required RIS dependencies. These components
 are direct operations, not a universal task workflow engine.
-This repository installs thirty-one source skills in `.opencode/skills/` for its
+This repository installs thirty-two source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
