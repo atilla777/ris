@@ -16,6 +16,13 @@ actual project rules. A direct call needs no RIS configuration, skills, tracker
 or directory layout. A project caller supplies verified task identity and
 requirements and owns any authorized persistence or subsequent preparation.
 
+When the task implements an accepted feature design, require its applicable
+scope/version and acceptance evidence, existing contracts and test seams as
+inputs. Check their currency against inspected code and any relevant shared
+contract integration; a tracker status or document's presence is not acceptance.
+For a standalone task use its accepted technical constraints, without inventing
+a parent feature, slug or separate design document.
+
 ## Establish inputs and evidence
 
 Identify the selected task's outcome, boundary and acceptance criteria; the
@@ -48,7 +55,13 @@ enlarge the task to accommodate a preferred implementation.
    changes the result; state the tradeoff and consequence of the chosen option.
    For a straightforward local edit, skip a ceremonial alternatives section.
    Treat design proposals as proposals, never as newly approved requirements;
-   do not impose a preferred language, stack or project structure.
+    do not impose a preferred language, stack or project structure.
+    Implement the accepted responsibility/state ownership, public interfaces
+    and dependency directions in the local plan; do not reopen feature-wide
+    architecture for convenience. Local reversible algorithms remain local.
+    A material contract/design departure yields a bounded revision request:
+    affected criteria, contracts, tasks and checks, decision owner and independent
+    work still possible. Do not plan dependent implementation under that proposal.
 3. Lay out an executable sequence with checkable intermediate results and the
    dependencies between steps. Mention concrete files, interfaces and commands
    only if inspection establishes them and the next implementer needs them;

@@ -40,6 +40,23 @@ on Open Knowledge Format bundles.
 - `skills/ris-plan-task-base/` — prepare a portable technical plan for one
   selected task from requirements, inspected code and constraints; return
   approach, ordered steps and acceptance-check coverage without project writes.
+- `skills/ris-plan-task/` — verify one tracker task and its accepted technical
+  inputs, save its local plan, and optionally prepare an authorized worktree
+  after confirming claim ownership.
+- `skills/ris-implement-base/` — implement a bounded change or repair review
+  findings with tests and exact-tree evidence, independently of RIS.
+- `skills/ris-implement-task/` — own claim-aware project implementation and
+  repairs, composing the portable method and authorized documentation updates.
+- `skills/ris-review-base/` — assess a concrete change read-only against
+  requirements, design, architecture and evidence; report located findings.
+- `skills/ris-review/` — verify task inputs and save a versioned project review
+  report; self-review does not provide independent publication approval.
+- `skills/ris-update-documentation/` — synchronize affected authorized documents
+  with inspected implementation and integration state; apply OKF only to actual
+  selected bundles and preserve author-owned product material.
+- `skills/ris-publish-main/` — integrate an approved task change into the established
+  primary Git branch, reassess checks/review on the integrated tree, and verify
+  authorized direct push; tracker completion and Dolt publication are separate.
 - `skills/ris-decompose-feature/` — compute readiness from independently accepted
   current requirements/design and verify the project feature and its
   tracker task, then check the one-task case or persist and verify child tasks
@@ -119,7 +136,15 @@ and `ris-plan-epic` only if the epic's boundary needs refinement; its two
 subagent roles must actually launch. A successful full scenario also requires
 authorized publication of both accepted scopes and their decision evidence in
 the project's Git remote, independently checked against the remote feature record.
-This repository installs twenty-one source skills in `.opencode/skills/` for its
+The task wrappers need `ris-common`, `ris-context` and their corresponding
+portable method; task reads/claims require the selected adapter's actual
+operations and guarantees. `ris-implement-task` also applies
+`ris-update-documentation`, which needs `ris-okf` only for an actual selected
+OKF bundle. `ris-publish-main` needs independent review evidence rather than
+assuming a configured reviewer or launching a next operation. Portable
+implementation and review have no required RIS dependencies. These components
+are direct operations, not a universal task workflow engine.
+This repository installs twenty-eight source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
