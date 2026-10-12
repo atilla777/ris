@@ -35,7 +35,7 @@ particular requirements that will be formulated.
 Ensure installed `ris-common` is available and apply its rules; read its
 conditional dialogue, artifact and quality resources before their respective
 actions. Use installed `ris-context` with its configuration resource to prepare
-this project's `sources.rules`, relevant `sources.concepts` and `sources.specs`,
+this project's `sources.rules`, relevant `sources.product` and `sources.specs`,
 and `adapters.tasks.skill` for task operations. Check status, provenance,
 diagnostics, project root and write scope. Select applicable instructions,
 accepted documents, profile and existing linked artifacts by relevance and

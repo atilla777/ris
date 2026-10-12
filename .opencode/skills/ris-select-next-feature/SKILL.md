@@ -27,7 +27,7 @@ Establish the target project/root, accepted goal, any explicitly confirmed epic
 ID and the user's requested scope. Ensure installed `ris-common` is available;
 apply its rules and read its conditional resources before governed actions.
 Use installed `ris-context` **with its configuration resource** to resolve the
-selected project's `sources.rules`, `sources.concepts`, `sources.specs` and
+selected project's `sources.rules`, `sources.product`, `sources.specs` and
 `adapters.tasks.skill` as needed. Inspect its status, provenance, paths,
 diagnostics and permissions. Select applicable documents by relevance and
 acceptance, not by directory membership; read the project's instructions and

@@ -37,7 +37,7 @@ created, stop for reconciliation rather than silently rewriting that task.
 
 Apply installed `ris-common` and its conditional resources before dialogue,
 artifact work and completion checks. Use installed `ris-context` with its
-configuration resource to prepare `sources.rules`, relevant `sources.concepts`
+configuration resource to prepare `sources.rules`, relevant `sources.product`
 and `sources.specs`, `adapters.tasks.skill` and, if needed, shared workspace
 paths in this project. Inspect status, config provenance, diagnostics and
 permission scope; select relevant documents by actual links and content, not

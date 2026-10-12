@@ -10,10 +10,12 @@ description: >-
 
 # Prepare RIS project context
 
-Return checked settings for the **calling operation** in the selected project.
+Return checked v2 settings for the **calling operation** in the selected project.
 The caller owns document selection, domain readiness, task-tracker operations,
 and its final result. Do not choose a lifecycle task, read every document,
 validate OKF content, create directories or worktrees, or edit source files.
+Reject a selected v1 config, including `sources.concepts`, with an explicit
+migration diagnostic; never reinterpret it as `sources.product` or use defaults.
 
 First ensure current `ris-common` instructions are available in this session
 from its installed skill location. Apply its baseline rules now; read its

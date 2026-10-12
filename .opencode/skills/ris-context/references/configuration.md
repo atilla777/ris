@@ -1,4 +1,4 @@
-# RIS configuration v1 — preparation procedure
+# RIS configuration v2 — preparation procedure
 
 Use this resource from the installed `ris-context` skill. It is the operational
 contract; do not require access to RIS's documentation repository at runtime.
@@ -31,10 +31,10 @@ contract; do not require access to RIS's documentation repository at runtime.
 When the optional root `ris.yaml` is absent, use these package values:
 
 ```yaml
-version: 1
+version: 2
 sources:
   rules: docs/rules/
-  concepts: docs/concepts/
+  product: docs/product/
   specs: docs/specs/
 workspace:
   tasks: .sdlc/tasks/
@@ -42,11 +42,11 @@ workspace:
 ```
 
 If any project config is selected, use **only its values**. Never merge or
-patch missing operation-required fields from defaults. Require `version: 1`
+patch missing operation-required fields from defaults. Require `version: 2`
 (an integer, not a boolean). Optional sections `sources`, `workspace`,
 `adapters`, `adapters.tasks`, `execution`, `execution.roles` and each
 `execution.roles.<role>` must be mappings when present. Allowed leaf
-settings: `sources.rules`, `sources.concepts`, `sources.specs`,
+settings: `sources.rules`, `sources.product`, `sources.specs`,
 `workspace.tasks`, `workspace.worktrees` (each a nonempty path string), and
 `adapters.tasks.skill` (a nonempty skill-name string) plus optional
 `adapters.tasks.options` (a mapping of adapter-owned data). The only other
@@ -67,6 +67,13 @@ belong to its own contract, not an invented RIS schema. A configured adapter
 is not proof it is installed or supports an operation. There is no package
 default for `execution`; do not supplement an absent role in a selected
 project config (or a missing section) from any other config or example.
+Reject v1, including `sources.concepts`, with a migration diagnostic rather
+than aliasing the old key or falling back to defaults. To migrate, review
+the intended author-owned product source, set `version: 2`, replace
+`sources.concepts` with its actual `sources.product` directory, and check
+all existing fields, links and consumers. Do not assume the old concepts
+directory contains product knowledge or rename it automatically. An absent
+root config is the only case that selects v2 package defaults.
 
 For a caller requiring an isolated role, return the configured `agent` with
 its provenance if present. If the role is absent, report `blocked` for that
@@ -85,6 +92,11 @@ skill as part of context preparation. This field grants no write permission.
 
 - Resolve `sources.*` against the selected `project_root` in the **current**
   working copy. These values designate directories, not specific documents.
+  `product` and `rules` denote separate OKF 0.2 bundles in the default RIS
+  documentation profile, with `rules/architecture/adr/` nested inside rules;
+  `specs/<slug>/spec.md` is ordinary Markdown. Context checks path availability,
+  not OKF validity or the contents/acceptance of a document. A project may
+  choose different directories without changing these roles.
 - Resolve `workspace.*` against `primary_root`, the primary working-copy root
   of the selected project. In the primary copy it equals `project_root`. From
   a separate worktree require `primary_root` supplied **explicitly** for any

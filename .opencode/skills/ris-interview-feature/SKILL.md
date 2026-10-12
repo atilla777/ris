@@ -30,7 +30,7 @@ sources; do not assume access to an old chat.
 Ensure installed `ris-common` is available and apply its rules. Read its
 conditional dialogue, artifact and quality resources before the respective
 actions. Use installed `ris-context` and **its configuration resource** to
-prepare the selected project's `sources.rules`, `sources.concepts` and
+prepare the selected project's `sources.rules`, `sources.product` and
 `sources.specs` needed for this operation. Check status, provenance, relevant
 paths, diagnostics and read-only scope before using them. Read applicable
 project instructions and rules, then select only documents relevant to this

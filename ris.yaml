@@ -1,7 +1,7 @@
-version: 1
+version: 2
 sources:
   rules: docs/rules/
-  concepts: docs/concepts/
+  product: docs/product/
   specs: docs/specs/
 workspace:
   tasks: .sdlc/tasks/

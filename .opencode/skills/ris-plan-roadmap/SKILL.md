@@ -29,7 +29,7 @@ write; never turn an `update` into a `create` or vice versa.
 Ensure the installed `ris-common` is available and apply its rules and
 conditional resources before their governed actions. Use installed
 `ris-context` and its configuration resource for **this project operation**:
-resolve applicable `sources.concepts`, `sources.rules`, `sources.specs` when
+resolve applicable `sources.product`, `sources.rules`, `sources.specs` when
 needed, and `adapters.tasks.skill` for tracker operations. Check the returned
 status, provenance, paths and scope; a configured adapter is not an available
 adapter. Select the actual applicable accepted high-level documents from the

@@ -33,7 +33,7 @@ ask before dependent work; do not convert this into planning a new roadmap.
 Ensure installed `ris-common` is available and apply it and its conditional
 resources before governed actions. Use installed `ris-context` with its
 configuration resource for this project: resolve `sources.rules`, relevant
-`sources.concepts` and `sources.specs`, and `adapters.tasks.skill` for tracker
+`sources.product` and `sources.specs`, and `adapters.tasks.skill` for tracker
 reads and possible writes. Check status, provenance, diagnostics and permissions;
 an invalid explicit configuration does not fall back to defaults. In a worktree
 resolve sources from its current root, and use shared paths only after the
