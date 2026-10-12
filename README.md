@@ -69,6 +69,12 @@ on Open Knowledge Format bundles.
 - `skills/ris-publish-main/` — integrate an approved task change into the established
   primary Git branch, reassess checks/review on the integrated tree, and verify
   authorized direct push; tracker completion and Dolt publication are separate.
+- `skills/ris-verify-feature-base/` — assess complete integrated feature behavior
+  read-only on one identified revision, with criterion, architecture, documentation
+  and source-currency evidence; portable and independent of RIS or a tracker.
+- `skills/ris-complete-container/` — verify one explicitly selected feature or epic,
+  persist acceptance evidence through the selected adapter, then safely close only
+  that container; Git integration is an input and tracker publication is separate.
 - `skills/ris-decompose-feature/` — compute readiness from independently accepted
   current requirements/design and verify the project feature and its
   tracker task, then check the one-task case or persist and verify child tasks
@@ -175,7 +181,14 @@ OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
 implementation and review have no required RIS dependencies. These components
 are direct operations, not a universal task workflow engine.
-This repository installs thirty-two source skills in `.opencode/skills/` for its
+`ris-complete-container` needs `ris-common`, `ris-context` and a compatible selected
+adapter with complete scope reads and safe result/closure operations. Its feature
+branch applies `ris-verify-feature-base` and requires `tasks.feature-record/1`;
+its epic branch uses the epic's own outcome and composition criteria. A claim is
+not a concurrency guarantee, and closed children do not establish acceptance.
+The portable verification method has no required RIS dependencies. Direct
+completion does not integrate Git, create repair tasks or close ancestors.
+This repository installs thirty-four source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
