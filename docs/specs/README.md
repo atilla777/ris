@@ -10,5 +10,6 @@
 - [Соглашение об адаптерах и контракт роли `tasks`](ris-tasks-adapter-contract.md).
 - [Выбор следующей фичи RIS](ris-select-next-feature.md).
 - [Композиция RIS и первый сквозной сценарий фичи](ris-feature-work-first-slice.md).
+- [Целевая методика SDLC и план изменений](ris-sdlc-target-specification.md).
 
 Согласованные планы не свидетельствуют о реализации перечисленных в них будущих возможностей.
