@@ -47,9 +47,10 @@ Git or tracker history, install a recommended tool or prove its checks passed.
    with unconverted target concepts are not silently valid 0.2 inputs. A required
    conversion beyond this scope or change of storage protocol blocks the save
    until separately authorized; return a proposal and preserve existing material.
-4. Load and actually apply installed `ris-okf` and its pinned specification to
-   the explicitly selected rules root, operation and bounded concepts/indexes.
-   Direct OKF works here; `ris-project-okf` is a specs-only wrapper. Unavailable
+4. Load and actually apply installed project `ris-okf`, passing the established
+   project/config provenance, explicit rules root, operation, bounded concepts/
+   indexes, applicable rules and permissions. It applies `ris-okf-base` and its
+   base-owned pinned specification; content/acceptance stay here. Unavailable
    dependencies/resources block their dependent action, not permission to
    imitate the method or claim format conformance.
 

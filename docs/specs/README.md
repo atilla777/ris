@@ -3,7 +3,7 @@
 Верхнеуровневые нормативные требования, целевой каталог SDLC MVP, общие шаблоны, примеры, источники и материалы проверки находятся в [нормативном комплекте](../concepts/index.md). `docs/concepts/` и `docs/rules/` — самостоятельные OKF-бандлы по [профилю корпуса](../concepts/knowledge-profile.md); этот каталог спецификаций остаётся обычным Markdown без обязательных OKF-метаданных и `index.md`. Здесь остаются планы конкретных поставок:
 
 - [Основа и автор скилов](ris-foundation-and-skill-author.md).
-- [Скилы OKF](ris-okf-skills.md).
+- [Миграция контрактов OKF](okf-contract-migration/spec.md) и [дизайн](okf-contract-migration/design.md); [прежняя спецификация](ris-okf-skills.md) сохранена как история.
 - [Первый срез roadmap RIS](ris-roadmap-first-slice.md).
 - [Дерево решений для `ris-interview-base`](ris-interview-base.md).
 - [Интервью о требованиях фичи для будущего `ris-interview-feature`](ris-interview-feature.md).

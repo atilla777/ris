@@ -31,8 +31,11 @@ No adapter or execution role is required unless task reads are actually needed.
    Future components stay future in accepted design/ADR. Keep normative principles
    distinct from factual implementation. Record the implementation/tree on which
    each material factual change depends so integration can revalidate it.
-3. For an explicitly selected OKF bundle, load/apply installed `ris-okf` with its
-   applicable resources before edits/checks. Identify its real bundle root and
+3. For an explicitly selected OKF bundle, load/apply installed project `ris-okf`
+   before edits/checks, passing the established project/config provenance,
+   explicit root, operation, bounded scope, rules and permissions. It applies
+   `ris-okf-base` with the base-owned format resource; substantive synchronization
+   remains here. Identify the real bundle root and
    approved RIS profile: type-frontmatter, indexes in real knowledge directories,
    bundle-root links and nested architecture/ADR all remain coherent. Product and
    rules are separate bundles. Ordinary `spec.md`/`design.md` remain ordinary

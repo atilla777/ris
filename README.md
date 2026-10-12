@@ -16,11 +16,12 @@ on Open Knowledge Format bundles.
 - `skills/ris-common/` — shared rules applied by RIS skills.
 - `skills/ris-context/` — read-only preparation of project settings when an
   operation needs them; an optional `ris.yaml` can override package defaults.
-- `skills/ris-okf/` — read, create, edit and check a selected OKF bundle using
-  a pinned local copy of the official OKF 0.2 specification; direct use does
-  not require RIS project configuration.
-- `skills/ris-project-okf/` — resolve a RIS project's configured specifications
-  directory and operate on an explicitly rooted OKF specification via `ris-okf`.
+- `skills/ris-okf-base/` — autonomously read, create, edit and check an explicit
+  OKF bundle using the pinned official OKF 0.2 specification, without other
+  RIS skills or project configuration.
+- `skills/ris-okf/` — apply that method to an explicitly rooted bundle in a
+  selected RIS project's authorized rules, product or other area, with project
+  rules, path checks and configuration provenance.
 - `skills/ris-plan-roadmap-base/` — prepare and check a bounded roadmap proposal
   from explicitly supplied inputs, marking unaccepted goals and gaps, without
   RIS project dependencies or tracker writes.
@@ -110,8 +111,20 @@ using it. For OpenCode 1.18.33, one project-local location is
 `.opencode/skills/<name>/`; `ris-author-skills` needs `ris-author-skills-base`
 and `ris-common`, plus `ris-context` when its authoring operation requires
 RIS project settings.
-`ris-okf` needs `ris-common`; `ris-project-okf` needs `ris-common`,
-`ris-context` and `ris-okf` installed with their resources.
+`ris-okf-base` has no required RIS dependencies. Project `ris-okf` needs
+`ris-common`, `ris-context` and `ris-okf-base` installed with their resources.
+The incompatible [OKF contract migration](docs/specs/okf-contract-migration/spec.md)
+replaces the former public contracts as one coordinated installation: remove
+`ris-project-okf`, install the new pair and update consumers together. No alias
+preserves the former meaning of `ris-okf`.
+
+Examples: “Read and check the OKF bundle rooted at `/allowed/knowledge/`
+autonomously” selects `ris-okf-base`. “In this RIS project, edit/check the OKF
+root `knowledge/policies/`, writing only `architecture/principles.md` and its
+affected existing navigation” selects project `ris-okf`. Supply the project,
+explicit root, operation and allowed scope; configured source directories do
+not select or authorize a bundle. Ordinary feature Markdown uses its own
+document workflow.
 `ris-author-skills-base` has no required RIS dependencies. `ris-beads-adapter`
 needs `ris-common` and, when project settings must be
 resolved, `ris-context` installed with their resources.
@@ -130,7 +143,7 @@ loads its engineering foundation, only applicable profiles, and
 `ris-interview-base` only for interdependent unresolved decisions. It proposes
 norms without accepting/saving them, configuring tools or auditing compliance.
 `ris-author-development-rules` needs `ris-common`, `ris-context`,
-`ris-formulate-development-rules-base` and direct `ris-okf` with resources.
+`ris-formulate-development-rules-base` and project `ris-okf` with its dependencies.
 It requires explicit acceptance before normative writes, preserves existing
 tools/process and architecture, and blocks hidden storage-format migration.
 Direct calls need no tracker or execution role. Document checks do not establish
@@ -139,7 +152,7 @@ tool setup, code compliance or remote publication.
 loads `ris-interview-base` only for interdependent unresolved decisions and
 loads only applicable Rails, DragonRuby or Odin profile resources.
 `ris-author-architecture-rules` needs `ris-common`, `ris-context`,
-`ris-formulate-architecture-rules-base` and direct `ris-okf`, installed with
+`ris-formulate-architecture-rules-base` and project `ris-okf`, installed with
 their resources. Direct invocation needs no tracker or execution role. It
 requires explicit acceptance of the final content before normative writes,
 checks only the agreed scope on update and blocks hidden format migration.
@@ -258,5 +271,5 @@ index for historical links.
 ## License
 
 MIT — see [LICENSE](LICENSE). The pinned third-party OKF specification in
-`skills/ris-okf/references/spec-v02.md` is Apache-2.0; see its
-[source attribution](skills/ris-okf/references/source.md).
+`skills/ris-okf-base/references/spec-v02.md` is Apache-2.0; see its
+[source attribution](skills/ris-okf-base/references/source.md).

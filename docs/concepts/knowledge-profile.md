@@ -23,7 +23,7 @@ type: Documentation Profile
 
 ## Формат и навигация
 
-Основание формата — [закреплённая спецификация OKF 0.2](../../skills/ris-okf/references/spec-v02.md),
+Основание формата — [закреплённая спецификация OKF 0.2](../../skills/ris-okf-base/references/spec-v02.md),
 §§3–4, 6, 8–9, 11–12. Каждый обычный `.md` внутри выбранных бандлов имеет
 разбираемый YAML-frontmatter с непустым строковым `type`. Используются
 описательные типы `Overview`, `Specification`, `Template`, `Example`,

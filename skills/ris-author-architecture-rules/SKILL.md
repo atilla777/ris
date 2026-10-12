@@ -47,10 +47,11 @@ publish Git or tracker history.
    prove every concept was converted. If a required conversion reaches beyond
    this scope or changes the storage protocol, return a proposal and block the
    dependent save until separately authorized. Never migrate neighboring rules.
-4. Load and apply installed `ris-okf` and its pinned specification for the
-   explicitly selected `sources.rules` bundle root, operation and bounded
-   concepts/indexes. It works directly on this root; `ris-project-okf` is a
-   specs-only wrapper and is not the rules writer. Check dependency/resource
+4. Load and apply installed project `ris-okf`, passing the already established
+   project/config provenance, explicit `sources.rules` bundle root, operation,
+   bounded concepts/indexes, applicable rules and permissions. It applies
+   `ris-okf-base` and the base-owned pinned specification; this author retains
+   content/acceptance ownership. Check dependency/resource
    availability before promising format-dependent results. Missing resources
    block the dependent action, not permission to imitate them.
 

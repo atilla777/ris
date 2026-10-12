@@ -51,7 +51,7 @@ ris не является новым трекером задач, серверо
 | [07. Качество выполнения](07-quality-and-verification.md) | Подтверждения, критерии готовности, обходы требований и реакции |
 | [08. Целевая методика SDLC](08-sdlc-methodology.md) | Product / Architecture / Delivery, принципы, документы и условия переходов |
 
-Согласованный план реализованных скилов работы с OKF — [ris-okf-skills.md](../specs/ris-okf-skills.md). Их исходники находятся в `skills/ris-okf/` и `skills/ris-project-okf/`; план не меняет сохраняющиеся требования к `ris-plan-roadmap`.
+Действующий контракт скилов работы с OKF — [миграция контрактов](../specs/okf-contract-migration/spec.md) и её [дизайн](../specs/okf-contract-migration/design.md). Исходники находятся в `skills/ris-okf-base/` (автономная методика) и `skills/ris-okf/` (проектная операция); [прежний план](../specs/ris-okf-skills.md) сохранён как история. Миграция не меняет требования к `ris-plan-roadmap`.
 
 Согласованный **целевой каталог SDLC MVP** — [ris-sdlc-mvp-skills.md](ris-sdlc-mvp-skills.md). Актуальная методика и её стадии — в [08](08-sdlc-methodology.md), подробный согласованный план миграции — в [целевой спецификации](../specs/ris-sdlc-target-specification.md). Ни план, ни каталог не означают установки новых скилов; фактические исходники перечислены в [README проекта](../../README.md).
 

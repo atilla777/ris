@@ -1,6 +1,6 @@
 # RIS OKF skills — agreed implementation specification
 
-**Status:** approved design, updated for the explicit-root OKF specification workflow; implementation lives in `skills/ris-okf/` and `skills/ris-project-okf/`, not in this document.
+**Status:** historical approved design for the former explicit-root OKF specification workflow. The accepted decisions below are preserved; the current contract is the [OKF contract migration](okf-contract-migration/spec.md) and its [independently accepted design](okf-contract-migration/design.md). Current source owners are `skills/ris-okf-base/` (autonomous format operation and pinned resources) and `skills/ris-okf/` (project operation); `ris-project-okf` has been retired.
 
 **Source of OKF rules:** [GoogleCloudPlatform/open-knowledge-format `SPEC.md`](https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/0b87c52c6ef999286c745e19998fdfcd03d5dbee/SPEC.md), version 0.2, commit `0b87c52c6ef999286c745e19998fdfcd03d5dbee`. The upstream repository is licensed under Apache-2.0. This is the format authority; third-party implementations and skills are not normative. Any RIS convenience policy must be identified separately from OKF conformance.
 

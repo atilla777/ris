@@ -4,6 +4,8 @@
 
 **Дата:** 12 октября 2026 г.
 
+**Переход OKF:** исторические имена/пути в принятом плане ниже сохраняют исходные решения. Действующая поставка — [миграция OKF-контрактов](okf-contract-migration/spec.md) и [дизайн](okf-contract-migration/design.md): автономный `ris-okf-base`, проектный `ris-okf`; `ris-project-okf` выведен. Snapshot теперь в `skills/ris-okf-base/references/spec-v02.md`.
+
 **Область:** RIS как пакет переносимых методик и проектных скилов, применяемый к существующим и новым проектам.
 **Отправная точка:** текущий репозиторий [`atilla777/ris`](https://github.com/atilla777/ris), его нормативные `docs/concepts/`, исходники `skills/` и установленная проектная копия `.opencode/skills/`.
 
@@ -461,6 +463,6 @@ ris-complete-container + ris-verify-feature-base
 - [`skills/ris-specify-feature/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-specify-feature/SKILL.md) — принятие спецификации и создание feature task.
 - [`skills/ris-decompose-feature/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-decompose-feature/SKILL.md) — подготовка дочерних задач.
 - [`skills/ris-beads-adapter/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-beads-adapter/SKILL.md) — фактические операции Beads и гарантии.
-- [`skills/ris-okf/references/spec-v02.md`](https://github.com/atilla777/ris/blob/main/skills/ris-okf/references/spec-v02.md) — закреплённая спецификация OKF 0.2.
+- [`skills/ris-okf-base/references/spec-v02.md`](https://github.com/atilla777/ris/blob/main/skills/ris-okf-base/references/spec-v02.md) — текущее расположение неизменённой закреплённой спецификации OKF 0.2.
 
 **Определяющее правило миграции:** сохранять уже реализованные и проверенные механизмы, изменять только ответственность и контракты там, где согласованный SDLC действительно требует нового поведения. Новая документация не считается реализацией нового скила или новой способности адаптера.
