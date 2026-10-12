@@ -5,7 +5,7 @@ description: >-
   in its RIS project, then verify its feature task under a confirmed epic.
   Use when preparing an accepted feature specification and linked tracker record;
   not for selecting a feature, interviewing alone, decomposing it into child
-  tasks, or drafting portable content without project writes.
+  tasks, technical design, or drafting portable content without project writes.
 ---
 
 # Specify a selected feature in a RIS project
@@ -20,6 +20,12 @@ as an executed operation. This is the project wrapper for the portable base:
 project sources, acceptance, document format, permission and tracker identity
 cannot be determined by the base. Direct invocation works in the current agent;
 no execution role or encompassing workflow is required.
+
+Own **functional requirements**, not the feature's technical design. Accepted
+requirements create a feature task even when design is absent; this does not
+establish readiness for decomposition or implementation. Preserve behavioral
+interfaces/quality constraints, but do not decide component ownership, new
+implementation contracts or test seams here. Do not start another stage.
 
 ## Establish project, feature and authority
 
@@ -49,6 +55,14 @@ actual content and status. An unresolved ownership, path or feature identity
 conflict blocks dependent writes. No path or acceptance evidence is inferred
 from a proposed tracker ID, file presence, or a past conversation not supplied.
 
+At creation agree a permanent feature slug and search all-status project tasks
+and existing spec directories for collisions, including closed records. The
+tracker task is the sole ID ↔ slug ↔ spec link, not a second registry. A title
+change never renames the slug or path. Default to ordinary
+`sources.specs/<slug>/spec.md` without OKF index/frontmatter; a documented project
+override takes precedence. Read a legacy record before any migration: never
+guess its slug from its title or silently relocate its accepted document.
+
 ## Compose one content and acceptance dialogue
 
 Ensure installed `ris-formulate-spec-base` is available. Provide it the
@@ -75,6 +89,13 @@ the supported partial content and name what prevents acceptance or saving.
 Report evidence and reasons when no interview was needed; user approval of a
 draft alone does not establish that unexamined branches were covered.
 
+Use only related author product passages, retaining source path/heading,
+available version and accepted/draft/example/question status without reorganizing
+them by technical systems. Apply the base's stable `AC-nnn` rules; links use the
+agreed permanent `slug#AC-nnn`. Reused decisions with missing baseline versions
+have unconfirmed applicability; changed linked behavior needs focused impact
+resolution, not a silent edit of product or all existing feature documents.
+
 Show the **specific proposed content** and material open questions to the
 person or the acceptance authority defined by this project's rules. Obtain and
 verify acceptance of **this version and scope** by that mechanism *before*
@@ -88,6 +109,17 @@ an acceptance record or treat an unaccepted candidate as the accepted file.
 After a material change to accepted content, obtain acceptance of the changed
 version again; do not silently append requirements during formatting.
 
+Choose an independently verifiable requirements scope before acceptance:
+`whole-file` only when no design will be appended to that file, otherwise a
+unique exact Markdown heading (e.g. `heading:## Requirements`). For a heading,
+hash raw UTF-8 bytes from its line inclusive up to the next heading of the same
+or higher level or EOF, without normalization. Keep decision evidence outside
+the hashed scope to avoid a self-referential hash. Match its approved scope and
+SHA-256 to the proposed and later saved bytes. Use the adapter's supported
+scope representation; ambiguous/overlapping areas require separate files or
+fresh acceptance of the affected scope, never assumed validity. A later design
+decision cannot substitute for this requirements decision.
+
 ## Save and reconcile the selected document
 
 Before any write, identify the selected available task adapter and verify a
@@ -95,7 +127,14 @@ compatible `tasks` v1 with the **optional** `tasks.epics.read`, `tasks.items.lis
 `tasks.items.read` and `tasks.items.create` operations and required guarantees:
 complete all-status search, confirmed type/parent, stable retry identity,
 specification link and acceptance-evidence address, read-back and applicable
-concurrency level. Confirm an open parent epic by exact ID and its intended
+concurrency level. Also require separately advertised `tasks.feature-record/1`
+with `tasks.features.read` and initial-record support in `tasks.items.create`:
+immutable project-unique slug, spec path and separately scoped requirements
+digest/acceptance. Creation of this identity requires an independently confirmed
+exclusive writer window covering all feature creators across the all-status
+slug search, creation and read-back, not best-effort duplicate avoidance.
+If these guarantees are unavailable, block the combined write. Confirm an open
+parent epic by exact ID and its intended
 scope; agree the feature's stable key in that epic/goal and approved task
 content. A configured adapter name alone proves none of this. Preflight these
 requirements before saving to avoid a predictable orphan file; if an
@@ -103,8 +142,8 @@ independent document-only result is explicitly authorized, report that smaller
 scope as such rather than calling this combined result complete. Never bypass
 an unavailable/incompatible adapter by editing its storage or calling `bd`
 directly. Strict no-duplicate creation requires a separately established
-exclusive writer window; ordinary authorized create is best-effort with a
-reported concurrency limit.
+exclusive writer window; do not downgrade the promised unique slug to ordinary
+best-effort v1 creation.
 
 Choose the project's actual document format. Ordinary Markdown can be written
 directly under its rules; for an OKF bundle apply the installed suitable OKF
@@ -133,12 +172,28 @@ real ID, type, status, parent membership, saved content, spec link and
 acceptance decision for the **same** version. Do not create children, add task
 dependencies, claim or close anything in this operation.
 
+Supply the adapter's initial feature-record encoding in the approved content:
+permanent slug, exact spec path, requirements path/scope/SHA-256 and acceptance
+address with matching approved scope/version/decision; design and verification
+are absent (`null` in Beads), with empty initial history. Verify the entire
+stored identity block and project-wide slug uniqueness by fresh adapter reads.
+For an existing exact record preserve slug, design, history and unrelated text;
+never send an initial payload over an existing record. A legacy record or a
+requirements revision needs an explicitly authorized conditional
+`tasks.features.update`, expected old values, preservation of prior decisions,
+and the capability's exclusive writer guarantee; otherwise report conflict or
+unsupported legacy state. Do not erase an accepted design: on requirements
+change identify its applicability as unconfirmed until reviewed, preserving
+history. A design-null feature task is a valid requirements-only result.
+
 ## Report actual outcome and stop
 
 Return `ok|blocked|conflict|error`, selected project/config provenance,
-feature and parent epic identity, actual spec address and accepted version,
+feature ID, permanent slug and parent epic identity, actual spec address,
+requirements scope/digest and accepted version,
 source of its acceptance, verified task ID and parent (only when confirmed),
-status of decisions, actual changes and read-back evidence, plus limitations
+status of decisions (including design absent or applicability unconfirmed),
+actual changes and read-back evidence, plus limitations
 and next needed substantive result. `ok` for the combined result requires both
 the accepted saved spec and matching tracker task. If a document write succeeds
 but tracker creation fails, or a response is ambiguous, reread both states,

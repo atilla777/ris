@@ -43,8 +43,14 @@ on Open Knowledge Format bundles.
   tracker task, then check the one-task case or persist and verify child tasks
   and dependencies through the selected adapter.
 - `skills/ris-specify-feature/` — obtain acceptance for a selected feature's
-  specification, save it by the project's rules and verify its feature task
-  through the selected adapter.
+  functional requirements with stable AC IDs, save independently scoped evidence
+  and verify its permanent slug/feature task; design may still be absent.
+- `skills/ris-design-feature-base/` — propose sufficient technical feature design
+  or a focused revision from requirements, current code and architecture;
+  portable and read-only, without approval or project writes.
+- `skills/ris-design-feature/` — apply that method in a RIS project, coordinate
+  relevant architecture/active-design impact, obtain independent design acceptance,
+  save its scoped version and verify conditional feature-record updates.
 - `skills/ris-beads-adapter/` — execute and verify authorized Beads issue operations
   with `bd` 1.3.1, including optional `tasks` v1 feature-task operations and
   conditional `tasks.feature-record/1` evidence operations; includes a
@@ -87,7 +93,17 @@ available task adapter for read operations.
 `ris-specify-feature` needs `ris-common`, `ris-context`,
 `ris-formulate-spec-base`, the selected task adapter and, when substantive
 answers are missing, `ris-interview-feature`; OKF-specific operations are
-needed only for an OKF document.
+needed only for an OKF document. Its stable identity requires the adapter's
+`tasks.feature-record/1` read/initial-create support and an independently
+confirmed exclusive window over project feature creators; unavailable guarantees
+block the combined write. A feature task with accepted requirements and no
+design is not ready for decomposition or implementation.
+`ris-design-feature-base` has no required RIS dependencies.
+`ris-design-feature` needs `ris-common`, `ris-context`, `ris-design-feature-base`
+and a selected adapter supporting `tasks.feature-record/1` read/update with
+the required conditional-write guarantee; `ris-interview-base` is loaded only
+for unresolved interdependent technical decisions. Direct invocation checks
+the local document/record result and does not publish Git or Dolt.
 `ris-decompose-feature` needs `ris-common`, `ris-context`,
 `ris-decompose-spec-base` and a selected compatible task adapter.
 `ris-prepare-feature-work` needs `ris-common`, `ris-context`,
@@ -96,7 +112,7 @@ selected compatible task adapter with separately verified remote publication,
 and `ris-plan-epic` only if the epic's boundary needs refinement; its two
 subagent roles must actually launch. A successful full scenario also requires
 authorized publication of the accepted document in the project's Git remote.
-This repository installs nineteen source skills in `.opencode/skills/` for its
+This repository installs twenty-one source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still

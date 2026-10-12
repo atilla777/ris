@@ -29,6 +29,14 @@ file's existence, a plausible recommendation or a structurally valid document
 does not prove that its requirements were accepted. If inputs conflict, identify
 the competing sources and affected behavior before treating either as binding.
 
+Accept free-form author material spanning several systems, including content,
+world descriptions, examples and atmosphere. Select behavior relevant to the
+chosen increment; do not demand source chapters organized by features/modules,
+global requirement IDs, or a rewritten product specification. Preserve whether
+each passage is an accepted rule, draft idea, example or open question. Record
+precise source path/heading and available revision; if an earlier source version
+is missing, its continued applicability is **unconfirmed**, not presumed valid.
+
 If the goal or boundary is missing, ask for the specific prerequisite needed to
 formulate useful content. If another material decision is missing, formulate
 independent portions and mark the affected behavior or criterion unresolved;
@@ -53,6 +61,10 @@ or invent requirements to fill empty sections.
    open choice controls an outcome, show candidate behavior as a proposal (if
    useful), not an accepted criterion; name exactly which criterion or next
    action awaits resolution.
+   Give criteria locally stable IDs `AC-001`, `AC-002`, etc. Preserve existing
+   IDs and meanings on revision; retire deleted IDs without reusing them for
+   another meaning. When a permanent feature slug is supplied, references are
+   `slug#AC-nnn`; do not invent a tracker identity or rename a supplied slug.
 4. Cross-check coverage of supplied decisions, exclusions, limits, significant
    failures and quality constraints. Detect contradictory statements, criteria
    with no supported behavior, unsupported assertions, missing verification
@@ -60,6 +72,12 @@ or invent requirements to fill empty sections.
    Revise supported content or explicitly record the gap and its impact. A
    polished narrative or a heading for every possible topic is not evidence of
    completeness.
+
+Keep functional requirements independent of technical design. Supported public
+behavior/compatibility constraints remain requirements, but component ownership,
+implementation APIs and test seams belong to a separate design result. Supplied
+technical suggestions retain their status; they do not silently become accepted
+requirements or proof that a design exists. Do not approve or write either result.
 
 ## Result and stop
 

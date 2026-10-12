@@ -46,6 +46,17 @@ ask for resolution where evidence cannot settle it, rather than silently
 choosing one. Treat a prior handoff by its actual answers and gaps, not the
 assertion that an interview once happened.
 
+Author-owned product material may freely mix mechanics, world, content and
+examples across systems. Extract only the selected feature's relevant decisions;
+do not require chapters matching components, feature boundaries or numbered
+product requirements. Distinguish accepted descriptions, drafts, examples and
+open questions. Carry exact paths/headings and available source revisions into
+the handoff. Compare linked sources to the versions underlying reused answers;
+missing baseline versions make applicability unconfirmed. Surface changed
+behavior and affected known AC/design/task references for a focused decision,
+without scanning the entire product or editing it. Preserve existing `AC-nnn`
+identities when supplied; candidate outcomes do not acquire accepted status.
+
 When a material choice about feature behavior has established alternatives,
 check accessible relevant standards, common solutions and practices before
 recommending an option or asking the person to choose. Compare their
