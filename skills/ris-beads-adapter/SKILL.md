@@ -1,11 +1,11 @@
 ---
 name: ris-beads-adapter
 description: >-
-  Serve the tasks v1 roadmap and feature-task adapter role and verify bounded
-  Beads operations via bd: read/list epics and tasks, create/update by confirmed
-  ID, manage parent and blocking links, claim, explicitly close, and separately
-  synchronize authorized records to a configured Dolt remote. Use for bounded
-  tracker operations, not for planning a feature or configuring Dolt remotes.
+  Serve the tasks v1 and optional feature-record/1 adapter roles and verify
+  bounded Beads operations via bd: read/list epics and tasks, create/update by
+  confirmed ID, manage links, claim, conditionally update feature evidence,
+  explicitly close, and separately publish authorized Dolt history. Use for
+  bounded tracker operations, not for planning a feature or configuring remotes.
 ---
 
 # Beads tasks adapter
@@ -73,6 +73,23 @@ edge. An unsupported version, operation, full-selection guarantee or required
 concurrency guarantee blocks the dependent write, regardless of the existence
 of another `bd` command. Claim, complete, reparent, content update and edge
 removal remain tool-specific unless covered by the original roadmap operations.
+
+## Optional feature-record capability
+
+Separately advertise `tasks.feature-record/1` with `tasks.features.read`,
+`tasks.features.update`, `tasks.features.record-verification`, and
+`tasks.features.complete` **only under the guarantees in**
+`references/feature-record.md`. Read that resource before any of these four
+operations **or** `tasks.items.create` when the caller supplies an initial
+feature-record block; it is not needed for ordinary roadmap, feature creation
+without that block, claim, or tool-specific task completion. These are not
+implicit `tasks` v1 operations.
+No `bd` 1.3.1 command provides a general CAS for description, acceptance
+evidence, membership, or closing. Update/verification/complete require an
+independently established exclusive writer window; report `conflict` before
+writing without one. A claim, lease, status guard, or read/write/read is not
+such a window. The caller owns acceptance and completeness decisions; this
+adapter checks and persists only the specifically authorized result.
 
 ## Inputs and boundary
 
