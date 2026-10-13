@@ -10,6 +10,7 @@
 - [Соглашение об адаптерах и контракт роли `tasks`](ris-tasks-adapter-contract.md).
 - [Выбор следующей фичи RIS](ris-select-next-feature.md).
 - [Композиция RIS и первый сквозной сценарий фичи](ris-feature-work-first-slice.md).
+- [Упрощение подготовки фичи RIS](feature-preparation-simplification.md) — согласованный целевой процесс `ris-bf4`; текущие скилы и нормативный контракт ещё требуют изменения.
 - [Целевая методика SDLC и план изменений](ris-sdlc-target-specification.md).
 - [Проверки capability planning и scoped impact](ris-capability-impact-checks.md) — свидетельства ris-mnr, не отдельная спецификация или реестр.
 - [Проверки интегрированной приёмки и завершения контейнера](ris-feature-verification-checks.md) — свидетельства ris-74c и пределы проверенных сценариев.
