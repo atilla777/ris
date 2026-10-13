@@ -67,9 +67,11 @@ on Open Knowledge Format bundles.
 - `skills/ris-worktrunk-adapter/` — the same bounded operations through explicitly
   selected Worktrunk, owning its configuration, JSON, hooks and tool side effects.
 - `skills/ris-implement-base/` — implement a bounded change or repair review
-  findings with tests and exact-tree evidence, independently of RIS.
-- `skills/ris-implement-task/` — own claim-aware project implementation and
-  repairs, composing the portable method and authorized documentation updates.
+  findings with meaningful tests, affected checks, optional TDD and exact-tree
+  evidence, independently of RIS.
+- `skills/ris-tdd-implement-task/` — own claim-aware project implementation and
+  repairs with mandatory TDD, composing the portable method and authorized
+  documentation updates.
 - `skills/ris-review-base/` — assess a concrete change read-only against
   requirements, design, architecture and evidence; report located findings.
 - `skills/ris-review/` — verify task inputs and save a versioned project review
@@ -218,12 +220,23 @@ published Git commits, semantic sections and immutable decision addresses;
 Git owns history. Historical digest payloads are diagnosed without automatic migration.
 The task wrappers need `ris-common`, `ris-context` and their corresponding
 portable method; task reads/claims require the selected adapter's actual
-operations and guarantees. `ris-implement-task` also applies
+operations and guarantees. `ris-tdd-implement-task` also applies
 `ris-update-documentation`, which needs `ris-okf` only for an actual selected
 OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
 implementation and review have no required RIS dependencies. These components
 are direct operations, not a universal task workflow engine.
+The implementation base defaults to `standard` unless the caller, request or
+project rules require `tdd`; tests and actual affected checks are required in both
+modes. The TDD wrapper always requires `tdd`, including observed RED before a
+behavior change and GREEN after. Its default local report is
+`workspace.tasks/<ID>/implementation.md`; explicit/project-prescribed addresses
+take priority and existing history is preserved. TDD details, complex publication
+snapshot handling and task-specific/current-copy checks live in owned
+`references/`, loaded only at their stated conditions. The public rename removes
+`ris-implement-task` without an alias: update callers and install the complete new
+folder with its resources, removing the old installed folder. The agreed change
+is recorded in [TDD task implementation](docs/specs/tdd-task-implementation/spec.md).
 `ris-prepare-task-worktree` needs `ris-common`, `ris-context`, the selected tasks
 adapter's actual read/claim capabilities and `ris-prepare-worktree-base`. The base
 loads only the selected `worktrees/1` adapter: an explicit choice wins, then an

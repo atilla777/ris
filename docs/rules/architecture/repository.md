@@ -16,7 +16,8 @@ type: Architecture
 | Принятые поставки | [docs/specs/](../../specs/README.md), обычный Markdown, не дополнительный OKF-корень. Будущие решения остаются в спецификациях до реализации. |
 | Очередь, статусы и связи | Beads/Dolt через выбранный `ris-beads-adapter`; Git-публикация не синхронизирует эти записи. |
 | Подготовка рабочей копии | `ris-prepare-worktree-base` владеет переносимой проверкой copy/environment; `ris-prepare-task-worktree` — task/actor/claim, project/shared roots, свежим context и совокупным handoff. Ограниченные `worktrees/1` list/read/create принадлежат `ris-git-worktree-adapter` и явно выбранному `ris-worktrunk-adapter`. |
-| Потребители копии | `ris-plan-task` и `ris-implement-task` проверяют переданную копию без создания worktree и без зависимости на preparation skills. Планирование не требует claim; реализация проверяет/получает разрешённый claim перед изменениями. |
+| Потребители копии | `ris-plan-task` и `ris-tdd-implement-task` проверяют пригодность переданной копии без создания worktree и без зависимости на preparation skills/адаптеры worktree. Планирование не требует claim; реализация проверяет/получает разрешённый claim перед изменениями. Конкретные команды и инструментальные особенности операций worktree принадлежат выбранному адаптеру. |
+| Реализация и TDD | `ris-implement-base` владеет обычной реализацией и опциональным TDD; TDD-цикл и сложный publication snapshot — условные `references/` базы. `ris-tdd-implement-task` требует TDD и владеет совокупным claim-aware code/tests/docs результатом; default отчёт `workspace.tasks/<ID>/implementation.md`. Протокол feature record остаётся у адаптера задач, применимость входов — у обёртки. |
 | Локальные рабочие данные | `.sdlc/tasks/<confirmed-ID>/` основной копии; отдельные рабочие деревья — `.sdlc/worktrees/<confirmed-ID>/`. Старые `tasks/PLAN-*` — игнорируемый исторический архив. |
 
 Эта карта описывает размещение уже существующих элементов репозитория,
@@ -25,6 +26,10 @@ type: Architecture
 [03](../../concepts/03-composition.md); конкретные рабочие контракты —
 их исходным `SKILL.md` и ресурсам. Перечень этапов SDLC не создаёт
 автоматического исполнителя очереди или второго хранилища состояний.
+
+Синхронизация имени и TDD-границ подготовлена вместе с исходниками редакции
+`ris-cbs` по [согласованному объёму](../../specs/tdd-task-implementation/spec.md).
+Она не является отдельным подтверждением Git-интеграции/удалённой публикации.
 
 Default ветка задачи — `task/<ID>`, путь — `workspace.worktrees/<ID>` после
 подтверждения ID и связи; явные/ранее подтверждённые значения имеют приоритет.
