@@ -13,6 +13,7 @@
 - [Композиция RIS и первый сквозной сценарий фичи](ris-feature-work-first-slice.md).
 - [Упрощение подготовки фичи RIS](feature-preparation-simplification.md) — принятый объём `ris-bf4`; [проверки реализации](feature-preparation-simplification-checks.md) фиксируют фактические результаты и пределы.
 - [TDD-реализация задачи](tdd-task-implementation/spec.md) — согласованный объём `ris-cbs`: опциональный TDD в базе, обязательный в проектной обёртке и условные ресурсы; [локальные проверки](tdd-task-implementation/delivery-checks.md) и их пределы.
+- [Комплексное выполнение одной задачи](task-execution/spec.md) — принятые требования `ris-execute-task`: выбор или продолжение готовой задачи, полный цикл с независимым ревью, публикацией и завершением; [решение принятия](task-execution/acceptance.md). Дизайн и реализация остаются отдельными этапами.
 - [Целевая методика SDLC и план изменений](ris-sdlc-target-specification.md).
 - [Проверки capability planning и scoped impact](ris-capability-impact-checks.md) — свидетельства ris-mnr, не отдельная спецификация или реестр.
 - [Проверки интегрированной приёмки и завершения контейнера](ris-feature-verification-checks.md) — свидетельства ris-74c и пределы проверенных сценариев.
