@@ -6,6 +6,7 @@
 - [Миграция контрактов OKF](okf-contract-migration/spec.md) и [дизайн](okf-contract-migration/design.md); [прежняя спецификация](ris-okf-skills.md) сохранена как история.
 - [Первый срез roadmap RIS](ris-roadmap-first-slice.md).
 - [Дерево решений для `ris-interview-base`](ris-interview-base.md).
+- [Рефакторинг скилов ревью](review-skills-refactoring.md) — самостоятельное ревью, условные snapshot-инструкции и порог обязательных исправлений; реализация запускается отдельно.
 - [Интервью о требованиях фичи для будущего `ris-interview-feature`](ris-interview-feature.md).
 - [Соглашение об адаптерах и контракт роли `tasks`](ris-tasks-adapter-contract.md).
 - [Выбор следующей фичи RIS](ris-select-next-feature.md).
