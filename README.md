@@ -72,10 +72,12 @@ on Open Knowledge Format bundles.
 - `skills/ris-tdd-implement-task/` — own claim-aware project implementation and
   repairs with mandatory TDD, composing the portable method and authorized
   documentation updates.
-- `skills/ris-review-base/` — assess a concrete change read-only against
-  requirements, design, architecture and evidence; report located findings.
-- `skills/ris-review/` — verify task inputs and save a versioned project review
-  report; self-review does not provide independent publication approval.
+- `skills/ris-review-base/` — assess a concrete change or WIP read-only against
+  applicable requirements, rules and evidence; report required high/medium fixes
+  and optional low recommendations, with focused re-review.
+- `skills/ris-review/` — verify task inputs and return a project review report,
+  saving its version/history when authorized; self-review does not provide
+  independent publication approval.
 - `skills/ris-update-documentation/` — synchronize affected authorized documents
   with inspected implementation and integration state; apply OKF only to actual
   selected bundles and preserve author-owned product material.
@@ -224,7 +226,17 @@ operations and guarantees. `ris-tdd-implement-task` also applies
 `ris-update-documentation`, which needs `ris-okf` only for an actual selected
 OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
-implementation and review have no required RIS dependencies. These components
+implementation and review have no required RIS dependencies. Review's owned
+`references/publication-snapshot.md` loads only for unrelated dirty paths,
+exclusions or ambiguous subject membership; an ordinary clean-commit review
+does not load it. Missing spec/design/baseline limits the affected conclusion
+without stopping available analysis. High/medium need resolution and affected
+reassessment; low alone requires no automatic repair, task or new round, and a
+collective disposition suffices. A pass still requires applicable evidence;
+publication checks the actual full approved snapshot and required independence.
+The project wrapper can return an unsaved report without write permission;
+authorized saves default to `workspace.tasks/<ID>/review.md`, preserving history.
+These components
 are direct operations, not a universal task workflow engine.
 The implementation base defaults to `standard` unless the caller, request or
 project rules require `tdd`; tests and actual affected checks are required in both

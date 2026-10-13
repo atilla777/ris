@@ -21,7 +21,9 @@ Direct invocation requires no execution role.
 Require confirmed task/change scope, current accepted design/contracts,
 implementation/docs evidence, exact checked/reviewed base and final tree,
 independent reviewer provenance, no unresolved high/medium findings, recorded low
-dispositions, integration and direct push authority. Read current project rules,
+dispositions (one collective decision suffices; low alone requires no repair,
+task creation or new review round), integration and direct push authority.
+Read current project rules,
 Git status, diff, recent history, worktree mapping, remotes and tracking. Establish
 the primary branch and selected remote from project evidence; do not assume the
 literal name `main`, configure remotes or grant direct-write permission yourself.

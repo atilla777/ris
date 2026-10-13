@@ -73,10 +73,14 @@ Unavailable required resources block dependent work, not independent inspection.
    Local reports/tracker/tooling are context, not automatically publication payload.
    Checks must exercise that snapshot; runtime-affecting contextual differences
    require reassessment. Inspect the final diff for unintended changes.
-5. For repair input, confirm each finding applies to the current tree. Link each
-   finding to its fix or reasoned dispute; preserve requirements and report
-   remaining findings. Recheck affected behavior. Repair is not fresh independent
-   approval and a previous report does not approve the changed tree.
+5. For repair input, confirm findings apply to the current tree. Required repair
+   covers high/medium: retain IDs and link them to fixes or reasoned disputes,
+   preserving requirements and reporting unresolved blockers. Low recommendations
+   are optional; do not repair them automatically or create tasks/another round
+   for them alone. A collective disposition suffices. Recheck fixes and related
+   regressions; changed inputs may expose new concrete blockers, not justify a
+   fresh style audit. Repair is not approval: reassess affected bytes, independently
+   when project/caller rules require it. No round limit approves unresolved blockers.
 
 Return `checked|partial|blocked` with mode, scope, input/design/contract versions,
 files and final snapshot identity, criterion-to-check results, TDD evidence when
