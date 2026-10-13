@@ -32,10 +32,23 @@ mutations. Do not create, switch, repair or reset a worktree, or load working-co
 preparation skills/adapters. Direct implementation in an already suitable current
 copy remains possible, with the same claim guard and preservation of existing work.
 
-Verify current accepted requirements/design scopes, decisions and contract
+Verify current accepted requirements/design references, separate decisions and contract
 versions against relevant inspected code and shared-contract integration; use
 the feature record's supported read capability when applicable. No feature record
-is required for standalone work. Pass these verified inputs and constraints to
+is required for standalone work. For a feature-linked task read the selected
+adapter's owned current `tasks.feature-record/1` contract: read requirements and
+design at full published Git revisions and their semantic sections (or whole
+files), then each immutable acceptance address and its actual separate decision.
+Match content path/section/resolved revision and authorized acceptor, including
+decision-only `containing-commit` resolution where applicable. Compare actual
+accepted content with the supplied current tree and relevant integrated contracts;
+same labels/refs alone do not prove applicability. Preserve unchanged accepted
+refs; material changes return to their owner instead of repinning acceptance.
+A null design, unreachable/unconfirmed published input or former
+scope/sha256/digest-verification/history payload blocks dependent implementation.
+Report historical input explicitly as `historical/unsupported` with inspected ID
+and unchanged payload; never reinterpret or migrate it on read/retry. No scope
+digest or tracker decision history is required. Pass these verified inputs and constraints to
 `ris-implement-base` and apply its implementation/repair method. The wrapper owns
 claim and project integration; do not repeat the portable algorithm here.
 

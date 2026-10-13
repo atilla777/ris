@@ -21,7 +21,8 @@ the feature method merely because the epic contains features.
 
 ## Identify scope and authority
 
-Require exact project/container ID and kind, completion permission, the accepted
+Require exact project/container ID and kind, separate permission to close this
+container (not inferred from child completion or permission to record evidence), the accepted
 mandatory outcomes/member set (including any one-task feature), applicable
 criteria/decisions, integrated revision evidence and allowed tracker fields.
 Do not infer the kind from a title or zero children: a feature is the confirmed
@@ -43,16 +44,29 @@ are useful completion facts, not feature acceptance or permission to close paren
 For features require `tasks` v1 reads of items/children/dependencies and the
 explicitly advertised `tasks.feature-record/1` operations `tasks.features.read`,
 `tasks.features.record-verification`, `tasks.features.complete` with their actual
-guarantees. Read its adapter-owned resource before use. Validate ID ↔ immutable
-slug ↔ spec/design and separate accepted scoped versions/decisions. A legacy or
-malformed record blocks dependent writes; do not fabricate a slug or migrate it
-as a completion shortcut. Another adapter may supply equivalent operations only
+guarantees before each needed write; assessment alone needs only reads. Read its
+adapter-owned resource before use. Validate ID ↔ immutable slug ↔ spec/design
+and exact accepted requirements/design reference objects: project-relative path,
+full published Git revision, whole-file or unambiguous semantic section and each
+result's own immutable Git acceptance address. Read both pinned content and
+separate decisions; match the named content/section/revision and authorized
+acceptor, resolving decision-only `containing-commit` per the adapter contract.
+Confirm remote publication, not merely local object existence. A null design
+blocks completion. Former scope/sha256/digest-verification/history payloads are
+`historical/unsupported` despite the same `/1` schema/markers: return their ID,
+unchanged payload and diagnostic, block dependent writes and preserve the data.
+Do not reinterpret, drop history or migrate on read/retry/completion. Malformed
+records also block dependent writes. Another adapter may supply equivalent operations only
 under an explicit compatible contract, never by assuming all v1 adapters can close.
 
 ## Verify the feature on the common revision
 
-Read accepted requirements/design from the published integrated Git tree, compare
-their scoped versions to the record and retrieve their approved decision evidence.
+Read the actual requirements/design at their accepted pinned revisions and at the
+published integrated Git tree. Compare applicable content with diff plus semantic
+section review and retrieve separate decision evidence. Same labels/references
+alone do not establish applicability; editorial or unrelated shared-file changes
+need not invalidate an unchanged accepted result. Material or uncertain changes
+block acceptance and return to the relevant owner without repinning old refs.
 Confirm the actual integration target and remote-backed revision; local push output
 alone is insufficient. Reassess target drift and evidence applicability. Supply
 these inputs, the complete AC set, architecture/contracts, linked source baselines,
@@ -63,8 +77,9 @@ and integration/architecture/docs outcomes all belong to that exact revision.
 On failure or unverified material evidence, leave the feature open. Return bounded
 correction/decision needs for authorization by its owner; do not create a repair
 task, change design or edit product inside completion. If separately authorized
-and safe, persist actual failed verification as failed, preserving previous
-evidence. A later repair requires completed mandatory work and verification on
+and safe, persist actual failed verification as failed, replacing only authorized
+current verification; Git-addressed reports retain prior evidence, not a tracker
+history field. A later repair requires completed mandatory work and verification on
 the new published integrated revision; do not retry closure using old success.
 
 ## Persist, read back, then close
@@ -79,16 +94,21 @@ state immediately before each operation; changed facts invalidate dependent appr
 
 Map the method's result to the adapter-owned verification representation, including
 all slug-qualified AC, actual outcomes/check addresses, full Git SHA, both accepted
-digests, integration/architecture/docs and limitations. Evidence and decisions must
+reference objects (including their separate acceptance addresses),
+integration/architecture/docs and limitations. Evidence and decisions must
 be accessible to another session, not depend solely on an ignored local report.
-Preserve prior verification/history and unrelated content through the adapter.
+Store the exact references as `verification.requirements` and
+`verification.design`, matching the feature record. Preserve the accepted refs,
+immutable identity and unrelated content; do not add digest fields or decision
+history. Replace only authorized current verification through the adapter.
 Call `record-verification` only with authorized fields and verify exact complete
 read-back before considering closure. Recording evidence does not close the task.
 
 Close only if full mandatory scope is completed, no active blockers remain, all
 criteria and required checks pass, evidence is usable/current and the exact ID is
 authorized for closure. Reconfirm the final published integrated revision and still
-accepted scopes; call `complete` separately, then reread status, close reason,
+accepted references and actual content applicability; call `complete` separately
+under the still-valid record/composition/blocker/evidence guarantee, then reread status, close reason,
 unchanged evidence/identity, membership and blockers. On ambiguous/nonzero results
 inspect actual persisted effects before deciding recovery; no blind retry or force.
 If already closed, verify existing evidence/scope and report unchanged status,

@@ -3,14 +3,16 @@ name: ris-design-feature
 description: >-
   Create or revise one RIS project's feature technical design from accepted
   requirements and current architecture, obtain independent design acceptance,
-  save the scoped version and verify its feature-record links. Use for project
-  feature design or focused redesign; not for choosing a feature, specifying its
-  behavior, decomposing tasks, implementation, or portable unsaved design alone.
+  save its version and verify feature-record links, or complete an explicitly
+  requested document-only design without a tracker ID. Use for project feature
+  design, focused redesign or bounded noninteractive save; not for choosing a
+  feature, specifying its behavior, decomposing tasks, implementation, or portable
+  unsaved design alone.
 ---
 
 # Accept and save a feature design in a RIS project
 
-Own the **combined project result**: sufficient accepted design, checked saved
+By default own the **combined project result**: sufficient accepted design, checked saved
 scope/version and matching feature-record evidence. `ris-design-feature-base`
 owns the portable read-only method; the selected adapter owns bounded tracker
 operations. The wrapper is necessary for project discovery, authority, versions,
@@ -18,28 +20,44 @@ persistence and impact coordination; it does not duplicate the base's design
 method. Direct invocation works in the current agent without an execution role
 or a surrounding scenario. Stop at this result, without starting another stage.
 
+An explicitly requested **document-only** mode owns a complete accepted, saved
+and checked design plus its separate decision evidence, before a feature task
+exists. It is not an implicit fallback for failed combined work. Interview,
+discussion and separate acceptance remain in the leading dialogue in a scenario.
+Bounded formulation/save may execute noninteractively in a subagent; require
+verified candidate address/revision, accepted requirements inputs, destination
+path/section, actual design acceptance decision and permitted writes for save.
+Check those inputs, do not reformulate accepted content. Return missing decisions
+to the caller without asking user questions, including through dependencies.
+Direct invocation needs no configured execution role or new per-step skill.
+
 ## Establish inputs and permitted effects
 
-Identify project, confirmed feature task ID and epic, permanent slug, create or
-revise intent, linked spec/design, and the authorized file/record/optional ADR
-changes. Ensure installed `ris-common` is available and apply its conditional
+Identify project, combined or explicitly requested document-only mode, selected
+feature/slug, create or revise intent, linked requirements/design and authorized
+file/evidence/record/optional ADR changes. Combined mode requires confirmed task
+ID and epic; document-only requires neither and never invents them. Ensure
+installed `ris-common` is available and apply its conditional
 dialogue/artifact/quality resources before their actions. Apply installed
 `ris-context` with its configuration resource for `sources.rules`, related
-`sources.product`, `sources.specs`, and `adapters.tasks.skill`; check root,
+`sources.product`, `sources.specs`, and only for tracker operations
+`adapters.tasks.skill`; check root,
 provenance, diagnostics and permission scope. Do not infer project from the
 skill's location or use defaults on invalid selected configuration.
 
-Load the selected available adapter and check `tasks` v1 reads for exact task,
-epic, all-status tasks, children and directed blockers; additionally require
+In combined mode load the selected available adapter and check `tasks` v1 reads
+for exact task, epic, all-status tasks, children and directed blockers; additionally require
 `tasks.feature-record/1` with `tasks.features.read` and, for a saved combined
 result, `tasks.features.update`. Check each operation's guarantees before any
 dependent write. Read exact ID/type/parent and its identity block: slug, spec
-path, requirements scope/digest and accessible acceptance address approving
-that scope/version. Check actual document bytes, not the presence of a file.
-Read prior design/history on revision and any existing verification; do not
-guess a legacy slug, overwrite malformed blocks or silently migrate old tasks.
-Legacy migration needs separate explicit authority, verified old links and the
-adapter's initial-update guarantees. Title edits preserve slug and spec path.
+path, requirements `{path, revision, section, acceptance: {address, decision:
+"accepted"}}` and its actual content/decision. Read prior design and current
+verification on revision; Git owns displaced decisions, not tracker history.
+Historical unsupported records block dependent writes and remain intact; do not
+guess a slug, overwrite malformed blocks or migrate in this operation. Title
+edits preserve slug/spec. Document-only reads the supplied accepted requirements
+and separate decision directly, including checked local pending-publication
+inputs when authorized; it does not load the adapter solely to obtain an ID.
 
 Select relevant product/rules/code/tests and related **active accepted** designs
 from links, contracts and current tracker evidence, not a complete product scan.
@@ -54,6 +72,14 @@ another feature. A closed feature needs separately authorized reopening or a
 new approved work scope; do not mutate it as open work.
 
 ## Compose design and focused decisions
+
+Read `references/acceptance-and-save.md` relative to this installed skill before
+selecting accepted content, acceptance or save. If unavailable block that part.
+For bounded save of a verified accepted candidate, skip formulation/interview
+and apply the persistence resource. For noninteractive formulation use supplied
+decisions; return the checked candidate proposal address/revision and unresolved
+alternatives to the leading dialogue. That proposal is not an accepted saved
+design; do not enter the interactive branches below in a subagent.
 
 Ensure installed `ris-design-feature-base` is available and **apply** its method
 to the checked requirements/AC, observed code, applicable architecture/contracts,
@@ -93,7 +119,7 @@ moving files mechanically. Do not add OKF indexes/frontmatter to ordinary specs.
 Read `references/acceptance-and-save.md` relative to this installed skill before
 choosing the exact scope, obtaining acceptance or writing either document or
 record. It owns the version/persistence protocol, including revisions and partial
-effects; if unavailable, block that part. Prepare independent scopes/digests,
+effects; if unavailable, block that part. Prepare independent content selectors,
 show the specific proposed design and impact to the project's acceptance authority,
 and obtain a recoverable decision approving exactly this design scope/version.
 Generic authorization, requirements approval, a commit or file presence does
@@ -104,17 +130,26 @@ checks; do not claim the combined result from a document write alone.
 ## Hand off and stop
 
 Return `ok|blocked|conflict|error`, project/config provenance, confirmed feature
-ID/epic/slug and spec/design paths, separate requirements and design scopes,
-SHA-256 digests and acceptance addresses/status, observed code/contracts versions,
+ID/epic only when confirmed, mode/slug and spec/design paths, separate requirements
+and design path/section/revision and acceptance addresses/status, verified
+candidate address/revision and pending immutable refs, observed code/contracts versions,
 AC/test seams, relevant source currency and impact decisions, ADR/review evidence
 where needed, independent work and unresolved blockers. Report actual saved
 effects and fresh file/adapter read evidence, preservation of prior decisions,
 write guarantees and limitations. Provide sufficient input for a recipient
 without this dialogue; do not rely on an ignored local note as remote evidence.
-Direct success concerns the checked **local** design/record result, not Git/Dolt
+Document-only `ok` establishes its complete accepted saved/read-back result, with
+local-only publication limits explicit. Combined `ok` requires both checked
+design and matching record with published input refs. Direct success concerns
+the checked design/record result, not Git/Dolt
 publication, decomposition or implementation readiness. If remote availability
 is required by the caller, report each channel separately and require actual
 independent remote checks under the caller's publication authority; one channel
 alone is partial. This skill does not commit/push, close/claim work, create child
 tasks or start implementation. Stop after the design result or precise partial
 handoff; the caller owns transitions and any separate publication.
+
+For a noninteractive component return a short handoff: status, scope/mode,
+verified result address and candidate revision or confirmed ID, decision/evidence
+address, limitations, actual effects and decision needed. The consumer reads
+full content by address; never substitute an unverified "done" for this result.

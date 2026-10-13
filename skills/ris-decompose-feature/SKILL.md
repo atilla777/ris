@@ -27,14 +27,19 @@ isolation. Do not initiate another lifecycle stage.
 ## Confirm inputs and scope
 
 Identify the selected RIS project and current copy, confirmed feature `task`
-ID and epic parent, exact specification address and version, accessible
-acceptance decision for that version, relevant technical/project constraints,
-prior task IDs and permitted read/write scope. Resolve ambiguous feature,
+ID and epic parent, published requirements/design references and their separate
+acceptance decisions, relevant technical/project constraints, prior task IDs
+and permitted read/write scope. Start from the ID through the selected adapter:
+retrieve linked published documents and decisions rather than requiring their
+addresses from the previous caller. No prior chat, local plan or ignored working
+note is a required input. Resolve ambiguous feature,
 project, primary-copy root or acceptance source before dependent action. A
 request to decompose does not accept an unapproved specification; a file,
 format check, cached summary or a task description alone does not prove
-acceptance. If the content or decision has changed since the linked task was
-created, stop for reconciliation rather than silently rewriting that task.
+acceptance. Establish the current project Git revision and intended integration
+target; assess actual content applicability there rather than requiring every
+accepted reference to point to the latest commit. Material changes or uncertain
+applicability need reconciliation, not a silent task rewrite.
 
 Apply installed `ris-common` and its conditional resources before dialogue,
 artifact work and completion checks. Use installed `ris-context` with its
@@ -72,14 +77,36 @@ including closed tasks, before deciding whether new work is needed.
 
 Require the selected adapter's optional `tasks.feature-record/1` capability
 with `tasks.features.read` in addition to the v1 reads. Read its owned record
-resource for the encoding/version checks. A legacy task without supported
-identity/evidence is blocked, not permission to infer a slug or migrate it.
-Confirm the permanent project-unique slug and spec association with complete
-all-status task reads. Independently read **both** requirements and design
-path/scope/SHA-256 and their accessible acceptance decisions; hash their actual
-scoped bytes under the declared protocol and match each decision's approved
-scope/version. Shared-file scopes must be unambiguous and nonoverlapping;
-requirements approval cannot accept design, and `design: null` blocks writes.
+resource for the one current payload's encoding/version checks. Former payloads
+with `scope`, `sha256`, digest verification or `history` are explicitly
+`historical/unsupported` even under the same `/1` marker/schema. Return the
+inspected ID, unchanged payload and diagnostic; block dependent writes, never
+reinterpret, remove or migrate it on read/retry. Unsupported or malformed input
+does not authorize guessing a slug or adding a replacement block.
+Confirm the permanent slug and spec association with complete all-status task
+reads; collisions are conflicts, not a global uniqueness guarantee.
+Independently read **both** accepted reference objects: project-relative `path`,
+full published Git `revision`, whole file (`section: null`) or unambiguous
+semantic `section`, and each result's own immutable Git `acceptance.address`
+with `decision: accepted`. Read actual content at each pinned revision and
+the separate decision at its pinned address. Match decision path, section,
+resolved revision and authorized acceptor; resolve decision-only
+`containing-commit` as specified by the adapter. Confirm both content and
+decisions are published in the selected Git remote. A commit/file or a branch
+URL alone is not acceptance. Shared-file selectors must yield independently
+identifiable, nonoverlapping accepted results; no byte ranges, heading/EOF
+protocol, scope digest or tracker decision history is required.
+`design: null` is missing accepted design and blocks dependent writes.
+
+Compare each accepted result's actual content with its semantic section at
+the current project revision (diff plus content review). Inspect relevant code,
+contracts and linked source changes for applicability of the accepted design
+and requirements to this decomposition. Changes elsewhere in a shared document
+do not invalidate unchanged requirements; matching paths/section labels or
+unchanged reference objects alone do not prove applicability. Record the checked
+revisions and comparison evidence. Material requirements changes return to the
+requirements owner; design gaps return to the design owner. Preserve unchanged
+accepted references and decisions, never repin them just to the latest commit.
 
 Compute readiness anew on every invocation; do not write a `ready` status.
 Check sufficient design/test seams, accessible applicable architectural
@@ -92,9 +119,11 @@ but readiness to execute a particular unit requires their integration first
 where needed. A necessary unresolved external prerequisite is a partial result,
 not silently completed work. Do not confuse parent membership with blockers.
 With any failed gate return supported coverage analysis and exact gaps with no
-dependent child/edge mutations; do not use an old design or fabricate acceptance.
+dependent child/edge mutations; do not use an inapplicable design or fabricate
+acceptance. Do not repeat the preparation interview without a discovered gap;
+ask only for the bounded missing decision and name its owner.
 
-On design revision, compare requirements and design scopes separately, inspect
+On design revision, compare requirements and design content separately, inspect
 impact on existing tasks, AC, seams and blockers, and preserve unchanged
 requirements acceptance. Changed task content cannot be silently updated by
 v1 create operations: return `conflict` and the specific reconciliation needed.
@@ -128,15 +157,19 @@ multiple units, require exact authorized scope only
 for missing child or `blocks` writes; a fully persisted set can be verified
 read-only. Agree approved task content and stable retry keys scoped to the
 confirmed feature; preserve spec reference, requirement coverage, observable
-criteria (`slug#AC-nnn`), both accepted scope/version references, technical
+criteria (`slug#AC-nnn`), both exact accepted reference objects and separate
+acceptance addresses, technical
 contracts/versions, test seams, exclusions and justified edge direction
 (blocked → blocker). Do not
 invent tracker IDs from titles, equate parent membership with a blocker, or
 turn a preferred order into a dependency.
 
 Before each mutation, compare current all-status children, candidate identities
-and blockers with expected state. Recheck both saved scopes/digests, decisions
-and applicable contracts; changes invalidate the earlier readiness check.
+and blockers with expected state. Recheck current accepted references, published
+decisions, content applicability and contracts when their inputs have changed;
+changes invalidate the dependent readiness evidence. Membership/blocker writes
+need the adapter's real guarantee over the affected composition and edges through
+read/write/verify; a claim, permission, sandbox or read-back is not a lock.
 Through the adapter, create only missing
 children with `tasks.items.create` under the confirmed open feature task;
 reuse only exact matches on key, type, parent, content and relevant links.
@@ -164,20 +197,21 @@ provides, stop instead of substituting a direct tracker operation.
 Fresh-read the feature and full child set, each task's actual content, status,
 parent and applicable links, and all required directed blockers. Recheck the
 saved requirements and design and their independent acceptance evidence for
-the same scopes/versions, and applicable contract currency; map
+the same references and content applicability, and applicable contract currency; map
 every accepted criterion to the verified feature or child tasks, and name where
 combined behavior will be checked. Confirm no contradictory extras or cyclic
 dependencies. A dependency on unconfirmed external work or a missing
 criterion prevents `ok`; mere presence of children or an adapter `ok` does
 not prove coverage. Report `ok|blocked|conflict|error` for **this combined
 result**, the project/config source, feature and epic IDs, spec address and
-version, permanent slug, both scopes/digests/acceptance addresses, contract
+version, checked current Git revision, permanent slug, both accepted reference
+objects/acceptance addresses, publication and applicability evidence, contract
 versions/test seams and computed readiness (including per-unit integration
 prerequisites), actual child IDs/keys and statuses,
 directed dependencies, requirement coverage, `changes` (including `[]`),
 read-back evidence, limitations and exact next needed substantive result.
 For partial outcomes use the reason's non-`ok` status and distinguish confirmed
-changes from unmade ones; include sufficient accessible references, scopes,
+changes from unmade ones; include sufficient published references, bounded scope,
 permissions and open questions for continuation without this chat. Do not
 plan technical steps, claim or close tasks, approve the specification, or
 launch implementation.

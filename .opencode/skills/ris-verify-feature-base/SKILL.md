@@ -18,16 +18,36 @@ publish or close anything. The caller owns persistence and completion.
 ## Establish the subject
 
 Require the bounded feature identity, complete current accepted criteria and
-exclusions, independently accepted requirements/design versions and their decision
-evidence, applicable contracts/rules, the concrete integrated revision and evidence
+exclusions, independently accepted requirements/design references and their separate
+decision addresses, applicable contracts/rules, the concrete integrated revision and evidence
 of its integration, related source baselines/current sources, and available checks.
 Use explicit paths/addresses; do not infer acceptance from file presence or a
 task's status. A minimal accepted design may simply preserve existing contracts.
 No new design file or criterion numbering scheme is required by this method.
+For Git inputs each accepted reference identifies its repository/project-relative
+path, full immutable published revision, whole file or an unambiguous semantic
+section, and its own immutable published acceptance address. Read that decision
+and confirm it names this accepted path/section/revision and an authorized
+acceptor. If its content revision is `containing-commit`, resolve it to the full
+decision commit only when the content is in that same commit. Requirements and
+design need separate identifiable decisions even if sharing a file/commit.
+Equivalent explicit immutable references are usable outside Git; no RIS payload,
+scope digest, heading/EOF byte protocol or tracker history is required. Former
+digest-only payloads presented as current references are historical/unsupported:
+report them unchanged and leave dependent acceptance unverified, never migrate
+or infer a missing current decision.
 
 Confirm the full immutable revision (e.g. Git commit SHA), actual code tree,
-branch/integration context and requirements/design bytes at that revision. Check
-the accepted scopes and versions against those bytes and decisions. If using a
+branch/integration context and requirements/design content at that revision.
+Read each result at its accepted revision, compare it with applicable content on
+the integrated tree using diff plus semantic section review, and check its
+separate decision. Identical paths/section labels or stored references alone do
+not establish content applicability. Unrelated changes elsewhere in a shared
+file do not invalidate an unchanged accepted result; material requirements or
+design changes require their owner's decision, not repinning the old acceptance.
+Confirm publication of Git content/decisions and integrated SHA from remote-backed
+evidence when assessing a published result. Preserve the exact accepted refs in
+the assessment. If using a
 checkout, confirm it represents that tree and contains no material dirty overlay.
 Evidence collected on another revision needs the applicability check below.
 Missing integration evidence, inaccessible decisions or contradictory versions
@@ -87,7 +107,8 @@ A fixed local branch alone does not establish a repaired integrated feature.
 ## Return and stop
 
 Return `status: pass|fail|unverified`, feature identity, full revision/tree and
-integration evidence, accepted scopes/versions/decisions, criterion coverage,
+integration evidence, exact accepted requirements/design references and separate
+decision addresses, content applicability/publication evidence, criterion coverage,
 integration/architecture/docs/source-currency outcomes, check addresses and reuse
 rationale, unresolved limitations and bounded recovery needs. `fail` means an
 observed criterion/required check fails; `unverified` means no observed failure

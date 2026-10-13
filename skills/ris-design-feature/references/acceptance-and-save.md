@@ -1,81 +1,116 @@
-# Scoped acceptance and persistence
+# Independent design acceptance and persistence
 
-Read before selecting a design scope, accepting or saving a project design.
-The wrapper owns sufficient design and decisions; the adapter owns its record
-encoding and conditional operations. Do not use a second feature registry.
+Read before selecting accepted design content, accepting or saving it. The
+wrapper owns design/applicability decisions; the adapter owns tracker encoding
+and protected writes. No second feature registry or per-step skill is needed.
 
-## Independent versions
+## Candidate and decision inputs
 
-Use the selected adapter's supported scoped-version contract. With
-`tasks.feature-record/1`, requirements and design each have `path`, `scope`,
-SHA-256 and acceptance (accessible address, approved scope/version, decision).
-Paths resolve from the target project root. A separate `design.md` can use
-`whole-file`; place its acceptance evidence outside hashed content. In shared
-`spec.md`, use `heading:<exact Markdown heading line>`: it must occur exactly
-once. Hash raw UTF-8 bytes starting at that heading line, including its newline,
-up to the byte before the next same-or-higher-level heading, or EOF. Nested
-headings remain part of the scope. No whitespace/newline normalization. The
-requirements/design scopes cannot overlap, and evidence containing the digest
-must live outside that scope (e.g. sibling acceptance heading or project decision
-store). Check old requirements bytes and acceptance before and after adding or
-revising design; an unchanged digest retains its decision.
+Use project-relative `path`, full published Git `revision` and `section: null`
+for a whole file or an unambiguous semantic section. Requirements/design may
+be separate sections or files, but cannot overlap ambiguously. Prefer separate
+design.md when adding design to whole-file accepted requirements; retain safe
+existing sections instead of moving them mechanically. No mandatory scoped
+hash, exact heading syntax, byte range or EOF boundary is required.
 
-If old requirements are `whole-file`, adding design there changes their accepted
-version: prefer separate `design.md`. Changing the requirements scope, ambiguous
-headings or overlapping areas is not a purely technical bookkeeping operation;
-use separate files or obtain acceptance of the affected scope/version. Never
-assert that the old decision approves different bytes. Existing project designs
-with safely hashable regions need not move into a new file for uniformity.
+For bounded noninteractive save require the verified candidate address/revision,
+destination path/section, separately accepted requirements and their decision,
+the actual design acceptance decision/acceptor provenance and permitted writes.
+The candidate may be a published Git version or an explicitly agreed local
+address/version. Read it and compare the approved selected content; optional
+local fingerprints detect changes but are not tracker refs or a mandatory
+hashing scheme. Missing decisions return to the caller; the executor must not
+ask the user, invent acceptance or change content while saving.
 
-Show the actual candidate content, scope/digest and material impact to the
-authorized acceptance mechanism. Record its real decision in the project's
-permitted accessible channel; no mandatory acceptance file/manifest is introduced.
-No missing decision is invented from a historical chat or future tracker ID.
-Check that the address resolves for another session and approves the same
-scope/digest. A simple design may explicitly confirm existing contracts and the
-minimal approach, but still needs its independent decision and verifiable scope.
+Show the specific design and material impact to the authorized acceptor in the
+leading dialogue, or verify the supplied separate decision for this candidate.
+Record its real decision in a permitted Git document/section, without imposing
+a mandatory decision file. It names content path, section (including null),
+revision, `decision: accepted` and attributable acceptor. Requirements approval
+does not approve design; each result has its own identifiable decision even in
+one file/commit. Unchanged content retains its checked acceptance on retry.
+
+Published references use `{path, revision, section, acceptance: {address,
+decision: "accepted"}}`. The immutable decision address pins repository, full
+decision commit, path and any unique decision section. Read actual content and
+decision at those revisions, check semantic selection, match path/section and
+resolved revision, and establish publication of both commits from fetched
+selected-remote evidence. Branch URLs, local notes and file/commit presence do
+not establish published acceptance. A decision may name content revision
+`containing-commit` only for content in that same commit; resolve it from the
+immutable decision address. Tracker revision always stores the actual full
+published commit. Never invent a future commit/address.
+Pin the commit recording that actual decision, not a later unchanged copy.
+Copying `containing-commit` into another commit does not renew acceptance;
+retain the original reference or name/link its original full revision.
+Preserve every separately accepted content/decision snapshot in Git history
+when multiple versions were accepted before publication.
+
+Local accepted content and decision evidence may be saved before publication,
+with immutable refs explicitly pending and a checked local candidate identity.
+Document-only can use verified local accepted requirements/decision inputs with
+these limits stated; combined tracker updates cannot use unpublished refs.
+
+## Preserve requirements and bound impact
+
+For design-only work preserve the entire old requirements reference, including
+acceptance address/revision. Compare actual applicable requirements at that
+revision with the candidate/saved design tree using path diff and semantic
+section review in both versions; changes elsewhere in a shared file do not
+automatically invalidate requirements. Same labels or path alone prove nothing.
+Record applicability evidence; material/uncertain behavioral changes return to
+the requirements owner, blocking dependent design acceptance/writes. Do not
+reaccept requirements, rewrite their ref to the latest commit or assert that
+design acceptance approves changed behavior. Authorized requirements changes
+need their separate decision and checked design applicability from their owner.
 
 ## Preflight, save, update, verify
 
-1. Before writing, check exact paths, permitted file protocol, current content
-   and separately authorized record update. Preflight the capability, expected
-   old block, preservation of unrelated prose/slug/spec/requirements/history,
-   and its concurrency guarantee. For Beads this is an independently established
-   exclusive writer window across all actors touching the feature, children,
-   blockers and evidence through read-back. Claim/lease/local lock/status guard
-   or read/write/read is insufficient. Obtain decisions outside the window;
-   establish/renew the actual short write window afterwards, naming provider,
-   scope and duration. Without it return `conflict` before dependent writes.
-   A separately authorized document-only proposal is a narrower result, not
-   the combined accepted-record result. Check required blocker operations and
-   agreement before promising their effects; never bypass an unsupported scope.
-2. Reread expected files and record/children/blockers immediately before writing;
-   unexpected changes stop the write. Save only accepted content/evidence under
-   the prescribed file protocol, preserving requirements and unrelated sections.
-   No unaccepted draft is placed at the accepted path. Read bytes back, compute
-   scoped hashes and resolve links/decision evidence against accepted versions.
-3. Invoke `tasks.features.update` with confirmed ID, expected prior record and
-   exact new design path/scope/digest/acceptance. Preserve immutable slug/spec,
-   requirements decision and unrelated fields/text. Append displaced design and
-   its acceptance to history. On substantive design revision, prior verification
-   is no longer proof of this version: preserve it in history and invalidate the
-   current verification under the approved update rather than silently reusing
-   its verdict. Do not call record-verification or complete here. If agreed
-   blocker writes are part of the permitted design result, execute through the
-   supported adapter, check endpoints/direction/cycles and reread them; proposed
-   but unsaved blockers remain explicit handoff limitations.
-4. Read the full feature-record back with exact task/epic/slug/spec, both scopes,
-   versions, decision addresses, history, preserved prose and changed blockers.
-   Rehash saved files, verify the design decision and unchanged requirements
-   evidence; match everything to the intended effect before `ok`. For an exact
-   repeated invocation verify matching design bytes/decision/record and return
-   unchanged, not a new acceptance or duplicate history entry.
+1. Check exact file/evidence paths, rights, format and current state under the
+   project writer protocol. Apply an installed appropriate OKF operation only
+   for an actual selected OKF bundle, not ordinary Markdown. Preserve unrelated
+   content, requirements and decisions. An unexpected file change or missing
+   required file protection means conflict before the dependent write.
+2. In combined mode preflight exact task/epic/identity, expected old block,
+   allowed fields and `tasks.features.update` guarantees. Existing-record writes
+   require a real independently established exclusive/quiescent window over
+   the affected record and relevant composition/blockers/evidence through
+   read/write/verify; name provider, scope and duration. Claim, sandbox, local
+   lock, status guard, user permission and read/write/read are not protection
+   against remote writers. Obtain acceptance outside the short window. Missing
+   protection blocks record writes; authorized independent file saving may
+   proceed, but combined completion remains blocked/partial.
+3. Reread expected files immediately before saving. Save only accepted content
+   and actual decision evidence, no unaccepted intermediate draft. Read back,
+   compare selected content with the accepted candidate, check substantive
+   coverage, format/links and preserved requirements. Document-only is now a
+   complete checked local result without tracker ID, epic or adapter; return
+   checked addresses/revisions/decision and pending immutable refs. Do not infer
+   workspace.tasks/<ID> before confirmation or require a draft directory.
+4. Before combined update require published design and decision refs and
+   applicable accepted published requirements. Local-only direct calls return
+   saved partial effects with exact publication/re-entry prerequisites; the
+   authorized caller owns Git publication. With published inputs and rights a
+   direct call completes the design+record result. Reread record and relevant
+   children/blockers inside the established window; unexpected change conflicts.
+   Invoke the adapter with expected prior state and exact new design reference;
+   preserve slug/spec, complete requirements reference and unrelated prose/fields.
+   Changed result refs invalidate verification to null, without tracker history.
+   Do not record verification or complete here. Specifically authorized blocker
+   changes require supported adapter scope, checked endpoints/direction/cycles
+   and read-back; otherwise return proposals/limitations.
+5. Check full adapter read-back: actual ID/epic/slug/spec, exact refs and separate
+   decisions, verification invalidation, preserved prose and permitted edges.
+   Match actual saved/published content and unchanged applicable requirements.
+   An exact repeated invocation returns unchanged after checks, without a new
+   acceptance or redundant update. Historical unsupported payloads remain intact
+   and block dependent operations; no migration/alternate API is introduced.
 
-If file or tracker writing is nonzero/ambiguous or partial, reread actual state
-before any retry. Return confirmed paths/IDs/versions and effects with
-`blocked|conflict|error`; stop further writes rather than rollback, blind retry,
-or claim consistency from a command's exit code. A saved new design with an old
-record is partial, not ready. A later recipient reconciles that state under
-fresh authority and guarantees. Git and tracker remote availability remain
-separate checks owned by the calling publication workflow; local read-back is
-not evidence of either remote channel.
+On ambiguous, nonzero or partial file/tracker effects, inspect actual state
+before any retry and return confirmed paths/IDs/revisions, decisions, effects,
+limitations and exact recovery. A saved new design with old record is partial
+in combined mode. Recover by checking/publishing accepted content and decision,
+resolving immutable refs, then reconciling the protected adapter update; do not
+rollback, blind-retry or repeat unchanged acceptance. Git and tracker remote
+publication are separate facts owned by the authorized caller; local read-back
+or one successful channel alone cannot establish full remote success.

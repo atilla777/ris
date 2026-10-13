@@ -38,8 +38,8 @@ establish absence. `bd`'s status values are tracker data, not RIS result codes.
 Guarantees by operation: list/read/list-blocks provide complete inspected
 results or an explicit failure; create is best-effort and cannot promise unique
 external references under concurrency without an exclusive writer window;
-update of noncommutative content needs an established exclusive writer window
-unless the caller separately accepts the specific lost-update risk; blocks.add
+update of noncommutative content needs an established exclusive writer window;
+blocks.add
 checks endpoints, direction and cycles and verifies the resulting edge;
 blocks.remove requires the exact selected edge, authorized scope, and an
 exclusive writer window against a concurrent replacement before removal.
@@ -116,6 +116,13 @@ needs explicit authorization even if the CLI accepts it.
 - `bd show <id> --json` returns an array; require exactly one matching ID.
   It includes `status`, `issue_type`, `parent` when present, dependencies and
   sometimes `revision`. A revision in output is **not** a supported CAS flag.
+- `bd create --json` returns an object with `id` in the checked version;
+  `bd update --json` returns an array. Validate the actual response rather than
+  applying one assumed shape to every command. `show`/`dep list` edges may use
+  related-record `id` plus `dependency_type`; all-state `list` edges may use
+  `issue_id`, `depends_on_id`, `type`. Normalize using the queried endpoint and
+  explicit direction. Do not confuse these with native Dolt table columns
+  or silently treat an unknown edge shape as an empty set.
 - `bd list --all --limit 0 --type epic --json` and likewise `--type task`
   provide untruncated sets including closed records. `bd list` defaults to
   50 and excludes closed; `--status all` is not its all-status flag. Apply
@@ -143,7 +150,9 @@ never blindly recreate, reparent, remove an edge, or close.
 ## Mutations (one bounded action at a time)
 
 - **Create:** search all relevant records (including closed) for the caller's
-  stable identity and compare content/parent; an exact confirmed prior creation
+  stable identity and compare content/parent; for a feature also search slug
+  and spec association across all project tasks, using the feature-record
+  resource when supplied. An exact confirmed prior creation
   returns the existing ID, ambiguous matches are a `conflict`. An authorized
   creation defaults to best-effort without a separate concurrency-risk question:
   `bd` does not enforce unique external references, so concurrent creators can
@@ -155,7 +164,10 @@ never blindly recreate, reparent, remove an edge, or close.
   with only supplied fields (optional `--external-ref` or `--spec-id` for
   identity; neither is a uniqueness constraint). Prefer `--parent <id>` for
   a child only after checking the parent. Extract the returned ID, `show` it
-  and verify content and parent. On uncertain creation, re-list all records
+  and verify content and parent, then repeat the full all-state identity search
+  (including feature key/slug/spec) to detect concurrent collisions. Return
+  `conflict` with persisted IDs for a duplicate; never silently pick one.
+  On uncertain creation, re-list all records
   and reconcile the stable identity before another attempt. With no reliable
   identity evidence, do not retry an ambiguous create: `conflict`. For common
   `tasks.items.create`, require a confirmed open epic as parent of a feature
@@ -197,9 +209,9 @@ never blindly recreate, reparent, remove an edge, or close.
   `--if-revision` in 1.3.1. For noncommutative content or reparenting requiring
   no lost update, require a separately established exclusive writer/quiescent
   window covering read/write/verify, otherwise return `conflict` before writing.
-  Never claim this guarantee from read/write/read alone. If a limited best-effort
-  update is expressly acceptable, label its concurrency limitation in the
-  result. Avoid multi-ID updates: they can partially succeed.
+  Never claim this guarantee from read/write/read or user permission alone;
+  no lost-update override replaces a real window. Preserve unrelated prose
+  and fields. Avoid multi-ID updates: they can partially succeed.
 - **Composition:** `bd create --parent <parent-id>` or `bd update <child-id>
   --parent <parent-id>`; inspect the existing parent and child, check proposed
   ancestry for a cycle; refuse a closed parent or a child whose state makes
@@ -248,42 +260,17 @@ never blindly recreate, reparent, remove an edge, or close.
 
 ## Separately requested Dolt publication (outside tasks v1)
 
-When a caller's authorized result requires **remote** tracker availability,
-offer a bounded `dolt.publish` operation, not a `tasks` v1 capability or an
-implicit side effect of create. `bd dolt push` sends the database's outgoing
-history, not a caller-selected subset of issue IDs. **Before dependent writes**
-check the selected Beads project, `bd` version, configured Dolt remote/address
-and publication permission. Inspect the existing outgoing history and compare
-complete remote-backed and local issue/edge state across all statuses; new
-feature/child IDs need not exist yet. **After creation and immediately before
-push**, reread the now-confirmed exact feature/child IDs, content, spec and
-decision references and typed edges, then compare outgoing history and complete
-remote/local state again. For task/edge mutations in a publication-gated
-scenario, use `bd --sandbox` to suppress automatic Dolt push; verify that this
-flag is supported and that project hooks or other routes cannot auto-publish
-the changes. If isolation cannot be established, block dependent writes rather
-than promising a later gate. If unrelated outgoing changes cannot be excluded
-or separately authorized, stop rather than publish them. A Git remote name
-alone does not prove a Dolt remote exists; do
-not adopt or configure one, use `--yes`, `--force`, or substitute Git push. If
-the remote or publish authority is absent, return `blocked` before the caller's
-dependent writes when publication is
-required for its result.
-
-Use `bd dolt push --remote <confirmed-name>` only for the authorized project;
-on refusal or ambiguous output inspect local and remote state before a retry,
-never force away concurrent remote changes. A remote rejection is `conflict`
-if histories diverge; reconcile through an authorized pull and verify exact
-IDs, links and spec/decision references before deciding whether a new push is
-safe. After a successful push, confirm remote-backed visibility from an
-independent copy that fetches the **selected remote** and compare the exact
-IDs, content and edges; local reads, even after a pull in the same working
-copy, are insufficient by themselves. Command success alone is not proof
-that the expected records were published. If remote verification is unavailable,
-report `blocked` with the push effect and no `ok`. Distinguish a no-op already
-published state from newly pushed records. This operation does not commit or
-publish the Git specification, create issues, change task status or close a
-parent; return the remote, evidence and persisted partial state to the caller.
+Read `references/dolt-publication.md` before `dolt.publish` or preflight of a
+remote-gated write. This separate adapter operation checks the configured remote,
+permission for the **entire outgoing history**, every intermediate commit's
+actual changes (not just a net diff), and independent selected-remote read-back.
+Use supported CLI forms first; missing coverage or unknown changes block it.
+It is not `tasks` v1 and is never implicit in create/update. Remote-gated
+mutations use `bd --sandbox` after checking auto-publication routes; this
+suppresses auto-push, not concurrent writers or selective publication.
+Do not adopt/configure remotes, force divergence away, commit/publish Git, close
+tasks or dump database internals to the caller. Return a compact verified
+revision/IDs/evidence/limitations result; Git and Dolt effects remain separate.
 
 ## Result and stop
 

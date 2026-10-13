@@ -111,9 +111,10 @@ on Open Knowledge Format bundles.
   requirements using project evidence and `ris-interview-base`; return a
   status-aware handoff without writing a specification or task.
 - `skills/ris-prepare-feature-work/` — coordinate one project feature from a
-  verified roadmap choice through independently accepted, published requirements
-  and design to remotely verified tracker tasks in a single dialogue, using two real
-  subagent roles. Direct component calls retain their narrower results.
+  roadmap choice through separately accepted, reviewed and published requirements
+  and design to a remotely verified feature ID. Noninteractive component operations
+  run in subagents; human decisions stay in one leading dialogue. Decomposition
+  starts separately from that published ID and inputs.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -184,32 +185,37 @@ after installed source materials change or disappear.
 `ris-interview-feature` needs `ris-common`, `ris-context` and
 `ris-interview-base` installed with their resources.
 `ris-specify-feature` needs `ris-common`, `ris-context`,
-`ris-formulate-spec-base`, the selected task adapter and, when substantive
+`ris-formulate-spec-base`, the selected task adapter for tracker effects and, when substantive
 answers are missing, `ris-interview-feature`; OKF-specific operations are
 needed only for an OKF document. Its stable identity requires the adapter's
-`tasks.feature-record/1` read/initial-create support and an independently
-confirmed exclusive window over project feature creators; unavailable guarantees
-block the combined write. A feature task with accepted requirements and no
-design is not ready for decomposition or implementation.
+`tasks.feature-record/1` read/initial-create support and published document/decision
+references. Ordinary creation uses best-effort all-state collision detection;
+strict uniqueness needs a real guarantee only when explicitly required. An
+explicit document-only result can precede an ID. A feature task with accepted
+requirements and no design is not ready for decomposition or implementation.
 `ris-design-feature-base` has no required RIS dependencies.
 `ris-design-feature` needs `ris-common`, `ris-context`, `ris-design-feature-base`
-and a selected adapter supporting `tasks.feature-record/1` read/update with
+and, for tracker effects, a selected adapter supporting `tasks.feature-record/1` read/update with
 the required conditional-write guarantee; `ris-interview-base` is loaded only
 for unresolved interdependent technical decisions. Direct invocation checks
 the local document/record result and does not publish Git or Dolt.
 `ris-decompose-feature` needs `ris-common`, `ris-context`,
 `ris-decompose-spec-base` and a selected compatible task adapter with
-`tasks.feature-record/1` read support. It checks both scoped versions and
+`tasks.feature-record/1` read support. It starts from a confirmed ID and published
+inputs without earlier chat/local notes. It checks both Git versions and
 decisions, applicable contracts, source currency and blockers before child
 writes; a feature task without accepted design remains blocked.
 `ris-prepare-feature-work` needs `ris-common`, `ris-context`,
-`ris-select-next-feature`, `ris-specify-feature`, `ris-design-feature`,
-`ris-decompose-feature`, a selected compatible task adapter with conditional
-feature-record update support and separately verified remote publication,
-and `ris-plan-epic` only if the epic's boundary needs refinement; its two
-subagent roles must actually launch. A successful full scenario also requires
-authorized publication of both accepted scopes and their decision evidence in
-the project's Git remote, independently checked against the remote feature record.
+the available selection, interview, formulation and document-only save components,
+and a selected adapter with feature-record create/read and separately verified
+remote publication. `ris-plan-epic` applies only to an unclear epic boundary.
+Configured `feature-selection` and `feature-preparation` executors must actually
+launch; every standalone noninteractive operation, including independent review,
+runs in a subagent. Git publication of both accepted results and separate decisions
+precedes adapter creation; independent tracker publication completes the ID handoff.
+Decomposition is a separate operation. Current feature-record refs use full
+published Git commits, semantic sections and immutable decision addresses;
+Git owns history. Historical digest payloads are diagnosed without automatic migration.
 The task wrappers need `ris-common`, `ris-context` and their corresponding
 portable method; task reads/claims require the selected adapter's actual
 operations and guarantees. `ris-implement-task` also applies
@@ -241,7 +247,7 @@ The portable verification method has no required RIS dependencies. Direct
 completion does not integrate Git, create repair tasks or close ancestors.
 This repository installs thirty-eight source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
-The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
+The root `ris.yaml` maps `feature-selection`, `feature-preparation` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
 verify that the agent actually launches and check its result; direct calls to
 the component skills do not require an execution role.
@@ -257,8 +263,8 @@ feature's requirements in the current project and return a read-only handoff;
 without arguments it asks which feature to discuss. The project command
 `.opencode/command/ris-prepare-feature-work.md` exposes
 `/ris-prepare-feature-work [epic ID or context]` to prepare and publish one
-feature from roadmap choice through an accepted specification to remotely
-verified tasks; without
+feature from roadmap choice through accepted, reviewed and published requirements/
+design to a remotely verified feature ID; decomposition starts separately. Without
 arguments it establishes the epic scope with the user as needed. Restart
 OpenCode after changing skill or command files so a running session picks them
 up.

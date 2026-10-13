@@ -13,5 +13,7 @@ execution:
   roles:
     feature-selection:
       agent: general
+    feature-preparation:
+      agent: general
     task-decomposition:
       agent: general
