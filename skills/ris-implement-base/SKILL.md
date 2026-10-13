@@ -47,10 +47,14 @@ identity, claim, documentation integration, independent approval and publication
    Failed or unavailable mandatory checks remain failures/unverified. After an edit assess
    which evidence is invalidated and rerun affected checks, not every expensive
    suite automatically. Inspect final diff for unintended changes.
-5. For repair input, confirm each finding applies to the current tree. Link each
-   finding to its fix or reasoned dispute; preserve requirements and report
-   remaining findings. Recheck affected behavior. Repair is not fresh independent
-   approval and a previous report does not approve the changed tree.
+5. For repair input, confirm findings apply to the current tree. Required repair
+   covers high/medium: retain IDs and link them to fixes or reasoned disputes,
+   preserving requirements and reporting unresolved blockers. Low recommendations
+   are optional; do not repair them automatically or create tasks/another round
+   for them alone. A collective disposition suffices. Recheck fixes and related
+   regressions; changed inputs may expose new concrete blockers, not justify a
+   fresh style audit. Repair is not approval: reassess affected bytes, independently
+   when project/caller rules require it. No round limit approves unresolved blockers.
 
 Return `checked|partial|blocked` with scope, input/design/contract versions, files
 and final tree identity, criterion-to-check results, repair mapping if applicable,
