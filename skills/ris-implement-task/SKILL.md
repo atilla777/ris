@@ -4,7 +4,7 @@ description: >-
   Implement or fix review findings for one claimed RIS task using accepted
   design/contracts, tests and authorized documentation updates. Use for project
   task execution; not task selection, feature redesign, independent approval,
-  Git publication or tracker completion.
+  worktree preparation, Git publication or tracker completion.
 ---
 
 # Implement one claimed project task
@@ -23,9 +23,14 @@ supported claim operation: `tasks` v1 alone does not promise it. Confirm own
 claim or atomically claim an authorized open/unblocked task before file changes;
 verify ownership/state/blockers after. Do not overwrite another actor's live claim.
 Recheck ownership on resumption and before new mutation batches; stop on loss or
-new blockers, preserving partial work. If a separate worktree is needed, prepare
-it only with authorization and verified ID/branch/path mapping, preserving existing
-work; reprepare context and require explicit primary root for shared notes.
+new blockers, preserving partial work. Verify the supplied current copy's
+repository/project relationship, actual HEAD/state and task/branch/path association
+when it is a task-specific copy; do not infer ownership from a branch name alone.
+Reprepare context after copy changes and require an explicit primary root for
+shared notes/tracker access. Missing/conflicting copy inputs block dependent
+mutations. Do not create, switch, repair or reset a worktree, or load working-copy
+preparation skills/adapters. Direct implementation in an already suitable current
+copy remains possible, with the same claim guard and preservation of existing work.
 
 Verify current accepted requirements/design scopes, decisions and contract
 versions against relevant inspected code and shared-contract integration; use

@@ -54,8 +54,18 @@ on Open Knowledge Format bundles.
   selected task from requirements, inspected code and constraints; return
   approach, ordered steps and acceptance-check coverage without project writes.
 - `skills/ris-plan-task/` — verify one tracker task and its accepted technical
-  inputs, save its local plan, and optionally prepare an authorized worktree
-  after confirming claim ownership.
+  inputs and supplied current copy, then save its local plan without requiring
+  a claim or preparing a worktree.
+- `skills/ris-prepare-worktree-base/` — autonomously prepare or safely reuse a
+  confirmed working copy, with a selected `worktrees/1` adapter and optional
+  authorized environment setup; no RIS configuration or tracker is required.
+- `skills/ris-prepare-task-worktree/` — apply that method to one exact RIS task
+  with checked claim, project/shared roots and a self-contained copy/environment
+  handoff; optional local witness writing needs separate permission.
+- `skills/ris-git-worktree-adapter/` — bounded `worktrees/1` list/read/create
+  operations through ordinary Git, verified against exact path/branch/commit.
+- `skills/ris-worktrunk-adapter/` — the same bounded operations through explicitly
+  selected Worktrunk, owning its configuration, JSON, hooks and tool side effects.
 - `skills/ris-implement-base/` — implement a bounded change or repair review
   findings with tests and exact-tree evidence, independently of RIS.
 - `skills/ris-implement-task/` — own claim-aware project implementation and
@@ -208,6 +218,20 @@ OKF bundle. `ris-publish-main` needs independent review evidence rather than
 assuming a configured reviewer or launching a next operation. Portable
 implementation and review have no required RIS dependencies. These components
 are direct operations, not a universal task workflow engine.
+`ris-prepare-task-worktree` needs `ris-common`, `ris-context`, the selected tasks
+adapter's actual read/claim capabilities and `ris-prepare-worktree-base`. The base
+loads only the selected `worktrees/1` adapter: an explicit choice wins, then an
+unambiguous project rule, otherwise Git. Worktrunk's installed presence does not
+select it; its reference version is wt 0.68.0, with other versions requiring
+capability checks. Defaults are `task/<ID>` and `workspace.worktrees/<ID>` after
+confirming the exact task and association. Shared tracker storage and task notes
+stay in the explicitly supplied primary copy; worktrees do not isolate them.
+Optional `workspace.tasks/<ID>/worktree.md` preserves history and needs write
+permission. Copy and environment readiness are separate. Planning and implementation
+consume the supplied copy without loading preparation skills or creating it;
+implementation still checks/obtains its own authorized claim. The
+[accepted design](docs/specs/task-worktree-preparation/design.md) explains the
+four owners; this delivery adds no command or automatic lifecycle transition.
 `ris-complete-container` needs `ris-common`, `ris-context` and a compatible selected
 adapter with complete scope reads and safe result/closure operations. Its feature
 branch applies `ris-verify-feature-base` and requires `tasks.feature-record/1`;
@@ -215,7 +239,7 @@ its epic branch uses the epic's own outcome and composition criteria. A claim is
 not a concurrency guarantee, and closed children do not establish acceptance.
 The portable verification method has no required RIS dependencies. Direct
 completion does not integrate Git, create repair tasks or close ancestors.
-This repository installs thirty-four source skills in `.opencode/skills/` for its
+This repository installs thirty-eight source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
