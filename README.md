@@ -75,6 +75,9 @@ on Open Knowledge Format bundles.
 - `skills/ris-review-base/` — assess a concrete change or WIP read-only against
   applicable requirements, rules and evidence; report required high/medium fixes
   and optional low recommendations, with focused re-review.
+- `skills/ris-retrospect-session-base/` — analyze one supplied session history
+  and proven participant branches; return a read-only evidence-based retrospective
+  with causes, costs and minimal improvements, independently of RIS.
 - `skills/ris-review/` — verify task inputs and return a project review report,
   saving its version/history when authorized; self-review does not provide
   independent publication approval.
@@ -270,7 +273,13 @@ its epic branch uses the epic's own outcome and composition criteria. A claim is
 not a concurrency guarantee, and closed children do not establish acceptance.
 The portable verification method has no required RIS dependencies. Direct
 completion does not integrate Git, create repair tasks or close ancestors.
-This repository installs thirty-eight source skills in `.opencode/skills/` for its
+`ris-retrospect-session-base` has no required dependencies. It accepts addressable
+history in the supplied representation, including outside RIS, and reads its own
+analysis/report resources plus metrics only when relevant. It returns a report;
+source-specific collection, RIS integration and report saving are separate work.
+The accepted [session-retrospective design](docs/specs/session-retrospective/design.md)
+also describes a future wrapper and reader; this base delivery does not supply them.
+This repository installs thirty-nine source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The root `ris.yaml` maps `feature-selection`, `feature-preparation` and `task-decomposition` to the
 available OpenCode `general` subagent. A caller of these roles must still
