@@ -101,8 +101,8 @@ AC-001–016 приёмка на итоговой ревизии ещё треб
 
 Интегрированная `ris-retrospect-session-base` принимает предоставленную историю
 вне RIS и возвращает read-only отчёт. Кандидат T3 `ris-01r.2.3` проектной
-`ris-retrospect-session` подготовлен на опубликованном T2, **до интеграции,
-с фактической поправкой для повторного ревью**: stdlib reader, exact identity, targeted evidence и применение
+`ris-retrospect-session` на опубликованном T2 **локально интегрирован в task copy,
+ожидает итоговой независимой переоценки и публикации**: stdlib reader, exact identity, targeted evidence и применение
 базы дополнены условными wrapper-ресурсами Langfuse/delegation/save-report.
 Типичный путь остаётся local/sequential/response-only. Редкие ветки требуют
 bounded авторизованного источника, реального безопасного исполнителя либо точного
@@ -119,8 +119,10 @@ merge/report/save. Сохранение new/append/conflict, full leader validat
 correspondence, повторяемость и отдельные final-skill CLI cases не проверены.
 Общий поведенческий бюджет превышен (не менее15m24s при15min), не объявлен pass;
 последний запрос пользователя исключает дальнейшие agent tests, поведенческие
-оценки, harness/code tests. Фактическая поправка по review v1 ожидает отдельного
-повторного ревью. Прежние evidence применимы только к неизменным механизмам;
+оценки, harness/code tests. Task copy объединяет текущие capability updates и
+remote rules; primary fast-forward отклонён из-за чужой dirty rules правки,
+push не выполнен. Итоговое полное дерево ожидает независимой переоценки.
+Прежние evidence применимы только к неизменным механизмам;
 универсальная runtime safety и совокупная приёмка по
 [дизайну](../specs/session-retrospective/design.md) не установлены.
 Этот ограниченный кандидат не означает приёмки всей фичи или SDLC MVP и не

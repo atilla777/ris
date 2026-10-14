@@ -81,8 +81,8 @@ on Open Knowledge Format bundles.
 - `skills/ris-retrospect-session/` — compose that method with local OpenCode
   acquisition and targeted RIS project evidence; return a checked report. The T3
   candidate adds conditional telemetry, bounded delegation and explicitly
-  authorized report saving; verification is partial and focused independent
-  reassessment of the factual documentation repair remains.
+  authorized report saving; the candidate is integrated locally in the task copy,
+  with partial verification, pending final independent reassessment and publication.
 - `skills/ris-review/` — verify task inputs and return a project review report,
   saving its version/history when authorized; self-review does not provide
   independent publication approval.
@@ -330,7 +330,7 @@ OpenCode 1.18.33 in the disposable T3 store: repeated list/large-root/branch rea
 preserved protected content/schema and classified permitted service effects.
 This establishes neither real-store/other-project fitness nor automatic recognition
 of invalid fitness; negative checks withheld caller permission. Supplied-export
-analysis remains usable. The pre-integration T3
+analysis remains usable. The locally integrated T3
 candidate adds installed-relative `references/langfuse.md`, `delegation.md` and
 `save-report.md`, loaded only for their authorized branches. Langfuse requires a
 specific gap and source, installed `langfuse` and discovered deployment-compatible
@@ -359,8 +359,10 @@ reader execution never imports history, serves, replays commands, writes exports
 caches, project files or tracker/telemetry state. Package installation and isolated
 test-owner fixture provisioning are separate operations. Prior T1/T2 evidence
 applies only to unchanged mechanisms and identified inputs, not the new T3 bytes.
-Independent review v1 requested a factual documentation correction; this repaired
-T3 candidate awaits focused rereview and integration. Its bounded observations
+The repaired T3 candidate is integrated locally in the task copy with current
+capability updates and remote rules, awaiting final independent full-tree
+reassessment and publication. Primary fast-forward was refused because of its
+foreign dirty rules file; no push has occurred. Its bounded observations
 do not establish universal runtime safety or full-feature acceptance.
 This repository installs forty-one RIS source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
