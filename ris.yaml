@@ -17,3 +17,9 @@ execution:
       agent: general
     task-decomposition:
       agent: general
+    task-execution:
+      agent: general
+    task-implementation:
+      agent: general
+    task-review:
+      agent: general
