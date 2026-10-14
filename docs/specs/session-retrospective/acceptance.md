@@ -78,3 +78,94 @@
 нового независимо обеспеченного короткого exclusive writer window над
 ris-01r.2, её составом, blockers и evidence. До выполнения этих prerequisites
 в Beads сохраняются `design: null` и `verification: null`.
+
+## Исторические адреса v1 при поправке v2
+
+Разделы requirements-v1 и design-v1 выше сохранены без изменения как история
+своих операций. Их прежние утверждения «дизайн/дети отсутствуют» относятся к
+тому времени, не к текущему feature record. Копирование решений в этот файл
+не переопределяет их `containing-commit`:
+
+- Requirements-v1, content commit `af3ec62dcf7207a7798a28d6f66a78dfeaffad81`,
+  `docs/specs/session-retrospective/spec.md`, `section: null`; решение:
+  https://github.com/atilla777/ris/blob/af3ec62dcf7207a7798a28d6f66a78dfeaffad81/docs/specs/session-retrospective/acceptance.md#решение-requirements-v1.
+- Design-v1, content commit `de208d617de8d9d71c31b11b2316342aba7b7f41`,
+  `docs/specs/session-retrospective/design.md`, `section: null`; решение:
+  https://github.com/atilla777/ris/blob/de208d617de8d9d71c31b11b2316342aba7b7f41/docs/specs/session-retrospective/acceptance.md#решение-design-v1.
+
+## Решение requirements-v2
+
+- `decision`: `accepted` (локальная ограниченная поправка, Git refs pending).
+- Дата: 14 октября 2026 года.
+- Принявшая сторона: пользователь текущего диалога разрешения R1 по T2
+  `ris-01r.2.2`; действительный session/invocation ID не предоставлен.
+- Точный ответ пользователя: «Делаем 2 вариант ведь ретро не бдует менять сам разрабываемый проект».
+- Предъявленный и выбранный вариант 2 разрешает служебные записи CLI OpenCode
+  в его storage/logs вне разрабатываемого проекта при сохранении запрета менять
+  проект, исследуемые сообщения и задачи. Переданный запрос явно подтверждает
+  scoped acceptance требований **и** технического решения этой поправки;
+  это не принятие произвольных новых требований.
+- Принятый локальный результат: `session-retrospective/requirements-v2`,
+  `docs/specs/session-retrospective/spec.md`, `section: null`.
+- Область delta: §8 и AC-013 — только runtime project metadata, housekeeping
+  существующей БД/WAL/checkpoint и собственные логи OpenCode вне проекта;
+  сообщения/parts/связи истории, source/docs/config/Git, tracker/telemetry
+  защищены. Только фиксированные `--pure` read argv, без plugins/serve/import/
+  bootstrap/migration/transcript execution; reader не пишет disk export/temp/cache.
+  Supplied-export/GET, анализ, метрики и отчёт сохраняют прежние ограничения.
+- Предшественник: полный requirements-v1 ref и отдельное решение из раздела
+  исторических адресов выше; не переадресуется на commit v2.
+- `revision`: `containing-commit` — будущий фактический commit, содержащий
+  эту локальную v2 и решение; до публикации immutable address **pending**.
+
+Новая формулировка выражает принятую границу, не свидетельствует об успешной
+реализации. Проверка нуля всех storage writes заменяется scoped oracle:
+разрешённые service effects отделены от запрещённых project/history/task
+изменений. Охват, источник решения и unchanged material areas достаточны
+для bounded save без нового интервью. Никакие иные требования не добавлены.
+
+## Решение design-v2
+
+- `decision`: `accepted` (отдельная локальная design-поправка, Git refs pending).
+- Дата и принявшая сторона: тот же пользователь текущего диалога R1;
+  session/invocation ID не предоставлен и не выдумывается.
+- Точный ответ: «Делаем 2 вариант ведь ретро не бдует менять сам разрабываемый проект».
+- Основание отдельного design acceptance: переданный запрос явно ограничивает
+  выбранный вариант requirements **и design** коррекцией R1. Requirements-v2
+  само по себе не подменяет это отдельное решение.
+- Принятый локальный результат: `session-retrospective/design-v2`,
+  `docs/specs/session-retrospective/design.md`, `section: null`.
+- Применимый вход: локальные requirements-v2 и решение requirements-v2 выше;
+  immutable refs обоих результатов ожидают публикации.
+- Delta: §§4,8–9 и impact §11. Fixed read argv/version/list/export с `--pure`,
+  initialized scoped fitness и классификация metadata/DB housekeeping/logs
+  вне проекта; ноль запрещённых изменений защищённых объектов. Memfd/pipe,
+  валидность полного export и обязательный CLI/no-ID gate сохраняются.
+  Нет plugins/serve/import/bootstrap/migration, SQL/storage bypass, replay,
+  новых прав export/GET/телеметрии или автоматического перехода.
+- Предшественник: полный design-v1 ref и отдельное решение из исторических
+  адресов выше; его исходный content/decision commit не меняется.
+- `revision`: `containing-commit` — commit, действительно содержащий эту v2
+  и отдельное решение; до Git-публикации immutable address **pending**.
+
+## Область операции v2 и публикационный handoff
+
+Разрешено сохранить только spec.md/design.md/acceptance.md текущей task copy
+и append impact/evidence в primary `.sdlc/tasks/ris-01r.2.2/execution.md`.
+Provider короткого защищённого read/write/verify окна — пользователь;
+scope — согласованные документы/локальная заметка этой операции. Окно не
+выдаётся за CAS или новую защиту для будущих feature/T3 tracker writes.
+Применены noninteractive document-only save ветки владельцев требований
+и дизайна. Код/claim/tracker refs/commit/push/closure не входят в эту операцию;
+publication остаётся у последующего уполномоченного владельца.
+
+Связанные AC и T1/T2/T3, применимость старых evidence, необходимые новые
+runtime checks и безопасный post-publication feature/child update описаны
+в design §11. T1 collection не принадлежит и не требует mutation/reopen/repin;
+T2 — следующий implementation owner; T3 — pending потребитель для conditional
+веток/combined integrated acceptance. Существующие refs всех записей пока v1,
+verification null; ни R1, ни T2/фича не объявляются принятыми этой записью.
+После проверенной Git-публикации нужны реальные full content commits и
+immutable отдельные anchors requirements-v2/design-v2, защищённое согласованное
+обновление feature и affected T2/T3 refs/CLI criteria, без silently repinning
+исторического T1. Git/Dolt и container acceptance отдельны; **KEEP EDGES**.

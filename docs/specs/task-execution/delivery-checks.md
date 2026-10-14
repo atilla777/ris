@@ -99,8 +99,9 @@ writers. Не проверены другие адаптеры/клиенты, u
 
 ## T2 — controlled interruption/resume и combined evidence
 
-14 октября 2026 года, `ris-01r.1.2`. Эта секция добавлена в candidate branch;
-интеграция и независимое одобрение итогового T2 снимка ещё не выполнены.
+14 октября 2026 года, `ris-01r.1.2`. Исходный кандидат C-T2-DOC-1 прошёл
+независимое R1 ревью без замечаний. Интеграция с текущим main подготовлена
+локально; изменённое полное дерево требует независимой переоценки до push.
 История T1 выше сохранена. Combined матрица AC-001–016 составлена по actual
 source diff и сохранённым versioned receipts, без повторного запуска suites или
 поведенческих эффектов. Это bounded author assessment, не принятие/закрытие
@@ -116,12 +117,18 @@ gates, reconciliation/transition и evidence contract, добавляет усл
 переиспользуется целиком: каждая строка матрицы отдельно удерживает неизменные
 owner/check результаты и добавляет наблюдения изменённых seams.
 
-| Проверенный T2 ресурс | SHA256 (source и installed одинаковы) |
+| Проверенный ресурс исходного C-T2-DOC-1 | SHA256 (source и installed одинаковы) |
 |---|---|
 | SKILL.md | `3d72ef284cc1c63fb21e258d0c9b7dbbe0c8068d860678d568abfbd30dcd3e88` |
 | references/evidence.md | `706879b0890437d8857082577f23d7d189bf0c5371f80538414ea1c49a403c12` |
 | references/recovery.md | `9f3c26cb4df33ea10edb9c13c1a0ebc44b9041dd4788efbb1d1da09eed75c797` |
 | references/text-work.md (не менялся) | `ef5288e9695da20dda04bd75eedf42a5847588e77b4fcd90bdeb691cf5f74bef` |
+
+При интеграции SKILL.md сохраняет новые правила main о минимально достаточных
+проверках и раннем возврате конфликтов; его bytes отличаются от этой
+исторической таблицы. Evidence/recovery/text-work не изменены. Старые receipts
+подтверждают свои исходные версии; применимость к совмещённому дереву и новым
+правилам подлежит отдельной affected assessment, а не автоматическому PASS.
 
 Единственный полный candidate tree/package fingerprint, полный состав task
 overlay с additions/modes, версии отчётов и per-AC applicability сохранены в
@@ -208,9 +215,9 @@ review `ses_ec54aa6d5ffeQvylFV1sULAiyq`. Resume read retained closed/sent result
 ### Статус и честные пределы
 
 Матрица AC-001–016 **составлена**, bounded combined evidence поддерживает описанные
-representative checks. Требуемый следующий gate — **fresh independent review
-единственного полного candidate snapshot**, затем reassessment при изменении
-integration tree. Ни авторский синтез, ни closure fixture не означают independent
+representative checks. Исходный полный candidate snapshot прошёл R1;
+требуемый следующий gate — **independent reassessment изменённого полного
+integration tree до push**. Ни авторский синтез, ни closure fixture не означают independent
 approval, full parent acceptance или закрытие RIS-задачи.
 
 Все interruption boundaries — реальные контролируемые завершения invocation,

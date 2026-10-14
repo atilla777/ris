@@ -42,6 +42,11 @@ Unavailable required resources block dependent work, not independent inspection.
    dependent changes. A feature implementation needs independent acceptance of
    the applicable requirements and design; a standalone change uses its accepted
    technical constraints without invented feature metadata.
+   If feasibility rests on an uncertain platform behavior or external boundary,
+   use current evidence or the smallest permitted decisive probe before dependent
+   changes. Return a confirmed contract conflict promptly to the caller/user;
+   do not prolong attempts to satisfy incompatible obligations. Independent
+   authorized work may continue, but cannot resolve or conceal that decision.
 2. Map criteria to observable behavior and stable test boundaries from accepted
    inputs and existing conventions; ask only for missing material decisions.
    Implement small increments using existing interfaces, state owners and allowed
@@ -65,6 +70,14 @@ Unavailable required resources block dependent work, not independent inspection.
    exits/results. Run a full suite only when project rules require it or impact
    cannot be covered reliably by a narrower set; state the reason. After edits
    rerun invalidated checks, retaining suitable current evidence for other parts.
+   Prefer deterministic tests for parsing, arithmetic and error handling; live
+   agent runs are for behavior those tests cannot establish, such as instruction
+   following and tool choice. Before extra live runs or new verification setup,
+   name the remaining evidence gap, why cheaper/current evidence is insufficient
+   and the decision the result will inform. If effort materially grows beyond the
+   planned check, return the limitation and options to the caller/user before
+   expanding dependent verification. Do not silently waive a mandatory check;
+   any accepted reduction retains explicit unverified claims and limits.
    Failed/unavailable mandatory checks remain failed/unverified, not inapplicable.
    Record commands, environment, selection rationale, outcomes and limits against
    the exact final snapshot: base revision plus authorized additions/changes/

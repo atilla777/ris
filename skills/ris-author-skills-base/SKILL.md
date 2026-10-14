@@ -68,6 +68,16 @@ draft instead of claiming a file was created.
 
 ## Check and hand off
 
+Choose the smallest representative check set that establishes the affected
+selection, loading and execution behavior. Separate deterministic script checks
+from actual agent behavior: parsing/arithmetic fixes usually need affected tests,
+not a repeat of the full live-agent matrix. For another live evaluation wave,
+state the uncovered claim, why existing evidence or cheaper checks cannot cover
+it, and what decision the result informs. Retain applicable evidence for unchanged
+mechanisms. If an essential platform assumption is uncertain, probe it within
+permissions before costly evaluation; a confirmed conflict or materially growing
+setup/run effort returns promptly to the caller/user, not an open-ended experiment.
+
 Inspect saved files and diff, metadata, links, resource availability,
 dependency cycles, permissions and preserved behavior. Test selection on
 natural positive, neighboring and irrelevant requests, and actual execution
@@ -78,6 +88,12 @@ installation of test fixtures for behavioral checks does not install the
 requested skill in the user's project. Separate structural, routing and
 behavioral evidence; mark unrun checks as unverified and do not claim
 compatibility with untested clients.
+
+For a text-only bounded amendment, inspect affected before/after routing and
+execution scenarios without ceremonial test infrastructure. Such inspection is
+not an observed live execution. Where live evidence is mandatory, do not silently
+substitute inspection or drop the check: obtain acceptance of a reduced scope or
+report that part unverified/blocked, retaining the precise limits.
 
 Report source location (or unsaved draft), changes, checks and observations,
 limitations and unresolved decisions. If a required input, dependency or
