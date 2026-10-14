@@ -55,7 +55,18 @@ agents or load all child methods merely to route them. Pass project/config/rule
 provenance, current/primary roots, actor, exact IDs, accepted input versions and
 decisions, allowed files/effects, output/evidence addresses and expected result.
 The recipient loads/applies its owner and dependencies and returns choices here
-instead of interviewing the user or accepting unseen content. Require:
+instead of interviewing the user or accepting unseen content.
+
+Bound each handoff by a checkable intermediate result and early-return conditions:
+an accepted-contract/platform conflict, unavailable essential evidence, or a check
+that needs materially more setup, external access or live agent runs than planned.
+The recipient returns preserved effects, affected criteria and the necessary
+decision promptly; it does not bury the issue in a long implementation/evaluation
+loop. Continue only independently useful authorized work. Give concise accepted
+input/version references and relevant prior evidence, not the entire accumulated
+history; recipients still read their applicable rules and owner resources.
+
+Require:
 
 ```text
 status; operation; exact ID and scope; input versions;
@@ -127,6 +138,10 @@ continue without formal reconfirmation of already accepted inputs.
 2. Delegate `ris-plan-task` in that supplied copy with accepted versions/contracts
    and authorized plan address. Read the saved plan and coverage; changed scope
    or missing decisions return to this dialogue, not silent redesign.
+   When feasibility depends on an uncertain platform behavior or external boundary,
+   place the smallest permitted decisive probe before dependent implementation or
+   costly evaluation. Use existing applicable evidence first; do not invent a
+   preflight experiment for an ordinary local edit or exceed probe permissions.
 3. Recheck actor ownership and blockers before each new change batch. Delegate
    code behavior (including mixed code/text) to `ris-tdd-implement-task`; require
    observed expected RED before behavior changes, GREEN afterwards, affected
@@ -170,6 +185,15 @@ continue without formal reconfirmation of already accepted inputs.
 Stop dependent effects on an ambiguous or failed operation. Ask its owner to
 inspect actual state, save partial effects and exact remainder. In this delivery
 there is no automatic resumed run: do not replay an effect to manufacture success.
+
+For a confirmed contract conflict or materially growing verification effort,
+surface the concrete decision in this dialogue before commissioning more dependent
+experiments. An additional live evaluation wave needs a named evidence gap, why
+current evidence or deterministic tests cannot close it, and how the result changes
+the next decision. Reuse checks for unchanged mechanisms and rerun affected ones;
+do not treat every repair as a reason to repeat the full agent matrix. A mandatory
+check cannot be silently dropped: obtain acceptance of any scope/verification
+revision and record unrun checks and remaining limits, never a fabricated pass.
 
 ## Assess and report
 
