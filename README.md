@@ -79,9 +79,10 @@ on Open Knowledge Format bundles.
   and proven participant branches; return a read-only evidence-based retrospective
   with causes, costs and minimal improvements, independently of RIS.
 - `skills/ris-retrospect-session/` — compose that method with local OpenCode
-  acquisition and targeted RIS project evidence; return a checked local report
-  in the response. The local/no-save candidate is integrated locally; publication
-  awaits independent reassessment of the integrated snapshot.
+  acquisition and targeted RIS project evidence; return a checked report. The T3
+  candidate adds conditional telemetry, bounded delegation and explicitly
+  authorized report saving; verification is partial and focused independent
+  reassessment of the factual documentation repair remains.
 - `skills/ris-review/` — verify task inputs and return a project review report,
   saving its version/history when authorized; self-review does not provide
   independent publication approval.
@@ -313,19 +314,43 @@ telemetry remain protected. `--allow-cli` asserts verified initialization, actua
 service-path scope and permitted effects; the reader checks version/fixed argv,
 not storage schema itself. Unknown/out-of-scope effects or required bootstrap/
 migration keep CLI gated. Earlier all-storage-readonly failures are preserved as
-v1 evidence. New live scoped-oracle/model checks were not run under the user's
-reduced verification scope; this is not a newly demonstrated v2 runtime pass.
-Supplied-export analysis remains usable. The candidate
-does not provide Langfuse, delegation or saving, including when a report path is
-supplied; those branches and combined acceptance belong to the remaining delivery
-in the [accepted design](docs/specs/session-retrospective/design.md).
+v1 evidence. An isolated initialized v2 scoped positive CLI oracle passed for
+OpenCode 1.18.33 in the disposable T3 store: repeated list/large-root/branch reads
+preserved protected content/schema and classified permitted service effects.
+This establishes neither real-store/other-project fitness nor automatic recognition
+of invalid fitness; negative checks withheld caller permission. Supplied-export
+analysis remains usable. The pre-integration T3
+candidate adds installed-relative `references/langfuse.md`, `delegation.md` and
+`save-report.md`, loaded only for their authorized branches. Langfuse requires a
+specific gap and source, installed `langfuse` and discovered deployment-compatible
+read operations; no CLI is installed by this skill. Message linkage is distinct
+from one-to-one request mapping, duplicate deliveries/conflicts are not summed,
+and missing telemetry leaves local analysis useful. Live identity correspondence
+remains unverified. Delegation requires an actual permitted read-only executor
+after leading overview, bounded handoff and leading source checks; otherwise
+analysis is sequential. Default output remains the response. Only an explicit
+exact destination plus safe write access permits saving the checked report,
+preserving existing history and refusing unexpected changes. A report path alone
+is not permission. Existing bounded runs observed a useful seven-section S1
+local/no-save report with ordinary selective loading. S2 supplied LF reasoning
+was useful but acquisition/save remained partial: invalid test-owner part IDs
+and denied filesystem identity inspection blocked completion. One actual S3
+child completed; its parent timed out before validated merge/report/save.
+Saving (new/append/conflict), full leader validation, live LF correspondence,
+sensitive-run repeatability and separate autonomous final-skill CLI cases remain
+unverified. The behavioral package exceeded its aggregate budget (at least
+15m24s versus 15min); partial outcomes and that failure are retained. The latest
+user scope excludes further agent tests, behavioral evaluation, harness or code
+tests. Focused independent reassessment and combined acceptance remain outstanding under the
+[accepted design](docs/specs/session-retrospective/design.md).
 Use `python3 -B <installed-reader> --help` for the bounded interface. Ordinary
 reader execution never imports history, serves, replays commands, writes exports,
 caches, project files or tracker/telemetry state. Package installation and isolated
-test-owner fixture provisioning are separate operations. The task candidate passed
-independent review of the reduced verification scope. Local integration preserves
-the newer task-execution delivery; its changed snapshot still needs independent
-reassessment before publication. Unrun live checks and evidence limits remain.
+test-owner fixture provisioning are separate operations. Prior T1/T2 evidence
+applies only to unchanged mechanisms and identified inputs, not the new T3 bytes.
+Independent review v1 requested a factual documentation correction; this repaired
+T3 candidate awaits focused rereview and integration. Its bounded observations
+do not establish universal runtime safety or full-feature acceptance.
 This repository installs forty-one RIS source skills in `.opencode/skills/` for its
 own OpenCode project; installed copies must be kept in sync with `skills/`.
 The additional project-installed `grilling` is not a RIS source skill.

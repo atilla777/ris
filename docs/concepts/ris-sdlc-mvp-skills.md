@@ -94,17 +94,29 @@ Git publication, отдельного leaf completion либо полной пр
 ### Локальная ретроспектива — ограниченный кандидат
 
 Интегрированная `ris-retrospect-session-base` принимает предоставленную историю
-вне RIS и возвращает read-only отчёт. Локально в main интегрирован кандидат проектной
-`ris-retrospect-session` с локальным stdlib reader и response-only результатом;
-она применяет базу и добавляет exact OpenCode/project identity и targeted evidence.
-Поправка requirements/design-v2 разрешает только CLI-служебные metadata/
-housekeeping/log записи вне проекта; история/файлы/Git/задачи/телеметрия защищены.
-Старые failed-v1 проверки сохранены, инструкции CLI приведены к scoped fitness.
-Новые дорогие live/model проверки не выполнены по сокращённому пользователем
-объёму проверки и не считаются pass. Исходный кандидат прошёл короткое независимое
-ревью этого объёма; изменённый интегрированный snapshot требует независимой
-переоценки до публикации. Условные Langfuse/delegation/save ветки и совокупная
-приёмка по [дизайну](../specs/session-retrospective/design.md) остаются T3.
+вне RIS и возвращает read-only отчёт. Кандидат T3 `ris-01r.2.3` проектной
+`ris-retrospect-session` подготовлен на опубликованном T2, **до интеграции,
+с фактической поправкой для повторного ревью**: stdlib reader, exact identity, targeted evidence и применение
+базы дополнены условными wrapper-ресурсами Langfuse/delegation/save-report.
+Типичный путь остаётся local/sequential/response-only. Редкие ветки требуют
+bounded авторизованного источника, реального безопасного исполнителя либо точного
+разрешения сохранить отчёт с сохранением истории; отсутствие возможности
+ограничивает зависимый результат. Положительный v2 scoped CLI oracle прошёл в
+изолированном initialized disposable T3 store OpenCode 1.18.33 с сохранением
+protected content/schema и классификацией служебных эффектов. Fitness реальных/
+других stores и автоматическое распознавание invalid fitness не установлены;
+negative calls проверяли withheld caller permission. S1 дал полезный local/no-save
+отчёт с обычной загрузкой. S2 частичен: supplied LF reasoning полезен, но invalid
+part IDs оснастки и запрет identity inspection блокировали acquisition/save.
+Один реальный ребёнок S3 завершился; parent timeout наступил до validated
+merge/report/save. Сохранение new/append/conflict, full leader validation, live LF
+correspondence, повторяемость и отдельные final-skill CLI cases не проверены.
+Общий поведенческий бюджет превышен (не менее15m24s при15min), не объявлен pass;
+последний запрос пользователя исключает дальнейшие agent tests, поведенческие
+оценки, harness/code tests. Фактическая поправка по review v1 ожидает отдельного
+повторного ревью. Прежние evidence применимы только к неизменным механизмам;
+универсальная runtime safety и совокупная приёмка по
+[дизайну](../specs/session-retrospective/design.md) не установлены.
 Этот ограниченный кандидат не означает приёмки всей фичи или SDLC MVP и не
 изменяет исторические имена/границы таблиц ниже.
 

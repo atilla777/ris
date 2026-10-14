@@ -1,4 +1,7 @@
-"""Scoped parity/link/snapshot checks; OKF rules remain the pinned specification."""
+"""Scoped parity/link manifest, not a full tree or semantic acceptance check.
+
+OKF rules remain the pinned specification. Run without Python bytecode writes.
+"""
 import ast
 import hashlib
 import json
@@ -16,7 +19,9 @@ files = [root / p for p in ('README.md', 'docs/concepts/overview.md', 'docs/conc
 for owner in (source, installed):
     assert owner.is_dir()
     resources = sorted(p for p in owner.rglob('*') if p.is_file())
-    assert {str(p.relative_to(owner)) for p in resources} == {'SKILL.md', 'references/opencode.md', 'scripts/opencode_read.py'}
+    assert {str(p.relative_to(owner)) for p in resources} == {
+        'SKILL.md', 'references/opencode.md', 'references/langfuse.md',
+        'references/delegation.md', 'references/save-report.md', 'scripts/opencode_read.py'}
     files.extend(resources)
     text = (owner / 'SKILL.md').read_text()
     assert text.startswith('---\nname: ris-retrospect-session\ndescription: >-\n')
@@ -27,6 +32,17 @@ for owner in (source, installed):
         assert not p.is_symlink()
         assert p.resolve().is_relative_to(root.resolve())
         assert p.read_bytes() == (source / p.relative_to(owner)).read_bytes()
+base_source = root / 'skills/ris-retrospect-session-base'
+for owner in (base_source, root / '.opencode/skills/ris-retrospect-session-base'):
+    assert owner.is_dir()
+    resources = sorted(p for p in owner.rglob('*') if p.is_file())
+    assert {str(p.relative_to(owner)) for p in resources} == {
+        'SKILL.md', 'references/analysis.md', 'references/metrics.md', 'references/report.md'}
+    for p in resources:
+        assert not p.is_symlink()
+        assert p.resolve().is_relative_to(root.resolve())
+        assert p.read_bytes() == (base_source / p.relative_to(owner)).read_bytes()
+    files.extend(resources)
 files.extend(sorted((root / 'tests/session_retrospective').glob('*.py')))
 for p in files:
     if p.suffix != '.md':
