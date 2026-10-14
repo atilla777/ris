@@ -125,7 +125,8 @@ on Open Knowledge Format bundles.
 - `skills/ris-execute-task/` — coordinate one ready task's fresh run through
   claim/copy, plan, code TDD or substantive text checks, independent review,
   verified Git publication, separate completion and tracker publication. Recovery
-  currently reconciles evidence and stops; full resume is a separate delivery.
+  reconciles actual effects and resumes the first missing or inapplicable operation
+  through the same stage owners, preserving applicable results and closed status.
 
 Each folder contains an Agent Skills `SKILL.md`. Install the folder **with its
 resources** into a skill discovery location supported by your client before
@@ -283,13 +284,22 @@ claim/completion/publication capabilities, and the stage owners selected by its
 route: `ris-prepare-task-worktree`, `ris-plan-task`, `ris-tdd-implement-task` for
 code, a bounded text owner, `ris-review`, `ris-publish-main` and
 `ris-complete-container` only for a selected one-task feature. Its configured
-`task-execution`, `task-implementation` and `task-review` roles must be available
-before mutations and actually launch for standalone operations; independent
-review uses fresh contexts. Protected tracker writes and full outgoing-history
+`task-execution`, `task-implementation` and `task-review` roles needed by the
+remaining route must be available before mutations and actually launch for
+standalone operations; independent review uses fresh contexts. Protected tracker
+writes and full outgoing-history
 publication require separately established guarantees. Explicit IDs never change;
 parents never close automatically. The accepted [task-execution design](docs/specs/task-execution/design.md)
-splits fresh execution (`ris-01r.1.1`) from full resume (`ris-01r.1.2`); the latter
-is not supplied by this fresh-run implementation.
+splits fresh execution (`ris-01r.1.1`) from full resume (`ris-01r.1.2`). The source
+now supplies both routes; `references/recovery.md` loads only for prior/partial
+effects or own unfinished work, including closed pending tracker publication.
+It reassesses input/rule/package and snapshot evidence, reconstructs only proven
+missing notes and independently reconciles ambiguous pushes before retry. The
+[delivery checks](docs/specs/task-execution/delivery-checks.md#t2--controlled-interruptionresume-и-combined-evidence)
+record controlled code/text resume outcomes and a completed AC-001–016 evidence
+matrix with per-check T1 applicability and explicit limits. This candidate branch
+still requires fresh independent full-snapshot review and integration before any
+full feature acceptance; the T1 history remains separately identified.
 `ris-retrospect-session-base` has no required dependencies. It accepts addressable
 history in the supplied representation, including outside RIS, and reads its own
 analysis/report resources plus metrics only when relevant. It returns a report;

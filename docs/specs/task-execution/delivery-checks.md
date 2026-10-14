@@ -96,3 +96,130 @@ Fixture protected windows обеспечены controller-exclusive sequential o
 writers. Не проверены другие адаптеры/клиенты, universal stability и full resume.
 История не скрывает ошибки harness и ограничения evidence; raw receipts остаются
 локальными и архивируются отдельно от Git payload.
+
+## T2 — controlled interruption/resume и combined evidence
+
+14 октября 2026 года, `ris-01r.1.2`. Эта секция добавлена в candidate branch;
+интеграция и независимое одобрение итогового T2 снимка ещё не выполнены.
+История T1 выше сохранена. Combined матрица AC-001–016 составлена по actual
+source diff и сохранённым versioned receipts, без повторного запуска suites или
+поведенческих эффектов. Это bounded author assessment, не принятие/закрытие
+родительской фичи `ris-01r.1` или эпика.
+
+### Версия и применимость
+
+База T1 — `4974bcf46ebe68e2c4d971d663976f4ad90877bb`, полное дерево
+`e4439a35f588e3645b019fc070ade2d19879f6b4`. T2 меняет selection/remaining-role
+gates, reconciliation/transition и evidence contract, добавляет условный owned
+`references/recovery.md`. Восемь numbered этапов и их самостоятельные владельцы
+сохранены; остальные source skill folders не изменены. Поэтому T1 runtime не
+переиспользуется целиком: каждая строка матрицы отдельно удерживает неизменные
+owner/check результаты и добавляет наблюдения изменённых seams.
+
+| Проверенный T2 ресурс | SHA256 (source и installed одинаковы) |
+|---|---|
+| SKILL.md | `3d72ef284cc1c63fb21e258d0c9b7dbbe0c8068d860678d568abfbd30dcd3e88` |
+| references/evidence.md | `706879b0890437d8857082577f23d7d189bf0c5371f80538414ea1c49a403c12` |
+| references/recovery.md | `9f3c26cb4df33ea10edb9c13c1a0ebc44b9041dd4788efbb1d1da09eed75c797` |
+| references/text-work.md (не менялся) | `ef5288e9695da20dda04bd75eedf42a5847588e77b4fcd90bdeb691cf5f74bef` |
+
+Единственный полный candidate tree/package fingerprint, полный состав task
+overlay с additions/modes, версии отчётов и per-AC applicability сохранены в
+PRIMARY `.sdlc/tasks/ris-01r.1.2/{candidate-snapshot,combined-matrix}.md`.
+Snapshot построен native Git temporary index поверх всей базы, с включением
+новых recovery ресурсов; реальный index не менялся. Эти ignored адреса —
+локальное audit evidence, не обязательный переносимый вход скила. Секция не
+включает собственный full-tree hash, что исключает self-referential fingerprint;
+Git-ревизия этого документа при будущей публикации идентифицирует его payload.
+
+### Реальные границы и каналы
+
+CODE `r12code-4y8` использует отдельный RIS-проект с handbook/proposals и
+scratch/evidence/scratch/copies. После реальных prep, plan, TDD implementation,
+fresh independent review и Git publication каждый invocation завершался на
+заданной границе; новый native general invocation читал актуальные receipts,
+трекер, copy и версии и выполнял только остаток. Это R-PREP, R-PLAN, R-IMPL,
+R-REVIEW, R-GIT, а не повтор preparation. Два TDD slices дали реальные expected
+RED до соответствующих production patches, затем GREEN (пять методов, всего
+четыре test runs). Полный checked/reviewed 13-entry candidate совпал с отправленным
+деревом и NEW independent Git clone.
+
+TEXT `exp-closefail-n8f` использует policies/accepted/work/tasks/work/copies.
+После исторически подтверждённого Git отдельные свежие операции сохранили
+criterion result, затем отдельно закрыли точный ID (R-CLOSE), отправили полный
+audited outgoing Dolt snapshot и остановились до readback (R-TRACKER-SENT).
+Следующий fresh invocation создал NEW independent selected-remote clone,
+проверил полный decoded issue AS OF sent snapshot и пустой typed graph;
+повторный push/close/result update не понадобился.
+
+| Fixture | Git commit / полное дерево | Отдельный tracker результат |
+|---|---|---|
+| r12code-4y8 | `6dbfdaa093ee10264cbbd7c94668c1b376ea89d3` / `ef35a9a299223da8335261c88f9fe4a4cf0a2178` | После Git остановлен; result/closure/Dolt delivery не выполнены |
+| exp-closefail-n8f | `8f2bf43739a073b17ef5af54cc572cbafdc88a8f` / `170471a9e1af3534a1f0aba5256301fb45415ad0` | Result `e5f6kiqlrf2s06gu8v4pf9mj8u1j5lme`; distinct closure/sent/independently confirmed `er9ukic2faumbea9ob38c1faaiv6j4k6` |
+
+CODE durable totals: claim/copy-add/plan/implementation/review/task commit/FF/Git
+push — по одному; после preparation claim/add не повторялись, после checked
+implementation тесты/правки не повторялись для review/publish. TEXT totals:
+claim/plan/text implementation/review/Git commit/Git push/result/close/Dolt send —
+по одному; readback resume добавил только independent confirmation, остальные
+lifecycle effects — ноль. Это counts durable effects, не всех исторических команд.
+CODE foreign staged/unstaged/untracked bytes/modes/native index entries сохранены;
+PRIMARY raw index при FF менялся только для двух intended integrated файлов.
+
+Leading host сохранил actual native mappings в локальном host-invocations.md,
+не полагаясь на child statement «ID недоступен». Code implementation
+`ses_ec59f824affe40Z5BOAsG5o33P`, независимый reviewer
+`ses_ec5981d6cffeS6RRpV26YWa737`, Git owner
+`ses_ec592ccb0ffeldiZftJ8sXEXoD` — разные contexts. Text sender
+`ses_ec583c21affe7JUQSJpHh8gly2` и fresh readback
+`ses_ec57c3cceffevS2ok5ip5qJw62` также разные. Синтез не запускал новых executors.
+
+### Combined criterion checks и отрицательные outcomes
+
+| AC | Применимый вклад T1 + наблюдения T2 |
+|---|---|
+| 001–004 | T1 priority/age/ID, foreign/unready, mandatory child и no-ready guards; T2 actual 16-row own dk7→n28→ynb, blocked-own stop без fallback/claim, closed report и fresh closed-only preparation recommendation. Own exact-time tie отдельно не построен. |
+| 005–007 | Неизменные stage owners; actual T2 native prep/plan/TDD/review/publication и copy reuse с foreign witnesses. Remaining-role case: CODE без требуемой дальнейшей review role остановлен до repair; completed TEXT report-only разрешён без implementation/review roles. T1 text checks удержаны только при полном tree/input/rule equality. |
+| 008–009 | T1 реальный controlled GREETING-R001 repair/check/fresh review и low-only disposition применимы к неизменным owner methods. T2 сохраняет pending R1-001 medium и permission-induced no-progress: Wrong.LF неизменён, repair отсутствует, никакого нового успеха/round cap. Исторические неполные host mappings этой ветки не восстановлены одним новым launch. |
+| 010 | Реальные controlled ends/resumes CODE/TEXT выше; материальные accepted constraints v2 (`?` вместо `!`) вызвали только replan с сохранением v1/history/Git effects. Старые whole-output GREEN/review не принимают v2; новая реализация намеренно не выполнялась. |
+| 011–012 | T1 changed-integrated-tree reassessment и refusing Git/Dolt/window boundaries удержаны адресно. T2 NEW remote Git clone подтвердил unsent existing commit, retry/duplicate commit не делались; actual alternate direct-push prohibition остановила путь. Result/close/send/readback разделены; missing confirmation не стала поводом для второго push. |
+| 013–014 | T1 complete one-task feature verification на `ad576ffabf8e088a88bec97bbd886edd2407ec3e`, tree `1b6e41a77a0bdbf5e3b4b27eecf56dc50f98a9d3`, sent Dolt `m99lalf13v2mcv9jdbeck26fbj939h0l`: T2 проверил полный subject/basis equality и две полные rows/typed edge independent sent snapshot. Verification/close/push не повторялись; весь parent row unchanged/open. Partial и success reports отделяют channels и рекомендуют остаток/подготовку без нового claim. |
+| 015–016 | Два real differently configured проекта с выбранным Beads, current source/install bytes/modes/resources и bounded doc/link checks. T1 natural neighboring routing сохраняется только для неизменных owners; T2 natural resume выбрал execute-task/recovery, natural review — ris-review/base без scenario/repair/publication loads. |
+
+Snapshot stimulus: дополнительный LF сделал Ready.LF восьмибайтовым результатом,
+full tree отличался от PASS; guard потребовал affected content/check assessment
+и fresh review, сохранил commit, не разрешил publish по старому PASS. Controller
+затем восстановил оригинальные семь bytes; later direct review увидел clean
+identical tree. Restoration — setup effect, не scenario repair или новая approval.
+
+Missing-notes stimulus: intact reports временно moved outside fixture. Guard
+восстановил actual Git visibility, closed record и content observations, но
+оставил **conflict** по execution/copy linkage и **blocked** по missing review/check
+provenance и unavailable selected Dolt remote. Он не выдумал историю или повторил
+claim/implementation/close. Controller вернул 16 файлов intact; marker remote
+остался unavailable. Последующий успешный resume этой ветки не заявляется.
+
+Natural routing actual contexts: resume `ses_ec54aa6e3ffea03Xh3EjWSVmuy`, direct
+review `ses_ec54aa6d5ffeQvylFV1sULAiyq`. Resume read retained closed/sent result,
+не повторял эффекты; latest Dolt head в этой конкретной операции не fetch-ился,
+поэтому её вывод относится к proven sent snapshot. Более ранний role-guard fetch
+отдельно подтвердил тот же выбранный remote/sent snapshot, не заменяя этот предел.
+
+### Статус и честные пределы
+
+Матрица AC-001–016 **составлена**, bounded combined evidence поддерживает описанные
+representative checks. Требуемый следующий gate — **fresh independent review
+единственного полного candidate snapshot**, затем reassessment при изменении
+integration tree. Ни авторский синтез, ни closure fixture не означают independent
+approval, full parent acceptance или закрытие RIS-задачи.
+
+Все interruption boundaries — реальные контролируемые завершения invocation,
+**не process crashes**. CODE intentionally partial после Git; later boundaries
+покрыты TEXT, не семь раз в каждом проекте. Не проверены отдельный own exact-time
+tie, новый successful resumed repair/low-only, дополнительный material rule/package
+change stimulus, unknown-live timeout/process termination, competing production
+writers, другие adapters/clients. Fixture ALL-writer sequential ownership —
+не Beads CAS и не universal concurrency guarantee. Missing historical provenance
+не превращено в доказанную независимость. Source/install не менялись для тестов;
+история harness ошибок сохранена. Raw evidence локальна; опубликованный документ
+сохраняет hashes, outcomes и пределы, но не заменяет недоступные receipts.

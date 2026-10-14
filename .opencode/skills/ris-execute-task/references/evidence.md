@@ -1,4 +1,4 @@
-# Execution evidence and recovery boundary
+# Execution evidence and applicability
 
 Read before the first handoff/report write and when previous or partial execution
 is found. Resolve resources from the installed skill; report paths come from
@@ -40,25 +40,27 @@ addresses and versions; inspect files/remote reads where available, rather than
 trusting narrative. Missing output permission means an unsaved report and a blocked
 dependent persistence claim, not a hidden write. This is evidence, not a scheduler.
 
-## Fresh-run-only recovery behavior
+## Reconciliation observations
 
-Full resume belongs to the next delivery. If previous effects, own unfinished work
-or a partial run exist, perform bounded **read-only reconciliation** with the
-corresponding owners: current task/claim/composition/blockers, actual copy/index,
-input versions, review snapshot and remote facts. Preserve identity, known commit,
-closed status and confirmed publications. Do not treat missing local notes as
-permission to start afresh: inspect tracker/Git/available reports to recover facts.
-Never reopen a closed ID, reclaim foreign work or select a new target instead.
+For prior/partial effects, own unfinished work or closed pending-publication work,
+load `recovery.md` from this resource's directory. It determines applicability and
+returns to the existing SKILL route; this journal does not authorize transitions.
+Append the fresh observation, including conflicting facts rather than replacing
+history with a latest-stage flag. For each operation record:
 
-Return `blocked` for unsupported recovery with the proven effects and first
-unfinished or inapplicable operation. Changed inputs may invalidate plan/checks;
-changed snapshots invalidate affected checks/review. A confirmed Git publication
-survives closure/Dolt failure. An ambiguous push needs independent remote inspection
-before any proposed retry. If evidence cannot distinguish fresh work from a
-previous effect, return `conflict` and the necessary diagnostic/decision.
+```text
+operation / actual effect and receipt / input and tested snapshot / current facts
+reuse: applicable | missing | inapplicable | uncertain (reason and affected scope)
+first necessary operation / owner / prerequisites / remaining gate
+```
 
-Do not replay claim/preparation, implementation, push or closure based on a local
-stage marker; do not declare AC-010 or the whole feature delivered. A report can
-describe a safe owner-specific remaining operation, but this skill version does
-not automatically execute a resumed route. Direct component operations retain
-their contracts and can be separately requested with these factual inputs.
+Distinguish local Git integration/commit, sent Git revision and remote confirmation;
+criterion verification, persisted result and closure; local tracker history, sent
+tracker snapshot and independent selected-remote read-back. Preserve confirmed
+effects even when their former checks lose applicability. Later unrelated authorized
+changes do not erase a confirmed sent snapshot, but are not covered by its receipt.
+Record input/rule/package changes and the owner's evidence-impact assessment,
+including why unaffected results can be reused. Missing notes may be reconstructed
+from referenced facts with provenance and gaps; never invent old checks, TDD chronology,
+review independence or an unavailable executor receipt. Report unavailable write
+permission separately from the ability to inspect and return an unsaved handoff.

@@ -3,10 +3,11 @@ name: ris-execute-task
 description: >-
   Execute one ready RIS task through preparation, implementation, independent
   review, verified Git publication, separate completion and tracker publication.
-  Use for a full task run with an explicit ID or automatic ready-task choice;
+  Use for a full task run or safe resume with an explicit ID or automatic
+  ready-task choice;
   not for selection alone, planning, review, publication alone, feature preparation
-  or executing a whole container. This delivery supports fresh runs; recovery
-  reconciles evidence and stops without replaying effects.
+  or executing a whole container. Resume reconciles actual effects and reuses
+  applicable results through the same stage owners.
 ---
 
 # Execute one ready task
@@ -33,8 +34,11 @@ resource to prepare sources, workspace, selected tasks adapter and these roles:
 | `task-implementation` | Code/text implementation and repairs |
 | `task-review` | Independent review and integrated-snapshot reassessment |
 
-Check all three role mappings and host availability/permissions before the first
-mutation. One agent name may serve all roles, but review uses a **fresh invocation**
+For fresh work check all three role mappings and host availability/permissions
+before the first mutation. For recovery first reconcile read-only, then gate only
+roles and permissions needed by the remaining route; completed implementation or
+review does not require launching its role again. Reassess the gate if the remainder
+changes. One agent name may serve all roles, but review uses a **fresh invocation**
 independent of every implementation/repair author. Missing/unavailable roles block
 the dependent route; no fallback, model switch or execution in the leading context.
 Do not require feature-preparation/decomposition roles for this task route.
@@ -67,7 +71,10 @@ Verify actual launch, accessible artifacts and applicable evidence before every
 transition; unsupported “done” is insufficient. Preserve history in the authorized
 `workspace.tasks/<confirmed-ID>/execution.md` (explicit/project address wins).
 Read `references/evidence.md` from this installed folder before the first handoff
-or report write, and whenever previous execution/partial effects are discovered.
+or report write. If own unfinished work, previous/partial effects, an interrupted
+operation or closed pending-publication work is found, read and apply
+`references/recovery.md` before choosing a transition or retry. An ordinary fresh
+run does not load that resource.
 
 ## Select exactly one target
 
@@ -78,7 +85,8 @@ verified tracker publication; `tasks` v1 alone does not promise all of these.
 
 With an explicit ID, reread only that **target** for execution (queue reads may
 support diagnosis/recommendation). Never replace it. A closed ID gets a verified
-state/result report, never reopening or a new implementation. A foreign active
+state/result report, never reopening or a new implementation; proven own pending
+publication resumes only its remaining verification/publication. A foreign active
 claim blocks it. Unknown IDs/types return a concrete diagnostic.
 
 Without an ID, first identify confirmed own unfinished executions: actor supplied
@@ -93,8 +101,8 @@ priority, creation timestamp, then stable lexicographic ID. Beads lower numeric
 priority wins; another adapter must supply unambiguous semantics. Compare parsed
 timestamps, not locale strings; incomplete ordering data needs clarification.
 If selected own work is blocked, stop on it instead of selecting a new task.
-In this fresh-run delivery, reconcile previous effects and report unsupported
-recovery as described in the evidence resource; **do not restart from preparation**.
+Route prior effects through the conditional recovery resource; **do not restart
+from preparation** or skip blocked own work to choose another task.
 
 ## Verify readiness
 
@@ -117,7 +125,14 @@ No ready candidate means explain specific gaps and recommend a preparation step,
 without starting requirements/design acceptance. Announce chosen ID and basis;
 continue without formal reconfirmation of already accepted inputs.
 
-## Fresh execution sequence
+## Execution sequence: fresh work or reconciled remainder
+
+Fresh work starts at step 1. Recovery returns the first missing or inapplicable
+operation, its proven prerequisites and exact remainder to this same sequence.
+Enter the identified operation within a step, not the whole step blindly. The
+leading scenario authorizes each transition after inspecting the owner's receipt;
+owners retain their full methods. Reconcile again after partial/uncertain effects
+or changed facts before deciding the next operation.
 
 1. Delegate `ris-prepare-task-worktree` with exact task, actor, permitted claim,
    copy/environment actions and explicit primary root. Check its verified claim,
@@ -167,9 +182,11 @@ continue without formal reconfirmation of already accepted inputs.
    independent selected-remote read-back. Git push and local closure do not prove
    tracker publication. Keep all three channel facts separate.
 
-Stop dependent effects on an ambiguous or failed operation. Ask its owner to
-inspect actual state, save partial effects and exact remainder. In this delivery
-there is no automatic resumed run: do not replay an effect to manufacture success.
+Stop dependent effects on an ambiguous or failed operation, including timeout or
+lost executor response. Apply the recovery resource with the corresponding owner
+to inspect actual state and live execution before retry. Save partial effects and
+the exact remainder; continue only when reconciliation and the remaining gates
+permit it. Do not replay an effect to manufacture success.
 
 ## Assess and report
 
@@ -185,4 +202,5 @@ separate closure and tracker snapshot/read-back facts, limitations and next
 recommendation. On a stop include the cause, preserved actual effects, first
 remaining operation and required recovery/decision. `ok` requires all promised
 effects verified for the selected task; never infer it from one channel or an
-executor's assertion. This fresh-run delivery does not claim full resume support.
+executor's assertion. Distinguish reused results, reconstructed observations,
+new operations and invalidated/unverified evidence in a resumed report.
