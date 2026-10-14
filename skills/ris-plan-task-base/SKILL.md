@@ -67,12 +67,24 @@ enlarge the task to accommodate a preferred implementation.
    only if inspection establishes them and the next implementer needs them;
    otherwise state the investigation still required. Adjust detail to the
    difficulty rather than filling a fixed template.
+   Put a small permitted feasibility probe early only when an uncertain platform
+   behavior or external boundary can invalidate dependent work. Prefer existing
+   applicable evidence; specify the observable result and the conflict/decision
+   that returns to the caller before costly implementation or evaluation.
 4. For every acceptance criterion state a fitting check, its expected observable
    outcome, and whether it can actually run in the available environment. Add
    applicable project checks and relevant failure/edge cases. Name uncovered
    criteria, unrun checks and residual risks explicitly; a proposed check is
    not a passed test. Recheck the approach and steps against current evidence,
    accepted requirements and exclusions before marking the plan ready.
+   Distinguish mandatory checks, conditional checks with explicit activation
+   conditions, and exploratory experiments; a list of possible cases is not an
+   obligatory execution matrix. For expensive checks name the evidence gap,
+   cheapest sufficient method, prerequisites, checkable intermediate result and
+   early-return condition (contract conflict, unavailable evidence or materially
+   growing setup/run effort). Preserve mandated checks or propose a scoped
+   revision for acceptance; do not downgrade them by relabeling. Keep the plan
+   compact enough for the next implementer to act without replaying the history.
 
 ## Handoff and stop
 

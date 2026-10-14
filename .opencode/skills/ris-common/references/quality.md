@@ -6,6 +6,17 @@ criteria, and applicable project requirements together; no one replaces the
 others. Determine which checks fit the actual result, rather than imposing
 tests meant for another kind of change.
 
+Use the least costly method that supplies sufficient evidence for the specific
+claim. Distinguish mandatory, conditionally activated and exploratory checks;
+possible experiments are not automatically a required matrix. Before additional
+live-agent runs or substantial new setup, identify the uncovered claim, why
+existing evidence or deterministic checks are insufficient, and which decision
+the result will inform. A confirmed contract/platform conflict or materially
+growing verification effort returns promptly to the caller/user before dependent
+experiments expand. Continue independently useful authorized work. Mandatory
+checks require an accepted revision to reduce scope, with unrun claims and limits
+explicit; lower cost alone never turns missing evidence into a pass.
+
 For each material completion claim, identify the criterion, suitable check,
 observed result, and limit of that evidence. Structure and file presence do
 not prove behavior. Use evidence for the current version: after changing an
