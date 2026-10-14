@@ -1,11 +1,21 @@
 # Технический дизайн session-retrospective
 
-Версия `session-retrospective/design-v1`, принята пользователем 14 октября 2026 года.
-Отдельное [решение design-v1](acceptance.md#решение-design-v1).
+Версия `session-retrospective/design-v2`, узкая поправка принята пользователем
+14 октября 2026 года: [решение design-v2](acceptance.md#решение-design-v2).
+Предшественник design-v1 — Git `de208d617de8d9d71c31b11b2316342aba7b7f41`;
+историческое [решение design-v1](acceptance.md#решение-design-v1) сохраняется
+по первоначальному адресу. V2 локальна, immutable refs ожидают Git-публикации.
 Фича `ris-01r.2`, открытый эпик `ris-01r`. Адрес принятого результата:
 `docs/specs/session-retrospective/design.md`, весь файл.
 
 ## 1. Входы, baseline и результаты исследования
+
+Этот раздел сохраняет baseline и результаты **исследования v1**, не описывает
+текущее состояние очереди или новые выполненные проверки. Вход текущей v2 —
+локально принятые requirements-v2, `spec.md` целиком и отдельное решение
+[requirements-v2](acceptance.md#решение-requirements-v2). Поправка касается
+только CLI-служебных эффектов/AC-013; прежние требования применимы в остальном.
+Основания поправки, влияние на потребителей и новые проверки — §11.
 
 Принятые требования v1: `docs/specs/session-retrospective/spec.md`, section null,
 Git `af3ec62dcf7207a7798a28d6f66a78dfeaffad81`; отдельное решение requirements-v1:
@@ -135,8 +145,16 @@ hypotheses, justified signals и limitations. Обёртка перечитыв�
 Приоритеты: предоставленный экспорт → штатный `opencode --pure export ID`
 → GET API **уже доступного явно выбранного** сервера для недостающих данных.
 CLI запускается в выбранном проекте, version проверяется. --pure подавляет
-внешние плагины, но сам по себе не доказывает отсутствие иных side effects;
-проверка clean initialized read path входит в приёмку. Если установка требует
+внешние плагины, но сам по себе не доказывает допустимость иных side effects;
+проверка initialized read path по scoped oracle §9 входит в приёмку.
+Фиксированный allowlist, shell=False, без argv из transcript:
+`opencode --pure --version`, `opencode --pure export <точный sessionID>` и
+`opencode --pure session list --format json --max-count 5` (выбор, не auto-export).
+Разрешены лишь runtime metadata проекта, housekeeping существующей БД/WAL
+и логи OpenCode по §8 вне разрабатываемого проекта. Read-path fitness и
+разрешение CLI проверяются до вызова; `--allow-cli` не заменяет их и не
+разрешает произвольные записи. При неизвестных/выходящих за границу эффектах
+CLI остаётся gated. Если установка требует
 bootstrap/migration, read-only операция использует переданный экспорт и
 сообщает ограничение. Не запускать новый serve, не import и не читать SQLite
 напрямую. В данной поставке SQL не является запасным способом чтения истории.
@@ -343,8 +361,17 @@ ris-retrospect-session/
 Ресурсы читаются от установленного владельца, не от исходного RIS repo.
 При supplied portable history база вообще не читает opencode.md.
 
-Read-only — запрет новых изменений исследуемого проекта/истории/tracker/
-телеметрии и воспроизведения команд. Обычная новая история самой аналитической
+Read-only — запрет новых изменений разрабатываемого проекта (включая source,
+docs, config и Git), исследуемых сообщений/parts и смысловых связей истории,
+tracker/телеметрии и воспроизведения команд. Узкое CLI-исключение requirements
+§8 разрешает только служебные project metadata/housekeeping существующей БД
+(включая WAL/checkpoint)/собственные логи OpenCode вне проекта. Путь сам по
+себе не оправдывает запись: message/part content в том же storage защищён.
+Schema migration, bootstrap, plugins, новый serve/import, SQL/storage bypass,
+reader-owned disk export/temp/cache по-прежнему запрещены. При пересечении
+service paths с проектом или непроверенных эффектах используется export/GET,
+а не расширяется write scope. Supplied-export/GET сохраняют прежние ограничения.
+Обычная новая история самой аналитической
 сессии, создаваемая harness, не считается изменением исследуемой сессии;
 аналитик не запускает явные telemetry write API. Reader разрешает только
 свои фиксированные read argv/GET; журнал никогда не становится shell code.
@@ -379,19 +406,48 @@ Unexpected change перед записью — conflict, без overwrite. То
 | 010 | Absent/incomplete/duplicate/conflicting Langfuse, unmatched message ID; два step-finish с partial usage и несколько observations того же messageID, одна доставлена повторно: нет request join по одному messageID, повтор одного observation ID не суммируется, локальный результат и selective loads сохраняются |
 | 011 | Actual bounded read-only subagent и sequential fallback: проверенные source refs, один отчёт, непроверенный ответ не становится finding |
 | 012 | No findings, confirmed+hypothesis+justified signals: все секции §9, severity и две confidence раздельно |
-| 013 | Injection в transcript, secret в error part, предложенный SQL/test, report existing/change: запреты соблюдены по журналу вызовов/снимкам, только явно разрешённый отчёт сохранён |
+| 013 | Injection в transcript, secret в error part, предложенный SQL/test, report existing/change: запреты соблюдены по журналу вызовов/снимкам; CLI service-only effects отдельно классифицированы по scoped oracle ниже, только явно разрешённый отчёт сохранён |
 | 014 | Natural routing к ретроспективе/review/acceptance/fix/retrotrace, isolated install ресурсов, source parity, два проекта с разными paths, independent review без high/medium |
 
 Обязательные интеграционные проверки: реальный CLI export большого журнала
 без обрезания (включая memfd), branch export + public GET children/status
 на контролируемом OpenCode 1.18.33, compaction/pruned output, live доступное
 соответствие Langfuse IDs либо явная непроверенность этой ветки. Контроль
-side effects учитывает bootstrap/plugin effects CLI, а не только код reader.
+side effects учитывает runtime самого CLI, а не только код reader; обязательный
+gate — scoped oracle ниже, а не ноль всех записей OpenCode storage.
 Нет обещания полной истории удалённых сообщений или точного полного system
 prompt: такие данные не предоставляет проверенный export.
 
+### Scoped oracle CLI-служебных эффектов (requirements-v2 / AC-002, AC-013)
+
+1. До прогона зафиксировать exact installation/version, CLI argv/cwd, reader
+   bytes, initialized schema, выбранный проект/Git/tracker, сессии и ветки,
+   фактические service storage/log paths. Service paths должны быть вне проекта;
+   совпадение или неизвестная принадлежность блокируют CLI. Fixture provisioning
+   и обычная analytical harness history отделяются от collection interval.
+2. Сопоставить actual calls и before/after witnesses проекта (включая hidden
+   source/config/docs и Git), task content/state/edges, исследуемых session
+   identities/linkage, message/part content и schema. Защищённые объекты неизменны;
+   telemetry write API, replay/test/build, plugins/serve/import/bootstrap/migration
+   отсутствуют. Нужны content witnesses, не только изменённый mtime файла БД.
+3. Отдельно перечислить записи OpenCode runtime и их provenance: project metadata,
+   housekeeping существующей БД/WAL/checkpoint, собственные логи. Database/WAL
+   bytes могут измениться; это допускается лишь при подтверждённой service-only
+   классификации и сохранности защищённых объектов/schema. Неразобранная запись
+   или неизвестное содержимое не считаются pass. Наблюдение filesystem writes
+   и снимки имеют явный охват; не заявлять универсальное отсутствие syscalls.
+4. Совместно подтвердить полный валидный большой memfd/pipe export, отдельный
+   branch export и список roots без автоматического выбора; проверить повторный
+   monitored initialized run. Честно отражать неполноту/изменение snapshot.
+   Одна разрешённая log/project запись не означает успешной collection.
+5. Supplied-export и existing selected GET проходят свои прежние негативные
+   проверки; CLI-исключение к ним не применяется. Test-owner может применять
+   независимо разрешённые read-only storage witnesses как instrumentation;
+   product reader не получает прямого SQL/SQLite доступа. Поведение server
+   bootstrap не оправдывается использованием GET.
+
 Fitness: база не требует RIS/OpenCode; wrapper не дублирует анализ;
-нет SQL/storage bypass/write/automatic next step; типичный load trace не
+нет SQL/storage bypass/запрещённых записей/automatic next step; типичный load trace не
 содержит редких ресурсов; installed folder работает без исходного repo.
 Лексические assertions не заменяют реальные selection/behavior проходы.
 
@@ -414,10 +470,15 @@ Langfuse-only не обеспечивает доступность/полнот�
 
 При реализации добавляются source/install обеих папок, соответствующий README
 и ограниченное актуальное описание в concepts/architecture map после проверки
-поставки. Принятые spec/requirements decision остаются исторически неизменными.
+поставки. Исторические spec/requirements decisions остаются по первоначальным
+Git-адресам; текущая узкая v2 имеет новые отдельные requirements/design decisions.
 ADR не нужен: нет нового глобального инварианта/state owner; технические
 границы закреплены этим design. Независимое ревью проверяет достаточность
 дизайна и затем отдельно поставку, особенно read-only/metrics/coverage.
+
+Следующие два абзаца сохраняют **исторический handoff design-v1**; pending
+refs/design:null относились к его сохранению. Текущее состояние v2/потребителей
+и post-publication prerequisites — §11, не повтор этой ранней операции.
 
 Открытых продуктовых/архитектурных альтернатив, требующих нового интервью,
 не осталось; reader/GET/live Langfuse имеют названные проверочные seams,
@@ -428,3 +489,59 @@ update требует опубликованных refs и реального к
 записи над ris-01r.2/составом/blocks/evidence. Старое окно публикации требований
 истекло и не считается доступным сейчас. До этого design:null в Beads
 сохраняется; подготовка дизайна не означает его реализацию или закрытие фичи.
+
+## 11. Поправка v2: R1, применимость и координация потребителей
+
+Основание — выбор пользователя «Делаем 2 вариант ведь ретро не бдует менять сам
+разрабываемый проект»: именно разрешение служебных CLI-записей вне проекта,
+а не удаление CLI/no-ID из поставки. Отдельно приняты requirements-v2 и design-v2;
+поправка не меняет владельцев базы/wrapper/reader, метрики, cutoff/tree, Langfuse
+join, отчёт, роли/config и запрет replay. Новый ADR/global invariant не требуется.
+Исходные full refs requirements-v1/design-v1 сохраняются в acceptance.md.
+
+Исследованные implementation/review v2 T2: base
+`a62efad3f8f3837e02b724c54ef408b02ed7e686`, overlay manifest
+`240ead657e3d6158475454c1574a1e73030f8f3558052f0011fbff4c38826608`.
+Ревью признало R2–R4 исправленными, но оставило R1 высоким конфликтом прежнего
+контракта: writable initialized export меняет project rows/log/WAL, readonly
+эксперимент падает на открытии opencode.log. Это сохранённые факты, не новые
+выполненные проверки и не доказательство попытки последующей DB-записи в failed
+run. Поправка разрешает такую категорию service effects в принципе; R1 не
+закрывается автоматически, новый runtime/oracle и независимое ревью ещё нужны.
+
+| Связанный критерий | Влияние v2 / применимость evidence |
+|---|---|
+| AC-002 | CLI exact-ID/branch и no-ID roots остаются обязательны. Нужно переоценить fitness/selection по scoped oracle; успешный supplied-export/GET не заменяет их. |
+| AC-013 | Изменён только service-write gate CLI. Нужны разрешённые service witnesses рядом с нулём запрещённых project/history/task/Git/telemetry изменений и отрицательные случаи выхода за границы. Export/GET/injection/secrets/report-save ограничения прежние. |
+| AC-014 | Требуется актуальная source/install/docs parity и независимое ревью нового полного snapshot без high/medium; прежний review не одобряет новые bytes. |
+| AC-001,003–012 | Содержательная методика, владельцы, метрики/tree/cutoff/joins/отчёт не изменены. Evidence переиспользуется лишь для доказанно неизменных механизмов на identified input/runtime; combined T3 проверка остаётся обязательной. |
+
+Read-only tracker inspection при поправке: feature `ris-01r.2` open,
+T1 `ris-01r.2.1` closed, T2 `ris-01r.2.2` in_progress (assignee
+`opencode-ris-01r.2.2-20261014-run1`), T3 `ris-01r.2.3` open, pending consumer.
+Это наблюдённые статусы, не claim/разрешение запуска T3; active T3 design/scope
+нуждается в handoff до dependent implementation/combined acceptance.
+
+- **T1:** база не владеет collection; код/задачу/закрытие/исходные v1 refs
+  менять или repin не нужно. Portable запреты строже и совместимы с v2;
+  T1 evidence остаётся scoped portable, не CLI evidence.
+- **T2:** владелец реализации актуализирует CLI permission/fitness инструкции,
+  source/install, meaningful tests и scoped runtime witnesses, затем full
+  snapshot/re-review и integration/docs reassessment на newer main. Ноль
+  запрещённых записей остаётся gate; v2 не является blanket `--allow-cli`.
+- **T3:** передать v2/impact владельцу Langfuse/delegation/save и combined checks;
+  сохранить запреты/rare loads/joins/report history. Связать inherited CLI gate
+  с новым scoped oracle и пересмотреть applicability T1/T2 на одной integrated
+  SHA. Делегату передаются те же границы, не общие write permissions.
+
+После отдельной Git-публикации и проверки exact content/decision commits
+уполномоченный tracker owner сверяет текущее состояние под independently
+established short writer windows: feature `ris-01r.2`, затронутые T2/T3,
+их composition/blocks/evidence. Обновляются requirements и design **вместе**
+на реально опубликованные v2 full refs и разные decision anchors, verification
+остаётся/сбрасывается в null; slug/spec_path и несвязанный prose сохраняются.
+Нужно явно согласованное обновление pinned independent input objects и
+CLI-критериев T2/T3, а не молчаливый repin. T1 остаётся исторически на v1.
+До публикации tracker refs не меняются; local v2 не выдаётся за published input.
+Git и Dolt publication отдельны. Ни одна зависимость не меняется:
+T2 → T1, T3 → T2, `ris-01r → ris-p20`; inherited exception **KEEP EDGES**.
