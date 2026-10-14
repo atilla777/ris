@@ -5,7 +5,8 @@ Read for `tasks.features.read|update|record-verification|complete`, or
 content, acceptance, integration and completeness decisions; this adapter
 checks references and persists only the authorized tracker result. Advertise
 each operation and its conditional guarantees before dependent writes.
-`bd show`'s `revision` is not CAS: no general `--if-revision` exists.
+`bd show`'s `revision` alone is not CAS. Baseline 1.3.1 help has no
+`--if-revision`; detect actual installed capabilities before dependent writes.
 
 ## One current payload, Git-owned history
 
@@ -133,14 +134,18 @@ record or imply readiness/completion.
 ## Protected existing-record writes
 
 For update, verification and complete require exact ID, expected current
-content, allowed fields and a real independently established exclusive or
-quiescent writer window for the affected record and relevant composition,
-blockers/evidence through read/write/verify. Identify provider, scope and
-duration; do not lock the whole database for unrelated work. Claim, lease,
-`--sandbox`, local lock, status guard, read/write/read or user permission is
-not protection against remote writers. No lost-update override substitutes
-for the window here. Missing/expired protection means `conflict` before write.
-Re-read affected current state inside the window; unexpected change conflicts.
+content, allowed fields and protection for the affected record and relevant
+composition/blockers/evidence. Apply `concurrency.md` from this resource's
+directory: prefer native applicable CAS/transactions, then existing automatic
+coordination; a human-confirmed window is the last resort. A row CAS suffices
+only for predicates it actually covers, not arbitrary graph/evidence changes.
+Identify provider, covered predicates and lifetime through read/write/verify;
+do not lock the whole database for unrelated work. Claims, leases, sandbox,
+status-only guards and read/write/read do not preserve a replaced acceptance
+block. No lost-update override is allowed here. Missing/expired required
+protection means `conflict` before write.
+Re-read affected current state under the chosen protection and pass any required
+expected token to the mutation; unexpected change conflicts.
 
 - **Update:** check every new accepted reference and its actual content/decision
   as above. Preserve immutable slug/spec, unrelated prose and fields. On a

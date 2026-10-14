@@ -130,8 +130,9 @@ edge or manufacture a feature ID.
 
 Before a needed write require compatible `tasks.epics.update`, a selected
 adapter that actually provides it, and the adapter's protection against lost
-concurrent content updates (for Beads, an established exclusive writer window
-over read/update/verify). A read/write/read sequence is not a lock. Only if
+concurrent content updates (prefer applicable CAS or available automatic
+coordination; a manual writer window is fallback only). A read/write/read
+sequence is not a lock. Only if
 the caller **separately accepts the specific limited lost-update risk** may a
 best-effort update be used, with that limit reported; generic write permission
 does not accept it. Without either condition return `conflict` before writing

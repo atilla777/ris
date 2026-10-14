@@ -73,11 +73,12 @@ need their separate decision and checked design applicability from their owner.
    required file protection means conflict before the dependent write.
 2. In combined mode preflight exact task/epic/identity, expected old block,
    allowed fields and `tasks.features.update` guarantees. Existing-record writes
-   require a real independently established exclusive/quiescent window over
-   the affected record and relevant composition/blockers/evidence through
-   read/write/verify; name provider, scope and duration. Claim, sandbox, local
-   lock, status guard, user permission and read/write/read are not protection
-   against remote writers. Obtain acceptance outside the short window. Missing
+   require adapter-provided protection over the affected record and relevant
+   composition/blockers/evidence through read/write/verify. Prefer applicable
+   native CAS/transactions, then existing automatic coordination; a manual
+   window is fallback only. Name provider, covered predicates and limits.
+   A row-only/status guard does not cover arbitrary structure/evidence.
+   Obtain acceptance outside any short coordination period. Missing
    protection blocks record writes; authorized independent file saving may
    proceed, but combined completion remains blocked/partial.
 3. Reread expected files immediately before saving. Save only accepted content

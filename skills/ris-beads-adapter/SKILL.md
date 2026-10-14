@@ -37,13 +37,15 @@ establish absence. `bd`'s status values are tracker data, not RIS result codes.
 
 Guarantees by operation: list/read/list-blocks provide complete inspected
 results or an explicit failure; create is best-effort and cannot promise unique
-external references under concurrency without an exclusive writer window;
-update of noncommutative content needs an established exclusive writer window;
+external references under concurrency without a proven uniqueness mechanism;
+update of noncommutative content needs applicable CAS or coordinated protection;
 blocks.add
 checks endpoints, direction and cycles and verifies the resulting edge;
 blocks.remove requires the exact selected edge, authorized scope, and an
-exclusive writer window against a concurrent replacement before removal.
-Read/write/read is **not** such a window. If a necessary guarantee is absent,
+conditional or coordinated protection against a concurrent replacement.
+Read/write/read is **not** such protection. Apply `references/concurrency.md`
+before dependent mutations, preferring native atomic operations and available
+automatic coordination over asking for a manual pause. If a necessary guarantee is absent,
 return `conflict` before writing.
 
 Also implement the optional feature-task operations of `tasks` v1:
@@ -84,11 +86,10 @@ operations **or** `tasks.items.create` when the caller supplies an initial
 feature-record block; it is not needed for ordinary roadmap, feature creation
 without that block, claim, or tool-specific task completion. These are not
 implicit `tasks` v1 operations.
-No `bd` 1.3.1 command provides a general CAS for description, acceptance
-evidence, membership, or closing. Update/verification/complete require an
-independently established exclusive writer window; report `conflict` before
-writing without one. A claim, lease, status guard, or read/write/read is not
-such a window. The caller owns acceptance and completeness decisions; this
+Baseline `bd` 1.3.1 has no CLI-wide revision CAS; select protection for the
+actual operation through `references/concurrency.md` and the feature-record
+resource, rather than requiring a manual window for every write. A row-only
+guard does not protect all acceptance evidence or structure. The caller owns acceptance and completeness decisions; this
 adapter checks and persists only the specifically authorized result.
 
 ## Inputs and boundary
@@ -115,7 +116,8 @@ needs explicit authorization even if the CLI accepts it.
 
 - `bd show <id> --json` returns an array; require exactly one matching ID.
   It includes `status`, `issue_type`, `parent` when present, dependencies and
-  sometimes `revision`. A revision in output is **not** a supported CAS flag.
+  sometimes `revision`. An output revision is usable as CAS only when the
+  installed command/backend explicitly supports that token and its scope.
 - `bd create --json` returns an object with `id` in the checked version;
   `bd update --json` returns an array. Validate the actual response rather than
   applying one assumed shape to every command. `show`/`dep list` edges may use
@@ -206,12 +208,11 @@ never blindly recreate, reparent, remove an edge, or close.
   ONLY on those fields (guard mismatch exits 13 when all failures are stale).
   They cannot protect title, description, labels, parent or arbitrary content
   against concurrent changes while status/assignee remain equal. There is no
-  `--if-revision` in 1.3.1. For noncommutative content or reparenting requiring
-  no lost update, require a separately established exclusive writer/quiescent
-  window covering read/write/verify, otherwise return `conflict` before writing.
-  Never claim this guarantee from read/write/read or user permission alone;
-  no lost-update override replaces a real window. Preserve unrelated prose
-  and fields. Avoid multi-ID updates: they can partially succeed.
+  `--if-revision` in baseline 1.3.1 help. Apply `references/concurrency.md`:
+  native merge operations for appends/key edits, applicable revision CAS when
+  supported, otherwise automatic coordination for protected read-modify-write.
+  Ask for a manual window only for an uncovered required predicate. Preserve
+  unrelated prose and fields. Avoid multi-ID updates: they can partially succeed.
 - **Composition:** `bd create --parent <parent-id>` or `bd update <child-id>
   --parent <parent-id>`; inspect the existing parent and child, check proposed
   ancestry for a cycle; refuse a closed parent or a child whose state makes
@@ -220,13 +221,13 @@ never blindly recreate, reparent, remove an edge, or close.
   `parent`, the typed
   `parent-child` dependency (child → parent), and unlimited parent selection.
   Reparenting/removing membership (`--parent ''`) changes mandatory scope;
-  require explicit permission and exclusive writer as for content updates.
+  require explicit permission and structure protection as for content updates.
   Do not substitute a `blocks` edge for membership or add both.
 - **Blocking:** `bd dep add <blocked-id> <blocker-id> --type blocks --json`;
   `bd dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
   edge removal. Check both IDs and existing typed edges. Confirm the dependent
   is blocked by the blocker after add; before remove require the exact edge
-  and an established exclusive writer window against deleting a concurrent
+  and conditional or coordinated protection against deleting a concurrent
   replacement; read-back alone cannot provide it. Keep the
   default cycle check: never pass `--no-cycle-check`. `bd` rejects cycles and
   ancestor-blocking descendants; re-read on failure. A repeated add may say
@@ -255,8 +256,11 @@ never blindly recreate, reparent, remove an edge, or close.
   `--claim-next` or automatic epic closing. Re-read `status: closed`, reason,
   children and edges. If already closed, report that state; do not close again.
   `bd`'s refusal is a backstop, not proof that all required children exist.
-  Closure has no general revision guard: if concurrent structural change is
-  possible, require an exclusive writer/quiescent window or stop `conflict`.
+  Apply `references/concurrency.md`: native transactional child/blocker guards
+  suffice for their own predicates without a manual window. Exact expected
+  composition or snapshot-dependent acceptance needs its additional protection;
+  native closure is not full feature verification. Use applicable revision CAS
+  when supported; otherwise coordinate only the uncovered predicates.
 
 ## Separately requested Dolt publication (outside tasks v1)
 

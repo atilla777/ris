@@ -109,27 +109,60 @@ Keep evidence at an authorized address: selected remote/branch, `R`, `L`,
 outgoing commits and parents, all changed-table coverage and classified effects,
 permission provenance and blockers. Return only the summary to the caller.
 
-## Short final gate, push and partial effects
+## Snapshot-bound final gate, push and partial effects
 
-Immediately before push establish a real short publication window covering all
-local actors/routes that can add outgoing commits, change the working set or
-switch the selected database branch during check/push. Identify its provider,
-scope and duration. This is separate from the protected per-record write
-window; do not stop unrelated development for a long preparation operation.
-Without this protection a check-to-push race can send unknown history: block,
-do not call read/check/read or sandbox an atomic publication gate.
+Prefer publishing the inspected immutable snapshot `L`, not the moving current
+branch. Native Dolt 2.4.1 help documents branch creation from a start-point and
+explicit source:destination push refspecs. Check installed version/help and
+applicable project permission before using this route; documentation/source
+inspection is not a live concurrency-test claim.
 
-Within the window, fetch again, inspect heads and clean status, reread expected
-records/links, and revalidate permission. If `R`/`L` or state changed, recompute
-affected history coverage and all newly outgoing changes before proceeding.
-Stop on divergence or unknown changes. Once this gate passes, run only:
+1. Reserve a unique invocation-owned local ref (for example
+   `ris-publish-<L>-<invocation-id>`). All cooperating writers must leave this
+   private ref untouched; do not rely on a name without that ownership rule.
+   Create with `dolt branch <private-ref> <L>` without force, checkout or
+   upstream changes. Publication permission includes this local snapshot ref
+   unless the project/caller forbids it. On collision or ambiguous creation,
+   inspect actual refs; never replace somebody else's ref.
+2. Verify the private ref equals `L`. Fetch the selected remote again and
+   recompute the unlimited incoming/outgoing ranges against **L**, not the
+   newer working-branch HEAD. Reinspect every newly relevant parent/commit
+   under the full-history procedure. Divergence, incoming-only or unknown
+   history blocks push; no hidden merge. If L is already reachable from the
+   fetched remote, perform read-back and report a verified no-op.
+3. Revalidate authorized snapshot records/links using reads **AS OF L**
+   (the bounded native read-back queries below also apply locally). A newer
+   local commit/working-set change is outside this push: report it separately,
+   never commit it or silently widen L. The initial clean-working-set gate
+   still applies when selecting L; later unrelated writes need no global pause.
+4. Send only the reserved ref to the confirmed branch:
+
+   ```sh
+   dolt push <confirmed-remote> <private-ref>:main
+   ```
+
+   Never use `--all`, force, deletion refspecs or the moving `main` as source.
+   Do not delete or move the private ref as cleanup in this operation; record
+   its name/hash for recovery. A private ref is local evidence, not a remote
+   branch or a lock over records. If its ownership cannot be enforced, this
+   route is unavailable; a last-moment read alone does not protect it.
+
+If pinned-ref publication is unavailable, use an existing automatic coordinator
+covering all local routes that can change outgoing commits, working set or
+branch through final check/push. A documented shared local lock can cover its
+cooperating local writers; it is not a remote-writer lock. Only when both
+routes are unavailable ask once for a short manual local publication window.
+Under this fallback, fetch again, inspect heads/clean status/expected records,
+revalidate permission and audit any changed outgoing history. Then use:
 
 ```sh
 bd --sandbox dolt push --remote <confirmed-name> --no-adopt
 ```
 
-This flag form is verified by bd 1.3.1 help; an actual push must be separately
-authorized and observed. On rejection/ambiguous output inspect the selected
+This fallback flag form is verified by bd 1.3.1 help. Remote writers need not
+be paused: use normal non-force push; remote advancement may reject it and
+requires fresh reconciliation. Neither route is a distributed content CAS.
+An actual push must be separately authorized and observed. On rejection/ambiguous output inspect the selected
 remote independently and report the actual effect before retry. Never force,
 discard history or automatically pull to bypass a conflict. If already fully
 published, report verified no-op instead of manufacturing another push.

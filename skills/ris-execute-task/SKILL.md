@@ -47,8 +47,10 @@ The request for a full run authorizes the agreed single-task cycle, working
 artifacts, publication and completion subject to higher-priority/project limits.
 Check actual permissions for file edits, claim, Git commit/direct push, exact-ID
 completion and **all outgoing tracker history**. Do not infer acceptance from
-workflow permission. Establish required protected short write/publication windows
-before their effects; a claim, lease, sandbox or worktree is not CAS. Delegate
+workflow permission. Let the selected adapter establish operation-specific
+protection: prefer native atomic operations/CAS and automatic coordination,
+and snapshot-bound tracker publication; manual windows are fallback only.
+A claim, lease, sandbox or worktree is not general content/graph CAS. Delegate
 read-only preflight to the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.

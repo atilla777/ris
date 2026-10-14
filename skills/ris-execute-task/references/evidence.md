@@ -28,9 +28,9 @@ Keep enough information for another session to inspect reality without this chat
   progress facts. Keep authors of all repairs distinct from independent reviewer.
 - Actual Git remote/primary ref/integrated commit, snapshot checks/reassessment,
   push result and independent remote read-back address/revision.
-- Separately: criterion/composition verification, authorized write window scope
+- Separately: criterion/composition verification, applicable write protection scope
   and source of its guarantee, persisted result, actual closure read-back; tracker
-  remote/outgoing authorization, publication window, pushed snapshot and independent
+  remote/outgoing authorization, publication protection/ref, pushed snapshot and independent
   read-back. Do not record a local lock as protection against remote writers.
 - Confirmed partial effects, uncertainty, first remaining operation, exact
   prerequisite/decision for it, and fresh next recommendation without a claim.

@@ -165,10 +165,12 @@ adapter read-back; a detected duplicate remains conflict with known IDs.
 
 For an existing exact record preserve all refs and unrelated prose; never send
 an initial block over it. A requirements revision needs explicit update rights,
-expected old state and the adapter's real independently established writer window
-against lost updates, with provider/scope/duration through read/write/verify.
-Claim, sandbox, local lock, status guard, permission and read/write/read are not
-protection against remote writers; missing protection blocks the update.
+expected old state and the adapter's applicable content/structure protection
+against lost updates through read/write/verify. Prefer native CAS/transactions
+and available automatic coordination; a manual writer window is fallback only.
+The adapter establishes covered predicates and limits; claim, sandbox or a
+status-only guard does not protect a replaced acceptance block. Missing required
+protection blocks the update.
 Verify a new separate requirements decision and existing design applicability;
 block an unsupported/materially incompatible design rather than silently reusing
 it as accepted input. Changed refs invalidate verification to null. Git owns
