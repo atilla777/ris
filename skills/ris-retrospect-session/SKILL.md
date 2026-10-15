@@ -48,18 +48,21 @@ resources merely to announce that an unrequested branch was skipped.
    or interpreting OpenCode history. Use its owned `scripts/opencode_read.py`,
    bytecode-free, with supplied export/stdin first. Even a short export requires
    reader identity/overview and substantive pages before analysis; raw file reads
-   are not a substitute for identity, cutoff and metric checks. CLI needs separately
-   established initialized **scoped** fitness; `--pure` alone is insufficient.
-   Under the accepted service-write boundary, only OpenCode project metadata,
-   existing-DB/WAL housekeeping and its own logs outside the developed project
-   may change. Establish actual service paths and known initialized storage/schema
-   before allowing CLI; unknown paths/effects or required bootstrap/migration block it.
-   Investigated messages/parts/history links, project files/Git, tasks and telemetry
-   remain protected. `--allow-cli` asserts this scoped permission/fitness, not
-   zero writes to all storage and not permission for arbitrary outside-project writes. If that
-   cannot be established, request a supplied export or use an explicitly authorized
-   already available GET endpoint. Never bootstrap, migrate, import, start a
-   service or inspect internal storage as a fallback.
+   are not a substitute for identity, cutoff and metric checks. A retrospective
+   request authorizes the reader's fixed `--pure` version/list/exact-ID export
+   calls in the selected project; use `--allow-cli` unless the caller or project
+   restricts CLI access. Do not require a separate initialization/schema/service-
+   path witness or ask for export merely because that witness is absent. Ordinary
+   OpenCode metadata, DB/WAL housekeeping and own logs outside the developed
+   project are permitted service effects. Investigated messages/parts/history
+   links, project files/Git, tasks and telemetry remain protected.
+   Stop CLI acquisition on a concrete bootstrap/migration indication, reader/CLI
+   error, unsupported version, project mismatch or known out-of-scope effect;
+   do not approve prompts, repair storage or retry around the failure. Offer a
+   supplied export or explicitly authorized existing GET source instead. Never
+   bootstrap, migrate, import, start a service or inspect internal storage as a
+   fallback. This is bounded use of the standard client, not technical prevention
+   of hidden automatic migrations or proof of zero storage writes.
 3. Without ID/export, use the permitted root-session list (default five) and ask
    one selection question. Never export without an ID or select the latest silently.
    Empty list/cancellation stops acquisition. Project/ID mismatch or changing

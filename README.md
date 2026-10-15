@@ -317,19 +317,24 @@ pages/detail, participant gaps, fingerprint-bound continuations and known metric
 Supply the project root and export (optionally child exports/cutoff), or an exact
 ID and an authorized already available endpoint. Without ID, the permitted CLI
 root list asks for selection; it never silently exports the latest session.
-CLI collection requires caller-established initialized **scoped** fitness:
-`--pure` alone is insufficient. Accepted requirements/design v2 permit OpenCode
-project metadata, existing-DB/WAL housekeeping and own logs outside the developed
-project; investigated messages/parts/history links, project files/Git, tasks and
-telemetry remain protected. `--allow-cli` asserts verified initialization, actual
-service-path scope and permitted effects; the reader checks version/fixed argv,
-not storage schema itself. Unknown/out-of-scope effects or required bootstrap/
-migration keep CLI gated. Earlier all-storage-readonly failures are preserved as
-v1 evidence. An isolated initialized v2 scoped positive CLI oracle passed for
+The accepted [CLI-read policy amendment](docs/specs/session-retrospective/cli-read-policy.md)
+allows the fixed `--pure` version/list/exact-ID export calls on a retrospective
+request, unless caller/project restrictions forbid CLI. No separate initialized
+storage/schema or service-path fitness witness is required; `--allow-cli` means
+bounded read permission. Ordinary OpenCode metadata, DB/WAL housekeeping and own
+logs outside the developed project are accepted; investigated history/links,
+project files/Git, tasks and telemetry remain protected. Concrete setup/migration
+indications, reader/CLI errors, unsupported versions, identity mismatch or known
+out-of-scope effects stop CLI acquisition without repair or bypass; supplied export
+or permitted existing GET remains available. This does not technically prevent
+hidden automatic client migrations. Version/fixed argv checks remain unchanged.
+Earlier all-storage-readonly failures remain v1 evidence. The historical isolated
+initialized v2 scoped positive CLI oracle passed for
 OpenCode 1.18.33 in the disposable T3 store: repeated list/large-root/branch reads
 preserved protected content/schema and classified permitted service effects.
-This establishes neither real-store/other-project fitness nor automatic recognition
-of invalid fitness; negative checks withheld caller permission. Supplied-export
+This establishes neither real-store/other-project safety nor automatic recognition
+of prohibited effects; it is not a current runtime prerequisite. Negative checks
+withheld caller permission. Supplied-export
 analysis remains usable. The locally integrated T3
 candidate adds installed-relative `references/langfuse.md`, `delegation.md` and
 `save-report.md`, loaded only for their authorized branches. Langfuse requires a

@@ -33,8 +33,10 @@ Pass a compact self-contained assignment, not the entire leading conversation:
   reproductions, project/Git/skill/rule/task/history/telemetry changes or report
   saving. No secrets in arguments, excerpts or results. No further delegation.
   The leading report-save permission and CLI service exception are not child
-  write rights; any permitted CLI acquisition needs its own established scoped
-  fitness and exact allowed calls, otherwise use supplied evidence.
+   write rights; any permitted CLI acquisition needs explicit bounded read
+   authorization in the handoff and the fixed calls/stop conditions from
+   `opencode.md`, not a separate initialization/fitness witness. Otherwise use
+   supplied evidence.
 - Return compact coverage/ranges, episode/event refs, observed consequences,
   problem and cause confidence separately, causal alternatives, current
   applicability where checked, owner/minimal-fix/check/cost, metric values with

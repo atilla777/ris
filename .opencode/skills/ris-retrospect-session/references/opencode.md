@@ -43,32 +43,41 @@ With no supplied export, `--session <exact-ID> --allow-cli` permits fixed
 `opencode --pure --version` and `opencode --pure export <ID>`, cwd=selected project,
 shell=False. `list --allow-cli` runs `opencode --pure session list --format json
 --max-count 5` and returns selection-required, never a selected session. CLI
-permission means initialized scoped fitness has been separately established
-for this exact installation/project/store. Confirm known initialized existing
-storage/schema and actual canonical service storage/log paths outside the
-developed project (including symlink targets), then classify effects: only
-OpenCode project metadata, housekeeping of the existing DB/WAL/checkpoint and
-its own logs are allowed there. Message/part content and semantic history links,
-project files/config/docs/Git, task state/edges and telemetry stay protected.
-Changes elsewhere outside the project are not automatically allowed. Schema/data
-migration, bootstrap and plugin effects remain forbidden; an unknown or stale
-initialization/fitness witness is not permission to try initialization.
-`--allow-cli` retains its existing interface as an explicit caller-established
-scoped permission/fitness assertion, not a zero-all-storage-write assertion.
-The reader checks the actual CLI version and fixed argv but does not inspect
-SQLite or prove schema initialization/side-effect scope itself. Use authorized
-existing installation evidence or a caller-provided verified witness before
-passing the flag. If paths/initialization/effects are unknown or out of scope,
-**do not pass the flag**; supplied export or permitted existing GET remains usable.
-This reader does not
-repair/initialize storage. Linux stdout capture is an anonymous memfd, closed on
+permission is supplied by the retrospective request unless the caller or project
+restricts CLI use. Pass `--allow-cli` for these fixed reads; it acknowledges
+permission, not independently verified initialized storage or a fitness witness.
+Do not inspect SQLite, enumerate service paths or request an export solely to
+prove readiness. Prefer a supplied export when one is already provided.
+
+Ordinary OpenCode metadata, DB/WAL/checkpoint housekeeping and own logs outside
+the developed project are accepted service effects. Message/part content and
+semantic history links, project files/config/docs/Git, task state/edges and
+telemetry stay protected. This is not permission for arbitrary outside-project
+writes, plugins or analyst storage edits. A known service path inside the
+developed project or another concrete out-of-scope effect blocks CLI use; an
+absent service-path inventory alone does not.
+
+Stop CLI acquisition on a bootstrap/migration indication, request for setup,
+unsupported version, reader/CLI error (including timeout/invalid JSON), identity
+mismatch or known prohibited effect. Do not confirm prompts, initialize, upgrade,
+repair or retry around the failure. Offer a supplied export or permitted existing
+GET instead. The reader checks version/fixed argv and suppresses raw stderr;
+its generic error is already sufficient to stop, not a reason to inspect storage.
+After a child CLI acquisition fails, the reader makes no further CLI acquisitions
+in that call; it retains collected history and marks skipped children with
+`cli-acquisition-stopped` gaps. Do not retry another reader operation through
+CLI to bypass that partial result; switch to supplied evidence/permitted GET.
+It does not detect or prevent every automatic client migration or prove zero
+storage writes. If the caller requires that stronger guarantee, use supplied
+evidence or an already permitted read-only interface rather than claiming CLI
+is isolated. Linux stdout capture is an anonymous memfd, closed on
 all exits; other platforms use a pipe. Stderr is captured separately, never
 reproduced in diagnostics. Exit 0 alone does not validate a complete export.
 
-The accepted scoped oracle compares protected history/schema/project/Git/tasks/
-telemetry witnesses with actual calls and separately classifies allowed metadata,
-housekeeping and log effects. Physical DB/WAL changes alone do not fail that
-oracle; unexplained or protected-object changes do. Test-owner instrumentation
+The historical v2 scoped oracle compared protected history/schema/project/Git/tasks/
+telemetry witnesses with actual calls and separately classified allowed metadata,
+housekeeping and log effects. It is historical evidence, not a runtime prerequisite
+for ordinary retrospective reads. Test-owner instrumentation
 is separate from retrospective runtime and does not authorize analyst SQL,
 service startup, export capture files or experiments.
 

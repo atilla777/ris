@@ -294,8 +294,8 @@ def valid_interval(start, end):
 
 
 def cli_capture(project, operation, session=None, executable='opencode', use_memfd=True, timeout=30):
-    # Caller establishes initialized storage/schema and scoped service paths/effects
-    # before this fixed read boundary. No SQL/bootstrap or blanket storage-write grant.
+    # Caller authorizes fixed standard-client reads and accepts ordinary service
+    # effects. No initialization witness, SQL/bootstrap or blanket write grant.
     if operation == 'export':
         args = ['export', identifier(session, 'ses')]
     elif operation == 'list':
@@ -481,7 +481,7 @@ def operate(args):
         raise ReadError('captured boundary requires supplied export and cutoff')
     if args.operation == 'list':
         if not args.allow_cli:
-            raise ReadError('initialized CLI read-path permission required')
+            raise ReadError('CLI read permission required')
         return {'status': 'selection-required', 'sessions': list_rows(cli_capture(args.project, 'list'), args.project),
                 'selected': None}
 
@@ -518,7 +518,7 @@ def operate(args):
                 raise ReadError('unsupported status schema')
         except ReadError:
             statuses = None; gaps.append({'kind': 'status-unavailable'})
-    queue = deque([root['session']]); visited = set()
+    queue = deque([root['session']]); visited = set(); cli_stopped = False
     while queue:
         sid = queue.popleft()
         if sid in visited:
@@ -551,11 +551,15 @@ def operate(args):
                 children.pop(sid, None); gaps.append({'kind': 'children-GET-unavailable', 'session': sid})
         for child in sorted(candidates):
             if child not in sources:
+                if args.allow_cli and cli_stopped:
+                    gaps.append({'kind': 'cli-acquisition-stopped', 'session': child}); continue
                 if len(sources) >= 256:
                     gaps.append({'kind': 'participant-limit', 'unprocessed_session': child}); continue
                 try:
                     sources[child] = acquire(child)
                 except ReadError:
+                    if args.allow_cli:
+                        cli_stopped = True
                     gaps.append({'kind': 'child-acquisition-failed', 'session': child}); continue
             if sources[child]['data']['info'].get('parentID') == sid:
                 queue.append(child)
@@ -634,7 +638,7 @@ def parser():
     p.add_argument('--child-export', action='append', default=[])
     p.add_argument('--version', help='explicitly established source semantic version')
     p.add_argument('--endpoint', help='explicit authorized already available endpoint')
-    p.add_argument('--allow-cli', action='store_true', help='caller-verified initialized scoped fitness; only service metadata/housekeeping/log writes outside project')
+    p.add_argument('--allow-cli', action='store_true', help='authorize fixed --pure CLI reads; accepts ordinary service effects, not a storage-fitness assertion')
     p.add_argument('--cutoff', type=int, help='Unix milliseconds')
     p.add_argument('--captured-boundary', action='store_true', help='caller has evidence this export was captured at cutoff')
     p.add_argument('--participant', help='exact participant for pages/detail')

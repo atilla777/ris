@@ -61,6 +61,39 @@ def endpoint(responses):
         server.shutdown(); server.server_close(); thread.join()
 
 
+class CliAcquisitionStop(unittest.TestCase):
+    def test_child_failure_stops_later_cli_reads_but_keeps_root(self):
+        root = fixture()
+        root['messages'][0]['parts'] = [
+            {'id': 'prt_' + name, 'type': 'tool', 'tool': 'task',
+             'sessionID': 'ses_root', 'messageID': 'msg_one',
+             'state': {'metadata': {'sessionId': 'ses_' + name}}}
+            for name in ('a', 'b')]
+        args = r.parser().parse_args([
+            'overview', '--project', '/safe/project', '--session', 'ses_root', '--allow-cli'])
+        for failure in ('cli-error', 'project-mismatch'):
+            with self.subTest(failure=failure):
+                calls = []
+                def capture(project, operation, session):
+                    calls.append(session)
+                    if session == 'ses_root':
+                        return json.dumps(root)
+                    if failure == 'cli-error':
+                        raise r.ReadError('CLI read failed')
+                    child = fixture(session, 'ses_root')
+                    child['info']['directory'] = '/foreign/project'
+                    return json.dumps(child)
+                with patch.object(r, 'cli_capture', side_effect=capture):
+                    result = r.operate(args)
+                self.assertEqual(calls, ['ses_root', 'ses_a'])
+                self.assertEqual(result['identity']['session'], 'ses_root')
+                self.assertEqual(result['status'], 'partial')
+                self.assertTrue(any(g['kind'] == 'child-acquisition-failed'
+                                    and g['session'] == 'ses_a' for g in result['gaps']))
+                self.assertTrue(any(g['kind'] == 'cli-acquisition-stopped'
+                                    and g['session'] == 'ses_b' for g in result['gaps']))
+
+
 class Identity(unittest.TestCase):
     def test_wrong_session_is_not_success(self):
         with self.assertRaisesRegex(r.ReadError, 'session mismatch'):
