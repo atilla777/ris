@@ -386,7 +386,19 @@ without arguments it asks which feature to discuss. The project command
 `/ris-prepare-feature-work [epic ID or context]` to prepare and publish one
 feature from roadmap choice through accepted, reviewed and published requirements/
 design to a remotely verified feature ID; decomposition starts separately. Without
-arguments it establishes the epic scope with the user as needed. Restart
+arguments it establishes the epic scope with the user as needed. The project command
+`.opencode/command/ris-execute-task.md` exposes `/ris-execute-task [task ID or context]`
+to execute or safely resume one task through implementation, independent review,
+verified Git publication and separate tracker completion/publication using
+`ris-execute-task`. Without an ID it reconciles confirmed own unfinished work
+first, otherwise selects one ready task; an explicit ID remains the only target.
+Each invocation handles one task and only recommends the next. The project command
+`.opencode/command/ris-retrospect-session.md` exposes
+`/ris-retrospect-session [session ID, export or context]` for an evidence-based
+retrospective of one selected OpenCode session using `ris-retrospect-session`.
+Without an ID or export it follows the skill's permitted session-list and selection
+procedure. The report is returned in the response by default; saving requires an
+explicit request and an exact authorized destination. Restart
 OpenCode after changing skill or command files so a running session picks them
 up.
 
