@@ -18,7 +18,7 @@ Names are lowercase ASCII words separated by single hyphens, at most 64 characte
 Source directory, frontmatter `name`, installed directory, command basename and
 slash command agree. Every op/flow has one same-name command; lib/adapter have none.
 
-The following 41 folders form the coherent namespace package in this revision.
+The following 42 folders form the coherent namespace package in this revision.
 The source package and repository-local primary installation are synchronized.
 The linked SKILL.md files define actual inputs, dependencies, permissions, checks
 and stopping points. Independent verification and remote publication require
@@ -41,6 +41,7 @@ their own revision-bound evidence; this inventory does not establish those outco
 | [ris-port-op-formulate-architecture-rules](skills/ris-port-op-formulate-architecture-rules/SKILL.md) | Portable architecture-rules proposal | same name |
 | [ris-port-op-formulate-development-rules](skills/ris-port-op-formulate-development-rules/SKILL.md) | Portable engineering-rules proposal | same name |
 | [ris-port-op-manage-okf-bundle](skills/ris-port-op-manage-okf-bundle/SKILL.md) | Explicit-root autonomous OKF read/create/edit/check | same name |
+| [ris-port-op-manage-installation](skills/ris-port-op-manage-installation/SKILL.md) | Checked full-package install/update/uninstall | same name |
 | [ris-proj-op-author-skill](skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring | same name |
 | [ris-proj-op-resolve-context](skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation | same name |
 | [ris-proj-op-plan-roadmap](skills/ris-proj-op-plan-roadmap/SKILL.md) | Project roadmap and authorized tracker persistence | same name |
@@ -71,7 +72,7 @@ their own revision-bound evidence; this inventory does not establish those outco
 ## Commands and installation
 
 [`commands/opencode/`](commands/opencode/) is the canonical source of all
-37 thin command templates (35 op and 2 flow). The inventory above is also the
+38 thin command templates (36 op and 2 flow). The inventory above is also the
 complete command inventory: each `same name` row exposes `/` followed by its
 full skill name. A template explicitly loads that one skill, passes `$ARGUMENTS`
 and follows its existing input, permission and stop contract. It does not select
@@ -103,21 +104,58 @@ installation so it discovers the changed files; a running session is not updated
 For existing installations use the **[complete namespace transition guide](docs/skill-command-naming-migration.md)**,
 including all 41 skill replacements, all eight retired commands, independent
 target-root selection, consumer/config updates, removal and partial-error handling.
-There are no aliases. The W1 installer CLI is included below; complete production
-package installation remains W2 delivery.
+There are no aliases. The complete management skill, command and installer are
+included below. The published task package has passing Linux/macOS integration
+and public pinned-bootstrap evidence below. Reuse for a later integrated package
+requires explicit snapshot applicability assessment and independent review.
 The local foreign skill `grilling`, command `grillme`, and client configuration
 are not RIS package source and must be preserved during synchronization.
 
-### Installer CLI and bootstrap (W1; production acceptance pending W2)
+### Manage RIS from an agent
+
+Use `/ris-port-op-manage-installation` with an explicit operation and target, for
+example:
+
+```text
+/ris-port-op-manage-installation install RIS in /absolute/path/to/project
+/ris-port-op-manage-installation update RIS in /absolute/path/to/project to tag v-example
+/ris-port-op-manage-installation uninstall RIS from /absolute/path/to/project
+```
+
+The skill clarifies missing intent/target, invokes its owner-relative script and
+checks the exit status, actual paths/counts and four-line version record. It needs
+no `ris.yaml`, Beads or project initialization. Explicit update/removal is never
+silently changed to install. Package replacement includes local edits and retired
+entries. It reports recovery/cleanup failures without calling them success.
+Quit and restart OpenCode after any package change. Before RIS is installed,
+use the bootstrap below; it calls the same engine.
+
+### Installer CLI, bootstrap and delivery evidence
 
 The single runtime source is
 [`skills/ris-port-op-manage-installation/scripts/ris-install.sh`](skills/ris-port-op-manage-installation/scripts/ris-install.sh).
-W1 tests it against a local Git fixture containing minimal management skill and
-command stubs. This source revision deliberately has **no production management
-SKILL.md or command**: the installer rejects such an incomplete package. A raw
-script URL becoming available does not establish production bootstrap acceptance.
-W2 supplies and verifies the complete package; Linux and macOS evidence and
-independent review are required before claiming supported production delivery.
+W1 tests its mechanisms against a minimal Git fixture; the separate W2 integration
+suite captures the complete actual source package, including the management skill,
+command and all resources, into a disposable Git upstream.
+
+The complete task package at **`86d2f24f4dd831de3ef00e16973d7c285220340e`**,
+tree `0eb353bbc726840fedcce8b58cba2b53293d9b74`, passed
+[W2 run 38739083951](https://github.com/atilla777/ris/actions/runs/38739083951):
+all four production integration tests on Linux and macOS, including the repaired
+failed-download execution oracle. A real public bootstrap of that exact pin also
+passed: checked raw script bytes, normal public Git clone, all 132 installed files
+and executable modes, four-line version SHA, **42 skills / 38 commands**, no target
+Git initialization or remaining journal. This is pinned-package evidence, not a
+claim that an unpinned remote HEAD contains that revision.
+
+This integrated source also includes U1 instruction/resource updates. The
+installer, management entry, test code and workflows are unchanged from the tested
+task package; other installed instruction bytes differ. The linked hosted run
+and real public bootstrap were **not run on the integrated SHA**. Their unchanged
+mechanism evidence can be reused with explicit payload/check applicability;
+integrated payload verification, independent whole-snapshot reassessment and
+main publication remain separate, revision-bound facts. A local candidate's
+manifest/tree identifies its bytes without inventing a public commit or CI run.
 
 Runtime dependencies: **Bash 3.2+, Git 2.20+, flock**, and standard Unix `cp`, `mv`,
 `rm`, `mkdir`, `rmdir`, `mktemp`, `chmod`, `cmp`, `diff`, `id`, `ls`, `readlink`.
@@ -127,10 +165,12 @@ missing tools and never installs dependencies. `curl` is only for bootstrap;
 Python 3 is development/test-only. RIS config, Beads, OpenCode and target Git are
 not runtime prerequisites.
 
-Once a complete revision is published, a human or agent can bootstrap without
+For the publicly verified complete package, set `ref` below to
+`86d2f24f4dd831de3ef00e16973d7c285220340e`. A human or agent can bootstrap without
 installed RIS using this Bash block. Choose an **existing absolute project path**;
 spaces are supported. Leave `ref` empty for upstream remote HEAD, or set it to an
-exact tag or full 40-hex **commit** SHA. The raw script and `--ref` use the same pin:
+exact tag or full 40-hex **commit** SHA. Remote HEAD must itself contain a complete
+package; incomplete revisions are rejected. The raw script and `--ref` use the same pin:
 
 ```bash
 (
@@ -203,12 +243,15 @@ Developer verification (filesystem CLI tests only; no agent sessions):
 
 ```sh
 python3 -m unittest discover -s tests/package_installation -p 'test_*.py' -v
+PYTHONDONTWRITEBYTECODE=1 RIS_TEST_BASH=/bin/bash python3 -m unittest discover -s tests/package_installation_integration -p 'test_*.py' -v
 bash -n skills/ris-port-op-manage-installation/scripts/ris-install.sh
 ```
 
-The workflow runs G0 lock/copy first, then this suite on Linux and macOS, explicitly
-using `/bin/bash` (3.2 on macOS) and externally installed flock. A workflow file is
-not evidence of a successful remote job; both OS results must be checked separately.
+The W1 workflow runs G0 lock/copy and the mechanism suite. The separate production
+integration workflow runs the focused real-package lifecycle, recovery and README
+bootstrap checks against the exact checked-out tree. Both use Linux and macOS,
+explicit `/bin/bash` (3.2 on macOS) and externally installed flock. A workflow file
+is not evidence of a successful remote job; both OS results need separate checks.
 
 ## Dependencies and boundaries
 
