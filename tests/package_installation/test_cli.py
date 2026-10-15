@@ -10,6 +10,7 @@ import stat
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 BASH = os.environ.get("RIS_TEST_BASH", "/bin/bash")
 SCRIPT = Path(__file__).resolve().parents[2] / "skills/ris-port-op-manage-installation/scripts/ris-install.sh"
@@ -70,7 +71,8 @@ class CLI(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix="ris CLI ")
         self.addCleanup(self.tmp.cleanup)
-        self.base = Path(self.tmp.name)
+        # Match the engine's physical-root contract, including aliased TMPDIRs.
+        self.base = Path(self.tmp.name).resolve()
         self.project = self.base / "project space"
         self.project.mkdir()
         self.fixture = self.base / "fixture"
@@ -651,6 +653,35 @@ if match:
                      ("install", "--project", "relative"), ("install",)):
             self.assertNotEqual(run(BASH, str(SCRIPT), *args, env=self.env).returncode, 0)
             self.assertEqual(oracle(self.project), before)
+
+
+class AliasedTempRoot(unittest.TestCase):
+    def test_fault_phases_under_symlink_temp_root(self):
+        # Reproduce macOS /var -> /private/var on any host, with real filesystem
+        # operations. Run the affected cases unchanged; neither faults nor
+        # assertions are replaced by mocks. Only tempfile's input root changes.
+        with tempfile.TemporaryDirectory(prefix="ris alias regression ") as d:
+            base = Path(d).resolve()
+            physical = base / "private" / "logical"
+            physical.mkdir(parents=True)
+            logical = base / "logical"
+            logical.symlink_to(physical, target_is_directory=True)
+            self.assertNotEqual(str(logical), str(logical.resolve()))
+            methods = (
+                "test_apply_error_restores_exact_manual_snapshot",
+                "test_busy_alias_and_child_lock_lifetime",
+                "test_crash_before_and_during_apply",
+                "test_repeated_interrupted_rollback",
+                "test_rollback_failure_preserves_snapshot_for_retry",
+                "test_signal_rolls_back_and_interrupted_uninstall",
+                "test_terminal_cleanup_crashes",
+            )
+            result = unittest.TestResult()
+            with patch.object(tempfile, "tempdir", str(logical)):
+                unittest.TestSuite(CLI(method) for method in methods).run(result)
+            self.assertEqual(result.testsRun, len(methods))
+            self.assertEqual(result.skipped, [])
+            self.assertTrue(result.wasSuccessful(), result.errors + result.failures)
 
 
 if __name__ == "__main__":
