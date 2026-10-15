@@ -12,3 +12,4 @@ okf_version: "0.2"
 - [Профиль собственного корпуса](../concepts/knowledge-profile.md) — корни и формат двух бандлов.
 - [Нормативная методика пакета](../concepts/index.md) — самостоятельный бандл, не авторский product.
 - [Планы конкретных поставок](../specs/README.md) — обычный Markdown вне бандла rules.
+- [Переход имён пакета](../skill-command-naming-migration.md) — действующие имена, source/install и сохранение истории.

@@ -8,7 +8,7 @@ workspace:
   worktrees: .sdlc/worktrees/
 adapters:
   tasks:
-    skill: ris-beads-adapter
+    skill: ris-proj-adapter-beads-tasks
 execution:
   roles:
     feature-selection:

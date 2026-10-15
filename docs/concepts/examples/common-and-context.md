@@ -6,13 +6,13 @@ type: Example
 
 [Оглавление](../index.md)
 
-Ниже приведены иллюстрации; актуальные исходные инструкции находятся в `skills/ris-common/` и `skills/ris-context/`. Примеры не установлены в среду.
+Ниже приведены иллюстрации; актуальные исходные инструкции находятся в `skills/ris-proj-lib-common/` и `skills/ris-proj-op-resolve-context/`. Примеры не установлены в среду.
 
-## 1. ris-common/SKILL.md
+## 1. ris-proj-lib-common/SKILL.md
 
 ```markdown
 ---
-name: ris-common
+name: ris-proj-lib-common
 description: >-
   Предоставляет общие правила выполнения и передачи результатов в пакете ris.
   Используй как зависимость его скилов, не как самостоятельный процесс
@@ -58,7 +58,7 @@ description: >-
 
 Когда появится адаптер задач, добавляется условное требование прочитать единый контракт его операций. До этого пустой ресурс `tasks-contract.md` не создаётся.
 
-## 2. ris-common/references/dialogue.md
+## 2. ris-proj-lib-common/references/dialogue.md
 
 ```markdown
 # Правила диалога
@@ -105,7 +105,7 @@ description: >-
 всех вообразимых вопросов о продукте.
 ```
 
-## 3. ris-common/references/artifacts.md
+## 3. ris-proj-lib-common/references/artifacts.md
 
 ```markdown
 # Правила артефактов и передачи
@@ -150,7 +150,7 @@ description: >-
 подтверждения и ограничения. Частичная запись не является полным успехом.
 ```
 
-## 4. ris-common/references/quality.md
+## 4. ris-proj-lib-common/references/quality.md
 
 Этот рабочий ресурс реализует общую часть [документа 07](../07-quality-and-verification.md). Его краткий вариант:
 
@@ -188,11 +188,11 @@ description: >-
 
 Специфичные обходы и признаки нарушения остаются у прикладных скилов. Подробные проектные проверки не копируются в этот ресурс.
 
-## 5. ris-context/SKILL.md
+## 5. ris-proj-op-resolve-context/SKILL.md
 
 ```markdown
 ---
-name: ris-context
+name: ris-proj-op-resolve-context
 description: >-
   Prepare selected RIS project paths and input diagnostics for a specific
   project operation. Use before that operation or after a project/worktree
@@ -204,7 +204,7 @@ description: >-
 Подготовь данные для вызывающего скила. Не выбирай работу,
 не анализируй всю концепцию и не изменяй исходные файлы.
 
-Обеспечь актуальные правила `ris-common`. Не вызывай себя.
+Обеспечь актуальные правила `ris-proj-lib-common`. Не вызывай себя.
 Прочитай `references/configuration.md` от каталога этого скила.
 
 Используй выбранный проект, проектный `ris.yaml` при наличии,
@@ -233,4 +233,4 @@ description: >-
 Постоянный файл контекста не создавай. Дальнейшую работу ведёт вызывающий скил.
 ```
 
-Актуальный исполнимый контракт — `skills/ris-context/references/configuration.md`; его версия 2 описана в [02](../02-configuration.md). Копирование одного показанного `SKILL.md` без ресурса не даёт работающей установки.
+Актуальный исполнимый контракт — `skills/ris-proj-op-resolve-context/references/configuration.md`; его версия 2 описана в [02](../02-configuration.md). Копирование одного показанного `SKILL.md` без ресурса не даёт работающей установки.
