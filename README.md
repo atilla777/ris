@@ -296,14 +296,15 @@ or design exists, as well as task changes, through one publication algorithm.
 Both require exact whole-snapshot independent review, authority, full outgoing
 scope and remote verification. Publication does not accept proposed content,
 write/close tracker records or publish Dolt. A caller checks the combined result
-and publisher receipt. The U2 candidate in this task copy extends existing
+and publisher receipt. The integrated U2 contracts extend existing
 planning owners: finished direct roadmap/refinement/decomposition invoke tracker
 publication; specify/design apply independent document review and this Git owner
 before record reconciliation and tracker publication. Explicitly limited
 proposal/local-save/record-only contributions return their exact remainder.
 Nesting does not silently change the mode; no-change checks required availability
-or publication debt without empty commits/pushes. These instruction changes are
-pending primary integration, independent review and publication.
+or publication debt without empty commits/pushes. Source and installed instructions
+are synchronized; independent whole-snapshot review and remote publication require
+their own revision-bound evidence.
 
 For applicable task-bound operations, a short command plus exact ID starts
 discovery through context and selected adapter reads of kind/key/content/links,
