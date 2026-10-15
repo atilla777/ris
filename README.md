@@ -383,6 +383,11 @@ and the RIS author for integrated ones. Direct requests use the corresponding
 skill contract. The project command `.opencode/command/ris-next.md` exposes
 `/ris-next [epic ID or context]` for read-only next-feature selection in the
 current project using `ris-select-next-feature`. The project command
+`.opencode/command/ris-interview.md` exposes `/ris-interview [topic or context]`
+for a bounded interview using `ris-interview-base`, including outside RIS.
+Without a topic it asks what to discuss; full mode is the default, and limited
+mode requires an explicit request and a sufficiency criterion. It returns the
+interview handoff in the response. The project command
 `.opencode/command/ris-interview-feature.md` exposes
 `/ris-interview-feature [feature ID or description]` to discuss a selected
 feature's requirements in the current project and return a read-only handoff;
@@ -438,7 +443,7 @@ index for historical links.
 
 ## OpenCode command sources
 
-[`commands/opencode/`](commands/opencode/) contains the seven RIS command
+[`commands/opencode/`](commands/opencode/) contains the eight RIS command
 sources already used in this repository's local `.opencode/command/` setup:
 
 | Command | Skill invoked |
@@ -446,6 +451,7 @@ sources already used in this repository's local `.opencode/command/` setup:
 | `/ris-author <request>` | `ris-author-skills-base` or `ris-author-skills`, according to the requested responsibility |
 | `/ris-plan-roadmap <request>` | `ris-plan-roadmap` |
 | `/ris-next [epic ID or context]` | `ris-select-next-feature` |
+| `/ris-interview [topic or context]` | `ris-interview-base` |
 | `/ris-interview-feature [feature ID or description]` | `ris-interview-feature` |
 | `/ris-prepare-feature-work [epic ID or context]` | `ris-prepare-feature-work` |
 | `/ris-execute-task [task ID or context]` | `ris-execute-task` |
@@ -458,8 +464,14 @@ package sources, separate from the repository's local installation; keep the
 local copies in sync when revising commands. The additional local `grillme`
 command is not part of RIS.
 
-Skill and command installation is deferred to a separate change; this addition
-provides sources only and does not add an installer or change the local setup.
+For manual installation of `/ris-interview` in another project, copy
+`commands/opencode/ris-interview.md` to that project's
+`.opencode/command/ris-interview.md` and install the complete
+`skills/ris-interview-base/` folder into `.opencode/skills/ris-interview-base/`.
+The base requires no RIS configuration or other RIS skills. Restart OpenCode
+after installation so it discovers the command and skill.
+
+An automated skill/command installer remains deferred to a separate change.
 
 ## License
 
