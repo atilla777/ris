@@ -105,8 +105,9 @@ For existing installations use the **[complete namespace transition guide](docs/
 including all 41 skill replacements, all eight retired commands, independent
 target-root selection, consumer/config updates, removal and partial-error handling.
 There are no aliases. The complete management skill, command and installer are
-included below. Production delivery still requires revision-bound Linux/macOS
-integration evidence, independent review and publication.
+included below. The published task package has passing Linux/macOS integration
+and public pinned-bootstrap evidence below. Reuse for a later integrated package
+requires explicit snapshot applicability assessment and independent review.
 The local foreign skill `grilling`, command `grillme`, and client configuration
 are not RIS package source and must be preserved during synchronization.
 
@@ -129,16 +130,32 @@ entries. It reports recovery/cleanup failures without calling them success.
 Quit and restart OpenCode after any package change. Before RIS is installed,
 use the bootstrap below; it calls the same engine.
 
-### Installer CLI and bootstrap (production evidence pending)
+### Installer CLI, bootstrap and delivery evidence
 
 The single runtime source is
 [`skills/ris-port-op-manage-installation/scripts/ris-install.sh`](skills/ris-port-op-manage-installation/scripts/ris-install.sh).
 W1 tests its mechanisms against a minimal Git fixture; the separate W2 integration
 suite captures the complete actual source package, including the management skill,
-command and all resources, into a disposable Git upstream. Local uncommitted
-candidates have a recorded manifest/tree, not a published production SHA. Both OS
-results, independent review and publication are required for supported delivery;
-a raw script URL alone does not establish complete public bootstrap availability.
+command and all resources, into a disposable Git upstream.
+
+The complete task package at **`86d2f24f4dd831de3ef00e16973d7c285220340e`**,
+tree `0eb353bbc726840fedcce8b58cba2b53293d9b74`, passed
+[W2 run 38739083951](https://github.com/atilla777/ris/actions/runs/38739083951):
+all four production integration tests on Linux and macOS, including the repaired
+failed-download execution oracle. A real public bootstrap of that exact pin also
+passed: checked raw script bytes, normal public Git clone, all 132 installed files
+and executable modes, four-line version SHA, **42 skills / 38 commands**, no target
+Git initialization or remaining journal. This is pinned-package evidence, not a
+claim that an unpinned remote HEAD contains that revision.
+
+This integrated source also includes U1 instruction/resource updates. The
+installer, management entry, test code and workflows are unchanged from the tested
+task package; other installed instruction bytes differ. The linked hosted run
+and real public bootstrap were **not run on the integrated SHA**. Their unchanged
+mechanism evidence can be reused with explicit payload/check applicability;
+integrated payload verification, independent whole-snapshot reassessment and
+main publication remain separate, revision-bound facts. A local candidate's
+manifest/tree identifies its bytes without inventing a public commit or CI run.
 
 Runtime dependencies: **Bash 3.2+, Git 2.20+, flock**, and standard Unix `cp`, `mv`,
 `rm`, `mkdir`, `rmdir`, `mktemp`, `chmod`, `cmp`, `diff`, `id`, `ls`, `readlink`.
@@ -148,10 +165,12 @@ missing tools and never installs dependencies. `curl` is only for bootstrap;
 Python 3 is development/test-only. RIS config, Beads, OpenCode and target Git are
 not runtime prerequisites.
 
-Once a complete revision is published, a human or agent can bootstrap without
+For the publicly verified complete package, set `ref` below to
+`86d2f24f4dd831de3ef00e16973d7c285220340e`. A human or agent can bootstrap without
 installed RIS using this Bash block. Choose an **existing absolute project path**;
 spaces are supported. Leave `ref` empty for upstream remote HEAD, or set it to an
-exact tag or full 40-hex **commit** SHA. The raw script and `--ref` use the same pin:
+exact tag or full 40-hex **commit** SHA. Remote HEAD must itself contain a complete
+package; incomplete revisions are rejected. The raw script and `--ref` use the same pin:
 
 ```bash
 (
