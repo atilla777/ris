@@ -10,6 +10,13 @@ Accepted specifications, decisions, immutable URLs and old delivery reports keep
 their original identifiers and revisions; this guide translates historical
 addresses for current use without repinning acceptance.
 
+Current addition after that migration: package-installation W2 supplies
+`ris-port-op-manage-installation` and its same-name command, bringing the candidate
+inventory to 42 skills / 38 commands (36 op, 2 flow, 1 lib, 3 adapters). It has no
+retired migration entry or alias. The 41/37 mapping below remains the historical
+complete migration map. See [README](../README.md) for installation and evidence
+limits; this addition does not repin accepted specifications.
+
 ## Complete skill replacement map — 41
 
 The new identifier is both the source/installed folder and frontmatter `name`.
