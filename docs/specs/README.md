@@ -19,5 +19,6 @@
 - [Проверки capability planning и scoped impact](ris-capability-impact-checks.md) — свидетельства ris-mnr, не отдельная спецификация или реестр.
 - [Проверки интегрированной приёмки и завершения контейнера](ris-feature-verification-checks.md) — свидетельства ris-74c и пределы проверенных сценариев.
 - [Создание и редактирование нормативных правил проекта](project-rules-authoring/spec.md) — четыре скила, базовый OKF-образец и профили Rails, DragonRuby и Odin; [план поставки](project-rules-authoring/delivery-plan.md).
+- [Проектная установка, обновление и удаление RIS](package-installation/spec.md) — требования v1 для OpenCode, Linux/macOS; отдельно принятый [дизайн D1](package-installation/design.md), [решения](package-installation/acceptance.md) и [декомпозиция](package-installation/delivery-plan.md). Подготовка `ris-0pr`; реализация ещё не выполнена.
 
 Согласованные планы не свидетельствуют о реализации перечисленных в них будущих возможностей.
