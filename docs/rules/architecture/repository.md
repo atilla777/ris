@@ -21,6 +21,7 @@ type: Architecture
 | Подготовка рабочей копии | `ris-port-op-prepare-worktree` владеет переносимой проверкой copy/environment; `ris-proj-op-prepare-task-worktree` — task/actor/claim, project/shared roots, свежим context и совокупным handoff. Ограниченные `worktrees/1` list/read/create принадлежат `ris-port-adapter-git-worktrees` и явно выбранному `ris-port-adapter-worktrunk-worktrees`. |
 | ID/standalone planning (U2) | Интегрированные specify/design/decompose восстанавливают own accepted inputs по ID; явно различают feature-record и ordinary standalone. Full finished owners вызывают existing Git/adapter publishers и проверяют receipts; limited contributions заданы явно. Beads `references/standalone.md` объявляет tool-specific create/source/child/link/evidence/exact-close, не расширяя tasks v1. |
 | Container/leaf seams (U2) | `ris-proj-op-complete-container` добавляет ordinary standalone branch с собственными outcomes/mandatory composition, independent assessment и protected evidence/exact closure. Оба flow применяют owners/receipts; leaf plan/change/docs/review локальны до final Git. Structural parent не требует feature payload и не закрывается ребёнком. Интегрированные source/install синхронизированы; independent whole-snapshot review и публикация требуют отдельных свидетельств соответствующей ревизии. |
+| Read-only навигация (U3) | `ris-proj-op-suggest-continuation` и одноимённая команда владеют только обоснованной рекомендацией, человеческим решением или exact blocker по выбранному ID/no-ID locator и текущим установленным контрактам. Common/context/selected adapter применяются по предметной необходимости; recovery/публикация/исполнение остаются у владельцев. Ноль persistent writes, claim, acceptance, push, closure или launch; рекомендация не authority/readiness. |
 | Потребители копии | `ris-proj-op-plan-task` и `ris-proj-op-implement-task-tdd` проверяют пригодность переданной копии без создания worktree и без зависимости на preparation skills/адаптеры worktree. Планирование не требует claim; реализация проверяет/получает разрешённый claim перед изменениями. Конкретные команды и инструментальные особенности операций worktree принадлежат выбранному адаптеру. |
 | Реализация и TDD | `ris-port-op-implement-change` владеет обычной реализацией и опциональным TDD; TDD-цикл и сложный publication snapshot — условные `references/` базы. `ris-proj-op-implement-task-tdd` требует TDD и владеет совокупным claim-aware code/tests/docs результатом; default отчёт `workspace.tasks/<ID>/implementation.md`. Протокол feature record остаётся у адаптера задач, применимость входов — у обёртки. |
 | Ретроспектива предоставленной истории | Интегрированы source/install `ris-port-op-retrospect-session`: переносимые overview/эпизоды/причины, метрики по объявленной семантике и read-only отчёт; собственные `references/analysis.md`, условный `metrics.md`, `report.md`. Сбор OpenCode, RIS-интеграция и сохранение отчёта не входят в базу. |
@@ -28,9 +29,9 @@ type: Architecture
 | Локальные рабочие данные | `.sdlc/tasks/<confirmed-ID>/` основной копии; отдельные рабочие деревья — `.sdlc/worktrees/<confirmed-ID>/`. Старые `tasks/PLAN-*` — игнорируемый исторический архив. |
 
 Namespace этой редакции поставляется согласованным комплектом source/install по
-[карте перехода](../../skill-command-naming-migration.md) с добавлением W2: 42 скила/38 тонких
+[карте перехода](../../skill-command-naming-migration.md) с добавлением W2 и U3: 43 скила/39 тонких
 одноимённых op/flow команд из `commands/opencode/`, без команд lib/adapter.
-В локальной интеграционной копии W2 и U1 установка синхронизирована с исходниками.
+В текущей task copy установка W2/U1/U2/U3 синхронизирована с исходниками.
 Локальное объединение выполнено; независимая переоценка итогового снимка и main-публикация подтверждаются
 отдельными свидетельствами соответствующей ревизии; локальная интеграция
 не является подтверждением Git push. Строка «Локальная RIS-ретроспектива» выше

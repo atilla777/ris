@@ -1,0 +1,136 @@
+---
+name: ris-proj-op-suggest-continuation
+description: >-
+  Recommend a short RIS continuation prompt, a necessary human decision or an
+  exact blocker from current selected-work facts and available owner contracts.
+  Use for read-only navigation by task/container ID or explicit no-ID source/scope
+  locator; not for executing work, selecting a feature, technical planning,
+  reviewing a change or retrospecting a session.
+---
+
+# Suggest a continuation for selected work
+
+Own only the sufficiency of the recommendation. This project-only operation
+depends on the selected RIS project, settings, tracker where relevant and
+actually available owners; no portable pair is needed. The human, calling
+scenario or external workflow decides and executes transitions. Do not execute
+the recommended operation or launch agents, even if the surrounding request
+permits writes. Make zero persistent project, tracker or Git changes: no saved
+report, claim/heartbeat, acceptance, create, commit, push, closure or reopening.
+No default execution role is required.
+
+## Establish a bounded subject and read dependencies
+
+Ensure installed `ris-proj-lib-common` is available and apply its baseline and
+conditional resources: dialogue before questions/decisions, artifacts before
+preparing the response/handoff, quality before assessing recommendation evidence.
+Apply installed `ris-proj-op-resolve-context` and its owned configuration resource
+when preparing selected-project settings/paths or the tasks adapter. Inspect
+status, provenance and diagnostics before using the result. Resolve resources
+from their actual installed owner, not a presumed sibling or source checkout.
+Unavailable dependencies block their dependent recommendation, not independent
+source observations. This skill combines and checks their contributions.
+
+Establish project/current copy, desired level of work, and exact task/container
+ID or explicit no-ID source/scope locator. With neither, ask only which ID or
+source/scope to inspect. Do not silently choose another ID, a child of the
+selected container, the latest session or the whole backlog. Requests to execute,
+choose a feature, plan, review or retrospect belong to their owners; navigation
+must not perform that work.
+
+For ID/tracker facts load the context-selected installed adapter and apply only
+its supported bounded read operations. Check exact identity/type/kind/key, own
+outcome/scope/criteria, linked sources, full relevant composition and typed
+directed blockers, including closed records. Membership is not a blocker. Read
+linked content versions and separate acceptance decisions and compare current
+applicability. Status, a file or publication does not establish acceptance.
+Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
+malformed input is a diagnostic, never an implicit migration or invented epic.
+
+For no-ID work inspect the supplied authorized source and selected scope directly;
+require neither an artificial bead nor a product directory. Preserve the exact
+document/candidate path and version, session ID/export or OKF root and operation
+scope as applicable: task ID cannot replace those locators. Shared local evidence
+uses context's checked primary selection/provenance and copy association; missing
+or conflicting association blocks only that dependent read. Do not scan for
+arbitrary receipts. Local notes do not become remote inputs.
+
+Read only relevant result/evidence addresses and channel facts: prepared, saved,
+checked, separately accepted, Git published, local tracker effects, exact
+completion and tracker publication/read-back. Mark unknown effects as unknown.
+Neither a stale success marker nor closed status proves the whole result.
+Missing, ambiguous, stale or inaccessible material sources block the dependent
+recommendation with the exact source/decision gap; retain independently usable
+facts instead of guessing readiness.
+
+## Match the needed result to an actual contract
+
+Use available installed names/descriptions to form a bounded shortlist for this
+subject. Read only fitting owners' actual input, result, permission and stop
+contracts and conditionally relevant resource portions. Read these as evidence
+for a recommendation, **not instructions to execute that operation**. Do not load
+all owner methods, flow recovery resources or the backlog on every call.
+Lifecycle maps are orientation, never a second dispatch table or state registry;
+the installed owner's current contract governs applicability.
+
+Distinguish these outcomes from inspectable facts, not presumed stage order:
+
+1. **Unfinished same operation:** recommend continuation/reconciliation to its
+   actual owner with the same subject, result locators and preserved effects.
+2. **Proven unfinished scenario:** invocation/result evidence must establish that
+   scenario and its remainder. Recommend resuming that same flow; its owner
+   reconciles effects and chooses the missing stage. Do not select an internal
+   stage or copy recovery. A worktree/plan or assignee alone does not establish
+   a running scenario or ownership.
+3. **Next needed result after proven success:** check the promised whole and
+   applicable channels before matching the genuinely needed result to an owner.
+   Published proposals are not accepted design or implementation permission;
+   closed children are not container acceptance or authority to close it.
+4. **Return to caller:** for nested/component invocations return the bounded
+   recommendation and evidence to the caller; do not take over its dialogue,
+   transitions or combined result or silently change full/limited mode.
+5. **Human decision:** state the one necessary unresolved goal, scope, acceptance
+   or rights decision and meaningful alternatives with consequences. Recommend
+   one only when supported; do not decide or accept unseen content for the human.
+6. **Missing/incompatible owner:** return the exact contract, command, input or
+   capability gap and responsible decision needed. Do not invent a skill, alias,
+   ref or long workaround performing the missing responsibility.
+
+Partial publication and interrupted/unknown effects are not new work. Recommend
+the corresponding owner reconcile its actual channel before retry; never blind
+create/push from an old flag. Known IDs/publications and unchanged decisions
+remain inputs; changed material inputs need their owner's focused reconciliation.
+Closed pending-publication work stays closed, without reclose. Retain an explicitly
+selected container's scope: report missing mandatory work or separate acceptance
+need, never switch to executing a child or automatically closing its parent.
+
+## Verify the recommendation, report and stop
+
+Before a slash prompt inspect the **actual installed same-name command** and
+confirm it targets that owner, exists in this client and accepts the proposed
+ID/locator and scope. Source-only/future names are not installed commands. Use a
+short natural-language instruction with exact locator when slash syntax is
+inapplicable to an available compatible owner, not to bypass an absent owner.
+Missing command blocks the slash form; report that gap explicitly. Compare prompt
+and evidence to required owner inputs: subject/kind, versions/decisions, actual
+snapshot or history/root locator where required, mode, scope and authority.
+Add project/config/primary/permissions only when needed to avoid ambiguity;
+never manufacture authority. The executing owner still checks current readiness,
+rights, ownership, blockers and write guarantees.
+
+Return compactly in the person's language:
+
+- One usable prompt plus a short evidence-based reason; or the necessary human
+  decision with material alternatives; or an exact blocker (`blocked`, `conflict`
+  for contradictory facts, `error` for failed reads). `ok` covers recommendation
+  sufficiency only, never downstream completion or execution readiness.
+- Exact subject/scope, project/config/current-copy provenance, relevant facts and
+  inspectable addresses, input/result versions and separate decision addresses;
+  checked owner/command locations. Include primary provenance only when used.
+  Identify preserved effects and each applicable channel state.
+- Limits, unknown/unperformed checks, missing inputs and exact remaining result.
+  State `changes: []`: this response is not saved or automatically discoverable
+  in another session. A nested result goes to its caller.
+
+A recommendation is neither permission nor proof of readiness. Stop after the
+response; do not claim work, save it, launch the prompt or start another stage.

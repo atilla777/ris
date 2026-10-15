@@ -90,7 +90,12 @@ sufficiency and verification of the combined result; its component skills
 retain their own results and direct invocation. A standalone wrapper may name
 dependencies required for **its** result and describe a possible next result
 in plain terms, but must not name, select or start the next skill. Only an
-explicit scenario or external workflow decides that transition. Keep optional
+explicit scenario, human or external workflow decides that transition. A
+standalone read-only navigation operation is the narrow exception: its own
+result may select/name an available owner and recommend a prompt from current
+facts and actual contracts, but it never executes the transition, accepts content
+or grants readiness/authority. This does not add next-skill assignment to ordinary
+wrappers or common reports. Keep optional
 branches conditional without losing necessary instructions; do not move an
 unrelated operation into a mandatory resource just to shrink the main file.
 Declare an execution role only when an actual caller consumes it; describe

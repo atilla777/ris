@@ -18,8 +18,8 @@ Names are lowercase ASCII words separated by single hyphens, at most 64 characte
 Source directory, frontmatter `name`, installed directory, command basename and
 slash command agree. Every op/flow has one same-name command; lib/adapter have none.
 
-The following 42 folders form the coherent namespace package in this revision.
-The source package and repository-local primary installation are synchronized.
+The following 43 folders form the coherent namespace package in this revision.
+The source package and repository-local installation in this copy are synchronized.
 The linked SKILL.md files define actual inputs, dependencies, permissions, checks
 and stopping points. Independent verification and remote publication require
 their own revision-bound evidence; this inventory does not establish those outcomes.
@@ -47,6 +47,7 @@ their own revision-bound evidence; this inventory does not establish those outco
 | [ris-proj-op-plan-roadmap](skills/ris-proj-op-plan-roadmap/SKILL.md) | Project roadmap and authorized tracker persistence | same name |
 | [ris-proj-op-refine-epic](skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome/boundaries | same name |
 | [ris-proj-op-select-feature](skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation | same name |
+| [ris-proj-op-suggest-continuation](skills/ris-proj-op-suggest-continuation/SKILL.md) | Read-only continuation prompt, human decision or exact blocker | same name |
 | [ris-proj-op-interview-feature](skills/ris-proj-op-interview-feature/SKILL.md) | Project feature-requirements interview handoff | same name |
 | [ris-proj-op-specify-feature](skills/ris-proj-op-specify-feature/SKILL.md) | Accepted published requirements and feature/standalone record, or explicit limited contribution | same name |
 | [ris-proj-op-design-feature](skills/ris-proj-op-design-feature/SKILL.md) | Separately accepted published design and record refs, or explicit limited contribution | same name |
@@ -72,7 +73,7 @@ their own revision-bound evidence; this inventory does not establish those outco
 ## Commands and installation
 
 [`commands/opencode/`](commands/opencode/) is the canonical source of all
-38 thin command templates (36 op and 2 flow). The inventory above is also the
+39 thin command templates (37 op and 2 flow). The inventory above is also the
 complete command inventory: each `same name` row exposes `/` followed by its
 full skill name. A template explicitly loads that one skill, passes `$ARGUMENTS`
 and follows its existing input, permission and stop contract. It does not select
@@ -322,6 +323,16 @@ common tasks v1 and strict feature-record semantics intact. Both flows consume
 owner receipts and preserve actual-effect recovery, including closed-pending work.
 ID does not replace an actual change snapshot, document-write authority, session
 history locator or explicit OKF root. U2 adds no navigator or new workflow engine.
+
+U3 adds `/ris-proj-op-suggest-continuation <task/container ID>` for read-only
+navigation, also accepting an explicit no-ID source/scope locator. It reads current
+selected-work facts and fitting installed owner contracts, then returns one short
+continuation prompt, a necessary human decision or an exact blocker. Proven unfinished
+scenarios are referred back to the same flow; its recovery remains with that owner.
+The navigator does not execute its recommendation, write reports, claim, accept,
+publish or close work. A recommendation is neither permission nor proof of readiness.
+The current source and task-copy installation are synchronized; independent review
+and publication of the complete snapshot remain separate revision-bound evidence.
 
 The retrospective source retains its exact-identity OpenCode reader and conditional
 Langfuse/delegation/save branches. Existing T3 observations are partial, final
