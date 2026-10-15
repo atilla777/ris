@@ -431,6 +431,31 @@ Markdown, including existing flat specification paths. The former
 `docs/concepts/README.md` address retains a transition to the overview and
 index for historical links.
 
+## OpenCode command sources
+
+[`commands/opencode/`](commands/opencode/) contains the seven RIS command
+sources already used in this repository's local `.opencode/command/` setup:
+
+| Command | Skill invoked |
+| --- | --- |
+| `/ris-author <request>` | `ris-author-skills-base` or `ris-author-skills`, according to the requested responsibility |
+| `/ris-plan-roadmap <request>` | `ris-plan-roadmap` |
+| `/ris-next [epic ID or context]` | `ris-select-next-feature` |
+| `/ris-interview-feature [feature ID or description]` | `ris-interview-feature` |
+| `/ris-prepare-feature-work [epic ID or context]` | `ris-prepare-feature-work` |
+| `/ris-execute-task [task ID or context]` | `ris-execute-task` |
+| `/ris-retrospect-session [session ID, export or context]` | `ris-retrospect-session` |
+
+Each Markdown file is an OpenCode command template that loads the named skill
+and passes `$ARGUMENTS` through under that skill's contract. The corresponding
+skills and their dependencies must be available to OpenCode. These files are
+package sources, separate from the repository's local installation; keep the
+local copies in sync when revising commands. The additional local `grillme`
+command is not part of RIS.
+
+Skill and command installation is deferred to a separate change; this addition
+provides sources only and does not add an installer or change the local setup.
+
 ## License
 
 MIT — see [LICENSE](LICENSE). The pinned third-party OKF specification in
