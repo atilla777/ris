@@ -40,6 +40,15 @@ not a guessed migration. Standalone work needs accepted technical constraints,
 not an invented feature record. Compare actual accepted content and contract
 versions with current code and relevant integration; labels alone do not prove
 applicability. Preserve accepted refs; material departures return to their owner.
+Discover own accepted inputs by ID and links, and the plan at context-checked
+primary `workspace.tasks/<ID>/plan.md` or its inspected override. Confirm actual
+feature linkage: structural parent alone does not imply a feature. Standalone
+children need their own scope/criteria/refs/seams, not copied global AC. Simple
+accepted constraints need no ceremonial design file; material design does.
+For an actual feature child read the confirmed feature parent's accepted record
+through supported adapter reads, then restrict implementation to the child's
+own criteria/refs/contracts. Do not expect a feature payload in every child or
+replace its contract with the parent's complete acceptance scope.
 Pass verified inputs, constraints and required TDD mode to `ris-port-op-implement-change`;
 actually apply its method and check its criterion/test and RED/GREEN evidence.
 Do not duplicate the loop here or waive it for convenience. Text-only work belongs

@@ -1,5 +1,5 @@
 ---
-description: Obtain independent acceptance for and save one RIS feature's design.
+description: Accept and publish feature or standalone design by ID or document scope; support limited contributions.
 ---
 
 Load `ris-proj-op-design-feature` with the skill tool and follow its contract

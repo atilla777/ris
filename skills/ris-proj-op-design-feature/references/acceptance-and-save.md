@@ -66,13 +66,24 @@ need their separate decision and checked design applicability from their owner.
 
 ## Preflight, save, update, verify
 
+For full mode preflight the existing Git publisher and applicable adapter
+publication before dependent writes, with exact subject/destination, authority,
+whole outgoing scope and actual guarantees. Missing prerequisites block full
+success; independently authorized local saving may remain partial.
+
+An explicitly limited record-only call reads published accepted content/decisions
+and the applicable independent review/Git receipt, skips formulation, renewed
+acceptance and file saving, then enters step 5. It performs no second push.
+
 1. Check exact file/evidence paths, rights, format and current state under the
    project writer protocol. Apply an installed appropriate OKF operation only
    for an actual selected OKF bundle, not ordinary Markdown. Preserve unrelated
    content, requirements and decisions. An unexpected file change or missing
    required file protection means conflict before the dependent write.
-2. In combined mode preflight exact task/epic/identity, expected old block,
-   allowed fields and `tasks.features.update` guarantees. Existing-record writes
+2. In combined mode preflight exact task/kind/identity and expected prior state:
+    feature uses task/epic/block and `tasks.features.update`; explicit ordinary
+    standalone uses supported tool-specific source updates without feature JSON.
+    Existing-record writes
    require adapter-provided protection over the affected record and relevant
    composition/blockers/evidence through read/write/verify. Prefer applicable
    native CAS/transactions, then existing automatic coordination; a manual
@@ -84,28 +95,46 @@ need their separate decision and checked design applicability from their owner.
 3. Reread expected files immediately before saving. Save only accepted content
    and actual decision evidence, no unaccepted intermediate draft. Read back,
    compare selected content with the accepted candidate, check substantive
-   coverage, format/links and preserved requirements. Document-only is now a
-   complete checked local result without tracker ID, epic or adapter; return
+    coverage, format/links and preserved requirements. An explicitly limited
+    local save is now complete without tracker ID, epic or adapter; return
    checked addresses/revisions/decision and pending immutable refs. Do not infer
    workspace.tasks/<ID> before confirmation or require a draft directory.
-4. Before combined update require published design and decision refs and
-   applicable accepted published requirements. Local-only direct calls return
-   saved partial effects with exact publication/re-entry prerequisites; the
-   authorized caller owns Git publication. With published inputs and rights a
-   direct call completes the design+record result. Reread record and relevant
+4. In full mode apply independent `ris-port-op-review-change` to the pre-ID
+    document subject, or `ris-proj-op-review-task` for an applicable ID, passing
+    exact whole candidate base/overlay/add/delete/modes, accepted inputs/decisions,
+    rules and checks. All authors/repair authors are distinct from the reviewer.
+    Resolve high/medium through their content owner, affected checks and fresh
+    independent review. Invoke `ris-proj-op-publish-task` with exact subject,
+    decisions, checks/review/provenance, destination evidence and allowed effects.
+    Consume its commit/tree/ref/remote receipt and independent remote evidence;
+    match accepted selected content and preserved requirements. Integration drift
+    requires applicable independent reassessment. Reuse checked existing
+    publication without empty commit/push. A limited record-only contribution
+    consumes the existing applicable receipt; limited local save stops earlier.
+5. Before combined update require published design and decision refs and
+    applicable accepted published requirements. Git failure blocks dependent
+    record writes and preserves saved effects. Reread record and relevant
    children/blockers inside the established window; unexpected change conflicts.
    Invoke the adapter with expected prior state and exact new design reference;
-   preserve slug/spec, complete requirements reference and unrelated prose/fields.
+   preserve feature slug/spec where applicable, complete requirements reference
+   and unrelated prose/fields.
    Changed result refs invalidate verification to null, without tracker history.
    Do not record verification or complete here. Specifically authorized blocker
    changes require supported adapter scope, checked endpoints/direction/cycles
    and read-back; otherwise return proposals/limitations.
-5. Check full adapter read-back: actual ID/epic/slug/spec, exact refs and separate
+6. Check full adapter read-back: actual ID/kind/parent, feature slug/spec where applicable, exact refs and separate
    decisions, verification invalidation, preserved prose and permitted edges.
    Match actual saved/published content and unchanged applicable requirements.
    An exact repeated invocation returns unchanged after checks, without a new
    acceptance or redundant update. Historical unsupported payloads remain intact
-   and block dependent operations; no migration/alternate API is introduced.
+    and block dependent operations; no migration/alternate API is introduced.
+7. In full combined mode invoke the selected adapter's separate publication
+    operation for exact verified record/refs, destination and authorized entire
+    outgoing scope. Inspect returned snapshot/remote/independent read-back receipt
+    against the promised result. No-change checks existing required availability
+    or debt without empty push. Limited record-only stops at checked local update
+    and names this remainder. Unknown publication is reconciled by its owner
+    before retry, not repeated from a saved marker.
 
 On ambiguous, nonzero or partial file/tracker effects, inspect actual state
 before any retry and return confirmed paths/IDs/revisions, decisions, effects,
@@ -113,5 +142,5 @@ limitations and exact recovery. A saved new design with old record is partial
 in combined mode. Recover by checking/publishing accepted content and decision,
 resolving immutable refs, then reconciling the protected adapter update; do not
 rollback, blind-retry or repeat unchanged acceptance. Git and tracker remote
-publication are separate facts owned by the authorized caller; local read-back
+publication are separate effects executed by their existing owners; local read-back
 or one successful channel alone cannot establish full remote success.

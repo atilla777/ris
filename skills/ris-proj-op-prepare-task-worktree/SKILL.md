@@ -36,6 +36,11 @@ promise claim. Closed/invalid/blocked tasks stop dependent filesystem mutation;
 a foreign live claim is a conflict, never overwritten. Read-only inspection may
 return observations without claiming or creating anything.
 
+An explicit ordinary standalone task/child is supported without an epic or
+feature payload; its structural parent alone does not establish feature identity.
+Use exact ID/links and inspected copy receipts for available facts before asking
+for missing association/actor/authority; do not infer them from a title or path.
+
 For a new association propose branch `task/<ID>` and absolute
 `workspace.worktrees/<ID>` unless explicit input, project rules or a previously
 confirmed association takes priority. Validate the unmodified ID/path/branch:

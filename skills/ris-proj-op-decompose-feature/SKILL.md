@@ -1,19 +1,20 @@
 ---
 name: ris-proj-op-decompose-feature
 description: >-
-  Verify independently accepted current requirements and design and their feature
-  task in a RIS project,
+  Reconcile accepted inputs by ID for a RIS feature or explicitly identified
+  standalone task/container,
   then check the one-task case or create and verify necessary child tasks and
-  dependencies through the selected tasks adapter. Use for project-scoped feature
+  dependencies and publish tracker results through the selected adapter. Use for project-scoped
   task decomposition; not for choosing or specifying a feature, drafting a
   portable task proposal alone, or planning technical implementation.
 ---
 
 # Decompose an accepted feature into verified project tasks
 
-Own the **combined project result**: a confirmed accepted feature specification
-and matching feature task, a sufficient single-task outcome or verified child
-tasks and directed blockers, and traceable coverage. Apply installed
+Own the **combined project result**: confirmed accepted inputs and matching
+feature or explicit ordinary standalone task/container, a sufficient single-task
+outcome or verified children/blockers, traceable coverage and required tracker
+publication. Apply installed
 `ris-port-op-decompose-feature-spec` for the substantive work proposal and its coverage
 check; use the selected installed `tasks` adapter for bounded tracker reads and
 writes. Neither a base proposal nor an adapter success message proves this
@@ -26,8 +27,18 @@ isolation. Do not initiate another lifecycle stage.
 
 ## Confirm inputs and scope
 
-Identify the selected RIS project and current copy, confirmed feature `task`
-ID and epic parent, published requirements/design references and their separate
+Full finished invocation is default and includes required tracker publication.
+An explicitly limited contribution instead returns a proposal/read-only
+verification or checked authorized local writes; name exact boundary and remaining
+effects. Nesting/Gas City is not a mode selector. No Git commit is needed merely
+for tracker decomposition. Publication never authorizes implementation.
+
+Before remote-gated mutations preflight the selected adapter's separate
+publication operation for actual remote, full outgoing authority and guarantees.
+Failure blocks dependent writes, not the read-only coverage proposal.
+
+Identify the selected RIS project and current copy, confirmed `task`
+ID and explicit kind (feature, standalone task or task-container), applicable published requirements/design references and their separate
 acceptance decisions, relevant technical/project constraints, prior task IDs
 and permitted read/write scope. Start from the ID through the selected adapter:
 retrieve linked published documents and decisions rather than requiring their
@@ -55,7 +66,7 @@ its specification format and mechanism of acceptance; verify accessible
 evidence addresses and their match to the saved version, not merely a flag.
 
 Ensure the selected adapter is installed and actually available in the chosen
-project. For a read-only result require compatible `tasks` v1
+project. For a feature read-only result require compatible `tasks` v1
 `tasks.items.read`, `tasks.children.list` and `tasks.dependencies.list` with
 exact-ID and complete all-status child selection and full typed directed
 blocker reads (including for the feature task itself). Before a needed child
@@ -66,8 +77,8 @@ read-back, directed typed blockers and cycle checking. Determine missing work
 from reads first, then check each operation and guarantee **before** its
 dependent write, including the required concurrency level. A configured
 adapter or a similarly named CLI command is not evidence of support; never
-bypass the adapter by calling `bd` or editing tracker storage. Read the feature
-task; confirm its `task` type, open status, epic parent, scoped identity, exact
+bypass the adapter by calling `bd` or editing tracker storage. Read the selected
+task; for a feature confirm its `task` type, open status, epic parent, scoped identity, exact
 spec link and acceptance-evidence address **in either its readable content or the
 linked specification**, and reread the saved specification and decision.
 Cross-check their identity and status; a closed feature or mismatched link
@@ -75,6 +86,24 @@ blocks child creation. Read all existing direct children and relevant blockers,
 including closed tasks, before deciding whether new work is needed.
 
 ## Compute readiness before dependent work
+
+For explicitly identified **ordinary standalone** work, obtain kind/key, own
+outcome/scope/criteria, accepted sources/decisions, sufficient constraints and
+contracts from exact record reads and its links. No epic/slug/feature JSON is
+required. Structural parent is context, not copied global AC or permission to
+close it. Check adapter-advertised tool-specific ordinary create/reconcile,
+child/link capabilities and guarantees before dependent writes. Apply its owned
+standalone resource, not common feature-only create/add semantics. A malformed,
+historical or unknown feature payload remains unchanged and blocked; absence of
+a payload does not prove standalone kind. Independently accepted substantial
+design is required where material, especially for multi-task contracts/seams;
+a simple task can use sufficient accepted constraints without a design file.
+Read each exact accepted source/decision version, verify publication and compare
+current applicability as below. Name missing inputs instead of inventing them.
+
+The following payload/epic/slug/both-ref gates apply to the **feature branch**;
+the shared applicability, readiness, reconciliation and coverage checks apply
+to both branches using their actual accepted inputs.
 
 Require the selected adapter's optional `tasks.feature-record/1` capability
 with `tasks.features.read` in addition to the v1 reads. Read its owned record
@@ -132,8 +161,14 @@ This wrapper neither accepts/revises design nor starts another skill.
 
 ## Apply the method and reconcile actual work
 
+For an ordinary simple task supply its accepted contract-preserving technical
+constraints as the base's sufficient short design input, with their actual
+acceptance scope/provenance; no separate file is required. If they do not settle
+material ownership/contracts/test seams, return that design gap rather than
+waiving the base's sufficiency or independent design-acceptance requirements.
+
 Ensure installed `ris-port-op-decompose-feature-spec` is available and **apply** its
-method to both checked accepted versions, feature slug/AC, design/contracts/
+method to checked accepted inputs, own criteria (feature slug/AC where applicable), design/contracts/
 test seams, feature scope, relevant rules and
 technical inputs, and verified existing work. Obtain its bounded work units,
 observable checks, requirements mapping, justified directed prerequisites
@@ -158,7 +193,7 @@ multiple units, require exact authorized scope only
 for missing child or `blocks` writes; a fully persisted set can be verified
 read-only. Agree approved task content and stable retry keys scoped to the
 confirmed feature; preserve spec reference, requirement coverage, observable
-criteria (`slug#AC-nnn`), both exact accepted reference objects and separate
+criteria (`slug#AC-nnn` where supplied), own outcome/scope and exact applicable accepted reference objects and separate
 acceptance addresses, technical
 contracts/versions, test seams, exclusions and justified edge direction
 (blocked → blocker). Do not
@@ -172,7 +207,9 @@ changes invalidate the dependent readiness evidence. Membership/blocker writes
 need the adapter's real guarantee over the affected composition and edges through
 read/write/verify; a claim, permission, sandbox or read-back is not a lock.
 Through the adapter, create only missing
-children with `tasks.items.create` under the confirmed open feature task;
+children with `tasks.items.create` under the confirmed open feature task, or
+the adapter's explicitly supported ordinary child creation under the standalone
+container;
 reuse only exact matches on key, type, parent, content and relevant links.
 Different content, closed/moved parent, multiple matches or unmatched existing
 children are `conflict`, not permission for an implicit update. Default create
@@ -180,7 +217,7 @@ is best-effort with full search/read-back; if strict no-duplicates is required,
 establish an external exclusive writer window before searching/creating or
 stop. Re-read each ID, parent-child membership and content; only then resolve
 the proposal's local labels to real IDs. Add necessary `tasks.dependencies.add`
-edges only with confirmed task endpoints in this feature scope after reading
+edges (ordinary tool-specific link operations for standalone) only with confirmed task endpoints in this accepted scope after reading
 their existing typed `blocks` edges; verify no cycles and exact direction on
 fresh reads. Preserve an already matching edge without a fake change.
 
@@ -195,17 +232,34 @@ provides, stop instead of substituting a direct tracker operation.
 
 ## Verify and return
 
-Fresh-read the feature and full child set, each task's actual content, status,
+For both kinds every child must independently express its result, bounded scope,
+observable criteria, exact applicable accepted source selectors/versions and
+separate decisions, contracts/test seams, exclusions, stable retry identity and
+necessary blockers. A parent reference supplies context, not the child's missing
+contract. Do not copy every global AC into every child. For a one-task outcome
+verify the existing task's sufficient contract and reconcile the complete child
+set; create no artificial child. Preserve the feature branch's stricter refs.
+
+After combined semantic/read-back checks below, full mode invokes the selected
+adapter's separate publication operation with exact expected IDs/content/links,
+destination evidence and authority for the entire outgoing scope. Inspect the
+snapshot/remote/independent read-back receipt and compare published composition
+and refs. No-change checks required existing publication and established debt;
+no empty push. Missing authority or failed/ambiguous publication blocks full
+success, preserving known children/edges for only missing operations. Limited
+mode returns its actual boundary and exact publication remainder.
+
+Fresh-read the selected task/container and full child set, each task's actual content, status,
 parent and applicable links, and all required directed blockers. Recheck the
-saved requirements and design and their independent acceptance evidence for
+applicable accepted requirements/design or sufficient constraints and their separate decisions for
 the same references and content applicability, and applicable contract currency; map
 every accepted criterion to the verified feature or child tasks, and name where
 combined behavior will be checked. Confirm no contradictory extras or cyclic
 dependencies. A dependency on unconfirmed external work or a missing
 criterion prevents `ok`; mere presence of children or an adapter `ok` does
 not prove coverage. Report `ok|blocked|conflict|error` for **this combined
-result**, the project/config source, feature and epic IDs, spec address and
-version, checked current Git revision, permanent slug, both accepted reference
+result**, the project/config source, subject kind and exact task/parent IDs, source address and
+version, checked current Git revision, feature slug where applicable, applicable accepted reference
 objects/acceptance addresses, publication and applicability evidence, contract
 versions/test seams and computed readiness (including per-unit integration
 prerequisites), actual child IDs/keys and statuses,

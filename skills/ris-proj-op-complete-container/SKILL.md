@@ -1,7 +1,7 @@
 ---
 name: ris-proj-op-complete-container
 description: >-
-  Verify and explicitly close one RIS feature or epic container, persisting
+  Verify and explicitly close one RIS feature, standalone task-container or epic, persisting
   criterion and revision evidence through the selected task adapter. Use for
   requested container completion after integration; not leaf-task completion,
   code publication, automatic parent closure or planning repair work.
@@ -18,7 +18,10 @@ primary selection/provenance (explicit or verified available saved indication)
 only if shared workspace paths are needed; no local report is mandatory.
 For a feature load and actually apply `ris-port-op-verify-feature`. For an epic
 instead read `references/epic.md` relative to this installed folder; do not load
-the feature method merely because the epic contains features.
+the feature method merely because the epic contains features. For an explicitly
+identified ordinary standalone task-container instead read `references/standalone.md`
+before assessment or persistence; it owns that branch and applies the portable
+feature verifier only when the subject has feature-like integrated AC.
 
 ## Identify scope and authority
 
@@ -27,7 +30,11 @@ container (not inferred from child completion or permission to record evidence),
 mandatory outcomes/member set (including any one-task feature), applicable
 criteria/decisions, integrated revision evidence and allowed tracker fields.
 Do not infer the kind from a title or zero children: a feature is the confirmed
-feature task linked to its epic/spec, an epic is its actual tracker type.
+feature task linked to its epic/spec, an epic is its actual tracker type, and
+a standalone task-container is explicitly established by ordinary accepted
+content/sources and mandatory composition. Discover these from exact ID reads
+and linked accepted versions before asking for missing facts. A malformed or
+historical feature payload is not reclassified as standalone.
 A leaf implementation task is outside this operation. Read-only assessment is
 possible without closing permission; return unsaved results and do not mutate.
 
@@ -61,6 +68,11 @@ records also block dependent writes. Another adapter may supply equivalent opera
 under an explicit compatible contract, never by assuming all v1 adapters can close.
 
 ## Verify the feature on the common revision
+
+This section and feature-record verification mapping below apply only to the
+feature branch. Standalone assessment/persistence follows its owned resource;
+shared authority/composition/protection, separate closure and channel gates apply
+to every kind. Epic uses its own resource without artificial feature payloads.
 
 Read the actual requirements/design at their accepted pinned revisions and at the
 published integrated Git tree. Compare applicable content with diff plus semantic

@@ -18,6 +18,19 @@ shared workspace paths. Require selected project, affected implementation/task
 scope, actual code/tree evidence, integration state and permitted document paths.
 No adapter or execution role is required unless task reads are actually needed.
 
+For a short command+ID input apply context for `adapters.tasks.skill` and use the
+selected available adapter's exact record, membership and directed dependency
+reads. Discover own accepted scope/refs/decisions and inspected change evidence;
+use context's checked primary to read `workspace.tasks/<ID>/implementation.md`
+and available execution/copy receipts, or their explicit/project overrides.
+Inspect the actual supplied tree, base/overlay/add/delete/modes and integration
+state; an ID or stale implementation report is not a snapshot or write authority.
+No claim is required for this discovery. Ordinary standalone child sources need
+no feature-record just because a parent exists. Missing/ambiguous evidence names
+the exact unavailable snapshot/path/association or document permission, retaining
+useful read-only findings. Obtain bounded affected-document authorization from
+the request/rules; never infer product or other writes from an ID.
+
 1. Inspect relevant existing API instructions, examples, user/technical docs and
    rules alongside current code. Identify concrete stale statements and needed
    changes; do not scan every project document or create empty files for ceremony.

@@ -71,7 +71,9 @@ here. Human interview, discussion and acceptance stay in this dialogue.
 Delegate read-only `ris-proj-op-select-feature`; confirm the person's chosen small
 outcome and epic. If an unclear epic boundary blocks selection, apply
 `ris-proj-op-refine-epic` only for that ambiguity: its interactive decisions stay here,
-its standalone noninteractive investigation/write operations use the executor.
+its standalone noninteractive investigation/write operations use the executor
+with an explicit proposal/local-update-only boundary; this scenario owns the
+later tracker publication, including any authorized refinement debt.
 Do not refine just because the epic is large or create speculative tasks.
 
 For unknown requirements apply `ris-proj-op-interview-feature` in this dialogue, using
@@ -83,7 +85,7 @@ executor's guessed answers. Show the concrete requirements and obtain their
 **separate** acceptance under project rules. Keep the accepted candidate identity
 and actual authority/decision recoverable; generic workflow approval is not
 acceptance. Delegate `ris-proj-op-specify-feature` in explicitly requested document-only,
-bounded save mode with that exact candidate, acceptance and write scope. It owns
+explicitly limited accepted-local-save mode with that exact candidate, acceptance and write scope. It owns
 saved content/decision matching. No feature task is created yet.
 
 ## Discuss and separately accept design
@@ -95,7 +97,8 @@ only for unresolved interdependent choices. Delegate revised analysis when
 needed. A behavior change returns to requirements discussion and targeted
 acceptance; unchanged requirements are not reaccepted for a design-only change.
 Obtain a **separate** decision approving the actual design. Delegate
-`ris-proj-op-design-feature` in document-only bounded save mode, without inventing an ID.
+`ris-proj-op-design-feature` in document-only explicitly limited accepted-local-save
+mode (no Git/record/tracker effects), without inventing an ID.
 The owner checks accepted requirements applicability, sufficient design, versions
 and preservation. A local saved result is not publication.
 
@@ -126,18 +129,21 @@ Decisions can name `containing-commit`, resolved by their commit-pinned address;
 tracker refs use full published commits. Git publication must be confirmed
 before creating the feature record.
 
-Then delegate selected-adapter create/reuse with confirmed epic, permanent slug,
+Then delegate `ris-proj-op-specify-feature` in explicitly limited record-only
+reconciliation mode with checked Git receipt, confirmed epic, permanent slug,
 stable key, approved task content and **published** requirements/design/decision
-references. The adapter owns all-status key/slug/spec collision detection, exact
-reuse or conflict, create/read-back and concurrency diagnostics. Ordinary create
-is best-effort; strict uniqueness only with explicit need and real guarantee.
-Beads stores task identity, state/links and current published refs, not copied
-decision history or prose duplicating mutable status. Updates of existing
-records still require protection against lost concurrent changes. Historical
-unsupported records are preserved and block dependent writes; never migrate
-on retry. Do not create children or invoke decomposition.
+references. It owns accepted identity/content reconciliation and applies the
+selected adapter's collision/create/read-back/protection operations. Inspect its
+actual ID/type/parent/refs and content/decision matching evidence against this
+scenario's published result. Existing ID never implies create; preserve unknown/
+historical payloads. If the record already exists and only design refs remain,
+delegate `ris-proj-op-design-feature` limited record-only update with expected
+prior state, separate decisions and receipt, preserving requirements pins.
+These contributions perform no duplicate Git or Dolt push. Do not create children
+or invoke decomposition.
 
-Delegate separate tracker publication for the verified ID and refs. The adapter
+Delegate separate tracker publication for the verified ID and refs and any
+authorized local refinement effects. The adapter
 checks authorized **full outgoing history**, isolation, final gate and independent
 read-back of the selected remote. It returns snapshot/ID and evidence, not raw
 database internals for this scenario to reinterpret. Git and tracker results

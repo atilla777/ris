@@ -28,14 +28,18 @@ task or acceptance to fit this operation. Select the applicable input branch:
   claim; an old receipt/lease is neither permission nor general content/graph CAS.
   Active blockers or lost required ownership stop dependent publication. Recheck
   mutable task gates before the action; the receipt does not supply write authority.
-- **Pre-ID documents:** exact project-relative paths and subject/scope, separate
+- **Documents (including pre-ID):** exact project-relative paths and subject/scope, separate
   acceptance decisions for applicable accepted results, substantive checks and
   independent review of the full intended snapshot. Requirements-only publication
   requires no task ID, implementation evidence or not-yet-existing design. An
   explicitly authorized proposed document stays proposed after publication.
   Use `ris-port-op-review-change` for independent assessment of this concrete
   document subject; use `ris-proj-op-review-task` when a task-bound review applies.
-  Review is required evidence, not content acceptance or a next-stage assignment.
+   Review is required evidence, not content acceptance or a next-stage assignment.
+   An existing ID may accompany a document-only planning subject for identity
+   discovery; it does not require future implementation evidence or design for
+   requirements-only publication. Check its applicable identity/authority/blocker
+   gates, but do not treat document publication as task execution or claim it.
 
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,

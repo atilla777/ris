@@ -76,6 +76,16 @@ concurrency guarantee blocks the dependent write, regardless of the existence
 of another `bd` command. Claim, complete, reparent, content update and edge
 removal remain tool-specific unless covered by the original roadmap operations.
 
+## Tool-specific ordinary standalone work
+
+Also support bounded ordinary standalone task/container create/reconcile,
+source-link update, child/link operations, result persistence and exact close.
+Read `references/standalone.md` before these operations. These are **Beads-specific
+capabilities**, not expanded `tasks` v1 create semantics or feature-record/1.
+Report each requested capability and its actual predicate-specific guarantees;
+missing required support blocks that write. Ordinary reads and claim retain the
+main contract. An absent or invalid feature payload never selects standalone.
+
 ## Optional feature-record capability
 
 Separately advertise `tasks.feature-record/1` with `tasks.features.read`,

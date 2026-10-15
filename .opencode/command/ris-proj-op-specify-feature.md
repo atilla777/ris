@@ -1,5 +1,5 @@
 ---
-description: Obtain acceptance for and save one RIS feature's requirements.
+description: Accept and publish RIS requirements for a feature or explicit standalone subject; support limited contributions.
 ---
 
 Load `ris-proj-op-specify-feature` with the skill tool and follow its contract

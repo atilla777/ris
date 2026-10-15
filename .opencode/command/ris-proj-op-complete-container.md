@@ -1,5 +1,5 @@
 ---
-description: Verify and explicitly close one selected RIS feature or epic container.
+description: Verify and explicitly close one selected RIS feature, standalone task-container or epic.
 ---
 
 Load `ris-proj-op-complete-container` with the skill tool and follow its contract

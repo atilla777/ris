@@ -1,9 +1,9 @@
 ---
 name: ris-proj-op-specify-feature
 description: >-
-  Formulate, obtain acceptance for, and save a selected feature's specification
-  in its RIS project, then verify its feature task under a confirmed epic, or
-  complete an explicitly requested document-only specification before a task exists.
+  Accept, save and publish RIS requirements and reconcile an epic-backed feature,
+  explicit standalone task/container, or document-only subject. Discover existing
+  inputs by ID; support explicitly limited formulation/save/record contributions.
   Use for accepted project requirements, including bounded noninteractive save;
   not for selecting a feature, interviewing alone, decomposing it into child
   tasks, technical design, or drafting portable content without project writes.
@@ -12,8 +12,9 @@ description: >-
 # Specify a selected feature in a RIS project
 
 By default own the **combined project result**: a specific accepted specification, its
-verified saved version and a correctly linked feature `task` under a confirmed
-`epic`. `ris-port-op-formulate-feature-spec` owns portable content; `ris-proj-op-interview-feature`
+verified saved/published version and a correctly linked record: a feature `task`
+under a confirmed `epic`, or an explicitly selected ordinary standalone task or
+task-container. `ris-port-op-formulate-feature-spec` owns portable content; `ris-proj-op-interview-feature`
 owns a feature-requirements handoff when material answers are missing; the
 selected task adapter owns bounded tracker operations. Apply their results and
 check the whole, rather than repeating their methods or treating a loaded name
@@ -23,7 +24,7 @@ cannot be determined by the base. Direct invocation works in the current agent;
 no execution role or encompassing workflow is required.
 
 An explicitly requested **document-only** operation instead owns a complete
-accepted, saved and checked requirements document and decision evidence, without
+accepted, saved, checked and published requirements document and decision evidence, without
 a tracker ID. It is not an implicit fallback for a failed combined operation.
 In a scenario, interview, discussion and separate acceptance stay in the leading
 dialogue; bounded formulation and save may run noninteractively in a subagent.
@@ -46,8 +47,17 @@ Identify the selected project and feature, its bounded result and confirmed
 parent epic ID (if already known), existing feature/task/spec links and
 acceptance evidence. A feature proposal is not a chosen feature; a title is not
 an epic or task ID. Do not select the next feature or refine an unclear epic.
+From an existing ID use context and the selected adapter's exact read, complete
+children and directed blocker reads to discover kind/key, scope, current sources
+and separate decisions. Read linked versions and compare current applicability;
+ask only for the exact missing/ambiguous/stale dependency. Existing ID never
+authorizes a new record. Establish feature, standalone task/container or
+document-only subject explicitly; a failed feature parse is not a standalone
+selector. Standalone requires no artificial epic, slug or feature-record;
+preserve approved paths and structural parent if any. Simple tasks need accepted
+sufficient constraints, not a ceremonial separate design document.
 Establish combined or explicitly requested document-only mode and permission
-for the exact document/evidence paths and, in combined mode, the feature task.
+for the exact document/evidence paths and, in combined mode, the selected record.
 Without the necessary rights return an unsaved proposal or block the dependent
 effect; do not call a smaller result combined success. A general request to work
 toward tasks does not accept the particular requirements that will be formulated.
@@ -69,7 +79,7 @@ actual content and status. An unresolved ownership, path or feature identity
 conflict blocks dependent writes. No path or acceptance evidence is inferred
 from a proposed tracker ID, file presence, or a past conversation not supplied.
 
-At creation agree a permanent feature slug and check existing document paths;
+For a feature at creation agree a permanent slug and check existing document paths;
 the selected adapter owns all-status tracker collision checks when needed. The
 tracker task is the sole ID ↔ slug ↔ spec link, not a second registry. A title
 change never renames the slug or path. Default to ordinary
@@ -138,12 +148,22 @@ its applicability; do not ask for repeated approval just to retry persistence.
 
 ## Save and reconcile the selected document
 
-Apply the resource's file preflight, save and read-back in either mode. For
-document-only do not require an epic, tracker adapter or feature ID, and stop
-after the checked document/decision result. Never derive a task-note path from
+Apply the resource's file preflight, save, review/publication and read-back in
+either subject mode. Document-only requires no epic, tracker adapter or ID.
+Full finished invocation is the default; an explicit limited contribution names
+its boundary (proposal, accepted local save, or record reconciliation from an
+already checked Git receipt). Nesting/Gas City never silently limits effects.
+Limited record reconciliation performs no second Git or Dolt push. Never derive a task-note path from
 an unconfirmed ID or introduce a mandatory draft store.
 
-For combined mode preflight the selected available adapter's `tasks` v1 epic
+For an ordinary standalone combined result check explicit tool-specific
+create/reconcile and source-update support and the adapter's owned resource;
+pass approved kind, stable identity, own scope/criteria and published sources/
+decisions. Verify actual ID/type/parent/content and guarantees; do not use common
+feature create semantics or construct feature JSON. Existing-record updates need
+applicable content/graph protection; changed refs invalidate dependent evidence.
+The following feature-record requirements apply only to the feature branch.
+For a feature combined result preflight the selected available adapter's `tasks` v1 epic
 read, item list/read/create and `tasks.feature-record/1` read/initial-create
 support. Check actual guarantees, confirmed open epic/scope, stable retry key,
 slug/spec association and approved task content. Ordinary creation uses the
@@ -180,20 +200,28 @@ Do not create children, add dependencies, claim or close tasks.
 
 ## Report actual outcome and stop
 
+After verified record reconciliation in full mode, invoke the selected adapter's
+separate publication operation with exact expected records/refs, authorized
+outgoing scope and destination evidence. Inspect its snapshot/remote/read-back
+receipt and compare identity, content and links to the promised whole. No-change
+verifies required existing publication or remaining debt without empty push.
+Missing authority or failed/ambiguous publication leaves the full result blocked,
+preserving known Git commits/IDs for only the missing operation.
+
 Return `ok|blocked|conflict|error`, selected project/config provenance,
-mode, feature ID and parent only if confirmed, permanent slug, actual spec address,
+mode/kind, exact ID and parent only if confirmed, feature slug where applicable, actual spec address,
 requirements path/section and checked candidate or published revision,
 source of its acceptance, verified task ID and parent (only when confirmed),
 status of decisions (including design absent or applicability unconfirmed),
 actual changes and read-back evidence, plus limitations
 and next needed substantive result. Include verified candidate address/revision,
 acceptance decision address/status, pending immutable refs, and separate local,
-Git and tracker publication facts. `ok` for document-only means its complete
-accepted saved/read-back result, even before publication, with that limit explicit.
-If the requested document-only result requires publication, pending refs mean
-partial/blocked rather than `ok`; report each required channel separately.
-`ok` for the combined result requires both
-the accepted saved spec and matching tracker task. If a document write succeeds
+Git and tracker publication facts. Full document-only `ok` requires accepted
+checked content/decision and verified Git receipt. Explicit limited local save
+can be `ok` for that contribution with pending immutable refs and remainder.
+`ok` for the full combined result requires
+the accepted published spec, matching record and verified tracker publication.
+If a document write succeeds
 but tracker creation fails, or a response is ambiguous, reread both states,
 report the saved address and all confirmed IDs/changes, stop further writes
 and leave a precise handoff for reconciliation; do not repeat unchanged acceptance,
@@ -202,8 +230,8 @@ or claim the task exists. On interruption before acceptance, return the known
 decisions and accessible sources in the response without creating a mandatory
 draft store. Give a recipient without this chat enough references, version,
 statuses, rights, verified effects and unresolved decisions to continue. Stop
-after the requested document-only or combined result is checked. Publication
-belongs to the authorized caller; this skill does not commit/push Git or Dolt.
+after the requested result is checked. Full publication is executed by existing
+owners and consumed here; limited transitions belong to the caller.
 Do not initiate
 decomposition, technical planning or implementation.
 

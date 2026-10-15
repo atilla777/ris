@@ -27,6 +27,13 @@ standalone task needs its accepted technical constraints, not an artificial
 feature record. Check inspected current code and related contract integration;
 stale or unavailable material inputs produce a partial/blocked plan, not readiness.
 
+Discover exact linked accepted versions and separate decisions from this ID and
+read them before requesting unavailable inputs. A structural parent alone does
+not select feature-record validation; a standalone child owns its own sufficient
+scope/criteria/refs/seams. Material design requires separate acceptance, simple
+constraints need no artificial design file. Preserve malformed/historical feature
+data and diagnose it rather than treating validation failure as standalone.
+
 Planning does not require or obtain a claim or separate worktree. Verify the
 supplied current copy's repository/project relationship and, when a task-specific
 copy is supplied, its confirmed task/branch/path association and actual HEAD/state.

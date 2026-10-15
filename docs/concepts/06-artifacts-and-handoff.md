@@ -106,6 +106,18 @@ type: Specification
 
 ## 9. Контроль полноты передачи
 
+Короткий command+ID начинает discovery: точное чтение kind/key/content/links,
+состава и typed blockers через выбранный адаптер, затем actual accepted versions
+и отдельные decisions по ссылкам. Доступные факты не спрашиваются заново.
+Missing/ambiguous/stale input именуется точно и блокирует зависимую часть.
+Структурный parent даёт контекст, но не заменяет собственный scope/criteria/
+refs/contracts/seams ребёнка и не делает его feature. Для standalone simple
+task достаточны принятые constraints; material design требует отдельного решения.
+ID не является snapshot или разрешением на документы. Получатель проверяет
+фактическое дерево и доступность локальных reports по соглашению своего owner;
+отсутствующий путь/право остаётся явным gap. Session history и OKF root сохраняют
+свои самостоятельные locator, ID задачи их не подменяет.
+
 Каждый итог восстанавливаем: фактический result/identity, точный locator либо
 проверенное соглашение обнаружения с ключами/именем файла, input/result versions
 и отдельные decisions, честные saved/accepted/published факты каждого применимого

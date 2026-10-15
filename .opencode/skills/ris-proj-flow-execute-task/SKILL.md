@@ -130,6 +130,13 @@ their applicability to current inputs. Do not repin refs or migrate unsupported
 historical payloads. Membership is not a `blocks` edge; evaluate parent restrictions
 under project rules without inventing an edge.
 
+Discover these inputs from exact selected-adapter ID reads and linked versions,
+not a mandatory caller questionnaire. Explicit ordinary standalone leaf/child
+uses its own sufficient contract and accepted sources/constraints; structural
+parent need not be an epic or feature. A child is not feature-linked merely
+because it has a parent. Confirm actual kind before feature-record validation;
+malformed/historical payloads are preserved, never converted to standalone.
+
 A container with unfinished mandatory children is not executable as one task:
 report its boundary and recommend a ready child without claiming/starting it.
 Do not execute a multi-task container even when its children are closed; container
@@ -190,9 +197,11 @@ or changed facts before deciding the next operation.
    Record actual integrated commit/ref and independent remote visibility evidence.
 7. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, delegate selected-adapter bounded
-   result persistence and separate exact-ID completion with criterion/check/review
+   result persistence and separate exact-ID completion (advertised tool-specific
+   ordinary operations for standalone, not feature-record/1) with criterion/check/review
    evidence and published commit. Require fresh status, complete child/blocker
-   reads and the adapter's actual protected read/write/verify window. No future
+   reads and predicate-specific native/coordination guarantees, including external
+   evidence and mandatory composition where needed. No future
    `ris-complete-task` dependency is required. For a selected one-task feature,
    delegate `ris-proj-op-complete-container` for **all** feature AC, integrated revision,
    verification persistence/read-back and separate closure. Diff review or closed

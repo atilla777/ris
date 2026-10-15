@@ -41,6 +41,17 @@ in Git history (or equivalent explicit immutable addresses), not only the latest
 
 ## Save, check and gate tracker effects
 
+For full mode preflight the existing Git publisher and, when records are part
+of the result, adapter publication before dependent writes: exact subject,
+destinations, authority, whole outgoing scope and required guarantees. Missing
+publication prerequisites block the full claim, while independently authorized
+local saving may proceed as partial. Never infer authority from nesting.
+
+Record-only reconciliation reads already published accepted content/decisions
+and the applicable independent review/Git receipt, skipping formulation, renewed
+acceptance and file saving. Enter step 5 with verified inputs; perform no push
+in this explicitly limited mode. Return its local record result and remainder.
+
 1. Check exact file/evidence paths, rights, format and current state under the
    project's writer protocol. Reread existing files before update, preserve
    unrelated content and decisions, and return conflict on unexpected change or
@@ -51,18 +62,37 @@ in Git history (or equivalent explicit immutable addresses), not only the latest
    and compare selected content with the accepted candidate and decision; check
    substantive coverage, format, links and preserved sections. Never put an
    unaccepted intermediate candidate at the accepted path.
-3. For document-only this is a complete local result: return checked addresses,
+3. For an explicitly limited local save this is its complete contribution: return checked addresses,
    candidate revision, decision, effects and any pending immutable refs. No task
    ID, epic or tracker capability is needed. Local addresses are explicitly local,
    not mandatory remote inputs for another session.
-4. For combined mode require actual published content/decision before tracker
+4. In full mode, after saving apply independent `ris-port-op-review-change` for
+   a pre-ID document subject, or `ris-proj-op-review-task` for an applicable ID.
+   Supply exact whole candidate snapshot (base/overlay/add/delete/modes), content,
+   decisions, rules and substantive checks. The reviewer must be independent of
+   all authors/repair authors; self-review does not grant approval. Return
+   high/medium findings to their content owner, repair/check and obtain fresh
+   independent assessment of the actual snapshot. Then invoke
+   `ris-proj-op-publish-task` with the checked document/change subject, separate
+   decisions, checks, review/provenance, destination evidence and allowed effects.
+   Inspect its commit/tree/ref/remote receipt and independent remote evidence;
+   match published selected content to the accepted candidate and decisions.
+   Integration drift requires applicable independent reassessment, not self-approval.
+   Requirements-only needs no future design, implementation evidence or task ID.
+   Already published matching content reuses verified publication without empty
+   commit/push. A limited record-only call instead consumes an applicable existing
+   Git receipt; a limited local save stops before review/publication.
+5. For combined mode require actual published content/decision before tracker
    create/update. Check both via fetched selected-remote evidence and read actual
    content at full Git revision, semantic section and separate pinned decision.
    Resolve containing-commit and match decision path/section/revision to the ref.
    Tracker stores the full published commit, never containing-commit. The wrapper
-   does not publish Git; a direct caller with local-only inputs receives saved
-   partial state and precise publication/re-entry prerequisites. With published
-   accepted inputs and rights, direct invocation completes doc+feature task.
+   invokes the existing Git owner in full mode, never copies its algorithm.
+   Failed Git blocks dependent record writes. With published accepted inputs,
+   reconcile the selected feature or ordinary standalone record and then invoke
+   adapter publication in full mode. Inspect its verified snapshot/remote/IDs/
+   refs read-back before combined success. Limited record-only stops at its
+   verified local effect with tracker publication explicitly remaining.
 
 On error/ambiguous write, inspect actual file and any attempted tracker effects
 before retry. Return known addresses/IDs/revisions, verified effects and exact

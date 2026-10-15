@@ -1,5 +1,5 @@
 ---
-description: Verify accepted feature inputs and derive necessary tasks and dependencies.
+description: Reconcile feature or standalone accepted inputs by ID and publish sufficient tasks and dependencies.
 ---
 
 Load `ris-proj-op-decompose-feature` with the skill tool and follow its contract

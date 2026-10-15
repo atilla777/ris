@@ -25,6 +25,14 @@ the selected adapter/current-copy contracts. If no owner supplies those guards f
 this textual route, the recipient performs the bounded adapter checks itself.
 Foreign claims, changed inputs or forbidden scope block the change.
 
+Discover the task's own accepted source versions/decisions and constraints by
+exact ID reads and links, and the plan through context-checked primary
+`workspace.tasks/<ID>/plan.md` or its inspected override. Structural parent is
+context, not a replacement contract or forced feature-record. Missing evidence
+names the exact source/path/permission gap. Installed-copy edits require the
+host's customization instructions as applicable and explicit synchronization
+authority; canonical source and full affected installed resources stay in parity.
+
 Require substantive content/criterion coverage, links/resource accessibility,
 preservation of neighboring decisions, source/install parity where authorized,
 affected checks and actual full final diff/snapshot. Keep an identified

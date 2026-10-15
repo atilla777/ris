@@ -16,6 +16,10 @@ Keep enough information for another session to inspect reality without this chat
   primary selection source, exact association witness address, verification/limits.
 - Requirements/design versions and acceptance addresses; applicable rule/package
   versions and material uncommitted changes to those inputs.
+- Explicit kind and own leaf/child contract with exact accepted source selectors
+  and decisions; sufficient standalone constraints where a design is unnecessary.
+  Parent membership and feature identity are distinct. Record ordinary adapter
+  capabilities/guarantees rather than inventing feature-record evidence.
 - Each standalone operation's configured role, actual agent invocation/context ID,
   selected owner, permissions, input versions, output address, returned status,
   inspected evidence and actual effects. Mark unavailable provenance as a gap.

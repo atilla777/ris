@@ -59,5 +59,30 @@ authority/target/outgoing/preservation/reassessment/remote gates. Requirements-o
 proposed. Caller проверяет semantic whole и receipt, не копирует алгоритм и не
 смешивает Git с adapter-owned tracker publication. Локальные leaf plan/change/docs/
 review не публикуют промежуточный Git; явно ограниченный вклад возвращается caller.
-Наличие общего publisher не означает поставку всех standalone/finished direct
-planning routes принятого [дизайна связности](../specs/sdlc-continuity/design.md).
+Законченные direct roadmap/refinement/decomposition вызывают adapter publication;
+specify/design — independent review → Git owner → record reconcile → tracker
+publication. Явно limited proposal/local-save/record-only вклад возвращает
+остаток caller. No-change проверяет нужную опубликованность/долг без пустого push.
+Git failure блокирует dependent record writes; последующая tracker failure
+сохраняет Git и известные ID. Повтор сверяет реальные эффекты и версии, сохраняя
+неизменённые acceptance; unknown push сначала проверяется remote.
+
+Specify владеет созданием/сверкой явно выбранной epic feature, standalone task
+или task-контейнера после принятия и Git-публикации требований. Existing ID не
+создаёт новую запись. Design/decompose читают связанные принятые версии по ID;
+строгая feature-record ветка сохраняется, standalone не требует искусственного
+эпика/JSON/design file для simple accepted constraints. Material design принимается
+отдельно. Дети имеют собственные outcome/scope/criteria/точные refs/decisions/
+contracts/seams/exclusions; parent не подменяет контракт. One-task не получает
+искусственного ребёнка, multi-task container не исполняется как leaf.
+
+Отдельное завершение явно выбранного standalone task-контейнера проверяет его
+mandatory outcomes/полный состав/cancellation disposition/blockers и integrated
+evidence. Feature-like AC проверяются portable verifier на требуемой общей
+ревизии; иная bounded composition — по собственным outcomes и применимым
+ревизиям, без forced feature schema. Supported protected evidence persistence
+предшествует отдельному exact close. Native child/blocker guards не защищают
+полноту ожидаемого состава или external evidence. Closed дети не acceptance;
+предки/дети не закрываются рекурсивно. Closed-pending publication продолжается
+только проверкой/публикацией, без reopen/reclose. Нормы не являются заявлением
+живой проверки или общей приёмки [поставки связности](../specs/sdlc-continuity/delivery-plan.md).

@@ -23,6 +23,11 @@ lifecycle stage.
 
 ## Establish the epic and evidence
 
+Full finished refinement is default; an explicit proposal-only or local-write-only
+contribution names its boundary and remaining publication. Nesting/Gas City does
+not select limited mode. With an ID discover accepted goal, current sources and
+decisions from exact epic reads/links before asking for unavailable facts.
+
 Identify the selected project and current worktree, confirmed epic ID, accepted
 goal and its source, why the epic's outcome or boundary prevents a defensible
 feature choice, prior decisions and started work, read scope and any explicit
@@ -59,7 +64,8 @@ analysis may be returned as an explicitly unverified proposal.
 
 First check whether the epic already has a sufficiently clear, verifiable
 outcome, boundary and completion conditions for feature selection. If so,
-report that evidence and `changes: []`; do not subdivide an epic merely for its
+report that evidence and `changes: []` and apply the publication/no-debt check
+below in full mode; do not subdivide an epic merely for its
 size or demand detailed specifications of every future feature. If unclear,
 work only on the ambiguity that prevents selection. Reconcile accepted goal
 scenarios, the epic's existing outcome, exclusions and commitments, its
@@ -150,6 +156,17 @@ of contradictory changes. A persisted edit does not itself approve the
 proposed candidate features or prove that their specifications exist.
 
 ## Return and stop
+
+In full mode, after semantic and local read-back verification invoke the selected
+adapter's separate tracker publication operation with exact epic/content,
+destination evidence and authority for the entire outgoing history. Preflight
+remote-gated writes through that owner before mutation. Inspect its snapshot,
+remote and independent read-back receipt against the agreed refinement. An
+unchanged epic still needs required availability/debt checked, without empty
+push. No synthetic Git step. Missing authority or failed/ambiguous publication
+blocks full success; retain known effects and reconcile with the same owner
+before retrying only the missing operation. Limited mode returns its checked
+contribution and exact publication remainder, without a copied Dolt algorithm.
 
 Report `ok|blocked|conflict|error` for this bounded result; distinguish an
 `ok` **proposal** from an `ok` verified persisted refinement. Include project

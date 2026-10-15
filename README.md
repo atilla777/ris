@@ -47,16 +47,16 @@ their own revision-bound evidence; this inventory does not establish those outco
 | [ris-proj-op-refine-epic](skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome/boundaries | same name |
 | [ris-proj-op-select-feature](skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation | same name |
 | [ris-proj-op-interview-feature](skills/ris-proj-op-interview-feature/SKILL.md) | Project feature-requirements interview handoff | same name |
-| [ris-proj-op-specify-feature](skills/ris-proj-op-specify-feature/SKILL.md) | Accepted saved requirements and conditional feature task | same name |
-| [ris-proj-op-design-feature](skills/ris-proj-op-design-feature/SKILL.md) | Independently accepted saved design and conditional record update | same name |
-| [ris-proj-op-decompose-feature](skills/ris-proj-op-decompose-feature/SKILL.md) | Ready accepted inputs and necessary tasks/dependencies | same name |
+| [ris-proj-op-specify-feature](skills/ris-proj-op-specify-feature/SKILL.md) | Accepted published requirements and feature/standalone record, or explicit limited contribution | same name |
+| [ris-proj-op-design-feature](skills/ris-proj-op-design-feature/SKILL.md) | Separately accepted published design and record refs, or explicit limited contribution | same name |
+| [ris-proj-op-decompose-feature](skills/ris-proj-op-decompose-feature/SKILL.md) | ID-based feature/standalone one-task or sufficient children and tracker publication | same name |
 | [ris-proj-op-prepare-task-worktree](skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware task copy/environment handoff | same name |
 | [ris-proj-op-plan-task](skills/ris-proj-op-plan-task/SKILL.md) | Verified saved task plan | same name |
 | [ris-proj-op-implement-task-tdd](skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD | same name |
 | [ris-proj-op-review-task](skills/ris-proj-op-review-task/SKILL.md) | Checked project review, saved when authorized | same name |
 | [ris-proj-op-update-documentation](skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization | same name |
 | [ris-proj-op-publish-task](skills/ris-proj-op-publish-task/SKILL.md) | Reviewed task/change or pre-ID document integration and verified Git push | same name |
-| [ris-proj-op-complete-container](skills/ris-proj-op-complete-container/SKILL.md) | Explicit verified feature/epic closure | same name |
+| [ris-proj-op-complete-container](skills/ris-proj-op-complete-container/SKILL.md) | Explicit verified feature/standalone-container/epic closure | same name |
 | [ris-proj-op-retrospect-session](skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence | same name |
 | [ris-proj-op-manage-okf-bundle](skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation | same name |
 | [ris-proj-op-author-architecture-rules](skills/ris-proj-op-author-architecture-rules/SKILL.md) | Accepted scoped architecture rules in project OKF | same name |
@@ -253,8 +253,31 @@ or design exists, as well as task changes, through one publication algorithm.
 Both require exact whole-snapshot independent review, authority, full outgoing
 scope and remote verification. Publication does not accept proposed content,
 write/close tracker records or publish Dolt. A caller checks the combined result
-and publisher receipt; this foundation does not implement every direct planning
-publication route described by the accepted SDLC-continuity design.
+and publisher receipt. The U2 candidate in this task copy extends existing
+planning owners: finished direct roadmap/refinement/decomposition invoke tracker
+publication; specify/design apply independent document review and this Git owner
+before record reconciliation and tracker publication. Explicitly limited
+proposal/local-save/record-only contributions return their exact remainder.
+Nesting does not silently change the mode; no-change checks required availability
+or publication debt without empty commits/pushes. These instruction changes are
+pending primary integration, independent review and publication.
+
+For applicable task-bound operations, a short command plus exact ID starts
+discovery through context and selected adapter reads of kind/key/content/links,
+complete composition and typed blockers. Linked accepted versions and separate
+decisions are read and checked; missing/ambiguous/stale inputs get exact diagnostics.
+Explicit ordinary standalone tasks/containers need no artificial epic or feature
+JSON; simple accepted constraints need no ceremonial design file, while material
+design requires separate acceptance. Children carry their own sufficient outcome,
+scope, criteria, accepted refs/decisions and contracts/seams. Structural parent
+does not make a child a feature or authorize parent closure. One-task outcomes
+get no artificial child. Standalone container completion checks its own accepted
+whole, protected evidence and separate exact close; closed children alone are
+insufficient. Beads advertises these ordinary operations as tool-specific, keeping
+common tasks v1 and strict feature-record semantics intact. Both flows consume
+owner receipts and preserve actual-effect recovery, including closed-pending work.
+ID does not replace an actual change snapshot, document-write authority, session
+history locator or explicit OKF root. U2 adds no navigator or new workflow engine.
 
 The retrospective source retains its exact-identity OpenCode reader and conditional
 Langfuse/delegation/save branches. Existing T3 observations are partial, final

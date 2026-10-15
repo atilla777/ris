@@ -23,6 +23,13 @@ current input. Missing essential identity blocks a task-bound report; missing
 spec/design/baseline limits the affected conclusion without stopping useful
 current-content analysis. Do not invent a feature design for a small repair.
 No claim mutation is needed. Analysis does not require report-write permission.
+Discover accepted versions/decisions from exact ID links and current candidate
+evidence from the supplied copy and accessible primary task reports (default
+`implementation.md`, `execution.md`, `plan.md`, or inspected overrides). Verify
+the actual complete candidate snapshot; missing local evidence is a precise
+discovery/coverage gap, never permission to assume an absent change or approve
+HEAD alone. Structural parent is not feature identity; ordinary standalone
+children retain their own sufficient scope/criteria/refs and constraints.
 For dependent shared-path actions use context's checked primary selection and
 provenance (explicit or verified available saved indication). If unresolved,
 return available analysis unsaved with the exact dependent save gap; do not guess.

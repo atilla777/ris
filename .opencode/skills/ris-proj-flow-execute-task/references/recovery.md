@@ -36,6 +36,13 @@ actual effects, including those after the last saved receipt, before advancing:
   outgoing history, known sent snapshot and independent read-back. A cached tracking
   ref or local closed status cannot prove remote publication.
 
+Use each ordinary standalone leaf/child's own source links and accepted sufficient
+constraints without requiring feature JSON or a design file for a simple task.
+Confirm kind from actual accepted scope; parent membership alone is not feature
+identity. Retain stricter feature refs and unsupported-payload diagnostics. This
+same distinction applies to route 7 result persistence/exact closure; an ordinary
+leaf never silently enters container acceptance or closes its structural parent.
+
 If actor/assignee/linkage disagree, a foreign execution is active or several copies
 cannot be disambiguated, stop `conflict` and request only the missing decision.
 An expired lease is not proof execution stopped. Ownership loss blocks further

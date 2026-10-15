@@ -18,6 +18,12 @@ the adequacy of the persisted whole. Do not duplicate its planning algorithm.
 
 ## Prepare the operation
 
+Full finished planning is default; explicitly proposal-only or local-write-only
+contributions name their boundary and remaining publication. Nesting/Gas City
+does not silently select limited mode. Full mode publishes tracker effects,
+not a synthetic Git roadmap commit. Missing write/publication authority returns
+an honest proposal or blocked full result, not implicit limited success.
+
 Establish the selected project/root (and context-checked explicit or verified
 saved primary selection/provenance if shared paths are needed from a worktree),
 chosen goal and evidence of its acceptance,
@@ -177,7 +183,17 @@ records and typed dependencies, and compare the **persisted whole** with the
 accepted goal and agreed or explicitly consultation-waived proposal: content,
 coverage, first result, exclusions, unchanged closed accomplishments, IDs,
 status, links, order and recommendation.
-If the check is incomplete, do not claim a saved complete roadmap. Report
+For full mode, after this check invoke the selected adapter's separate tracker
+publication operation with exact expected epics/links, destination evidence and
+permission for the entire outgoing history. Preflight remote-gated writes through
+that owner before mutation. Consume its snapshot/remote/independent read-back
+receipt and match IDs/content/direction to the agreed whole. No-change verifies
+required existing availability or outstanding authorized debt without empty push.
+On failure/ambiguity preserve local IDs/changes and ask the same publication
+owner to reconcile actual remote effects before only the missing operation;
+do not recreate epics or repeat unchanged acceptance. Explicit limited mode stops
+at its declared contribution with this remainder. No Git/Dolt algorithm is copied.
+If the check or required publication is incomplete, do not claim full success. Report
 `ok|blocked|conflict|error`, mode, project, goal/input acceptance, actual
 confirmed IDs and changes (including partial changes), breakdown agreement or
 explicit waiver, evidence and its limits, unsaved proposal/gaps and the
