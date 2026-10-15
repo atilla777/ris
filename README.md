@@ -103,9 +103,112 @@ installation so it discovers the changed files; a running session is not updated
 For existing installations use the **[complete namespace transition guide](docs/skill-command-naming-migration.md)**,
 including all 41 skill replacements, all eight retired commands, independent
 target-root selection, consumer/config updates, removal and partial-error handling.
-There are no aliases. An automated installer remains a separate future delivery.
+There are no aliases. The W1 installer candidate below is pending integration and
+independent review; complete production package installation remains W2 delivery.
 The local foreign skill `grilling`, command `grillme`, and client configuration
 are not RIS package source and must be preserved during synchronization.
+
+### Installer CLI and bootstrap (W1 candidate; production acceptance pending W2)
+
+The single runtime source is
+[`skills/ris-port-op-manage-installation/scripts/ris-install.sh`](skills/ris-port-op-manage-installation/scripts/ris-install.sh).
+W1 tests it against a local Git fixture containing minimal management skill and
+command stubs. This source revision deliberately has **no production management
+SKILL.md or command**: the installer rejects such an incomplete package. A raw
+script URL becoming available does not establish production bootstrap acceptance.
+W2 supplies and verifies the complete package; Linux and macOS evidence and
+independent review are required before claiming supported production delivery.
+
+Runtime dependencies: **Bash 3.2+, Git 2.20+, flock**, and standard Unix `cp`, `mv`,
+`rm`, `mkdir`, `rmdir`, `mktemp`, `chmod`, `cmp`, `diff`, `id`, `ls`, `readlink`.
+Linux uses util-linux flock. On macOS install **discoteq/flock 0.4.0** externally,
+for example `brew install flock`; `/bin/bash` is sufficient. The installer reports
+missing tools and never installs dependencies. `curl` is only for bootstrap;
+Python 3 is development/test-only. RIS config, Beads, OpenCode and target Git are
+not runtime prerequisites.
+
+Once a complete revision is published, a human or agent can bootstrap without
+installed RIS using this Bash block. Choose an **existing absolute project path**;
+spaces are supported. Leave `ref` empty for upstream remote HEAD, or set it to an
+exact tag or full 40-hex **commit** SHA. The raw script and `--ref` use the same pin:
+
+```bash
+(
+  project='/absolute/path/to/project'
+  ref='' # Or an exact tag / full commit SHA of a complete package revision.
+  raw_ref=${ref:-HEAD}
+  installer=$(mktemp /tmp/ris-bootstrap.XXXXXXXX) || exit 1
+  trap 'rm -f "$installer"' EXIT
+  url="https://raw.githubusercontent.com/atilla777/ris/${raw_ref}/skills/ris-port-op-manage-installation/scripts/ris-install.sh"
+  if ! curl --fail --show-error --location "$url" --output "$installer"; then
+    exit 1
+  fi
+  args=()
+  if [ -n "$ref" ]; then args=(--ref "$ref"); fi
+  bash "$installer" install --project "$project" "${args[@]}"
+)
+```
+
+The default follows remote HEAD, regardless of branch name. Branch names and Git
+revision expressions are not `--ref` inputs; lightweight/annotated tags are.
+A 40-hex tag spelling is interpreted as a commit SHA. Download errors stop before
+execution; there is no `curl | sh` path. Tags containing URL-special characters
+must be URL-encoded in `raw_ref` while retaining the literal tag in `ref`.
+
+After installation the same engine handles explicit update/removal:
+
+```bash
+bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' update --project '/absolute/project' # Optional --ref TAG_OR_SHA
+bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' uninstall --project '/absolute/project'
+```
+
+`install` fully replaces an existing or manual installation; `update` requires
+at least one managed element or version file. Local edits and collisions in the
+reserved `.opencode/skills/ris-*` and `.opencode/command/ris-*.md` namespace are
+overwritten, and retired elements removed. Use other names for project additions.
+The four-line `.opencode/ris-installation` records format/source/full revision/
+harness. No timestamps or backup history are stored. Other skills/commands,
+OpenCode settings, `ris.yaml`, `AGENTS.md`, docs/tasks, alternate `skill/` and
+`commands/` and global locations are preserved. Check those alternate/global
+locations for shadowing; the installer does not migrate them. Ordinary parent
+directories are required; symlink parents and unsafe managed objects are refused.
+Old managed links are replaced as links without touching their external targets.
+
+The engine serializes cooperating processes for the same OS-user and physical
+project root. Busy exits without target writes. Before replacing its own script
+it continues from a private external self-copy. A verified snapshot and schema-1
+journal at `.opencode/.ris-install-transaction/` support offline recovery before
+any network operation. Pre-commit failure restores the old bytes/types/modes/link
+targets; SIGKILL recovery repeats that restore from immutable backup. A committed
+or rolled-back terminal marker permits cleanup only, even after partial backup
+removal. Guarantees cover process interruption on a working filesystem, not power
+loss, storage corruption, ACLs/xattrs or concurrent edits by other tools.
+
+Exit **0** means verification and cleanup completed. Nonzero diagnostics distinguish
+not changed, restored, recovery required, or applied/restored with cleanup
+incomplete. Repeat a valid request to finish recovery/cleanup. If the installed
+script was removed during an interrupted operation, use the bootstrap block again
+(same project, compatible schema-1 engine). If the journal is unknown/damaged,
+preserve its exact reported path and diagnose it; do not delete evidence or try
+another install over it. Repeated uninstall is an offline successful no-op; after
+the installed script is gone, use the bootstrap/external script for that request.
+
+Verify the full SHA and skill/command counts in the success report and inspect
+the version file and ordinary `git status`. Installed files/version remain visible
+for the project's normal Git workflow; no ignores, `init`, commits or pushes are
+performed. Existing project ignore rules are not overridden. **Quit and restart
+OpenCode** after changes; an existing agent session retains its loaded instructions.
+
+Developer verification (filesystem CLI tests only; no agent sessions):
+
+```sh
+python3 -m unittest discover -s tests/package_installation -p 'test_*.py' -v
+bash -n skills/ris-port-op-manage-installation/scripts/ris-install.sh
+```
+
+The workflow runs G0 lock/copy first, then this suite on Linux and macOS, explicitly
+using `/bin/bash` (3.2 on macOS) and externally installed flock. A workflow file is
+not evidence of a successful remote job; both OS results must be checked separately.
 
 ## Dependencies and boundaries
 
