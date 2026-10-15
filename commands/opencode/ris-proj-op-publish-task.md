@@ -1,5 +1,5 @@
 ---
-description: Integrate an independently reviewed task into the primary branch and verify push.
+description: Integrate a reviewed task/change or pre-ID document result into the primary branch and verify push.
 ---
 
 Load `ris-proj-op-publish-task` with the skill tool and follow its contract for

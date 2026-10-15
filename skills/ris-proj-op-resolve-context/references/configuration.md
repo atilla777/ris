@@ -98,11 +98,9 @@ skill as part of context preparation. This field grants no write permission.
   not OKF validity or the contents/acceptance of a document. A project may
   choose different directories without changing these roles.
 - Resolve `workspace.*` against `primary_root`, the primary working-copy root
-  of the selected project. In the primary copy it equals `project_root`. From
-  a separate worktree require `primary_root` supplied **explicitly** for any
-  operation needing shared paths. Do not discover/substitute it silently or
-  treat `.sdlc/` inside the worktree as shared. If unknown, block only the
-  shared-path-dependent part and return independently usable source paths.
+  of the selected project. In the primary copy it equals `project_root` only
+  when that copy's primary identity is established. For a separate copy apply
+  the bounded primary-resolution procedure below before using shared paths.
 - Config location does not move either root. Absolute path values remain
   absolute, subject to scope and access checks. Do not interpolate `~`,
   `${ENV_VAR}` or `{{variable}}`. For `..`, symlinks or paths outside the
@@ -120,6 +118,40 @@ skill as part of context preparation. This field grants no write permission.
   project slug or branch name. Never create directories or worktrees here.
   Re-resolve paths in each recipient's environment after project/worktree or
   container changes; do not cache local absolute paths in `ris.yaml`.
+
+### Bounded primary resolution
+
+This context owner resolves primary identity; consumers use its checked result
+rather than duplicating discovery. Do this only when shared paths are needed:
+
+1. Validate an explicitly supplied `primary_root` first. Check existence,
+   accessibility and physical target, selected-project identity, repository
+   relationship and association with the current copy. An invalid explicit
+   selection blocks the dependent part; never substitute a saved hint/default.
+2. Without explicit selection, inspect only an **already available** saved
+   indication in applicable project instructions or a copy-preparation result.
+   Record its exact evidence address and provenance. Resolve relative indications
+   from their declared base (an instruction pointer from its file's directory);
+   an unknown base is a gap. Do not search the disk for arbitrary receipts.
+3. Verify the candidate's actual existence/physical target and unambiguous
+   selected-project/repository relationship, the witness's provenance and its
+   association to this current copy/path/branch where applicable. Check for
+   conflicting applicable saved indications. Git common-dir and worktree
+   registration corroborate an association, but never select a primary alone.
+   Neither branch name, first/main worktree listing nor `.sdlc/` presence is
+   a selector. A stale, moved or foreign witness is not usable association.
+4. A valid explicit selection wins over an older saved hint; expose contradictory
+   facts and why the hint is inapplicable, never silently conceal them or let it
+   override the selection. If the explicit selection's own association remains
+   contradictory, return conflict. Without explicit selection, missing evidence
+   is blocked, ambiguous/conflicting evidence is conflict, and foreign/stale
+   association blocks shared-path use. Name the exact missing root/association
+   or decision and retain independently usable current-copy source settings.
+5. Return the selected physical root, selection source/evidence address,
+   verification facts and limits. Make no persistent changes or new registry.
+   Consumers recheck applicability after copy/project changes and mutable facts
+   before acting. A receipt proves neither fresh permission, ownership/blockers
+   nor operation-specific write protection; these remain the acting owner's gates.
 
 ## Permissions, result, and stopping conditions
 

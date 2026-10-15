@@ -23,8 +23,9 @@ current input. Missing essential identity blocks a task-bound report; missing
 spec/design/baseline limits the affected conclusion without stopping useful
 current-content analysis. Do not invent a feature design for a small repair.
 No claim mutation is needed. Analysis does not require report-write permission.
-Explicit primary root is needed for dependent shared-path actions from a worktree;
-without it return available analysis unsaved, rather than guessing shared paths.
+For dependent shared-path actions use context's checked primary selection and
+provenance (explicit or verified available saved indication). If unresolved,
+return available analysis unsaved with the exact dependent save gap; do not guess.
 
 Supply verified project inputs, prior rounds/dispositions where applicable and
 the actual review/gate purpose to `ris-port-op-review-change`; apply its method instead of
@@ -54,7 +55,10 @@ inputs/versions, checks, both finding groups (explicitly empty when applicable),
 verdict, prior dispositions and limitations.
 
 Return status, ID, reviewed version, report content/location and saved/unsaved
-state, independence and gate limitations. High/medium need correction or decision
+state, checked primary provenance for shared saves, input/decision/evidence
+locators and actual channel facts/remainder under common's recoverable-result
+rules. A receiver rechecks current applicability and required rights/protection;
+the report/old write window is not a live gate. High/medium need correction or decision
 resolution and reassessment of affected bytes; optional low does not block pass.
 Stop at the report: no repairs, publication, tracker evidence writes/closure or
 next-operation launch.

@@ -8,8 +8,10 @@ applicability, not working-copy preparation or tool-specific worktree operations
   established task → copy/branch/path association using available current facts
   and handoff evidence. A conventional branch name alone proves no ownership.
 - Reprepare context after a copy change. Sources belong to the current project
-  root; shared notes/tracker access use the explicitly supplied primary root for
-  a separate worktree. Do not silently substitute a local task directory or a
+  root; shared notes/tracker access use context's checked primary selection and
+  provenance (explicit or verified available saved indication) for a separate
+  worktree. Recheck association and fresh permissions/claim/blockers before
+  mutation; a saved witness or lease is not general write protection. Do not silently substitute a local task directory or a
   different tracker. Require only paths needed by the dependent action.
 - Preserve pre-existing staged/unstaged/untracked work and unfinished operations.
   Unsuitable, ambiguous or conflicting state blocks dependent mutation; report

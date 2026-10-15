@@ -30,7 +30,8 @@ stale or unavailable material inputs produce a partial/blocked plan, not readine
 Planning does not require or obtain a claim or separate worktree. Verify the
 supplied current copy's repository/project relationship and, when a task-specific
 copy is supplied, its confirmed task/branch/path association and actual HEAD/state.
-Require `primary_root` explicitly for shared paths in a worktree; reprepare context
+For shared paths use context's checked `primary_root` and selection provenance
+(validated explicit selection or verified available saved indication); reprepare context
 after a copy change. Preserve dirty/untracked work. Missing or conflicting copy
 inputs block the dependent plan; do not create, switch, repair or reset a copy,
 or load working-copy preparation skills/adapters. A copy does not isolate the
@@ -57,5 +58,9 @@ not a replacement tracker or remotely available requirement.
 Return status `ok|partial|blocked|conflict|error`, confirmed ID/project/primary root,
 plan readiness and exact saved path (or unsaved proposal), input versions and
 decisions, criterion-to-check coverage, observed copy state, diagnostics
-and remaining decisions. Stop at the plan; do not prepare a worktree, implement, publish,
+and remaining decisions. Include primary association evidence, the checked
+ID-to-plan discovery convention or exact override, saved/accepted/publication
+facts and exact remainder under common's recoverable-result rules. Reuse requires
+fresh applicability/permissions and safe note access, not an old receipt or claim;
+planning/review reads acquire no mandatory claim. Stop at the plan; do not prepare a worktree, implement, publish,
 close a task, or select the next operation.

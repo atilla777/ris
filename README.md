@@ -55,7 +55,7 @@ their own revision-bound evidence; this inventory does not establish those outco
 | [ris-proj-op-implement-task-tdd](skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD | same name |
 | [ris-proj-op-review-task](skills/ris-proj-op-review-task/SKILL.md) | Checked project review, saved when authorized | same name |
 | [ris-proj-op-update-documentation](skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization | same name |
-| [ris-proj-op-publish-task](skills/ris-proj-op-publish-task/SKILL.md) | Reviewed primary-branch integration and verified Git push | same name |
+| [ris-proj-op-publish-task](skills/ris-proj-op-publish-task/SKILL.md) | Reviewed task/change or pre-ID document integration and verified Git push | same name |
 | [ris-proj-op-complete-container](skills/ris-proj-op-complete-container/SKILL.md) | Explicit verified feature/epic closure | same name |
 | [ris-proj-op-retrospect-session](skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence | same name |
 | [ris-proj-op-manage-okf-bundle](skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation | same name |
@@ -131,13 +131,27 @@ actual snapshot; self-review is not independent publication approval. Git public
 exact-task completion, parent-container acceptance and Dolt publication/read-back
 remain distinct effects. A claim or worktree does not provide general CAS.
 
-Worktree preparation retains explicit primary/shared roots and separate copy and
-environment readiness. Git is the default selected worktrees adapter; installed
+Shared paths use context's checked primary root: validated explicit selection,
+or an already available saved indication with verified project/repository/current-copy
+association and provenance. Missing/conflicting association blocks dependent shared
+actions while retaining useful current-copy source paths. Handoffs identify result
+locators, versions/separate decisions, actual channel states and exact remainder;
+local notes and response-only content are not automatically remote inputs.
+Worktree preparation retains separate copy and environment readiness.
+Git is the default selected worktrees adapter; installed
 Worktrunk presence does not select it (reference version 0.68.0). Planning consumes
 the supplied copy without creating it or requiring a claim. Feature decomposition
 starts from accepted current published requirements/design and a confirmed ID;
 document-only requirements/design can precede a tracker ID. Execution-role names
 and configuration v2 are unchanged by naming.
+
+The existing Git publisher accepts requirements-only documents before a task ID
+or design exists, as well as task changes, through one publication algorithm.
+Both require exact whole-snapshot independent review, authority, full outgoing
+scope and remote verification. Publication does not accept proposed content,
+write/close tracker records or publish Dolt. A caller checks the combined result
+and publisher receipt; this foundation does not implement every direct planning
+publication route described by the accepted SDLC-continuity design.
 
 The retrospective source retains its exact-identity OpenCode reader and conditional
 Langfuse/delegation/save branches. Existing T3 observations are partial, final

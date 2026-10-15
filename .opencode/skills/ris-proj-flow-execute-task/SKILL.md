@@ -22,8 +22,9 @@ historical records, repair/remove worktrees, deploy, release or substitute a PR.
 
 ## Prepare scope and executors before effects
 
-Establish the selected project/current copy, explicit primary root for shared
-paths in a worktree, optional exact task ID, actor, accepted scope, applicable
+Establish the selected project/current copy, context-checked primary selection
+and provenance for shared paths in a worktree (explicit or verified available
+saved indication), optional exact task ID, actor, accepted scope, applicable
 rules and permissions. Load/apply installed `ris-proj-lib-common` and its conditional
 resources before their actions; apply `ris-proj-op-resolve-context` with its owned configuration
 resource to prepare sources, workspace, selected tasks adapter and these roles:
@@ -148,10 +149,12 @@ owners retain their full methods. Reconcile again after partial/uncertain effect
 or changed facts before deciding the next operation.
 
 1. Delegate `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
-   copy/environment actions and explicit primary root. Check its verified claim,
+   copy/environment actions and checked primary root with selection evidence. Check its verified claim,
    blockers, copy association, preservation of foreign staged/unstaged/untracked
    changes and separate copy/environment readiness. Use its actual handoff, not
-   a guessed branch/path. Refresh context after a copy change.
+   a guessed branch/path. Refresh context after a copy change. Retain the
+   addressable copy witness and primary association evidence; neither replaces
+   fresh permission/ownership/blocker/protection gates at the receiving stage.
 2. Delegate `ris-proj-op-plan-task` in that supplied copy with accepted versions/contracts
    and authorized plan address. Read the saved plan and coverage; changed scope
    or missing decisions return to this dialogue, not silent redesign.

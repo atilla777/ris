@@ -71,6 +71,18 @@ description: >-
 
 ## 4. Адаптеры
 
+Git-публикация принадлежит `ris-proj-op-publish-task`, не tasks adapter:
+task/change получает подтверждённый ID/scope и применимые accepted inputs/checks;
+pre-ID documents — exact paths/subject, отдельные решения применимых принятых
+результатов, substantive checks и independent full-snapshot review. Для
+requirements-only не требуются ID, implementation evidence или будущий дизайн.
+Обе ветки используют один алгоритм с authority/target/full outgoing scope,
+preservation/reassessment/remote read-back. Публикация proposed не делает accepted;
+publisher не создаёт/закрывает записи и не публикует Dolt. Receipt содержит
+subject/version/decision locators, commit/tree/ref/remote, applicability и actual
+effects/limits/remainder; common задаёт достаточность recoverable output без
+универсальной схемы. Эти границы не расширяют `tasks` v1 или feature-record/1.
+
 Разные реализации одной роли должны соблюдать одинаковую семантику. Иначе смена имени адаптера в конфигурации не обеспечивает заменяемость.
 
 ### Контракт роли `tasks`, версия 1 (roadmap и задачи фичи)

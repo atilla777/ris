@@ -11,7 +11,10 @@ bounded executors load their owners and full methods only when needed.
 
 Start read-only with the selected adapter and relevant stage owners. No old chat,
 local stage flag, successful exit alone or absence of a report establishes reality.
-Resolve current config/rules and current/explicit primary paths again. Inspect all
+Resolve current config/rules and current/context-checked primary paths again,
+including explicit-or-verified-saved selection provenance and current-copy
+association. An old receipt does not select a root without fresh applicability.
+Inspect all
 actual effects, including those after the last saved receipt, before advancing:
 
 - Exact ID/type/status/result, actor, current assignee, execution/copy association,

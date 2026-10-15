@@ -12,7 +12,8 @@ preserve it as explicit history. Do not overwrite earlier findings or provenance
 Keep enough information for another session to inspect reality without this chat:
 
 - Run identity/time, exact ID/title, actor and task/actor/execution association;
-  project/current/primary roots, config source and resolved output addresses.
+  project/current/primary roots, config source and resolved output addresses;
+  primary selection source, exact association witness address, verification/limits.
 - Requirements/design versions and acceptance addresses; applicable rule/package
   versions and material uncommitted changes to those inputs.
 - Each standalone operation's configured role, actual agent invocation/context ID,
@@ -34,6 +35,10 @@ Keep enough information for another session to inspect reality without this chat
   read-back. Do not record a local lock as protection against remote writers.
 - Confirmed partial effects, uncertainty, first remaining operation, exact
   prerequisite/decision for it, and fresh next recommendation without a claim.
+  Apply common recoverable-result/channel facts; a nested component returns to
+  this caller without a mandatory next-skill assignment. Response-only or local
+  evidence without an inspectable available source leaves an explicit discovery
+  gap, not an invented ID, report path or remote prerequisite.
 
 An artifact/flag is not authority that a stage is done. Preserve actual receipt
 addresses and versions; inspect files/remote reads where available, rather than

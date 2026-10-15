@@ -22,8 +22,9 @@ known answers, linked prior work, applicable rules and permitted document,
 decision, Git and tracker effects. Workflow authorization does not accept unseen
 content. Apply installed `ris-proj-lib-common` and its conditional dialogue/artifact/
 quality resources, and `ris-proj-op-resolve-context` with its configuration resource for relevant
-sources, adapter and execution settings. Shared workspace paths require an
-explicit primary root in a worktree. Do not derive a task directory before ID
+sources, adapter and execution settings. Shared workspace paths require context's
+checked primary selection/provenance, explicit or verified available saved
+indication, in a worktree. Do not derive a task directory before ID
 confirmation, invent filenames from config, or require a draft store.
 
 The scenario consumes `execution.roles.feature-selection` for selection and
@@ -37,9 +38,9 @@ silently run it in the leading context, choose a fallback or require the
 
 Before writable preparation, delegate bounded read-only preflight: the adapter
 checks actual operations, create/read feature-record support, local-write
-isolation, configured remote, outgoing scope and publication guarantees; a Git
-executor checks the authorized destination/ref, outgoing commits, hooks,
-preservation and independent remote verification. Establish actual publication
+isolation, configured remote, outgoing scope and publication guarantees;
+`ris-proj-op-publish-task` preflights its authorized Git document subject,
+destination and publication gates without writing. Establish actual publication
 permissions, including full outgoing tracker history. No remote or guarantee
 means a blocker for the dependent effect. Direct document-only components may
 still return their authorized local result. Explain protected update windows
@@ -100,20 +101,27 @@ and preservation. A local saved result is not publication.
 
 ## Review, publish Git, then create the feature
 
-Delegate independent review of the specific accepted requirements/design and
+Delegate independent `ris-port-op-review-change` assessment of the concrete
+pre-ID document subject: specific accepted requirements/design and
 their decision evidence against rules, AC and actual architecture. Provide exact
 candidate revisions and addresses, not just an earlier verdict. Return material
 findings to their content owner; discuss/accept only changed content here,
 delegate repairs and rerun affected checks and fresh review. High/medium findings
 must be resolved before publication. Do not treat review as human acceptance.
 
-Delegate authorized preparation-artifact Git publication (not implementation
-delivery): check final snapshot/index and every outgoing commit, include both
-accepted results and their separate decisions, preserve unrelated work, commit/
-push only the confirmed destination under project rules. Hooks changing accepted
-content invalidate affected acceptance/checks. Verify the actual fetched remote
-tree and immutable addresses in an independent copy. The document owners supply
-content/decision matching evidence; no mandatory Markdown byte-scope hashes.
+Delegate `ris-proj-op-publish-task` for authorized preparation-artifact Git
+publication using its pre-ID document branch. Pass exact project-relative
+subject paths, accepted requirements/design and separate decision addresses,
+substantive checks, full candidate base+overlay/add/delete/modes snapshot,
+independent review/provenance, destination evidence and allowed effects. The
+publisher owns its single integration/reassessment/push/read-back algorithm;
+do not reproduce it here. Read the returned receipt and check subject/version,
+commit/tree/ref/remote, review/check applicability, decision locators, actual
+effects and limits against the scenario's promised whole. Changed accepted
+content returns to its content owner and this dialogue; publication cannot
+accept it. A local/partial receipt cannot unlock dependent tracker creation.
+The document owners supply content/decision matching evidence; no mandatory
+Markdown byte-scope hashes.
 Decisions can name `containing-commit`, resolved by their commit-pinned address;
 tracker refs use full published commits. Git publication must be confirmed
 before creating the feature record.

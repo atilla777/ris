@@ -13,8 +13,9 @@ Own the combined project result: verified mandatory scope, acceptance evidence,
 safe persistence and separately verified closure of the exact authorized ID.
 Load/apply `ris-proj-lib-common` and its applicable resources, and `ris-proj-op-resolve-context` with its
 configuration resource for selected rules/specs/product and adapter paths. A
-direct call needs no execution role. From a worktree require explicit primary
-root only if shared workspace paths are needed; no local report is mandatory.
+direct call needs no execution role. From a worktree require context's checked
+primary selection/provenance (explicit or verified available saved indication)
+only if shared workspace paths are needed; no local report is mandatory.
 For a feature load and actually apply `ris-port-op-verify-feature`. For an epic
 instead read `references/epic.md` relative to this installed folder; do not load
 the feature method merely because the epic contains features.

@@ -31,7 +31,12 @@ input vs prospective output roles, parameters, and permitted scope from the
 request and applicable project instructions. If ambiguous, diagnose the
 affected part rather than inventing a root, document, ID, or permission.
 Prepare the paths, requested execution role (if any), and required inputs
-following the owned configuration resource. Return applicable resolved settings,
+following the owned configuration resource, including its bounded primary-root
+resolution when shared paths are needed: validated explicit selection first,
+otherwise an already available applicable saved indication with verified
+project/repository/current-copy association. Do not guess from Git or scan for
+receipts. Return primary selection provenance and dependent diagnostics alongside
+independently usable source settings. Return applicable resolved settings,
 source/provenance, run scope, status, and actionable diagnostics. Confirm that
 the result pertains to the current project and operation; `ok` is only
 preparation, not downstream completion. A configured agent name is not proof

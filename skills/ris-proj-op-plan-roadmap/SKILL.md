@@ -18,8 +18,9 @@ the adequacy of the persisted whole. Do not duplicate its planning algorithm.
 
 ## Prepare the operation
 
-Establish the selected project/root (and explicit primary root if shared paths
-are needed from a worktree), chosen goal and evidence of its acceptance,
+Establish the selected project/root (and context-checked explicit or verified
+saved primary selection/provenance if shared paths are needed from a worktree),
+chosen goal and evidence of its acceptance,
 `mode: create|update`, and precise write scope. An explicit proposal-only
 request has `write: false`; without permission default to no write. Do not
 infer goal acceptance from a file's presence or infer present capabilities
