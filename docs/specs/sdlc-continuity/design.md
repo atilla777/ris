@@ -1,9 +1,20 @@
-# Сквозная связность RIS — дизайн-кандидат D1
+# Сквозная связность RIS — принятый дизайн D1
 
-**Статус: proposed, не принят.** Разрешены подготовка/review/публикация кандидата,
-не реализация. [Требования v1](spec.md), [решения](acceptance.md),
-[фактический аудит A1](audit.md). Baseline `2ddd88f51dc1e2fd0bd37b33eb11c6e8d49301ae`.
-Имена существующих owners ниже относятся к baseline; naming `ris-1fq` идёт отдельно.
+**Статус: accepted с уточнениями обсуждения 15 октября 2026 года.**
+Отдельное [решение D1](acceptance.md#дизайн-d1) относится к этому файлу целиком.
+Принятие дизайна не разрешает начало реализации. Сохранение и публикация —
+`ris-vxw`; закрытая `ris-bxc` остаётся историей подготовки.
+
+[Требования v1](spec.md) и их отдельное решение остаются на Git
+`73b135bb2c0ef096b23aca314e6060e54f0c9202`, section null и
+`acceptance.md#требования-v1` той же ревизии; их принятие не переиздаётся.
+[Аудит A1](audit.md) сохраняет исторический baseline
+`2ddd88f51dc1e2fd0bd37b33eb11c6e8d49301ae` и прежние имена.
+Текущий baseline после завершённой `ris-1fq` —
+`80efd559dfe1dd8b09beb08114f0c4e4a972ad2e`, tree
+`f19cf39c8c61ffb7a091cb9abce966f939be8c1b`.
+Здесь используются [актуальные имена](../../skill-command-naming-migration.md);
+будущие изменения поведения ниже не объявляются уже установленными.
 
 ## 1. Минимальная архитектура изменения
 
@@ -16,20 +27,22 @@ runtime registry. Состояние — у tracker/Git, локальное evid
 
 | Область | Предлагаемый owner / изменение |
 |---|---|
-| Обнаружение project/primary/settings | ris-context: проверяемые входы/diagnostics, не выбор стадии; bounded восстановление primary из уже доступного подтверждённого association |
-| Общий восстанавливаемый итог | ris-common/references/artifacts.md: достаточность адреса/версии/решения/каналов, без обязательного next-skill prompt |
-| Standalone постановка/декомпозиция | ris-specify-feature, ris-design-feature, ris-decompose-feature: различимые feature-record и standalone branches, без механической миграции существующих records |
-| Git публикация | Расширить ris-publish-main на разрешённый document/change subject, включая до-ID, без обязательного implementation evidence для чисто документального subject |
+| Обнаружение project/primary/settings | ris-proj-op-resolve-context: проверяемые входы/diagnostics, не выбор стадии; bounded восстановление primary из уже доступного подтверждённого association |
+| Общий восстанавливаемый итог | ris-proj-lib-common/references/artifacts.md: достаточность адреса/версии/решения/каналов, без обязательного next-skill prompt |
+| Standalone постановка/декомпозиция | ris-proj-op-specify-feature, ris-proj-op-design-feature, ris-proj-op-decompose-feature: различимые feature-record и standalone branches, без механической миграции существующих records |
+| Git публикация | Расширить существующий ris-proj-op-publish-task на разрешённый document/change subject, включая до-ID; имя и команда сохраняются |
 | Tracker publication | Выбранный adapter: существующий dolt.publish и полный outgoing scope; не встраивать SQL/Git алгоритмы в планировщики |
-| Pre-ID independent review | ris-review-base для конкретного document subject; task-bound ris-review при наличии применимого ID |
+| Pre-ID independent review | ris-port-op-review-change для конкретного document subject; ris-proj-op-review-task при наличии применимого ID |
 | Прямые finished planning operations | Roadmap/epic/specify/design/decompose вызывают publication owner в нужной точке; явно limited component contribution сохраняется |
-| Task delivery | prepare-task-worktree/plan-task/TDD/docs/review/publish и execute-task сохраняют собственные owners/guards; child closure не ищет parent closure |
-| Container verification/closure | ris-complete-container: добавить самостоятельный task-container branch; не требовать feature payload там, где scope подтверждён обычной записью |
-| Ручное продолжение | Один новый project read-only skill, рабочее proposed имя `ris-proj-op-suggest-continuation`; команда одноимённа после принятия D1 и проверки actual namespace |
-| Authoring/static review | ris-author-skills и portable author проверяют contract sufficiency; не добавляют common/Beads в portable targets |
+| Task delivery | ris-proj-op-prepare-task-worktree / ris-proj-op-plan-task / ris-proj-op-implement-task-tdd / ris-proj-op-update-documentation / ris-proj-op-review-task / ris-proj-op-publish-task и ris-proj-flow-execute-task сохраняют собственные owners/guards; child closure не ищет parent closure |
+| Container verification/closure | ris-proj-op-complete-container: добавить самостоятельный task-container branch; не требовать feature payload там, где scope подтверждён обычной записью |
+| Ручное продолжение | Один новый project read-only skill ris-proj-op-suggest-continuation и одноимённая команда; имя и контракт приняты, операция ещё не установлена |
+| Authoring/static review | ris-proj-op-author-skill и ris-port-op-author-skill проверяют contract sufficiency; не добавляют common/Beads в portable targets |
 
-Новое имя выше — **кандидат, не установленная команда**. Применяет принятую naming
-схему; не вводится в текущую карту 41/37 задним числом. Не добавлять отдельный
+Новое имя выше — **принятое имя будущей операции, не установленная команда**.
+Применяет naming схему; не вводится в историческую карту 41/37 задним числом.
+Без иных поставок реализация даст 42 скила / 38 команд; при новых поставках
+состав определяется actual package. Не добавлять отдельный
 publisher только ради симметрии: reuse существующих двух каналов предпочтителен.
 
 ## 2. Вход и восстановление по идентичности
@@ -49,11 +62,24 @@ task достаточно accepted constraints, не искусственног�
 где он материален. Adapter operations проверяются по actual capability; common
 tasks v1 не расширяется до tool-specific standalone create/reparent скрыто.
 
-Primary можно восстановить лишь при проверяемом однозначном project/repository
-association и существующем адресе shared workspace из task evidence/инструкций;
-Git main worktree или имя ветки сами по себе не доказательство. Explicit input
-имеет приоритет. Неоднозначность/foreign association блокирует shared-path часть.
-Выбранная copy проверяется current facts, не создаётся consumer-скилом.
+`ris-proj-op-specify-feature` владеет созданием либо сверкой соответствующей
+записи после принятия и публикации требований: feature task под явно выбранным
+эпиком, standalone task либо standalone task-контейнер. Вид следует из
+согласованного предмета работы, не угадывается по заголовку. При existing ID
+новая запись не создаётся; изменяется только разрешённая часть. Design/decompose
+получают подтверждённый ID. Адаптер проверяет supported operation/guarantee,
+stable identity, поиск всех состояний, фактические поля/связи и read-back.
+
+Explicit `primary_root` имеет приоритет после проверки выбранного проекта.
+Если его нет, context читает уже доступное сохранённое указание в проектных
+инструкциях либо результате подготовки copy. Проверяет существование пути,
+однозначную принадлежность выбранным project/repository и отсутствие конфликта
+указаний. Git main worktree, первый путь в `git worktree list`, имя ветки либо
+наличие `.sdlc` сами по себе не доказательство. Missing/ambiguous/foreign association
+блокирует только shared-path часть с точным запросом пути; независимо полезные
+source paths возвращаются. Нового реестра нет. Выбранная copy проверяется current
+facts, не создаётся consumer-скилом. Это расширение нынешнего требования явного
+primary из отдельного worktree, а не утверждение о текущем поведении.
 
 Для interrupted preparation до task ID брать уже разрешённые document/candidate
 addresses и известную идентичность scope. Не писать unaccepted candidate в accepted
@@ -87,6 +113,22 @@ task ID и без требования ещё не существующего д
 Не ослаблять complete snapshot/independent review/preservation/outgoing/remote gates.
 Ни spec/design, ни scenario не получают собственную копию Git/Dolt алгоритма.
 
+`ris-proj-op-publish-task` сохраняет один алгоритм и две явные разновидности входа:
+
+- **Task/change:** подтверждённый ID, согласованный scope, применимые requirements/
+  design/contracts, implementation/docs/check evidence и independent review.
+- **Документы до ID:** exact paths/selected scope, применимые отдельные решения
+  принятия, substantive checks и independent review точного полного snapshot.
+  Task ID, implementation evidence и ещё не существующий design не требуются
+  для requirements-only publication. Отдельно разрешённый proposed документ
+  не становится accepted от публикации.
+
+В обеих ветках обязательны права на интеграцию/публикацию, проверенные target/remote,
+full outgoing scope, сохранность чужого, applicability review точному integrated
+tree и remote read-back. Publisher возвращает commit/tree/effects/limits,
+не принимает содержание, не создаёт/закрывает задачи и не публикует трекер.
+Название уже расширенного предмета — осознанно принятый компромисс, не alias.
+
 ## 4. Завершение standalone-контейнера
 
 Вход: exact ID/kind, отдельно разрешённое закрытие, accepted mandatory outcomes/
@@ -94,10 +136,12 @@ task ID и без требования ещё не существующего д
 epic branch сохраняются. Новая standalone task-container ветка не определяется
 по одному отсутствию детей: вид и назначение подтверждаются записью/источниками.
 
-Применить portable verification к достаточным explicit feature-like inputs, если
+Применить `ris-port-op-verify-feature` к достаточным explicit feature-like inputs, если
 предмет имеет общие AC; для иной bounded composition оценить её собственные
 outcomes и evidence. Не навязывать всем task одну SHA или feature schema. Persist
-результат через actual adapter, с защитой нужных predicates; отдельно exact-ID close.
+результат через supported actual adapter operations, без навязывания standalone
+feature-record; отсутствие нужной гарантии блокирует зависимую запись.
+С защитой нужных predicates выполнить отдельно exact-ID close.
 Дети/блокеры свежие и полные, cancellation требует scope disposition. Полнота
 существования обязательного состава проверяется отдельно от native close guard.
 Не открывать/закрывать родителей/детей для получения удобного статуса.
@@ -125,24 +169,25 @@ container ID; до ID — явный source/scope locator. Cwd/project config п
 Нет execution role по умолчанию: прямой read-only вызов самостоятельный.
 Subagent invocation возвращает recommendation вызывающему, не управляет им.
 
-Примеры формы (не свидетельство текущей готовности): `Выполни ris-plan-task для
-ris-1fq` — только при установленном имени и подходящем scope; `Продолжи
-ris-execute-task для ris-1fq` — только при доказанном unfinished execution.
-Во время naming migration имена заново читаются, историческая строка не executable
-authority. До установки нового navigation skill никакая slash-команда здесь
-не является реальным входом. Блокировка честнее fake prompt.
+Формы подсказки: `/<фактическая команда операции> <подтверждённый ID>` либо
+короткое естественное поручение с exact locator, когда slash-команда неприменима.
+Например, закрытая подготовка `ris-bxc` с proposed D1 могла вести к обсуждению
+дизайна, но не реализации. Теперь отдельное принятие меняет этот вход;
+статус закрытой подготовки не изменяется. Историческая строка не executable
+authority. До установки навигатора `/ris-proj-op-suggest-continuation` не является
+доступным входом. Recommendation не разрешение и не proof execution readiness.
 
 ## 6. Адресные изменения норм и потребителей
 
 Нормативная модель — docs/concepts/01,03,04,06,08; рабочее общее handoff —
-ris-common/artifacts, context paths — configuration resource. Сохранить запрет
+ris-proj-lib-common/artifacts, context paths — configuration resource. Сохранить запрет
 назначать next skill в атомарных wrappers, уточнить исключение для самостоятельного
 рекомендательного результата навигации и сценариев. Общая норма не должна
 перечислять все installed skills или превращаться в dispatch table.
 
 Owners из §1 получают только свою ответственность и conditional resources.
-Scenario prepare-feature заменяет generic публикационный алгоритм явным owner;
-execute-task сохраняет проверку route/receipts, recovery не дублируется в навигаторе.
+`ris-proj-flow-prepare-feature` заменяет generic публикационный алгоритм явным owner;
+`ris-proj-flow-execute-task` сохраняет route/receipts; recovery не дублируется в навигаторе.
 Standalone decomposition проверяет children собственной достаточности до записи.
 Documentation/source/install/commands меняются совместно в будущей реализации;
 реальные concepts/rules бандлы требуют project OKF owner с explicit root/scope,
@@ -171,12 +216,12 @@ Documentation/source/install/commands меняются совместно в б�
 
 ## 8. Impact, альтернативы и продолжение
 
-Naming D1 принят и реализуется отдельно в ris-1fq. Эта подготовка не меняет его
-карту/AC и не добавляет blocker чужой задаче. В будущей реализации установить
-actual package baseline: если naming уже опубликован, использовать новые имена
-и mapping; если нет — согласовать порядок и при необходимости реальную dependency
-после подтверждения implementation IDs. Не поручать ris-1fq функциональные правки
-этих контрактов: его AC-011 сохраняет алгоритмы/права. Installer N1 не меняется.
+Naming поставлена отдельно в `ris-1fq` на baseline выше. Эта работа не меняет её
+карту/AC, закрытую запись или связи installer. Функциональные изменения связности
+поставляются отдельно; AC-011 naming их не предоставлял. Перед реализацией заново
+установить actual package baseline и проверить релевантные active designs/consumers.
+Installer N1 не меняется; при общем README/inventory scope согласовать integration
+с владельцем активной `ris-lr1.1`, не вводя блокировку только из-за совместного файла.
 Новый navigation source не входит в исторические 41/37; установка учитывает
 актуальный пакет и принятый naming contract. Конкретная Gas City integration
 не исследована и не заявляется поддержанной; никаких её APIs/ролей не выдумывается.
@@ -184,9 +229,11 @@ actual package baseline: если naming уже опубликован, испо
 Отвергнуты: обязательные next prompts во всех атомарных owners (coupling),
 универсальный SDLC orchestrator/registry (не нужен для результата), обязательный
 Beads для portable/no-ID операций, копирование publisher/recovery в навигатор,
-автоматическое принятие D1 и создание реализации на основании этой публикации.
+автоматическое принятие дизайна и запуск реализации на основании публикации.
 
-До реализации отдельно предъявить и принять D1, затем определить минимальные
-проверяемые единицы и необходимые зависимости. Этим документом implementation
-tasks не созданы. Подготовку ris-bxc можно завершить по её собственным критериям,
-оставив D1 proposed; новая сессия читает его по published references из ris-bxc.
+D1 предъявлен и отдельно принят; разрешены сохранение, review и публикация
+уточнённого дизайна/решения, затем подготовка и согласование плана исполнения
+в Beads. [Предложение P1](delivery-plan.md) не принято вместе с D1: implementation
+tasks появятся после согласования конкретных единиц. Начало реализации требует
+отдельного поручения. `ris-bxc` не переоткрывается и не становится feature-record
+реализации; подготовку принятого дизайна ведёт `ris-vxw`.
