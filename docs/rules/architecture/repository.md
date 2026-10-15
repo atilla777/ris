@@ -22,11 +22,13 @@ type: Architecture
 | Локальная RIS-ретроспектива | На опубликованном T2 source/install кандидат T3 `ris-01r.2.3` локально интегрирован в task copy, ожидает итоговой независимой переоценки и публикации: `ris-retrospect-session` применяет common/context/базу и targeted evidence; owned OpenCode resource/stdlib reader сохраняют identity/tree/coverage/metrics. Условные wrapper-owned LF/delegation/save-report ресурсы сохраняют прежние границы; нового adapter/SDK/config/роли/state owner нет. Изолированный положительный v2 scoped CLI oracle прошёл только в initialized disposable T3 store OpenCode 1.18.33: protected content/schema сохранены, служебные эффекты классифицированы. Это не real/other-store fitness и не автоматическое распознавание invalid fitness; negatives проверяли withheld caller permission. S1 дал полезный local/no-save отчёт с обычной загрузкой. S2 частичен: supplied LF reasoning полезен, invalid part IDs оснастки и запрет identity inspection блокировали acquisition/save. Реальный ребёнок S3 завершился, parent timeout наступил до validated merge/report/save. New/append/conflict save, full leader validation, live LF, повторяемость и отдельные final-skill CLI cases непроверены. Превышение общего поведенческого бюджета (не менее15m24s при15min) сохранено; последний запрос пользователя исключает дальнейшие agent tests, поведенческие оценки, harness/code tests. Task copy объединяет текущие capability updates и remote rules; primary fast-forward отклонён из-за чужой dirty rules правки, push не выполнен. Итоговое полное дерево ожидает независимой переоценки; универсальная runtime safety и combined acceptance не установлены. |
 | Локальные рабочие данные | `.sdlc/tasks/<confirmed-ID>/` основной копии; отдельные рабочие деревья — `.sdlc/worktrees/<confirmed-ID>/`. Старые `tasks/PLAN-*` — игнорируемый исторический архив. |
 
-Namespace в этой task-редакции подготовлен вместе с source/install по
+Namespace этой редакции поставляется согласованным комплектом source/install по
 [карте перехода](../../skill-command-naming-migration.md): 41 скил/37 тонких
 одноимённых op/flow команд из `commands/opencode/`, без команд lib/adapter.
-Основная копия обновляется при отдельной проверенной интеграции; эта редакция
-не является свидетельством публикации. Строка «Локальная RIS-ретроспектива» выше
+Основная рабочая копия локально интегрирована, её установка синхронизирована
+с исходниками. Независимая проверка и удалённая публикация подтверждаются
+отдельными свидетельствами соответствующей ревизии; локальная интеграция
+не является подтверждением Git push. Строка «Локальная RIS-ретроспектива» выше
 сохраняет исторический отчёт T3 и его имена/ограничения; текущий owner —
 `ris-proj-op-retrospect-session`, не новое принятие T3.
 

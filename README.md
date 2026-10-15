@@ -18,10 +18,11 @@ Names are lowercase ASCII words separated by single hyphens, at most 64 characte
 Source directory, frontmatter `name`, installed directory, command basename and
 slash command agree. Every op/flow has one same-name command; lib/adapter have none.
 
-The following 41 folders are the current package source inventory. This branch
-prepares their coordinated namespace migration; publication and primary installation
-are separate gates. The linked SKILL.md files define actual inputs, dependencies,
-permissions, checks and stopping points.
+The following 41 folders form the coherent namespace package in this revision.
+The source package and repository-local primary installation are synchronized.
+The linked SKILL.md files define actual inputs, dependencies, permissions, checks
+and stopping points. Independent verification and remote publication require
+their own revision-bound evidence; this inventory does not establish those outcomes.
 
 | Skill (source) | Result | Command |
 | --- | --- | --- |

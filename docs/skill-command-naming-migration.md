@@ -1,9 +1,11 @@
 # RIS skill and command namespace transition
 
-This is the coordinated, incompatible v1/D1 namespace migration. The source in
-this change branch is pending independent review and publication. Select the
-actual published package revision when distributing it; the base or accepted
-design commit alone does not contain the migrated package. No aliases remain.
+This revision contains the coordinated, incompatible v1/D1 namespace migration:
+a coherent source package and synchronized repository-local installation, without
+aliases. Select an actual published package revision when distributing it; the
+base or accepted design commit alone does not contain the migrated package.
+Verification and remote publication require separate revision-bound evidence;
+this guide does not establish either outcome.
 Accepted specifications, decisions, immutable URLs and old delivery reports keep
 their original identifiers and revisions; this guide translates historical
 addresses for current use without repinning acceptance.
