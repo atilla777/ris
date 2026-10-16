@@ -35,6 +35,19 @@ scope/criteria/refs/seams. Material design requires separate acceptance, simple
 constraints need no artificial design file. Preserve malformed/historical feature
 data and diagnose it rather than treating validation failure as standalone.
 
+For an exact native bug use the adapter's ordinary typed bug reads, not feature
+APIs. Discover/retrieve the full current report (description or exact published
+file), aligned criteria, accepted constraints/decisions and full historical notes
+execution-input snapshot by project/tracker + bug ID + marker. A sufficient report
+replaces formal spec/design; expected behavior still needs authority and material
+technical choices need separately accepted design. Compare report/criteria/decisions
+with the snapshot and current code before planning: material drift returns a bounded
+applicability/revision need for affected plan/change/review/evidence, not automatic
+reuse. Supply the full basis to the portable method and identify its snapshot
+locator/version in the saved plan and criterion/check coverage. A hash without text
+is not enough. Direct invocation with persistence permission still saves a plan;
+the scenario's conditional saved-plan policy does not turn this into a no-save call.
+
 Planning does not require or obtain a claim or separate worktree. Verify the
 supplied current copy's repository/project relationship and, when a task-specific
 copy is supplied, its confirmed task/branch/path association and actual HEAD/state.

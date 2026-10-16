@@ -4,7 +4,7 @@ description: >-
   Execute one ready RIS task through preparation, implementation, independent
   review, verified Git publication, separate completion and tracker publication.
   Use for a full task run or safe resume with an explicit ID or automatic
-  ready-task choice;
+  ready-task choice, or an exact native bug with sufficient snapshotted inputs;
   not for selection alone, planning, review, publication alone, feature preparation
   or executing a whole container. Resume reconciles actual effects and reuses
   applicable results through the same stage owners.
@@ -104,6 +104,11 @@ Delegate a complete all-state task read and relevant epic/typed-edge reads to th
 selected adapter. It must advertise actual complete item/child/dependency reads,
 feature-record reads where needed, tool-specific claim/complete and separately
 verified tracker publication; `tasks` v1 alone does not promise all of these.
+Automatic selection remains task-only; never search/select bugs as queue candidates.
+An explicit native bug uses the adapter's advertised ordinary typed bug reads,
+claim, snapshot/result persistence and separate fix-completion, not task-only
+feature APIs. For Beads apply its conditional `references/bug-execution.md` before
+these operations. Missing ordinary support blocks that branch without conversion.
 
 With an explicit ID, reread only that **target** for execution (queue reads may
 support diagnosis/recommendation). Never replace it. A closed ID gets a verified
@@ -131,7 +136,8 @@ from preparation** or skip blocked own work to choose another task.
 For the chosen ID, check agreed outcome/scope/criteria, accepted applicable design
 or sufficient accepted technical constraints for a standalone task, essential
 inputs and current contracts, status, ownership, typed directed blockers and
-complete mandatory composition. A missing plan is allowed: planning is a stage.
+complete mandatory composition. A missing plan is allowed at admission; decide
+its necessity under step 2 before implementation.
 For feature-linked work obtain current published requirements/design and separate
 acceptance references through the adapter; inspect the referenced versions and
 their applicability to current inputs. Do not repin refs or migrate unsupported
@@ -144,6 +150,22 @@ uses its own sufficient contract and accepted sources/constraints; structural
 parent need not be an epic or feature. A child is not feature-linked merely
 because it has a parent. Confirm actual kind before feature-record validation;
 malformed/historical payloads are preserved, never converted to standalone.
+
+For an exact native bug discover its full current report (description or exact
+published file), aligned criteria, accepted constraints/decisions and full historical
+execution-input snapshot in notes. Require expected behavior with authority,
+confirmed divergence/applicable code/environment evidence, authorized bounded scope,
+meaningful fix/regression checks and sufficient technical constraints. Readiness
+alone is neither acceptance nor authority. The sufficient report replaces formal
+spec/design; a material technical choice still needs separately accepted design.
+Missing inputs/decisions return a precise gap, not silent investigation or feature
+preparation. Before starting fresh bug execution require the full adapter-verified
+snapshot text and project/tracker + exact ID + marker locator; if absent return
+that preparation gap to the caller rather than executing on an unsaved basis.
+At transitions/resume compare current report/criteria/decisions with this basis;
+material drift requires targeted assessment by affected plan/change/review/evidence
+owners before dependent effects. Preserve compatible evidence with reasons and
+existing published/closed effects. Do not treat parent membership as feature identity.
 
 A container with unfinished mandatory children is not executable as one task:
 report its boundary and recommend a ready child without claiming/starting it.
@@ -170,9 +192,16 @@ or changed facts before deciding the next operation.
    a guessed branch/path. Refresh context after a copy change. Retain the
    addressable copy witness and primary association evidence; neither replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
-2. Delegate `ris-proj-op-plan-task` in that supplied copy with accepted versions/contracts
-   and authorized plan address. Read the saved plan and coverage; changed scope
-   or missing decisions return to this dialogue, not silent redesign.
+2. Determine whether a **saved plan** is required by project rules or needed for
+   sufficient implementation/handoff. If so, delegate `ris-proj-op-plan-task` in
+   the supplied copy with accepted versions/contracts (bug snapshot when applicable)
+   and authorized plan address; read the saved plan and coverage. Otherwise record
+   the justified omission, applicable rules, sufficient technical inputs and their
+   accessible locator/version in execution evidence and every dependent handoff.
+   Missing file alone does not require a formal plan when this decision remains
+   applicable. In RIS the mandatory persisted local plan remains. Direct plan-task
+   always retains its own save contract. Changed scope or missing decisions return
+   to this dialogue, not silent redesign.
    When feasibility depends on an uncertain platform behavior or external boundary,
    place the smallest permitted decisive probe before dependent implementation or
    costly evaluation. Use existing applicable evidence first; do not invent a
@@ -185,7 +214,8 @@ or changed facts before deciding the next operation.
    its bounded content owner without artificial RED. Check actual artifacts and
    criterion coverage; author evidence is not independent approval.
 4. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full
-   candidate snapshot, requirements, design, project rules and check evidence.
+   candidate snapshot, requirements/design or sufficient bug report/snapshot and
+   separately accepted decisions, project rules and check evidence.
    Require saved findings, stable finding IDs, one high/medium/low level per
    finding, verdict, version and independence provenance.
 5. High/medium findings go back to the implementation owner for fixes, affected
@@ -207,7 +237,8 @@ or changed facts before deciding the next operation.
 7. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, delegate selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific
-   ordinary operations for standalone, not feature-record/1) with criterion/check/review
+   ordinary operations for standalone tasks or native bug fix-completion, not
+   investigation disposition or feature-record/1) with criterion/check/review
    evidence and published commit. Require fresh status, complete child/blocker
    reads, fresh applicable external evidence/mandatory composition and honest
    predicate-specific native limits, without freezing graph/evidence. No future

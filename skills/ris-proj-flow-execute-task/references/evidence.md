@@ -20,6 +20,15 @@ Keep enough information for another session to inspect reality without this chat
   and decisions; sufficient standalone constraints where a design is unnecessary.
   Parent membership and feature identity are distinct. Record ordinary adapter
   capabilities/guarantees rather than inventing feature-record evidence.
+- For native bugs: exact current-report source/version (retrieve full published
+  file when used), full historical execution-input notes snapshot locator/marker
+  and content, aligned criteria and accepted decisions/constraints. Each plan,
+  implementation and review identifies that snapshot, not just a report hash.
+  Record old/current basis and targeted applicability assessment on material drift.
+- Saved-plan necessity decision under current rules and implementation/handoff
+  sufficiency. When legitimately omitted, record reason and sufficient technical
+  inputs/locator in every handoff; omission never waives mandatory RIS local plans
+  or direct plan-task persistence.
 - Each standalone operation's configured role, actual agent invocation/context ID,
   selected owner, permissions, input versions, output address, returned status,
   inspected evidence and actual effects. Mark unavailable provenance as a gap.

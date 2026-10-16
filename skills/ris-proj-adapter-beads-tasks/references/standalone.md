@@ -4,6 +4,8 @@ Load for explicitly identified ordinary standalone tasks, task-containers and
 their children, or bounded native bug read/list/create/update below. Bug
 investigation report/acceptance, duplicate relation and disposition-close use
 the separate `investigation.md` resource only when requested.
+Ordinary bug execution claim/snapshot/result/fix-completion and their prerequisite
+child/blocker reads use `bug-execution.md` only for that requested branch.
 This resource composes the main adapter's Create, Update,
 Composition, Blocking, Complete and read/reconcile operations; it does not extend
 the common tasks v1 feature-parent rules or introduce a new record schema.
@@ -16,9 +18,10 @@ authorized publication/preflight. The caller owns kind, content and acceptance.
 
 Advertise ordinary **bug read, list, create/reconcile and update** as
 Beads-specific operations, not `tasks.items.*` or feature-record/1. The task
-operations below remain task-only; this branch does not extend claim, close,
-children, composition or blocking to bugs. The conditional investigation resource
-adds only its explicitly advertised disposition capabilities. The caller decides substantive
+operations below remain task-only; registration itself does not extend claim,
+close, children, composition or blocking to bugs. The conditional investigation
+and bug-execution resources add only their explicitly advertised disposition and
+execution capabilities, independently of feature APIs. The caller decides substantive
 duplicate identity, not this adapter.
 
 Require the selected project, bounded authority, operation, expected native

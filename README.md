@@ -50,7 +50,7 @@ discovers the updated skills and commands.
 ## Start using RIS
 
 The compact menu has 18 explicit entries: `risp-` selects a project contract,
-`risb-` a portable contract. All 46 skills are available; operations without
+`risb-` a portable contract. All 47 skills are available; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -78,6 +78,20 @@ defect confirmation from fix readiness; proved not-bug/duplicate messages have
 separate justified disposition. Required content protection can block a report
 write without blocking useful research. For supplied inputs without a tracker,
 load `ris-port-op-investigate-bug`. Investigation stops before fixing.
+
+To fix an exact registered native bug, load `ris-proj-flow-fix-bug` with the
+selected project, ID, actor and authorized fix/publication scope. It checks the
+saved report and criteria, returns precise gaps when insufficient, obtains separate
+acceptance for material design when needed, preserves a full historical input
+snapshot in bug notes, then uses the complete existing task execution flow.
+A sufficient report replaces formal spec/design files. A saved plan is conditional
+on execution/handoff needs and project rules; RIS itself keeps its mandatory local
+plan, and a direct plan-task call still saves one. Code TDD, independent review,
+working-copy/claim and publication requirements remain. Fix/checks, Git publication,
+separate exact bug completion and tracker publication are distinct verified effects.
+Registration, investigation and fixing are separate direct-load calls, with no new
+slash commands. See the [delivery evidence](docs/specs/local-bugfix/delivery-checks.md)
+for the inspected revision, coverage and limits.
 
 For a first portable operation and the conditional prerequisites for project work,
 follow [Getting started](docs/getting-started.md).

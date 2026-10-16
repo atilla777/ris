@@ -79,6 +79,22 @@ the current report is not claimed saved. Insufficient evidence keeps the message
 open; proved correct/duplicate messages have a separate checked disposition.
 No additional slash command or execution role is required for these direct calls.
 
+Fixing is a separate direct load of
+[`ris-proj-flow-fix-bug`](../skills/ris-proj-flow-fix-bug/SKILL.md) with the exact
+native bug ID, project, actor and authorized fix/publication scope. Its sufficient
+saved report establishes expected behavior/authority, confirmed divergence,
+bounded scope, criteria and technical constraints. It returns precise gaps without
+silently investigating. Material choices use the existing design owner and separate
+acceptance; a local contract-preserving solution needs no formal spec/design pair.
+The flow verifies a full historical report/criteria/decision snapshot in bug notes,
+then reuses execute-task in full with its existing three roles. Consumers name that
+snapshot and reassess affected plan/change/review/evidence on material input drift.
+A saved plan is needed for execution/handoff sufficiency or project rules; RIS
+retains its mandatory local plan, and direct plan-task still saves a plan. Copy/
+claim, TDD for code, independent review and publication obligations are retained.
+Snapshot append is recoverable native merge, not concurrent append-once or content
+CAS; investigation's stronger report replacement gate remains unchanged.
+
 ## 3. Authorize work and publish from the task's own copy
 
 Installing RIS grants **no write, push or task-close rights**. Establish the

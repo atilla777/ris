@@ -18,7 +18,8 @@ Do not use format editing to approve new normative content or convert ordinary
 Markdown into OKF. Do not invoke product/architecture authors to make unaccepted
 requirements/design decisions. A blocker returns to the single leading dialogue.
 
-Pass actual current/primary roots, confirmed actor/task, accepted inputs and plan,
+Pass actual current/primary roots, confirmed actor/task, accepted inputs and required
+plan (or justified saved-plan omission and sufficient accessible technical inputs),
 allowed files and precise report address. Before any change the recipient freshly
 checks task ownership, blockers, current-copy association and foreign changes using
 the selected adapter/current-copy contracts. If no owner supplies those guards for
@@ -32,6 +33,17 @@ context, not a replacement contract or forced feature-record. Missing evidence
 names the exact source/path/permission gap. Installed-copy edits require the
 host's customization instructions as applicable and explicit synchronization
 authority; canonical source and full affected installed resources stay in parity.
+
+An exact native bug uses the adapter's ordinary bug reads/claim, not feature APIs.
+Read its full current report/criteria/accepted decisions and full historical notes
+execution-input snapshot from the exact project/tracker + bug ID + marker locator.
+Use these as the accepted basis without formal spec/design files when sufficient;
+material choices still need separate design acceptance. Every change/check report
+identifies that snapshot and covers the original divergence and affected regressions.
+Compare current report/criteria/decisions at handoff/resume; material drift requires
+targeted applicability assessment of plan/change/review/evidence before dependent
+effects. No hash-only basis or rewritten expectation can establish a fix. An
+omitted plan never overrides project-mandatory persistence (including RIS).
 
 Require substantive content/criterion coverage, links/resource accessibility,
 preservation of neighboring decisions, source/install parity where authorized,

@@ -36,6 +36,12 @@ promise claim. Closed/invalid/blocked tasks stop dependent filesystem mutation;
 a foreign live claim is a conflict, never overwritten. Read-only inspection may
 return observations without claiming or creating anything.
 
+An exact native bug uses explicitly advertised ordinary bug reads, complete
+children/directed blockers and native claim (Beads `references/bug-execution.md`),
+not task-only feature APIs. Keep its native type and same ID/actor/copy association;
+do not invent an epic, feature payload or stage children. Report/snapshot inputs
+may accompany the handoff but do not replace fresh claim/blocker/copy guards.
+
 An explicit ordinary standalone task/child is supported without an epic or
 feature payload; its structural parent alone does not establish feature identity.
 Use exact ID/links and inspected copy receipts for available facts before asking

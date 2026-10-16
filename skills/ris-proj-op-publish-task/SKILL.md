@@ -20,6 +20,9 @@ Direct invocation requires no execution role.
 
 Require one explicit bounded subject and authorized effects; do not fabricate a
 task or acceptance to fit this operation. Select the applicable input branch:
+Choose by the actual publication subject: an existing native bug ID does not turn
+pre-execution design/documents into fix implementation. Mixed fix/document changes
+use Task/change and retain all implementation/snapshot guards below.
 
 - **Task/change:** confirmed ID and agreed change scope, applicable accepted
   requirements/design/contracts or sufficient accepted technical constraints,
@@ -28,6 +31,18 @@ task or acceptance to fit this operation. Select the applicable input branch:
   claim; an old receipt/lease is neither permission nor general content/graph CAS.
   Active blockers or lost required ownership stop dependent publication. Recheck
   mutable task gates before the action; the receipt does not supply write authority.
+   For an ordinary native bug use advertised typed bug/ownership/blocker reads,
+   full current report/criteria/accepted decisions and the full historical notes
+   execution-input snapshot, not task-only feature APIs or mandatory formal spec/
+   design files. Retrieve file-backed reports at their exact published locator.
+   Require the snapshot's project/tracker + exact bug ID + marker in implementation/
+   review evidence and read its complete text. Compare current report/criteria/
+   decisions with that basis before publication; material drift returns affected
+   plan/change/review/evidence for targeted reassessment before dependent push.
+   Keep separate material-design acceptance and project plan requirements; an
+   applicable justified omission is allowed only where rules/sufficiency permit.
+   These gates converge into the same Git algorithm; fix-completion belongs to
+   the adapter separately after publication, never investigation disposition here.
 - **Documents (including pre-ID):** exact project-relative paths and subject/scope, separate
   acceptance decisions for applicable accepted results, substantive checks and
   independent review of the full intended snapshot. Requirements-only publication
@@ -40,6 +55,16 @@ task or acceptance to fit this operation. Select the applicable input branch:
    discovery; it does not require future implementation evidence or design for
    requirements-only publication. Check its applicable identity/authority/blocker
    gates, but do not treat document publication as task execution or claim it.
+   For pre-execution native-bug design/document publication, explicitly use this
+   Documents branch even with an exact bug ID. Read the full current report/criteria/
+   accepted constraints and authority plus the exact document candidate and its
+   separate acceptance where applicable. Require independent **document-subject**
+   review and applicable checks on the complete tree; no future execution-input
+   snapshot, fix implementation evidence or execution plan/omission decision is
+   required. Compare current report/criteria/decisions with the bound document basis;
+   material drift needs affected design/document reassessment before dependent push.
+   This exception cannot approve a fix or bypass separate material-design acceptance,
+   whole-tree review, permissions, integration or remote-publication gates.
 
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,

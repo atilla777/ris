@@ -49,6 +49,21 @@ For an actual feature child read the confirmed feature parent's accepted record
 through supported adapter reads, then restrict implementation to the child's
 own criteria/refs/contracts. Do not expect a feature payload in every child or
 replace its contract with the parent's complete acceptance scope.
+
+An exact native bug uses the adapter's ordinary typed reads/claim and its full
+current report (or exact published file), aligned criteria, accepted constraints/
+decisions and full historical notes execution-input snapshot. No feature payload
+or formal spec/design pair is required for a sufficient report; material technical
+choices still need separate design acceptance. Read the complete snapshot via
+project/tracker + bug ID + marker, compare current report/criteria/decisions and
+code applicability before changes/resume, and identify that basis in implementation
+and check evidence. Material drift requires targeted reassessment of affected
+plan/change/review/evidence before dependent edits. When no saved plan is required
+by rules or execution/handoff sufficiency, verify the recorded omission and enough
+accessible accepted technical inputs; otherwise a missing plan blocks dependent
+work. RIS retains its mandatory local plan. Pass original divergence, success and
+affected-regression criteria to the base without tuning expectations to the bug.
+
 Pass verified inputs, constraints and required TDD mode to `ris-port-op-implement-change`;
 actually apply its method and check its criterion/test and RED/GREEN evidence.
 Do not duplicate the loop here or waive it for convenience. Text-only work belongs

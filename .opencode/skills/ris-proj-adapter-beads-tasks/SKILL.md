@@ -5,7 +5,8 @@ description: >-
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim, conditionally update feature evidence,
-  explicitly close, and separately publish authorized Dolt history. Use for
+  ordinary bug execution claim/snapshot/fix-completion, explicitly close, and
+  separately publish authorized Dolt history. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
 ---
 
@@ -92,7 +93,8 @@ Also advertise **ordinary native bug read/list/create/update**, independently of
 bounded capability before use. Exact reads require the caller's expected type;
 bug lists cover every status without a limit. Creation preserves an unconfirmed
 message with stable retry identity; supplementation uses native append preserving
-foreign content. It does not advertise bug claim or feature operations.
+foreign content. Execution capabilities are advertised separately below, never
+through feature operations.
 Legacy ordinary task originals retain their type and use
 only explicitly authorized ordinary task updates.
 
@@ -105,6 +107,15 @@ unsupported protection blocks its dependent replacements while research remains
 useful. Disposition closure resolves the message, not fix acceptance. It does not
 extend bug claim, composition or execution completion; ordinary task and feature
 completion retain their existing acceptance/publication gates.
+
+For ordinary native bug execution advertise exact typed reads, complete children/
+directed-blocker reads, native claim, full recoverable execution-input notes
+snapshot append/read/reconcile, accepted-design source-link append, fix-result persistence and separate exact
+fix-completion under `references/bug-execution.md`. Read it before those operations.
+It composes main Claim/Complete and concurrency/publication owners, not a second
+algorithm. Fix-completion requires real criteria/check/review and required Git
+publication, separately from investigation disposition. Feature APIs stay task-only;
+this does not add bug composition or automatic bug selection.
 
 ## Optional feature-record capability
 

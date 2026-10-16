@@ -1,10 +1,10 @@
 # Skills and commands
 
-RIS includes portable operations, project-integrated operations, two workflows,
+RIS includes portable operations, project-integrated operations, three workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 46 skills are listed below, independently of the compact 18-command menu.
+All 47 skills are listed below, independently of the compact 18-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -64,6 +64,7 @@ Load ris-proj-op-author-skill and improve the RIS-integrated skill at <source fo
 Load ris-proj-op-register-bug for <project>: <message and available context>; record this unconfirmed report and return its ID without investigation.
 Load ris-proj-op-investigate-bug for <exact bug ID> in <project>, research/write scope <scope>; save the investigation and stop before fixing.
 Load ris-port-op-investigate-bug with <message, expectation sources, code/version, evidence and allowed research scope>; return a report without tracker writes.
+Load ris-proj-flow-fix-bug for <exact native bug ID> in <project>, actor <actor>, within <authorized fix/publication scope>; use the saved sufficient report and existing execution route.
 Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
 Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
 Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <selected files>.
@@ -125,13 +126,14 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Feature choice through accepted published inputs to verified ID |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
+| [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, full input snapshot and complete existing execution route |
 
 ## Shared instructions and adapters
 
 | Skill | Result |
 | --- | --- |
 | [ris-proj-lib-common](../skills/ris-proj-lib-common/SKILL.md) | Shared conditional dialogue, artifact and quality rules |
-| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug registration, protected investigation persistence/duplicate relation/disposition close and separately authorized Dolt operations |
+| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug registration/investigation, execution claim/full notes snapshot/separate fix-completion and separately authorized Dolt operations |
 | [ris-port-adapter-git-worktrees](../skills/ris-port-adapter-git-worktrees/SKILL.md) | Git worktrees/1 operations |
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
@@ -154,8 +156,19 @@ Baseline Beads has no general content CAS: unsupported required protection block
 report/acceptance replacement while independent diagnosis remains useful. Lack of
 evidence never closes a bug; proved correct/duplicate disposition saves rationale
 and separately verifies exact closure, with useful-original transfer and a typed
-nonblocking relation for duplicates. This does not launch a fix or deliver the
-later execution-flow/snapshot integration described in the accepted design.
+nonblocking relation for duplicates. Investigation does not launch a fix.
+The fix flow takes the exact native bug ID and sufficient saved report/criteria/
+accepted constraints, not a mandatory separate spec/design pair. Material design
+uses the existing design owner and actual separate acceptance. Before execution,
+the full report, criteria and accepted decisions are preserved in an addressable
+historical notes snapshot; consumers identify it and reassess affected evidence
+on material report drift. It is not a second current report. The complete existing
+execute-task route retains copy/claim, roles, code TDD, independent review, Git,
+separate real fix-completion and tracker publication; disposition is different.
+Saved plans are conditional on project rules or implementation/handoff sufficiency;
+RIS keeps its mandatory local plan and direct plan-task persists its own result.
+See [integrated delivery checks](specs/local-bugfix/delivery-checks.md) for coverage
+and revision/evidence limits, rather than inferring live reliability from contracts.
 Requirements and design have separate acceptance. Task execution preserves an
 explicit target; without an ID it reconciles confirmed own unfinished work before
 ready-task selection. The continuation operation recommends a next step read-only.

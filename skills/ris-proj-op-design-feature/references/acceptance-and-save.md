@@ -28,6 +28,16 @@ a mandatory hashing scheme. No intermediate file, registry or intermediate
 publication is required; optional candidate storage needs its own authorized destination and
 portable authors remain read-only.
 
+For an ordinary native bug, accepted requirements may be the full current report,
+aligned fix criteria and sufficient accepted constraints/decisions, with exact
+project/tracker/bug/report identity and version (or published Git report locator)
+and the authority for expected behavior. Do not demand a synthetic requirements
+file/reference object or feature record. Inspect full substantive inputs and actual
+decisions independently of research readiness. Design still gets its own exact
+content selector, actual separate acceptance and the save/review/Git/record/tracker
+gates below. A material report/criteria change needs targeted applicability review;
+preserve unchanged authority/refs. No execution snapshot is required before design.
+
 Show the specific design and material impact to the authorized acceptor in the
 leading dialogue, or verify the supplied separate decision for this candidate.
 Record its real decision in a permitted Git document/section, without imposing
@@ -99,6 +109,11 @@ acceptance and file saving, then enters step 5. It performs no second push.
 2. In combined mode preflight exact task/kind/identity and expected prior state:
     feature uses task/epic/block and `tasks.features.update`; explicit ordinary
     standalone uses supported tool-specific source updates without feature JSON.
+    Native bug source links use explicitly advertised ordinary bug updates; a
+    native notes append may record the pinned design/decision refs without replacing
+    the current report. Reconcile marker AND content before append/retry. Any
+    necessary investigation report/acceptance replacement retains its stronger
+    content-protection gate; a source-link update cannot bypass it.
     Existing-record writes
     use the adapter's fresh expected-content/composition/blocker checks, targeted
     native operations and independent read-back. State native predicates and
@@ -118,9 +133,21 @@ acceptance and file saving, then enters step 5. It performs no second push.
     document subject, or `ris-proj-op-review-task` for an applicable ID, passing
     exact whole candidate base/overlay/add/delete/modes, accepted inputs/decisions,
     rules and checks. All authors/repair authors are distinct from the reviewer.
+    For a native bug ID explicitly request **pre-execution design/document review**:
+    pass full current report/criteria/accepted constraints with source identity and
+    authority, plus exact design candidate and separate decision. Do not require or
+    create a future execution-input snapshot, implementation or execution plan to
+    satisfy this document gate. Bind the full candidate tree independently of that
+    absent historical execution basis; compare current report/criteria/decisions
+    with the supplied design basis for targeted applicability reassessment.
     Resolve high/medium through their content owner, affected checks and fresh
     independent review. Invoke `ris-proj-op-publish-task` with exact subject,
     decisions, checks/review/provenance, destination evidence and allowed effects.
+    Select its **Documents** input branch for this design publication, including
+    when the native bug ID is supplied for identity. It is not fix implementation
+    publication; keep the same current report/criteria/design basis and document
+    review scope without importing future execution prerequisites. Mixed fix changes
+    are outside this design-only handoff and cannot use that exception.
     Consume its commit/tree/ref/remote receipt and independent remote evidence;
     match accepted selected content and preserved requirements. Integration drift
     requires applicable independent reassessment. Reuse checked existing
@@ -133,7 +160,9 @@ acceptance and file saving, then enters step 5. It performs no second push.
    Invoke the adapter with expected prior state and exact new design reference;
    preserve feature slug/spec where applicable, complete requirements reference
    and unrelated prose/fields.
-   Changed result refs invalidate verification to null, without tracker history.
+    Changed feature result refs invalidate verification to null, without tracker history.
+    Ordinary bugs have no feature verification field: record affected evidence
+    applicability instead, preserving the report and original decisions.
    Do not record verification or complete here. Specifically authorized blocker
    changes require supported adapter scope, checked endpoints/direction/cycles
    and read-back; otherwise return proposals/limitations.

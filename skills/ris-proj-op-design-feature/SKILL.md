@@ -40,8 +40,9 @@ Direct invocation needs no configured execution role or new per-step skill.
 
 Identify project, combined or explicitly requested document-only mode, selected
 feature/slug, create or revise intent, linked requirements/design and authorized
-file/evidence/record/optional ADR changes. Combined mode requires confirmed task
-ID; only the feature branch requires an epic. Document-only requires neither.
+file/evidence/record/optional ADR changes. Combined mode requires a confirmed
+tracker ID (task or explicitly ordinary native bug); only the feature branch
+requires an epic. Document-only requires neither.
 Full finished operation is default. An explicitly limited contribution names
 proposal, accepted local save or record-only reconciliation from a checked Git
 receipt; nesting/Gas City does not select limited mode. Ensure
@@ -62,6 +63,25 @@ source update/reconciliation resource and guarantees, not feature-record/1 or
 an invented epic/slug. Preserve structural parent and unrelated content. Simple
 accepted constraints need no ceremonial design file; material design still needs
 separate acceptance. A malformed/historical feature is never reclassified.
+
+An explicitly selected native `bug` is ordinary work, not a feature task. Use
+the adapter's advertised ordinary typed bug/children/blocker reads and authorized
+source-link updates, not task-only feature APIs. Read its full current investigation
+report (description section or exact published file), aligned criteria and accepted
+behavior/constraints with actual authority. These sufficient inputs replace a
+formal requirements file; research readiness alone does not accept behavior. Return
+disputed expectations or stale/misaligned inputs before dependent design writes.
+Resolve the material public-contract/data-model/responsibility/invariant choice
+through this operation and **separate design acceptance**. Agree an ordinary design
+document path without inventing an epic/feature slug. Execution-input snapshot is
+not a prerequisite to design: it is fixed after necessary decisions. On resume
+compare report/criteria/decisions and assess only affected design/evidence.
+Pass this pre-execution design/document subject explicitly to review and Git
+publication even when the bug ID exists. Its current report/criteria/accepted
+constraints and exact accepted design/decision are sufficient input basis; future
+execution snapshot, implementation or execution plan are not prerequisites to
+that document result. The persistence resource carries this subject distinction
+through both owners without waiving their independent whole-tree checks.
 
 In the feature combined branch load the selected available adapter and check `tasks` v1 reads
 for exact task, epic, all-status tasks, children and directed blockers; additionally require
