@@ -67,7 +67,14 @@ instead of interviewing the user or accepting unseen content.
 
 Bound each handoff by a checkable intermediate result and early-return conditions:
 an accepted-contract/platform conflict, unavailable essential evidence, or a check
-that needs materially more setup, external access or live agent runs than planned.
+that needs materially more setup or external access than planned. Ordinary
+instruction edits use reading, applicable static checks and independent review;
+absence of a new live run is not an evidence blocker or a reason to ask again about
+one. Apply the target project's prohibitions and permissions. Static source
+readiness does not establish observed agent behavior; preserve historical evidence
+versions, limits and unmet obligations without importing their gates into an
+ordinary text edit. An explicitly accepted behavioral objective needs separately
+agreed scope under project rules.
 The recipient returns preserved effects, affected criteria and the necessary
 decision promptly; it does not bury the issue in a long implementation/evaluation
 loop. Continue only independently useful authorized work. Give concise accepted
@@ -227,10 +234,10 @@ permit it. Do not replay an effect to manufacture success.
 
 For a confirmed contract conflict or materially growing verification effort,
 surface the concrete decision in this dialogue before commissioning more dependent
-experiments. An additional live evaluation wave needs a named evidence gap, why
-current evidence or deterministic tests cannot close it, and how the result changes
-the next decision. Reuse checks for unchanged mechanisms and rerun affected ones;
-do not treat every repair as a reason to repeat the full agent matrix. A mandatory
+experiments. Do not commission agent tests prohibited by the target project or
+make live evaluation an implicit stage of ordinary instruction repair. Reuse
+applicable observations within their original limits, checks for unchanged
+mechanisms, and rerun affected static/program checks. A mandatory
 check cannot be silently dropped: obtain acceptance of any scope/verification
 revision and record unrun checks and remaining limits, never a fabricated pass.
 

@@ -18,8 +18,10 @@ identity, claim, documentation integration, independent approval and publication
 Establish `implementation_mode: standard|tdd` from the caller, request and project
 rules; default to `standard` only when none requires TDD. This is a semantic input,
 not a host-loader argument or RIS config field. Conflicting requirements block the
-affected work. Both modes require meaningful tests for changed behavior and actual
-applicable checks.
+affected work. Both modes require meaningful tests for changed executable behavior
+and actual applicable checks. Ordinary instruction edits use substantive reading,
+static checks and independent review as required by the target project; they need
+no new live-agent run or repeated question about one for source readiness.
 
 ## Conditional resources
 
@@ -51,7 +53,7 @@ Unavailable required resources block dependent work, not independent inspection.
    inputs and existing conventions; ask only for missing material decisions.
    Implement small increments using existing interfaces, state owners and allowed
    dependency directions; in `tdd` apply the owned loop. Add/update tests for
-   changed behavior, including applicable failures, boundaries and quantitative
+   changed executable behavior, including applicable failures, boundaries and quantitative
    requirements. Derive expectations independently from requirements or worked
    examples, not by repeating the implementation. Prefer real internal components;
    isolate external boundaries or nondeterminism where needed, and justify any
@@ -70,11 +72,17 @@ Unavailable required resources block dependent work, not independent inspection.
    exits/results. Run a full suite only when project rules require it or impact
    cannot be covered reliably by a narrower set; state the reason. After edits
    rerun invalidated checks, retaining suitable current evidence for other parts.
-   Prefer deterministic tests for parsing, arithmetic and error handling; live
-   agent runs are for behavior those tests cannot establish, such as instruction
-   following and tool choice. Before extra live runs or new verification setup,
-   name the remaining evidence gap, why cheaper/current evidence is insufficient
-   and the decision the result will inform. If effort materially grows beyond the
+   Prefer deterministic tests for parsing, arithmetic and error handling. For
+   instruction edits check prescriptions, names, resources, links, dependencies
+   and parity where relevant; do not infer observed agent behavior from review.
+   Apply the actual target project's rules and any prohibition of agent tests.
+   Reliability, cost and repeatability claims need applicable existing observations
+   with their original versions/limits. Historical unmet behavioral obligations
+   remain unverified, not automatic gates for an ordinary text amendment. Work
+   with an explicitly accepted behavioral objective needs separately agreed scope
+   under project rules. Before new verification setup, name the remaining evidence
+   gap, why cheaper/current evidence is insufficient and the decision it informs.
+   If effort materially grows beyond the
    planned check, return the limitation and options to the caller/user before
    expanding dependent verification. Do not silently waive a mandatory check;
    any accepted reduction retains explicit unverified claims and limits.

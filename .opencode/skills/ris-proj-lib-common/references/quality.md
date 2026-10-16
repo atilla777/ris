@@ -8,10 +8,19 @@ tests meant for another kind of change.
 
 Use the least costly method that supplies sufficient evidence for the specific
 claim. Distinguish mandatory, conditionally activated and exploratory checks;
-possible experiments are not automatically a required matrix. Before additional
-live-agent runs or substantial new setup, identify the uncovered claim, why
-existing evidence or deterministic checks are insufficient, and which decision
-the result will inform. A confirmed contract/platform conflict or materially
+possible experiments are not automatically a required matrix. For ordinary
+instruction edits, use reading, affected static checks and required independent
+review; no new live run or repeated question about one is needed for source
+readiness. Check names/resources/dependencies/parity statically and executable
+programs with necessary ordinary tests. Apply the actual target project's rules,
+including any prohibition of agent tests. Agent-behavior, reliability, cost and
+repeatability claims need applicable existing observations, not static review.
+Preserve their versions and limits and historical unmet obligations as unverified;
+do not make them an automatic gate for ordinary instruction work. An explicitly
+accepted behavioral objective requires separately agreed scope, without bypassing
+project prohibitions. Before substantial new verification setup, identify the
+uncovered claim, why current evidence or cheaper checks cannot cover it and which
+decision it informs. A confirmed contract/platform conflict or materially
 growing verification effort returns promptly to the caller/user before dependent
 experiments expand. Continue independently useful authorized work. Mandatory
 checks require an accepted revision to reduce scope, with unrun claims and limits
