@@ -203,9 +203,10 @@ turn a preferred order into a dependency.
 Before each mutation, compare current all-status children, candidate identities
 and blockers with expected state. Recheck current accepted references, published
 decisions, content applicability and contracts when their inputs have changed;
-changes invalidate the dependent readiness evidence. Membership/blocker writes
-need the adapter's real guarantee over the affected composition and edges through
-read/write/verify; a claim, permission, sandbox or read-back is not a lock.
+changes invalidate dependent readiness evidence. Membership/blocker writes use
+the adapter's bounded native operations with fresh expected structure and exact
+read-back, without a manual window or graph/evidence transaction. A claim,
+permission, sandbox or read-back is not a general lock; report actual native limits.
 Through the adapter, create only missing
 children with `tasks.items.create` under the confirmed open feature task, or
 the adapter's explicitly supported ordinary child creation under the standalone
@@ -214,8 +215,8 @@ reuse only exact matches on key, type, parent, content and relevant links.
 Different content, closed/moved parent, multiple matches or unmatched existing
 children are `conflict`, not permission for an implicit update. Default create
 is best-effort with full search/read-back; if strict no-duplicates is required,
-establish an external exclusive writer window before searching/creating or
-stop. Re-read each ID, parent-child membership and content; only then resolve
+require proven native support or return that exact unsupported guarantee before
+creating, without asking to pause writers. Re-read each ID, parent-child membership and content; only then resolve
 the proposal's local labels to real IDs. Add necessary `tasks.dependencies.add`
 edges (ordinary tool-specific link operations for standalone) only with confirmed task endpoints in this accepted scope after reading
 their existing typed `blocks` edges; verify no cycles and exact direction on

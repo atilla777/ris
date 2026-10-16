@@ -111,7 +111,7 @@ permission provenance and blockers. Return only the summary to the caller.
 
 ## Snapshot-bound final gate, push and partial effects
 
-Prefer publishing the inspected immutable snapshot `L`, not the moving current
+Publish the inspected immutable snapshot `L`, not the moving current
 branch. Native Dolt 2.4.1 help documents branch creation from a start-point and
 explicit source:destination push refspecs. Check installed version/help and
 applicable project permission before using this route; documentation/source
@@ -147,21 +147,12 @@ inspection is not a live concurrency-test claim.
    branch or a lock over records. If its ownership cannot be enforced, this
    route is unavailable; a last-moment read alone does not protect it.
 
-If pinned-ref publication is unavailable, use an existing automatic coordinator
-covering all local routes that can change outgoing commits, working set or
-branch through final check/push. A documented shared local lock can cover its
-cooperating local writers; it is not a remote-writer lock. Only when both
-routes are unavailable ask once for a short manual local publication window.
-Under this fallback, fetch again, inspect heads/clean status/expected records,
-revalidate permission and audit any changed outgoing history. Then use:
-
-```sh
-bd --sandbox dolt push --remote <confirmed-name> --no-adopt
-```
-
-This fallback flag form is verified by bd 1.3.1 help. Remote writers need not
-be paused: use normal non-force push; remote advancement may reject it and
-requires fresh reconciliation. Neither route is a distributed content CAS.
+If pinned-ref publication is unavailable, return the exact unavailable capability
+and preserved inspected snapshot. Do not substitute a moving-branch push, require
+a global lock/coordinator or ask for a manual publication window. Other writers
+continue normally: non-force push may reject remote advancement and requires
+fresh reconciliation of the affected ranges and authority. Snapshot-ref ownership
+is not a distributed content CAS or a lock over the live graph/evidence.
 An actual push must be separately authorized and observed. On rejection/ambiguous output inspect the selected
 remote independently and report the actual effect before retry. Never force,
 discard history or automatically pull to bypass a conflict. If already fully

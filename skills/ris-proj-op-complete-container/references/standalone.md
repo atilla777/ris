@@ -40,16 +40,18 @@ authorized fields, exact expected identity/content/composition, accepted refs/
 decisions, outcome verdicts, integrated revisions, actual checks/independent
 assessment provenance, usable evidence addresses and limits. Evidence must be
 recoverable without ignored local reports. Prefer native append/independent-key
-updates; replacement and snapshot-dependent evidence need protection covering
-their actual predicates. A row merge/claim/read-back is not graph/evidence CAS.
+updates and fresh expected-content checks for replacement. Snapshot-dependent
+evidence needs current applicability checks; a row merge/claim/read-back is not
+graph/evidence CAS and does not promise such protection.
 
 Before persistence and again before close freshly inspect content, full mandatory
 descendants, cancellations, blockers and external-evidence currency. Establish
-adapter-selected native protection/coordination for every required predicate
-through mutation/read-back. Native close checks direct children/blockers only;
-mandatory existence, expected graph and external acceptance need additional
-coverage. Missing coverage blocks the dependent write, preserving useful read-only
-assessment. Do not invent a coordinator/window or retain an expired one.
+the adapter's applicable native guards and honest limits. Native close checks
+direct children/blockers only; mandatory existence, expected composition and
+external acceptance are substantively checked, not frozen through read-back.
+No manual window, mandatory global lock or graph-wide transaction is required.
+Unsupported explicitly requested stronger guarantees return an exact limitation,
+preserving useful read-only assessment.
 
 Persist the authorized assessment, verify exact read-back and preserved content,
 then separately close **only this ID** when all mandatory outcomes/checks pass,

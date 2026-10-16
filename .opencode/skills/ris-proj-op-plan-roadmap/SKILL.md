@@ -159,16 +159,17 @@ adapter operations on confirmed IDs: create or update only roadmap epics in
 scope; add required `blocks` edges and remove **only** explicitly agreed
 obsolete edges (blocked epic → prerequisite). Confirm exact endpoints, type,
 direction, existing edge, scope and deletion permission before removal. Require
-the adapter's guarantee against deleting a concurrent replacement; if it is
-unavailable, stop before removal with `conflict`, leaving the link unchanged.
+the adapter's bounded native removal and exact read-back with its honest limits;
+an explicitly demanded stronger unsupported guarantee blocks that removal.
 Never silently retain an agreed obsolete edge and claim a complete update.
 Do not use a parent-child edge as a blocking edge, create tasks or modify unrelated
 records. Authorized epic creation uses best-effort semantics without a
 separate concurrency-risk question only when supported by the selected adapter;
 if the caller requires no-duplicate creation, require its proven strict writer
-guarantee or stop with `conflict`. For noncommutative content updates, require
-the adapter's writer guarantee or explicit acceptance of its specific limited
-lost-update risk; otherwise stop with `conflict`. Never present a mere
+guarantee or report its exact limitation before creation, without a pause request.
+For content updates use the adapter's fresh expected-value checks, targeted native
+fields/guards and read-back without manual windows or separate risk questions.
+Preserve unrelated content and report native atomicity limits. Never present a mere
 read/write/read sequence or an identity reference as a lock. Re-read relevant
 records and edges before each mutation, compare with expected state, execute
 one bounded action, and verify the returned ID, content, status and links by

@@ -154,4 +154,6 @@ not silently substitute a different worktree adapter.
 Safe recovery reconciles those exact effects first; leave created refs/copies and
 completed hooks intact. The caller can authorize only outstanding safe actions.
 There is no transaction spanning refs/path/registration/config/hooks/setup, no
-strict uniqueness without external coordination, and no repair/delete/rollback.
+strict cross-operation uniqueness guarantee, and no repair/delete/rollback.
+Ordinary creation needs no manual window/global lock. An explicitly required
+stronger unsupported guarantee returns its exact limitation before writing.

@@ -131,21 +131,20 @@ establish a real guarantee over all feature creators for search/create/check,
 or return `conflict` before creating. Exact reuse does not reopen a closed
 record or imply readiness/completion.
 
-## Protected existing-record writes
+## Bounded existing-record writes
 
 For update, verification and complete require exact ID, expected current
-content, allowed fields and protection for the affected record and relevant
-composition/blockers/evidence. Apply `concurrency.md` from this resource's
-directory: prefer native applicable CAS/transactions, then existing automatic
-coordination; a human-confirmed window is the last resort. A row CAS suffices
-only for predicates it actually covers, not arbitrary graph/evidence changes.
-Identify provider, covered predicates and lifetime through read/write/verify;
-do not lock the whole database for unrelated work. Claims, leases, sandbox,
-status-only guards and read/write/read do not preserve a replaced acceptance
-block. No lost-update override is allowed here. Missing/expired required
-protection means `conflict` before write.
-Re-read affected current state under the chosen protection and pass any required
-expected token to the mutation; unexpected change conflicts.
+content and allowed fields. Apply `concurrency.md` from this resource's directory:
+freshly compare the exact block and surrounding prose, use applicable native
+conditions and only the approved description replacement, then independently
+read back the block, preserved prose and relevant composition/blockers. Check
+pinned external evidence for applicability before dependent writes. No manual
+window or atomic transaction over record, graph and external evidence is required.
+Claims, leases, sandbox, status-only guards and read/write/read are not universal
+lost-update protection. Name the actual native guarantees and limits; if a stronger
+atomic guarantee is explicitly required but unsupported, return its exact limitation
+before writing. Unexpected content/ownership/structure changes conflict; never
+overwrite a changed acceptance block or silently rebind its pins.
 
 - **Update:** check every new accepted reference and its actual content/decision
   as above. Preserve immutable slug/spec, unrelated prose and fields. On a
@@ -182,7 +181,7 @@ expected token to the mutation; unexpected change conflicts.
   accepted refs, applicable content and complete AC coverage. Every AC and
   integration/architecture/docs outcome must pass with usable evidence; no
   unresolved limitation may undermine these checks. Open mandatory children,
-  missing scope/evidence, changed inputs, blockers or missing window block
+  missing scope/evidence, changed inputs or blockers block
   closure. Reread immediately before `bd --sandbox close <id> --reason <reason>
   --json` without force/auto-next, then verify record, reason, children/edges
   and unchanged block. Never close its epic automatically.

@@ -54,8 +54,10 @@ the adapter nor this base claims tasks or decides another owner's acceptance.
    Pass exact absolute path, validated branch, pinned commit, permissions and
    expected absence/state to `create`. Recheck effects after every response,
    including nonzero/ambiguous results, before considering a retry. Git protects
-   individual operations, not the whole sequence; strict concurrent uniqueness
-   needs an independently established short external coordination window.
+   individual operations, not the whole sequence. Ordinary creation needs no
+   manual window or global lock. If strict cross-operation uniqueness is
+   explicitly required but unsupported, report that exact limitation before
+   dependent creation, without asking to pause writers.
 
 ## Environment and verification
 

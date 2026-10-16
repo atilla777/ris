@@ -161,7 +161,8 @@ create/reconcile and source-update support and the adapter's owned resource;
 pass approved kind, stable identity, own scope/criteria and published sources/
 decisions. Verify actual ID/type/parent/content and guarantees; do not use common
 feature create semantics or construct feature JSON. Existing-record updates need
-applicable content/graph protection; changed refs invalidate dependent evidence.
+fresh expected content/structure checks and bounded native operations/read-back;
+changed refs invalidate dependent evidence.
 The following feature-record requirements apply only to the feature branch.
 For a feature combined result preflight the selected available adapter's `tasks` v1 epic
 read, item list/read/create and `tasks.feature-record/1` read/initial-create
@@ -185,12 +186,11 @@ adapter read-back; a detected duplicate remains conflict with known IDs.
 
 For an existing exact record preserve all refs and unrelated prose; never send
 an initial block over it. A requirements revision needs explicit update rights,
-expected old state and the adapter's applicable content/structure protection
-against lost updates through read/write/verify. Prefer native CAS/transactions
-and available automatic coordination; a manual writer window is fallback only.
-The adapter establishes covered predicates and limits; claim, sandbox or a
-status-only guard does not protect a replaced acceptance block. Missing required
-protection blocks the update.
+expected old state and the adapter's targeted native-operation protocol with
+fresh checks and independent read-back. Preserve the acceptance block and pins;
+no manual window or graph/external-evidence transaction is required. The adapter
+states native limits; claim, sandbox or a status-only guard is not full content
+CAS. An explicitly required stronger unsupported guarantee blocks only that write.
 Verify a new separate requirements decision and existing design applicability;
 block an unsupported/materially incompatible design rather than silently reusing
 it as accepted input. Changed refs invalidate verification to null. Git owns

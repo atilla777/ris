@@ -29,7 +29,9 @@ list completeness, actual effects including partial hook/create/ref effects,
 checks/limits and safe recovery. Git oracle reads must independently confirm
 creation, even after nonzero/ambiguous output. Preserve existing work; no force,
 reset, rebase, stash, commit, repair/prune, deletion, automatic rollback or retry.
-Individual Git locks are not cross-operation uniqueness: external coordination
-is required if the caller demands that guarantee. Stop at the bounded tool result;
+Individual Git locks are not cross-operation uniqueness. Ordinary creation needs
+no manual window/global lock; an explicitly required stronger unsupported
+guarantee returns its exact limitation before writing, not a pause request.
+Stop at the bounded tool result;
 do not decide belonging, claim work, accept environment readiness or invoke a
 subsequent lifecycle operation.

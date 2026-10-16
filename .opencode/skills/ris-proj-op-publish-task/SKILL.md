@@ -60,19 +60,26 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
 
 ## Integrate, reassess, publish
 
-1. Fetch the selected remote and inspect divergence and the full outgoing commit
-   and file set. Preserve dirty/untracked user work; stage only authorized files,
+1. Confirm the subject's own task branch and working copy as the publication
+   workspace (for pre-ID documents, its own authorized document branch/copy).
+   Never switch, checkout, reset or mutate shared local primary/main to publish.
+   One publisher owns this subject, not every project's publication. Fetch the
+   latest established primary branch from the selected remote and inspect its
+   new code/contracts, divergence and the full outgoing commit/file set.
+   Preserve dirty/untracked user work; stage only authorized files,
    inspect staged diff and exclude secrets/local workspace/tracker storage. Do not
    send unrelated local commits just because this task's tip is approved. Use
    project-established integration policy; no force push, destructive reset,
-   hook bypass or silent conflict resolution. If target has advanced, inspect the
-   new code/contracts before integrating; conflicting dependent work stops.
+   hook bypass or silent conflict resolution. Conflicting accepted scope or
+   authority returns to its owner; ordinary merge conflicts are resolved in this
+   own copy within the accepted scope and checked below.
 2. If there are no intended changes, verify the existing result's applicable
    checks/review, decisions and required remote visibility; return its actual
    receipt without an empty commit or redundant push. Existing unsent commits
    still require the full outgoing gate. Otherwise commit intended changes using
-   project history style. Integrate into the
-   established primary branch only as authorized. Record resulting commit and
+   project history style in this own branch/copy. Merge the fetched latest
+   established primary remote branch into it, resolving conflicts there; do not
+   use shared local main as an integration workspace. Record resulting commit and
    exact integrated tree and current input versions. Compare it to the report's
    complete approved publication snapshot,
    not a dirty working-tree fingerprint. Verify staged/committed path/content/
@@ -83,16 +90,25 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
    If identical, document why evidence remains applicable. If changed
    (including compatible upstream edits, merge resolutions or doc adjustments),
    assess affected criteria, test seams, architecture fitness and doc claims;
-   obtain applicable checks and independent review of the integrated version
+   rerun affected checks and obtain independent reassessment of the integrated version
    before push. A clean merge or an unchanged task diff does not prove the old
-   review covers the new whole tree. Do not reuse failed/unavailable checks.
+   review covers the new whole tree. The reassessment identifies the full new
+   snapshot and may reuse still-applicable review/check evidence for unaffected
+   parts. Remote advancement alone does not restart planning/implementation,
+   repeat all checks or renew acceptance of unchanged documents. Reaccept only
+   substantively changed results through their owner. Do not reuse failed/unavailable checks.
 3. Confirm architecture documentation's factual claims on that actual integrated
    tree; pending-integration statements must now match facts. Any required doc
    correction changes the tree and is subject to the same check/review gate.
 4. Reinspect target/remote and complete outgoing scope immediately before direct
-   push; push only the authorized primary branch without force. On rejection or
-   ambiguous response inspect local/remote refs before retry; do not recommit or
-   overwrite divergence blindly. Local commits are not publication.
+   push; send the checked resulting own-branch commit to the authorized primary
+   remote ref with an explicit source:destination refspec and normal non-force
+   push. Do not switch/move shared local main. On remote advancement/rejection,
+   freshly fetch and reconcile refs, merge the new target in this own copy,
+   resolve conflicts and repeat only affected integration/check/reassessment
+   steps before the next push. On ambiguous response independently inspect the
+   remote for the sent SHA before retry; reuse confirmed effects, do not recommit
+   or overwrite divergence blindly. Local commits are not publication.
 5. Read the selected remote branch independently (remote ref query and fetch or
    separate clone as project requires). Verify the sent commit is visible/reachable
    and expected files/tree match its snapshot. Later allowed remote commits do
