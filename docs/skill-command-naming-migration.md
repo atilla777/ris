@@ -10,12 +10,13 @@ Accepted specifications, decisions, immutable URLs and old delivery reports keep
 their original identifiers and revisions; this guide translates historical
 addresses for current use without repinning acceptance.
 
-Current addition after that migration: package-installation W2 supplies
-`ris-port-op-manage-installation` and its same-name command, bringing the candidate
-inventory to 42 skills / 38 commands (36 op, 2 flow, 1 lib, 3 adapters). It has no
-retired migration entry or alias. The 41/37 mapping below remains the historical
-complete migration map. See [README](../README.md) for installation and evidence
-limits; this addition does not repin accepted specifications.
+Additions after that migration include package-installation W2's
+`ris-port-op-manage-installation` and U3's `ris-proj-op-suggest-continuation`, each
+with its same-name command. They have no retired migration entry or alias.
+The 41/37 mapping below remains the historical complete migration map.
+See [README](../README.md#names-and-available-source-skills) for the current
+inventory and [installation evidence](../README.md#installer-cli-bootstrap-and-delivery-evidence)
+for its limits; these additions do not repin accepted specifications.
 
 ## Complete skill replacement map — 41
 
@@ -113,8 +114,9 @@ skills under their original permission contracts, without command facades.
    Coordinate impacts to active task inputs with their owners; do not mass-edit
    accepted snapshots, closed records, reports or immutable references.
 5. Replace each package-owned skill folder **completely**, including references,
-   assets, scripts, file types and modes. Install all 37 same-name op/flow command
-   templates from `commands/opencode/`. For the usual project-local layout these
+    assets, scripts, file types and modes. Install all same-name op/flow command
+    templates from `commands/opencode/` in the selected revision's inventory.
+    For the usual project-local layout these
    go to `.opencode/skills/<name>/` and `.opencode/command/<name>.md` beneath the
    selected target, not beneath the RIS source repository by assumption.
 6. Remove all 41 retired skill folders and all eight retired command files in
@@ -125,7 +127,7 @@ skills under their original permission contracts, without command facades.
 7. Compare the full installed package against the selected source revision by
    relative paths, bytes, types and modes, including all resources. Verify folder
    equals frontmatter name, unique valid identifiers (at most 64 characters),
-   nonempty descriptions, 37 command basenames equal the op/flow set, exactly one
+    nonempty descriptions, command basenames equal the selected revision's op/flow set, exactly one
    same-name skill load and `$ARGUMENTS` per template, and no lib/adapter commands.
    Check active links/config/owner-relative resources and removal of retired
    physical paths. Compare foreign/client material with its preserved baseline.
