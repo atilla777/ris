@@ -38,15 +38,15 @@ establish absence. `bd`'s status values are tracker data, not RIS result codes.
 Guarantees by operation: list/read/list-blocks provide complete inspected
 results or an explicit failure; create is best-effort and cannot promise unique
 external references under concurrency without a proven uniqueness mechanism;
-update of noncommutative content needs applicable CAS or coordinated protection;
+update uses fresh expected values, targeted fields and applicable native guards;
 blocks.add
 checks endpoints, direction and cycles and verifies the resulting edge;
-blocks.remove requires the exact selected edge, authorized scope, and an
-conditional or coordinated protection against a concurrent replacement.
-Read/write/read is **not** such protection. Apply `references/concurrency.md`
-before dependent mutations, preferring native atomic operations and available
-automatic coordination over asking for a manual pause. If a necessary guarantee is absent,
-return `conflict` before writing.
+blocks.remove requires the exact selected edge, authorized scope, and a
+fresh check of that exact edge and result read-back. Neither read/write/read nor
+row guards promise protection against every concurrent replacement. Apply
+`references/concurrency.md` before dependent mutations. Ordinary operations need
+no manual pause, mandatory global lock or graph-wide transaction. An explicitly
+required stronger guarantee unsupported by the tool blocks only its dependent write.
 
 Also implement the optional feature-task operations of `tasks` v1:
 `tasks.items.list`, `tasks.items.read`, `tasks.items.create`,
@@ -170,8 +170,8 @@ never blindly recreate, reparent, remove an edge, or close.
   `bd` does not enforce unique external references, so concurrent creators can
   still make duplicates. Do not claim a no-duplicate guarantee from the search
   and read-back. If the caller explicitly requires that guarantee, require a
-  separately established exclusive writer/quiescent window over
-  search/create/verification; without it stop `conflict`. Run `bd create
+  proven native uniqueness mechanism covering all relevant creators;
+  without it report the exact limitation and stop `conflict`, without a pause request. Run `bd create
   --type epic|task --title ... --description ... --acceptance ... --json`
   with only supplied fields (optional `--external-ref` or `--spec-id` for
   identity; neither is a uniqueness constraint). Prefer `--parent <id>` for
@@ -203,8 +203,8 @@ never blindly recreate, reparent, remove an edge, or close.
   typed `parent-child` edge (child → parent), parent direct-child selection,
   and the reread content. For a feature verify the epic and the same membership.
   A feature with no children needs no artificial child. If strict no-duplicate
-  creation is requested, establish an external exclusive writer window across
-  search/create/verification or stop before creation: `--external-ref` is not
+  creation is requested, require proven native support or report the unsupported
+  guarantee before creation: `--external-ref` is not
   unique in Beads. If a multi-child request partially succeeds, reread every
   affected ID, return the persisted IDs and stop further writes on the first
   failure; on retry reconcile all existing children before creating missing ones.
@@ -219,9 +219,11 @@ never blindly recreate, reparent, remove an edge, or close.
   They cannot protect title, description, labels, parent or arbitrary content
   against concurrent changes while status/assignee remain equal. There is no
   `--if-revision` in baseline 1.3.1 help. Apply `references/concurrency.md`:
-  native merge operations for appends/key edits, applicable revision CAS when
-  supported, otherwise automatic coordination for protected read-modify-write.
-  Ask for a manual window only for an uncovered required predicate. Preserve
+  native merge operations for appends/key edits and applicable native conditions.
+  Freshly compare expected content before preparing a bounded field replacement;
+  verify it and preserved fields afterward. This is not universal lost-update
+  protection; unsupported explicitly requested stronger guarantees return a precise
+  limitation, not a request to pause writers. Preserve
   unrelated prose and fields. Avoid multi-ID updates: they can partially succeed.
 - **Composition:** `bd create --parent <parent-id>` or `bd update <child-id>
   --parent <parent-id>`; inspect the existing parent and child, check proposed
@@ -231,14 +233,14 @@ never blindly recreate, reparent, remove an edge, or close.
   `parent`, the typed
   `parent-child` dependency (child → parent), and unlimited parent selection.
   Reparenting/removing membership (`--parent ''`) changes mandatory scope;
-  require explicit permission and structure protection as for content updates.
+  require explicit permission, fresh expected structure and result checks.
   Do not substitute a `blocks` edge for membership or add both.
 - **Blocking:** `bd dep add <blocked-id> <blocker-id> --type blocks --json`;
   `bd dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
   edge removal. Check both IDs and existing typed edges. Confirm the dependent
-  is blocked by the blocker after add; before remove require the exact edge
-  and conditional or coordinated protection against deleting a concurrent
-  replacement; read-back alone cannot provide it. Keep the
+  is blocked by the blocker after add; before remove freshly verify the exact
+  expected edge and afterward its absence. This does not exclude an undetected
+  concurrent replacement; report an unsupported stronger request. Keep the
   default cycle check: never pass `--no-cycle-check`. `bd` rejects cycles and
   ancestor-blocking descendants; re-read on failure. A repeated add may say
   `added`: confirm actual edge rather than infer a new change. For common
@@ -248,7 +250,7 @@ never blindly recreate, reparent, remove an edge, or close.
   unchanged after verification. Check membership and blockers again after add;
   concurrent membership change is `conflict` with the actual persisted edge,
   not `ok` for the requested scope. `bd` cycle checking does not provide an
-  exclusive writer window against all concurrent changes; report this limit.
+  transaction over all concurrent graph changes; report this limit.
 - **Claim:** `bd --actor <actor> update <id> --claim --json` atomically guards
   claim ownership; require an open, unblocked issue (or a claim already owned
   by the same actor), and verify `in_progress`, `assignee` and current blockers
@@ -267,15 +269,22 @@ never blindly recreate, reparent, remove an edge, or close.
   children and edges. If already closed, report that state; do not close again.
   `bd`'s refusal is a backstop, not proof that all required children exist.
   Apply `references/concurrency.md`: native transactional child/blocker guards
-  suffice for their own predicates without a manual window. Exact expected
-  composition or snapshot-dependent acceptance needs its additional protection;
-  native closure is not full feature verification. Use applicable revision CAS
-  when supported; otherwise coordinate only the uncovered predicates.
+  suffice for their own predicates. Freshly verify exact expected mandatory
+  composition, descendants and applicable evidence before close and read them
+  back afterward; no graph/external-evidence freeze is required. Native closure
+  is not full feature verification or a distributed transaction. An unsupported
+  explicitly required stronger guarantee returns its exact limitation.
 
 ## Separately requested Dolt publication (outside tasks v1)
 
 Read `references/dolt-publication.md` before `dolt.publish` or preflight of a
-remote-gated write. This separate adapter operation checks the configured remote,
+remote-gated write. Pass exact requested/recovered snapshot S and its expected
+result when confirming prior publication. After project/destination/safe-read
+checks, the adapter checks S reachability and independent AS OF S read-back
+before incoming-only/divergence or new-write gates. Confirmed S returns verified
+no-op despite newer local/remote history, without another push or write window;
+unknown identity, ancestry or failed reads remain unverified. For a proven
+unsent snapshot this separate operation checks the configured remote,
 permission for the **entire outgoing history**, every intermediate commit's
 actual changes (not just a net diff), and independent selected-remote read-back.
 Use supported CLI forms first; missing coverage or unknown changes block it.

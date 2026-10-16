@@ -63,8 +63,10 @@ partial effect, never blind retry. Do not remove/prune/repair rollback artifacts
 Return `status: ok|blocked|conflict|error`, selected operation/tool/version,
 requested and actual values, complete evidence/checks, effects, uncertainty and
 specific recovery. Read/write/read and a task claim are not CAS, a transaction
-or strict cross-process uniqueness. If such a guarantee is required, establish
-an independent external writer window for the exact short operation or block.
+or strict cross-process uniqueness. Ordinary creation needs no manual window or
+global lock. If such a stronger guarantee is explicitly required, verify actual
+native support or report its exact unavailability before the dependent write;
+do not ask to pause writers.
 Detectable concurrent changes yield conflict with actual persisted effects.
 
 Creation success proves only the copy operation, not caller ownership, tracker

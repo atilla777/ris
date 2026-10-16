@@ -43,8 +43,10 @@ isolation, configured remote, outgoing scope and publication guarantees;
 destination and publication gates without writing. Establish actual publication
 permissions, including full outgoing tracker history. No remote or guarantee
 means a blocker for the dependent effect. Direct document-only components may
-still return their authorized local result. Explain protected update windows
-before dependent writes; permission, claim and sandbox are not technical locks.
+still return their authorized local result. Consume the adapter's fresh-read,
+targeted native-operation/read-back guarantees without requiring a manual window
+or transaction over graph and external evidence; permission, claim and sandbox
+are not technical locks. Unsupported complex guarantees return an exact limitation.
 
 For **every standalone noninteractive operation**, launch a bounded subagent.
 Do not load all child methods merely to route work, split each internal read

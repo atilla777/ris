@@ -1,8 +1,9 @@
 # Native mutations and concurrency protection
 
 Read before a mutation whose correctness depends on ownership, an earlier
-record value, mandatory composition or blockers. Select the smallest adequate
-guarantee; a human-confirmed pause is a fallback, not a routine prerequisite.
+record value, mandatory composition or blockers. Ordinary work uses fresh reads,
+native atomic/conditional operations, targeted fields and independent read-back;
+it requires no manual pause, global lock or graph-wide transaction.
 Authorization and protection are separate: neither grants the other.
 
 ## Establish actual capabilities
@@ -22,8 +23,9 @@ equivalence across engines, remote replicas or future versions.
 | Update conditioned only on status/assignee | `--if-status`/`--if-assignee` with only approved fields. A stale guard writes nothing; exit 13 requires reconciliation, not removal of the guard. |
 | Append notes or change independent metadata keys | Native `--append-notes` or `--set-metadata`/`--unset-metadata`; merge against the current row inside the transaction. Do not emulate by reading and replacing the whole field. Same-key conflicting decisions still require reconciliation. Reconcile an ambiguous append before retry so it is not duplicated. |
 | Close one ID using native child/blocker policy | Native `bd --sandbox close <id> --reason ... --json`, without force/auto-next. The checked close enforces open direct-child and live direct-blocker policy in the transaction, including dependency coordination. No separate manual pause for these native predicates. It does not verify accepted requirements, exact expected membership, descendant completeness or the freshness of external evidence. |
-| Replace description, acceptance or a feature-record from an earlier snapshot | Full applicable revision CAS if the installed command actually supports it; otherwise automatic coordination over the affected record and relevant structure/evidence. Status/assignee guards are insufficient for this read-modify-write. |
-| Remove/reparent a specific edge, strict creation uniqueness or preserve exact mandatory graph/evidence | A proven transaction/conditional operation covering those predicates, or automatic coordination covering all relevant writers. Row-only CAS does not automatically protect edges or other records. |
+| Set approved description/acceptance fields or replace a feature-record block | Freshly read the exact record, compare expected values, preserve unrelated prose and acceptance pins, prepare only the approved field, use applicable native conditions and read back. No full-record replay. This does not promise protection from every same-field concurrent edit. |
+| Remove/reparent a specific edge | Freshly check exact endpoints, type, expected membership and permission; use the bounded native operation and verify the resulting graph. This does not guarantee against an undetected concurrent remove/re-add. |
+| Explicitly demanded strict uniqueness or atomic multi-record/evidence predicate | Require an actually supported operation covering that predicate; otherwise return the exact unsupported guarantee before the dependent write. Do not turn ordinary work into that stronger request. |
 
 Use revision CAS only after inspecting the installed command/backend contract:
 which edits advance its token, which fields/edges are guarded, mismatch output
@@ -32,22 +34,23 @@ token for that one ID, without numeric rounding. Never invent it from a hash,
 timestamp or CLI `revision` field. Baseline 1.3.1 help exposes no such flag;
 do not advertise full CAS merely because current upstream has added it.
 
-## Automatic coordination and fallback
+## Freshness, limits and conflicts
 
-For predicates not protected by the chosen native operation, use an existing
-project coordinator/lock automatically within authorized scope. Identify its
-provider, exact record/graph keys, participating writers and lifetime through
-read/mutate/read-back; release on success or failure, and never hold it during
-human acceptance or long implementation. A local advisory lock protects only
-writers that actually use that same lock. It is adequate for that declared
-local scope, not for independent replicas, uncooperative routes or a live SQL
-server's other clients. Independently maintained replicas are reconciled at
-publication; a local transaction is not a distributed lock.
+Before each operation reread identity, ownership where required, expected content
+and the relevant complete children/typed blockers. Check external evidence at its
+actual pinned version and assess currency; these are substantive checks, not a
+requirement to freeze the graph or external documents through write/read-back.
+Afterward independently verify requested fields, preserved content and relevant
+structure. Unexpected changes stop dependent work and are reconciled with their
+owner. Immutable accepted Git refs remain pinned; do not repin to hide drift.
+Independent replicas are reconciled at publication, not by a local lock.
 
-Do not install a coordinator, configure a server, upgrade Beads, invent lock
-paths or run raw SQL writes as a hidden tracker operation. Reuse a documented
-mechanism only when available. A claim, lease, sandbox, worktree, output token
-or repeated read is not a general content/graph guarantee.
+Do not install a coordinator, require a global lock/queue, configure a server,
+upgrade Beads, invent lock paths or run raw SQL writes as a hidden operation.
+A claim, lease, sandbox, worktree, output token or repeated read is not a general
+content/graph guarantee. Ordinary own-task and explicitly assigned shared-record
+writes proceed with the bounded native guarantees and freshness checks above;
+report their limits without a separate risk-acceptance question.
 
 On a stale guard or transaction conflict, reread actual effects first. Rebuild
 only the authorized operation if its inputs and decision remain applicable;
@@ -56,10 +59,8 @@ Changed acceptance, membership, ownership or incompatible content is returned
 to its owner rather than overwritten. No blind retry, force or weakening of
 preconditions. An already-settled effect is reused.
 
-Ask the user for a narrowly scoped pause only when a required predicate lacks
-both native protection and available automatic coordination. State that exact
-gap once; use one agreed window for the bounded dependent operations, not a
-fresh question per internal command. Generic write permission is not a pause.
-For ordinary epic content only, the main contract's explicitly accepted limited
-lost-update risk remains available; it does not authorize loss of feature
-acceptance evidence or bypass required composition checks.
+If a complex requested action cannot be performed correctly by the available
+bounded operations, return its exact limitation and preserved effects. Do not
+ask to stop writers or silently weaken an explicitly required atomic guarantee.
+Return only a substantive scope/acceptance conflict to the human; technical
+reconciliation stays with the operation owner when supported.

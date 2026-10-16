@@ -21,7 +21,7 @@ verification method to all children indiscriminately.
    `ris.feature-record/1` or introduce a second registry or mandatory report file.
    Require usable evidence and no unresolved material limitation. On failed or
    unverified required outcome leave the epic open and return bounded recovery.
-4. Under the necessary exclusive/conditional guarantee, reread expected contents,
+4. Using the adapter's bounded native-operation protocol, freshly reread expected contents,
    full mandatory composition and blockers; save only authorized result fields,
    preserving earlier evidence and unrelated content. Verify full saved result.
    Then separately recheck closure criteria/permission and explicitly close only

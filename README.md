@@ -284,6 +284,13 @@ Text-only work uses its substantive checks. Review evidence must apply to the fu
 actual snapshot; self-review is not independent publication approval. Git publication,
 exact-task completion, parent-container acceptance and Dolt publication/read-back
 remain distinct effects. A claim or worktree does not provide general CAS.
+Ordinary authorized tracker work uses fresh checks, targeted native operations
+and read-back, without manual writer windows or mandatory global locks. Git
+publication builds and integrates the latest primary remote branch in the
+subject's own branch/copy, then pushes to the authorized primary remote ref
+without force. Shared local main is not a publication workspace. Remote advancement
+repeats affected integration/check/reassessment steps while retaining applicable
+evidence and unchanged acceptance; full SDLC restart is unnecessary.
 
 Shared paths use context's checked primary root: validated explicit selection,
 or an already available saved indication with verified project/repository/current-copy

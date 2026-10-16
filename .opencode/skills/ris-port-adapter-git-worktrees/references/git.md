@@ -107,5 +107,7 @@ On refusal/partial/ambiguous output, report whether branch, registration, direct
 and hooks exist/ran or remain unknown. Preserve them. Safe retry first reconciles
 that exact state with caller association/permission; it is not a second blind add.
 No atomic guarantee spans path checks, branch refs, registration, hooks and setup.
-Demanded strict uniqueness needs an external writer window; read/write/read is
-not one. Never repair or delete artifacts to make retry pass.
+Ordinary creation needs no manual window/global lock. If strict uniqueness is
+explicitly required but unavailable, report the exact limitation before writing;
+read/write/read is not that guarantee. Never ask to pause writers or repair/delete
+artifacts to make retry pass.

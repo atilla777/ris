@@ -84,14 +84,12 @@ acceptance and file saving, then enters step 5. It performs no second push.
     feature uses task/epic/block and `tasks.features.update`; explicit ordinary
     standalone uses supported tool-specific source updates without feature JSON.
     Existing-record writes
-   require adapter-provided protection over the affected record and relevant
-   composition/blockers/evidence through read/write/verify. Prefer applicable
-   native CAS/transactions, then existing automatic coordination; a manual
-   window is fallback only. Name provider, covered predicates and limits.
-   A row-only/status guard does not cover arbitrary structure/evidence.
-   Obtain acceptance outside any short coordination period. Missing
-   protection blocks record writes; authorized independent file saving may
-   proceed, but combined completion remains blocked/partial.
+    use the adapter's fresh expected-content/composition/blocker checks, targeted
+    native operations and independent read-back. State native predicates and
+    limits; a row/status guard is not arbitrary structure/evidence CAS. Do not
+    require a manual window or atomic freeze of record, graph and external
+    evidence. Unsupported explicitly required stronger guarantees block only
+    dependent record writes; authorized independent file saving may proceed.
 3. Reread expected files immediately before saving. Save only accepted content
    and actual decision evidence, no unaccepted intermediate draft. Read back,
    compare selected content with the accepted candidate, check substantive
@@ -114,7 +112,7 @@ acceptance and file saving, then enters step 5. It performs no second push.
 5. Before combined update require published design and decision refs and
     applicable accepted published requirements. Git failure blocks dependent
     record writes and preserves saved effects. Reread record and relevant
-   children/blockers inside the established window; unexpected change conflicts.
+    children/blockers immediately before updating; unexpected change conflicts.
    Invoke the adapter with expected prior state and exact new design reference;
    preserve feature slug/spec where applicable, complete requirements reference
    and unrelated prose/fields.

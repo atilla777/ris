@@ -14,12 +14,13 @@ mapping before dependent effects; do not extrapolate a capability from help.
 `bd sql` actually fails in embedded mode. Do not substitute guessed SQL or
 server commands when a required CLI operation fails; return `blocked`.
 
-Before dependent writes:
+Establish project, destination and safe read access first; apply write-only
+gates only if a new mutation/publication remains:
 
 1. Confirm project with `bd where` and `bd dolt status`, and existing remote
-   name/address with `bd dolt remote list`. Establish permission for publication
-   of the selected database/branch and the authorized tasks/initiatives **and
-   actions**, including any explicitly authorized co-publication. Status,
+   name/address with `bd dolt remote list`. For a new push establish publication
+   permission for the selected database/branch and authorized tasks/initiatives
+   **and actions**, including any explicitly authorized co-publication. Status,
    epic membership or a claim does not prove authority. No adoption/configuration
    of remotes, `--yes`, force or Git-push substitution is allowed here.
 2. Locate the native Dolt repository using observed engine metadata and verify
@@ -29,7 +30,7 @@ Before dependent writes:
    from an issue prefix, edit `.beads`, or run native CLI against a live server
    data directory. If native read access or safe snapshot access is unavailable,
    block this route; do not silently switch storage mechanisms.
-3. Verify `bd --sandbox` support for dependent mutations and inspect actual
+3. For dependent mutations verify `bd --sandbox` support and inspect actual
    hooks/other auto-publication routes. Sandbox suppresses bd auto-push only.
    If the publication gate cannot be enforced, block dependent writes. Check
    the existing outgoing history by the procedure below before adding changes.
@@ -42,9 +43,51 @@ Do not run pull, merge, reset or commit as a hidden part of this operation.
 
 ## Full history inspection, including transient changes
 
+### Confirm the requested snapshot before new-publication gates
+
+Distinguish exact requested/recovered snapshot `S`, current local head `L`, and
+fetched selected remote head `R`. For recovery obtain S and the expected result
+(records, content, status, refs/decisions and typed links) from inspectable
+receipts, an owned ref or verified history. Do not substitute current L for an
+unknown sent S. Unknown identity/expected result or incomplete ancestry returns
+`blocked` with the precise missing evidence, never success or permission to replay.
+For fresh publication without a prior sent/requested S, use observed L as the
+candidate S for this initial reachability check; this is not clean-snapshot
+selection or permission to push it. The caller still supplies the expected result.
+
+After the project/destination/safe-read checks above, fetch the selected remote
+and pin L and R as in step 1 below. **Before** incoming-only/divergence gates,
+outgoing-history audit, clean-working-set selection or private-ref creation,
+establish whether S equals R or is an ancestor of R. Use unlimited parent logs
+and the checked parent mapping below; a complete successful `R..S` range with
+no entries establishes reachability. Missing objects or failed/incomplete reads
+are not proof of absence. If S is reachable, go directly to independent remote
+read-back: prove reachability there and compare the expected result **AS OF S**.
+Only matching evidence returns verified no-op, naming S and observed remote R
+separately (including any newer head observed independently).
+
+This confirmation-only route performs no push, create/close, merge, checkout,
+working-branch update, clean-working-set requirement, private-ref creation,
+manual write window or human confirmation. L may differ from S or R and may
+have newer/pending changes. Newer local/remote effects are outside this receipt:
+neither accepted nor published by confirming S. Read failure, mismatch or
+indeterminate reachability preserves uncertainty and the read-back remainder;
+it never authorizes another push or record mutation.
+
+Only proven absence of S permits the authorized unsent-publication route below.
+For a fresh candidate S=L, validate clean committed snapshot selection through
+that route before pushing it. Audit the full outgoing history of the selected
+snapshot; do not silently replace an unsent recovered S with newer L. When S
+is already fixed, use S rather than L as the outgoing/incoming range endpoint
+and clean snapshot candidate. Genuine divergence still stops this new push.
+
+### Audit an unsent snapshot
+
 1. `dolt fetch <remote>`; `dolt branch -av` identifies full local head `L` and
    fetched `remotes/<remote>/main` head `R`. Confirm the selected address and
    branch, not just an ambient `origin`. Pin the observed hashes for checks.
+   After every refetch, repeat confirmation-first reachability against this R;
+   reachable S goes to independent read-back before steps 2–7. Do not rebind S.
 2. Run **unlimited** `dolt log --parents --oneline R..L` for outgoing commits and
    `dolt log --parents --oneline L..R` for incoming commits (substitute validated
    full hashes, not literal letters). No `-n`, table filter or shallow clone.
@@ -57,9 +100,9 @@ Do not run pull, merge, reset or commit as a hidden part of this operation.
    formats block this route rather than silently dropping a merge parent.
    Zero exit with no entries is a valid empty range.
 3. Incoming commits with outgoing commits mean divergence: `conflict`, no push.
-   Incoming-only state is behind: stop and return the needed separately
-   authorized reconciliation, without a hidden pull. Missing refs, incomplete
-   ancestry, unknown parent shape or command failure block publication.
+   Incoming-only state is behind for an unsent candidate: stop and return the
+   needed separately authorized reconciliation, without a hidden pull. Missing
+   refs, incomplete ancestry, unknown parent shape or command failure block publication.
 4. For **every** outgoing commit `C` and **every** parent `P`, inspect
    `dolt diff --system --summary P C` and
    `dolt diff --system --result-format json P C`, without
@@ -105,36 +148,42 @@ Do not run pull, merge, reset or commit as a hidden part of this operation.
    their owner to finish the separately authorized operation. Do not confuse
    ignored/node-local data with published state or claim it was sent.
 
-Keep evidence at an authorized address: selected remote/branch, `R`, `L`,
+Keep evidence at an authorized address: selected remote/branch, `S`, `R`, `L`,
 outgoing commits and parents, all changed-table coverage and classified effects,
 permission provenance and blockers. Return only the summary to the caller.
 
 ## Snapshot-bound final gate, push and partial effects
 
-Prefer publishing the inspected immutable snapshot `L`, not the moving current
-branch. Native Dolt 2.4.1 help documents branch creation from a start-point and
-explicit source:destination push refspecs. Check installed version/help and
+Publish the inspected immutable snapshot `S` (selected L for fresh work), not
+the moving current branch. Native Dolt 2.4.1 help documents branch creation from
+a start-point and explicit source:destination push refspecs. Check installed version/help and
 applicable project permission before using this route; documentation/source
 inspection is not a live concurrency-test claim.
 
-1. Reserve a unique invocation-owned local ref (for example
-   `ris-publish-<L>-<invocation-id>`). All cooperating writers must leave this
-   private ref untouched; do not rely on a name without that ownership rule.
-   Create with `dolt branch <private-ref> <L>` without force, checkout or
+1. Before reserving a ref, fetch and check S reachability from R as above;
+   if reachable, independently confirm AS OF S and return verified no-op before
+   any new-write gate. Otherwise reserve a unique invocation-owned local ref
+   (for example `ris-publish-<S>-<invocation-id>`). All cooperating writers must
+   leave this private ref untouched; do not rely on a name without that ownership
+   rule.
+   Create with `dolt branch <private-ref> <S>` without force, checkout or
    upstream changes. Publication permission includes this local snapshot ref
    unless the project/caller forbids it. On collision or ambiguous creation,
    inspect actual refs; never replace somebody else's ref.
-2. Verify the private ref equals `L`. Fetch the selected remote again and
-   recompute the unlimited incoming/outgoing ranges against **L**, not the
-   newer working-branch HEAD. Reinspect every newly relevant parent/commit
-   under the full-history procedure. Divergence, incoming-only or unknown
-   history blocks push; no hidden merge. If L is already reachable from the
-   fetched remote, perform read-back and report a verified no-op.
-3. Revalidate authorized snapshot records/links using reads **AS OF L**
+2. Fetch the selected remote again and
+   **first** check S reachability from R. If reachable, perform independent
+   AS OF S read-back and report verified no-op before incoming/divergence gates
+   or any further write-only checks. Otherwise verify the private ref equals S,
+   then recompute unlimited ranges
+   against **S**, not the newer working-branch HEAD, and reinspect every newly
+   relevant parent/commit under the full-history procedure. Divergence,
+   incoming-only or unknown history blocks push; no hidden merge.
+3. Revalidate authorized snapshot records/links using reads **AS OF S**
    (the bounded native read-back queries below also apply locally). A newer
    local commit/working-set change is outside this push: report it separately,
-   never commit it or silently widen L. The initial clean-working-set gate
-   still applies when selecting L; later unrelated writes need no global pause.
+   never commit it or silently widen S. The initial clean-working-set gate
+   still applies when selecting an unsent snapshot; confirmation-only bypasses
+   it. Later unrelated writes need no global pause.
 4. Send only the reserved ref to the confirmed branch:
 
    ```sh
@@ -147,23 +196,17 @@ inspection is not a live concurrency-test claim.
    branch or a lock over records. If its ownership cannot be enforced, this
    route is unavailable; a last-moment read alone does not protect it.
 
-If pinned-ref publication is unavailable, use an existing automatic coordinator
-covering all local routes that can change outgoing commits, working set or
-branch through final check/push. A documented shared local lock can cover its
-cooperating local writers; it is not a remote-writer lock. Only when both
-routes are unavailable ask once for a short manual local publication window.
-Under this fallback, fetch again, inspect heads/clean status/expected records,
-revalidate permission and audit any changed outgoing history. Then use:
-
-```sh
-bd --sandbox dolt push --remote <confirmed-name> --no-adopt
-```
-
-This fallback flag form is verified by bd 1.3.1 help. Remote writers need not
-be paused: use normal non-force push; remote advancement may reject it and
-requires fresh reconciliation. Neither route is a distributed content CAS.
+If pinned-ref publication is unavailable, first fetch and check S reachability.
+Reachable S needs independent AS OF S read-back only, without a new-write gate.
+For proven unsent S, return the exact unavailable capability
+and preserved inspected snapshot. Do not substitute a moving-branch push, require
+a global lock/coordinator or ask for a manual publication window. Other writers
+continue normally: non-force push may reject remote advancement and requires
+fresh reconciliation of the affected ranges and authority. Snapshot-ref ownership
+is not a distributed content CAS or a lock over the live graph/evidence.
 An actual push must be separately authorized and observed. On rejection/ambiguous output inspect the selected
-remote independently and report the actual effect before retry. Never force,
+remote independently and recover/check exact S before retry, applying the
+confirmation-first route before new-write gates. Never force,
 discard history or automatically pull to bypass a conflict. If already fully
 published, report verified no-op instead of manufacturing another push.
 
@@ -177,17 +220,18 @@ file remote: `file://<working-repo>` can fail with "contains no Dolt data".
 That failure is a blocker, not successful remote verification.
 
 `dolt branch -av` and the unlimited parent logs establish that sent snapshot
-`L` is reachable from the fetched remote head. A later authorized remote commit
-does not erase publication of `L`; distinguish that head from the sent snapshot.
-Inspect expected records and links **at `L`** in this independent copy. Use
+`S` is reachable from the fetched remote head, using complete ancestry evidence
+as above. A later remote commit does not erase publication of S; distinguish
+that observed head from S without accepting its newer effects.
+Inspect expected records and links **AS OF S** in this independent copy. Use
 compatible `bd` read access if actually available. For a native-only clone the
 following explicitly bounded, read-only native CLI queries were checked; they
 are part of this adapter's remote inspection, not a generic SQL fallback:
 
 ```sh
 dolt schema show issues dependencies
-dolt sql -r json -q "SELECT id, title, description, acceptance_criteria, status, issue_type, external_ref, spec_id FROM issues AS OF '<L>' WHERE id IN ('<id>')"
-dolt sql -r json -q "SELECT issue_id, depends_on_issue_id, depends_on_wisp_id, depends_on_external, type FROM dependencies AS OF '<L>' WHERE issue_id IN ('<id>') OR depends_on_issue_id IN ('<id>')"
+dolt sql -r json -q "SELECT id, title, description, acceptance_criteria, status, issue_type, external_ref, spec_id FROM issues AS OF '<S>' WHERE id IN ('<id>')"
+dolt sql -r json -q "SELECT issue_id, depends_on_issue_id, depends_on_wisp_id, depends_on_external, type FROM dependencies AS OF '<S>' WHERE issue_id IN ('<id>') OR depends_on_issue_id IN ('<id>')"
 ```
 
 Use validated hashes and safely quoted/escaped exact IDs, never interpolate

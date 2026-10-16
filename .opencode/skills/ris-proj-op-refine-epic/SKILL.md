@@ -135,14 +135,12 @@ the roadmap owner. Never turn a proposed feature prerequisite into an epic
 edge or manufacture a feature ID.
 
 Before a needed write require compatible `tasks.epics.update`, a selected
-adapter that actually provides it, and the adapter's protection against lost
-concurrent content updates (prefer applicable CAS or available automatic
-coordination; a manual writer window is fallback only). A read/write/read
-sequence is not a lock. Only if
-the caller **separately accepts the specific limited lost-update risk** may a
-best-effort update be used, with that limit reported; generic write permission
-does not accept it. Without either condition return `conflict` before writing
-and retain the unsaved proposal. Re-read the target epic, its goal membership,
+adapter that actually provides it, and its targeted native update/read-back
+protocol and actual limits. Fresh comparison is not universal lost-update CAS;
+ordinary authorized shared-epic updates require no manual window, global lock
+or separate risk question. If an explicitly required stronger atomic guarantee
+is unsupported, return that exact limitation and retain the unsaved proposal.
+Re-read the target epic, its goal membership,
 status, current fields and relevant typed blockers immediately before updating;
 compare with the agreed version. An unexpected change or a closed epic is a
 conflict, not permission to overwrite. Pass only approved fields and expected

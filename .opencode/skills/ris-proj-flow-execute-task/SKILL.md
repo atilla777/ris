@@ -49,8 +49,9 @@ artifacts, publication and completion subject to higher-priority/project limits.
 Check actual permissions for file edits, claim, Git commit/direct push, exact-ID
 completion and **all outgoing tracker history**. Do not infer acceptance from
 workflow permission. Let the selected adapter establish operation-specific
-protection: prefer native atomic operations/CAS and automatic coordination,
-and snapshot-bound tracker publication; manual windows are fallback only.
+guarantees: use fresh reads, targeted native atomic/conditional operations and
+read-back, and snapshot-bound tracker publication. Ordinary work needs no manual
+window, mandatory global lock or graph/external-evidence transaction.
 A claim, lease, sandbox or worktree is not general content/graph CAS. Delegate
 read-only preflight to the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
@@ -197,18 +198,24 @@ or changed facts before deciding the next operation.
    Record actual integrated commit/ref and independent remote visibility evidence.
 7. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, delegate selected-adapter bounded
-   result persistence and separate exact-ID completion (advertised tool-specific
+   result persistence and separate native exact-ID completion (advertised tool-specific
    ordinary operations for standalone, not feature-record/1) with criterion/check/review
    evidence and published commit. Require fresh status, complete child/blocker
-   reads and predicate-specific native/coordination guarantees, including external
-   evidence and mandatory composition where needed. No future
+   reads, fresh applicable external evidence/mandatory composition and honest
+   predicate-specific native limits, without freezing graph/evidence. No future
    `ris-complete-task` dependency is required. For a selected one-task feature,
    delegate `ris-proj-op-complete-container` for **all** feature AC, integrated revision,
    verification persistence/read-back and separate closure. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
-8. Delegate **separate** selected-adapter tracker publication with authorization
-   for the entire outgoing history, final protected inspection/push window and
-   independent selected-remote read-back. Git push and local closure do not prove
+8. Delegate **separate** selected-adapter tracker publication. For prior/ambiguous
+   publication pass exact requested/recovered snapshot S, inspectable receipt/ref
+   and expected records/typed links. Have the adapter confirm S independently
+   AS OF S before incoming-only/divergence and new-write gates; a newer remote
+   does not block confirmation-only recovery or require a repeated push, closure,
+   merge, working-branch update or write window. Unknown S/read failure remains
+   unverified. A proven unsent snapshot still needs authorization for the entire
+   outgoing history, final inspected immutable snapshot ref and independent selected-remote
+   read-back under the adapter's method. Git push and local closure do not prove
    tracker publication. Keep all three channel facts separate.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or

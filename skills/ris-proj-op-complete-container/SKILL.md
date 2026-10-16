@@ -97,11 +97,12 @@ the new published integrated revision; do not retry closure using old success.
 
 ## Persist, read back, then close
 
-Before each dependent write establish the adapter-required conditional guarantee
-covering this record, mandatory membership, blockers and evidence through read-back.
-Identify its provider, scope and duration. A claim/lease, worktree, sandbox, local
-lock or read/write/read does not exclude remote writers. Missing/expired guarantee
-means `conflict` without that write; useful read-only verification can continue.
+Before each dependent write apply the adapter's bounded native-operation protocol
+and identify actual guarded predicates and limits. Use targeted persistence and
+native exact close with fresh substantive composition/evidence checks; require
+no manual window, global lock or graph/external-evidence transaction. A claim/lease,
+worktree, sandbox or read/write/read does not exclude remote writers. An explicitly
+required stronger unsupported guarantee blocks only its dependent write.
 Re-read the exact record/children/blockers and compare with the verified expected
 state immediately before each operation; changed facts invalidate dependent approval.
 
@@ -121,7 +122,7 @@ Close only if full mandatory scope is completed, no active blockers remain, all
 criteria and required checks pass, evidence is usable/current and the exact ID is
 authorized for closure. Reconfirm the final published integrated revision and still
 accepted references and actual content applicability; call `complete` separately
-under the still-valid record/composition/blocker/evidence guarantee, then reread status, close reason,
+using the adapter's native closure guards and fresh checks, then reread status, close reason,
 unchanged evidence/identity, membership and blockers. On ambiguous/nonzero results
 inspect actual persisted effects before deciding recovery; no blind retry or force.
 If already closed, verify existing evidence/scope and report unchanged status,

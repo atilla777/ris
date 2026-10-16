@@ -34,7 +34,8 @@ Advertise only actual supported Beads operations:
   or agreed independent metadata keys. No mandatory feature JSON, digest or
   history store. A simple accepted task can use sufficient accepted constraints
   without a design file; material design requires a separate verifiable decision.
-  Description/acceptance replacement requires actual content protection. Native
+  Description/acceptance replacement uses fresh expected content and targeted
+  fields under `concurrency.md`, followed by independent read-back. Native
   independent metadata-key edits merge other keys, but do not protect same-key
   decisions, related graph or external evidence. Changed inputs invalidate
   dependent evidence; preserve unrelated content and unchanged acceptance pins.
@@ -51,13 +52,15 @@ Advertise only actual supported Beads operations:
   mandatory composition/blockers, evidence addresses and limits. Reports must
   be accessible without local ignored notes. Reconcile uncertain append before
   retry. Append/key merge protects only its native row operation; snapshot-bound
-  evidence needs additional protection over all relevant content/graph/evidence.
+  evidence needs fresh applicability/composition checks, not an atomic freeze
+  over all relevant content/graph/external evidence.
 - **ordinary exact close:** main Complete, separately from persistence, on one
   explicit ID with full mandatory scope/cancellation disposition and current
   evidence supplied by the caller. Native transactional direct-child/blocker
   checks cover those predicates only; expected membership, descendants and
-  external-evidence freshness need their own protection through close/read-back.
-  If unavailable, return conflict before the dependent write. Never force, close
+  external-evidence freshness are checked immediately before close and after it,
+  without a manual window or global lock. Report native limits and any unsupported
+  explicitly required stronger guarantee before its dependent write. Never force, close
   ancestors/children, reopen a closed record or use status update as a shortcut.
 
 Read back exact fields, type/kind/identity, source decisions, complete children,

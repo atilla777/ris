@@ -36,5 +36,7 @@ through Git before retry. Distinguish a verified copy from pending/failed setup;
 do not accept environment readiness for the caller. Preserve existing work:
 no force/clobber, reset, rebase, stash, commit, repair/prune, deletion, automatic
 rollback or blind retry. Individual Git locks and read/write/read do not promise
-cross-operation uniqueness; demand an independent writer window when required.
+cross-operation uniqueness. Ordinary creation needs no manual window/global lock;
+an explicitly required stronger unsupported guarantee returns its exact limitation
+before writing, without asking to pause writers.
 Stop at this bounded result; no claim, technical plan or next lifecycle operation.
