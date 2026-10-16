@@ -106,9 +106,10 @@ need, never switch to executing a child or automatically closing its parent.
 
 ## Verify the recommendation, report and stop
 
-Before a slash prompt inspect the **actual installed same-name command** and
+Before a slash prompt inspect the **actual installed command's explicit target** and
 confirm it targets that owner, exists in this client and accepts the proposed
-ID/locator and scope. Source-only/future names are not installed commands. Use a
+ID/locator and scope. Command and skill names need not match; never construct a
+slash name from a skill name. Source-only/future names are not installed commands. Use a
 short natural-language instruction with exact locator when slash syntax is
 inapplicable to an available compatible owner, not to bypass an absent owner.
 Missing command blocks the slash form; report that gap explicitly. Compare prompt

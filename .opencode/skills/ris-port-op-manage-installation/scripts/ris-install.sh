@@ -20,6 +20,17 @@ parse() {
 SOURCE=https://github.com/atilla777/ris.git
 MANAGEMENT=ris-port-op-manage-installation
 exists() { [ -e "$1" ] || [ -L "$1" ]; }
+# Installed package evidence, not a prefix or a version marker, grants ownership
+# of compact command paths. This ordinary shipped resource survives offline use.
+command_owned() {
+    local base=$1 name=$2 line file
+    file=$base/.opencode/skills/$MANAGEMENT/references/command-ownership.txt
+    [ -f "$file" ] && [ ! -L "$file" ] &&
+        ordinary_dir "$base/.opencode/skills/$MANAGEMENT" &&
+        ordinary_dir "$base/.opencode/skills/$MANAGEMENT/references" || return 1
+    while IFS= read -r line; do [ "$line" != "$name" ] || return 0; done < "$file"
+    return 1
+}
 dependencies() {
     local tool version major minor
     [ "${BASH_VERSINFO[0]}" -gt 3 ] || { [ "${BASH_VERSINFO[0]}" = 3 ] && [ "${BASH_VERSINFO[1]}" -ge 2 ]; } || { die 'Bash 3.2+ required'; return 1; }
@@ -39,6 +50,13 @@ parents() {
     done
 }
 # OpenCode mapping only. All transaction code consumes relative paths.
+recovery_foreign_command() {
+    local p
+    # rollback's dynamically scoped list comes from this journal, never from a
+    # current prefix/marker. It is absent outside that bounded restore operation.
+    for p in "${recovery_foreign_commands[@]}"; do [ "$p" != "$1" ] || return 0; done
+    return 1
+}
 managed() {
     local p
     PATHS=()
@@ -47,8 +65,11 @@ managed() {
         [ -L "$p" ] || [ -d "$p" ] || { die "invalid skill type: $p"; return 1; }
         PATHS[${#PATHS[@]}]=${p#"$ROOT/"}
     done
-    for p in "$ROOT"/.opencode/command/ris-*.md "$ROOT/.opencode/ris-installation"; do
+    for p in "$ROOT"/.opencode/command/ris-*.md "$ROOT"/.opencode/command/risp-*.md "$ROOT"/.opencode/command/risb-*.md "$ROOT/.opencode/ris-installation"; do
         exists "$p" || continue
+        case "${p##*/}" in risp-*.md|risb-*.md)
+            recovery_foreign_command "${p#"$ROOT/"}" && continue
+            command_owned "$ROOT" "${p##*/}" || { die "unproven command ownership: $p; preserve and resolve conflict explicitly"; return 1; };; esac
         [ -L "$p" ] || [ -f "$p" ] || { die "invalid file type: $p"; return 1; }
         PATHS[${#PATHS[@]}]=${p#"$ROOT/"}
     done
@@ -80,7 +101,7 @@ acquire() {
                 file="$WORK/stage/.opencode/${path}"
                 found=0; for entry in "${SKILLS[@]}"; do [ "$entry" != "$name" ] || found=1; done
                 [ "$found" = 1 ] || SKILLS[${#SKILLS[@]}]=$name;;
-            commands/opencode/ris-*.md)
+            commands/opencode/ris-*.md|commands/opencode/risp-*.md|commands/opencode/risb-*.md)
                 name=${path#commands/opencode/}; [[ "$name" != */* ]] || continue
                 file="$WORK/stage/.opencode/command/$name"
                 COMMANDS[${#COMMANDS[@]}]=$name;;
@@ -106,9 +127,28 @@ acquire() {
         done < "$file"
         [ "$found" = 1 ] && [ "$closed" = 1 ] && [ "$names" = 1 ] || { die "SKILL frontmatter/name mismatch: $name"; return 1; }
     done
+    local management_command=$MANAGEMENT.md
+    for name in "${COMMANDS[@]}"; do
+        case "$name" in risp-*.md|risb-*.md) management_command=risb-installation.md;; esac
+    done
     [ -f "$WORK/stage/.opencode/skills/$MANAGEMENT/SKILL.md" ] &&
     [ -x "$WORK/stage/.opencode/skills/$MANAGEMENT/scripts/ris-install.sh" ] &&
-    [ -f "$WORK/stage/.opencode/command/$MANAGEMENT.md" ] || { die 'missing management package'; return 1; }
+    [ -f "$WORK/stage/.opencode/command/$management_command" ] || { die 'missing management package'; return 1; }
+    # Every short command must be attributable before the first target mutation.
+    for name in "${COMMANDS[@]}"; do
+        case "$name" in risp-*.md|risb-*.md)
+            command_owned "$WORK/stage" "$name" || { die "missing command ownership: $name"; return 1; };; esac
+    done
+    file=$WORK/stage/.opencode/skills/$MANAGEMENT/references/command-ownership.txt
+    if exists "$file"; then
+        names=()
+        while IFS= read -r name || [ -n "$name" ]; do
+            case "$name" in risp-*.md|risb-*.md) ;; *) die 'invalid command ownership'; return 1;; esac
+            [[ "$name" != */* ]] && [ -f "$WORK/stage/.opencode/command/$name" ] || { die 'invalid command ownership'; return 1; }
+            for entry in "${names[@]}"; do [ "$entry" != "$name" ] || { die 'invalid command ownership: duplicate'; return 1; }; done
+            names[${#names[@]}]=$name
+        done < "$file"
+    fi
     printf 'format=1\nsource=%s\nrevision=%s\nharness=opencode\n' "$SOURCE" "$SHA" > "$WORK/stage/.opencode/ris-installation"
 }
 lock() {
@@ -127,8 +167,14 @@ lock() {
 }
 remove_managed() {
     managed || return 1
-    local p
-    for p in "${PATHS[@]}"; do rm -rf -- "$ROOT/$p" || return 1; done
+    local p i
+    # Commands disappear before the skill containing their ownership evidence.
+    # Keep ledger/manifest ordering unchanged for legacy schema-1 recovery.
+    i=${#PATHS[@]}
+    while [ "$i" -gt 0 ]; do
+        i=$((i - 1)); p=${PATHS[$i]}
+        rm -rf -- "$ROOT/$p" || return 1
+    done
 }
 copy_stage() {
     local p
@@ -173,6 +219,8 @@ foreign_walk() {
     local base=$1 rel=$2 p child
     case "$rel" in
         .opencode/.ris-install-transaction|.opencode/.ris-version.tmp|.opencode/skills/ris-*|.opencode/command/ris-*.md|.opencode/ris-installation) return 0;;
+        .opencode/command/risp-*.md|.opencode/command/risb-*.md)
+            recovery_foreign_command "$rel" || return 0;;
     esac
     p=$base/$rel
     # Container existence can change; their foreign children cannot.
@@ -213,7 +261,7 @@ valid_path() {
     case "$1" in
         .opencode/ris-installation) return 0;;
         .opencode/skills/ris-*) tail=${1#.opencode/skills/};;
-        .opencode/command/ris-*.md) tail=${1#.opencode/command/};;
+        .opencode/command/ris-*.md|.opencode/command/risp-*.md|.opencode/command/risb-*.md) tail=${1#.opencode/command/};;
         *) return 1;;
     esac
     [[ "$tail" != */* ]] && [ -n "$tail" ]
@@ -234,8 +282,19 @@ verify_foreign() {
 }
 rollback() {
     validate_backup || { die "recovery required: invalid backup at $J; preserve evidence"; return 1; }
+    local p kind attrs value
+    local -a recovery_foreign_commands=()
+    # Schema-1 foreign records are path/type/mode/value NUL tuples. An older
+    # writer may have classified today's compact names as foreign. Keep exactly
+    # those paths foreign for restore AND verification, before new-request guards.
+    while IFS= read -r -d '' p; do
+        IFS= read -r -d '' kind && IFS= read -r -d '' attrs &&
+            IFS= read -r -d '' value || return 1
+        case "$p" in .opencode/command/risp-*.md|.opencode/command/risb-*.md)
+            if valid_path "$p"; then recovery_foreign_commands[${#recovery_foreign_commands[@]}]=$p; fi;; esac
+    done < "$J/foreign"
+    [ -z "$p" ] || return 1
     remove_managed || return 1
-    local p
     mkdir -p "$ROOT/.opencode/skills" "$ROOT/.opencode/command" || return 1
     while IFS= read -r -d '' p; do cp -pPR "$J/backup/$p" "$ROOT/${p%/*}/" || return 1; done < "$J/manifest"
     rm -f "$ROOT/.opencode/.ris-version.tmp" || return 1
@@ -320,6 +379,7 @@ transaction() {
     cleanup committed || return 1
 }
 main() {
+    local -a recovery_foreign_commands=()
     parse "$@" || return 1
     dependencies || return 1
     # A sentinel preserves even trailing newlines through command substitution.

@@ -26,16 +26,21 @@ Beads, other skill, initialized project or target Git repository is required.
    for the requested package write. Resolve ambiguous roots before execution;
    do not create a project. An explicit management request authorizes the full
    reserved-namespace replacement under applicable permissions, including local
-   edits/collisions, without a second per-file approval.
+   edits to proven package paths, without a second per-file approval. An unproven
+   short-name collision is a conflict, not permission to remove a foreign file.
 3. For install/update accept an optional exact tag or full 40-hex **commit** SHA.
    Omission uses upstream remote HEAD, regardless of branch name. Do not pass
    branches or Git revision expressions; a 40-hex tag spelling is treated as a
    commit SHA. Uninstall accepts no ref. Preserve the requested operation/ref.
 4. Explain the effect as needed: the whole `.opencode/skills/ris-*` and
-   `.opencode/command/ris-*.md` namespace and `.opencode/ris-installation` are
-   replaced/removed; retired entries and local edits are not merged. Other
+   legacy `.opencode/command/ris-*.md`, proven package `risp-*.md`/`risb-*.md`
+   commands and `.opencode/ris-installation` are replaced/removed; retired entries
+   and local edits are not merged. Short command ownership comes from the installed
+   package's `references/command-ownership.txt`; a prefix or version marker alone
+   is insufficient. Preserve unproven collisions and report explicit resolution
+   is needed. Other
    skills/commands, settings, `ris.yaml`, `AGENTS.md`, docs and tasks are preserved.
-   Project additions need non-`ris-` names. Known duplicate installations in
+   Project additions should avoid `ris-`, `risp-` and `risb-`. Known duplicate installations in
    alternate `skill/`, `commands/`, global, parent or config-defined locations
    may shadow these files: report known paths, without expanding into cleanup.
 
@@ -60,6 +65,11 @@ use eval, or source the version file. The fixed package source is
 `https://github.com/atilla777/ris.git`; there is no alternate-source option.
 Update requires an existing managed element or version file (manual installation
 is enough); when absent report the engine's `use install` result and stop.
+The compact management command is `/risb-installation`; skill and script names
+remain unchanged. For the first migration from long commands, an old installed
+engine cannot acquire the compact package: use the README checked-download
+bootstrap from the chosen new revision with the same pin. Subsequent updates use
+the newly installed engine. Do not claim an old self-update works or add an alias.
 
 ## Verify and report
 

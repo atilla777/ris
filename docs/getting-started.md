@@ -5,13 +5,13 @@
 Follow the [README installation instructions](../README.md#install-in-opencode):
 use its bootstrap for the complete package, or the installation guide's
 [manual selective installation](installation.md#manual-installation-of-a-portable-skill)
-of the autonomous interview folder **with all resources** and same-name command.
+of the autonomous interview folder **with all resources** and `risb-interview` command.
 Quit and restart OpenCode after installation so the new files are discovered.
 
 In OpenCode, for example:
 
 ```text
-/ris-port-op-interview Decide how a small CLI should report invalid arguments: users, error messages and exit codes; implementation is outside this discussion.
+/risb-interview Decide how a small CLI should report invalid arguments: users, error messages and exit codes; implementation is outside this discussion.
 ```
 
 The [portable interview](../skills/ris-port-op-interview/SKILL.md) uses full mode
