@@ -28,9 +28,13 @@ accepted, saved, checked and published requirements document and decision eviden
 a tracker ID. It is not an implicit fallback for a failed combined operation.
 In a scenario, interview, discussion and separate acceptance stay in the leading
 dialogue; bounded formulation and save may run noninteractively in a subagent.
-For save, require the verified candidate address/revision, its exact destination
-path/section, the authorized acceptance decision and write scope as inputs.
-Read and check them yourself; never infer acceptance from a caller's "done".
+For save, the caller supplies the full exact candidate text and distinguishable
+version/scope, or a recipient-accessible file at an exact address/version, its
+exact destination path/section, separate attributable requirements acceptance
+decision and write scope as inputs.
+Read and validate complete content, version/scope and decision/provenance yourself;
+never infer acceptance from a caller's "done" or access to foreign chat. Return
+incomplete, inaccessible, ambiguous or changed candidates to the caller before save.
 A noninteractive executor returns missing decisions to the caller and asks no
 user questions, including through dependencies. Do not reformulate accepted
 content while saving. No new skill or execution role is required for these modes.
@@ -94,8 +98,9 @@ selecting the accepted section, accepting or saving. If unavailable block that
 part. It defines candidate identity, separate decisions and publication gates.
 For a bounded save with checked accepted candidate inputs, skip formulation
 and interview and apply the persistence resource below. For noninteractive
-formulation use supplied decisions and return the checked candidate proposal
-address/revision and open choices to the leading dialogue; this is not an
+formulation use supplied decisions and return the full checked proposal with a
+distinguishable version/scope, or an accessible file address/version when separately
+authorized, and open choices to the leading dialogue; this is not an
 accepted saved specification. Do not execute interactive branches in a subagent.
 
 Ensure installed `ris-port-op-formulate-feature-spec` is available. Provide it the
@@ -214,7 +219,8 @@ requirements path/section and checked candidate or published revision,
 source of its acceptance, verified task ID and parent (only when confirmed),
 status of decisions (including design absent or applicability unconfirmed),
 actual changes and read-back evidence, plus limitations
-and next needed substantive result. Include verified candidate address/revision,
+and next needed substantive result. Include the full unsaved proposal/version
+or verified candidate address/version as applicable, and saved result addresses after saving,
 acceptance decision address/status, pending immutable refs, and separate local,
 Git and tracker publication facts. Full document-only `ok` requires accepted
 checked content/decision and verified Git receipt. Explicit limited local save
@@ -236,6 +242,9 @@ Do not initiate
 decomposition, technical planning or implementation.
 
 For a noninteractive component return a short handoff: status, scope/mode,
-verified result address and candidate revision or confirmed ID, decision/evidence
-address, limitations, actual effects and decision needed. The consumer reads
-full content by address; never substitute an unverified "done" for this result.
+full unsaved proposal with version/scope or verified saved result address and
+candidate revision or confirmed ID, decision/evidence, limitations, actual effects
+and decision needed. The caller forwards complete text/version or an accessible
+file address/version with the separate decision to the next recipient; the
+consumer reads and checks it without foreign chat. Never substitute an unverified
+"done" for this result or require a file for a response-only proposal.

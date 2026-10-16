@@ -52,16 +52,21 @@ For **every standalone noninteractive operation**, launch a bounded subagent.
 Do not load all child methods merely to route work, split each internal read
 into an agent, or copy their algorithms here. Pass selected skill/operation,
 goal, project/config provenance, permitted scope, known decisions and input/
-output addresses. The executor loads/applies that component and dependencies,
-checks its result and stores any full report at an agreed address. Require:
+output scope. Supply full exact candidate text with a distinguishable version/scope,
+or a recipient-accessible file at an exact address/version, and any separate
+attributable acceptance decision. The lead owns this transfer; foreign chat is
+not inherited. The executor loads/applies that component and dependencies and
+checks its result. A read-only author returns its full proposal; optional file
+storage belongs to an authorized writer at an agreed destination. Require:
 
 ```text
-status; operation/scope; verified result address; revision or confirmed ID;
-evidence address; actual effects; limitations; decision needed
+status; operation/scope; full proposal and version or verified result address;
+revision or confirmed ID when applicable; decision/evidence; actual effects;
+limitations; decision needed
 ```
 
-Check actual launch, completion status and accessible result/evidence address,
-not an unsupported “done”. The consumer reads the full artifact and checks its
+Check actual launch, completion status and full returned text or accessible
+result/evidence, not an unsupported “done”. The consumer reads the full result and checks its
 applicability. Do not repeat the owner's field, digest, SQL or publication
 algorithm. Repeat a component check when its inputs or effects changed, or its
 evidence no longer applies; independent review checks its subject independently.
@@ -81,14 +86,18 @@ Do not refine just because the epic is large or create speculative tasks.
 For unknown requirements apply `ris-proj-op-interview-feature` in this dialogue, using
 known answers. Clarify desired result, actors, behavior, constraints and relevant
 alternatives before recommending architecture. Delegate `ris-port-op-formulate-feature-spec`
-with the resulting decisions and permitted candidate output address. Read the
-candidate for human discussion; unresolved choices return here, not to an
+with the resulting decisions for a full read-only proposal. Read the
+complete candidate for human discussion; unresolved choices return here, not to an
 executor's guessed answers. Show the concrete requirements and obtain their
 **separate** acceptance under project rules. Keep the accepted candidate identity
 and actual authority/decision recoverable; generic workflow approval is not
 acceptance. Delegate `ris-proj-op-specify-feature` in explicitly requested document-only,
-explicitly limited accepted-local-save mode with that exact candidate, acceptance and write scope. It owns
-saved content/decision matching. No feature task is created yet.
+explicitly limited accepted-local-save mode. Supply the full exact accepted text
+and distinguishable version/scope, or a recipient-accessible file at an exact
+address/version, with the separate attributable requirements decision, destination
+path/section and permitted writes. It validates those inputs and saved content/
+decision matching; incomplete, inaccessible, ambiguous or changed candidates return
+here without guessed answers or reformulation. No feature task is created yet.
 
 For revisions before publication, pass the current accepted result and its
 separate actual decision to each consumer. Briefly record a material replacement
@@ -100,7 +109,7 @@ Preserve already published versions/decisions and their original pinned refs.
 ## Discuss and separately accept design
 
 Delegate `ris-port-op-design-feature` for sufficient design from the accepted
-requirements, actual code/architecture and alternatives. Read its candidate
+requirements, actual code/architecture and alternatives. Read its full read-only candidate
 and discuss material technical decisions here; use a focused technical interview
 only for unresolved interdependent choices. Delegate revised analysis when
 needed. A behavior change returns to requirements discussion and targeted
@@ -114,7 +123,13 @@ not independently authorized work.
 For a new or materially changed design, obtain a **separate** decision approving
 that actual version. Delegate
 `ris-proj-op-design-feature` in document-only explicitly limited accepted-local-save
-mode (no Git/record/tracker effects), without inventing an ID.
+mode (no Git/record/tracker effects), without inventing an ID. The lead supplies
+the full exact accepted design text and distinguishable version/scope, or a
+recipient-accessible file at an exact address/version, its separate attributable
+design decision, accepted requirements and their decision, destination path/section
+and permitted writes. Optional candidate storage is authorized separately, never
+assigned to the read-only author or required before save. Incomplete, inaccessible,
+ambiguous or changed input returns here before dependent save.
 The owner checks accepted requirements applicability, sufficient design, versions
 and preservation. A local saved result is not publication.
 

@@ -47,7 +47,8 @@ Every result, including read-only, no-ID, partial and interrupted work, must
 identify the actual outcome/subject and provide enough inspectable information
 for its consumer to recover what exists:
 
-- Exact result/evidence locator, or a checked discovery convention with all
+- Full exact response-only proposal with a distinguishable version/scope, or
+  exact result/evidence locator, or a checked discovery convention with all
   required keys and filename. State project/config/current-copy provenance and,
   for shared paths, checked primary selection source and association evidence.
 - Material input and result versions, and separate acceptance decisions with
@@ -66,7 +67,17 @@ introduced. A nested operation returns its result to its caller; transitions
 belong to the caller/workflow. Do not invent IDs, commands, refs or
 `workspace.tasks/<ID>` for no-ID work. Use an authorized existing source/address
 when available; otherwise return the unsaved result and exact discovery gap.
-Response-only content is not automatically accessible to a new session. Local
+For a requirements/design candidate, the caller (the lead in a flow) conveys
+the full exact text with its distinguishable version/scope, or a file accessible
+to the recipient at an exact address/version, together with the separate
+attributable acceptance decision when saving accepted content. Requirements and
+design need separate decisions. The recipient reads and validates complete
+content, version/scope and actual decision/provenance before dependent writes,
+then compares saved content with that accepted candidate and decision. Incomplete,
+inaccessible, ambiguous or changed candidates return to the caller; never infer
+foreign-chat content or reformulate accepted meaning. Optional candidate files
+need an authorized destination; no intermediate file or intermediate publication is required.
+Response-only content requires explicit forwarding to a new session. Local
 notes are usable only where accessible, never mandatory remote inputs for another
 copy. A receiver re-resolves paths and checks actual content/version, fresh
 permissions and, where required, ownership, blockers and write guarantees.

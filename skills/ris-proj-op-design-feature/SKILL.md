@@ -26,9 +26,13 @@ and checked/published design plus its separate decision evidence, before a task
 exists. It is not an implicit fallback for failed combined work. Interview,
 discussion and separate acceptance remain in the leading dialogue in a scenario.
 Bounded formulation/save may execute noninteractively in a subagent; require
-verified candidate address/revision, accepted requirements inputs, destination
-path/section, actual design acceptance decision and permitted writes for save.
-Check those inputs, do not reformulate accepted content. Return missing decisions
+full exact candidate text with distinguishable version/scope, or a recipient-accessible
+file at an exact address/version, accepted requirements inputs, destination
+path/section, separate attributable design acceptance decision and permitted writes for save.
+The caller owns that transfer. Read and validate complete content, version/scope
+and decision/provenance without foreign-chat assumptions; return incomplete,
+inaccessible, ambiguous or changed candidates before save. Do not reformulate
+accepted content. Return missing decisions
 to the caller without asking user questions, including through dependencies.
 Direct invocation needs no configured execution role or new per-step skill.
 
@@ -91,7 +95,8 @@ Read `references/acceptance-and-save.md` relative to this installed skill before
 selecting accepted content, acceptance or save. If unavailable block that part.
 For bounded save of a verified accepted candidate, skip formulation/interview
 and apply the persistence resource. For noninteractive formulation use supplied
-decisions; return the checked candidate proposal address/revision and unresolved
+decisions; return the full checked proposal with a distinguishable version/scope,
+or an accessible file address/version when separately authorized, and unresolved
 alternatives to the leading dialogue. That proposal is not an accepted saved
 design; do not enter the interactive branches below in a subagent.
 
@@ -146,7 +151,8 @@ checks; do not claim the combined result from a document write alone.
 Return `ok|blocked|conflict|error`, project/config provenance, confirmed feature
 ID/epic only when confirmed, mode/slug and spec/design paths, separate requirements
 and design path/section/revision and acceptance addresses/status, verified
-candidate address/revision and pending immutable refs, observed code/contracts versions,
+candidate text/version for an unsaved proposal or verified candidate address/version,
+saved result addresses after saving and pending immutable refs, observed code/contracts versions,
 AC/test seams, relevant source currency and impact decisions, ADR/review evidence
 where needed, independent work and unresolved blockers. Report actual saved
 effects and fresh file/adapter read evidence, preservation of prior decisions,
@@ -162,6 +168,9 @@ Do not close/claim work, create children or start implementation. Stop at the
 requested result; the caller owns transitions after limited contributions.
 
 For a noninteractive component return a short handoff: status, scope/mode,
-verified result address and candidate revision or confirmed ID, decision/evidence
-address, limitations, actual effects and decision needed. The consumer reads
-full content by address; never substitute an unverified "done" for this result.
+full unsaved proposal with version/scope or verified saved result address and
+candidate revision or confirmed ID, decision/evidence, limitations, actual effects
+and decision needed. The caller forwards complete text/version or an accessible
+file address/version with the separate decision to the next recipient; the
+consumer reads and checks it without foreign chat. Never substitute an unverified
+"done" for this result or require a file for a response-only proposal.
