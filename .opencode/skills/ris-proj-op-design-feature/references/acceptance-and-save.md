@@ -13,14 +13,20 @@ design.md when adding design to whole-file accepted requirements; retain safe
 existing sections instead of moving them mechanically. No mandatory scoped
 hash, exact heading syntax, byte range or EOF boundary is required.
 
-For bounded noninteractive save require the verified candidate address/revision,
-destination path/section, separately accepted requirements and their decision,
-the actual design acceptance decision/acceptor provenance and permitted writes.
-The candidate may be a published Git version or an explicitly agreed local
-address/version. Read it and compare the approved selected content; optional
-local fingerprints detect changes but are not tracker refs or a mandatory
-hashing scheme. Missing decisions return to the caller; the executor must not
-ask the user, invent acceptance or change content while saving.
+For bounded noninteractive save, the caller supplies either the full exact design
+text with a distinguishable version and scope, or a recipient-accessible file at
+an exact address/version (published Git version or explicitly agreed local
+address/version). Both forms require destination path/section, separately accepted
+requirements and their decision, the actual separate design acceptance decision/
+acceptor provenance and permitted writes. Read the complete candidate and decisions
+yourself; validate version/scope and that the actual design decision approves this
+content, without assuming foreign-chat access. Return incomplete, inaccessible,
+ambiguous or changed candidates and missing decisions to the caller before
+dependent writes; do not ask the user, invent acceptance or reformulate accepted
+meaning. Optional local fingerprints detect changes but are not tracker refs or
+a mandatory hashing scheme. No intermediate file, registry or intermediate
+publication is required; optional candidate storage needs its own authorized destination and
+portable authors remain read-only.
 
 Show the specific design and material impact to the authorized acceptor in the
 leading dialogue, or verify the supplied separate decision for this candidate.
@@ -92,7 +98,8 @@ acceptance and file saving, then enters step 5. It performs no second push.
     dependent record writes; authorized independent file saving may proceed.
 3. Reread expected files immediately before saving. Save only accepted content
    and actual decision evidence, no unaccepted intermediate draft. Read back,
-   compare selected content with the accepted candidate, check substantive
+   compare selected content with the exact accepted candidate and separate design
+   decision for either supplied form, check substantive
     coverage, format/links and preserved requirements. An explicitly limited
     local save is now complete without tracker ID, epic or adapter; return
    checked addresses/revisions/decision and pending immutable refs. Do not infer

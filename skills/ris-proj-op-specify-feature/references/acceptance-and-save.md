@@ -13,11 +13,18 @@ sections instead of relocating them for uniformity. Appending design to an
 accepted whole requirements file changes that content: use a separate design
 file instead. No mandatory Markdown heading/EOF digest protocol is introduced.
 
-Before noninteractive save, require a verified candidate address and revision
-(published Git commit/path/section, or an explicitly agreed local candidate
-address/version), destination path/section, real separate acceptance decision,
-authorized acceptor/provenance and exact permitted writes. Read the candidate
-and decision, match approved content and resolve material gaps with the caller.
+Before noninteractive save, the caller supplies either the full exact candidate
+text with a distinguishable version and scope, or a recipient-accessible file at
+an exact address/version (published Git commit/path/section or explicitly agreed
+local address/version). Both forms require destination path/section, real separate
+requirements acceptance decision, authorized acceptor/provenance and exact permitted
+writes. Read the complete candidate and decision yourself; validate version/scope
+and that the actual decision approves this content, without assuming foreign-chat
+access. Return incomplete, inaccessible, ambiguous or changed candidates to the
+caller before dependent writes; do not invent answers or reformulate accepted meaning.
+Full text needs no intermediate file, mandatory hash, registry or intermediate publication.
+Optional candidate storage requires its own authorized destination; portable
+authors remain read-only.
 Optional local fingerprints can detect candidate changes; they are not tracker
 refs or a required scoped hashing scheme. An absent or changed candidate is
 blocked/conflict, not permission to invent its acceptance or revision.
@@ -59,7 +66,8 @@ in this explicitly limited mode. Return its local record result and remainder.
    only an actual selected OKF bundle requires the suitable installed OKF skill.
 2. Save only the accepted content and actual authorized decision evidence. A
    bounded save does not rerun interview/formulation or ask the user. Read back
-   and compare selected content with the accepted candidate and decision; check
+   and compare selected content with the exact accepted candidate and separate
+   requirements decision, for either supplied form; check
    substantive coverage, format, links and preserved sections. Never put an
    unaccepted intermediate candidate at the accepted path.
 3. For an explicitly limited local save this is its complete contribution: return checked addresses,
