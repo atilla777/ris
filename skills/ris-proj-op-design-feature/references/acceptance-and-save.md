@@ -43,8 +43,13 @@ published commit. Never invent a future commit/address.
 Pin the commit recording that actual decision, not a later unchanged copy.
 Copying `containing-commit` into another commit does not renew acceptance;
 retain the original reference or name/link its original full revision.
-Preserve every separately accepted content/decision snapshot in Git history
-when multiple versions were accepted before publication.
+For unpublished revisions, keep the current accepted design and its separate
+actual decision accessible to the next stage. For a material replacement,
+briefly identify the superseded version/decision, what changed and the new actual
+acceptance. A full archive of intermediate accepted snapshots, draft log,
+intermediate publication or commit per acceptance is not required; voluntary
+local drafts/commits are allowed. Preserve already published versions, decisions
+and their pinned references in Git history.
 
 Local accepted content and decision evidence may be saved before publication,
 with immutable refs explicitly pending and a checked local candidate identity.
@@ -62,7 +67,10 @@ Record applicability evidence; material/uncertain behavioral changes return to
 the requirements owner, blocking dependent design acceptance/writes. Do not
 reaccept requirements, rewrite their ref to the latest commit or assert that
 design acceptance approves changed behavior. Authorized requirements changes
-need their separate decision and checked design applicability from their owner.
+need their separate decision and a design applicability check by the design
+owner. Compatible unchanged design retains its original acceptance; materially
+changed design needs its own separate acceptance. Uncertain applicability blocks
+the dependent action, not independently authorized work.
 
 ## Preflight, save, update, verify
 

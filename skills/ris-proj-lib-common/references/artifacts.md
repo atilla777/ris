@@ -18,6 +18,19 @@ requirements without weakening them. A glossary or ADR does not substitute for
 requirements in the next stage's actual input. Create such extra files only
 when needed and authorized.
 
+For unpublished documents, retain the current accepted content and its separate
+actual decision, with an exact version and accessible input for the next stage.
+Briefly record a material replacement: the superseded version/decision, what
+changed and the new actual acceptance. Do not infer or manufacture acceptance.
+No full archive of intermediate accepted snapshots, draft log, intermediate
+publication or commit per acceptance is required; local drafts/commits remain
+optional. Preserve published versions/decisions in Git history and their original
+immutable references; copying a decision does not renew it or rebind
+`containing-commit`. Recheck applicability of dependent accepted results when
+inputs change; unchanged compatible content retains its original acceptance,
+while materially changed content needs its own separate decision. Uncertainty
+blocks only dependent work.
+
 If writing is not allowed, provide the draft in the response and state that it
 was not saved. If only some changes succeeded, identify saved and unsaved
 parts; do not claim the downstream input is ready when it requires a saved

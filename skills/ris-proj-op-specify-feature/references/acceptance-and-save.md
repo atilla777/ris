@@ -35,9 +35,18 @@ a future SHA or immutable URL. Local accepted content/evidence may be saved
 before publication with immutable refs explicitly pending; record the checked
 local candidate identity so publication can match it to the accepted result.
 Never rebind a copied `containing-commit` decision to a later changed document:
-retain its original immutable decision/content reference. Before publication of
-multiple accepted revisions, preserve each accepted content/decision snapshot
-in Git history (or equivalent explicit immutable addresses), not only the latest.
+retain its original immutable decision/content reference. For unpublished
+revisions, keep the current accepted content and its separate actual decision
+accessible to the next stage. For a material replacement, briefly identify the
+superseded version/decision, what changed and the new actual acceptance; do not
+invent a decision while saving. A full archive of intermediate accepted
+snapshots, draft log, intermediate publication or commit per acceptance is not
+required; voluntary local drafts/commits are allowed. Preserve already published
+versions, decisions and their pinned references in Git history.
+When requirements change, require a design-owner applicability check for any
+dependent design. Compatible unchanged design retains its original acceptance;
+materially changed design needs its own separate acceptance. Uncertainty blocks
+the dependent action, not independently authorized work.
 
 ## Save, check and gate tracker effects
 

@@ -90,6 +90,13 @@ acceptance. Delegate `ris-proj-op-specify-feature` in explicitly requested docum
 explicitly limited accepted-local-save mode with that exact candidate, acceptance and write scope. It owns
 saved content/decision matching. No feature task is created yet.
 
+For revisions before publication, pass the current accepted result and its
+separate actual decision to each consumer. Briefly record a material replacement
+(superseded version/decision, change and new actual acceptance) through the
+document owner; no full archive of intermediate accepted snapshots, draft log or
+commit per acceptance is required. Optional drafts/commits remain allowed.
+Preserve already published versions/decisions and their original pinned refs.
+
 ## Discuss and separately accept design
 
 Delegate `ris-port-op-design-feature` for sufficient design from the accepted
@@ -98,7 +105,14 @@ and discuss material technical decisions here; use a focused technical interview
 only for unresolved interdependent choices. Delegate revised analysis when
 needed. A behavior change returns to requirements discussion and targeted
 acceptance; unchanged requirements are not reaccepted for a design-only change.
-Obtain a **separate** decision approving the actual design. Delegate
+After requirements change, delegate a bounded applicability check of any existing
+dependent design to `ris-proj-op-design-feature` with the current requirements,
+their decision and the prior design/decision. Compatible unchanged design keeps
+its original acceptance; obtain a separate decision here only for materially
+changed design. Uncertain applicability blocks dependent saving/publication,
+not independently authorized work.
+For a new or materially changed design, obtain a **separate** decision approving
+that actual version. Delegate
 `ris-proj-op-design-feature` in document-only explicitly limited accepted-local-save
 mode (no Git/record/tracker effects), without inventing an ID.
 The owner checks accepted requirements applicability, sufficient design, versions
