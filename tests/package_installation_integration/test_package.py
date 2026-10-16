@@ -10,6 +10,7 @@ import importlib
 import json
 import os
 from pathlib import Path
+import re
 import selectors
 import shutil
 import signal
@@ -233,7 +234,7 @@ class ProductionPackage(unittest.TestCase):
     def exact(self, result, revision=None):
         self.ok(result)
         revision = revision or self.a
-        self.assert_package(revision)
+        skills, commands = self.assert_package(revision)
         version = self.project / ".opencode/ris-installation"
         self.assertEqual(
             version.read_text(),
@@ -241,14 +242,20 @@ class ProductionPackage(unittest.TestCase):
         )
         self.assertIn(f"revision={revision}", result.stdout)
         self.assertIn(str(self.project), result.stdout)
-        if revision == self.a:
-            self.assertIn("skills=42 commands=38", result.stdout)
+        for field, count in (("skills", skills), ("commands", commands)):
+            self.assertEqual(
+                re.findall(rf"\b{field}=([0-9]+)\b", result.stdout),
+                [str(count)],
+                f"{field} report must match selected source tree",
+            )
         self.assertFalse(self.journal.exists())
         self.preserved()
 
     def assert_package(self, revision):
         w1.CLI.assert_package(self, revision)  # Raw blob bytes/types/executable bits.
         expected_dirs = set()
+        skills = set()
+        commands = set()
         for raw in subprocess.check_output(
             [self.git, "-C", str(self.fixture), "ls-tree", "-rz", revision],
             env=self.env,
@@ -256,11 +263,21 @@ class ProductionPackage(unittest.TestCase):
             if not raw:
                 continue
             path = os.fsdecode(raw.split(b"\t", 1)[1])
+            parts = Path(path).parts
             if path.startswith("skills/ris-"):
+                if len(parts) == 3 and parts[2] == "SKILL.md":
+                    skills.add(parts[1])
                 parent = Path(".opencode") / Path(path).parent
                 while str(parent).startswith(".opencode/skills/ris-"):
                     expected_dirs.add(str(parent))
                     parent = parent.parent
+            elif (
+                len(parts) == 3
+                and parts[:2] == ("commands", "opencode")
+                and parts[2].startswith("ris-")
+                and parts[2].endswith(".md")
+            ):
+                commands.add(parts[2])
         actual_dirs = {
             p
             for p, entry in w1.oracle(self.project).items()
@@ -269,6 +286,9 @@ class ProductionPackage(unittest.TestCase):
         self.assertEqual(
             actual_dirs, expected_dirs, "no stale/extra managed directories"
         )
+        # The fixture tree is byte/mode-checked against the captured candidate;
+        # derived revisions use their own tree, never stdout or installed files.
+        return len(skills), len(commands)
 
     def test_complete_candidate_default_tag_sha_and_self_lifecycle(self):
         self.assertFalse((self.project / ".git").exists())
@@ -303,6 +323,75 @@ class ProductionPackage(unittest.TestCase):
         p = self.project / path
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(text)
+
+    def test_source_addition_removal_and_report_counts(self):
+        name = "ris-port-op-w2-example"
+        self.put(f"skills/{name}/SKILL.md", f"---\nname: {name}\n---\nW2 only\n")
+        self.put(f"skills/{name}/scripts/example.sh", "#!/bin/sh\nexit 0\n", 0o755)
+        self.put(f"commands/opencode/{name}.md", "W2 only\n")
+        added = self.commit("Derived skill and command addition")
+        # Exercise both derived trees and the original tree. Only report fields
+        # are corrupted; the successfully installed payload stays untouched.
+        for revision in (added, self.b, self.a):
+            result = self.cli("install", "--ref", revision)
+            self.exact(result, revision)
+            for field in ("skills", "commands"):
+                match = re.search(rf"\b{field}=([0-9]+)\b", result.stdout)
+                assert match is not None, result.stdout
+                value = match.group(1)
+                for wrong in (str(int(value) - 1), str(int(value) + 1), value + "0"):
+                    with self.subTest(revision=revision, field=field, wrong=wrong):
+                        stdout = re.sub(
+                            rf"\b{field}=[0-9]+\b", f"{field}={wrong}", result.stdout
+                        )
+                        corrupted = subprocess.CompletedProcess(
+                            result.args, result.returncode, stdout, result.stderr
+                        )
+                        with self.assertRaises(AssertionError):
+                            self.exact(corrupted, revision)
+            self.exact(result, revision)  # Positive control after report mutations.
+        self.assertFalse((self.project / f".opencode/skills/{name}").exists())
+        self.assertFalse((self.project / f".opencode/command/{name}.md").exists())
+
+    def test_file_oracle_rejects_payload_corruption(self):
+        result = self.cli()
+        self.ok(result)
+        self.assert_package(self.a)
+        command = self.project / ".opencode/command/ris-port-op-manage-installation.md"
+        data = command.read_bytes()
+        script = self.installed
+        mode = script.stat().st_mode & 0o777
+        extra = self.project / ".opencode/command/ris-extra.md"
+        directory = self.project / ".opencode/skills/ris-extra"
+        for corruption in ("missing", "extra", "empty-dir", "bytes", "mode", "symlink"):
+            with self.subTest(corruption=corruption):
+                try:
+                    if corruption == "missing":
+                        command.unlink()
+                    elif corruption == "extra":
+                        extra.write_text("extra\n")
+                    elif corruption == "empty-dir":
+                        directory.mkdir()
+                    elif corruption == "bytes":
+                        command.write_bytes(data + b"changed\n")
+                    elif corruption == "mode":
+                        script.chmod(0o644)
+                    else:
+                        command.unlink()
+                        command.symlink_to(self.project / "AGENTS.md")
+                    with self.assertRaises(AssertionError):
+                        self.assert_package(self.a)
+                finally:
+                    if command.is_symlink():
+                        command.unlink()
+                    command.write_bytes(data)
+                    script.chmod(mode)
+                    if extra.exists():
+                        extra.unlink()
+                    if directory.exists():
+                        directory.rmdir()
+                self.assert_package(self.a)
+                self.preserved()
 
     def test_manual_no_version_and_git_visibility(self):
         self.exact(self.cli("install", "--ref", self.b), self.b)
