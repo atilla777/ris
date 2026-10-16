@@ -175,7 +175,8 @@ adapter's best-effort all-state collision detection, exact reuse and read-back;
 it requires no global creator window or extra risk question. If the caller
 explicitly requires strict uniqueness, require a real guarantee or block that
 write. An unavailable adapter blocks combined completion, not authorized local
-saving; report any local effect as partial. Never bypass it via direct storage.
+saving; report the causal non-`ok` status, preserved local effects and exact
+remaining adapter operation. Never bypass it via direct storage.
 
 Only published document and decision inputs may enter a tracker reference.
 Invoke create/reuse through the adapter with type `task`, confirmed epic,

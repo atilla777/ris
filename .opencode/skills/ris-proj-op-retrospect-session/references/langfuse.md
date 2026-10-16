@@ -15,7 +15,10 @@ interprets the supplied evidence. Do not start a recurring multi-session audit.
    self-hosted service, its deployment-matching API schema. Record the actually
    available CLI/API versions and schema provenance; never invent a version or
    transplant another deployment's flags. An unavailable skill/auth/API/source
-   leaves this branch partial; continue the independently useful local report.
+   leaves required telemetry work `blocked`, `conflict` or `error` according to
+   the stopping cause; preserve acquired evidence and name the exact remaining
+   acquisition/identity check. Continue the independently useful local report;
+   missing optional telemetry alone does not fail a bounded local-only request.
 3. For live access use only an already available authorized CLI, not an implicit
    `npx` download, install, credential setup or new SDK/plugin/server. Use its
    supported version/help/schema discovery to establish observation list and

@@ -148,7 +148,8 @@ not silently substitute a different worktree adapter.
    require expected typed values and match actual path/branch/HEAD/common dir to
    pinned inputs. Exit 0/`action:created` is insufficient. Concurrent advancement
    or unexpected effects give conflict with the actual persisted result. Nonzero,
-   malformed/null output or failed hook gives partial/error evidence, not an
+   malformed/null output or failed hook gives `error` with preserved effects,
+   cause and exact remainder, not an
    automatic second switch/add. No result implies environment acceptance.
 
 Safe recovery reconciles those exact effects first; leave created refs/copies and

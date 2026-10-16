@@ -66,11 +66,14 @@ repair mapping and exact final snapshot identity under the primary copy's
 then project-prescribed convention take priority. Read existing content, preserve
 history/unrelated notes, append or identify the new result and verify read-back.
 If shared-path access or saving is blocked, return the checked evidence unsaved
-and the project result partial; do not lose independent code/test results.
+and choose `blocked` for missing access/permission, `conflict` for changed or
+contradictory target state, or `error` for a technical save failure. Preserve
+independent code/test results and exact snapshot; name the cause and remaining
+report-persistence operation, without rerunning successful implementation/checks.
 Do not write tracker content/evidence unless separately authorized through the
 adapter's supported concurrency guarantees.
 
-Return status, ID/claim/copy, scope and input versions, final snapshot identity,
+Return status `ok|blocked|conflict|error`, ID/claim/copy, scope and input versions, final snapshot identity,
 criteria/checks/TDD/docs results, saved/unsaved report paths and remaining needs. Local
 choices do not reopen global design; material departures return bounded impact
 and decision needs, with dependent changes stopped. Stop at the checked change;

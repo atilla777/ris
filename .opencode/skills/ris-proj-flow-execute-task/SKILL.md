@@ -187,7 +187,8 @@ or changed facts before deciding the next operation.
    Changed snapshots need applicable review. Compare rounds by resolved causes,
    new verified facts and remaining mandatory findings. Repetition without a
    justified new approach needs cause diagnosis; if no viable progress, preserve
-   a partial result or ask the necessary question. There is no fixed round cap.
+   actual effects, stopping cause and exact remainder with the cause's
+   `blocked|conflict|error`, or ask the necessary question. There is no fixed round cap.
 6. Delegate `ris-proj-op-publish-task` with exact approved full snapshot, independence
    evidence and authorized primary branch/remote. Never stage foreign paths,
    reset/stash their work, bypass hooks or force push. If integration/hook changes

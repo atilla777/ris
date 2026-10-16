@@ -163,7 +163,8 @@ Git publication; combined `ok` also requires matching record and tracker
 publication. Explicit limited local/record contributions can be `ok` only for
 their declared boundary, with exact remaining channels. Apply the resource's
 review/Git/record/tracker sequence and inspect receipts; one channel alone is
-partial. No decomposition/implementation readiness follows from design success.
+insufficient for full mode: return the cause's `blocked|conflict|error`, completed
+channels and exact remainder. No decomposition/implementation readiness follows from design success.
 Do not close/claim work, create children or start implementation. Stop at the
 requested result; the caller owns transitions after limited contributions.
 

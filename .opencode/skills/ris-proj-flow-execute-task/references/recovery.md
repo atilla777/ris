@@ -114,7 +114,9 @@ operation under renewed guards. Conflicting/indeterminate facts stop that effect
 Never repeat preparation, implementation, integration, result write or closure from
 a stale stage marker. Retry only a proven missing/invalidated operation with a viable
 approach. Apply the existing cause/progress rule to repairs and failed retries;
-no progress preserves a partial result and exact remainder without a fixed round cap.
+no progress preserves effects, cause and exact remainder with `blocked|conflict|error`
+according to that cause, without a fixed round cap. Never choose recovery from a
+status token alone; a bounded component's `ok` proves only its own checked boundary.
 
 Append observations using `evidence.md`; hand the existing-route owner absolute
 output/receipt addresses, current inputs/snapshot, verified reusable effects,

@@ -187,6 +187,7 @@ overwrite a changed acceptance block or silently rebind its pins.
   and unchanged block. Never close its epic automatically.
 
 On ambiguous/nonzero writes, reread actual effects before retry and return
-persisted partial state. Git publication and separately authorized
+persisted effects, actual stopping cause and exact remainder with causal
+`blocked|conflict|error`, never a standalone `partial` status. Git publication and separately authorized
 `dolt.publish` with independent remote read-back are separate facts. A local
 record write, Git-only or Dolt-only publication cannot mean full remote success.

@@ -137,9 +137,11 @@ gated writes and independently read the selected remote from another copy. If
 remote publication is required, preflight its availability/authority and outgoing
 scope before dependent writes. Do not configure a remote or publish unrelated work.
 Git success never proves tracker publication. A failed tracker publication leaves
-the actual local evidence/status as partial; report them and concrete recovery.
+the actual local evidence and closure intact; report the cause's non-`ok` status,
+confirmed effects and concrete remaining publication/read-back operation. Never
+repeat a confirmed closure merely because publication or its evidence is missing.
 
-Return `status: ok|blocked|conflict|partial|error`, project, exact ID/kind, mandatory
+Return `status: ok|blocked|conflict|error`, project, exact ID/kind, mandatory
 scope, criterion verdict and revision, operations/guarantees, saved vs unsaved
 evidence, actual local status and separate remote publication/read-back evidence.
 For assessment-only state `closed: false` or existing status, never imply completion.

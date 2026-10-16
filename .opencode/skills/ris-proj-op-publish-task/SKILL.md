@@ -113,9 +113,11 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
    separate clone as project requires). Verify the sent commit is visible/reachable
    and expected files/tree match its snapshot. Later allowed remote commits do
    not negate a verified earlier snapshot. Record exact sent SHA/tree and remote
-   evidence, not merely command exit. Stop with partial state if verification fails.
+   evidence, not merely command exit. On failed verification return the stopping
+   cause's `blocked|conflict|error`, confirmed local/remote effects and the exact
+   remaining check; reconcile an uncertain push before repeating it.
 
-Return `ok|partial|blocked|conflict|error`, subject kind/identity and exact paths
+Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,
 commits/tree/ref, input/result versions and separate decision locators,
 checks/review addresses, provenance and applicability, docs state, actual push

@@ -80,7 +80,7 @@ actions before retry, never blindly recreate or rerun a non-idempotent setup.
 
 Return structured Markdown or equivalent with:
 
-- `status: ok|partial|blocked|conflict|error`, work identity/association evidence,
+- `status: ok|blocked|conflict|error`, work identity/association evidence,
   permissions and requested vs observed operation (new/reuse/existing branch);
 - repository identity, current/primary roots (explicit or unknown), copy path,
   branch/detached, HEAD, new-copy base commit and how it was selected (or n/a);
@@ -92,8 +92,11 @@ Return structured Markdown or equivalent with:
   shared-state limitations and the exact safe continuation after any failure.
 
 `ok` requires verified copy and all requested/required setup; not-requested is
-not proof of environment readiness. A ready copy with failed setup is partial,
-not total success. Preserve effects; no silent rollback or claim release. Save
+not proof of environment readiness. A ready copy with failed requested setup has
+the stopping cause's non-`ok` status (`error` for technical failure, `blocked` for
+missing prerequisites, `conflict` for contradictory state), with copy readiness,
+completed setup effects and exact remaining setup reported separately. Preserve
+effects; reconcile them before rerunning setup; no silent rollback or claim release. Save
 evidence only to an explicitly authorized supplied address, preserving existing
 history; otherwise return it. Do not create a task/worktree registry, declare
 requirements ready, prepare a technical plan, implement, publish, close tasks,
