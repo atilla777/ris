@@ -50,7 +50,7 @@ discovers the updated skills and commands.
 ## Start using RIS
 
 The compact menu has 18 explicit entries: `risp-` selects a project contract,
-`risb-` a portable contract. All 44 skills are available; operations without
+`risb-` a portable contract. All 46 skills are available; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -71,6 +71,13 @@ To record a bug before investigation, ask the agent to load
 `ris-proj-op-register-bug` for the selected project and message, with permission
 to record it. It checks duplicates, saves or supplements the report, returns a
 verified ID and stops. Investigation and fixing are separate requests.
+
+To investigate that ID, load `ris-proj-op-investigate-bug` for the selected
+project and research/write scope. It saves a current report and distinguishes
+defect confirmation from fix readiness; proved not-bug/duplicate messages have
+separate justified disposition. Required content protection can block a report
+write without blocking useful research. For supplied inputs without a tracker,
+load `ris-port-op-investigate-bug`. Investigation stops before fixing.
 
 For a first portable operation and the conditional prerequisites for project work,
 follow [Getting started](docs/getting-started.md).

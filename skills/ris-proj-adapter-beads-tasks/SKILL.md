@@ -3,7 +3,7 @@ name: ris-proj-adapter-beads-tasks
 description: >-
   Serve the tasks v1 and optional feature-record/1 adapter roles and verify
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
-  read/list/create/update, create/update by
+  read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim, conditionally update feature evidence,
   explicitly close, and separately publish authorized Dolt history. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
@@ -92,9 +92,19 @@ Also advertise **ordinary native bug read/list/create/update**, independently of
 bounded capability before use. Exact reads require the caller's expected type;
 bug lists cover every status without a limit. Creation preserves an unconfirmed
 message with stable retry identity; supplementation uses native append preserving
-foreign content. This addition does not advertise bug claim, close, children or
-feature operations. Legacy ordinary task originals retain their type and use
+foreign content. It does not advertise bug claim or feature operations.
+Legacy ordinary task originals retain their type and use
 only explicitly authorized ordinary task updates.
+
+For bug investigation additionally advertise report/acceptance persistence,
+nonblocking duplicate relation, read-only children/blocker inspection for
+disposition, and separate exact not-bug/duplicate close **only under**
+`references/investigation.md`; read it before those operations. This resource
+requires real report-content protection, not ordinary fresh compare/write/read;
+unsupported protection blocks its dependent replacements while research remains
+useful. Disposition closure resolves the message, not fix acceptance. It does not
+extend bug claim, composition or execution completion; ordinary task and feature
+completion retain their existing acceptance/publication gates.
 
 ## Optional feature-record capability
 

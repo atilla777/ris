@@ -36,6 +36,14 @@ do not advertise full CAS merely because current upstream has added it.
 
 ## Freshness, limits and conflicts
 
+Bug investigation report/acceptance replacement explicitly requires real content
+protection under `investigation.md`, unlike an ordinary bounded field update.
+Read that resource for the requested investigation write: fresh comparison and
+status/assignee guards cannot satisfy its stronger predicate. If actual native
+support or proven applicable existing coordination is absent, stop the dependent
+replacement with its exact limitation; do not weaken the requirement or prevent
+independent research. Report/acceptance effects are reconciled separately.
+
 Before each operation reread identity, ownership where required, expected content
 and the relevant complete children/typed blockers. Check external evidence at its
 actual pinned version and assess currency; these are substantive checks, not a

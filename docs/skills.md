@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, two workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 44 skills are listed below, independently of the compact 18-command menu.
+All 46 skills are listed below, independently of the compact 18-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -62,6 +62,8 @@ Ask the agent to load the exact skill with its skill tool and supply the inputs:
 ```text
 Load ris-proj-op-author-skill and improve the RIS-integrated skill at <source folder> within <accepted scope>; do not install it.
 Load ris-proj-op-register-bug for <project>: <message and available context>; record this unconfirmed report and return its ID without investigation.
+Load ris-proj-op-investigate-bug for <exact bug ID> in <project>, research/write scope <scope>; save the investigation and stop before fixing.
+Load ris-port-op-investigate-bug with <message, expectation sources, code/version, evidence and allowed research scope>; return a report without tracker writes.
 Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
 Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
 Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <selected files>.
@@ -78,6 +80,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | --- | --- |
 | [ris-port-op-author-skill](../skills/ris-port-op-author-skill/SKILL.md) | Autonomous skill source authoring |
 | [ris-port-op-interview](../skills/ris-port-op-interview/SKILL.md) | Bounded decision-tree interview |
+| [ris-port-op-investigate-bug](../skills/ris-port-op-investigate-bug/SKILL.md) | Direct-input evidence-based bug report, confirmation and fix-readiness conclusions |
 | [ris-port-op-formulate-feature-spec](../skills/ris-port-op-formulate-feature-spec/SKILL.md) | Feature requirements proposal |
 | [ris-port-op-design-feature](../skills/ris-port-op-design-feature/SKILL.md) | Technical design proposal |
 | [ris-port-op-decompose-feature-spec](../skills/ris-port-op-decompose-feature-spec/SKILL.md) | Verifiable work-unit proposal |
@@ -100,6 +103,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-skill](../skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring |
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
 | [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
+| [ris-proj-op-investigate-bug](../skills/ris-proj-op-investigate-bug/SKILL.md) | Exact-ID investigation, protected current report/criteria and justified message disposition |
 | [ris-proj-op-plan-roadmap](../skills/ris-proj-op-plan-roadmap/SKILL.md) | Project roadmap and authorized tracker persistence |
 | [ris-proj-op-refine-epic](../skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome and boundaries |
 | [ris-proj-op-select-feature](../skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation |
@@ -127,7 +131,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-lib-common](../skills/ris-proj-lib-common/SKILL.md) | Shared conditional dialogue, artifact and quality rules |
-| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug read/list/create/update and separately authorized Dolt operations |
+| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug registration, protected investigation persistence/duplicate relation/disposition close and separately authorized Dolt operations |
 | [ris-port-adapter-git-worktrees](../skills/ris-port-adapter-git-worktrees/SKILL.md) | Git worktrees/1 operations |
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
@@ -142,6 +146,16 @@ Bug registration preserves a message before investigation, checks all-status
 duplicates and stops at a verified ID. It does not confirm a defect or start
 investigation/fixing; those are separately requested results. No bug slash command
 is added to the compact menu.
+Investigation applies the portable method, separates confirmation from readiness,
+and stops at a checked current report/criteria or precise unsaved remainder. Its
+default is a delimited description section; required file storage uses an exact
+published `investigation.md` locator, not competing full copies or local-only notes.
+Baseline Beads has no general content CAS: unsupported required protection blocks
+report/acceptance replacement while independent diagnosis remains useful. Lack of
+evidence never closes a bug; proved correct/duplicate disposition saves rationale
+and separately verifies exact closure, with useful-original transfer and a typed
+nonblocking relation for duplicates. This does not launch a fix or deliver the
+later execution-flow/snapshot integration described in the accepted design.
 Requirements and design have separate acceptance. Task execution preserves an
 explicit target; without an ID it reconciles confirmed own unfinished work before
 ready-task selection. The continuation operation recommends a next step read-only.

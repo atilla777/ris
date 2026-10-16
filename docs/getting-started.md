@@ -70,6 +70,15 @@ Neither operation requires a new setup skill. Optionally add the
 [consumer AGENTS fragment](concepts/templates/agents-fragment.md) to an existing
 project `AGENTS.md`; it supplements the project's instructions without replacing them.
 
+For bug work, directly load `ris-proj-op-register-bug` to record a message and
+stop at its ID, or `ris-proj-op-investigate-bug` to investigate an existing exact
+native bug ID. The latter applies `ris-port-op-investigate-bug`, saves report and
+agreed criteria under actual content-protection gates, and stops before fixing.
+If those gates are unavailable, research can still return useful findings but
+the current report is not claimed saved. Insufficient evidence keeps the message
+open; proved correct/duplicate messages have a separate checked disposition.
+No additional slash command or execution role is required for these direct calls.
+
 ## 3. Authorize work and publish from the task's own copy
 
 Installing RIS grants **no write, push or task-close rights**. Establish the
