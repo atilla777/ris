@@ -275,7 +275,13 @@ never blindly recreate, reparent, remove an edge, or close.
 ## Separately requested Dolt publication (outside tasks v1)
 
 Read `references/dolt-publication.md` before `dolt.publish` or preflight of a
-remote-gated write. This separate adapter operation checks the configured remote,
+remote-gated write. Pass exact requested/recovered snapshot S and its expected
+result when confirming prior publication. After project/destination/safe-read
+checks, the adapter checks S reachability and independent AS OF S read-back
+before incoming-only/divergence or new-write gates. Confirmed S returns verified
+no-op despite newer local/remote history, without another push or write window;
+unknown identity, ancestry or failed reads remain unverified. For a proven
+unsent snapshot this separate operation checks the configured remote,
 permission for the **entire outgoing history**, every intermediate commit's
 actual changes (not just a net diff), and independent selected-remote read-back.
 Use supported CLI forms first; missing coverage or unknown changes block it.
