@@ -138,6 +138,12 @@ The single runtime source is
 W1 tests its mechanisms against a minimal Git fixture; the separate W2 integration
 suite captures the complete actual source package, including the management skill,
 command and all resources, into a disposable Git upstream.
+Its expected files, bytes, types, executable modes and directories come from that
+source tree, independently of the installer report and installed payload. Skill
+and command counts are derived from each selected source revision and compared
+with the report's complete numeric fields; adding or removing package entries
+needs no count constants in the oracle. Regression controls cover source additions
+and removals, incorrect report counts and missing, extra or changed payload entries.
 
 The complete task package at **`86d2f24f4dd831de3ef00e16973d7c285220340e`**,
 tree `0eb353bbc726840fedcce8b58cba2b53293d9b74`, passed
@@ -149,11 +155,12 @@ and executable modes, four-line version SHA, **42 skills / 38 commands**, no tar
 Git initialization or remaining journal. This is pinned-package evidence, not a
 claim that an unpinned remote HEAD contains that revision.
 
-This integrated source also includes U1 instruction/resource updates. The
-installer, management entry, test code and workflows are unchanged from the tested
-task package; other installed instruction bytes differ. The linked hosted run
-and real public bootstrap were **not run on the integrated SHA**. Their unchanged
-mechanism evidence can be reused with explicit payload/check applicability;
+The earlier U1 integration also included instruction/resource updates. Its
+installer, management entry, test code and workflows were unchanged from the tested
+task package; other installed instruction bytes differed. The linked hosted run
+and real public bootstrap were **not run on that integrated SHA**. Reuse of their
+mechanism evidence requires explicit payload/check applicability, including the
+subsequent W2 oracle changes described above;
 integrated payload verification, independent whole-snapshot reassessment and
 main publication remain separate, revision-bound facts. A local candidate's
 manifest/tree identifies its bytes without inventing a public commit or CI run.
