@@ -22,7 +22,7 @@ For a RIS package skill or a project skill whose operation actually integrates
 with RIS, ensure `ris-port-op-author-skill` and `ris-proj-lib-common` (including the
 applicable conditional resources it owns) are available and applied, not just
 named. Use the base's authoring method to examine worked-out requirements,
-build source and check structure, selection and execution; **this** skill
+build source and check structure and selection/execution instructions; **this** skill
 chooses RIS dependencies, applies the integration rules below, checks the
 combined result and owns its stop condition. Follow the person's language in
 conversation, the project's/user's language for a project skill, and English
@@ -106,21 +106,28 @@ specific shortcuts and observable failure signals with corrective reactions.
 
 ## Verify and stop
 
-Apply the base's structural, natural-request routing and representative
-execution checks, then additionally inspect the **combined RIS result**:
+Apply the base's result-appropriate static, reading/review and, for executable
+changes, ordinary program checks under the actual target project's rules.
+Ordinary instruction edits need no new live run or repeated question about one;
+source readiness is distinct from observed agent behavior. Additionally inspect
+the **combined RIS result**:
 responsibility boundaries, dependency availability and cycles, correct
 activation on direct invocation, project-path provenance where applicable,
 permissions, negative requirements, links and installed-relative resources.
 Check typical and conditional instruction loading, adjacent operations and
-improvement before/after behavior: the ordinary request must not load another
+improvement before/after prescriptions: the ordinary request must not require another
 operation's instructions or a rare branch without cause; a conditional request
 must apply that branch when needed. For a scenario, verify each component's
 contribution, transition permissions and the combined result in its promised
 form, including persisted state only when writing is part of its contract;
-do not accept mere mentions of dependencies. Check an independent direct
-invocation of a wrapper and a neighboring request that belongs to another
-owner. Inspect actual files and effects, not only an agent's success statement.
-Label unrun checks and untested clients honestly.
+do not accept mere mentions of dependencies. Read/review the direct-invocation
+contract of a wrapper independently of its caller and a neighboring request that
+belongs to another owner. This does not require executing those requests. Inspect
+actual saved source files; claims about execution effects need applicable existing
+observations, not only an agent's success statement. Preserve historical versions,
+unmet obligations and untested-client limits without converting them into a pass
+or an automatic blocker for an ordinary instruction edit. A task with an explicitly
+accepted behavioral objective needs separately agreed scope under project rules.
 
 Deliver only the requested ready-to-use source folder or explicitly unsaved
 draft. Do not install it into the user's working project, publish it, change

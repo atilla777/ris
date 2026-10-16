@@ -280,7 +280,18 @@ The shared non-binding rules example remains inside the common library's assets.
 
 Portable implementation defaults to standard unless TDD is required; the project
 TDD operation always requires observed RED before behavior changes and GREEN after.
-Text-only work uses its substantive checks. Review evidence must apply to the full
+Ordinary instruction edits use reading, affected static checks and independent
+review, without a new live-agent run or a repeated question about one. Names,
+resources, dependencies and source/install parity are checked statically;
+executable programs use necessary ordinary tests. Instruction readiness does not
+establish agent reliability, cost or repeatability: those claims need applicable
+existing observations with their original versions and limits. Historical unmet
+behavioral/combined obligations remain unverified, rather than becoming a pass or
+an automatic gate for an ordinary text edit. See the evidence boundaries in
+[05](docs/concepts/05-adoption-and-validation.md#4-три-уровня-проверки) and
+[07](docs/concepts/07-quality-and-verification.md#2-критерий-и-подтверждение).
+The RIS repository prohibits new agent behavioral tests; portable skills follow
+the actual target project's rules. Review evidence must apply to the full
 actual snapshot; self-review is not independent publication approval. Git publication,
 exact-task completion, parent-container acceptance and Dolt publication/read-back
 remain distinct effects. A claim or worktree does not provide general CAS.

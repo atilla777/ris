@@ -27,8 +27,9 @@ available facts before asking for missing facts. Identify destination and
 write scope, purpose, owner of the result, positive triggers and nearest
 non-use cases, inputs and readiness, expected output, acceptance evidence,
 dependencies, failure and stopping conditions. An improvement needs an
-observable defect, preserved accepted behavior and comparable before/after
-selection and execution cases. Resolve a contradiction with accepted behavior
+concrete defect, preserved accepted behavior and comparable before/after
+selection and execution cases for reading/review. These cases do not themselves
+require agent sessions. Resolve a contradiction with accepted behavior
 instead of silently changing it.
 
 If a substantive user choice or essential subject-matter contract is missing,
@@ -68,32 +69,35 @@ draft instead of claiming a file was created.
 
 ## Check and hand off
 
-Choose the smallest representative check set that establishes the affected
-selection, loading and execution behavior. Separate deterministic script checks
-from actual agent behavior: parsing/arithmetic fixes usually need affected tests,
-not a repeat of the full live-agent matrix. For another live evaluation wave,
-state the uncovered claim, why existing evidence or cheaper checks cannot cover
-it, and what decision the result informs. Retain applicable evidence for unchanged
-mechanisms. If an essential platform assumption is uncertain, probe it within
-permissions before costly evaluation; a confirmed conflict or materially growing
-setup/run effort returns promptly to the caller/user, not an open-ended experiment.
+Choose checks for the actual result and the target project's rules. For ordinary
+instruction edits, reading, affected static checks and independent review where
+required establish source readiness; a missing live run is not automatically a
+blocker or a reason to ask again about one. Executable scripts need necessary
+ordinary tests. Static review does not establish agent behavior, reliability,
+cost or repeatability. Reuse applicable existing observations only within their
+versions and limits; historical unmet obligations remain unverified.
+Work with an explicitly accepted behavioral objective needs separately agreed
+scope and must respect the target project's prohibitions and permissions. Do not
+turn possible experiments into a mandatory matrix. Return a confirmed contract/
+platform conflict or materially growing verification effort promptly to the
+caller/user before expanding dependent work; continue useful independent work.
 
 Inspect saved files and diff, metadata, links, resource availability,
-dependency cycles, permissions and preserved behavior. Test selection on
-natural positive, neighboring and irrelevant requests, and actual execution
-on small representative inputs in the target environment; inspect resulting
-files and effects rather than trusting the agent's report. For an improvement
-compare affected before/after cases and loading where observable. Temporary
-installation of test fixtures for behavioral checks does not install the
-requested skill in the user's project. Separate structural, routing and
-behavioral evidence; mark unrun checks as unverified and do not claim
-compatibility with untested clients.
+dependency cycles, permissions and preservation of accepted requirements.
+Read/review natural positive, neighboring and irrelevant requests against the
+selection conditions, and representative inputs against the execution and loading
+instructions, comparing affected before/after cases for improvements. This is
+inspection of prescriptions, not observed routing or execution. For any applicable
+existing execution evidence inspect actual files and effects, not merely the
+agent's success statement. Separate static, programmatic and agent-behavior
+evidence; do not claim compatibility with untested clients.
 
-For a text-only bounded amendment, inspect affected before/after routing and
-execution scenarios without ceremonial test infrastructure. Such inspection is
-not an observed live execution. Where live evidence is mandatory, do not silently
-substitute inspection or drop the check: obtain acceptance of a reduced scope or
-report that part unverified/blocked, retaining the precise limits.
+Do not introduce ceremonial test infrastructure or reports for text-only work.
+If the accepted task actually requires behavioral evidence missing from available
+observations, report that precise gap and obtain the necessary scope decision;
+do not substitute static review or retroactively mark the obligation passed.
+Do not import a live-evidence gate from a different kind of result into an
+ordinary instruction amendment.
 
 Report source location (or unsaved draft), changes, checks and observations,
 limitations and unresolved decisions. If a required input, dependency or
