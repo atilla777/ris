@@ -38,9 +38,9 @@ Download errors stop before script execution; the bootstrap does not use `curl |
 After RIS is available to the agent, use an explicit operation and target:
 
 ```text
-/ris-port-op-manage-installation install RIS in /absolute/path/to/project
-/ris-port-op-manage-installation update RIS in /absolute/path/to/project to tag v-example
-/ris-port-op-manage-installation uninstall RIS from /absolute/path/to/project
+/risb-installation install RIS in /absolute/path/to/project
+/risb-installation update RIS in /absolute/path/to/project to tag v-example
+/risb-installation uninstall RIS from /absolute/path/to/project
 ```
 
 The skill clarifies missing intent or target, runs its owner-relative script and
@@ -48,6 +48,15 @@ checks exit status, paths, counts and the version record. Update/removal is neve
 silently changed to install. `v-example` is a placeholder for your chosen tag.
 
 ## Manage from the shell
+
+**First migration from long commands:** an old installed engine cannot acquire
+the compact package. Use the README checked-download bootstrap from the chosen
+new package revision, with that same tag/full SHA for both script and package.
+Its `install` fully replaces the previous package; alternatively run that newly
+downloaded engine's `update` against an existing installation. Do not run the old
+installed engine for this first migration. Subsequent updates use the new installed
+engine at the unchanged technical path below. There are no old-name aliases.
+See the [complete 39-command map](skill-command-naming-migration.md#compact-command-migration--39).
 
 ```bash
 bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' update --project '/absolute/project' # Optional --ref TAG_OR_SHA
@@ -68,12 +77,23 @@ its loaded instructions.
 The reserved package paths are:
 
 - `.opencode/skills/ris-*` — complete skill folders and their resources.
-- `.opencode/command/ris-*.md` — slash-command templates.
+- `.opencode/command/ris-*.md` — retired/legacy slash-command templates.
+- `.opencode/command/risp-*.md` and `risb-*.md` — compact command templates,
+  only after package ownership has been established.
 - `.opencode/ris-installation` — four-line format/source/full revision/harness record.
 
-**Local edits and collisions in this namespace are overwritten**, and retired
-elements are removed. Use other names for project additions. No timestamp or
-backup history is kept in the version record.
+**Local edits to proven package paths and legacy reserved paths are overwritten**,
+and retired elements are removed. Short-name ownership is recorded by the shipped
+management-skill resource `references/command-ownership.txt`, whose list must
+exactly cover the selected package's compact command files, without extra paths.
+An old version marker or the new prefix alone is insufficient. Pre-existing
+unproven short files/links cause a conflict before replacement/removal: preserve
+them, inspect their ownership and explicitly resolve the collision (for example,
+move your own command to a non-package name) before repeating. Ordinary proven
+package updates require no extra per-file approvals. Keep this ownership resource
+with complete manual package copies; do not extend it to claim foreign files.
+Use names outside `ris-`, `risp-` and `risb-` for project additions. No timestamp or
+backup history is kept in the unchanged four-line version record.
 
 Other skills and commands, OpenCode settings, `ris.yaml`, `AGENTS.md`, docs/tasks,
 alternate `skill/` and `commands/` locations, and global installations are preserved.
@@ -122,7 +142,9 @@ discovery location. For example, the autonomous interview needs no RIS config or
 other RIS skill. In OpenCode copy:
 
 - `skills/ris-port-op-interview/` → `.opencode/skills/ris-port-op-interview/`.
-- `commands/opencode/ris-port-op-interview.md` → `.opencode/command/ris-port-op-interview.md`.
+- Optional: `commands/opencode/risb-interview.md` → `.opencode/command/risb-interview.md`.
 
-Quit and restart OpenCode. The complete-package manager reserves all `ris-*`
-paths above, so a subsequent full installation replaces such manual copies too.
+Quit and restart OpenCode. Directly loading `ris-port-op-interview` needs no
+command. A selective copy lacks the complete package's ownership evidence: before
+a subsequent full install, explicitly reconcile that manually copied short
+command if it causes a collision. Legacy reserved skill folders are replaced.

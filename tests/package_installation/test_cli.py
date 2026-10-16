@@ -1,4 +1,5 @@
 """Real filesystem/CLI tests; Python is a development dependency only."""
+
 import os
 import json
 import selectors
@@ -13,7 +14,10 @@ import unittest
 from unittest.mock import patch
 
 BASH = os.environ.get("RIS_TEST_BASH", "/bin/bash")
-SCRIPT = Path(__file__).resolve().parents[2] / "skills/ris-port-op-manage-installation/scripts/ris-install.sh"
+SCRIPT = (
+    Path(__file__).resolve().parents[2]
+    / "skills/ris-port-op-manage-installation/scripts/ris-install.sh"
+)
 
 
 def run(*args, **kw):
@@ -22,6 +26,7 @@ def run(*args, **kw):
 
 def oracle(root):
     result = {}
+
     def visit(p):
         s = p.lstat()
         key = str(p.relative_to(root))
@@ -34,6 +39,7 @@ def oracle(root):
                 visit(child)
         else:
             result[key] = ("file", mode, p.read_bytes())
+
     for p in sorted(root.iterdir()):
         visit(p)
     return result
@@ -52,9 +58,23 @@ class Feasibility(unittest.TestCase):
             r = run("cp", "-pPR", str(a), str(p / "copy"))
             self.assertEqual(r.returncode, 0, r.stderr)
             self.assertEqual(oracle(a), oracle(p / "copy"))
-            self.assertEqual(stat.S_IMODE(a.stat().st_mode), stat.S_IMODE((p / "copy").stat().st_mode))
+            self.assertEqual(
+                stat.S_IMODE(a.stat().st_mode),
+                stat.S_IMODE((p / "copy").stat().st_mode),
+            )
             lock = p / "lock"
-            owner = subprocess.Popen([BASH, "-c", 'exec 8>"$1"; flock -n 8 || exit; printf "ready\\n"; read answer', "g0", str(lock)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+            owner = subprocess.Popen(
+                [
+                    BASH,
+                    "-c",
+                    'exec 8>"$1"; flock -n 8 || exit; printf "ready\\n"; read answer',
+                    "g0",
+                    str(lock),
+                ],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                text=True,
+            )
             assert owner.stdout is not None
             with selectors.DefaultSelector() as s:
                 s.register(owner.stdout, selectors.EVENT_READ)
@@ -79,14 +99,28 @@ class CLI(unittest.TestCase):
         self.fixture.mkdir()
         self.git = shutil.which("git")
         assert self.git is not None
-        self.env = dict(os.environ, GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull,
-                        GIT_AUTHOR_DATE="2026-01-01T00:00:00Z", GIT_COMMITTER_DATE="2026-01-01T00:00:00Z")
+        self.env = dict(
+            os.environ,
+            GIT_CONFIG_NOSYSTEM="1",
+            GIT_CONFIG_GLOBAL=os.devnull,
+            GIT_AUTHOR_DATE="2026-01-01T00:00:00Z",
+            GIT_COMMITTER_DATE="2026-01-01T00:00:00Z",
+        )
         self.g("init", "-b", "delivery")
         self.g("config", "user.email", "test@example.invalid")
         self.g("config", "user.name", "Fixture")
-        self.put("skills/ris-port-op-manage-installation/SKILL.md", "---\nname: ris-port-op-manage-installation\n---\nFixture only\n")
-        self.put("skills/ris-port-op-manage-installation/scripts/ris-install.sh", SCRIPT.read_text(), 0o755)
-        self.put("commands/opencode/ris-port-op-manage-installation.md", "Fixture only\n")
+        self.put(
+            "skills/ris-port-op-manage-installation/SKILL.md",
+            "---\nname: ris-port-op-manage-installation\n---\nFixture only\n",
+        )
+        self.put(
+            "skills/ris-port-op-manage-installation/scripts/ris-install.sh",
+            SCRIPT.read_text(),
+            0o755,
+        )
+        self.put(
+            "commands/opencode/ris-port-op-manage-installation.md", "Fixture only\n"
+        )
         self.put("skills/ris-old/SKILL.md", "---\nname: ris-old\n---\n")
         self.put("skills/ris-old/resources/file space", "old\n")
         self.put("commands/opencode/ris-old.md", "old\n")
@@ -101,7 +135,7 @@ class CLI(unittest.TestCase):
         self.bin = self.base / "bin"
         self.bin.mkdir()
         shim = self.bin / "git"
-        shim.write_text('''#!/usr/bin/env python3
+        shim.write_text("""#!/usr/bin/env python3
 import os,sys,subprocess
 a=sys.argv[1:]
 if "clone" in a and os.environ.get("OFFLINE"): sys.exit(73)
@@ -109,16 +143,21 @@ if "cat-file" in a and "blob" in a and os.environ.get("MUTATE_TAG"):
     subprocess.run([os.environ["REAL_GIT"],"-C",a[a.index("-C")+1],"update-ref","refs/tags/v-a",os.environ["MUTATE_TAG"]],check=True)
 a=[os.environ["FIXTURE"] if x=="https://github.com/atilla777/ris.git" else x for x in a]
 os.execv(os.environ["REAL_GIT"],[os.environ["REAL_GIT"]]+a)
-''')
+""")
         shim.chmod(0o755)
-        self.env.update(PATH=str(self.bin) + os.pathsep + os.environ["PATH"], FIXTURE=str(self.fixture), REAL_GIT=self.git)
+        self.env.update(
+            PATH=str(self.bin) + os.pathsep + os.environ["PATH"],
+            FIXTURE=str(self.fixture),
+            REAL_GIT=self.git,
+        )
         self.rules = self.base / "rules.json"
         self.rules.write_text("[]")
         self.env["FAULT_RULES"] = str(self.rules)
         for utility in ("cp", "mv", "rm", "mkdir", "rmdir"):
             real = shutil.which(utility)
             shim = self.bin / utility
-            shim.write_text('''#!/usr/bin/env python3
+            shim.write_text(
+                """#!/usr/bin/env python3
 import json,os,sys,subprocess
 from pathlib import Path
 p=Path(os.environ["FAULT_RULES"])
@@ -135,7 +174,8 @@ if match:
     os.write(int(os.environ["EVENT_FD"]),b"boundary\\n")
     os.read(int(os.environ["CONTROL_FD"]),1)
     if rule.get("when")=="before": sys.exit(subprocess.run([REAL]+sys.argv[1:]).returncode)
-''' .replace("REAL", repr(real)))
+""".replace("REAL", repr(real))
+            )
             shim.chmod(0o755)
 
     def g(self, *args):
@@ -155,7 +195,15 @@ if match:
         return self.g("rev-parse", "HEAD")
 
     def cli(self, op="install", *args, script=None):
-        return run(BASH, str(script or SCRIPT), op, "--project", str(self.project), *args, env=self.env)
+        return run(
+            BASH,
+            str(script or SCRIPT),
+            op,
+            "--project",
+            str(self.project),
+            *args,
+            env=self.env,
+        )
 
     def ok(self, r):
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
@@ -163,15 +211,28 @@ if match:
     def test_install_exact_package(self):
         self.ok(self.cli("install", "--ref", "v-a"))
         oc = self.project / ".opencode"
-        self.assertEqual((oc / "skills/ris-old/resources/file space").read_text(), "old\n")
-        self.assertEqual((oc / "ris-installation").read_text(), f"format=1\nsource=https://github.com/atilla777/ris.git\nrevision={self.a}\nharness=opencode\n")
-        self.assertTrue(os.access(oc / "skills/ris-port-op-manage-installation/scripts/ris-install.sh", os.X_OK))
+        self.assertEqual(
+            (oc / "skills/ris-old/resources/file space").read_text(), "old\n"
+        )
+        self.assertEqual(
+            (oc / "ris-installation").read_text(),
+            f"format=1\nsource=https://github.com/atilla777/ris.git\nrevision={self.a}\nharness=opencode\n",
+        )
+        self.assertTrue(
+            os.access(
+                oc / "skills/ris-port-op-manage-installation/scripts/ris-install.sh",
+                os.X_OK,
+            )
+        )
         self.assertFalse((oc / ".ris-install-transaction").exists())
         self.assert_package(self.a)
 
     def assert_package(self, revision):
         assert self.git is not None
-        entries = subprocess.check_output([self.git, "-C", str(self.fixture), "ls-tree", "-rz", revision], env=self.env).split(b"\0")
+        entries = subprocess.check_output(
+            [self.git, "-C", str(self.fixture), "ls-tree", "-rz", revision],
+            env=self.env,
+        ).split(b"\0")
         expected = {}
         for entry in filter(None, entries):
             meta, path = entry.split(b"\t", 1)
@@ -179,15 +240,166 @@ if match:
             path = os.fsdecode(path)
             if path.startswith("skills/ris-"):
                 dest = ".opencode/" + path
-            elif path.startswith("commands/opencode/ris-"):
+            elif path.startswith(
+                tuple("commands/opencode/" + p for p in ("ris-", "risp-", "risb-"))
+            ):
                 dest = ".opencode/command/" + path.removeprefix("commands/opencode/")
             else:
                 continue
-            data = subprocess.check_output([self.git, "-C", str(self.fixture), "cat-file", "blob", oid.decode()], env=self.env)
+            data = subprocess.check_output(
+                [self.git, "-C", str(self.fixture), "cat-file", "blob", oid.decode()],
+                env=self.env,
+            )
             expected[dest] = ("file", 0o755 if mode == b"100755" else 0o644, data)
-        actual = {k: v for k, v in oracle(self.project).items() if v[0] != "dir" and
-                  (k.startswith(".opencode/skills/ris-") or k.startswith(".opencode/command/ris-"))}
+        actual = {
+            k: v
+            for k, v in oracle(self.project).items()
+            if v[0] != "dir"
+            and (
+                k.startswith(".opencode/skills/ris-")
+                or k.startswith(
+                    tuple(".opencode/command/" + p for p in ("ris-", "risp-", "risb-"))
+                )
+            )
+        }
         self.assertEqual(actual, expected)
+
+    def compact_fixture(self):
+        for p in (self.fixture / "commands/opencode").glob("ris-*.md"):
+            p.unlink()
+        self.put("commands/opencode/risp-next.md", "project command\n")
+        self.put("commands/opencode/risb-installation.md", "installation command\n")
+        self.put(
+            "skills/ris-port-op-manage-installation/references/command-ownership.txt",
+            "risb-installation.md\nrisp-next.md\n",
+        )
+        return self.commit("compact package")
+
+    def test_compact_foreign_collision_is_preserved(self):
+        self.ok(self.cli("install", "--ref", "v-a"))
+        self.compact_fixture()
+        outside = self.base / "foreign-target"
+        outside.write_text("foreign target")
+        for name, link in (("risp-next.md", False), ("risb-custom.md", True)):
+            with self.subTest(name=name):
+                p = self.project / ".opencode/command" / name
+                if link:
+                    p.symlink_to(outside)
+                else:
+                    p.write_text("foreign command")
+                before = oracle(self.project)
+                for op in ("install", "update", "uninstall"):
+                    r = self.cli(op)
+                    self.assertNotEqual(r.returncode, 0)
+                    self.assertIn("unproven command ownership", r.stderr)
+                    self.assertEqual(oracle(self.project), before)
+                p.unlink()
+        self.assertEqual(outside.read_text(), "foreign target")
+
+    def test_compact_update_and_repeat(self):
+        self.ok(self.cli("install", "--ref", "v-a"))
+        compact = self.compact_fixture()
+        self.ok(self.cli("update"))
+        self.assert_package(compact)
+        self.ok(self.cli("update"))
+        self.assert_package(compact)
+        self.assertEqual(
+            {p.name for p in (self.project / ".opencode/command").iterdir()},
+            {"risp-next.md", "risb-installation.md"},
+        )
+
+    def test_compact_rollback_crashes_and_uninstall(self):
+        self.ok(self.cli("install", "--ref", "v-a"))
+        self.compact_fixture()
+        # Same schema-1 legacy namespace snapshot, then a compact snapshot.
+        for compact_before in (False, True):
+            if compact_before:
+                self.ok(self.cli("update"))
+            before = oracle(self.project)
+            self.rules.write_text(
+                json.dumps([self.rule("mv", "committed", action="fail")])
+            )
+            r = self.cli("update")
+            self.assertNotEqual(r.returncode, 0)
+            self.assertIn("restored", r.stderr)
+            self.assertEqual(oracle(self.project), before)
+            for rule in (self.rule("mv", "prepared"), self.apply_rule()):
+                p, control, kill = self.pause([rule], op="update")
+                kill()
+                self.offline_recovery()
+                self.assertEqual(oracle(self.project), before)
+        # Delete a short command, crash before removing its ownership resource.
+        boundary = dict(
+            tool="rm",
+            contains=[str(self.project / ".opencode/command/risb-installation.md")],
+            action="barrier",
+        )
+        p, control, kill = self.pause([boundary], op="uninstall")
+        kill()
+        self.offline_recovery()
+        self.assertEqual(oracle(self.project), before)
+        self.ok(self.cli("uninstall"))
+        self.env["OFFLINE"] = "1"
+        self.ok(self.cli("uninstall"))
+        self.assertEqual(list((self.project / ".opencode/command").iterdir()), [])
+
+    def test_compact_invalid_type_manifest_and_missing_management(self):
+        self.compact_fixture()
+        self.ok(self.cli())
+        before = oracle(self.project)
+        p, control, kill = self.pause([self.rule("mv", "prepared")])
+        kill()
+        manifest = self.journal / "manifest"
+        data = manifest.read_bytes()
+        manifest.write_bytes(data + b".opencode/command/risp-../../outside.md\0")
+        retained = oracle(self.project)
+        self.assertNotEqual(self.cli().returncode, 0)
+        self.assertEqual(oracle(self.project), retained)
+        manifest.write_bytes(data)
+        self.offline_recovery()
+        self.assertEqual(oracle(self.project), before)
+
+        command = self.fixture / "commands/opencode/risb-installation.md"
+        command.unlink()
+        self.commit("missing short management")
+        r = self.cli()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("missing management package", r.stderr)
+        self.assertEqual(oracle(self.project), before)
+        command.symlink_to("/outside")
+        self.commit("unsafe compact source type")
+        r = self.cli()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("unsafe tree entry", r.stderr)
+        self.assertEqual(oracle(self.project), before)
+
+    def test_compact_source_cannot_claim_unshipped_commands(self):
+        self.compact_fixture()
+        self.put(
+            "skills/ris-port-op-manage-installation/references/command-ownership.txt",
+            "risb-installation.md\nrisp-next.md\nrisp-foreign.md\n",
+        )
+        self.commit("overbroad ownership")
+        r = self.cli()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("invalid command ownership", r.stderr)
+        self.assertEqual(oracle(self.project), {})
+
+    def test_compact_cannot_substitute_long_management_command(self):
+        self.compact_fixture()
+        (self.fixture / "commands/opencode/risb-installation.md").unlink()
+        self.put(
+            "commands/opencode/ris-port-op-manage-installation.md", "legacy only\n"
+        )
+        self.put(
+            "skills/ris-port-op-manage-installation/references/command-ownership.txt",
+            "risp-next.md\n",
+        )
+        self.commit("compact without short management")
+        r = self.cli()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("missing management package", r.stderr)
+        self.assertEqual(oracle(self.project), {})
 
     def old_manual(self):
         oc = self.project / ".opencode"
@@ -213,7 +425,9 @@ if match:
         self.assertFalse((oc / "skills/ris-manual").exists())
         (oc / "skills/ris-old/resources/file space").write_text("edit")
         self.ok(self.cli("install", "--ref", "v-a"))
-        self.assertEqual((oc / "skills/ris-old/resources/file space").read_text(), "old\n")
+        self.assertEqual(
+            (oc / "skills/ris-old/resources/file space").read_text(), "old\n"
+        )
         installed = oc / "skills/ris-port-op-manage-installation/scripts/ris-install.sh"
         self.ok(self.cli("update", "--ref", "v-b", script=installed))
         self.assertFalse((oc / "skills/ris-old").exists())
@@ -226,7 +440,18 @@ if match:
 
     def test_apply_error_restores_exact_manual_snapshot(self):
         before = self.old_manual()
-        self.rules.write_text(json.dumps([dict(tool="cp", contains=[], last=str(self.project / ".opencode/skills") + "/", action="fail")]))
+        self.rules.write_text(
+            json.dumps(
+                [
+                    dict(
+                        tool="cp",
+                        contains=[],
+                        last=str(self.project / ".opencode/skills") + "/",
+                        action="fail",
+                    )
+                ]
+            )
+        )
         r = self.cli()
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("restored", r.stderr)
@@ -250,29 +475,43 @@ if match:
         return self.project / ".opencode/.ris-install-transaction"
 
     def rule(self, tool, suffix, action="barrier", when="after"):
-        return dict(tool=tool, contains=[str(self.journal / suffix)], action=action, when=when)
+        return dict(
+            tool=tool, contains=[str(self.journal / suffix)], action=action, when=when
+        )
 
     def apply_rule(self, action="barrier"):
-        return dict(tool="cp", contains=[], last=str(self.project / ".opencode/skills") + "/", action=action)
+        return dict(
+            tool="cp",
+            contains=[],
+            last=str(self.project / ".opencode/skills") + "/",
+            action=action,
+        )
 
     def pause(self, rules, op="install"):
         self.rules.write_text(json.dumps(rules))
         er, ew = os.pipe()
         cr, cw = os.pipe()
         env = dict(self.env, EVENT_FD=str(ew), CONTROL_FD=str(cr))
-        p = subprocess.Popen([BASH, str(SCRIPT), op, "--project", str(self.project)],
-                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env,
-                             start_new_session=True, pass_fds=(ew, cr))
+        p = subprocess.Popen(
+            [BASH, str(SCRIPT), op, "--project", str(self.project)],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=env,
+            start_new_session=True,
+            pass_fds=(ew, cr),
+        )
         os.close(ew)
         os.close(cr)
         self.addCleanup(os.close, er)
         self.addCleanup(os.close, cw)
+
         def kill():
             try:
                 os.killpg(p.pid, signal.SIGKILL)
             except ProcessLookupError:
                 pass
             p.communicate(timeout=10)
+
         self.addCleanup(kill)
         with selectors.DefaultSelector() as s:
             s.register(er, selectors.EVENT_READ)
@@ -293,8 +532,13 @@ if match:
 
     def test_crash_before_and_during_apply(self):
         before = self.old_manual()
-        for rule in (self.rule("mkdir", ""), self.rule("cp", "backup/.opencode/skills"), self.rule("mv", "prepared"),
-                     self.apply_rule(), self.rule("mv", "committed", when="before")):
+        for rule in (
+            self.rule("mkdir", ""),
+            self.rule("cp", "backup/.opencode/skills"),
+            self.rule("mv", "prepared"),
+            self.apply_rule(),
+            self.rule("mv", "committed", when="before"),
+        ):
             with self.subTest(rule=rule):
                 p, control, kill = self.pause([rule])
                 kill()
@@ -303,11 +547,18 @@ if match:
 
     def test_repeated_interrupted_rollback(self):
         before = self.old_manual()
-        p, control, kill = self.pause([self.apply_rule("fail"), self.rule("cp", "backup/.opencode/skills/ris-manual")])
+        p, control, kill = self.pause(
+            [
+                self.apply_rule("fail"),
+                self.rule("cp", "backup/.opencode/skills/ris-manual"),
+            ]
+        )
         kill()
         backup = oracle(self.journal / "backup")
         for _ in range(2):
-            p, control, kill = self.pause([self.rule("cp", "backup/.opencode/skills/ris-manual")])
+            p, control, kill = self.pause(
+                [self.rule("cp", "backup/.opencode/skills/ris-manual")]
+            )
             kill()
             self.assertEqual(oracle(self.journal / "backup"), backup)
         self.offline_recovery()
@@ -316,20 +567,37 @@ if match:
     def test_terminal_cleanup_crashes(self):
         self.old_manual()
         for terminal in ("committed", "rolled-back"):
-            for tool, suffix, when in (("mv", terminal, "after"), ("rm", "backup", "after"), ("rm", terminal, "after")):
+            for tool, suffix, when in (
+                ("mv", terminal, "after"),
+                ("rm", "backup", "after"),
+                ("rm", terminal, "after"),
+            ):
                 with self.subTest(terminal=terminal, suffix=suffix):
                     rules = [] if terminal == "committed" else [self.apply_rule("fail")]
                     rules.append(self.rule(tool, suffix, when=when))
                     p, control, kill = self.pause(rules)
                     state = oracle(self.project)
-                    expected = {k: v for k, v in state.items() if ".ris-install-transaction" not in k}
+                    expected = {
+                        k: v
+                        for k, v in state.items()
+                        if ".ris-install-transaction" not in k
+                    }
                     kill()
                     self.offline_recovery()
                     self.assertEqual(oracle(self.project), expected)
 
     def test_rollback_failure_preserves_snapshot_for_retry(self):
         before = self.old_manual()
-        self.rules.write_text(json.dumps([self.apply_rule("fail"), self.rule("cp", "backup/.opencode/skills/ris-manual", action="fail")]))
+        self.rules.write_text(
+            json.dumps(
+                [
+                    self.apply_rule("fail"),
+                    self.rule(
+                        "cp", "backup/.opencode/skills/ris-manual", action="fail"
+                    ),
+                ]
+            )
+        )
         r = self.cli()
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("recovery required", r.stderr)
@@ -358,8 +626,12 @@ if match:
         self.old_manual()
         p, control, kill = self.pause([self.rule("mv", "prepared")])
         kill()
-        for name, content in (("schema", b"999\n"), ("manifest", b"../../outside\0"),
-                              ("oracle", b"corrupt"), ("committed", b"1\n")):
+        for name, content in (
+            ("schema", b"999\n"),
+            ("manifest", b"../../outside\0"),
+            ("oracle", b"corrupt"),
+            ("committed", b"1\n"),
+        ):
             path = self.journal / name
             original = path.read_bytes() if path.exists() else None
             path.write_bytes(content)
@@ -407,7 +679,9 @@ if match:
     def test_dependency_preflight(self):
         # Version check is part of the contract; do not invoke target Git.
         shim = self.bin / "git"
-        shim.write_text('#!/bin/sh\nif [ "$1" = --version ]; then printf "git version 2.19.0\\n"; exit 0; fi\nexit 88\n')
+        shim.write_text(
+            '#!/bin/sh\nif [ "$1" = --version ]; then printf "git version 2.19.0\\n"; exit 0; fi\nexit 88\n'
+        )
         r = self.cli("uninstall")
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("Git 2.20", r.stderr)
@@ -423,7 +697,10 @@ if match:
 
     def test_malformed_frontmatter_rejected_before_snapshot(self):
         before = self.old_manual()
-        for content in ("---\nname: ris-new\nno closing delimiter\n", "---\nname: wrong\nname: ris-new\n---\n"):
+        for content in (
+            "---\nname: ris-new\nno closing delimiter\n",
+            "---\nname: wrong\nname: ris-new\n---\n",
+        ):
             self.put("skills/ris-new/SKILL.md", content)
             self.commit("bad frontmatter")
             self.assertNotEqual(self.cli().returncode, 0)
@@ -461,7 +738,9 @@ if match:
             self.assertNotEqual(p.returncode, 0)
             self.assertIn(b"restored", stderr)
             self.assertEqual(oracle(self.project), before)
-        p, control, kill = self.pause([self.rule("mv", "committed", when="before")], op="uninstall")
+        p, control, kill = self.pause(
+            [self.rule("mv", "committed", when="before")], op="uninstall"
+        )
         kill()
         self.offline_recovery()
         self.assertEqual(oracle(self.project), before)
@@ -482,9 +761,19 @@ if match:
         self.assert_package(self.b)
 
     def test_project_foreign_ledger_and_git_visibility(self):
-        foreign = ("AGENTS.md", "ris.yaml", "docs/file", "tasks/local", "ris-outside", ".agents/skills/ris-x/data",
-                   ".opencode/skill/ris-x/data", ".opencode/commands/ris-x.md", ".opencode/config.json",
-                   ".opencode/skills/custom/data", ".opencode/command/custom.md")
+        foreign = (
+            "AGENTS.md",
+            "ris.yaml",
+            "docs/file",
+            "tasks/local",
+            "ris-outside",
+            ".agents/skills/ris-x/data",
+            ".opencode/skill/ris-x/data",
+            ".opencode/commands/ris-x.md",
+            ".opencode/config.json",
+            ".opencode/skills/custom/data",
+            ".opencode/command/custom.md",
+        )
         for name in foreign:
             p = self.project / name
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -499,7 +788,15 @@ if match:
             self.assertFalse((self.project / ".git/index").exists())
             self.assertFalse((self.project / ".gitignore").exists())
             if op != "uninstall":
-                status = run(self.git, "-C", str(self.project), "status", "--short", "--untracked-files=all", env=self.env)
+                status = run(
+                    self.git,
+                    "-C",
+                    str(self.project),
+                    "status",
+                    "--short",
+                    "--untracked-files=all",
+                    env=self.env,
+                )
                 self.assertIn(".opencode/ris-installation", status.stdout)
 
     def test_symlink_bootstrap_is_copied_without_changing_source_mode(self):
@@ -519,7 +816,9 @@ if match:
         self.assert_package(self.b)
 
     def test_external_selfcopy_cleanup_failure_is_nonzero(self):
-        self.rules.write_text(json.dumps([dict(tool="rm", contains=["/tmp/ris-install."], action="fail")]))
+        self.rules.write_text(
+            json.dumps([dict(tool="rm", contains=["/tmp/ris-install."], action="fail")])
+        )
         r = self.cli()
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("cleanup incomplete", r.stderr)
@@ -567,7 +866,9 @@ if match:
 
     @staticmethod
     def raw_blob(data):
-        return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+        return hashlib.sha1(
+            b"blob " + str(len(data)).encode() + b"\0" + data
+        ).hexdigest()
 
     def test_raw_hash_crlf_package_with_autocrlf(self):
         data = b"first\r\nsecond\r\n"
@@ -575,15 +876,22 @@ if match:
         revision = self.commit("raw CRLF blob")
         self.git_context(**{"core.autocrlf": "true"})
         self.ok(self.cli())
-        self.assertEqual((self.project / ".opencode/skills/ris-new/resources/crlf").read_bytes(), data)
+        self.assertEqual(
+            (self.project / ".opencode/skills/ris-new/resources/crlf").read_bytes(),
+            data,
+        )
         self.assert_package(revision)
 
     def test_raw_hash_package_ignores_required_clean_filter(self):
         attrs = self.base / "global attributes"
         attrs.write_text("* filter=ris-review\n")
-        self.git_context(**{"core.attributesFile": str(attrs),
-                            "filter.ris-review.clean": "false",
-                            "filter.ris-review.required": "true"})
+        self.git_context(
+            **{
+                "core.attributesFile": str(attrs),
+                "filter.ris-review.clean": "false",
+                "filter.ris-review.required": "true",
+            }
+        )
         self.ok(self.cli())
         self.assert_package(self.b)
 
@@ -608,11 +916,17 @@ if match:
         self.assertEqual(oracle(self.project), before)
         records = ledger.split(b"\0")[:-1]
         checksums = {records[i]: records[i + 3] for i in range(0, len(records), 4)}
-        self.assertEqual(checksums[b".opencode/skills/ris-manual/file"], self.raw_blob(data).encode())
+        self.assertEqual(
+            checksums[b".opencode/skills/ris-manual/file"], self.raw_blob(data).encode()
+        )
         self.assertIn(self.raw_blob(b"foreign\r\n").encode(), foreign.split(b"\0"))
-        self.assertEqual(manifest, b".opencode/skills/ris-manual\0.opencode/command/ris-link.md\0")
+        self.assertEqual(
+            manifest, b".opencode/skills/ris-manual\0.opencode/command/ris-link.md\0"
+        )
         key = self.raw_blob(os.fsencode(str(self.project.resolve())))
-        self.assertTrue((Path(f"/tmp/ris-install-locks-{os.getuid()}") / (key + ".lock")).is_file())
+        self.assertTrue(
+            (Path(f"/tmp/ris-install-locks-{os.getuid()}") / (key + ".lock")).is_file()
+        )
 
     def test_raw_hash_legacy_filtered_schema1_ledger_is_not_rewritten(self):
         self.old_manual()
@@ -647,11 +961,16 @@ if match:
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("duplicate", r.stderr)
         before = oracle(self.project)
-        for args in (("uninstall", "--project", str(self.project), "--ref", "v-a"),
-                     ("install", "--project", str(self.project), "--source", "other"),
-                     ("install", "--project", str(self.project), "--ref", "v-a", "--ref", "v-b"),
-                     ("install", "--project", "relative"), ("install",)):
-            self.assertNotEqual(run(BASH, str(SCRIPT), *args, env=self.env).returncode, 0)
+        for args in (
+            ("uninstall", "--project", str(self.project), "--ref", "v-a"),
+            ("install", "--project", str(self.project), "--source", "other"),
+            ("install", "--project", str(self.project), "--ref", "v-a", "--ref", "v-b"),
+            ("install", "--project", "relative"),
+            ("install",),
+        ):
+            self.assertNotEqual(
+                run(BASH, str(SCRIPT), *args, env=self.env).returncode, 0
+            )
             self.assertEqual(oracle(self.project), before)
 
 

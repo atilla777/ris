@@ -4,10 +4,10 @@ RIS includes portable operations, project-integrated operations, two workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-Every operation (`op`) and workflow (`flow`) has an **identically named slash
-command**: prefix the skill name with `/`. Libraries and adapters have no commands.
-Command sources live in [`commands/opencode/`](../commands/opencode/); each loads
-its skill and passes `$ARGUMENTS` through its existing contract.
+All 43 skills are listed below, independently of the compact 18-command menu.
+Only selected operations/workflows have slash commands. Command sources live in
+[`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
+and passes `$ARGUMENTS` through its existing contract.
 
 ## Naming
 
@@ -21,9 +21,55 @@ Identifiers use `ris-<port|proj>-<op|flow|lib|adapter>-<verb-object|purpose>`:
 - `lib`: shared instructions; `adapter`: bounded tool operations.
 
 Names are lowercase ASCII words separated by single hyphens, at most 64 characters.
-Source directory, frontmatter `name`, installed directory, command basename and
-slash command agree. For older names, use the
+Skill source directory, frontmatter `name` and installed directory agree.
+Command basenames define independent slash names: `risp-` explicitly selects a
+project contract, `risb-` a portable contract, without environment-based routing.
+For older names, use the
 [namespace transition guide](skill-command-naming-migration.md); there are no aliases.
+
+## Compact command menu — 18
+
+| Command | Exact skill target |
+| --- | --- |
+| `/risp-next` | `ris-proj-op-suggest-continuation` |
+| `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
+| `/risp-refine-epic` | `ris-proj-op-refine-epic` |
+| `/risp-select-feature` | `ris-proj-op-select-feature` |
+| `/risp-prepare-feature` | `ris-proj-flow-prepare-feature` |
+| `/risp-specify-feature` | `ris-proj-op-specify-feature` |
+| `/risp-design-feature` | `ris-proj-op-design-feature` |
+| `/risp-decompose-feature` | `ris-proj-op-decompose-feature` |
+| `/risp-plan-task` | `ris-proj-op-plan-task` |
+| `/risp-run-task` | `ris-proj-flow-execute-task` |
+| `/risp-review-task` | `ris-proj-op-review-task` |
+| `/risp-publish-task` | `ris-proj-op-publish-task` |
+| `/risp-complete-container` | `ris-proj-op-complete-container` |
+| `/risp-retro` | `ris-proj-op-retrospect-session` |
+| `/risb-interview` | `ris-port-op-interview` |
+| `/risb-review-change` | `ris-port-op-review-change` |
+| `/risb-skill` | `ris-port-op-author-skill` |
+| `/risb-installation` | `ris-port-op-manage-installation` |
+
+`next` recommends; `select-feature` chooses a feature; `run-task` executes one
+authorized task. `skill` authors autonomous source, without selecting the RIS
+author or installing it. Empty inputs, permissions, recovery and stopping points
+remain those of each linked owner. No aliases are shipped.
+
+### Explicit calls without a slash command
+
+Ask the agent to load the exact skill with its skill tool and supply the inputs:
+
+```text
+Load ris-proj-op-author-skill and improve the RIS-integrated skill at <source folder> within <accepted scope>; do not install it.
+Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
+Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
+Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <selected files>.
+```
+
+The same direct-load form works for every retained skill. For project OKF use
+`ris-proj-op-manage-okf-bundle` with explicit project/root/operation/scope.
+Loading is not acceptance, write authority or proof of readiness; the owner
+checks its inputs. A missing slash facade does not remove the operation.
 
 ## Portable operations
 

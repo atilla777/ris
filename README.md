@@ -37,7 +37,9 @@ HEAD, or set an exact tag/full 40-hex commit SHA to pin a package revision:
 ```
 
 **Installation replaces local edits in `.opencode/skills/ris-*` and
-`.opencode/command/ris-*.md`, and removes retired package entries.** Other skills,
+legacy `.opencode/command/ris-*.md` and proven package `risp-*.md`/`risb-*.md`
+commands, and removes retired package entries.** Unproven short-name collisions
+stop with a conflict and preserve the files. Other skills,
 OpenCode settings and project documents are preserved. Use other names for your
 own additions. The installer reports the full revision and installed counts;
 the version is recorded in `.opencode/ris-installation`.
@@ -47,16 +49,18 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-Every operation and workflow has an identically named slash command. Examples:
+The compact menu has 18 explicit entries: `risp-` selects a project contract,
+`risb-` a portable contract. All 43 skills remain available; operations without
+a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
 | --- | --- |
-| Explore a topic through an interview | `/ris-port-op-interview <topic>` |
-| Review a concrete change | `/ris-port-op-review-change <change and scope>` |
-| Prepare a project feature through accepted requirements and design | `/ris-proj-flow-prepare-feature <epic or context>` |
-| Decompose an accepted feature into tasks | `/ris-proj-op-decompose-feature <ID>` |
-| Execute or resume one project task | `/ris-proj-flow-execute-task <ID>` |
-| Find the next step for selected work | `/ris-proj-op-suggest-continuation <ID>` |
+| Explore a topic through an interview | `/risb-interview <topic>` |
+| Review a concrete change | `/risb-review-change <change and scope>` |
+| Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
+| Decompose an accepted feature into tasks | `/risp-decompose-feature <ID>` |
+| Execute or resume one project task | `/risp-run-task <ID>` |
+| Find the next step for selected work | `/risp-next <ID>` |
 
 Replace angle-bracket placeholders with your inputs. Skills clarify missing
 information and required permissions. Project-integrated work checks its own
@@ -74,12 +78,19 @@ their results, naming conventions and links to individual contracts.
 Once RIS is available to the agent:
 
 ```text
-/ris-port-op-manage-installation update RIS in /absolute/path/to/project
-/ris-port-op-manage-installation uninstall RIS from /absolute/path/to/project
+/risb-installation update RIS in /absolute/path/to/project
+/risb-installation uninstall RIS from /absolute/path/to/project
 ```
 
 To pin an update, add `to tag <tag>` or `to commit <full SHA>`. Both operations use
 the same Bash engine as initial installation. Restart OpenCode after changes.
+
+**First migration from long commands:** use the checked-download bootstrap above
+from the chosen **new** package revision (same pin for script and package).
+An old installed engine cannot acquire compact commands. The bootstrap's `install`
+replaces the previous complete package; subsequent updates use `/risb-installation`.
+Old slash names are removed without aliases; see the complete
+[39-command migration map](docs/skill-command-naming-migration.md#compact-command-migration--39).
 
 For shell commands, version selection, manual installation and interrupted-operation
 recovery, see the **[installation guide](docs/installation.md)**. For old names and

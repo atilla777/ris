@@ -192,10 +192,10 @@ class ProductionPackage(unittest.TestCase):
         self.ok(w1.run(self.git, "-C", str(self.project), "init", env=self.env))
         self.git_before = w1.oracle(self.project / ".git")
 
-    def pause_update(self):
+    def pause_update(self, rule=None):
         # Full-package acquisition/backup is larger than W1's tiny fixtures.
         # The same real apply-copy boundary gets a bounded 90-second wait.
-        self.rules.write_text(json.dumps([self.apply_rule()]))
+        self.rules.write_text(json.dumps([rule or self.apply_rule()]))
         er, ew = os.pipe()
         cr, cw = os.pipe()
         env = dict(self.env, EVENT_FD=str(ew), CONTROL_FD=str(cr))
@@ -274,7 +274,7 @@ class ProductionPackage(unittest.TestCase):
             elif (
                 len(parts) == 3
                 and parts[:2] == ("commands", "opencode")
-                and parts[2].startswith("ris-")
+                and parts[2].startswith(("ris-", "risp-", "risb-"))
                 and parts[2].endswith(".md")
             ):
                 commands.add(parts[2])
@@ -310,7 +310,12 @@ class ProductionPackage(unittest.TestCase):
         self.assertFalse((self.project / ".opencode/ris-installation").exists())
         self.assertEqual(list((self.project / ".opencode/skills").glob("ris-*")), [])
         self.assertEqual(
-            list((self.project / ".opencode/command").glob("ris-*.md")), []
+            [
+                p
+                for p in (self.project / ".opencode/command").iterdir()
+                if p.name.startswith(("ris-", "risp-", "risb-"))
+            ],
+            [],
         )
         self.env["OFFLINE"] = "1"
         r = self.cli("uninstall")
@@ -357,7 +362,7 @@ class ProductionPackage(unittest.TestCase):
         result = self.cli()
         self.ok(result)
         self.assert_package(self.a)
-        command = self.project / ".opencode/command/ris-port-op-manage-installation.md"
+        command = self.project / ".opencode/command/risb-installation.md"
         data = command.read_bytes()
         script = self.installed
         mode = script.stat().st_mode & 0o777
@@ -499,6 +504,120 @@ Path(a[a.index("--output")+1]).write_bytes(data)
         )
         self.assertEqual(w1.oracle(self.project), before)
         self.preserved()
+
+    def install_genuine_legacy(self):
+        # Pinned accepted input, not a count-derived or renamed candidate fixture.
+        # CI fetches history so this test has no network boundary of its own.
+        base = "8d1d8a5bb7c64ff246f6c266b1956e0594fe5ced"
+        for directory in ("skills", "commands/opencode"):
+            shutil.rmtree(self.fixture / directory)
+        entries = subprocess.check_output(
+            [self.git, "-C", str(ROOT), "ls-tree", "-rz", base]
+        )
+        old_commands = set()
+        for entry in filter(None, entries.split(b"\0")):
+            meta, raw = entry.split(b"\t", 1)
+            mode, kind, oid = meta.split()
+            path = os.fsdecode(raw)
+            if not path.startswith(("skills/ris-", "commands/opencode/ris-")):
+                continue
+            if path.startswith("commands/"):
+                old_commands.add(Path(path).name)
+            data = subprocess.check_output(
+                [self.git, "-C", str(ROOT), "cat-file", "blob", oid.decode()]
+            )
+            p = self.fixture / path
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(data)
+            p.chmod(int(mode, 8) & 0o777)
+        self.assertEqual(len(old_commands), 39)
+        legacy = self.commit("Genuine pinned legacy package")
+        self.exact(self.cli("install", "--ref", legacy), legacy)
+
+    def test_compact_from_genuine_39_command_baseline(self):
+        self.install_genuine_legacy()
+        before = w1.oracle(self.project)
+        # A journal written by the genuine old engine must recover offline.
+        kill = self.pause_update()
+        kill()
+        self.offline_recovery()
+        self.assertEqual(w1.oracle(self.project), before)
+        self.g("reset", "--hard", self.a)
+        # Old installed engines cannot acquire the compact package. New bootstrap
+        # is the documented first migration route, without an alias.
+        r = self.cli("update", script=self.installed)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertEqual(w1.oracle(self.project), before)
+        expected = {
+            "risp-" + n + ".md"
+            for n in (
+                "next",
+                "roadmap",
+                "refine-epic",
+                "select-feature",
+                "prepare-feature",
+                "specify-feature",
+                "design-feature",
+                "decompose-feature",
+                "plan-task",
+                "run-task",
+                "review-task",
+                "publish-task",
+                "complete-container",
+                "retro",
+            )
+        }
+        expected |= {
+            "risb-" + n + ".md"
+            for n in ("interview", "review-change", "skill", "installation")
+        }
+        for _ in range(2):
+            self.exact(self.cli("update"))
+            actual = {
+                p.name
+                for p in (self.project / ".opencode/command").iterdir()
+                if p.name.startswith(("ris-", "risp-", "risb-"))
+            }
+            self.assertEqual(actual, expected)
+        self.preserved()
+
+    def legacy_foreign_compact_recovery(self, boundary):
+        self.install_genuine_legacy()
+        command = self.project / ".opencode/command/risp-next.md"
+        command.write_bytes(b"user command\x00\r\n")
+        command.chmod(0o641)
+        outside = self.project / "foreign-target"
+        outside.write_bytes(b"outside\x00untouched")
+        (self.project / ".opencode/command/risb-user.md").symlink_to(outside)
+        before = w1.oracle(self.project)
+        # The installed writer really is the pinned old engine. Its schema-1
+        # foreign ledger includes both short paths; neither belongs to RIS.
+        kill = self.pause_update(boundary)
+        if boundary == self.apply_rule():
+            self.assertNotEqual(w1.oracle(self.project), before)
+        self.assertIn(
+            b".opencode/command/risp-next.md\0", (self.journal / "foreign").read_bytes()
+        )
+        kill()
+        self.env["OFFLINE"] = "1"
+        result = self.cli("update")  # New bootstrap, recovery BEFORE a new request.
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(self.journal.exists(), result.stderr)
+        self.assertEqual(w1.oracle(self.project), before)
+        self.assertIn("unproven command ownership", result.stderr)
+        # Recovery's historical classification must not weaken any new operation.
+        for op in ("install", "update", "uninstall"):
+            result = self.cli(op)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("unproven command ownership", result.stderr)
+            self.assertEqual(w1.oracle(self.project), before)
+        self.preserved()
+
+    def test_legacy_foreign_compact_prepared_recovery(self):
+        self.legacy_foreign_compact_recovery(self.rule("mv", "prepared"))
+
+    def test_legacy_foreign_compact_apply_recovery(self):
+        self.legacy_foreign_compact_recovery(self.apply_rule())
 
 
 if __name__ == "__main__":
