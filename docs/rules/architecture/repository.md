@@ -30,7 +30,7 @@ type: Architecture
 
 Namespace этой редакции поставляется согласованным комплектом source/install по
 [карте перехода](../../skill-command-naming-migration.md) с добавлением W2 и U3;
-текущий инвентарь — в [README](../../../README.md#names-and-available-source-skills).
+текущий инвентарь — в [каталоге скилов](../../skills.md).
 Тонкие одноимённые op/flow команды находятся в `commands/opencode/`, без команд lib/adapter.
 В текущей task copy установка W2/U1/U2/U3 синхронизирована с исходниками.
 Локальное объединение выполнено; независимая переоценка итогового снимка и main-публикация подтверждаются

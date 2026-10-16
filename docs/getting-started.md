@@ -2,8 +2,9 @@
 
 ## 1. Install, then try one portable operation
 
-Follow the [README installation instructions](../README.md#commands-and-installation):
-use its bootstrap for the complete package, or its manual selective installation
+Follow the [README installation instructions](../README.md#install-in-opencode):
+use its bootstrap for the complete package, or the installation guide's
+[manual selective installation](installation.md#manual-installation-of-a-portable-skill)
 of the autonomous interview folder **with all resources** and same-name command.
 Quit and restart OpenCode after installation so the new files are discovered.
 
@@ -29,7 +30,7 @@ The command is a convenience; the skill can also be invoked directly.
 ## 2. Add project context only when the operation needs it
 
 Choose a project operation by the result you want in the
-[README inventory](../README.md#names-and-available-source-skills), then check its
+[skill catalog](skills.md), then check its
 inputs and permissions. Project operations use common/context as their contracts
 require. There is no mandatory onboarding interview or automatic configuration.
 
@@ -99,4 +100,5 @@ not a blocker or a reason for another run question for ordinary instruction work
 Static readiness does not establish agent reliability, cost or repeatability;
 existing observations retain their original versions and limits, and unmet
 historical obligations remain unverified. Portable use follows the actual target
-project's rules. See the [evidence boundaries](../README.md#dependencies-and-boundaries).
+project's rules. See the [development guide](development.md) and its links to the
+normative evidence boundaries.

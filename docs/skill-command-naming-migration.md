@@ -14,9 +14,10 @@ Additions after that migration include package-installation W2's
 `ris-port-op-manage-installation` and U3's `ris-proj-op-suggest-continuation`, each
 with its same-name command. They have no retired migration entry or alias.
 The 41/37 mapping below remains the historical complete migration map.
-See [README](../README.md#names-and-available-source-skills) for the current
-inventory and [installation evidence](../README.md#installer-cli-bootstrap-and-delivery-evidence)
-for its limits; these additions do not repin accepted specifications.
+See the [skill catalog](skills.md) for the current inventory and
+[development guide](development.md#architecture-plans-and-delivery-records)
+for delivery records and their evidence limits; these additions do not repin
+accepted specifications.
 
 ## Complete skill replacement map — 41
 
