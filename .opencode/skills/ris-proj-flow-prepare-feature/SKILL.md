@@ -83,12 +83,21 @@ with an explicit proposal/local-update-only boundary; this scenario owns the
 later tracker publication, including any authorized refinement debt.
 Do not refine just because the epic is large or create speculative tasks.
 
-For unknown requirements apply `ris-proj-op-interview-feature` in this dialogue, using
-known answers. Clarify desired result, actors, behavior, constraints and relevant
-alternatives before recommending architecture. Delegate `ris-port-op-formulate-feature-spec`
-with the resulting decisions for a full read-only proposal. Read the
+Before deciding whether requirements need an interview, load and apply installed
+`ris-proj-op-interview-feature`'s **Map the material requirements** and **Check
+and hand off** in this leading dialogue. Reuse known answers and current sources;
+this is the shared coverage method, not a standalone checking operation or an
+interview invocation. Return only material gaps/conflicts to the human; use a
+single clarification when sufficient, and that owner's conditional interview
+route here only when needed. With sufficient inputs proceed directly to the
+proposal, without a questionnaire, repeated interview, new executor or separate
+coverage report. Preserve independent useful work while resolving gaps.
+Delegate `ris-port-op-formulate-feature-spec` with the resulting known answers,
+sources/statuses and remaining gaps for a full read-only proposal. Read the
 complete candidate for human discussion; unresolved choices return here, not to an
-executor's guessed answers. Show the concrete requirements and obtain their
+executor's guessed answers. Apply the same owner's map/check to the actual
+candidate before acceptance; resolve material gaps/conflicts before accepting
+their dependent result. Show the concrete requirements and obtain their
 **separate** acceptance under project rules. Keep the accepted candidate identity
 and actual authority/decision recoverable; generic workflow approval is not
 acceptance. Delegate `ris-proj-op-specify-feature` in explicitly requested document-only,

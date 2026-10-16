@@ -15,7 +15,7 @@ By default own the **combined project result**: a specific accepted specificatio
 verified saved/published version and a correctly linked record: a feature `task`
 under a confirmed `epic`, or an explicitly selected ordinary standalone task or
 task-container. `ris-port-op-formulate-feature-spec` owns portable content; `ris-proj-op-interview-feature`
-owns a feature-requirements handoff when material answers are missing; the
+owns the reusable material-coverage map/check and an interview handoff when needed; the
 selected task adapter owns bounded tracker operations. Apply their results and
 check the whole, rather than repeating their methods or treating a loaded name
 as an executed operation. This is the project wrapper for the portable base:
@@ -96,8 +96,15 @@ guess its slug from its title or silently relocate its accepted document.
 Read `references/acceptance-and-save.md` relative to this installed skill before
 selecting the accepted section, accepting or saving. If unavailable block that
 part. It defines candidate identity, separate decisions and publication gates.
-For a bounded save with checked accepted candidate inputs, skip formulation
-and interview and apply the persistence resource below. For noninteractive
+Ensure installed `ris-proj-op-interview-feature` is available and apply its
+**Map the material requirements** and **Check and hand off** sections to the
+known answers, sources and candidate. This reuses the coverage method, not an
+interview invocation or a separate checking operation. Check current applicability
+before acceptance; keep evidence/gaps in the existing dialogue or handoff.
+For a bounded save with checked accepted candidate inputs, use that same check
+to validate substantive coverage without reformulation, interview or questions;
+return a material gap/conflict to the caller before dependent save. With valid
+inputs, skip formulation and interview and apply the persistence resource below. For noninteractive
 formulation use supplied decisions and return the full checked proposal with a
 distinguishable version/scope, or an accessible file address/version when separately
 authorized, and open choices to the leading dialogue; this is not an
@@ -108,24 +115,15 @@ confirmed feature scope, already known decisions with sources/status, relevant
 project rules and content profile; **apply** its method to produce and check
 proposed substantive behavior, exclusions, limits, exceptions and observable
 criteria. Check material coverage and distinguish confirmed inputs, new
-wording, proposals and decisions still open. Before deciding that an interview
-is unnecessary, check the feature's material areas against accessible evidence:
-outcome and actors, main/alternative behavior, exceptions, interfaces and
-constraints where applicable, material quality conditions, observable criteria
-and decision provenance. For each area identify its confirmed source, the
-decision still needed, or why it does not apply; a catalogue entry or plausible
-draft alone does not close a branch. If readiness of inputs, handling of
-conflicting or stale evidence, or another material area remains unresolved,
-ensure installed `ris-proj-op-interview-feature` is available and apply its
-project-specific coverage and handoff in the **same user conversation**; pass
-known answers and sources, do not start a second full interview or re-ask
-confirmed decisions. Use its `ris-port-op-interview` decision tree across remaining
-material branches, not a fixed question count; then apply the base to updated
-answers. A single clarification suffices only if other material branches have
-been checked. If an essential dependency or answer is unavailable, preserve
-the supported partial content and name what prevents acceptance or saving.
-Report evidence and reasons when no interview was needed; user approval of a
-draft alone does not establish that unexamined branches were covered.
+wording, proposals and decisions still open, using the coverage owner's same
+map/check on the proposal before acceptance. Reuse sufficient current inputs
+directly; ask only for a material gap or conflict. A single clarification need
+not become an interview. When an interview is needed, apply that owner's
+conditional interview route in the **same user conversation**, passing known
+answers/sources and remaining gaps without re-asking confirmed decisions. Then
+apply the formulation base to updated answers. Noninteractive work returns
+missing decisions to the caller. Preserve supported content and independent
+work while an essential gap blocks only dependent acceptance or saving.
 
 Use only related author product passages, retaining source path/heading,
 available version and accepted/draft/example/question status without reorganizing

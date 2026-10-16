@@ -11,7 +11,7 @@ description: >-
 # Interview about feature requirements
 
 Own the **project-specific coverage and final handoff**. Use the installed
-`ris-port-op-interview` for the decision-tree method in the **same conversation**;
+`ris-port-op-interview` when an interview is needed, for the decision-tree method in the **same conversation**;
 do not conduct a second interview or restate its question algorithm. This is
 one RIS project skill because identifying applicable project evidence and
 checking feature-requirement coverage are its own result; no additional
@@ -68,6 +68,13 @@ confirmed choice, or turn this evidence gathering into implementation design.
 
 ## Map the material requirements
 
+This map and **Check and hand off** below are the single reusable project
+coverage method for direct specification and feature preparation. Consumers load
+and apply these sections to available scope, answers and evidence **before**
+deciding whether an interview is needed, and check their resulting content
+before dependent acceptance. Reusing them is not an interview invocation and
+does not activate the interview-only evidence gathering or decision tree.
+
 Use the following **semantic map**, not mandatory headings or a questionnaire.
 Compare what is known with what this feature needs; mark an area inapplicable
 with a reason instead of manufacturing requirements. A project's applicable
@@ -85,7 +92,18 @@ requirements: expose any conflict with its sources and impact.
 - Sources and status of decisions, dependencies, unresolved questions and their
   effect on preparing a specification.
 
-Ensure installed `ris-port-op-interview` is available and **apply** its method to
+For each material question retain a confirmed answer with its source/status,
+an open decision with its impact, or a reason for inapplicability. Proposed,
+disputed, deferred and unknown answers remain open; merely listing one does not
+close a dependent acceptance gate. Reuse current confirmed answers. With
+sufficient evidence, proceed directly to formulation or validate the supplied
+accepted candidate, without questions, an interview, a new executor or a separate
+coverage report. Return only material gaps or conflicts to the human (to the
+caller in noninteractive work); preserve independent useful work. A single
+clarification does not require an interview when the other material areas are checked.
+
+Only when missing material answers require an interview, ensure installed
+`ris-port-op-interview` is available and **apply** its method to
 the bounded feature and this map: give it the known answers, sources, statuses,
 open areas and intended handoff, and maintain one dialogue. Default to full
 mode across all material branches within the feature; use limited mode only on
@@ -100,16 +118,21 @@ do not label it a completed interview.
 
 ## Check and hand off
 
-Check each material area against evidence and the actual decision-tree result:
+Check each material area against evidence and, if used, the actual decision-tree result:
 separate confirmed, proposed, disputed, deferred and unknown answers; give
 reasons for inapplicability and identify unexamined branches in limited mode.
+Apply this same check to a consumer's candidate, using current known answers and
+sources; a plausible draft or approval alone does not establish coverage.
+An open essential decision blocks acceptance of its dependent result, not
+independent work. Consumers keep this evidence in their existing dialogue or
+handoff, without a separate checking operation, file or report.
 If an essential answer is absent, specify its impact instead of claiming
 requirements are accepted or complete. Return **in the response**, without
 writing: project, feature identity and bounds (confirmed ID only), relevant
 sources with status, material map areas and answers with their sources/status,
 inapplicable areas with reasons, unresolved decisions and dependent areas,
 applicable recommendations with sources and proposed status (if any), impact
-on subsequent specification work, interview mode and stopping reason.
+on subsequent specification work, interview mode and stopping reason when used.
 An earlier handoff is reusable only insofar as its content is current and
 accessible; a later conversation needs this handoff explicitly or an accessible
 confirmed document. The owner of subsequent specification work decides
