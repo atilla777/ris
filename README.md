@@ -72,6 +72,9 @@ their own revision-bound evidence; this inventory does not establish those outco
 
 ## Commands and installation
 
+**Start here: [Getting started](docs/getting-started.md)** — installation, a first
+portable operation, and the conditional prerequisites for project work.
+
 [`commands/opencode/`](commands/opencode/) is the canonical source of all
 39 thin command templates (37 op and 2 flow). The inventory above is also the
 complete command inventory: each `same name` row exposes `/` followed by its
