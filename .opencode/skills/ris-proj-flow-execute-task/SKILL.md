@@ -207,9 +207,15 @@ or changed facts before deciding the next operation.
    delegate `ris-proj-op-complete-container` for **all** feature AC, integrated revision,
    verification persistence/read-back and separate closure. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
-8. Delegate **separate** selected-adapter tracker publication with authorization
-   for the entire outgoing history, final inspected immutable snapshot ref and
-   independent selected-remote read-back. Git push and local closure do not prove
+8. Delegate **separate** selected-adapter tracker publication. For prior/ambiguous
+   publication pass exact requested/recovered snapshot S, inspectable receipt/ref
+   and expected records/typed links. Have the adapter confirm S independently
+   AS OF S before incoming-only/divergence and new-write gates; a newer remote
+   does not block confirmation-only recovery or require a repeated push, closure,
+   merge, working-branch update or write window. Unknown S/read failure remains
+   unverified. A proven unsent snapshot still needs authorization for the entire
+   outgoing history, final inspected immutable snapshot ref and independent selected-remote
+   read-back under the adapter's method. Git push and local closure do not prove
    tracker publication. Keep all three channel facts separate.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or
