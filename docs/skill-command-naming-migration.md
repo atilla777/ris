@@ -2,7 +2,9 @@
 
 The current command interface is the [compact-commands v1 map](specs/compact-commands/spec.md):
 18 explicit slash entries, 14 `risp-` project contracts and four `risb-` portable
-contracts. All 43 technical skill identities/resources remain. No aliases or
+contracts. All 43 baseline technical skill identities/resources remain; the
+additional `ris-proj-op-register-bug` is directly loadable without a new command.
+See the current inventory in the [catalog](skills.md). No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
 Verification and remote publication require separate revision-bound evidence;

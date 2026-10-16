@@ -2,7 +2,8 @@
 name: ris-proj-adapter-beads-tasks
 description: >-
   Serve the tasks v1 and optional feature-record/1 adapter roles and verify
-  bounded Beads operations via bd: read/list epics and tasks, create/update by
+  bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
+  read/list/create/update, create/update by
   confirmed ID, manage links, claim, conditionally update feature evidence,
   explicitly close, and separately publish authorized Dolt history. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
@@ -86,6 +87,15 @@ Report each requested capability and its actual predicate-specific guarantees;
 missing required support blocks that write. Ordinary reads and claim retain the
 main contract. An absent or invalid feature payload never selects standalone.
 
+Also advertise **ordinary native bug read/list/create/update**, independently of
+`tasks.items.*` and feature-record/1. Read `references/standalone.md` for this
+bounded capability before use. Exact reads require the caller's expected type;
+bug lists cover every status without a limit. Creation preserves an unconfirmed
+message with stable retry identity; supplementation uses native append preserving
+foreign content. This addition does not advertise bug claim, close, children or
+feature operations. Legacy ordinary task originals retain their type and use
+only explicitly authorized ordinary task updates.
+
 ## Optional feature-record capability
 
 Separately advertise `tasks.feature-record/1` with `tasks.features.read`,
@@ -107,7 +117,7 @@ adapter checks and persists only the specifically authorized result.
 Require the chosen project/workspace, exact operation, record IDs for existing
 records, desired fields or edge direction, actor for a claim, allowed write
 scope, and expected outcome. For creation require the caller's approved type
-(`epic` or `task`), title/content and a distinguishing stable reference or
+(`epic` or `task`, or `bug` for the advertised ordinary capability), title/content and a distinguishing stable reference or
 other agreed identity evidence for safe retry; for completion require the
 caller's explicit confirmation of full mandatory scope and reason. Never guess
 an ID from a title. Check `bd version` for the supported 1.3.1 behavior and
@@ -125,6 +135,8 @@ needs explicit authorization even if the CLI accepts it.
 ## Read and reconcile
 
 - `bd show <id> --json` returns an array; require exactly one matching ID.
+  For ordinary typed reads also require the caller's expected `issue_type`;
+  registration creation/read-back expects `bug`, never a feature-task substitute.
   It includes `status`, `issue_type`, `parent` when present, dependencies and
   sometimes `revision`. An output revision is usable as CAS only when the
   installed command/backend explicitly supports that token and its scope.
@@ -136,6 +148,7 @@ needs explicit authorization even if the CLI accepts it.
   explicit direction. Do not confuse these with native Dolt table columns
   or silently treat an unknown edge shape as an empty set.
 - `bd list --all --limit 0 --type epic --json` and likewise `--type task`
+  or ordinary `--type bug`
   provide untruncated sets including closed records. `bd list` defaults to
   50 and excludes closed; `--status all` is not its all-status flag. Apply
   caller filters only when they preserve required coverage; validate type,

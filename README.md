@@ -50,7 +50,7 @@ discovers the updated skills and commands.
 ## Start using RIS
 
 The compact menu has 18 explicit entries: `risp-` selects a project contract,
-`risb-` a portable contract. All 43 skills remain available; operations without
+`risb-` a portable contract. All 44 skills are available; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -66,6 +66,11 @@ Replace angle-bracket placeholders with your inputs. Skills clarify missing
 information and required permissions. Project-integrated work checks its own
 prerequisites; installing the package does not initialize a project or tracker.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
+
+To record a bug before investigation, ask the agent to load
+`ris-proj-op-register-bug` for the selected project and message, with permission
+to record it. It checks duplicates, saves or supplements the report, returns a
+verified ID and stops. Investigation and fixing are separate requests.
 
 For a first portable operation and the conditional prerequisites for project work,
 follow [Getting started](docs/getting-started.md).

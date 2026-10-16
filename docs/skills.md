@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, two workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 43 skills are listed below, independently of the compact 18-command menu.
+All 44 skills are listed below, independently of the compact 18-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -61,6 +61,7 @@ Ask the agent to load the exact skill with its skill tool and supply the inputs:
 
 ```text
 Load ris-proj-op-author-skill and improve the RIS-integrated skill at <source folder> within <accepted scope>; do not install it.
+Load ris-proj-op-register-bug for <project>: <message and available context>; record this unconfirmed report and return its ID without investigation.
 Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
 Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
 Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <selected files>.
@@ -98,6 +99,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | --- | --- |
 | [ris-proj-op-author-skill](../skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring |
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
+| [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
 | [ris-proj-op-plan-roadmap](../skills/ris-proj-op-plan-roadmap/SKILL.md) | Project roadmap and authorized tracker persistence |
 | [ris-proj-op-refine-epic](../skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome and boundaries |
 | [ris-proj-op-select-feature](../skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation |
@@ -125,7 +127,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-lib-common](../skills/ris-proj-lib-common/SKILL.md) | Shared conditional dialogue, artifact and quality rules |
-| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks and separately authorized Dolt operations |
+| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug read/list/create/update and separately authorized Dolt operations |
 | [ris-port-adapter-git-worktrees](../skills/ris-port-adapter-git-worktrees/SKILL.md) | Git worktrees/1 operations |
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
@@ -136,6 +138,10 @@ context, rules, paths and persistence. The RIS skill author composes the portabl
 author; neither installs its output without separate authorization.
 
 Feature preparation ends at the published feature ID; decomposition is separate.
+Bug registration preserves a message before investigation, checks all-status
+duplicates and stops at a verified ID. It does not confirm a defect or start
+investigation/fixing; those are separately requested results. No bug slash command
+is added to the compact menu.
 Requirements and design have separate acceptance. Task execution preserves an
 explicit target; without an ID it reconciles confirmed own unfinished work before
 ready-task selection. The continuation operation recommends a next step read-only.
