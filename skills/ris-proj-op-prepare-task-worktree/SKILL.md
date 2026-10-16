@@ -103,7 +103,8 @@ append an identified observation and verify read-back. Check safe write scope an
 concurrency before writing; on a conflict return the handoff unsaved. The witness
 is local evidence, not an authoritative mutable registry or mandatory remote input.
 
-For a partial result enumerate actual claim, branch/copy, fetched refs and completed
+For incomplete execution return the cause's `blocked|conflict|error` and enumerate
+actual claim, branch/copy, fetched refs and completed
 setup actions, failed/missing context or evidence, and exact safe continuation.
 Retain effects: no implicit claim release, rollback, removal or blind recreation.
 Retry rereads task, copy and setup before further effects. Stop at the checked

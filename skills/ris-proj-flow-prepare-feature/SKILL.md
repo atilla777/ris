@@ -206,7 +206,9 @@ confirmed epic/feature ID and slug, published requirements/design and separate
 decision addresses, Git revision/ref and tracker snapshot/read-back evidence,
 component result addresses, actual effects, limitations and decisions needed.
 `ok` requires both reviewed, independently accepted published document results
-and a remotely verified feature record. For partial completion give each channel's
-actual state and exact recovery. A new session can consume the ID and published
+and a remotely verified feature record. For incomplete execution use the stopping
+cause's `blocked|conflict|error`, giving each channel's actual state, cause and exact
+recovery; a bounded component's `ok` does not make the whole scenario `ok`.
+A new session can consume the ID and published
 addresses without local notes or this chat. Stop without decomposition, claim,
 technical planning, implementation or closure.

@@ -103,7 +103,9 @@ Unavailable required resources block dependent work, not independent inspection.
    fresh style audit. Repair is not approval: reassess affected bytes, independently
    when project/caller rules require it. No round limit approves unresolved blockers.
 
-Return `checked|partial|blocked` with mode, scope, input/design/contract versions,
+Return `ok|blocked|conflict|error` for the bounded operation, with checked evidence
+as a separate fact, preserved effects, stopping cause and exact remainder; include
+mode, scope, input/design/contract versions,
 files and final snapshot identity, criterion-to-check results, TDD evidence when
 required, repair mapping, unrun checks and revision needs. Do not call the change
 independently approved.

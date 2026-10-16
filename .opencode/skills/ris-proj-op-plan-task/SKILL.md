@@ -25,7 +25,8 @@ requirements, governing accepted design scope/version/decision and relevant
 contracts/test seams. Preserve `slug#AC-nnn` references where supplied. A
 standalone task needs its accepted technical constraints, not an artificial
 feature record. Check inspected current code and related contract integration;
-stale or unavailable material inputs produce a partial/blocked plan, not readiness.
+stale or unavailable material inputs require a causal non-`ok` status and a
+supported incomplete plan with exact gaps/remainder, not readiness.
 
 Discover exact linked accepted versions and separate decisions from this ID and
 read them before requesting unavailable inputs. A structural parent alone does
@@ -62,7 +63,7 @@ can be found by ID without this chat. A partial plan may be saved only when that
 partial artifact is authorized and clearly labeled. It is local working evidence,
 not a replacement tracker or remotely available requirement.
 
-Return status `ok|partial|blocked|conflict|error`, confirmed ID/project/primary root,
+Return status `ok|blocked|conflict|error`, confirmed ID/project/primary root,
 plan readiness and exact saved path (or unsaved proposal), input versions and
 decisions, criterion-to-check coverage, observed copy state, diagnostics
 and remaining decisions. Include primary association evidence, the checked

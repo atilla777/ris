@@ -43,6 +43,14 @@ environment rather than assuming the sender's layout.
 
 ## Recoverable operation result
 
+Use only `ok|blocked|conflict|error` for operation status: missing required input,
+permission, dependency, decision or check is `blocked`; contradictory state or
+concurrent change is `conflict`; technical execution failure is `error`. Partial
+coverage/effects are facts, never a fifth status. `ok` means the explicitly
+requested bounded operation succeeded and was checked. An expressly limited
+proposal/save can be `ok` with downstream work remaining; never silently narrow
+a full request to claim success or imply acceptance/publication from that `ok`.
+
 Every result, including read-only, no-ID, partial and interrupted work, must
 identify the actual outcome/subject and provide enough inspectable information
 for its consumer to recover what exists:
@@ -58,9 +66,12 @@ for its consumer to recover what exists:
   applicable channel (e.g. Git revision/ref/remote, local tracker write, exact
   completion, tracker publication/read-back). Mark unknown/unperformed effects
   honestly; one successful channel cannot prove another.
-- Actual preserved effects, limitations, unsaved parts and exact unfinished
-  remainder. On retry inspect real effects and current applicability before
-  repeating an action; a stale success marker is not proof.
+- Actual preserved effects and evidence, the factual stopping cause, limitations,
+  unsaved parts and exact unfinished operation/remainder, separately from status.
+  On retry inspect real effects and current applicability before repeating an
+  action; neither a status token nor a stale success marker is proof. Reuse known
+  IDs/commits/closure and verify uncertain remote effects before another write;
+  pending read-back does not require repeating a confirmed push or close.
 
 No universal schema, registry, draft store or mandatory next-skill prompt is
 introduced. A nested operation returns its result to its caller; transitions

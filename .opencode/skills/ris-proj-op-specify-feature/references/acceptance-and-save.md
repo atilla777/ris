@@ -61,7 +61,10 @@ For full mode preflight the existing Git publisher and, when records are part
 of the result, adapter publication before dependent writes: exact subject,
 destinations, authority, whole outgoing scope and required guarantees. Missing
 publication prerequisites block the full claim, while independently authorized
-local saving may proceed as partial. Never infer authority from nesting.
+local saving may proceed with preserved effects. Full mode returns the stopping
+cause's `blocked|conflict|error`, plus completed channels and exact remainder;
+only an expressly limited successful local save can be `ok` at that boundary.
+Never infer authority from nesting.
 
 Record-only reconciliation reads already published accepted content/decisions
 and the applicable independent review/Git receipt, skipping formulation, renewed
@@ -112,7 +115,8 @@ in this explicitly limited mode. Return its local record result and remainder.
    verified local effect with tracker publication explicitly remaining.
 
 On error/ambiguous write, inspect actual file and any attempted tracker effects
-before retry. Return known addresses/IDs/revisions, verified effects and exact
+before retry. Return `blocked|conflict|error` according to the actual stopping
+cause, known addresses/IDs/revisions, verified effects and exact
 recovery (publish checked content/decision, resolve immutable refs, then reconcile
 adapter create/update). Git and tracker publication are separate facts; neither
 local read-back nor one published channel means full remote success. Reuse

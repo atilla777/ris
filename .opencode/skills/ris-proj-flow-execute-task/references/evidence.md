@@ -37,7 +37,8 @@ Keep enough information for another session to inspect reality without this chat
   and source of its guarantee, persisted result, actual closure read-back; tracker
   remote/outgoing authorization, publication protection/ref, pushed snapshot and independent
   read-back. Do not record a local lock as protection against remote writers.
-- Confirmed partial effects, uncertainty, first remaining operation, exact
+- Operation status `ok|blocked|conflict|error`, factual stopping cause separately
+  from confirmed partial effects, uncertainty, first remaining operation, exact
   prerequisite/decision for it, and fresh next recommendation without a claim.
   Apply common recoverable-result/channel facts; a nested component returns to
   this caller without a mandatory next-skill assignment. Response-only or local

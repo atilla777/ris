@@ -42,7 +42,10 @@ Beads ID, shared task folder, alternate filename or output directory.
    zero exit alone. Release the short window before returning.
 
 Return the report (or its checked saved address with a useful summary), exact
-destination, preservation/read-back evidence and actual save/conflict/partial
-status. The exception permits only this report write; no Git staging/commit,
+destination, preservation/read-back evidence, saved/unsaved/unknown effects,
+stopping cause and exact remaining save/read-back operation. Return
+`ok|blocked|conflict|error` according to the requested boundary and actual cause;
+an unsaved checked report remains usable when required saving fails, but cannot
+make that full request `ok`. The exception permits only this report write; no Git staging/commit,
 tracker update, telemetry write, skill/rule edit or automatic next operation.
 Saving is neither publication nor acceptance. Stop after this result.

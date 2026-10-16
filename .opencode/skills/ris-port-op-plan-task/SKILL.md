@@ -40,7 +40,8 @@ contradictory, identify the exact missing decision and affected work. Ask a
 focused question when it can be resolved now. If code is unavailable, stale or
 insufficient for a concrete design, identify what needs fresh inspection and
 which choices and steps depend on it. Give only supported, independently useful
-planning as **partial**; do not claim a ready plan based on imagined files,
+planning with `blocked` for missing inputs or `conflict` for contradictory ones,
+preserving supported content, cause and exact remainder; do not claim a ready plan based on imagined files,
 interfaces or commands. Do not silently settle conflicting requirements or
 enlarge the task to accommodate a preferred implementation.
 
@@ -95,8 +96,9 @@ coverage. Explicitly distinguish facts, decisions, assumptions and open
 questions; include enough source substance or reachable references for an
 implementer without this chat. State **ready** only if the material scope and
 checks are traceable and the technical steps rely on sufficiently current code.
-Otherwise label the result **partial/blocked**, identify precisely what needs
+When not ready, identify the stopping cause and precisely what needs
 confirmation or inspection, and which steps cannot yet be executed reliably.
+Return operation status `ok|blocked|conflict|error` separately from readiness.
 
 Do not save or approve a project document, update tracker state, claim or
 create a worktree, change code, run an implementation, or start another skill.

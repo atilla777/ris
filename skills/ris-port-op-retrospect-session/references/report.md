@@ -4,7 +4,10 @@ Read before the final response. Use the user's language. Return all seven
 sections, explicitly empty where appropriate; do not manufacture findings.
 
 1. **Summary.** Main evidenced improvements or explicit absence of justified
-   findings. State partial/intermediate status prominently when coverage is partial.
+   findings. State operation status `ok|blocked|conflict|error` separately from
+   partial/intermediate coverage. Preserve completed analysis, stopping cause
+   and exact remainder; `ok` is only for the requested bounded report, never proof
+   of complete history, publication or acceptance.
 2. **Scope and coverage.** Selected session/project if known, snapshot/cutoff,
    stopping status, proven participants and links, sources/versions, overviewed
    ranges/continuations and inaccessible/unseen/pruned regions. Distinguish late

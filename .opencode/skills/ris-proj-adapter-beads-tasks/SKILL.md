@@ -303,7 +303,9 @@ reads/command output, limitations, and a concrete next action. `ok` for a
 limited best-effort write must explicitly state the missing concurrency
 guarantee; if the caller requires that guarantee, it is a `conflict`, not `ok`.
 On any partial/multi-step failure re-read every affected ID, report what was
-persisted and stop before further writes. Never delete tracker entries as a
+persisted, the actual stopping cause and exact remaining operation, using that
+cause's `blocked|conflict|error`. Reuse confirmed IDs/closure; reconcile ambiguous
+effects before repetition and stop before further writes. Never delete tracker entries as a
 roadmap update, close parents automatically, choose the next work, or start
 another lifecycle stage. `bd init` is a rare separate operation: read
 `references/init.md` from this installed skill folder **only when explicitly

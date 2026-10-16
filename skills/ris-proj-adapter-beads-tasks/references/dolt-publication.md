@@ -249,7 +249,9 @@ reads are unsupported, fail `blocked`; do not improvise a diagnostic bypass.
 Compare snapshot content, refs/decisions, type, status and typed links with the
 verified requested result. No command success, local read-back, Git SHA or
 same-copy pull establishes independent Dolt publication. If push succeeded but
-clone/read-back failed, report `blocked` with the known pushed snapshot and
+clone/read-back failed, report the actual cause (`error` for technical read failure,
+`blocked` for unavailable required capability/access, `conflict` for contradictory
+evidence) with the known pushed snapshot and
 concrete recovery: independently read that snapshot, without blindly pushing
 or recreating IDs again. Return `ok` only with independent snapshot evidence,
 remote/branch, confirmed IDs, effects, evidence address and limitations. This

@@ -83,7 +83,9 @@ the dependent action, not independently authorized work.
 For full mode preflight the existing Git publisher and applicable adapter
 publication before dependent writes, with exact subject/destination, authority,
 whole outgoing scope and actual guarantees. Missing prerequisites block full
-success; independently authorized local saving may remain partial.
+success; independently authorized local saving preserves useful effects. Full
+mode returns `blocked|conflict|error` from the stopping cause with exact remaining
+channels; an expressly limited successful local save may be `ok` only for its boundary.
 
 An explicitly limited record-only call reads published accepted content/decisions
 and the applicable independent review/Git receipt, skips formulation, renewed
@@ -151,8 +153,9 @@ acceptance and file saving, then enters step 5. It performs no second push.
 
 On ambiguous, nonzero or partial file/tracker effects, inspect actual state
 before any retry and return confirmed paths/IDs/revisions, decisions, effects,
-limitations and exact recovery. A saved new design with old record is partial
-in combined mode. Recover by checking/publishing accepted content and decision,
+limitations, actual stopping cause and exact recovery. A saved new design with
+old record requires the cause's `blocked|conflict|error` in combined mode.
+Recover by checking/publishing accepted content and decision,
 resolving immutable refs, then reconciling the protected adapter update; do not
 rollback, blind-retry or repeat unchanged acceptance. Git and tracker remote
 publication are separate effects executed by their existing owners; local read-back

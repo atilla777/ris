@@ -46,7 +46,8 @@ Check that the specification actually states the behavior and observable
 results needed to bound the work. If the feature identity, scope or material
 criterion is missing or contradictory, identify precisely which tasks and
 coverage claims it blocks. Ask a focused clarification if the user can resolve
-it now; otherwise return independently supported parts as **partial**, not a
+it now; otherwise return independently supported parts with `blocked` for missing
+inputs or `conflict` for contradictory inputs, cause and exact remainder, not a
 complete task set. Do not choose among disputed requirements or turn an open
 decision into a default. A nonblocking open question may remain open when its
 effect and boundary are explicit; do not pre-plan it as accepted scope.

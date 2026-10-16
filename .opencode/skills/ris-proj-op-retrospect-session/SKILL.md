@@ -122,4 +122,6 @@ Reader redaction and OpenCode sanitize are not universal secret detectors; avoid
 quoting sensitive error/default/file content. These behavioral limits do not
 claim OS sandboxing. Return the checked bounded report in the response; only the
 explicit save branch may also persist that report, preserving history and checking
-read-back. Report actual save/conflict/partial effects and stop.
+read-back. Report `ok|blocked|conflict|error`, actual saved/unsaved/unknown effects,
+stopping cause and exact remainder; required save failure preserves the report
+without making the full request `ok`. Stop.

@@ -10,8 +10,25 @@ content but give unknown request metrics. No dependency install is needed.
 Resolve `scripts/opencode_read.py` from the folder containing this resource's
 parent `SKILL.md`. Run `python3 -B <installed-reader> <operation> --project <root>`.
 Operations: `list`, `overview`, `pages`, `detail`, `metrics`. Output is JSON;
-`status: error` exits 2, `partial` returns useful evidence plus gaps, `ok` describes
-only the returned mechanics, not completed analysis or acceptance.
+operation status is `ok|blocked|conflict|error`, never `partial`. Fatal source/
+parser errors emit secret-safe `error` and exit 2. A usable root with failed
+required acquisition returns its payload, `gaps`, stopping `cause` and exact
+`remaining` work at exit 0: inspect status and evidence, not exit alone. Technical
+acquisition failure is `error`, missing source/capacity is `blocked`, contradictory
+participant identity/links is `conflict` (conflict takes precedence over error,
+then blocked if several causes coexist). No raw exception/stderr is included.
+Child identity and explicit version-binding contradictions use the reader's
+typed source conflict, including project ID, message session and part identity;
+their fixed secret-safe reason is preserved for CLI/GET and supplied child exports.
+Known measurement/version/cutoff/redaction limitations and unavailable optional
+children enumeration alone do not fail a bounded read: retain their gaps and
+coverage limits. `ok` describes only the returned mechanics, not complete history,
+completed analysis or acceptance; metrics quality remains independently qualified.
+In particular, `children-GET-unavailable` remains a coverage gap, not a stopping
+cause. Reading a known child from task links or successful enumeration is a
+required acquisition: its failure still contributes the actual causal non-`ok`.
+Contradictory enumerated parent identity is instead a `children-GET-conflict`
+cause; optional availability never makes a known identity contradiction successful.
 
 Every raw JSON boundary (export, GET, list and continuation) rejects duplicate
 object keys before normalization, including conflicting identity/usage fields.
@@ -42,7 +59,8 @@ captured then; an export obtained later does not qualify.
 With no supplied export, `--session <exact-ID> --allow-cli` permits fixed
 `opencode --pure --version` and `opencode --pure export <ID>`, cwd=selected project,
 shell=False. `list --allow-cli` runs `opencode --pure session list --format json
---max-count 5` and returns selection-required, never a selected session. CLI
+--max-count 5` and returns bounded `ok` with `selected: null` and remaining exact
+session selection, never a selected session or analysis readiness. CLI
 permission is supplied by the retrospective request unless the caller or project
 restricts CLI use. Pass `--allow-cli` for these fixed reads; it acknowledges
 permission, not independently verified initialized storage or a fitness witness.
