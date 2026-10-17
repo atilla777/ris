@@ -29,8 +29,14 @@ change subject contracts. The old 41-skill/37-command and eight-command maps bel
 are historical, not current command instructions. Later W2/U3 skills retain their
 technical names, with compact commands as listed here.
 The 39-row migration below still maps the exact old baseline; the fast entry is
-an addition, not a renamed legacy command. Its local B candidate still needs
-complete installation/delivery checks, independent review and verified publication.
+an addition, not a renamed legacy command. The integrated A+B package was
+published at [8ca6c4a](https://github.com/atilla777/ris/commit/8ca6c4ad252cadb32f0718f826c73609a51e74e5)
+after complete source/install parity checks, affected deterministic delivery checks
+and independent integrated review-2 without findings. The revision-bound result is
+recorded in Beads `ris-1wa.1.2`, note `ris-1wa.1.2-completion-20261017-v1`;
+later revisions need an evidence-applicability check. This establishes package and
+instruction readiness, not live agent behavior or measured speed, and does not
+replace the separate feature acceptance and closure of `ris-1wa.1`.
 See the [skill catalog](skills.md) for the current inventory and
 [development guide](development.md#architecture-plans-and-delivery-records)
 for delivery records and their evidence limits; these additions do not repin

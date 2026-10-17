@@ -25,7 +25,7 @@ type: Architecture
 | Компактный обзор плана (plan-status D1) | В task copy ris-oqv подготовлены `ris-proj-op-show-plan` и тонкая `/risp-status`: полный project/ID-subtree обзор всех рабочих типов, реальные parent/blocks, прямой closed/all счётчик и выбор одного кандидата. Common/context/selected adapter обеспечивают общие правила, настройки и чтения; Beads `references/plan-overview.md` — условный read-only ресурс всех типов/скрытых категорий, отдельно от task-only tasks v1. Для точного кандидата применяется существующий `ris-proj-op-suggest-continuation` и проверяется установленная команда. Ноль writes/claim/launch; рекомендация не authority/readiness. Справка подготовлена в той же ветке; независимое ревью, main-интеграция, публикация и реальная установка требуют отдельных свидетельств соответствующего snapshot. |
 | Потребители копии | `ris-proj-op-plan-task` и `ris-proj-op-implement-task-tdd` проверяют пригодность переданной копии без создания worktree и без зависимости на preparation skills/адаптеры worktree. Планирование не требует claim; реализация проверяет/получает разрешённый claim перед изменениями. Конкретные команды и инструментальные особенности операций worktree принадлежат выбранному адаптеру. |
 | Реализация и TDD | `ris-port-op-implement-change` владеет обычной реализацией и опциональным TDD; TDD-цикл и сложный publication snapshot — условные `references/` базы. `ris-proj-op-implement-task-tdd` требует TDD и владеет совокупным claim-aware code/tests/docs результатом; default отчёт `workspace.tasks/<ID>/implementation.md`. Протокол feature record остаётся у адаптера задач, применимость входов — у обёртки. |
-| Простая порученная задача (B) | В task copy `ris-1wa.1.2` подготовлены исходник `ris-proj-flow-execute-simple-task` с условными tracker/worktree/recovery-ресурсами и тонкая `/risp-run-simple-task`. Flow владеет достаточностью/переходами; основной агент применяет существующих владельцев реализации/docs/публикатора/трекера, отдельный `task-review` фактически ревьюит независимо. Fast-only исключение из обязательных файлов plan/log/review — в development; краткий Beads в RIS и собственная ветка обязательны, worktree условен. Полный flow/direct plan-task/TDD не изменены. Это локальный кандидат на базе `caf340c1fbdcf2b19dadba80c5d46a8bcb00703c`, не подтверждение parity, independent integrated review или main-публикации. |
+| Простая порученная задача (B) | Интегрированы source/install `ris-proj-flow-execute-simple-task` с условными tracker/worktree/recovery-ресурсами и тонкая `/risp-run-simple-task`; поставка A+B опубликована в [8ca6c4a](https://github.com/atilla777/ris/commit/8ca6c4ad252cadb32f0718f826c73609a51e74e5). Flow владеет достаточностью/переходами; основной агент применяет существующих владельцев реализации/docs/публикатора/трекера, отдельный `task-review` фактически ревьюит независимо. Fast-only исключение из обязательных файлов plan/log/review — в development; краткий Beads в RIS и собственная ветка обязательны, worktree условен. Полный flow/direct plan-task/TDD сохраняют свои отдельные контракты. Проверки поставки и независимое ревью относятся к указанной версии; это не свидетельство live-поведения или измеренного ускорения. Общая приёмка фичи и её закрытие — отдельные операции Beads. |
 | Ретроспектива предоставленной истории | Интегрированы source/install `ris-port-op-retrospect-session`: переносимые overview/эпизоды/причины, метрики по объявленной семантике и read-only отчёт; собственные `references/analysis.md`, условный `metrics.md`, `report.md`. Сбор OpenCode, RIS-интеграция и сохранение отчёта не входят в базу. |
 | Локальная RIS-ретроспектива | На опубликованном T2 source/install кандидат T3 `ris-01r.2.3` локально интегрирован в task copy, ожидает итоговой независимой переоценки и публикации: `ris-retrospect-session` применяет common/context/базу и targeted evidence; owned OpenCode resource/stdlib reader сохраняют identity/tree/coverage/metrics. Условные wrapper-owned LF/delegation/save-report ресурсы сохраняют прежние границы; нового adapter/SDK/config/роли/state owner нет. Изолированный положительный v2 scoped CLI oracle прошёл только в initialized disposable T3 store OpenCode 1.18.33: protected content/schema сохранены, служебные эффекты классифицированы. Это не real/other-store fitness и не автоматическое распознавание invalid fitness; negatives проверяли withheld caller permission. S1 дал полезный local/no-save отчёт с обычной загрузкой. S2 частичен: supplied LF reasoning полезен, invalid part IDs оснастки и запрет identity inspection блокировали acquisition/save. Реальный ребёнок S3 завершился, parent timeout наступил до validated merge/report/save. New/append/conflict save, full leader validation, live LF, повторяемость и отдельные final-skill CLI cases непроверены. Превышение общего поведенческого бюджета (не менее15m24s при15min) сохранено; последний запрос пользователя исключает дальнейшие agent tests, поведенческие оценки, harness/code tests. Task copy объединяет текущие capability updates и remote rules; primary fast-forward отклонён из-за чужой dirty rules правки, push не выполнен. Итоговое полное дерево ожидает независимой переоценки; универсальная runtime safety и combined acceptance не установлены. |
 | Локальные рабочие данные | `.sdlc/tasks/<confirmed-ID>/` основной копии; отдельные рабочие деревья — `.sdlc/worktrees/<confirmed-ID>/`. Старые `tasks/PLAN-*` — игнорируемый исторический архив. |
@@ -39,18 +39,22 @@ Namespace этой редакции поставляется согласова�
 адресно заменяющая командные правила v1/D1/N1; source-меню ris-oqv расширено
 `/risp-status` по [plan-status D1, §8](../../specs/plan-status/design.md#8-поставка-и-совместимость),
 актуальная карта — в [каталоге](../../skills.md#current-compact-command-menu).
-В B copy добавлена `/risp-run-simple-task` по [поправке fast D2](../../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
-Совместный локальный кандидат объединяет B `3e3d21d` с upstream `fbd0b56`:
-49 скилов, четыре flow, 20 команд (16 project + 4 portable). Source/install этого
-комплекта синхронизируются и проверяются целиком в B copy; старые свидетельства
-ниже сами по себе не покрывают новые входы. Независимая переоценка полного
-совместного snapshot и его публикация ещё требуются. Прежние snapshots и URL
-не переписываются.
-Source/install синхронизированы в task copy ris-2j6; локальная интеграция выполнена.
-Полный комплект проверяется по путям, байтам, типам и режимам; публикация подтверждается отдельными свидетельствами соответствующей ревизии.
-Локальное объединение выполнено; независимая переоценка итогового снимка и main-публикация подтверждаются
-отдельными свидетельствами соответствующей ревизии; локальная интеграция
-не является подтверждением Git push. Строка «Локальная RIS-ретроспектива» выше
+В опубликованной поставке A+B добавлена `/risp-run-simple-task` по [поправке fast D2](../../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
+Совместный комплект [8ca6c4a](https://github.com/atilla777/ris/commit/8ca6c4ad252cadb32f0718f826c73609a51e74e5)
+содержит 49 скилов, четыре flow, 20 команд (16 project + 4 portable).
+Для полного дерева `98b76b4b68231990cd9b58648dfbdc18ea6d64a8` проверены
+source/install по путям, байтам, типам и режимам, затронутые статические и обычные
+CLI-проверки доставки; независимое review-2 `ses_eb6cfe843ffefoLX1H9GnMaUwl`
+завершено без замечаний. Версионный итог доступен в Beads `ris-1wa.1.2`,
+заметка `ris-1wa.1.2-completion-20261017-v1`. Это проверка инструкций и пакета,
+не live-поведения, macOS/hosted CI этой версии или ускорения; общая приёмка
+`ris-1wa.1` не следует автоматически из завершения B. Позднейшие изменения
+требуют проверки применимости этих свидетельств.
+
+Прежние локальные snapshots B `3e3d21d`/upstream `fbd0b56` и ris-2j6
+сохраняются как история подготовки, а не текущий статус ожидания публикации A+B.
+Их URL и отдельные решения не переписываются. Локальная интеграция сама по себе
+не подтверждает Git push. Строка «Локальная RIS-ретроспектива» выше
 сохраняет исторический отчёт T3 и его имена/ограничения; текущий owner —
 `ris-proj-op-retrospect-session`, не новое принятие T3.
 
