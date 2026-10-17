@@ -84,7 +84,9 @@ that document result. The persistence resource carries this subject distinction
 through both owners without waiving their independent whole-tree checks.
 
 In the feature combined branch load the selected available adapter and check `tasks` v1 reads
-for exact task, epic, all-status tasks, children and directed blockers; additionally require
+for exact task, epic, children and directed blockers; use complete all-status task
+selection only when related-design discovery or identity reconciliation needs it,
+not merely because the feature ID is known. Additionally require
 `tasks.feature-record/1` with `tasks.features.read` and, for a saved combined
 result, `tasks.features.update`. Check each operation's guarantees before any
 dependent write. Read exact ID/type/parent and its identity block: slug, spec

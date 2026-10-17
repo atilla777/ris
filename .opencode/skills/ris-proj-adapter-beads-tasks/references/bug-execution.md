@@ -21,9 +21,10 @@ and stored effects. Never convert the bug, add an artificial parent/feature reco
 or enter feature-only task APIs. Registration and investigation retain their own
 conditional resources; investigation disposition is not execution completion.
 
-- Exact `bd show <bug-id> --json` requires one matching native bug. Retrieve full
+- Exact `bd show <bug-id> --brief-deps --json` requires one matching native bug.
+  Main compact identity reads can precede it but cannot replace the full inputs. Retrieve full
   notes, current report/criteria, decisions, assignee/status and linked sources.
-- `bd list --parent <bug-id> --all --limit 0 --json` covers all direct children;
+- `bd list --parent <bug-id> --all --limit 0 --brief --json` covers all direct children;
   inspect relevant descendants for mandatory-scope completion. Validate actual
   parent/type/identity; unexpected children require caller reconciliation, not
   implicit execution of a container or creation of stage children.

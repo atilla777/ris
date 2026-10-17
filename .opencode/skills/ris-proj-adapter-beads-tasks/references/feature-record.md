@@ -98,7 +98,8 @@ history. Recording failed checks is allowed; it does not permit closure.
 
 ## Reads, historical data and creation
 
-Read exactly one matching `task` via `bd show <id> --json`. Confirm selected
+Read exactly one matching `task` via `bd show <id> --brief-deps --json`; the
+description must be complete, not the brief inventory's omitted field. Confirm selected
 epic parent, stable key, spec link and marker cardinality. Return actual data
 and which references/content/decisions were checked; unverified references
 must be labeled. Duplicate/malformed blocks are `conflict`.
@@ -119,7 +120,11 @@ the historical record intact.
 For initial create, validate the approved block and published requirements
 (and design if supplied), then apply main-skill v1 create checks. Search the
 complete **all-state project task set**, not only the selected parent:
-`bd list --all --limit 0 --type task --json`. Compare stable key **and**
+`bd list --all --limit 0 --type task --brief --json`, then disclose all content
+needed under the main read policy. Slug and historical blocks live in description:
+read every relevant task's description unless a proven coverage-preserving native
+filter establishes that predicate. Key/spec-only candidates cannot exclude a
+slug collision elsewhere. Full list JSON remains a fallback. Compare stable key **and**
 slug/spec association: collect candidates matching any of key, slug or
 specification path/link, including historical blocks. A match on just one
 dimension is not absence. Require one exact match on key, type, epic, slug,

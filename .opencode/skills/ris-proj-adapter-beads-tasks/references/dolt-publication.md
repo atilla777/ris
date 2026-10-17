@@ -37,6 +37,12 @@ gates only if a new mutation/publication remains:
    A no-op preflight does not authorize later unknown changes.
 
 Run native commands with their working directory set to the confirmed database.
+Use `dolt fetch --silent` and `dolt push --silent` to suppress routine progress
+only. Preserve stderr, exit status and the final verified snapshot/result receipt;
+silence is not success. Do not discard errors, mask failures with a pipeline or
+require a new log file. Full-history/content inspection and independent AS OF S
+read-back below remain mandatory; do not apply compact live-record projections
+to the historical audit or omit any required content.
 Use a separate independent clone of the selected remote for remote evidence.
 Fetching changes tracking refs locally but neither merges nor publishes data.
 Do not run pull, merge, reset or commit as a hidden part of this operation.
@@ -83,7 +89,7 @@ and clean snapshot candidate. Genuine divergence still stops this new push.
 
 ### Audit an unsent snapshot
 
-1. `dolt fetch <remote>`; `dolt branch -av` identifies full local head `L` and
+1. `dolt fetch --silent <remote>`; `dolt branch -av` identifies full local head `L` and
    fetched `remotes/<remote>/main` head `R`. Confirm the selected address and
    branch, not just an ambient `origin`. Pin the observed hashes for checks.
    After every refetch, repeat confirmation-first reachability against this R;
@@ -187,7 +193,7 @@ inspection is not a live concurrency-test claim.
 4. Send only the reserved ref to the confirmed branch:
 
    ```sh
-   dolt push <confirmed-remote> <private-ref>:main
+   dolt push --silent <confirmed-remote> <private-ref>:main
    ```
 
    Never use `--all`, force, deletion refspecs or the moving `main` as source.
@@ -214,7 +220,7 @@ published, report verified no-op instead of manufacturing another push.
 
 Use `dolt clone --branch main <confirmed-address> <new-directory>` in an
 authorized scratch location (check the parent first), or an already independent
-clone with its address verified and `dolt fetch <its-confirmed-remote>`. No
+clone with its address verified and `dolt fetch --silent <its-confirmed-remote>`. No
 shallow clone. A local Dolt **working repository path** is not necessarily a
 file remote: `file://<working-repo>` can fail with "contains no Dolt data".
 That failure is a blocker, not successful remote verification.

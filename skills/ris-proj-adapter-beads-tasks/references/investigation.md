@@ -99,7 +99,7 @@ fix cannot enter this branch. It does not assert fix AC completion or require
 publication of a fictitious fix. Main task/feature completion retains its own
 scope, acceptance and real publication evidence requirements.
 
-Freshly inspect `bd list --parent <bug-id> --all --limit 0 --json` and relevant
+Freshly inspect `bd list --parent <bug-id> --all --limit 0 --brief --json` and relevant
 descendants, plus `bd dep list <bug-id> --type blocks --direction=down --json`.
 Validate IDs/types/parent and normalize blocked → blocker. Failed/truncated reads
 are not empty sets. Reconcile caller's complete expected composition, evidence
