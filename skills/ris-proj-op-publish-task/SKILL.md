@@ -85,6 +85,13 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
 
 ## Integrate, reassess, publish
 
+Use native `git fetch --quiet` and `git push --quiet` for routine network
+progress, with the explicit selected remote/refspec required below. Keep stderr,
+command exit status and the verified result/receipt available; do not redirect
+errors away, mask failure with a pipeline or infer publication from silence.
+No new log file is required. Quiet output does not replace outgoing-history
+inspection, independent review or remote read-back.
+
 1. Confirm the subject's own task branch and working copy as the publication
    workspace (for pre-ID documents, its own authorized document branch/copy).
    Never switch, checkout, reset or mutate shared local primary/main to publish.

@@ -16,6 +16,29 @@ branch there; shared local `main` is not a publication workspace. Ordinary track
 work uses fresh checks, targeted native writes and read-back, without manual
 writer windows or mandatory global locks. See the rules for exact guarantees.
 
+For routine Beads inventories use the adapter's native compact forms, for example
+`bd list --all --limit 0 --type task --brief --json` (or `--type epic`). For a
+known ID use `bd list --id <id> --all --limit 0 --brief --json`, checking exact
+cardinality and actual type; no global queue reread is needed just for that ID.
+Children use `list --parent <id> --all --limit 0 --brief --json`; directed blockers
+use `dep list <id> --type blocks --direction=down --json`. Counts do not replace
+edges. Missing parent/spec fields need bounded exact/edge reads. Disclose necessary
+content with `bd show <id> --brief-deps --json`: this keeps the full own record,
+not a single-field projection. Omitted brief fields are not empty. Absence/dedup
+still needs complete all-status/unlimited coverage and every field needed for
+key/slug/spec/content predicates, including historical descriptions when relevant.
+Errors, `no value`, malformed or truncated output cannot prove absence. Full
+native JSON remains a fallback; do not use the failing Go-template projections.
+
+Git publication uses native fetch/push `--quiet`; Dolt publication uses
+fetch/push `--silent` for progress. Preserve stderr, exit status and verified
+results without a mandatory new log. Git whole-outgoing-history checks, exact
+reviewed-tree publication and independent remote read-back remain required. Dolt
+uses authorized shared-main scope, ordinary non-force publication and fresh remote
+revision/reachability assurance, with local exact-content checks kept separate.
+See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
+[Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
+
 Ordinary instruction edits use reading, affected static checks and independent
 review. This repository prohibits new agent behavioral tests; absence of a live
 run does not block ordinary text work or require another run question. Static

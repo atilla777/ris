@@ -29,9 +29,8 @@ Implement the roadmap portion of the shared `tasks` version 1 contract:
 `tasks.epics.update`, `tasks.blocks.list`, `tasks.blocks.add`,
 `tasks.blocks.remove`. These names describe semantic operations, **not** CLI
 commands. Report this version, supported operations and guarantees to the
-caller before dependent writes. For all-status, unlimited epic selection use
-`bd list --all --limit 0 --type epic --json`; for an exact ID use `bd show
-<id> --json`; for typed directed edges use `bd dep list <id> --json`.
+caller before dependent writes. Use the compact native forms in **Read and
+reconcile** for complete epic inventories, exact IDs and typed directed edges.
 The caller owns the goal and membership identity, acceptable content, scope,
 and required guarantees. Return actual ID, issue type, status, content and
 applicable `blocks` edges with fresh-read evidence; an incomplete list cannot
@@ -60,12 +59,12 @@ work must check each before a dependent write. The common record type is
 `task` for the feature and its children; the feature's parent is an `epic`.
 Neither task status nor `bd`'s `feature` issue type substitutes for this type.
 
-For `items.list`, use `bd list --all --limit 0 --type task --json`, covering
-closed tasks and inspecting ID, type, parent, stable key, spec link and content;
+For `items.list`, use `bd list --all --limit 0 --type task --brief --json`, covering
+closed tasks and inspecting ID, type, parent, stable key, spec link and necessary content;
 do not rely on a default-limited or open-only search for absence. For
 `items.read`, require exactly one matching ID and `issue_type: task` from
-`bd show <id> --json`. For `children.list`, use `bd list --parent <feature-id>
---all --limit 0 --json`, check every child's `parent` and type; explicitly
+the exact-ID route below. For `children.list`, use `bd list --parent <feature-id>
+--all --limit 0 --brief --json`, check every child's `parent` and type; explicitly
   distinguish an empty complete set from an error. For `dependencies.list`,
   read `bd dep list <task-id> --type blocks --direction=down --json` for
   blockers, or `--direction=up` for tasks blocked by that ID; normalize each
@@ -155,7 +154,49 @@ needs explicit authorization even if the CLI accepts it.
 
 ## Read and reconcile
 
-- `bd show <id> --json` returns an array; require exactly one matching ID.
+Start with identity, then retrieve the content needed for the caller's decision.
+Completeness of the record set does not require every record's full text.
+When full own content is already required, use exact `show` directly rather than
+adding a redundant brief identity read.
+Checked native forms for `bd` 1.3.1 (all in the selected workspace):
+
+| Read | Native command | Required interpretation |
+| --- | --- | --- |
+| Complete epic/task inventory | `bd list --all --limit 0 --type epic --brief --json` (or `--type task`, ordinary `--type bug`) | All statuses including closed; validate each ID/type/scope. |
+| Exact identity | `bd list --id <id> --all --limit 0 --brief --json` | Require exactly one exact matching ID and actual expected type; do not hide wrong type with a type filter. |
+| Complete direct children | `bd list --parent <id> --all --limit 0 --brief --json` | Validate each actual parent/type; recurse when mandatory scope requires descendants. |
+| Directed blockers | `bd dep list <id> --type blocks --direction=down --json` | Down means queried blocked ID → blocker; up means queried blocker → blocked ID. Normalize blocked → blocker. |
+| Necessary record content | `bd show <id> --brief-deps --json` | Full own record, compact dependency bodies; read a related ID separately when its content is needed. |
+
+Brief JSON supplies `id`, `issue_type`, `status`, `title` and available identity/
+ordering fields such as assignee, priority, external_ref and timestamps. It omits
+free-form description/design/acceptance/notes/payload/waiters: omitted is **not
+empty**. Validate actual fields, not an assumed universal schema. Counts do not
+prove membership or directed edges. If parent/spec/edge fields needed by a
+predicate are missing, use bounded exact `show`/typed `dep list` reads; unknown
+shapes remain unverified, never empty. Full native JSON is a valid fallback.
+Native `dep list` can include full related bodies and has no checked compact-body
+flag; retain this bounded edge-read fallback instead of inventing a projection.
+Only request additional related content when the caller needs it.
+
+An exact known ID needs no global list unless the caller actually needs absence/
+duplicate evidence. For absence/dedup retain all-status/unlimited relevant sets
+across parents. Disclose every field needed by **each** identity predicate: key/
+spec fields can select candidates only for the predicates they establish; a slug,
+historical feature block or similar bug content may require description reads
+for every relevant record. An unproven filter cannot exclude those candidates.
+Read full accepted inputs, report/criteria, notes snapshots, preserved prose and
+decisions whenever readiness, replacement, reconciliation or evidence needs them.
+Do not replace required content with a title, count, hash or brief row.
+
+`--brief` is incompatible with `--format`; direct `.ID`/`.id` templates produced
+`no value` and are not this route. `show --short` lacks the typed structured
+contract; `show --brief-deps` is not single-field projection of the own record.
+Check exit status and full output: nonzero, malformed JSON, `no value`, truncation
+or an unknown shape cannot establish absence. Recover complete output through
+the host's saved-output facility or bounded reads; do not silently drop records.
+
+- `bd show <id> --brief-deps --json` returns an array; require exactly one matching ID.
   For ordinary typed reads also require the caller's expected `issue_type`;
   registration creation/read-back expects `bug`, never a feature-task substitute.
   It includes `status`, `issue_type`, `parent` when present, dependencies and
@@ -168,12 +209,12 @@ needs explicit authorization even if the CLI accepts it.
   `issue_id`, `depends_on_id`, `type`. Normalize using the queried endpoint and
   explicit direction. Do not confuse these with native Dolt table columns
   or silently treat an unknown edge shape as an empty set.
-- `bd list --all --limit 0 --type epic --json` and likewise `--type task`
+- `bd list --all --limit 0 --type epic --brief --json` and likewise `--type task`
   or ordinary `--type bug`
   provide untruncated sets including closed records. `bd list` defaults to
   50 and excludes closed; `--status all` is not its all-status flag. Apply
   caller filters only when they preserve required coverage; validate type,
-  ID and scope on results. `bd list --parent <parent> --all --limit 0 --json`
+  ID and scope on results. `bd list --parent <parent> --all --limit 0 --brief --json`
   enumerates direct children without the default 50-row limit; repeat for
   descendants when completion requires them. `bd children <parent> --json`
   is useful for inspection but does not expose an explicit unlimited flag.

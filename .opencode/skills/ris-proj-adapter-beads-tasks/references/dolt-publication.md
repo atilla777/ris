@@ -42,6 +42,12 @@ Confirmation-only needs project/destination/safe-read checks, not renewed
 authority for later local/remote work; apply write-only gates only after S is
 proven absent below.
 
+Use native `dolt fetch --silent` and `dolt push --silent` to suppress routine
+progress only. Preserve stderr, exit status and the final verified revision/result
+receipt; silence is not success. Do not discard errors, mask failures with a
+pipeline or require a new log file. Quiet progress does not replace the scope,
+direction and fresh remote revision checks below.
+
 ## Confirm first
 
 Distinguish required/recovered revision `S`, observed local `main` head `L`, and
@@ -51,7 +57,7 @@ confirmation/replay. For genuinely fresh publication, observe L as candidate S.
 Keep expected IDs, local result/closure evidence and scope alongside S; remote
 revision assurance does not independently verify their field contents.
 
-After project/destination/safe-read checks, run `dolt fetch <confirmed-remote>`
+After project/destination/safe-read checks, run `dolt fetch --silent <confirmed-remote>`
 and inspect `dolt branch -av` for full L/R hashes and exact selected refs. Use
 validated complete hashes with `dolt merge-base <S> <R>`: successful equality
 to S establishes reachability (S=R also suffices after the fresh fetch). A failed
@@ -84,7 +90,7 @@ does not require a clean later local working set.
    Reassess changed observations through these gates, retaining S. Invoke only:
 
    ```sh
-   dolt push <confirmed-remote> main:main
+   dolt push --silent <confirmed-remote> main:main
    ```
 
    This sends the shared moving branch, not an immutable exact-sent snapshot.

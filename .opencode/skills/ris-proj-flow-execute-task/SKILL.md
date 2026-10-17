@@ -100,8 +100,8 @@ run does not load that resource.
 
 ## Select exactly one target
 
-Delegate a complete all-state task read and relevant epic/typed-edge reads to the
-selected adapter. It must advertise actual complete item/child/dependency reads,
+Delegate the necessary exact-ID or queue reads below and relevant epic/typed-edge
+reads to the selected adapter. It must advertise actual complete item/child/dependency reads,
 feature-record reads where needed, tool-specific claim/complete and separately
 verified tracker publication; `tasks` v1 alone does not promise all of these.
 Automatic selection remains task-only; never search/select bugs as queue candidates.
@@ -110,13 +110,17 @@ claim, snapshot/result persistence and separate fix-completion, not task-only
 feature APIs. For Beads apply its conditional `references/bug-execution.md` before
 these operations. Missing ordinary support blocks that branch without conversion.
 
-With an explicit ID, reread only that **target** for execution (queue reads may
-support diagnosis/recommendation). Never replace it. A closed ID gets a verified
+With an explicit ID, reread that **target** and necessary relationships/content
+for execution; no global list is required merely to resolve a known ID. Queue
+reads need an actual diagnosis/recommendation or absence/dedup purpose. Never
+replace the target. A closed ID gets a verified
 state/result report, never reopening or a new implementation; proven own pending
 publication resumes only its remaining verification/publication. A foreign active
 claim blocks it. Unknown IDs/types return a concrete diagnostic.
 
-Without an ID, first identify confirmed own unfinished executions: actor supplied
+Without an ID, obtain the complete relevant all-state task inventory through the
+adapter's compact read policy, disclosing content needed for selection/readiness.
+First identify confirmed own unfinished executions: actor supplied
 explicitly or recovered from verified execution evidence, matching tracker
 assignment, task/execution/copy linkage and no contradictory live execution.
 OS user, issue `owner`, branch name or assignee alone does not prove ownership.
