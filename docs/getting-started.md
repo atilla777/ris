@@ -70,6 +70,14 @@ Neither operation requires a new setup skill. Optionally add the
 [consumer AGENTS fragment](concepts/templates/agents-fragment.md) to an existing
 project `AGENTS.md`; it supplements the project's instructions without replacing them.
 
+For a read-only overview in an existing tracked project, use `/risp-status` for
+the complete unclosed plan, or `/risp-status <ID>` for one subtree with necessary
+ancestors/blockers. It works in the current agent without execution roles and
+returns one checked next action or an exact gap; it does not save, claim or launch
+work. `/risp-next <ID>` instead inspects an already selected subject. Commands must
+be present in the installed package and discovered after restart; see the
+[current menu](skills.md#current-compact-command-menu).
+
 For bug work, directly load `ris-proj-op-register-bug` to record a message and
 stop at its ID, or `ris-proj-op-investigate-bug` to investigate an existing exact
 native bug ID. The latter applies `ris-port-op-investigate-bug`, saves report and

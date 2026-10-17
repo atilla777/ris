@@ -129,8 +129,11 @@ push не выполнен. Итоговое полное дерево ожид�
 
 Полная действующая схема — `ris-<port|proj>-<op|flow|lib|adapter>-…` по
 [01, §5](01-architecture.md#5-именование-и-структура-исходников). Выбранные op/flow имеют
-19 тонких команд `risp-`/`risb-` с явной картой к скилам по
-[compact-commands v1 с поправкой fast D2](../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход); остальные скилы загружаются
+тонкие команды `risp-`/`risb-` с явной картой к скилам: исторические 18 входов по
+[compact-commands v1](../specs/compact-commands/spec.md) расширяются `/risp-status`
+по принятому [plan-status D1, §8](../specs/plan-status/design.md#8-поставка-и-совместимость)
+и `/risp-run-simple-task` по [поправке fast D2](../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
+Действующее меню — в [каталоге](../skills.md#current-compact-command-menu); остальные скилы загружаются
 напрямую, у lib/adapter команд нет. Это адресная замена командных правил v1/D1/N1,
 а не перепринятие исторических документов. Полная карта и порядок
 согласованной замены — в [инструкции перехода](../skill-command-naming-migration.md).

@@ -22,6 +22,7 @@ type: Architecture
 | ID/standalone planning (U2) | Интегрированные specify/design/decompose восстанавливают own accepted inputs по ID; явно различают feature-record и ordinary standalone. Full finished owners вызывают existing Git/adapter publishers и проверяют receipts; limited contributions заданы явно. Beads `references/standalone.md` объявляет tool-specific create/source/child/link/evidence/exact-close, не расширяя tasks v1. |
 | Container/leaf seams (U2, поправка ris-6jf) | В task copy ris-6jf подготовлен source/install кандидат: `ris-proj-op-complete-container` различает administrative exact-ID close, read-only verify и verify-and-close. Административный статус не приёмка и не меняет feature verification; assessment использует собственные outcomes/mandatory composition, verified completion сохраняет evidence/exact-close gates. Beads отдельно объявляет status-only ветку без ослабления `tasks.features.complete`. Execution flow явно требует verify-and-close для one-task feature; leaf plan/change/docs/review локальны до final Git. Structural parent не требует feature payload и не закрывается ребёнком. Main-интеграция, независимое whole-snapshot review и публикация кандидата требуют отдельных свидетельств соответствующей ревизии. |
 | Read-only навигация (U3) | `ris-proj-op-suggest-continuation` и команда `/risp-next` владеют только обоснованной рекомендацией, человеческим решением или exact blocker по выбранному ID/no-ID locator и текущим установленным контрактам. Slash-рекомендация проверяет фактическую установленную команду и её явный target, не строит имя из имени скила. Common/context/selected adapter применяются по предметной необходимости; recovery/публикация/исполнение остаются у владельцев. Ноль persistent writes, claim, acceptance, push, closure или launch; рекомендация не authority/readiness. |
+| Компактный обзор плана (plan-status D1) | В task copy ris-oqv подготовлены `ris-proj-op-show-plan` и тонкая `/risp-status`: полный project/ID-subtree обзор всех рабочих типов, реальные parent/blocks, прямой closed/all счётчик и выбор одного кандидата. Common/context/selected adapter обеспечивают общие правила, настройки и чтения; Beads `references/plan-overview.md` — условный read-only ресурс всех типов/скрытых категорий, отдельно от task-only tasks v1. Для точного кандидата применяется существующий `ris-proj-op-suggest-continuation` и проверяется установленная команда. Ноль writes/claim/launch; рекомендация не authority/readiness. Справка подготовлена в той же ветке; независимое ревью, main-интеграция, публикация и реальная установка требуют отдельных свидетельств соответствующего snapshot. |
 | Потребители копии | `ris-proj-op-plan-task` и `ris-proj-op-implement-task-tdd` проверяют пригодность переданной копии без создания worktree и без зависимости на preparation skills/адаптеры worktree. Планирование не требует claim; реализация проверяет/получает разрешённый claim перед изменениями. Конкретные команды и инструментальные особенности операций worktree принадлежат выбранному адаптеру. |
 | Реализация и TDD | `ris-port-op-implement-change` владеет обычной реализацией и опциональным TDD; TDD-цикл и сложный publication snapshot — условные `references/` базы. `ris-proj-op-implement-task-tdd` требует TDD и владеет совокупным claim-aware code/tests/docs результатом; default отчёт `workspace.tasks/<ID>/implementation.md`. Протокол feature record остаётся у адаптера задач, применимость входов — у обёртки. |
 | Простая порученная задача (B) | В task copy `ris-1wa.1.2` подготовлены исходник `ris-proj-flow-execute-simple-task` с условными tracker/worktree/recovery-ресурсами и тонкая `/risp-run-simple-task`. Flow владеет достаточностью/переходами; основной агент применяет существующих владельцев реализации/docs/публикатора/трекера, отдельный `task-review` фактически ревьюит независимо. Fast-only исключение из обязательных файлов plan/log/review — в development; краткий Beads в RIS и собственная ветка обязательны, worktree условен. Полный flow/direct plan-task/TDD не изменены. Это локальный кандидат на базе `caf340c1fbdcf2b19dadba80c5d46a8bcb00703c`, не подтверждение parity, independent integrated review или main-публикации. |
@@ -32,12 +33,19 @@ type: Architecture
 Namespace этой редакции поставляется согласованным комплектом source/install по
 [карте перехода](../../skill-command-naming-migration.md) с добавлением W2 и U3;
 текущий инвентарь — в [каталоге скилов](../../skills.md).
-Компактные 19 команд `risp-`/`risb-` находятся в `commands/opencode/` с явной картой
+Компактные команды `risp-`/`risb-` находятся в `commands/opencode/` с явной картой
 к сохранённым скилам; остальные операции доступны прямой загрузкой, lib/adapter
-без команд. Основание — [compact-commands v1](../../specs/compact-commands/spec.md),
-адресно заменяющая командные правила v1/D1/N1, и её [поправка fast D2](../../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход);
-прежние snapshots и URL не переписываются. Новый вход пока подготовлен в B copy;
-свидетельства синхронизации старого набора ниже не распространяются на него.
+без команд. Исторические 18 входов — [compact-commands v1](../../specs/compact-commands/spec.md),
+адресно заменяющая командные правила v1/D1/N1; source-меню ris-oqv расширено
+`/risp-status` по [plan-status D1, §8](../../specs/plan-status/design.md#8-поставка-и-совместимость),
+актуальная карта — в [каталоге](../../skills.md#current-compact-command-menu).
+В B copy добавлена `/risp-run-simple-task` по [поправке fast D2](../../specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
+Совместный локальный кандидат объединяет B `3e3d21d` с upstream `fbd0b56`:
+49 скилов, четыре flow, 20 команд (16 project + 4 portable). Source/install этого
+комплекта синхронизируются и проверяются целиком в B copy; старые свидетельства
+ниже сами по себе не покрывают новые входы. Независимая переоценка полного
+совместного snapshot и его публикация ещё требуются. Прежние snapshots и URL
+не переписываются.
 Source/install синхронизированы в task copy ris-2j6; локальная интеграция выполнена.
 Полный комплект проверяется по путям, байтам, типам и режимам; публикация подтверждается отдельными свидетельствами соответствующей ревизии.
 Локальное объединение выполнено; независимая переоценка итогового снимка и main-публикация подтверждаются

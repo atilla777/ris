@@ -49,8 +49,10 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-The compact menu has 19 explicit entries (15 project + 4 portable): `risp-` selects a project contract,
-`risb-` a portable contract. All 48 skills are available; operations without
+The current source menu has 20 explicit entries (16 project + 4 portable), extending
+the historical 18-entry v1 set with `/risp-status` and `/risp-run-simple-task`.
+`risp-` selects a project contract, `risb-` a portable contract. All 49 source skills
+are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -61,6 +63,7 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | Decompose an accepted feature into tasks | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
 | Execute or resume one clear, already assigned simple request | `/risp-run-simple-task <request and optional ID>` |
+| See the complete unclosed plan and one next action | `/risp-status` or `/risp-status <ID>` |
 | Find the next step for selected work | `/risp-next <ID>` |
 
 Replace angle-bracket placeholders with your inputs. Skills clarify missing
@@ -79,6 +82,12 @@ its real contract; mandatory project accounting creates/reconciles a short task
 queue item. Direct push requires rights, checks, independent review and remote
 confirmation; tracker result, exact close and publication are separate effects.
 Full task/bug execution and direct plan-task retain their contracts.
+
+`status` is read-only: without an ID it shows the project's complete unclosed plan;
+with an ID it shows that subtree and necessary context/blockers. It recommends one
+action using the continuation owner and checks the installed command, or reports an
+exact gap. It saves nothing, claims no work and launches nothing. `next` inspects an
+already selected subject; `select-feature` chooses a feature; `run-task` executes.
 
 To record a bug before investigation, ask the agent to load
 `ris-proj-op-register-bug` for the selected project and message, with permission

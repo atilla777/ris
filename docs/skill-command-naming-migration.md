@@ -1,13 +1,20 @@
 # RIS skill and command namespace transition
 
-The current command interface is the [compact-commands v1 map with the accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход):
-19 explicit slash entries, 15 `risp-` project contracts and four `risb-` portable
-contracts. The original 18-entry table/AC and acceptance remain historical.
-The one additional entry is `/risp-run-simple-task` →
-`ris-proj-flow-execute-simple-task` for already assigned simple work (empty input
-asks for the request, never selects the queue). Current source inventory is 48
-skills / four flows. Bug operations remain direct-load without new commands.
-See the current inventory in the [catalog](skills.md). No aliases or
+The historical [compact-commands v1 map](specs/compact-commands/spec.md) contains
+18 explicit slash entries, 14 `risp-` project contracts and four `risb-` portable
+contracts. All 43 baseline technical skill identities/resources remain; the
+additional `ris-proj-op-register-bug` is directly loadable without a new command.
+The current menu extends that accepted baseline with `/risp-status` targeting
+`ris-proj-op-show-plan`, under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
+It returns a read-only project/ID-subtree overview and one checked recommendation,
+without claiming or executing work. See the current source inventory in the
+[catalog](skills.md); source availability does not prove installation.
+The [accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход)
+also adds `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` for already
+assigned simple work (empty input asks for the request, never selects the queue).
+The combined current source inventory is **49 skills / four flows** and **20
+commands (16 project + 4 portable)**. Original tables/AC and acceptance remain
+historical; bug operations remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
 Verification and remote publication require separate revision-bound evidence;

@@ -551,6 +551,7 @@ Path(a[a.index("--output")+1]).write_bytes(data)
         expected = {
             "risp-" + n + ".md"
             for n in (
+                "status",
                 "next",
                 "roadmap",
                 "refine-epic",
