@@ -95,6 +95,32 @@ claim, TDD for code, independent review and publication obligations are retained
 Snapshot append is recoverable native merge, not concurrent append-once or content
 CAS; investigation's stronger report replacement gate remains unchanged.
 
+### A clear assigned simple request
+
+```text
+/risp-run-simple-task In <project>, replace the specified heading with <text>; keep the rest unchanged. Use existing task <ID> if supplied.
+```
+
+The [simple-task flow](../skills/ris-proj-flow-execute-simple-task/SKILL.md) can
+also be chosen by a natural request or the agent for work already assigned.
+It checks clarity, bounded consequences and checkability; empty input asks for
+work, never selects the queue. No mandatory interview/spec/design/decomposition,
+plan or log/review files by default. Supply applicable project rules and the
+configured, actually launchable independent `task-review`; the main agent applies
+the existing implementation/docs/publisher owners itself. Checks are proportionate,
+and mandatory project checks/TDD apply. Use a verified own branch in a suitable
+current copy; isolation or rules activate the existing worktree owners.
+
+Tracking is conditional on a supplied ID or project accounting rules, not merely
+an installed adapter. **RIS itself requires short Beads accounting**; without ID
+the flow reconciles/creates a sufficient ordinary task before changes. Existing
+type, accepted inputs, ownership, children and blockers remain binding. Full
+task/bug/feature preparation and direct plan-task/TDD contracts are preserved.
+High/medium findings need repair/checks/fresh independent review. PR-only, forbidden
+direct push or missing mandatory review/checks block publication; tracker result,
+exact close and publication remain separate from Git. Material decisions trigger
+targeted clarification/preparation; resume checks actual effects and available evidence.
+
 ## 3. Authorize work and publish from the task's own copy
 
 Installing RIS grants **no write, push or task-close rights**. Establish the

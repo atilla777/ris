@@ -11,6 +11,18 @@ live in the primary copy's `.sdlc/tasks/<confirmed-ID>/`; `tasks/PLAN-*` is a
 historical archive. Git push does not synchronize Beads. Follow the rules for
 review and separate Git/tracker publication and completion.
 
+Only explicitly selected [simple-task execution](../skills/ris-proj-flow-execute-simple-task/SKILL.md)
+uses the rules' fast exception: no mandatory plan, implementation/execution log or
+review files; sufficient evidence stays in the session. **Short Beads accounting
+remains mandatory in RIS**, with existing-ID/type, identity, claim, composition and
+blocker checks. The main agent applies existing implementation/publication owners;
+`task-review` must actually launch as an independent subagent. A suitable current
+copy on a verified own branch is allowed; isolation needs activate worktree
+preparation. Checks remain proportionate and project-mandatory checks/TDD apply.
+Full task/bug/feature execution, direct plan-task persistence and the TDD operation
+retain their contracts. Result/Git SHA persistence, exact close and Dolt publication
+remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).
+
 Publish from the task's own branch/copy, integrating the latest primary remote
 branch there; shared local `main` is not a publication workspace. Ordinary tracker
 work uses fresh checks, targeted native writes and read-back, without manual

@@ -49,8 +49,8 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-The compact menu has 18 explicit entries: `risp-` selects a project contract,
-`risb-` a portable contract. All 47 skills are available; operations without
+The compact menu has 19 explicit entries (15 project + 4 portable): `risp-` selects a project contract,
+`risb-` a portable contract. All 48 skills are available; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -60,12 +60,25 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
 | Decompose an accepted feature into tasks | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
+| Execute or resume one clear, already assigned simple request | `/risp-run-simple-task <request and optional ID>` |
 | Find the next step for selected work | `/risp-next <ID>` |
 
 Replace angle-bracket placeholders with your inputs. Skills clarify missing
 information and required permissions. Project-integrated work checks its own
 prerequisites; installing the package does not initialize a project or tracker.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
+
+Simple-task execution uses a clear bounded request without mandatory interview,
+spec/design, decomposition, plan or report files. The main agent implements and
+publishes through existing owners; a separate independent subagent reviews, with
+high/medium repair and re-review. It requires its own branch; a suitable current
+copy is allowed, and isolation needs activate worktree preparation. Checks are
+proportionate and mandatory project checks/TDD still apply. A supplied ID keeps
+its real contract; mandatory project accounting creates/reconciles a short task
+(**Beads remains mandatory in RIS**). Empty input asks for work, never selects a
+queue item. Direct push requires rights, checks, independent review and remote
+confirmation; tracker result, exact close and publication are separate effects.
+Full task/bug execution and direct plan-task retain their contracts.
 
 To record a bug before investigation, ask the agent to load
 `ris-proj-op-register-bug` for the selected project and message, with permission

@@ -1,9 +1,12 @@
 # RIS skill and command namespace transition
 
-The current command interface is the [compact-commands v1 map](specs/compact-commands/spec.md):
-18 explicit slash entries, 14 `risp-` project contracts and four `risb-` portable
-contracts. All 43 baseline technical skill identities/resources remain; the
-additional `ris-proj-op-register-bug` is directly loadable without a new command.
+The current command interface is the [compact-commands v1 map with the accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход):
+19 explicit slash entries, 15 `risp-` project contracts and four `risb-` portable
+contracts. The original 18-entry table/AC and acceptance remain historical.
+The one additional entry is `/risp-run-simple-task` →
+`ris-proj-flow-execute-simple-task` for already assigned simple work (empty input
+asks for the request, never selects the queue). Current source inventory is 48
+skills / four flows. Bug operations remain direct-load without new commands.
 See the current inventory in the [catalog](skills.md). No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
@@ -18,6 +21,9 @@ and N1's command name with `/risb-installation`. It does not repin acceptance or
 change subject contracts. The old 41-skill/37-command and eight-command maps below
 are historical, not current command instructions. Later W2/U3 skills retain their
 technical names, with compact commands as listed here.
+The 39-row migration below still maps the exact old baseline; the fast entry is
+an addition, not a renamed legacy command. Its local B candidate still needs
+complete installation/delivery checks, independent review and verified publication.
 See the [skill catalog](skills.md) for the current inventory and
 [development guide](development.md#architecture-plans-and-delivery-records)
 for delivery records and their evidence limits; these additions do not repin

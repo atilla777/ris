@@ -1,10 +1,10 @@
 # Skills and commands
 
-RIS includes portable operations, project-integrated operations, three workflows,
+RIS includes portable operations, project-integrated operations, four workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 47 skills are listed below, independently of the compact 18-command menu.
+All 48 skills are listed below, independently of the compact 19-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -27,7 +27,7 @@ project contract, `risb-` a portable contract, without environment-based routing
 For older names, use the
 [namespace transition guide](skill-command-naming-migration.md); there are no aliases.
 
-## Compact command menu — 18
+## Compact command menu — 19 (15 project + 4 portable)
 
 | Command | Exact skill target |
 | --- | --- |
@@ -41,6 +41,7 @@ For older names, use the
 | `/risp-decompose-feature` | `ris-proj-op-decompose-feature` |
 | `/risp-plan-task` | `ris-proj-op-plan-task` |
 | `/risp-run-task` | `ris-proj-flow-execute-task` |
+| `/risp-run-simple-task` | `ris-proj-flow-execute-simple-task` |
 | `/risp-review-task` | `ris-proj-op-review-task` |
 | `/risp-publish-task` | `ris-proj-op-publish-task` |
 | `/risp-complete-container` | `ris-proj-op-complete-container` |
@@ -54,6 +55,10 @@ For older names, use the
 authorized task. `skill` authors autonomous source, without selecting the RIS
 author or installing it. Empty inputs, permissions, recovery and stopping points
 remain those of each linked owner. No aliases are shipped.
+
+`run-simple-task` executes only already assigned clear bounded work, with an
+optional existing ID; empty input asks for the request, never chooses the queue.
+It adds one entry under the [D2 menu amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 
 `select-feature` and `next` recommend a direction or owner from minimum sufficient
 facts; they do not certify execution readiness. A selected ID uses bounded reads,
@@ -134,6 +139,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Feature choice through accepted published inputs to verified ID |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
+| [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
 | [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, full input snapshot and complete existing execution route |
 
 ## Shared instructions and adapters
@@ -146,6 +152,21 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
 ## Choosing an operation
+
+For simple assigned work, `run-simple-task` judges clarity, consequences and
+checkability rather than diff size. The main agent applies portable implementation
+(`standard|tdd` as required), documentation and the existing publisher; only
+`task-review` must actually launch independently. No mandatory plan/log/review files
+by default: sufficient evidence stays in the session, plus short tracker accounting
+when used. RIS explicitly keeps mandatory short Beads accounting. Existing IDs
+retain type, accepted inputs, ownership, composition and blocker gates. A verified
+own branch in a suitable current copy is allowed; isolation/rules activate existing
+worktree owners. Material decisions stop dependent work for targeted acceptance;
+resume reconciles actual effects and repeats missing/inapplicable independent review.
+PR-only, forbidden push or missing mandatory checks/review block publication.
+This fast-only exception preserves full task/bug/feature and direct plan-task/TDD
+contracts; verified Git, result persistence, exact close and tracker publication
+remain separate effects.
 
 Portable operations take supplied inputs; project operations add the applicable
 context, rules, paths and persistence. The RIS skill author composes the portable
