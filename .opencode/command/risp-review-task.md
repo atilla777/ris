@@ -1,5 +1,5 @@
 ---
-description: Review one confirmed RIS task change and return checked findings.
+description: Review one bounded RIS project change with or without a task ID and return checked findings.
 ---
 
 Load `ris-proj-op-review-task` with the skill tool and follow its contract for

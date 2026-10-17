@@ -99,8 +99,19 @@ CAS; investigation's stronger report replacement gate remains unchanged.
 
 Installing RIS grants **no write, push or task-close rights**. Establish the
 accepted outcome, allowed paths/effects and current authority for each operation.
-For ordinary task execution, work in your own task branch and working copy,
-preserving foreign changes; shared local `main` is not a publication workspace.
+Project [review](../skills/ris-proj-op-review-task/SKILL.md) and Git publication
+can take an agreed bounded change with or without a task ID. Supply the attributable
+request, criteria, accepted constraints/decisions, exact copy/branch/base and complete
+candidate (including additions/deletions/modes), checks and review purpose. Separate
+spec/design/plan files are not inherently required. Response-only review is sufficient
+where project rules allow; required tracking or report saving remains a gate.
+An ordinary Beads task can preserve that self-contained accepted request and authority
+without invented specification links; existing feature/bug contracts still apply.
+
+For publication, supply an already prepared own branch and safe working copy,
+preserving foreign changes. A suitable current copy is allowed; use a separate
+worktree when isolation or project rules require it. Preparation belongs to the
+caller and existing preparation owners; shared local `main` is not a publication workspace.
 
 The [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md) integrates
 the fresh established remote primary branch (often `main`) into that own branch,

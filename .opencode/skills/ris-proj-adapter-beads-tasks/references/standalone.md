@@ -94,8 +94,17 @@ Require selected project, exact operation/ID (or approved creation identity),
 explicit kind and authority. Administrative container close needs only the
 `completion.md` status-only inputs/guards, not own accepted outcomes/sources or
 result persistence. Creation and verified completion require own sufficient
-outcome/scope/criteria, stable identity, source selectors/versions, separate
-acceptance addresses and constraints/contracts. A bounded update requires
+outcome/scope/criteria, stable retry identity, attributable acceptance/authority
+and technical constraints/contracts. For a positively identified ordinary task,
+an accepted self-contained request is a sufficient source: preserve the actual
+request, intended outcome/boundaries, criteria, accepted constraints and material
+decisions with their attributable authority in remotely readable description/
+content so a later session needs neither chat nor ignored notes. No published
+spec/design/acceptance URL, `spec_id`, feature block or surrogate format is
+required or fabricated. When external accepted artifacts exist, retain their
+exact source selectors/versions and separate immutable acceptance addresses;
+material design still needs a separate verifiable acceptance decision.
+A bounded update requires
 identity, authority, expected target values and permitted fields/links; inspect
 accepted sources/decisions only when the changed content or caller's predicates
 depend on them. It need not reconstruct the whole delivery. A standalone root has no
@@ -109,16 +118,20 @@ Advertise only actual supported Beads operations:
 - **ordinary create/reconcile:** `bd create --type task` with supplied title,
   description, acceptance, `--external-ref` and optional approved `--spec-id`;
   `--parent` only for a confirmed open structural parent. Search the complete
-  all-state task set across parents by stable key and source association before
+  all-state task set across parents by stable key and actual source association before
   and after creation, following `create.md`. Reuse only exact kind/type/key,
-  parent, content, sources and decisions. Existing ID means read/reconcile that
-  ID, never implicit create. Multiple matches or changed identity is conflict.
+  parent, request/content, attributable decisions and external sources when present.
+  Persist sufficient request/criteria/constraints and authority, not merely a chat
+  pointer; use `--spec-id` only for an actual supplied artifact. Existing ID means
+  read/reconcile that ID, never implicit create. Multiple matches or changed identity is conflict.
   Best-effort creation is not uniqueness; strict uniqueness needs protection
   covering every relevant creator. Ambiguous creation is reconciled before retry.
 - **ordinary source/content update:** `update.md` with only authorized fields;
-  retain separate pinned requirements/design/decision links in readable content
-  or agreed independent metadata keys. No mandatory feature JSON, digest or
-  history store. A simple accepted task can use sufficient accepted constraints
+  preserve the accepted request/criteria/constraints and attributable decisions in
+  readable content. Retain separate pinned requirements/design/decision links when
+  such external artifacts exist, in readable content or agreed independent metadata
+  keys; do not impose links on a self-contained request. No mandatory feature JSON,
+  digest or history store. A simple accepted task can use sufficient accepted constraints
   without a design file; material design requires a separate verifiable decision.
   Description/acceptance replacement uses fresh expected content and targeted
   fields under `concurrency.md`, followed by independent read-back. Native
@@ -134,7 +147,8 @@ Advertise only actual supported Beads operations:
 - **ordinary result persistence:** `update.md` using native `--append-notes` or
   authorized `--set-metadata key=value` where suitable, never stale whole-field
   replacement. Include exact ID/kind, own criteria/outcomes and disposition,
-  integrated revision(s), accepted refs/decisions, check/review provenance,
+  integrated revision(s), the accepted request/decisions and external refs when
+  present, check/review provenance,
   mandatory composition/blockers, evidence addresses and limits. Reports must
   be accessible without local ignored notes. Reconcile uncertain append before
   retry. Append/key merge protects only its native row operation; snapshot-bound

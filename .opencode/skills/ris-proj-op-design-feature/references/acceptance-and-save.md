@@ -130,7 +130,8 @@ acceptance and file saving, then enters step 5. It performs no second push.
    checked addresses/revisions/decision and pending immutable refs. Do not infer
    workspace.tasks/<ID> before confirmation or require a draft directory.
 4. In full mode apply independent `ris-port-op-review-change` to the pre-ID
-    document subject, or `ris-proj-op-review-task` for an applicable ID, passing
+    document subject, or `ris-proj-op-review-task` for applicable project-integrated
+    review with or without an ID, passing
     exact whole candidate base/overlay/add/delete/modes, accepted inputs/decisions,
     rules and checks. All authors/repair authors are distinct from the reviewer.
     For a native bug ID explicitly request **pre-execution design/document review**:
