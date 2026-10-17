@@ -30,13 +30,16 @@ Obtain the calling operation, target project, needed configuration fields,
 input vs prospective output roles, parameters, and permitted scope from the
 request and applicable project instructions. If ambiguous, diagnose the
 affected part rather than inventing a root, document, ID, or permission.
-Prepare the paths, requested execution role (if any), and required inputs
-following the owned configuration resource, including its bounded primary-root
-resolution when shared paths are needed: validated explicit selection first,
-otherwise an already available applicable saved indication with verified
-project/repository/current-copy association. Do not guess from Git or scan for
-receipts. Return primary selection provenance and dependent diagnostics alongside
-independently usable source settings. Return applicable resolved settings,
+Prepare only the requested settings under `references/configuration.md`; validate
+the whole selected config even when some fields are unused. Missing unused fields
+do not block independent preparation. From this installed folder read:
+
+- `references/paths.md` before resolving/checking document or workspace paths;
+- `references/shared-primary.md` only before using shared workspace paths;
+- `references/execution-roles.md` only when the caller requires a role.
+
+An explicit tracker workspace read need not invoke context at all. Never require
+unused shared roots or execution settings. Return applicable resolved settings,
 source/provenance, run scope, status, and actionable diagnostics. Confirm that
 the result pertains to the current project and operation; `ok` is only
 preparation, not downstream completion. A configured agent name is not proof

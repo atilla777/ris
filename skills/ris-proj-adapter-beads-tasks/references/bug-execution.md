@@ -3,7 +3,8 @@
 Read before ordinary bug execution claim, execution-input snapshot, fix-result
 persistence or fix-completion, accepted-design source-link append, and their
 prerequisite children/blocker reads.
-Apply main typed read/reconcile, Claim and Complete methods and `concurrency.md`
+Apply main typed read/reconcile; read/apply `claim.md`, `update.md` or
+`completion.md` for the requested action, and `concurrency.md`
 before dependent writes. Use the single `dolt-publication.md` method only for
 separately authorized publication. This resource adds bounded capabilities, not
 tasks v1 feature operations, feature-record/1, diagnosis or composition.
@@ -31,14 +32,14 @@ conditional resources; investigation disposition is not execution completion.
 - `bd dep list <bug-id> --type blocks --direction=down --json` supplies blockers;
   normalize blocked → blocker under main rules. Failed/truncated/unknown-shaped
   results cannot establish an empty set. Membership is not a blocking edge.
-- Apply main **Claim** to this bug with `bd --sandbox --actor <actor> update
+- Apply `claim.md` to this bug with `bd --sandbox --actor <actor> update
   <bug-id> --claim --json`. Freshly check unblocked open/same-own state and reread
   status/assignee/children/blockers afterward and before new batches. Ownership
   CAS does not make readiness or report content atomic. Preserve foreign claims.
 
 For an authorized design-only source update, append pinned published design and
-separate decision locators with their substantive scope to notes using main native
-Update/standalone supplementation, without changing current report/acceptance.
+separate decision locators with their substantive scope to notes using
+`update.md` native append/standalone supplementation, without changing current report/acceptance.
 Require exact bug type, actual design acceptance/publication evidence, approved
 content and a stable scoped marker; reconcile marker AND full content/occurrences
 before and after append and after ambiguous responses. Reuse exact prior effects;
@@ -99,14 +100,14 @@ unchanged evidence may be reused with reasons; old hashes/status do not prove it
 
 ## Separate result persistence and exact fix-completion
 
-Persist only the authorized fix result via main Update's native append or suitable
+Persist only the authorized fix result via `update.md` native append or suitable
 independent metadata keys. Include exact bug/snapshot locator, original criteria
 coverage, actual integrated Git revision/publication receipt, checks and independent
 review applicability, mandatory scope/children/blockers, limits and accessible
 evidence. Preserve existing notes/decisions and reconcile marker/content on retry.
 Local persistence is neither closure nor tracker publication.
 
-Then apply main **Complete** separately to this exact native bug: require caller's
+Then apply `completion.md` verified-work branch separately to this exact native bug: require caller's
 verified real fix criteria and full mandatory-scope disposition, applicable checks/
 independent review and confirmed required Git publication. Freshly inspect status,
 complete mandatory children/descendants, directed blockers and external evidence;

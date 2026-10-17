@@ -1,6 +1,7 @@
 # Artifacts and handoff
 
-Use before preparing or changing a deliverable and before handing work off.
+Use for substantive artifacts, execution transfer and partial/uncertain effects
+under the main skill's triggers, not merely for every response.
 The calling skill determines the content and destination of its result; do not
 invent a universal roadmap, decision log, or project path.
 
@@ -51,9 +52,15 @@ requested bounded operation succeeded and was checked. An expressly limited
 proposal/save can be `ok` with downstream work remaining; never silently narrow
 a full request to claim success or imply acceptance/publication from that `ok`.
 
-Every result, including read-only, no-ID, partial and interrupted work, must
-identify the actual outcome/subject and provide enough inspectable information
-for its consumer to recover what exists:
+For an ordinary list, exact read or short recommendation, give the requested
+outcome and material limits under common's baseline; no universal handoff is
+required. Do not reconstruct versions, acceptance or channels unrelated to the
+conclusion. A caller's more specific result obligations still apply.
+
+For saved artifacts, substantive response-only candidates, execution transfer,
+and partial/interrupted or uncertain effects (including read-only work when
+being transferred), provide enough inspectable information to recover what exists.
+Include the following where material to that result or its continuation:
 
 - Full exact response-only proposal with a distinguishable version/scope, or
   exact result/evidence locator, or a checked discovery convention with all
@@ -94,7 +101,7 @@ copy. A receiver re-resolves paths and checks actual content/version, fresh
 permissions and, where required, ownership, blockers and write guarantees.
 Neither a handoff, old lease/window nor existing worktree supplies those gates.
 
-For handoff, convey the goal, scope, selected skill, project and configuration,
+For execution handoff, convey the goal, scope, selected skill, project and configuration,
 input artifacts and their acceptance state, material decisions and assumptions,
 open questions, write permissions, actual changes, evidence, and expected next
 result. Use the project's existing channel; do not rely on the recipient having

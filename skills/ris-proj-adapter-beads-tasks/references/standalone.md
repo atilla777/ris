@@ -1,13 +1,17 @@
 # Beads-specific ordinary work operations
 
-Load for explicitly identified ordinary standalone tasks, task-containers and
-their children, or bounded native bug read/list/create/update below. Bug
+Load for explicitly identified ordinary standalone create/source-content/child-link/
+result/completion work, or bounded native bug create/update below. Ordinary
+list/exact-read and simple non-source field updates use the main read contract
+and `update.md` without this resource. Bug
 investigation report/acceptance, duplicate relation and disposition-close use
 the separate `investigation.md` resource only when requested.
 Ordinary bug execution claim/snapshot/result/fix-completion and their prerequisite
 child/blocker reads use `bug-execution.md` only for that requested branch.
-This resource composes the main adapter's Create, Update,
-Composition, Blocking, Complete and read/reconcile operations; it does not extend
+This resource composes main read/reconcile and the action methods owned by
+`create.md`, `update.md`, `structure.md` (Composition/Blocking) and
+`completion.md`; read only the method for the requested action before using it.
+It does not extend
 the common tasks v1 feature-parent rules or introduce a new record schema.
 Apply `concurrency.md` before dependent writes and `dolt-publication.md` only for
 authorized publication/preflight. The caller owns kind, content and acceptance.
@@ -44,7 +48,7 @@ Do not invent a parent, feature payload, stage children or confirmation status.
   the complete `--type task` set and exact typed reads; do not convert their
   type or treat them as feature operations. Failed/incomplete reads cannot
   establish absence and stop dependent writes.
-- **Create/reconcile:** apply main Create's identity, best-effort concurrency,
+- **Create/reconcile:** apply `create.md` identity, best-effort concurrency,
   response-shape and ambiguous-effect rules, using `bd --sandbox create --type
   bug --title <approved-title> --description <message-and-context> --external-ref
   <stable-project-scoped-key> --json`, with only approved fields. Keep the same
@@ -56,7 +60,7 @@ Do not invent a parent, feature payload, stage children or confirmation status.
   unreconciled effect returns conflict with all known persisted IDs. Never
   generate a new key or repeat create to evade uncertainty. External references
   are not unique: report best-effort limits and any detected collision; a required
-  strict guarantee unavailable here blocks its write under main Create.
+  strict guarantee unavailable here blocks its write under `create.md`.
 - **Update/supplement:** on the caller's confirmed original ID, fresh-read its
   type, message, notes and expected content. Use native `bd --sandbox update
   <id> --append-notes <approved-supplement> --json` under `concurrency.md`.
@@ -88,11 +92,13 @@ publication. No implicit Dolt push, claim, investigation or completion follows.
 
 Require selected project, exact operation/ID (or approved creation identity),
 explicit kind and authority. Administrative container close needs only the
-main skill's status-only inputs/guards, not own accepted outcomes/sources or
-result persistence. For substantive create/update/verified completion require
-own outcome/scope/criteria, stable key, exact source
-selectors/versions and separate acceptance addresses, constraints/contracts,
-expected current state and permitted fields/links. A standalone root has no
+`completion.md` status-only inputs/guards, not own accepted outcomes/sources or
+result persistence. Creation and verified completion require own sufficient
+outcome/scope/criteria, stable identity, source selectors/versions, separate
+acceptance addresses and constraints/contracts. A bounded update requires
+identity, authority, expected target values and permitted fields/links; inspect
+accepted sources/decisions only when the changed content or caller's predicates
+depend on them. It need not reconstruct the whole delivery. A standalone root has no
 artificial epic. A structural parent is permitted when explicitly confirmed;
 children carry their own sufficient contract. Neither missing feature JSON nor
 a feature parser failure proves ordinary kind. Preserve malformed/historical
@@ -104,12 +110,12 @@ Advertise only actual supported Beads operations:
   description, acceptance, `--external-ref` and optional approved `--spec-id`;
   `--parent` only for a confirmed open structural parent. Search the complete
   all-state task set across parents by stable key and source association before
-  and after creation, following main Create. Reuse only exact kind/type/key,
+  and after creation, following `create.md`. Reuse only exact kind/type/key,
   parent, content, sources and decisions. Existing ID means read/reconcile that
   ID, never implicit create. Multiple matches or changed identity is conflict.
   Best-effort creation is not uniqueness; strict uniqueness needs protection
   covering every relevant creator. Ambiguous creation is reconciled before retry.
-- **ordinary source/content update:** main Update with only authorized fields;
+- **ordinary source/content update:** `update.md` with only authorized fields;
   retain separate pinned requirements/design/decision links in readable content
   or agreed independent metadata keys. No mandatory feature JSON, digest or
   history store. A simple accepted task can use sufficient accepted constraints
@@ -119,13 +125,13 @@ Advertise only actual supported Beads operations:
   independent metadata-key edits merge other keys, but do not protect same-key
   decisions, related graph or external evidence. Changed inputs invalidate
   dependent evidence; preserve unrelated content and unchanged acceptance pins.
-- **ordinary children/links:** main Composition and Blocking, with confirmed
+- **ordinary children/links:** `structure.md` Composition and Blocking, with confirmed
   ordinary scope/endpoints, all-state child reconciliation, ancestry/cycle checks
   and exact read-back. Use `bd create --parent` and `bd dep add <blocked>
   <blocker> --type blocks --json`, not common feature-only create/add semantics.
   Native cycle checks do not protect expected membership. Partial creation or
   edge failure stops further writes and returns every persisted ID/edge.
-- **ordinary result persistence:** main Update using native `--append-notes` or
+- **ordinary result persistence:** `update.md` using native `--append-notes` or
   authorized `--set-metadata key=value` where suitable, never stale whole-field
   replacement. Include exact ID/kind, own criteria/outcomes and disposition,
   integrated revision(s), accepted refs/decisions, check/review provenance,
@@ -134,12 +140,12 @@ Advertise only actual supported Beads operations:
   retry. Append/key merge protects only its native row operation; snapshot-bound
   evidence needs fresh applicability/composition checks, not an atomic freeze
   over all relevant content/graph/external evidence.
-- **ordinary administrative container close:** main Complete's administrative
+- **ordinary administrative container close:** `completion.md` administrative
   branch, on the exact explicitly identified container. No new acceptance,
   recursive reconstruction, Git evidence or result persistence. Inspect only
   relevant direct children/blockers and native status effects; retain native
   restrictions and report that status is not independent acceptance.
-- **ordinary verified exact close:** main Complete's verified-work branch, separately from persistence, on one
+- **ordinary verified exact close:** `completion.md` verified-work branch, separately from persistence, on one
   explicit ID with full mandatory scope/cancellation disposition and current
   evidence supplied by the caller. Native transactional direct-child/blocker
   checks cover those predicates only; expected membership, descendants and
@@ -148,9 +154,9 @@ Advertise only actual supported Beads operations:
   explicitly required stronger guarantee before its dependent write. Never force, close
   ancestors/children, reopen a closed record or use status update as a shortcut.
 
-Read back exact fields, type/kind/identity, source decisions when the operation
-depends on them, relevant complete children,
-typed edges and status after the bounded operation. An already-settled effect
+Read back exact requested/preserved fields and type/kind/identity; source decisions,
+complete children and typed edges only when the operation depends on them.
+Verify status as applicable after the bounded operation. An already-settled effect
 returns verified unchanged; closed-pending publication gets only that remainder.
 Return the main result envelope with actual provider/covered predicates/limits,
 known IDs and separate local/persisted/closed/published facts. Reuse the single

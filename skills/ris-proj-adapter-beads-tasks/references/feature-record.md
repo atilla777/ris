@@ -118,7 +118,7 @@ there is no dual-schema API or `/2` fallback. Block dependent writes and leave
 the historical record intact.
 
 For initial create, validate the approved block and published requirements
-(and design if supplied), then apply main-skill v1 create checks. Search the
+(and design if supplied), then read/apply `create.md` v1 create checks. Search the
 complete **all-state project task set**, not only the selected parent:
 `bd list --all --limit 0 --type task --brief --json`, then disclose all content
 needed under the main read policy. Slug and historical blocks live in description:

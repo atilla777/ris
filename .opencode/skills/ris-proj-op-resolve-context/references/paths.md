@@ -1,0 +1,33 @@
+# Path bases and checks
+
+Read before resolving/checking paths. Read `shared-primary.md` from this same
+installed resource directory only when shared workspace paths are needed.
+
+- Resolve `sources.*` against the selected `project_root` in the **current**
+  working copy. These values designate directories, not specific documents.
+  `product` and `rules` denote separate OKF 0.2 bundles in the default RIS
+  documentation profile, with `rules/architecture/adr/` nested inside rules;
+  `specs/<slug>/spec.md` is ordinary Markdown. Context checks path availability,
+  not OKF validity or the contents/acceptance of a document. A project may
+  choose different directories without changing these roles.
+- Resolve `workspace.*` against `primary_root`, the primary working-copy root
+  of the selected project. In the primary copy it equals `project_root` only
+  when that copy's primary identity is established. For a separate copy apply
+  `shared-primary.md` before using shared paths.
+- Config location does not move either root. Absolute path values remain
+  absolute, subject to scope and access checks. Do not interpolate `~`,
+  `${ENV_VAR}` or `{{variable}}`. For `..`, symlinks or paths outside the
+  selected root, inspect the actual target and authorized scope; explicitly
+  approved external storage may be used, silent escape may not. Resolve
+  Markdown links from the document's directory, not the path's config base.
+- If a required **input** directory is missing or inaccessible, block its
+  dependent operation. A prospective **output** directory need not yet exist
+  if creation is permitted; check authorization and conflicts when the
+  result owner actually writes. If writing is not authorized, return a
+  proposal without claiming creation. Directory presence does not validate
+  a document's content, acceptance, or OKF format.
+- `workspace.tasks` and `workspace.worktrees` are base directories only.
+  Without a confirmed tracker task ID, do not invent an `<id>` folder,
+  project slug or branch name. Never create directories or worktrees here.
+  Re-resolve paths in each recipient's environment after project/worktree or
+  container changes; do not cache local absolute paths in `ris.yaml`.

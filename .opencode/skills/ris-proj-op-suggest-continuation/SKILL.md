@@ -25,8 +25,10 @@ checks; unknown facts must not become assertions of acceptance or availability.
 ## Establish a bounded subject and read dependencies
 
 Ensure installed `ris-proj-lib-common` is available and apply its baseline and
-conditional resources: dialogue before questions/decisions, artifacts before
-preparing the response/handoff, quality before assessing recommendation evidence.
+conditional resources: dialogue before questions/decisions, quality before
+assessing recommendation evidence. A short recommendation is not an execution
+handoff; artifacts applies only under common's actual artifact/transfer/partial-
+effect triggers, not merely because this operation returns a response.
 Apply installed `ris-proj-op-resolve-context` and its owned configuration resource
 when preparing selected-project settings/paths or the tasks adapter. Inspect
 status, provenance and diagnostics before using the result. Resolve resources
@@ -41,16 +43,18 @@ selected container, the latest session or the whole backlog. Requests to execute
 choose a feature, plan, review or retrospect belong to their owners; navigation
 must not perform that work.
 
-For ID/tracker facts load the context-selected installed adapter and apply only
-its supported bounded read operations. Establish exact identity/type/kind and own
-outcome/scope, then read criteria, linked sources and known material blockers as
-needed to distinguish the next result. A selected ID needs no global all-status
-dump unless an explicit absence, duplicate or cross-scope question requires it.
-Use the adapter's native compact identity/content forms; with Beads use exact
-`show <id> --brief-deps --json` when own content is needed. Omitted brief fields
-are unknown, not empty. Inspect composition and typed directed edges (including
-closed records) when they can change the recommendation; membership is not a
-blocker. Status, a file or publication does not establish acceptance.
+For ID/tracker facts load the explicitly selected or context-selected installed
+adapter and apply only its supported bounded read operations. Establish exact
+identity/type/kind and own outcome/scope, then read criteria, linked sources and
+known material blockers as needed to distinguish the next result. A selected ID
+needs no global all-status dump unless an explicit absence, duplicate or cross-scope
+question requires it. Use the adapter's native compact identity/content forms;
+with Beads use exact `show <id> --brief-deps --json` when own content is needed.
+Omitted brief fields are unknown, not empty. Inspect composition and typed directed
+edges (including closed records) when they can change the recommendation;
+membership is not a blocker. When the inference depends on accepted inputs,
+read their content/decisions and compare applicability. Status, a file or
+publication does not establish acceptance.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 
@@ -151,16 +155,19 @@ Return compactly in the person's language:
   decision with material alternatives; or an exact blocker (`blocked`, `conflict`
   for contradictory facts, `error` for failed reads). `ok` covers recommendation
   sufficiency only, never downstream completion or execution readiness.
-- Exact subject/scope, project/config/current-copy provenance, relevant facts and
-  inspectable addresses, input/result versions and separate decision addresses;
-  checked owner/command locations. Include primary provenance only when used.
-  Identify preserved effects and each applicable channel state, using explicit
-  unknown/uninvestigated values where not needed for the recommendation. Apply
-  common's recoverable-result rules; this is no exemption from them and no reason
-  to reconstruct unrelated history or repeat another owner's acceptance checks.
+- Exact subject/scope, a usable locator and the facts supporting this recommendation;
+  include versions/decision/channel evidence and checked owner/command locations
+  only where the conclusion or proposed prompt depends on them. Add project/config/
+  current-copy and primary provenance when used or needed to disambiguate.
+  Preserve real partial effects and their exact recovery remainder.
+  Mark unknown/uninvestigated applicable channel facts explicitly. Apply common's
+  recoverable-result rules under their actual triggers; this is no exemption from
+  them and no reason to reconstruct unrelated history or repeat another owner's
+  acceptance checks.
 - Limits, unknown/unperformed checks, missing inputs and exact remaining result.
-  State `changes: []`: this response is not saved or automatically discoverable
-  in another session. A nested result goes to its caller.
+  A short natural answer needs no formal block. Make clear that no work was
+  executed (`changes: []` if structured); this response is not saved or automatically
+  discoverable in another session. A nested result goes to its caller.
 
 A recommendation is neither permission nor proof of readiness. Stop after the
 response; do not claim work, save it, launch the prompt or start another stage.

@@ -11,7 +11,7 @@ description: >-
 
 # Select the next feature
 
-Own a **read-only recommendation and handoff**, not a feature record or an
+Own a **read-only recommendation**, not a feature record or an
 accepted specification. This is one RIS project skill: its evidence and result
 depend on the selected project's roadmap, actual tracker, work in progress and
 rules; no independently useful RIS-free base result is required. Do not start
@@ -128,28 +128,32 @@ When a subagent needs the person's feature choice, return the bounded options
 to the caller and stop until it supplies the confirmed choice; do not silently
 accept the recommendation on the person's behalf.
 
-## Return a usable handoff and stop
+## Return a usable recommendation and stop
 
 Distinguish proposal from the person's acceptance. For an evidenced choice,
 give the confirmed epic ID and outcome; recommended or person-chosen feature
 and its verifiable result; reasons and material alternatives; source references,
 related work and known statuses; open questions and the next required result.
 Link a found specification with its **known** status, leaving its suitability
-and any interview to the specification owner. Make the handoff sufficient for
-a new conversation without this chat. For a blocked choice, include only
+and any interview to the specification owner. Give a usable subject/locator and
+enough evidence for this choice, without a universal execution handoff. If execution
+is actually transferred to another actor/session, apply common's detailed handoff
+rules. For a blocked choice, include only
 confirmed facts, the concrete reason and the next action; do not invent an ID
 or a feature. Verify references and distinguish observed evidence from
 proposals. No tracker or file mutations, claims, assignments or status changes
 are permitted even after agreement with a feature.
 Include the material input versions, decisions, addresses and unknowns required
-by common's recoverable-result rules, without reconstructing history merely to
+by common's applicable result rules, without reconstructing history merely to
 fill the response. Report the light boundary check and any recommendation-changing
 source/contract issue, affected scopes, proposed coordinator/prerequisite and
-independent work. Mark uninvestigated acceptance/channel facts unknown rather
-than treating them as passed. Explain if started work loses preference; absence
-of a version is uncertainty, not proof it is obsolete. If unavoidable material
-ambiguity prevents a justified choice, ask one focused question (or return it
-to the caller). The recommendation grants no readiness or authority.
+independent work. Versions and AC/task/test/design links belong when the actual
+comparison or conflict depends on them; do not populate unrelated fields or hide
+material gaps. Mark uninvestigated acceptance/channel facts unknown rather than
+treating them as passed. Explain if started work loses preference; absence of a
+version is uncertainty, not proof it is obsolete. If unavoidable material ambiguity
+prevents a justified choice, ask one focused question (or return it to the caller).
+The recommendation grants no readiness or authority.
 
 Once the person accepts a feature, identify working out its specification as
 a possible separate, explicitly authorized next result in plain terms. Do not

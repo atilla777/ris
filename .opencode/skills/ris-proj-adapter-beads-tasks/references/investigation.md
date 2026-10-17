@@ -42,7 +42,7 @@ not invent flags/locks, install a coordinator, upgrade Beads, pause writers or u
 raw storage writes. Do not substitute append-only notes for the current report.
 
 With actual protection, fresh-read and compare expected content, prepare only
-authorized description/acceptance fields and use main Update with that provider's
+authorized description/acceptance fields and apply `update.md` with that provider's
 supported conditions and sandbox. Do not replay the whole issue. Treat report and
 acceptance as separate effects even if passed together; do not assume cross-field
 atomicity. Independently read both after success, failure or ambiguous output;

@@ -44,8 +44,12 @@ support or proven applicable existing coordination is absent, stop the dependent
 replacement with its exact limitation; do not weaken the requirement or prevent
 independent research. Report/acceptance effects are reconciled separately.
 
-Before each operation reread identity, ownership where required, expected content
-and the relevant complete children/typed blockers. Administrative container
+Before each mutation reread identity and expected target values; reread ownership,
+accepted sources and complete children/typed blockers only when its actual
+predicates depend on them. A simple title/priority/independent-key edit does not
+require delivery, acceptance or graph reconstruction. Changed accepted content,
+claim, membership/edge mutation and completion retain their specific checks.
+Administrative container
 status-only close checks direct native predicates; it requires no recursive
 delivery/acceptance reconstruction or external Git/verification evidence.
 For operations depending on external evidence, check it at its

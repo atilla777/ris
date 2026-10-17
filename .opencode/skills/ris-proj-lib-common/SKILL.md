@@ -23,6 +23,12 @@ mean it was applied; an attempted operation is not a completed one; a saved
 artifact is not necessarily accepted. Never claim a check passed without
 current, appropriate evidence.
 
+Keep ordinary lists, exact reads and recommendations brief: give the requested
+facts or recommendation and material limits. No formal result block, unrelated
+versions, acceptance or publication reconstruction is required. Preserve the
+caller’s actual result contract; a short answer must not hide missing evidence,
+uncertain effects or unfinished requested work.
+
 ## Conditional resources
 
 Read these resources **before** the corresponding action, from the directory
@@ -30,10 +36,13 @@ containing this `SKILL.md` (the skill's installed location):
 
 - `references/dialogue.md` before asking the user questions or discussing
   decisions.
-- `references/artifacts.md` before preparing or changing a deliverable, or
-  handing work off.
+- `references/artifacts.md` before preparing/changing a substantive artifact
+  (including an unsaved requirements/design candidate), transferring execution
+  to another actor/session, or reporting/recovering partial or uncertain effects.
+  An ordinary list, exact read or short recommendation alone does not trigger it.
 - `references/quality.md` before selecting checks, applying completion
-  criteria, or making a final assessment.
+  criteria, or making a quality/readiness assessment; merely displaying checked
+  tracker facts is not such an assessment.
 
 If the applicable current content is already available in your context, do not
 reload it. Restore missing content after context loss, a project change, or a
