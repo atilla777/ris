@@ -1,0 +1,4 @@
+format=1
+source=https://github.com/atilla777/ris.git
+revision=ff3ce7d0fc53f86318b516f4322ebc59f1426b3c
+harness=opencode
