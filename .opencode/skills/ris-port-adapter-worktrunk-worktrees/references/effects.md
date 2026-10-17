@@ -47,6 +47,13 @@ hook/filter blocks creation even if wt --no-hooks is permitted. Preserve shared
 repository config and primary-copy state; wt itself can update previous-branch
 state/cache/logs. Report these authorized tool-state effects explicitly.
 
+Choose preservation observations from the actual effects: ordinary creation with
+no hooks/setup needs registrations/target/ref/base and the new copy, not a full
+primary/sibling content scan. For hooks/setup bind the exact protected resources'
+pre-state and permitted outputs, including shared state only when affected.
+Unknown effects require targeted diagnosis before a dependent mutation, not a
+claim of byte preservation from status or an unrestricted scan of other copies.
+
 ## Conditional: authorized `copy-ignored`
 
 Read/apply only if an authorized setup/hook actually invokes this wt command.

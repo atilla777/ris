@@ -1,15 +1,21 @@
 # Execution evidence and applicability
 
-Read before the first handoff/report write and when previous or partial execution
-is found. Resolve resources from the installed skill; report paths come from
-checked project context and confirmed ID, not this installation directory.
+Read only for recovery or insufficient/conflicting proof of a transition, not
+before every ordinary handoff/report. Resolve resources from the installed skill;
+authorized report paths come from checked project context and confirmed ID.
 
 ## Preserve identified observations
 
-Use the authorized `workspace.tasks/<ID>/execution.md` by default; explicit/project
-addresses win. Read existing content first and append a dated run/round entry or
-preserve it as explicit history. Do not overwrite earlier findings or provenance.
-Keep enough information for another session to inspect reality without this chat:
+Use live Git/adapter facts, published versions and accessible exact operation
+results. No `execution.md`, `worktree.md` or equivalent file/Beads transition ledger
+is required; a missing journal alone cannot block. Project-required plan, local
+progress/result notes, review report and sufficient tracker result remain, without
+per-transition persistence. Existing notes may guide discovery but do not prove
+current state. Inspect only facts needed for the dependent transition below;
+this is a proof checklist, not a demand to write all fields after every operation.
+When an authorized result/note needs updating, read it first, preserve history and
+unrelated content, and verify the saved result. Otherwise return/forward the exact
+result with provenance and explicit discovery gaps:
 
 - Run identity/time, exact ID/title, actor and task/actor/execution association;
   project/current/primary roots, config source and resolved output addresses;
@@ -29,10 +35,11 @@ Keep enough information for another session to inspect reality without this chat
   sufficiency. When legitimately omitted, record reason and sufficient technical
   inputs/locator in every handoff; omission never waives mandatory RIS local plans
   or direct plan-task persistence.
-- Each standalone operation's configured role, actual agent invocation/context ID,
+- For a result relied on: configured role, actual agent invocation/context ID,
   selected owner, permissions, input versions, output address, returned status,
   inspected evidence and actual effects. Mark unavailable provenance as a gap.
-- Copy branch/path/base and preservation evidence; claim actor and fresh blockers.
+- Copy branch/path/base and scope-appropriate preservation observations/limits;
+  claim actor and fresh blockers. Ordinary create does not require all-copy hashes.
 - Plan, implementation and review addresses and their history. For each candidate
   identify baseline commit and complete task snapshot (including additions,
   deletions and modes), checks and independent review applicability. Follow the
@@ -65,9 +72,9 @@ dependent persistence claim, not a hidden write. This is evidence, not a schedul
 
 For prior/partial effects, own unfinished work or closed pending-publication work,
 load `recovery.md` from this resource's directory. It determines applicability and
-returns to the existing SKILL route; this journal does not authorize transitions.
-Append the fresh observation, including conflicting facts rather than replacing
-history with a latest-stage flag. For each operation record:
+returns to the existing SKILL route; neither a note nor this checklist authorizes
+transitions. For the affected result convey fresh observations and contradictions,
+not a latest-stage flag. A compact reconciliation can use:
 
 ```text
 operation / actual effect and receipt / input and tested snapshot / current facts
@@ -86,3 +93,10 @@ including why unaffected results can be reused. Missing notes may be reconstruct
 from referenced facts with provenance and gaps; never invent old checks, TDD chronology,
 review independence or an unavailable executor receipt. Report unavailable write
 permission separately from the ability to inspect and return an unsaved handoff.
+
+For nonstandard copy association, non-idempotent setup, remaining processes or
+ambiguous partial effects, a compact addressable result must be available in an
+already authorized channel before a dependent irreversible action. If it cannot be
+saved or recovered, block that action with the exact missing input. Never invent
+review independence, candidate identity, past setup completion or a new mandatory
+file/registry to replace missing proof.

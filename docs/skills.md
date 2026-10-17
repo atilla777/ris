@@ -213,6 +213,13 @@ own accepted content; their portable counterparts return proposals.
 
 Worktree preparation reports working-copy and environment readiness separately.
 Git is the default worktree adapter; having Worktrunk installed does not select it.
+The ris-17f candidate streamlines ordinary create and makes preservation details
+conditional on reuse or hooks/setup. Preparation and full task execution need no
+`worktree.md`, `execution.md` or substitute transition ledger; project-required
+plan, progress/result, review and tracker result remain. A valid unused config
+difference does not block preparation; tracker identity and used paths still gate
+the dependent handoff. See [delivery checks](specs/worktree-preparation-simplification/delivery-checks.md)
+for the pending-review/integration snapshot and static evidence limits.
 Planning consumes the supplied copy without creating it or requiring a claim.
 Consult the linked skills for shared-root provenance and source-version checks.
 

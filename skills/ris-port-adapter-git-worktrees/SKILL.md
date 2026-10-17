@@ -27,7 +27,12 @@ Return status (`ok|blocked|conflict|error`), operation/tool/version, requested a
 observed common directory/path/branch/HEAD/base, index/files/operation diagnostics,
 list completeness, actual effects including partial hook/create/ref effects,
 checks/limits and safe recovery. Git oracle reads must independently confirm
-creation, even after nonzero/ambiguous output. Preserve existing work; no force,
+creation, even after nonzero/ambiguous output. Ordinary new creation without
+hooks/setup observes registrations, target/ref, pinned base and the new result,
+not the contents of all primary/sibling files. For reuse bind the selected copy's
+HEAD/refs/index and changed/protected bytes; for hooks/setup inspect the exact
+protected resources and authorized outputs. Report only observed preservation.
+Preserve existing work; no force,
 reset, rebase, stash, commit, repair/prune, deletion, automatic rollback or retry.
 Individual Git locks are not cross-operation uniqueness. Ordinary creation needs
 no manual window/global lock; an explicitly required stronger unsupported

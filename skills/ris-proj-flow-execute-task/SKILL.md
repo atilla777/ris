@@ -85,18 +85,32 @@ Require:
 
 ```text
 status; operation; exact ID and scope; input versions;
-result/evidence addresses; copy and snapshot; executor provenance;
+exact result or evidence locator; copy and snapshot; executor provenance;
 actual effects; limitations; necessary decision; remaining operations
 ```
 
-Verify actual launch, accessible artifacts and applicable evidence before every
-transition; unsupported “done” is insufficient. Preserve history in the authorized
-`workspace.tasks/<confirmed-ID>/execution.md` (explicit/project address wins).
-Read `references/evidence.md` from this installed folder before the first handoff
-or report write. If own unfinished work, previous/partial effects, an interrupted
-operation or closed pending-publication work is found, read and apply
-`references/recovery.md` before choosing a transition or retry. An ordinary fresh
-run does not load that resource.
+Before each transition verify actual launch/provenance, accessible exact results
+and current prerequisites from live Git/adapter facts and published input versions;
+unsupported “done” is insufficient. Bind checks/review to the complete candidate
+(base plus all additions/deletions/modes), inputs and independent reviewer; unknown
+snapshot, review independence or task/copy association blocks only its dependent
+step. Forward just the verified context needed by the recipient, including fresh
+rights, claim/blocker gates and checked primary provenance for shared-path actions.
+
+Do not require `worktree.md`, `execution.md` or an equivalent file/Beads transition
+journal, or a persisted entry for each handoff. Preserve project-required local
+plan, progress/result notes, independent review report and sufficient tracker
+result without turning them into a transition ledger. Existing journals are hints,
+not authoritative or mandatory inputs; their absence alone is not a blocker.
+Read `references/evidence.md` only for recovery or insufficient/conflicting
+transition proof. For own unfinished work, previous/partial effects, an interrupted
+operation or closed pending-publication work, also read/apply
+`references/recovery.md` before selecting a transition/retry. An ordinary fresh
+run loads neither detailed resource merely for its first handoff/report.
+Nonstandard association, non-idempotent setup, remaining processes or ambiguous
+partial effects require a compact addressable result in an already authorized
+channel before a dependent irreversible action; if unavailable, name that exact
+gap and block that action. Do not introduce a replacement journal or registry.
 
 ## Select exactly one target
 
@@ -191,10 +205,11 @@ or changed facts before deciding the next operation.
 
 1. Delegate `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
    copy/environment actions and checked primary root with selection evidence. Check its verified claim,
-   blockers, copy association, preservation of foreign staged/unstaged/untracked
-   changes and separate copy/environment readiness. Use its actual handoff, not
+   blockers, copy association, proportionate preservation observations/limits
+   (ordinary new create versus reuse or hooks/setup) and separate copy/environment
+   readiness. Use its actual handoff, not
    a guessed branch/path. Refresh context after a copy change. Retain the
-   addressable copy witness and primary association evidence; neither replaces
+   verified copy/primary association facts in the handoff; neither replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
 2. Determine whether a **saved plan** is required by project rules or needed for
    sufficient implementation/handoff. If so, delegate `ris-proj-op-plan-task` in

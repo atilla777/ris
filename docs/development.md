@@ -11,6 +11,20 @@ live in the primary copy's `.sdlc/tasks/<confirmed-ID>/`; `tasks/PLAN-*` is a
 historical archive. Git push does not synchronize Beads. Follow the rules for
 review and separate Git/tracker publication and completion.
 
+The ris-17f candidate removes default `worktree.md`/`execution.md` and equivalent
+transition-ledger requirements. Keep the local plan, progress/result notes,
+independent review report and sufficient Beads result required by the rules.
+Use live Git/Beads and accessible exact owner results at transitions; missing
+association, reviewed-snapshot identity or independence blocks only the dependent
+step. Ordinary creation without hooks/setup checks registrations, target/ref,
+pinned base and the new copy, without hashing all primary/sibling contents.
+Reuse and hooks/setup activate scoped preservation. Recipient context validates
+the entire selected config but compares only settings used by the operation and
+recipient; a valid unused product-source difference is not a handoff blocker.
+See [the read/action comparison and check limits](specs/worktree-preparation-simplification/delivery-checks.md).
+This synchronized text is pending independent review and integration with its
+source candidate; it is not publication or live-behavior evidence.
+
 Publish from the task's own branch/copy, integrating the latest primary remote
 branch there; shared local `main` is not a publication workspace. Ordinary tracker
 work uses fresh checks, targeted native writes and read-back, without manual

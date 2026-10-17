@@ -31,7 +31,8 @@ With a supplied ID, load/apply the selected available adapter and freshly read
 exact typed identity, content, membership and relevant dependencies. Discover the
 ID's accepted versions/decisions from its links and current candidate evidence
 from the supplied copy and accessible primary task reports (default
-`implementation.md`, `execution.md`, `plan.md`, or inspected overrides), retaining
+`implementation.md`, `plan.md`, available optional receipts or inspected overrides;
+no execution journal is required), retaining
 project-required inputs. Adapter commands/storage belong to it. Missing essential
 identity blocks a task-bound report. Structural parent is not feature identity;
 ordinary standalone children retain their own sufficient scope/criteria/refs and

@@ -15,7 +15,8 @@ Resolve current config/rules and current/context-checked primary paths again,
 including explicit-or-verified-saved selection provenance and current-copy
 association. An old receipt does not select a root without fresh applicability.
 Inspect all
-actual effects, including those after the last saved receipt, before advancing:
+actual effects, including those after any available receipt, before advancing.
+Apply `evidence.md` for the affected proof, without requiring a journal:
 
 - Exact ID/type/status/result, actor, current assignee, execution/copy association,
   live execution evidence, complete mandatory children and typed directed blockers;
@@ -28,7 +29,7 @@ actual effects, including those after the last saved receipt, before advancing:
 - Current accepted requirements/design and independent decisions, essential contracts,
   applicable rules and installed package/resource versions, including material local
   overlays. Compare them with each receipt's inputs rather than silently repinning.
-- Available worktree/plan/implementation/check/review reports and history, their
+- Available copy results, plan/progress/implementation/check/review reports, their
   executor/authorship provenance and full tested snapshots. Inspect actual candidate
   and integrated trees, including additions/deletions/modes and foreign exclusions.
 - Git destination/ref, existing task/integration commits, actual remote visibility;
@@ -59,9 +60,11 @@ reclaim, substitute another target, repair/remove copies or reopen closed record
 Active blockers or changed mandatory scope stop dependent operations after fresh
 readiness assessment; retain independently useful observations.
 
-If notes are absent, reconstruct authorized evidence from tracker, Git and accessible
-reports/receipts. Label reconstructed facts with their sources and uncertainties;
-append history or return unsaved evidence without write permission. Do not fabricate
+Missing `worktree.md`/`execution.md` alone is not a gap. If notes are absent,
+reconstruct the needed facts from tracker, Git and accessible exact results.
+Label reconstructed facts with their sources and uncertainties; update only
+authorized required results/notes or return the compact evidence unsaved. Do not
+create a replacement per-transition ledger. Do not fabricate
 RED-before-edit, GREEN, check results, reviewer identity/independence or acceptance.
 If proven facts cannot distinguish an absent effect from an unobserved effect, stop
 before replay. Missing proof stays unverified: obtain the owner's missing assessment
@@ -127,10 +130,17 @@ no progress preserves effects, cause and exact remainder with `blocked|conflict|
 according to that cause, without a fixed round cap. Never choose recovery from a
 status token alone; a bounded component's `ok` proves only its own checked boundary.
 
-Append observations using `evidence.md`; hand the existing-route owner absolute
-output/receipt addresses, current inputs/snapshot, verified reusable effects,
+Use the affected proof from `evidence.md`; hand the existing-route owner accessible
+exact results/addresses, current inputs/snapshot, verified reusable effects,
 uncertainties, exact allowed remaining effects and stop boundary. Inspect the returned
 artifacts and actual state before the leading scenario decides the next transition.
 Report reused/reconstructed/new results, three separate channel facts, limitations,
 first remaining operation and fresh no-claim recommendation. `ok` still requires
 all promised results proven, not merely a reconciled stage label.
+
+Before a dependent irreversible action, nonstandard association, non-idempotent
+setup, a remaining process or ambiguous partial effect requires a compact
+addressable result in an already authorized channel. If it cannot be saved or
+recovered, block only that action with the precise gap. No-ID recovery cannot
+infer belonging from claim/assignee alone; unresolved exact ID/association stops
+dependent resume, without choosing foreign work or guessing primary from Git.

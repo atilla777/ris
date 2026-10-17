@@ -82,17 +82,25 @@ Verify the combined result against the task association and permissions, using
 the base's actual independent Git observations. Reprepare context with
 `project_root` equal to the resulting copy's project directory and the checked
 primary root with its selection evidence; verify paths, applicable rules and selected tracker workspace again.
-A changed/missing config or a tracker resolved to a different project blocks the
-project handoff even when the Git copy exists. Do not initialize another tracker
-or silently substitute defaults/shared paths. Shared tracker access must use the
-confirmed project workspace, not an ambient new database in the copy.
+Validate the **entire** selected recipient config through context, including
+present unused fields; invalid or inaccessible selected config is an error, not
+grounds for defaults. Compare operation/recipient-relevant settings: project and
+tracker identity/workspace, applicable rules, checked primary and used shared
+paths, plus other sources/roles only when that recipient needs them. A valid
+unused difference (for example `sources.product`) alone does not block preparation.
+A different tracker or used shared path blocks the dependent handoff even when
+the Git copy exists; identify the exact difference and retain independent results.
+A missing required setting blocks its dependent part. Do not copy/substitute a
+config, patch from defaults, or initialize another tracker. Shared tracker access
+must use the confirmed project workspace, not an ambient new database in the copy.
 
 ## Handoff, optional evidence and stop
 
 Return the base's complete copy/environment result plus task ID, actor, fresh
 claim/status/blocker observations, current and primary project roots, confirmed
 tracker workspace, config provenance and re-resolved rules/shared paths. Include
-association evidence and its inspectable address (or honest unsaved discovery gap),
+association evidence as exact forwarded facts or an accessible locator (unknown
+association is an explicit dependent gap),
 primary selection source/verification, actual path/branch/HEAD, new-copy pinned base or n/a on
 reuse, index/staged/unstaged/untracked/operation state, tool/version, permissions,
 checks/limits and effects. Report copy and environment verdicts separately;
@@ -102,12 +110,18 @@ Apply common recoverable-result facts, including saved/accepted/publication
 channels and unfinished remainder. A receiver must freshly check rights, claim,
 blockers and operation-specific protection; the witness/lease is not a live gate.
 
-Only when separately authorized, save this witness as
-`workspace.tasks/<confirmed-ID>/worktree.md` in the primary copy (or the explicit
-project address). Read existing content, preserve all history/unrelated text,
-append an identified observation and verify read-back. Check safe write scope and
-concurrency before writing; on a conflict return the handoff unsaved. The witness
-is local evidence, not an authoritative mutable registry or mandatory remote input.
+Direct invocation and full-flow preparation do not require creating or reading
+`worktree.md`, `execution.md` or an equivalent file/Beads transition journal.
+Return the compact checked handoff, forwarding response-only association facts to
+the recipient explicitly. An old supplied witness is a hint to verify, not an
+authority or prerequisite. Preserve existing notes; do not migrate them.
+For nonstandard association, non-idempotent setup, remaining processes or ambiguous
+partial effects, retain a compact addressable result in an already authorized
+channel before a dependent irreversible action. If it cannot be saved/recovered,
+block that action with the exact missing input, not merely "missing journal".
+Save optional evidence only at an authorized address: inspect existing content,
+preserve history/unrelated text, check scope/concurrency and verify read-back;
+otherwise return it unsaved. No registry or new mandatory format is introduced.
 
 For incomplete execution return the cause's `blocked|conflict|error` and enumerate
 actual claim, branch/copy, fetched refs and completed

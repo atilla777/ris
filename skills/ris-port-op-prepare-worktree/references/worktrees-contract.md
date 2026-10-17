@@ -36,9 +36,12 @@ directories are accessible or healthy; use exact read for the chosen copy.
 Read exactly one selected registered copy. Verify physical path, top-level root,
 per-copy Git directory and common-directory relationship; return branch/detached,
 HEAD, staged/index, unstaged and untracked state, operation markers and
-registration diagnostics. Unknown/unreadable state is not clean. For preservation
-checks bind index bytes, HEAD/refs and bytes/types/modes of relevant pre-existing
-files, including ignored/untracked files (status alone omits ignored bytes).
+registration diagnostics. Unknown/unreadable state is not clean. For reuse or
+protected-resource checks bind index bytes, HEAD/refs and bytes/types/modes of
+changed/protected pre-existing files, including relevant ignored/untracked data
+(status alone omits ignored bytes). Ordinary new creation without hooks/setup
+checks the new result and registrations/path/ref/base, not all primary/sibling
+file contents; it proves no byte equality for those copies.
 Inspection must not refresh/write the index or run repair. Record observation
 limits, races or inaccessible content instead of claiming a stable snapshot.
 

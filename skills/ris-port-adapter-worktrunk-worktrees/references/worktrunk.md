@@ -81,12 +81,16 @@ over the personal template. Reuse is list/read only: do not run `switch` merely
 to verify/reuse (it can run hooks/update shared wt state). Preserve the existing
 copy's HEAD/index/files/refs; do not refresh its base.
 
-Preservation oracle: pre/post full HEAD, local refs, raw index (and shared index
-for split-index), bytes/types/modes of relevant tracked/untracked/ignored files.
-Enumerate with `ls-files -z`, `ls-files --others --exclude-standard -z` and
+Conditional preservation oracle for reuse or hooks/setup: scoped pre/post full
+HEAD, relevant local refs, raw index (and shared index for split-index), and
+bytes/types/modes of changed/protected tracked/untracked/ignored files.
+For scoped discovery enumerate with `ls-files -z`, `ls-files --others --exclude-standard -z` and
 `ls-files --others --ignored --exclude-standard -z`; inspect symlinks without
 following escapes. Status alone omits ignored bytes. Unknown content/races or
-inaccessible paths are limitations, never a claimed stable snapshot.
+inaccessible paths are limitations, never a claimed stable snapshot. Apply these
+commands only to the selected copy or exact hook/setup scope. Ordinary new create
+without hooks/setup uses registrations, exact target/ref, pinned base and new-copy
+state; no whole-primary/sibling file walk/hash or assertion of their byte equality.
 
 ## Supporting base observations
 

@@ -24,7 +24,7 @@ otherwise use an unambiguous supplied project rule, otherwise select
 its dependent work: do not fall back to another adapter or its CLI. Neither
 the adapter nor this base claims tasks or decides another owner's acceptance.
 
-## Establish the copy
+## Ordinary new-copy route
 
 1. Confirm inputs, permissions and repository identity, current and explicitly
    supplied primary roots (if the caller needs shared resources). A branch name
@@ -39,11 +39,15 @@ the adapter nor this base claims tasks or decides another owner's acceptance.
    Missing/damaged/prunable registration, foreign data, ambiguous association,
    inaccessible copy or unfinished Git operation is a concrete conflict/blocker;
    do not delete, move, repair, prune, reset, rebase, stash or commit it.
-3. For a confirmed existing copy, use `read` and preserve HEAD, index, files,
-   untracked data and refs. Report changes/divergence without updating the copy.
-   Do not fetch merely to reuse or apply a newly selected base to existing work.
-   An existing branch with no copy requires confirmed association **and** explicit
-   permission to use its freshly read current commit; otherwise stop conflict.
+3. Choose the preservation scope **before** dependent actions. Ordinary creation
+   with absent path/branch and no hooks/setup checks registrations, target/ref,
+   pinned base and the actual new copy; do not walk/hash all tracked, untracked or
+   ignored files in the primary or unrelated copies. Listing all registrations
+   does not mean reading their contents. Make no byte-unchanged claim about them.
+   For reuse, an existing branch without a copy, partial/ambiguous effects, or
+   hooks/setup needing protected-resource checks, first read
+   `references/preservation.md` and apply its scoped method. Reuse is read-only:
+   no fetch to refresh its base, switch or repeated create.
 4. For a new branch, an explicit revision wins: resolve it to one accessible
    commit without an implicit fetch. Otherwise require the selected remote and
    its established primary branch, refresh that exact remote branch, and pin the
@@ -51,6 +55,7 @@ the adapter nor this base claims tasks or decides another owner's acceptance.
    local main are not substitutes. Never switch/reset the main copy. The selected
    adapter owns the concrete Git mapping for these observations.
 5. Preflight selected-tool side effects and any required environment actions.
+   Immediately recheck mutable path/ref/registration and side-effect prerequisites.
    Pass exact absolute path, validated branch, pinned commit, permissions and
    expected absence/state to `create`. Recheck effects after every response,
    including nonzero/ambiguous results, before considering a retry. Git protects
@@ -69,10 +74,11 @@ where preflight can detect that; otherwise retain and report partial effects.
 Hooks and background starts are not successful setup just because creation exits 0.
 
 Verify the actual copy using the adapter's independent Git oracle: repository
-relationship, canonical path, branch/detached, HEAD, index/files/untracked and
-operation state. For new creation compare branch/path/HEAD with pinned inputs;
-for reuse compare pre/post state and report unexpected changes as conflict rather
-than attributing them to this operation. Setup may change only authorized outputs;
+relationship, registration, canonical path, branch/detached, HEAD, resulting
+index/staged/unstaged/untracked and operation state. For new creation compare
+branch/path/HEAD with pinned inputs. Reuse and hooks/setup use the conditional
+preservation scope; unexpected changes are conflict, not attributed to this
+operation without evidence. Setup may change only authorized outputs;
 identify those separately from preserved pre-existing work. Reconcile completed
 actions before retry, never blindly recreate or rerun a non-idempotent setup.
 
@@ -96,8 +102,13 @@ not proof of environment readiness. A ready copy with failed requested setup has
 the stopping cause's non-`ok` status (`error` for technical failure, `blocked` for
 missing prerequisites, `conflict` for contradictory state), with copy readiness,
 completed setup effects and exact remaining setup reported separately. Preserve
-effects; reconcile them before rerunning setup; no silent rollback or claim release. Save
-evidence only to an explicitly authorized supplied address, preserving existing
-history; otherwise return it. Do not create a task/worktree registry, declare
+effects; reconcile them before rerunning setup; no silent rollback or claim release.
+No report file or transition journal is required by default. Return the compact
+checked result; save only to an authorized supplied address. Before a dependent
+irreversible action, nonstandard association, non-idempotent setup, remaining
+processes or ambiguous partial effects need a compact addressable result in an
+already authorized channel. If it cannot be saved/recovered, block that action
+with the exact missing input. Preserve existing notes; do not migrate or delete
+them. Do not create a task/worktree registry, declare
 requirements ready, prepare a technical plan, implement, publish, close tasks,
 remove copies or start a next lifecycle operation. Stop at this checked handoff.

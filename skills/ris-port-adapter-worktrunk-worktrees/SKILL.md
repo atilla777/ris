@@ -33,7 +33,12 @@ observed repository common directory, path/branch/HEAD/base, index/files/operati
 diagnostics, list completeness, actual ref/copy/config/hook/process effects,
 checks, limits and safe recovery. Reconcile every nonzero/ambiguous response
 through Git before retry. Distinguish a verified copy from pending/failed setup;
-do not accept environment readiness for the caller. Preserve existing work:
+do not accept environment readiness for the caller. Ordinary new creation without
+hooks/setup checks registrations, target/ref, pinned base and the actual new copy,
+not all primary/sibling file contents. Reuse binds selected-copy HEAD/refs/index
+and changed/protected bytes; hooks/setup bind their exact protected resources and
+authorized outputs. Limit preservation claims to those observations.
+Preserve existing work:
 no force/clobber, reset, rebase, stash, commit, repair/prune, deletion, automatic
 rollback or blind retry. Individual Git locks and read/write/read do not promise
 cross-operation uniqueness. Ordinary creation needs no manual window/global lock;

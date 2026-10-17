@@ -41,14 +41,19 @@ and inspection limits. Inspect copy-specific operation paths resolved with
 lock files too. Any pending operation, unreadable state or relevant lock blocks
 mutation/reuse readiness. Do not clear these markers.
 
-For preservation compare pre/post HEAD, local refs, raw index bytes (including
-shared index for split-index), pre-existing file bytes/types/modes, and ignored/
-untracked data when relevant. Obtain ignored paths via
+Only for reuse or hooks/setup with protected resources, compare scoped pre/post
+HEAD, relevant local refs, raw index bytes (including shared index for split-index),
+changed/protected file bytes/types/modes and relevant ignored/untracked data.
+For scoped path discovery, obtain ignored paths via
 `ls-files --others --ignored --exclude-standard -z`, tracked paths via
 `ls-files -z`, and untracked via `ls-files --others --exclude-standard -z`;
 deduplicate, inspect symlinks without following escapes, record missing entries.
-Status alone cannot prove byte preservation. Hash/inspect with available file
-tools; unknown content or concurrent differences must be reported, not called clean.
+Status alone cannot prove byte preservation. Hash/inspect the selected scope with
+available file tools; unknown content or concurrent differences must be reported,
+not called clean. These are selected-copy/effect-scope commands, not an instruction
+to recurse through all registered copies. Ordinary new create without hooks/setup
+uses registrations, exact target/ref, pinned base and new-copy state only; no
+whole-primary/sibling tracked/untracked/ignored walk or byte-equality claim.
 
 ## Base observation (only when caller needs new-copy base)
 
