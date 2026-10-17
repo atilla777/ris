@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, three workflows
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 47 skills are listed below, independently of the compact 18-command menu.
+All source skills are listed below, independently of the compact command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -27,10 +27,16 @@ project contract, `risb-` a portable contract, without environment-based routing
 For older names, use the
 [namespace transition guide](skill-command-naming-migration.md); there are no aliases.
 
-## Compact command menu — 18
+## Current compact command menu
+
+The historical [18-entry v1 set](specs/compact-commands/spec.md) is extended by
+`/risp-status` under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
+The current source map follows; availability in a project requires installation
+of the chosen package and client restart.
 
 | Command | Exact skill target |
 | --- | --- |
+| `/risp-status` | `ris-proj-op-show-plan` |
 | `/risp-next` | `ris-proj-op-suggest-continuation` |
 | `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
 | `/risp-refine-epic` | `ris-proj-op-refine-epic` |
@@ -50,7 +56,8 @@ For older names, use the
 | `/risb-skill` | `ris-port-op-author-skill` |
 | `/risb-installation` | `ris-port-op-manage-installation` |
 
-`next` recommends; `select-feature` chooses a feature; `run-task` executes one
+`status` shows the complete compact unclosed plan and one checked recommendation;
+`next` recommends for an already selected subject; `select-feature` chooses a feature; `run-task` executes one
 authorized task. `skill` authors autonomous source, without selecting the RIS
 author or installing it. Empty inputs, permissions, recovery and stopping points
 remain those of each linked owner. No aliases are shipped.
@@ -117,6 +124,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-refine-epic](../skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome and boundaries |
 | [ris-proj-op-select-feature](../skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation |
 | [ris-proj-op-suggest-continuation](../skills/ris-proj-op-suggest-continuation/SKILL.md) | Read-only continuation prompt, human decision or exact blocker |
+| [ris-proj-op-show-plan](../skills/ris-proj-op-show-plan/SKILL.md) | Complete compact read-only project/ID-subtree plan and one checked next action |
 | [ris-proj-op-interview-feature](../skills/ris-proj-op-interview-feature/SKILL.md) | Feature-requirements interview handoff |
 | [ris-proj-op-specify-feature](../skills/ris-proj-op-specify-feature/SKILL.md) | Accepted published requirements and feature/standalone record, or explicit limited contribution |
 | [ris-proj-op-design-feature](../skills/ris-proj-op-design-feature/SKILL.md) | Separately accepted published design and record references, or explicit limited contribution |
@@ -141,7 +149,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-lib-common](../skills/ris-proj-lib-common/SKILL.md) | Shared conditional dialogue, artifact and quality rules |
-| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, ordinary bug registration/investigation, execution claim/full notes snapshot/separate fix-completion and separately authorized Dolt operations |
+| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, read-only all-work-type plan reads, ordinary bug registration/investigation, execution claim/full notes snapshot/separate fix-completion and separately authorized Dolt operations |
 | [ris-port-adapter-git-worktrees](../skills/ris-port-adapter-git-worktrees/SKILL.md) | Git worktrees/1 operations |
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
@@ -180,6 +188,15 @@ and revision/evidence limits, rather than inferring live reliability from contra
 Requirements and design have separate acceptance. Task execution preserves an
 explicit target; without an ID it reconciles confirmed own unfinished work before
 ready-task selection. The continuation operation recommends a next step read-only.
+
+The plan overview (`/risp-status`, optionally with an exact ID) shows every unclosed
+working record once, with actual parents and directed blockers; standalone work is
+separate. Closed/all progress counts direct children, not fulfilled criteria. Feature
+references and checked acceptance remain distinct. The tree is a lightweight tracker
+read; only the one recommendation gets necessary source/decision/owner inspection
+through the continuation operation. Started work is considered first. Missing data,
+partial reads or an unavailable installed command are explicit gaps, never invented
+readiness. The overview saves nothing, claims nothing and launches no next action.
 
 Portable implementation defaults to standard unless TDD is required; the project
 TDD operation requires observed RED before behavior changes and GREEN after.

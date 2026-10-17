@@ -49,8 +49,9 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-The compact menu has 18 explicit entries: `risp-` selects a project contract,
-`risb-` a portable contract. All 47 skills are available; operations without
+The compact menu extends the historical 18-entry v1 set with `/risp-status`:
+`risp-` selects a project contract, `risb-` a portable contract. All source skills
+are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
@@ -60,12 +61,19 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
 | Decompose an accepted feature into tasks | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
+| See the complete unclosed plan and one next action | `/risp-status` or `/risp-status <ID>` |
 | Find the next step for selected work | `/risp-next <ID>` |
 
 Replace angle-bracket placeholders with your inputs. Skills clarify missing
 information and required permissions. Project-integrated work checks its own
 prerequisites; installing the package does not initialize a project or tracker.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
+
+`status` is read-only: without an ID it shows the project's complete unclosed plan;
+with an ID it shows that subtree and necessary context/blockers. It recommends one
+action using the continuation owner and checks the installed command, or reports an
+exact gap. It saves nothing, claims no work and launches nothing. `next` inspects an
+already selected subject; `select-feature` chooses a feature; `run-task` executes.
 
 To record a bug before investigation, ask the agent to load
 `ris-proj-op-register-bug` for the selected project and message, with permission

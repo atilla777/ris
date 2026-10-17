@@ -1,10 +1,14 @@
 # RIS skill and command namespace transition
 
-The current command interface is the [compact-commands v1 map](specs/compact-commands/spec.md):
+The historical [compact-commands v1 map](specs/compact-commands/spec.md) contains
 18 explicit slash entries, 14 `risp-` project contracts and four `risb-` portable
 contracts. All 43 baseline technical skill identities/resources remain; the
 additional `ris-proj-op-register-bug` is directly loadable without a new command.
-See the current inventory in the [catalog](skills.md). No aliases or
+The current menu extends that accepted baseline with `/risp-status` targeting
+`ris-proj-op-show-plan`, under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
+It returns a read-only project/ID-subtree overview and one checked recommendation,
+without claiming or executing work. See the current source inventory in the
+[catalog](skills.md); source availability does not prove installation. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
 Verification and remote publication require separate revision-bound evidence;
