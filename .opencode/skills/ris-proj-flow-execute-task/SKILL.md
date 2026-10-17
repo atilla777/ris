@@ -243,7 +243,8 @@ or changed facts before deciding the next operation.
    reads, fresh applicable external evidence/mandatory composition and honest
    predicate-specific native limits, without freezing graph/evidence. No future
    `ris-complete-task` dependency is required. For a selected one-task feature,
-   delegate `ris-proj-op-complete-container` for **all** feature AC, integrated revision,
+   delegate `ris-proj-op-complete-container` with explicit **verify-and-close**
+   intent for **all** feature AC, integrated revision,
    verification persistence/read-back and separate closure. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
 8. Delegate **separate** selected-adapter tracker publication. For prior/ambiguous

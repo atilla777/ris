@@ -45,7 +45,10 @@ replacement with its exact limitation; do not weaken the requirement or prevent
 independent research. Report/acceptance effects are reconciled separately.
 
 Before each operation reread identity, ownership where required, expected content
-and the relevant complete children/typed blockers. Check external evidence at its
+and the relevant complete children/typed blockers. Administrative container
+status-only close checks direct native predicates; it requires no recursive
+delivery/acceptance reconstruction or external Git/verification evidence.
+For operations depending on external evidence, check it at its
 actual pinned version and assess currency; these are substantive checks, not a
 requirement to freeze the graph or external documents through write/read-back.
 Afterward independently verify requested fields, preserved content and relevant

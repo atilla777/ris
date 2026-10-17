@@ -83,7 +83,10 @@ publication. No implicit Dolt push, claim, investigation or completion follows.
 ### Ordinary task/container capabilities
 
 Require selected project, exact operation/ID (or approved creation identity),
-explicit kind and authority, own outcome/scope/criteria, stable key, exact source
+explicit kind and authority. Administrative container close needs only the
+main skill's status-only inputs/guards, not own accepted outcomes/sources or
+result persistence. For substantive create/update/verified completion require
+own outcome/scope/criteria, stable key, exact source
 selectors/versions and separate acceptance addresses, constraints/contracts,
 expected current state and permitted fields/links. A standalone root has no
 artificial epic. A structural parent is permitted when explicitly confirmed;
@@ -127,7 +130,12 @@ Advertise only actual supported Beads operations:
   retry. Append/key merge protects only its native row operation; snapshot-bound
   evidence needs fresh applicability/composition checks, not an atomic freeze
   over all relevant content/graph/external evidence.
-- **ordinary exact close:** main Complete, separately from persistence, on one
+- **ordinary administrative container close:** main Complete's administrative
+  branch, on the exact explicitly identified container. No new acceptance,
+  recursive reconstruction, Git evidence or result persistence. Inspect only
+  relevant direct children/blockers and native status effects; retain native
+  restrictions and report that status is not independent acceptance.
+- **ordinary verified exact close:** main Complete's verified-work branch, separately from persistence, on one
   explicit ID with full mandatory scope/cancellation disposition and current
   evidence supplied by the caller. Native transactional direct-child/blocker
   checks cover those predicates only; expected membership, descendants and
@@ -136,7 +144,8 @@ Advertise only actual supported Beads operations:
   explicitly required stronger guarantee before its dependent write. Never force, close
   ancestors/children, reopen a closed record or use status update as a shortcut.
 
-Read back exact fields, type/kind/identity, source decisions, complete children,
+Read back exact fields, type/kind/identity, source decisions when the operation
+depends on them, relevant complete children,
 typed edges and status after the bounded operation. An already-settled effect
 returns verified unchanged; closed-pending publication gets only that remainder.
 Return the main result envelope with actual provider/covered predicates/limits,

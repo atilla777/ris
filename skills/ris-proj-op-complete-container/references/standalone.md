@@ -1,8 +1,9 @@
-# Complete one ordinary standalone task-container
+# Verify one ordinary standalone task-container
 
-Read only for an explicitly identified ordinary task-container. It is not an
+Read only for verify or verify-and-close of an explicitly identified ordinary
+task-container; administrative close uses the SKILL's bounded path. It is not an
 ordinary leaf and is not inferred from missing feature JSON, its title or zero
-children. Require the exact ID/kind, explicit separate closing authority, own
+children. Require the exact ID/kind, closing authority only for verify-and-close, own
 accepted outcomes/criteria, mandatory composition and source selectors/versions/
 separate decisions. Discover from the selected adapter's exact reads and links.
 Preserve malformed/historical feature records; no migration or invented epic.
@@ -31,7 +32,14 @@ design file. Record pass/fail/unverified with concrete evidence for every outcom
 The assessment must satisfy project independence requirements; an implementation
 author's report cannot supply an independent gate.
 
-## Protected persistence and separate exact closure
+For default verify return the unsaved criterion → observation/evidence →
+fulfilled / unfulfilled / insufficient-data assessment and stop. Reuse applicable
+evidence with its revision and currency checks. No tracker/report writes or
+publication follow. A verdict is not new user acceptance.
+
+## Verify-and-close: protected persistence and separate exact closure
+
+Only this intent uses the following write branch, with authorized persistence.
 
 Check the selected adapter's explicitly advertised tool-specific ordinary result
 persistence and exact-close support and apply its owned resource. `tasks` v1 and
@@ -56,7 +64,7 @@ preserving useful read-only assessment.
 Persist the authorized assessment, verify exact read-back and preserved content,
 then separately close **only this ID** when all mandatory outcomes/checks pass,
 scope is complete, blockers absent and evidence remains applicable. Failure or
-unverified evidence leaves open (failed evidence may be persisted if authorized).
+unverified evidence never authorizes close (failed evidence may be persisted if authorized).
 Never force/recurse or use child status changes as a workaround. If already closed,
 check scope/evidence and report unchanged; remaining publication/read-back never
 reopens/recloses it. Ambiguous writes are reconciled by the same adapter before

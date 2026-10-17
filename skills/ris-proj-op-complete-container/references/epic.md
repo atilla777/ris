@@ -1,6 +1,7 @@
-# Complete an epic (conditional branch)
+# Verify an epic (conditional branch)
 
-Read only when the exact selected container is an epic. The wrapper owns the
+Read only for verify or verify-and-close when the exact selected container is an epic.
+Administrative close uses the SKILL's bounded path without this resource. The wrapper owns the
 combined result and common scope/concurrency/publication checks. Do not interpret
 the epic as a feature, require a feature slug/design block, or apply the feature
 verification method to all children indiscriminately.
@@ -17,11 +18,15 @@ verification method to all children indiscriminately.
    All children closed is insufficient if an outcome or mandatory member is absent.
    Unresolved cancellation/scope changes need an explicit owner decision.
 3. Collect a readable outcome/criterion → observation/check → revision/address
-   result under the adapter's supported epic storage mechanism. Do not append
+   result; default verify returns it unsaved and stops, with fulfilled / unfulfilled /
+   insufficient-data coverage. Reuse applicable evidence, identifying its revisions
+   and currency. Do not append
    `ris.feature-record/1` or introduce a second registry or mandatory report file.
-   Require usable evidence and no unresolved material limitation. On failed or
-   unverified required outcome leave the epic open and return bounded recovery.
-4. Using the adapter's bounded native-operation protocol, freshly reread expected contents,
+   For verify-and-close require usable evidence and no unresolved material
+   limitation. Failed/unverified outcomes never authorize close; an existing
+   closed status remains unchanged and is not acceptance.
+4. Only for verify-and-close with authorized persistence, use the adapter's
+   supported epic result storage. Using its bounded native-operation protocol, freshly reread expected contents,
    full mandatory composition and blockers; save only authorized result fields,
    preserving earlier evidence and unrelated content. Verify full saved result.
    Then separately recheck closure criteria/permission and explicitly close only

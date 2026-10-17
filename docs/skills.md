@@ -119,7 +119,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project review, saved when authorized |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
 | [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed task/change or pre-ID document integration and verified Git push |
-| [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Explicit verified feature/standalone-container/epic closure |
+| [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Administrative exact-container close, read-only fulfillment verification, or verify-and-close on success |
 | [ris-proj-op-retrospect-session](../skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence |
 | [ris-proj-op-manage-okf-bundle](../skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation |
 | [ris-proj-op-author-architecture-rules](../skills/ris-proj-op-author-architecture-rules/SKILL.md) | Accepted scoped architecture rules in project OKF |
@@ -178,6 +178,15 @@ TDD operation requires observed RED before behavior changes and GREEN after.
 Text-only work uses substantive document checks. Self-review is not independent
 publication approval. Git publication, task completion, parent acceptance and Dolt
 publication remain distinct effects.
+
+Container requests distinguish administrative close by explicit decision from
+read-only verification and verify-and-close. Administrative `closed` is not
+independent acceptance and leaves feature verification untouched; it needs no
+new delivery reconstruction, Git evidence or verification persistence. Native
+child/blocker restrictions and status read-back remain. Verification reports
+fulfilled / unfulfilled / insufficient-data without closing or publishing by
+default. Execution of a selected one-task feature still requires full verified
+completion. Confirmed closure is never repeated for pending publication.
 
 Both OKF operations require an explicitly selected bundle; ordinary feature
 Markdown is not automatically OKF. Project architecture/development rule authors

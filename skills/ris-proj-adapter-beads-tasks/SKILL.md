@@ -5,7 +5,8 @@ description: >-
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim, conditionally update feature evidence,
-  ordinary bug execution claim/snapshot/fix-completion, explicitly close, and
+  ordinary bug execution claim/snapshot/fix-completion, administratively close
+  exact containers or complete verified work, and
   separately publish authorized Dolt history. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
 ---
@@ -117,6 +118,20 @@ algorithm. Fix-completion requires real criteria/check/review and required Git
 publication, separately from investigation disposition. Feature APIs stay task-only;
 this does not add bug composition or automatic bug selection.
 
+## Administrative container status (Beads-specific)
+
+Advertise bounded **administrative exact-status close** for an explicitly
+identified epic, ordinary task-container or feature task. This is not a new
+`tasks` v1 or feature-record API and is not `tasks.features.complete`. Require
+selected workspace, exact ID/native type and actual container-kind evidence,
+explicit administrative closing authority/reason and expected status. Never
+infer ordinary kind from a missing/failed feature parser. Apply main Complete's
+administrative branch and `references/concurrency.md` before mutation. No kind
+assessment resource or feature-record write validation is needed for status alone.
+Preserve the whole description, feature block/refs/verification and unrelated
+fields; administrative `closed` is not independent result acceptance. Neither
+null/failed nor historical/malformed verification is promoted to success.
+
 ## Optional feature-record capability
 
 Separately advertise `tasks.feature-record/1` with `tasks.features.read`,
@@ -139,8 +154,9 @@ Require the chosen project/workspace, exact operation, record IDs for existing
 records, desired fields or edge direction, actor for a claim, allowed write
 scope, and expected outcome. For creation require the caller's approved type
 (`epic` or `task`, or `bug` for the advertised ordinary capability), title/content and a distinguishing stable reference or
-other agreed identity evidence for safe retry; for completion require the
-caller's explicit confirmation of full mandatory scope and reason. Never guess
+other agreed identity evidence for safe retry; for verified completion require the
+caller's explicit confirmation of full mandatory scope and reason. Administrative
+container closure instead requires the explicit exact-ID status decision above. Never guess
 an ID from a title. Check `bd version` for the supported 1.3.1 behavior and
 `bd where`/`bd context` in the selected project; an uninitialized, wrong,
 unavailable, or read-only workspace blocks dependent writes. Use `bd -C
@@ -294,7 +310,23 @@ never blindly recreate, reparent, remove an edge, or close.
   receive a conflict; never overwrite a live claim with `--force`. Lease
   heartbeats are node-local (`bd --actor <actor> heartbeat <id>` if continuing
   work); do not treat a lease as a cross-machine content lock.
-- **Complete:** require a specific ID, explicit permission and verified caller
+- **Complete — administrative container status:** require exact project/ID/type,
+  confirmed container kind and explicit administrative authority/reason. Freshly
+  read status, complete direct children and directed blockers. Already closed is
+  unchanged, without another close or acceptance reconstruction. Use
+  `bd --sandbox -C <selected-workspace> close <exact-ID> --reason <reason> --json`
+  with no force, continue, claim-next, implicit last-touched fallback or multi-ID
+  call. Preserve native refusal for open direct children/live direct blockers;
+  never remove links, close children/parents or reopen as a workaround. Independently
+  read exact status/reason, preserved description/feature block and relevant direct
+  children/blockers. No recursive delivery reconstruction, Git evidence, new
+  acceptance, result persistence or verification write is required. This status
+  mutation does not establish fulfillment, descendant completeness or acceptance.
+  On ambiguous/nonzero output reconcile exact effects before retrying only a
+  proved-missing authorized close; pending publication never repeats confirmed close.
+  Apply native predicate limits in `references/concurrency.md`, with no manual
+  writer window, global lock or invented content/graph CAS.
+- **Complete — verified work:** require a specific ID, explicit permission and verified caller
   completion criteria (including mandatory members, cancelled vs completed,
   and any required publication evidence). Read status, blockers and **all**
   direct/descendant mandatory children; refuse open children or active blockers.

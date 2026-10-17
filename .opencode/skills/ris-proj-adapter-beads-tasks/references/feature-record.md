@@ -8,6 +8,16 @@ each operation and its conditional guarantees before dependent writes.
 `bd show`'s `revision` alone is not CAS. Baseline 1.3.1 help has no
 `--if-revision`; detect actual installed capabilities before dependent writes.
 
+Administrative feature **status-only** closure is advertised in the main skill,
+outside these four operations. It may leave `verification` null, failed,
+historical or malformed. It never replaces description, refs or verification,
+does not validate published spec/design decisions as a status prerequisite,
+and does not imply successful verification or independent acceptance. Preserve
+the entire payload and surrounding prose. Unsupported payload diagnostics block
+dependent feature-record writes/verified completion, not a separately authorized
+native status-only close of an exactly established feature subject. Parser failure
+never reclassifies it as ordinary. `tasks.features.complete` below remains strict.
+
 ## One current payload, Git-owned history
 
 Keep one fenced JSON object in the task **description**, between literal
@@ -182,7 +192,7 @@ overwrite a changed acceptance block or silently rebind its pins.
   integration/architecture/docs outcome must pass with usable evidence; no
   unresolved limitation may undermine these checks. Open mandatory children,
   missing scope/evidence, changed inputs or blockers block
-  closure. Reread immediately before `bd --sandbox close <id> --reason <reason>
+  verified closure. Reread immediately before `bd --sandbox close <id> --reason <reason>
   --json` without force/auto-next, then verify record, reason, children/edges
   and unchanged block. Never close its epic automatically.
 
