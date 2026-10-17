@@ -32,11 +32,15 @@ prerequisites. Persist the message as unconfirmed in readable description, with
 available context and possible related IDs distinguished from proven duplicates.
 Do not invent a parent, feature payload, stage children or confirmation status.
 
-- **Read/list:** `bd show <id> --json` must contain exactly one exact ID and the
+- **Read/list:** use the main compact exact-ID route for identity; retrieve
+  `bd show <id> --brief-deps --json` directly when content is required. Either
+  route must contain exactly one exact ID and the
   expected `issue_type: bug`. For deduplication and identity reconciliation use
-  `bd list --all --limit 0 --type bug --json` across the entire relevant project,
+  `bd list --all --limit 0 --type bug --brief --json` across the entire relevant project,
   including closed records and other parents. Validate returned IDs/types and
-  completeness. When legacy task originals are relevant, additionally inspect
+  completeness. Apply main content disclosure: similarity/message/context dedup
+  needs the full relevant descriptions/notes, not only titles or creation keys.
+  When legacy task originals are relevant, additionally inspect
   the complete `--type task` set and exact typed reads; do not convert their
   type or treat them as feature operations. Failed/incomplete reads cannot
   establish absence and stop dependent writes.
