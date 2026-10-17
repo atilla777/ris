@@ -13,6 +13,8 @@ risp-refine-epic.md
 risp-retro.md
 risp-review-task.md
 risp-roadmap.md
+risp-run-simple-task.md
 risp-run-task.md
 risp-select-feature.md
 risp-specify-feature.md
+risp-status.md

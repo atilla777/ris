@@ -8,7 +8,13 @@ The current menu extends that accepted baseline with `/risp-status` targeting
 `ris-proj-op-show-plan`, under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
 It returns a read-only project/ID-subtree overview and one checked recommendation,
 without claiming or executing work. See the current source inventory in the
-[catalog](skills.md); source availability does not prove installation. No aliases or
+[catalog](skills.md); source availability does not prove installation.
+The [accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход)
+also adds `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` for already
+assigned simple work (empty input asks for the request, never selects the queue).
+The combined current source inventory is **49 skills / four flows** and **20
+commands (16 project + 4 portable)**. Original tables/AC and acceptance remain
+historical; bug operations remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
 Verification and remote publication require separate revision-bound evidence;
@@ -22,6 +28,9 @@ and N1's command name with `/risb-installation`. It does not repin acceptance or
 change subject contracts. The old 41-skill/37-command and eight-command maps below
 are historical, not current command instructions. Later W2/U3 skills retain their
 technical names, with compact commands as listed here.
+The 39-row migration below still maps the exact old baseline; the fast entry is
+an addition, not a renamed legacy command. Its local B candidate still needs
+complete installation/delivery checks, independent review and verified publication.
 See the [skill catalog](skills.md) for the current inventory and
 [development guide](development.md#architecture-plans-and-delivery-records)
 for delivery records and their evidence limits; these additions do not repin
