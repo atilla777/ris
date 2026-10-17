@@ -7,7 +7,8 @@ description: >-
   confirmed ID, manage links, claim, conditionally update feature evidence,
   ordinary bug execution claim/snapshot/fix-completion, administratively close
   exact containers or complete verified work, and
-  separately publish authorized Dolt history. Use for
+  separately publish authorized Dolt history; also provide read-only all-work-type
+  plan inventories and exact unknown-type reads. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
 ---
 
@@ -41,6 +42,7 @@ do not load other branches merely to list or exact-read a record:
 
 | Action | Required owned resource |
 | --- | --- |
+| Read-only plan overview: all working types, exact unknown type, complete children, parent and blocks | `references/plan-overview.md` |
 | Authorized bounded field update | `references/update.md` and `references/concurrency.md` |
 | Create/reconcile epic or task; `tasks.items.create` | `references/create.md` and `references/concurrency.md` |
 | Membership or blocking-edge mutation | `references/structure.md` and `references/concurrency.md` |
@@ -67,7 +69,8 @@ its dependent write; ordinary operations need no manual/global writer lock.
 ## Inputs and selected workspace
 
 Require chosen project/workspace, exact operation, expected native type and IDs
-for existing records, needed fields/edge direction and expected outcome. Writes
+for existing records (plan overview may explicitly request discovery of actual type),
+needed fields/edge direction and expected outcome. Writes
 add explicit authority/allowed fields; claims add actor. Never guess an ID from
 a title. Check `bd version` (supported baseline 1.3.1), `bd where`/`bd context`
 in the selected project. An uninitialized, wrong, unavailable or read-only
