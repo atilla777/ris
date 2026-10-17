@@ -110,8 +110,10 @@ in this explicitly limited mode. Return its local record result and remainder.
    invokes the existing Git owner in full mode, never copies its algorithm.
    Failed Git blocks dependent record writes. With published accepted inputs,
    reconcile the selected feature or ordinary standalone record and then invoke
-   adapter publication in full mode. Inspect its verified snapshot/remote/IDs/
-   refs read-back before combined success. Limited record-only stops at its
+   adapter publication in full mode. Inspect its required revision/fresh remote
+   reachability receipt alongside locally verified IDs/refs before combined
+   success; remote revision assurance does not independently compare all fields.
+   Limited record-only stops at its
    verified local effect with tracker publication explicitly remaining.
 
 On error/ambiguous write, inspect actual file and any attempted tracker effects

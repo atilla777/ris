@@ -158,8 +158,9 @@ proposed candidate features or prove that their specifications exist.
 In full mode, after semantic and local read-back verification invoke the selected
 adapter's separate tracker publication operation with exact epic/content,
 destination evidence and authority for the entire outgoing history. Preflight
-remote-gated writes through that owner before mutation. Inspect its snapshot,
-remote and independent read-back receipt against the agreed refinement. An
+remote-gated writes through that owner before mutation. Inspect its required
+revision/fresh remote reachability receipt alongside local refinement checks;
+remote revision assurance is not independent field equivalence. An
 unchanged epic still needs required availability/debt checked, without empty
 push. No synthetic Git step. Missing authority or failed/ambiguous publication
 blocks full success; retain known effects and reconcile with the same owner

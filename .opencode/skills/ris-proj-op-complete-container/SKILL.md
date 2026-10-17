@@ -199,8 +199,9 @@ Git integration/publication is an assessment input where required, never an
 administrative-close input/output and never performed here. Default verify does
 not publish. For authorized write branches tracker publication
 is separate: only when authorized/required use the selected adapter's publication
-operation, inspect the entire outgoing scope and remote, suppress auto-push during
-gated writes and independently read the selected remote from another copy. If
+operation, check authorized shared-main scope and remote, suppress auto-push during
+gated writes and inspect fresh selected-remote revision/reachability evidence.
+Local exact-content checks remain separate from remote revision assurance. If
 remote publication is required, preflight its availability/authority and outgoing
 scope before dependent writes. Do not configure a remote or publish unrelated work.
 Git success never proves tracker publication. A failed tracker publication leaves

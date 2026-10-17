@@ -184,8 +184,10 @@ or invoke decomposition.
 
 Delegate separate tracker publication for the verified ID and refs and any
 authorized local refinement effects. The adapter
-checks authorized **full outgoing history**, isolation, final gate and independent
-read-back of the selected remote. It returns snapshot/ID and evidence, not raw
+checks authorized shared project main scope and history direction, ordinary
+non-force publication and fresh selected-remote revision/reachability. It returns
+required S, observed L/fresh R and IDs alongside separate local content evidence,
+not exact sent-snapshot or remote field equivalence and not raw
 database internals for this scenario to reinterpret. Git and tracker results
 are independently confirmed; one success cannot clear the other gate.
 

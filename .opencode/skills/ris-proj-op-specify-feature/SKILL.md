@@ -206,8 +206,9 @@ Do not create children, add dependencies, claim or close tasks.
 
 After verified record reconciliation in full mode, invoke the selected adapter's
 separate publication operation with exact expected records/refs, authorized
-outgoing scope and destination evidence. Inspect its snapshot/remote/read-back
-receipt and compare identity, content and links to the promised whole. No-change
+outgoing scope and destination evidence. Inspect its required revision/fresh remote
+reachability receipt alongside local identity/content/link checks of the promised
+whole; remote assurance is not independent field equivalence. No-change
 verifies required existing publication or remaining debt without empty push.
 Missing authority or failed/ambiguous publication leaves the full result blocked,
 preserving known Git commits/IDs for only the missing operation.

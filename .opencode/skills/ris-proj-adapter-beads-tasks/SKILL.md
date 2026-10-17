@@ -385,16 +385,19 @@ never blindly recreate, reparent, remove an edge, or close.
 ## Separately requested Dolt publication (outside tasks v1)
 
 Read `references/dolt-publication.md` before `dolt.publish` or preflight of a
-remote-gated write. Pass exact requested/recovered snapshot S and its expected
-result when confirming prior publication. After project/destination/safe-read
-checks, the adapter checks S reachability and independent AS OF S read-back
+remote-gated write. Pass exact requested/recovered revision S and separate local
+result evidence when confirming prior publication. After project/destination/
+safe-read checks, freshly fetch the selected remote and check S reachability
 before incoming-only/divergence or new-write gates. Confirmed S returns verified
-no-op despite newer local/remote history, without another push or write window;
-unknown identity, ancestry or failed reads remain unverified. For a proven
-unsent snapshot this separate operation checks the configured remote,
-permission for the **entire outgoing history**, every intermediate commit's
-actual changes (not just a net diff), and independent selected-remote read-back.
-Use supported CLI forms first; missing coverage or unknown changes block it.
+no-op despite newer local/remote history, without push, result write or close;
+unknown identity, ancestry or failed reads remain unverified. Proven unsent work
+needs current authority for shared project `main` history of explicitly agreed
+tasks, including other agents' authorized records, and fresh destination/direction
+checks. Use ordinary non-force `main:main` push and fresh remote revision assurance,
+not mandatory per-commit/parent audit, private ref, new clone or full-row comparison.
+The moving branch does not promise exact sent-snapshot identity, independent proof
+of each historic action's authority or field-by-field equivalence. Known unknown/
+foreign scope and divergence block publication; no hidden merge or force.
 It is not `tasks` v1 and is never implicit in create/update. Remote-gated
 mutations use `bd --sandbox` after checking auto-publication routes; this
 suppresses auto-push, not concurrent writers or selective publication.

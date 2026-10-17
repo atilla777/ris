@@ -32,8 +32,10 @@ native JSON remains a fallback; do not use the failing Go-template projections.
 
 Git publication uses native fetch/push `--quiet`; Dolt publication uses
 fetch/push `--silent` for progress. Preserve stderr, exit status and verified
-results without a mandatory new log. Whole-history/content, snapshot-bound push,
-independent review and independent remote read-back requirements remain intact.
+results without a mandatory new log. Git whole-outgoing-history checks, exact
+reviewed-tree publication and independent remote read-back remain required. Dolt
+uses authorized shared-main scope, ordinary non-force publication and fresh remote
+revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
