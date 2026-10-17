@@ -1,7 +1,7 @@
 ---
 name: ris-proj-op-publish-task
 description: >-
-  Integrate an independently reviewed RIS task/change or pre-ID document result into the project's
+  Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
   established primary Git branch and verify authorized direct push. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
@@ -24,13 +24,21 @@ Choose by the actual publication subject: an existing native bug ID does not tur
 pre-execution design/documents into fix implementation. Mixed fix/document changes
 use Task/change and retain all implementation/snapshot guards below.
 
-- **Task/change:** confirmed ID and agreed change scope, applicable accepted
-  requirements/design/contracts or sufficient accepted technical constraints,
-  implementation/docs/check evidence and independent review. Through the selected
-  adapter freshly check identity, blockers and ownership where execution requires
+- **Task/change:** selected project, attributable agreed request, outcome,
+  boundaries/criteria, accepted technical constraints/material decisions and
+  exact copy/branch/base/candidate, implementation/docs/check evidence and
+  independent review. A sufficient accepted request needs no separate spec/design/
+  plan files. The task ID is optional; no-ID implementation belongs here, not in
+  Documents. Its absence does not waive project-required tracking or other gates.
+  With an ID, load/apply the selected adapter, discover its applicable accepted
+  requirements/design/contracts and freshly check typed identity, membership,
+  blockers and ownership where execution requires
   claim; an old receipt/lease is neither permission nor general content/graph CAS.
   Active blockers or lost required ownership stop dependent publication. Recheck
   mutable task gates before the action; the receipt does not supply write authority.
+  Without an ID do not require an adapter or fabricate a record/task directory.
+  Supplied feature/ordinary/bug identities retain their real contracts; absent or
+  malformed feature data cannot select ordinary admission.
    For an ordinary native bug use advertised typed bug/ownership/blocker reads,
    full current report/criteria/accepted decisions and the full historical notes
    execution-input snapshot, not task-only feature APIs or mandatory formal spec/
@@ -49,7 +57,8 @@ use Task/change and retain all implementation/snapshot guards below.
   requires no task ID, implementation evidence or not-yet-existing design. An
   explicitly authorized proposed document stays proposed after publication.
   Use `ris-port-op-review-change` for independent assessment of this concrete
-  document subject; use `ris-proj-op-review-task` when a task-bound review applies.
+  document subject, or `ris-proj-op-review-task` when project-integrated review
+  applies, with or without an ID.
    Review is required evidence, not content acceptance or a next-stage assignment.
    An existing ID may accompany a document-only planning subject for identity
    discovery; it does not require future implementation evidence or design for
@@ -78,8 +87,9 @@ Read current project rules,
 Git status, diff, recent history, worktree mapping, remotes and tracking. Establish
 the primary branch and selected remote from project evidence; do not assume the
 literal name `main`, configure remotes or grant direct-write permission yourself.
-Missing target/permission/checks/reviewer blocks publication with useful local
-state reported. A task's in-progress status is not a publication gate.
+PR-only policy, forbidden direct push or missing target/permission/checks/reviewer
+blocks publication with useful local state reported. A task's in-progress status
+is not a publication gate.
 Publication does not accept content, create tracker records or enlarge the
 caller's authority. Check all outgoing history, not just the chosen subject's diff.
 
@@ -92,8 +102,13 @@ errors away, mask failure with a pipeline or infer publication from silence.
 No new log file is required. Quiet output does not replace outgoing-history
 inspection, independent review or remote read-back.
 
-1. Confirm the subject's own task branch and working copy as the publication
-   workspace (for pre-ID documents, its own authorized document branch/copy).
+1. Require an already prepared, confirmed own branch and safe working copy as the
+   publication workspace, with or without an ID (for pre-ID documents, its own
+   authorized document branch/copy). A suitable current copy is allowed; a separate
+   worktree is required when isolation or project rules demand it. Ambiguous
+   ownership, overlapping foreign changes or a busy shared copy block dependent
+   publication until the caller supplies safe preparation through existing owners.
+   This operation does not create/switch branches or prepare worktrees.
    Never switch, checkout, reset or mutate shared local primary/main to publish.
    One publisher owns this subject, not every project's publication. Fetch the
    latest established primary branch from the selected remote and inspect its

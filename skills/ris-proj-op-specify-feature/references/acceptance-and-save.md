@@ -87,7 +87,8 @@ in this explicitly limited mode. Return its local record result and remainder.
    ID, epic or tracker capability is needed. Local addresses are explicitly local,
    not mandatory remote inputs for another session.
 4. In full mode, after saving apply independent `ris-port-op-review-change` for
-   a pre-ID document subject, or `ris-proj-op-review-task` for an applicable ID.
+   a pre-ID document subject, or `ris-proj-op-review-task` for applicable
+   project-integrated review with or without an ID.
    Supply exact whole candidate snapshot (base/overlay/add/delete/modes), content,
    decisions, rules and substantive checks. The reviewer must be independent of
    all authors/repair authors; self-review does not grant approval. Return
