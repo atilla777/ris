@@ -50,8 +50,8 @@ Check actual permissions for file edits, claim, Git commit/direct push, exact-ID
 completion and **all outgoing tracker history**. Do not infer acceptance from
 workflow permission. Let the selected adapter establish operation-specific
 guarantees: use fresh reads, targeted native atomic/conditional operations and
-read-back, and snapshot-bound tracker publication. Ordinary work needs no manual
-window, mandatory global lock or graph/external-evidence transaction.
+read-back, and shared-history tracker publication with remote revision assurance.
+Ordinary work needs no manual window, mandatory global lock or graph/external-evidence transaction.
 A claim, lease, sandbox or worktree is not general content/graph CAS. Delegate
 read-only preflight to the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
@@ -247,14 +247,18 @@ or changed facts before deciding the next operation.
    verification persistence/read-back and separate closure. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
 8. Delegate **separate** selected-adapter tracker publication. For prior/ambiguous
-   publication pass exact requested/recovered snapshot S, inspectable receipt/ref
-   and expected records/typed links. Have the adapter confirm S independently
-   AS OF S before incoming-only/divergence and new-write gates; a newer remote
+   publication pass exact requested/recovered revision S, inspectable receipt/history
+   and separate local result/records/typed-link evidence. Have the adapter freshly
+   confirm S reachability from selected remote R before incoming-only/divergence
+   and new-write gates; a newer remote
    does not block confirmation-only recovery or require a repeated push, closure,
    merge, working-branch update or write window. Unknown S/read failure remains
-   unverified. A proven unsent snapshot still needs authorization for the entire
-   outgoing history, final inspected immutable snapshot ref and independent selected-remote
-   read-back under the adapter's method. Git push and local closure do not prove
+   unverified. Proven unsent work needs authority for shared project main history,
+   including other agents' authorized records for explicitly agreed tasks, and
+   fresh destination/direction checks under the adapter's ordinary non-force route.
+   Inspect S/L/fresh R and revision evidence, not private-ref/AS OF/full-row proof;
+   moving main does not establish exact sent bytes or remote field equivalence.
+   Git push and local closure do not prove
    tracker publication. Keep all three channel facts separate.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or

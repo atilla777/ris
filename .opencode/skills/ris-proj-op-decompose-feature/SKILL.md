@@ -244,8 +244,9 @@ set; create no artificial child. Preserve the feature branch's stricter refs.
 After combined semantic/read-back checks below, full mode invokes the selected
 adapter's separate publication operation with exact expected IDs/content/links,
 destination evidence and authority for the entire outgoing scope. Inspect the
-snapshot/remote/independent read-back receipt and compare published composition
-and refs. No-change checks required existing publication and established debt;
+required revision/remote reachability receipt alongside the locally verified
+composition and refs; remote assurance does not independently compare all fields.
+No-change checks required existing publication and established debt;
 no empty push. Missing authority or failed/ambiguous publication blocks full
 success, preserving known children/edges for only missing operations. Limited
 mode returns its actual boundary and exact publication remainder.

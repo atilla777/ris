@@ -174,8 +174,9 @@ acceptance and file saving, then enters step 5. It performs no second push.
     and block dependent operations; no migration/alternate API is introduced.
 7. In full combined mode invoke the selected adapter's separate publication
     operation for exact verified record/refs, destination and authorized entire
-    outgoing scope. Inspect returned snapshot/remote/independent read-back receipt
-    against the promised result. No-change checks existing required availability
+    outgoing scope. Inspect required revision/fresh remote reachability receipt
+    alongside the locally verified result; do not require remote field equivalence.
+    No-change checks existing required availability
     or debt without empty push. Limited record-only stops at checked local update
     and names this remainder. Unknown publication is reconciled by its owner
     before retry, not repeated from a saved marker.

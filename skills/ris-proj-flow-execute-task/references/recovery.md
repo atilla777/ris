@@ -32,9 +32,9 @@ actual effects, including those after the last saved receipt, before advancing:
   executor/authorship provenance and full tested snapshots. Inspect actual candidate
   and integrated trees, including additions/deletions/modes and foreign exclusions.
 - Git destination/ref, existing task/integration commits, actual remote visibility;
-  separate criterion verification, persisted result, closure; tracker remote, full
-  outgoing history, known sent snapshot and independent read-back. A cached tracking
-  ref or local closed status cannot prove remote publication.
+  separate criterion verification, persisted result, closure; tracker remote,
+  shared-history authority, required revision S and fresh remote reachability
+  evidence. A cached tracking ref or local closed status cannot prove publication.
 
 Use each ordinary standalone leaf/child's own source links and accepted sufficient
 constraints without requiring feature JSON or a design file for a simple task.
@@ -86,7 +86,7 @@ scope/design changes return to the leading dialogue, not autonomous redesign.
 | 4–5 — `ris-proj-op-review-task` and implementation owner | Reuse only an accessible independent review applicable to the complete current snapshot, inputs/rules and all implementation/repair authors. Changed tree or material review basis needs affected checks and fresh independent reassessment. Unresolved high/medium goes to the original implementation owner for targeted repairs, checks and fresh review; if repairs already exist, verify them and resume review. Preserve finding IDs/rounds/progress. Low-only dispositions do not create a repair or review round. Missing provenance blocks reuse, not permission to invent approval. |
 | 6 — `ris-proj-op-publish-task` | Reuse proven existing task/integration commits and applicable approved full tree; do not create duplicate commits or reintegrate an already integrated result. Integrate remote advancement in the subject's own branch/copy, never shared local main. If integration changed the approved snapshot, return only affected checks and independent full-snapshot reassessment through steps 3–5 before any unsent push; retain applicable evidence and unchanged acceptance without a full SDLC restart. If sent but confirmation missing, independently read the selected remote/ref first. Confirmed Git publication survives result/closure/Dolt failure and does not require implementation again. An unresolved scope conflict or forbidden direct push stops dependent publication without force/PR fallback; ordinary conflicts/rejection return to the Git owner for bounded integration/reconciliation. |
 | 7 — selected adapter / `ris-proj-op-complete-container` for selected one-task feature | Separately assess current published criteria/composition evidence, persisted result/feature verification and exact closure. If only result persistence succeeded, verify it and perform only missing closure with fresh adapter-selected operation-specific protection. Missing all-AC feature verification goes to the container owner before closure; diff review cannot replace it. If already closed, never close again or reopen: reconcile result and publication facts, report any acceptance/evidence gap, and allow only remaining verification/publication under its guards. Parents stay unchanged. |
-| 8 — selected adapter tracker publication | Reuse proven local result/closure independently. Pass exact requested/recovered S, inspectable receipt/ref/history and expected records/typed links to the adapter. It checks S reachability and independent AS OF S evidence before incoming-only/divergence or new-write gates. Newer remote/local history does not block confirmation of S and is outside its receipt. Confirmed S leaves only report/recommendation; missing read-back means read-back only, without push, create/close, merge, working-branch update, manual window or human confirmation. Unknown S/ancestry or failed remote reads stays unverified, never permission to replay. Proven unsent history needs fresh whole-history authorization, inspection and the adapter's immutable snapshot-ref publication route; genuine divergence stops that push. |
+| 8 — selected adapter tracker publication | Reuse proven local result/closure independently. Pass exact requested/recovered S, inspectable receipt/history and separate local record/link evidence. The adapter freshly confirms S reachability from selected remote R before incoming-only/divergence or new-write gates. Newer remote/local history does not block confirmation and is outside this receipt's acceptance. Confirmed S leaves only report/recommendation; missing confirmation needs fresh remote verification only, without push, create/close, merge, branch update, manual window or human confirmation. Unknown S/ancestry or failed remote reads stays unverified, never permission to replay. Proven unsent work needs fresh shared-main scope/destination/direction checks and ordinary non-force publication; divergence stops that push. S/L/R observations do not prove exact sent bytes or remote field equivalence; no private-ref/AS OF audit is required. |
 
 For an open task identify the first missing/inapplicable operation in route order.
 Proceed only with proven prerequisites; otherwise stop on that gap, without skipping
@@ -115,7 +115,8 @@ Independently read remotes **before** retrying ambiguous Git or tracker push; wh
 the sent snapshot is unknown recover it from actual commits/history/receipts or stop
 with uncertainty. For tracker publication pass exact S and expected result to
 the adapter's confirmation-first route, before incoming-only/divergence and
-new-write gates; independently inspect AS OF S, not newer remote record state.
+new-write gates; freshly confirm S reachability from selected remote R, keeping
+local expected-content evidence separate from remote revision assurance.
 A remote read failure does not authorize push. If confirmed sent,
 verify applicability and advance; if confirmed absent, resume only the unsent
 operation under renewed guards. Conflicting/indeterminate facts stop that effect.

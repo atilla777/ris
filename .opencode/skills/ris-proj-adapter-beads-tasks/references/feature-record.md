@@ -189,5 +189,6 @@ overwrite a changed acceptance block or silently rebind its pins.
 On ambiguous/nonzero writes, reread actual effects before retry and return
 persisted effects, actual stopping cause and exact remainder with causal
 `blocked|conflict|error`, never a standalone `partial` status. Git publication and separately authorized
-`dolt.publish` with independent remote read-back are separate facts. A local
+`dolt.publish` with fresh selected-remote revision/reachability confirmation are
+separate facts; local exact-content read-back is not remote field equivalence. A local
 record write, Git-only or Dolt-only publication cannot mean full remote success.

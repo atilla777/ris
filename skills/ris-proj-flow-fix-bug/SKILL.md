@@ -134,7 +134,8 @@ Return `ok|blocked|conflict|error`, exact ID/type/project/config/actor/copy, rep
 and snapshot locators/versions, sufficient basis and separate decisions, actual
 changes, checks/review provenance and limits. Distinguish fixed/checked content,
 verified Git commit/ref/remote, separately verified exact fix-completion and tracker
-snapshot/independent read-back. Full `ok` requires every promised effect; admission,
+required revision/fresh selected-remote reachability evidence, separately from
+local exact-content checks. Full `ok` requires every promised effect; admission,
 saved snapshot, disposition or Git push alone is insufficient. On a stop name the
 cause, preserved effects, uncertainty and exact remaining operation/recovery owner.
 Stop at this selected bug's result; never close parents or start another bug.

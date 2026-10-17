@@ -44,8 +44,10 @@ Keep enough information for another session to inspect reality without this chat
   push result and independent remote read-back address/revision.
 - Separately: criterion/composition verification, applicable write protection scope
   and source of its guarantee, persisted result, actual closure read-back; tracker
-  remote/outgoing authorization, publication protection/ref, pushed snapshot and independent
-  read-back. Do not record a local lock as protection against remote writers.
+  remote/shared-main authority, required S, observed L/fresh R, push attempt and
+  remote reachability confirmation. Keep local expected-content evidence separate;
+  moving main supplies neither exact sent bytes nor field equivalence. Do not
+  record a local lock as protection against remote writers.
 - Operation status `ok|blocked|conflict|error`, factual stopping cause separately
   from confirmed partial effects, uncertainty, first remaining operation, exact
   prerequisite/decision for it, and fresh next recommendation without a claim.
@@ -74,10 +76,11 @@ first necessary operation / owner / prerequisites / remaining gate
 ```
 
 Distinguish local Git integration/commit, sent Git revision and remote confirmation;
-criterion verification, persisted result and closure; local tracker history, sent
-tracker snapshot and independent selected-remote read-back. Preserve confirmed
-effects even when their former checks lose applicability. Later unrelated authorized
-changes do not erase a confirmed sent snapshot, but are not covered by its receipt.
+criterion verification, persisted result and closure; local tracker history,
+required tracker revision and fresh selected-remote reachability evidence.
+Preserve confirmed effects even when their former checks lose applicability.
+Later unrelated authorized changes do not erase confirmed revision publication,
+but are not accepted by its receipt.
 Record input/rule/package changes and the owner's evidence-impact assessment,
 including why unaffected results can be reused. Missing notes may be reconstructed
 from referenced facts with provenance and gaps; never invent old checks, TDD chronology,
