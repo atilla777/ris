@@ -55,6 +55,14 @@ authorized task. `skill` authors autonomous source, without selecting the RIS
 author or installing it. Empty inputs, permissions, recovery and stopping points
 remain those of each linked owner. No aliases are shipped.
 
+`select-feature` and `next` recommend a direction or owner from minimum sufficient
+facts; they do not certify execution readiness. A selected ID uses bounded reads,
+while no-ID feature selection discovers compact suitable epics. Relevant started
+work and known material blockers/conflicts matter; history, composition, acceptance
+and publication evidence expand only when they can change the recommendation.
+Unknown facts stay explicit. The executing owner checks current readiness,
+acceptance, ownership and permissions; navigation writes nothing and launches nothing.
+
 ### Explicit calls without a slash command
 
 Ask the agent to load the exact skill with its skill tool and supply the inputs:

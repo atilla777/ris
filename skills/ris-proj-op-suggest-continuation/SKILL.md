@@ -18,6 +18,9 @@ the recommended operation or launch agents, even if the surrounding request
 permits writes. Make zero persistent project, tracker or Git changes: no saved
 report, claim/heartbeat, acceptance, create, commit, push, closure or reopening.
 No default execution role is required.
+Use minimum sufficient facts for one next action, human decision or exact blocker.
+Recommending an owner is not certifying its inputs or repeating its readiness
+checks; unknown facts must not become assertions of acceptance or availability.
 
 ## Establish a bounded subject and read dependencies
 
@@ -39,11 +42,15 @@ choose a feature, plan, review or retrospect belong to their owners; navigation
 must not perform that work.
 
 For ID/tracker facts load the context-selected installed adapter and apply only
-its supported bounded read operations. Check exact identity/type/kind/key, own
-outcome/scope/criteria, linked sources, full relevant composition and typed
-directed blockers, including closed records. Membership is not a blocker. Read
-linked content versions and separate acceptance decisions and compare current
-applicability. Status, a file or publication does not establish acceptance.
+its supported bounded read operations. Establish exact identity/type/kind and own
+outcome/scope, then read criteria, linked sources and known material blockers as
+needed to distinguish the next result. A selected ID needs no global all-status
+dump unless an explicit absence, duplicate or cross-scope question requires it.
+Use the adapter's native compact identity/content forms; with Beads use exact
+`show <id> --brief-deps --json` when own content is needed. Omitted brief fields
+are unknown, not empty. Inspect composition and typed directed edges (including
+closed records) when they can change the recommendation; membership is not a
+blocker. Status, a file or publication does not establish acceptance.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 
@@ -55,13 +62,16 @@ uses context's checked primary selection/provenance and copy association; missin
 or conflicting association blocks only that dependent read. Do not scan for
 arbitrary receipts. Local notes do not become remote inputs.
 
-Read only relevant result/evidence addresses and channel facts: prepared, saved,
-checked, separately accepted, Git published, local tracker effects, exact
-completion and tracker publication/read-back. Mark unknown effects as unknown.
-Neither a stale success marker nor closed status proves the whole result.
-Missing, ambiguous, stale or inaccessible material sources block the dependent
-recommendation with the exact source/decision gap; retain independently usable
-facts instead of guessing readiness.
+Expand history, composition, acceptance decisions and publication/channel evidence
+only for a named question that can change the recommendation: for example same-owner
+recovery versus a new result, competing operation/flow ownership, container scope
+or a known pending effect. Do not routinely reconstruct every stage/channel.
+Reuse applicable evidence and mark unknown or uninvestigated facts unknown.
+Neither a stale success marker nor closed status proves the whole result. A
+missing, ambiguous, stale or inaccessible source blocks only the conclusion
+that requires it; state the exact gap and retain an independently justified
+recommendation instead of guessing readiness. If material ambiguity remains
+unavoidable, ask one focused question or return that decision to the caller.
 
 ## Match the needed result to an actual contract
 
@@ -82,8 +92,10 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    reconciles effects and chooses the missing stage. Do not select an internal
    stage or copy recovery. A worktree/plan or assignee alone does not establish
    a running scenario or ownership.
-3. **Next needed result after proven success:** check the promised whole and
-   applicable channels before matching the genuinely needed result to an owner.
+3. **Next needed result:** match the evidenced remaining need to an owner. If the
+   distinction from unfinished work depends on prior success, inspect that result
+   and only the acceptance/channels material to the distinction; otherwise leave
+   downstream readiness checks to its owner. Never assert unproven stage success.
    Published proposals are not accepted design or implementation permission;
    closed children are not container acceptance or authority to close it.
 4. **Return to caller:** for nested/component invocations return the bounded
@@ -128,8 +140,10 @@ Missing command blocks the slash form; report that gap explicitly. Compare promp
 and evidence to required owner inputs: subject/kind, versions/decisions, actual
 snapshot or history/root locator where required, mode, scope and authority.
 Add project/config/primary/permissions only when needed to avoid ambiguity;
-never manufacture authority. The executing owner still checks current readiness,
-rights, ownership, blockers and write guarantees.
+never manufacture authority. Supply known required locators and disclose missing
+inputs; recommending that the owner validate/reconcile them does not certify them.
+The executing owner still checks current readiness, acceptance, rights, ownership,
+blockers and write guarantees.
 
 Return compactly in the person's language:
 
@@ -140,7 +154,10 @@ Return compactly in the person's language:
 - Exact subject/scope, project/config/current-copy provenance, relevant facts and
   inspectable addresses, input/result versions and separate decision addresses;
   checked owner/command locations. Include primary provenance only when used.
-  Identify preserved effects and each applicable channel state.
+  Identify preserved effects and each applicable channel state, using explicit
+  unknown/uninvestigated values where not needed for the recommendation. Apply
+  common's recoverable-result rules; this is no exemption from them and no reason
+  to reconstruct unrelated history or repeat another owner's acceptance checks.
 - Limits, unknown/unperformed checks, missing inputs and exact remaining result.
   State `changes: []`: this response is not saved or automatically discoverable
   in another session. A nested result goes to its caller.
