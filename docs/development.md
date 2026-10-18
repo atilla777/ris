@@ -85,6 +85,13 @@ revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
+Ordinary Beads record writes and heartbeat use `bd --sandbox ...` under the
+adapter's own contract, independent of consumer project rules. Heartbeat's lease
+update is node-local, but its command can commit pending changes and invoke native
+auto-push. Initialization keeps its separate authorization and side-effect checks;
+sandbox is neither content CAS nor suppression of foreign hooks. Tracker
+publication still uses the separate native Dolt route and its remote gates.
+
 ## Package-installation checks
 
 These are deterministic filesystem/CLI tests, not agent sessions:

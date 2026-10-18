@@ -31,7 +31,7 @@ failed, historical or malformed verification to success.
   completion criteria (including mandatory members, cancelled vs completed,
   and any required publication evidence). Read status, blockers and **all**
   direct/descendant mandatory children; refuse open children or active blockers.
-  Use `bd close <id> --reason <reason> --json` with no `--force`, `--continue`,
+  Use `bd --sandbox close <id> --reason <reason> --json` with no `--force`, `--continue`,
   `--claim-next` or automatic epic closing. Re-read `status: closed`, reason,
   children and edges. If already closed, report that state; do not close again.
   `bd`'s refusal is a backstop, not proof that all required children exist.

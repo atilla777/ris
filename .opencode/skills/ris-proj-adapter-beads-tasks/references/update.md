@@ -9,7 +9,7 @@ unless the caller's actual predicate depends on them. Ordinary task source/accep
 content updates additionally apply `standalone.md`; feature-record changes apply
 `feature-record.md`, investigation replacements `investigation.md`.
 
-Use `bd update <id> --title/--description/--acceptance/... --json`
+Use `bd --sandbox update <id> --title/--description/--acceptance/... --json`
 only for explicitly supplied fields, never send a whole stale snapshot.
 A request to set `status: closed` (or any configured done status) is always
 **Complete** under `completion.md`, regardless of `bd update --status`;
@@ -25,6 +25,6 @@ Freshly compare expected content before preparing a bounded field replacement;
 verify it and preserved fields afterward. This is not universal lost-update
 protection; unsupported explicitly requested stronger guarantees return a precise
 limitation, not a request to pause writers. Preserve unrelated prose and fields.
-Avoid multi-ID updates: they can partially succeed. `bd update --json` returns
+Avoid multi-ID updates: they can partially succeed. `bd --sandbox update --json` returns
 an array; validate actual response and independently read back the exact result.
 Reconcile ambiguous append/key/replacement effects before retrying.

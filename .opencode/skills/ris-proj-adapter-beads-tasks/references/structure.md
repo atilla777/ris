@@ -3,7 +3,7 @@
 Read before structural mutations, with `concurrency.md` and main typed reads.
 The caller supplies endpoints, scope, expected structure and authorization.
 
-- **Composition:** `bd create --parent <parent-id>` or `bd update <child-id>
+- **Composition:** `bd --sandbox create --parent <parent-id>` or `bd --sandbox update <child-id>
   --parent <parent-id>`; inspect the existing parent and child, check proposed
   ancestry for a cycle; refuse a closed parent or a child whose state makes
   the requested composition invalid. `bd` can add an open child to a closed
@@ -13,8 +13,8 @@ The caller supplies endpoints, scope, expected structure and authorization.
   Reparenting/removing membership (`--parent ''`) changes mandatory scope;
   require explicit permission, fresh expected structure and result checks.
   Do not substitute a `blocks` edge for membership or add both.
-- **Blocking:** `bd dep add <blocked-id> <blocker-id> --type blocks --json`;
-  `bd dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
+- **Blocking:** `bd --sandbox dep add <blocked-id> <blocker-id> --type blocks --json`;
+  `bd --sandbox dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
   edge removal. Check both IDs and existing typed edges. Confirm the dependent
   is blocked by the blocker after add; before remove freshly verify the exact
   expected edge and afterward its absence. This does not exclude an undetected

@@ -3,7 +3,7 @@
 Read before epic/task creation, with `concurrency.md` and main typed reads.
 Require approved type (`epic` or `task`, ordinary native `bug` only under
 `standalone.md`), supplied title/content and stable retry identity/expected absence.
-Creation needs caller authority, not merely a record in a list. `bd create --json`
+Creation needs caller authority, not merely a record in a list. `bd --sandbox create --json`
 returns an object with `id` in the checked version; validate the actual response.
 
 Search all relevant records (including closed) for the caller's
@@ -16,7 +16,7 @@ creation defaults to best-effort without a separate concurrency-risk question:
 still make duplicates. Do not claim a no-duplicate guarantee from the search
 and read-back. If the caller explicitly requires that guarantee, require a
 proven native uniqueness mechanism covering all relevant creators;
-without it report the exact limitation and stop `conflict`, without a pause request. Run `bd create
+without it report the exact limitation and stop `conflict`, without a pause request. Run `bd --sandbox create
 --type epic|task --title ... --description ... --acceptance ... --json`
 with only supplied fields (optional `--external-ref` or `--spec-id` for
 identity; neither is a uniqueness constraint). Prefer `--parent <id>` for

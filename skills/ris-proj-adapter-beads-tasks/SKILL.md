@@ -146,6 +146,24 @@ the host's saved-output facility or bounded reads; do not silently drop records.
 
 ## Mutation verification and result
 
+Run every ordinary `bd` record mutation with the global `--sandbox` flag
+(`bd --sandbox ...`): create, field/notes/metadata update, claim, membership or
+blocking/related-edge change, and either close branch. Run heartbeat with
+`bd --sandbox ... heartbeat <id>` too: its lease-only effect does not exempt
+the command's pending-change commit and post-run auto-push paths. This requirement
+applies even when the consuming project has no sandbox rule. Verify the installed
+CLI supports it before writing; if unavailable, block the write rather than omit
+it or change project/global configuration. Sandbox disables bd Dolt auto-push;
+it does not disable local writes/commits, provide CAS or isolation from other
+writers, or suppress foreign hooks and other publication routes. Preserve the
+separate route checks for remote-gated writes in `references/dolt-publication.md`.
+Publication requires its own authorization and that resource's remote gates;
+never replace native `dolt` commands with sandboxed issue writes.
+Heartbeat's node-local lease and command-wide effects are distinguished in
+`references/claim.md`. Infrastructure initialization retains its separately
+scoped effects and permissions in `references/init.md`; neither operation
+grants authority to publish.
+
 Before a mutation fresh-read the affected IDs/expected target fields and only
 the children/edges, ownership or external evidence on which that operation's
 predicates depend. Compare with confirmed expected state; unexpected differences

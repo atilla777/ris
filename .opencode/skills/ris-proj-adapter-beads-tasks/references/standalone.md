@@ -115,7 +115,7 @@ feature blocks and return their diagnostic; no reclassification or migration.
 
 Advertise only actual supported Beads operations:
 
-- **ordinary create/reconcile:** `bd create --type task` with supplied title,
+- **ordinary create/reconcile:** `bd --sandbox create --type task` with supplied title,
   description, acceptance, `--external-ref` and optional approved `--spec-id`;
   `--parent` only for a confirmed open structural parent. Search the complete
   all-state task set across parents by stable key and actual source association before
@@ -140,7 +140,7 @@ Advertise only actual supported Beads operations:
   dependent evidence; preserve unrelated content and unchanged acceptance pins.
 - **ordinary children/links:** `structure.md` Composition and Blocking, with confirmed
   ordinary scope/endpoints, all-state child reconciliation, ancestry/cycle checks
-  and exact read-back. Use `bd create --parent` and `bd dep add <blocked>
+  and exact read-back. Use `bd --sandbox create --parent` and `bd --sandbox dep add <blocked>
   <blocker> --type blocks --json`, not common feature-only create/add semantics.
   Native cycle checks do not protect expected membership. Partial creation or
   edge failure stops further writes and returns every persisted ID/edge.

@@ -8,6 +8,14 @@ Git hooks and project instructions before side effects. `bd init` may create
 a Git repository, commit Beads files and install hooks; do not assume it only
 creates `.beads/`. Confirm expected side effects and authorization before use.
 
+This is infrastructure setup, not an ordinary issue mutation covered by the
+main contract's ordinary-write and heartbeat sandbox rule. Its separate setup
+authorization and side-effect checks still apply. The 1.3.1 init help exposes
+`--skip-agents` and `--skip-hooks`; sandbox only disables bd Dolt auto-push,
+not init's filesystem/Git/hook effects. Adding it cannot authorize setup or
+replace these explicit side-effect checks. Do not change global/project
+auto-push settings to satisfy the ordinary-write rule.
+
 In the selected directory run `bd init --skip-agents --non-interactive` with
 `--skip-hooks` if hooks are not separately approved; optional `--prefix` only
 if agreed. Never use `--force`, `--reinit-local`, `--discard-remote`,
