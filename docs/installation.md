@@ -21,7 +21,7 @@ The installer reports missing tools and never installs dependencies. It does not
 require `ris.yaml`, Beads, OpenCode or a Git repository in the target project.
 Project-integrated skills have their own prerequisites after installation.
 
-The combined current source menu is **20 commands (16 project + 4 portable)** and **49
+The combined current source menu is **20 commands (16 project + 4 portable)** and **51
 skills / four flows**, including `/risp-run-simple-task` →
 `ris-proj-flow-execute-simple-task` under the
 [accepted D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).

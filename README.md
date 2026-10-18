@@ -51,7 +51,7 @@ discovers the updated skills and commands.
 
 The current source menu has 20 explicit entries (16 project + 4 portable), extending
 the historical 18-entry v1 set with `/risp-status` and `/risp-run-simple-task`.
-`risp-` selects a project contract, `risb-` a portable contract. All 49 source skills
+`risp-` selects a project contract, `risb-` a portable contract. All 51 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
@@ -117,6 +117,12 @@ for the inspected revision, coverage and limits.
 
 See the **[complete skill and command catalog](docs/skills.md)** for all operations,
 their results, naming conventions and links to individual contracts.
+
+For initial product knowledge, directly load `ris-port-op-formulate-product-foundation`
+to obtain a sourced, read-only proposal, or `ris-proj-op-author-product-foundation`
+for a selected project's separately accepted, saved and checked `sources.product`
+content. Both support create and bounded update; neither initializes the project,
+plans a roadmap or starts development. No new slash command is added.
 
 ## Update or remove
 
