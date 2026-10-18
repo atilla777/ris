@@ -129,8 +129,23 @@ their decision and the prior design/decision. Compatible unchanged design keeps
 its original acceptance; obtain a separate decision here only for materially
 changed design. Uncertain applicability blocks dependent saving/publication,
 not independently authorized work.
-For a new or materially changed design, obtain a **separate** decision approving
-that actual version. Delegate
+For a new or materially changed design, before asking for its **separate** acceptance,
+explain it here in plain language: essence, main flow, reused/new technologies and
+why, tradeoffs, material risks and irreversible/hard-to-reverse choices. Aim for
+roughly one screen as a readability guideline, not a measured limit; never hide
+material decisions to fit it. Identify the exact COMPLETE candidate version/scope
+being approved and keep its full text accessible. A short full inline design may
+itself supply this explanation without a duplicate summary. For a long design,
+optional full Markdown draft storage may precede approval: first explicitly agree
+and authorize its exact destination/write scope here, then delegate a bounded draft
+write to an authorized writer applying `ris-proj-op-design-feature`'s draft branch,
+never to the read-only author. Check the returned full candidate/version and
+accessibility. Without draft permission, keep the full candidate unsaved in the
+dialogue; no draft file/store is mandatory. Draft storage needs no acceptance and
+is neither accepted-content save nor publication. Obtain a separate attributable
+decision approving that exact complete design, not merely the summary; changed
+candidates return here for a focused decision, unchanged decisions retain their
+original references. Delegate
 `ris-proj-op-design-feature` in document-only explicitly limited accepted-local-save
 mode (no Git/record/tracker effects), without inventing an ID. The lead supplies
 the full exact accepted design text and distinguishable version/scope, or a

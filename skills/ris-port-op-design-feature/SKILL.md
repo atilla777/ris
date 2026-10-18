@@ -79,6 +79,17 @@ are a design. Return unresolved choices with their precise dependent scope.
 
 ## Return and stop
 
+Lead with a plain-language explanation of the design: its essence and main flow,
+reused and new technologies and why, tradeoffs, material risks and irreversible
+or hard-to-reverse choices. Aim for roughly one screen as a readability guideline,
+not a measured limit; never omit material decisions to fit it. Identify the exact
+complete candidate version/scope and provide its full text for the caller's
+separate acceptance discussion. The explanation supplements, not replaces, the
+full technical proposal below. A short full design can itself supply this readable
+explanation without a duplicate summary. For a long design, optional Markdown
+draft storage belongs to an authorized caller/writer at an explicitly agreed
+destination, not this read-only author; no draft file is required.
+
 Return the proposed sufficient design: bounded result and input versions/status,
 observed baseline and sources, components/ownership/contracts/dependencies,
 critical flows/failures, AC → test seams and integration/fitness coverage,
