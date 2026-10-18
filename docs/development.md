@@ -37,11 +37,6 @@ Full task/bug/feature execution, direct plan-task persistence and the TDD operat
 retain their contracts. Result/Git SHA persistence, exact close and Dolt publication
 remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).
 
-Publish from the task's own branch/copy, integrating the latest primary remote
-branch there; shared local `main` is not a publication workspace. Ordinary tracker
-work uses fresh checks, targeted native writes and read-back, without manual
-writer windows or mandatory global locks. See the rules for exact guarantees.
-
 For routine Beads inventories use the adapter's native compact forms, for example
 `bd list --all --limit 0 --type task --brief --json` (or `--type epic`). For a
 known ID use `bd list --id <id> --all --limit 0 --brief --json`, checking exact
@@ -65,15 +60,6 @@ revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
-Ordinary instruction edits use reading, affected static checks and independent
-review. This repository prohibits new agent behavioral tests; absence of a live
-run does not block ordinary text work or require another run question. Static
-readiness does not prove agent reliability, cost or repeatability. Existing
-observations retain their versions and limits; unmet historical obligations remain
-unverified. Portable skills follow the actual target project's rules. See the
-[validation levels](concepts/05-adoption-and-validation.md#4-три-уровня-проверки)
-and [evidence criteria](concepts/07-quality-and-verification.md#2-критерий-и-подтверждение).
-
 ## Package-installation checks
 
 These are deterministic filesystem/CLI tests, not agent sessions:
@@ -91,11 +77,6 @@ captures the actual source package into a disposable upstream and checks lifecyc
 recovery and the README bootstrap. Both run on Linux and macOS with explicit
 `/bin/bash` (3.2 on macOS) and externally installed flock.
 
-The integration oracle derives expected files, bytes, types, executable modes,
-directories and numeric skill/command counts from each selected source revision,
-independently of the installer report and installed payload. Regression controls
-cover source additions/removals, incorrect counts and missing/extra/changed entries.
-
 The bootstrap integration test extracts the first `bash` block in README and
 substitutes its project/ref inputs. Preserve that entry point when editing docs.
 Workflow definitions are not evidence of a successful remote run; check actual
@@ -103,12 +84,13 @@ results and their applicability to the revision being assessed.
 
 ## Architecture, plans and delivery records
 
-- [Normative concepts](concepts/index.md) and the
-  [target SDLC methodology](concepts/08-sdlc-methodology.md) describe architecture
+- [RIS product knowledge](product/index.md) and the
+  [target SDLC methodology](product/08-sdlc-methodology.md) describe architecture
   and future components; they are not an installed inventory.
-- [Repository rules](rules/index.md) include the current owner map. Concepts and
-  rules are separate OKF 0.2 bundles under the [knowledge profile](concepts/knowledge-profile.md).
-  `docs/concepts/` does not replace author-owned `docs/product/`.
+- [Repository rules](rules/index.md) include the current owner map. Product and
+  rules are separate OKF 0.2 bundles under the [knowledge profile](product/knowledge-profile.md).
+  RIS uses `docs/product/` as its product source, including normative methodology
+  and design; acceptance and readiness still depend on the selected operation.
 - [Delivery specifications](specs/README.md) are ordinary Markdown. Historical
   names and immutable decision references are interpreted through the
   [namespace transition guide](skill-command-naming-migration.md).

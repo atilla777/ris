@@ -226,7 +226,7 @@ common/context по контракту. Установка не даёт пра�
 операцию, минимальный config, условия Beads/Dolt/remotes/subagents, права
 публикации и обычную работу в ветке задачи. Детали не копируются из владельцев.
 
-**Область.** `docs/concepts/templates/agents-fragment.md`, README и одно
+**Область.** `docs/product/templates/agents-fragment.md`, README и одно
 короткое руководство; оно отражает результаты Т1 и Т7.
 
 - **AC-020:** выборочная portable установка не требует искусственных project

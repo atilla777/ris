@@ -4,6 +4,12 @@
 
 **Дата:** 12 октября 2026 г.
 
+**Переход product-корня (`ris-2jn`, 18 октября 2026 г.):** собственный
+нормативный бандл RIS явно перенесён из `docs/concepts/` в `docs/product/`
+и выбран как product-источник без переобъявления принятия его содержимого.
+Историческая отправная точка и исходное обоснование форматной миграции в
+§7.1 сохранены; рабочие пути и справочные ссылки ниже обновлены.
+
 **Переход OKF:** исторические имена/пути в принятом плане ниже сохраняют исходные решения. Действующая поставка — [миграция OKF-контрактов](okf-contract-migration/spec.md) и [дизайн](okf-contract-migration/design.md): автономный `ris-okf-base`, проектный `ris-okf`; `ris-project-okf` выведен. Snapshot теперь в `skills/ris-okf-base/references/spec-v02.md`.
 
 **Область:** RIS как пакет переносимых методик и проектных скилов, применяемый к существующим и новым проектам.
@@ -305,18 +311,22 @@ ris-complete-container + ris-verify-feature-base
 
 | Текущий владелец нормы | Изменение |
 |---|---|
-| `docs/concepts/README.md` | Обновить оглавление и место целевой методики; при переводе **самого** документационного дерева RIS в OKF заменить роль оглавления на `index.md`, мигрируя ссылки и frontmatter. Не считать этот README `docs/product/` целевого проекта. |
-| **Новый** `docs/concepts/08-sdlc-methodology.md` (имя уточняется по реальному оглавлению) | Единое нормативное изложение Product/Architecture/Delivery, трёх принципов, этапов и условий переходов. Соседние документы ссылаются на него, а не дублируют текст. |
-| `docs/concepts/01-architecture.md`, `03-composition.md` | Разделить владельцев базовых методик и проектных результатов: отдельный `ris-design-feature`, `ris-design-feature-base`, `ris-verify-feature-base`; описать возвращение на затронутый этап и отсутствие автоматического оркестратора. |
-| `docs/concepts/02-configuration.md` | Ввести **контракт конфигурации v2**: `sources.product` вместо `sources.concepts`, default `docs/product/`; оставить `sources.rules`, `sources.specs`; обязательную явную миграцию без молчаливой совместимости и частичного слияния настроек. Учесть два OKF-бандла без отдельного поля `architecture/adr`. |
-| `docs/concepts/04-contracts-and-adapters.md` | Описать неизменяемый slug, ссылки/версии/acceptance evidence, безопасное изменение feature task и запись приёмки, необходимые гарантии обновления и закрытия. Версионировать расширение `tasks` по обычным правилам совместимости, не обещать наличия операций у всех адаптеров `v1`. |
-| `docs/concepts/06-artifacts-and-handoff.md` | Уточнить авторские `product`-источники, версионность двух принятых результатов, разницу OKF-знаний и простого spec, передачу дизайна/контрактов, действующее vs будущее состояние архитектуры. |
-| `docs/concepts/07-quality-and-verification.md` | Добавить gates: design readiness до декомпозиции, architecture fitness, проверка итоговой интегрированной ревизии, feature DoD, фиксация результата в трекере. |
-| `docs/concepts/ris-sdlc-mvp-skills.md` | Обновить каталог скилов, отметить **реализованные** и **запланированные** отдельно; добавить дизайн, документацию, feature verification без создания лишнего скила для каждого шага. |
-| `docs/concepts/templates/feature-spec-content.md` | Явное различие `spec` и `design`, `AC-nnn`, ссылки на product, границы, версии, проверяемые критерии; профиль не превращать в набор обязательных заголовков. |
+| `docs/product/index.md` | Актуальное оглавление собственного product-бандла RIS; deprecated README сохраняет внутренние переходы. Наличие бандла не заменяет принятие и готовность материалов конкретной операции. |
+| `docs/product/08-sdlc-methodology.md` | Единое нормативное изложение Product/Architecture/Delivery, трёх принципов, этапов и условий переходов. Соседние документы ссылаются на него, а не дублируют текст. |
+| `docs/product/01-architecture.md`, `03-composition.md` | Разделить владельцев базовых методик и проектных результатов: отдельный `ris-design-feature`, `ris-design-feature-base`, `ris-verify-feature-base`; описать возвращение на затронутый этап и отсутствие автоматического оркестратора. |
+| `docs/product/02-configuration.md` | Ввести **контракт конфигурации v2**: `sources.product` вместо `sources.concepts`, default `docs/product/`; оставить `sources.rules`, `sources.specs`; обязательную явную миграцию без молчаливой совместимости и частичного слияния настроек. Учесть два OKF-бандла без отдельного поля `architecture/adr`. |
+| `docs/product/04-contracts-and-adapters.md` | Описать неизменяемый slug, ссылки/версии/acceptance evidence, безопасное изменение feature task и запись приёмки, необходимые гарантии обновления и закрытия. Версионировать расширение `tasks` по обычным правилам совместимости, не обещать наличия операций у всех адаптеров `v1`. |
+| `docs/product/06-artifacts-and-handoff.md` | Уточнить авторские `product`-источники, версионность двух принятых результатов, разницу OKF-знаний и простого spec, передачу дизайна/контрактов, действующее vs будущее состояние архитектуры. |
+| `docs/product/07-quality-and-verification.md` | Добавить gates: design readiness до декомпозиции, architecture fitness, проверка итоговой интегрированной ревизии, feature DoD, фиксация результата в трекере. |
+| `docs/product/ris-sdlc-mvp-skills.md` | Обновить каталог скилов, отметить **реализованные** и **запланированные** отдельно; добавить дизайн, документацию, feature verification без создания лишнего скила для каждого шага. |
+| `docs/product/templates/feature-spec-content.md` | Явное различие `spec` и `design`, `AC-nnn`, ссылки на product, границы, версии, проверяемые критерии; профиль не превращать в набор обязательных заголовков. |
 | `docs/specs/` RIS, `docs/rules/` RIS | Мигрировать связанные примеры и нормативные упоминания; сам RIS может использовать свою структуру, пока она явно идентифицирована и соответствует заявленной политике OKF. Не переименовывать документы механически без проверки ссылок. |
 
 ### 7.1. Миграция собственного корпуса знаний RIS в OKF
+
+Ниже сохранено обоснование на момент принятия 12 октября: форматная
+миграция выполнена в `ris-9m1`, позднейший перенос корня — в `ris-2jn`.
+Текущая структура определена [профилем корпуса](../product/knowledge-profile.md).
 
 В репозитории RIS сегодня нормативное оглавление находится в `docs/concepts/README.md`, а большая часть файлов — обычный Markdown. Если правило «все долговременные знания в OKF с `index.md`» распространяется и на собственную документацию RIS, требуется **отдельная миграционная задача**: определить корни смысловых бандлов, преобразовать концепты (добавить `type` frontmatter), создать `index.md`, исправить ссылки и провести проверку OKF 0.2. При этом **документы спецификаций фичей остаются оговорённым исключением**. Нельзя назвать существующее дерево OKF только после переименования `README.md`.
 
@@ -453,12 +463,12 @@ ris-complete-container + ris-verify-feature-base
 
 При внесении изменений сверять **актуальную** версию репозитория, в особенности:
 
-- [`docs/concepts/README.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/README.md) — нормативное оглавление.
-- [`docs/concepts/02-configuration.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/02-configuration.md) — текущие `sources.concepts`, `ris.yaml` v1.
-- [`docs/concepts/04-contracts-and-adapters.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/04-contracts-and-adapters.md) — общий контракт `tasks` и доступные операции.
-- [`docs/concepts/06-artifacts-and-handoff.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/06-artifacts-and-handoff.md) — принятие, версии, передача между сессиями.
-- [`docs/concepts/07-quality-and-verification.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/07-quality-and-verification.md) — проверки и критерии подтверждений.
-- [`docs/concepts/ris-sdlc-mvp-skills.md`](https://github.com/atilla777/ris/blob/main/docs/concepts/ris-sdlc-mvp-skills.md) — целевой каталог скилов, включая ещё не поставленные компоненты.
+- [Оглавление product-бандла](../product/index.md) — продукт и нормативная методика RIS.
+- [Конфигурация](../product/02-configuration.md) — `sources.product`, `ris.yaml` v2 и явная миграция v1.
+- [Контракты и адаптеры](../product/04-contracts-and-adapters.md) — общий контракт `tasks` и доступные операции.
+- [Артефакты и передача](../product/06-artifacts-and-handoff.md) — принятие, версии, передача между сессиями.
+- [Качество и проверки](../product/07-quality-and-verification.md) — проверки и критерии подтверждений.
+- [Каталог SDLC MVP](../product/ris-sdlc-mvp-skills.md) — целевой каталог скилов, включая ещё не поставленные компоненты.
 - [`skills/ris-prepare-feature-work/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-prepare-feature-work/SKILL.md) — действующий workflow подготовки и публикации.
 - [`skills/ris-specify-feature/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-specify-feature/SKILL.md) — принятие спецификации и создание feature task.
 - [`skills/ris-decompose-feature/SKILL.md`](https://github.com/atilla777/ris/blob/main/skills/ris-decompose-feature/SKILL.md) — подготовка дочерних задач.

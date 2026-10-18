@@ -6,7 +6,7 @@
 
 **План поставки:** [delivery-plan.md](delivery-plan.md). Это принятые границы работ и зависимости, не очередь и не состояния Beads.
 
-**Основания:** [целевое видение SDLC](../ris-sdlc-target-specification.md), [нормативная методика](../../concepts/08-sdlc-methodology.md), [архитектура RIS](../../concepts/01-architecture.md), [правила разработки RIS](../../rules/development.md).
+**Основания:** [целевое видение SDLC](../ris-sdlc-target-specification.md), [нормативная методика](../../product/08-sdlc-methodology.md), [архитектура RIS](../../product/01-architecture.md), [правила разработки RIS](../../rules/development.md).
 
 **Постоянный slug поставки:** `project-rules-authoring`. Адрес принятой спецификации: `docs/specs/project-rules-authoring/spec.md`.
 

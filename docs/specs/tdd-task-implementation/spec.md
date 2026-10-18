@@ -7,9 +7,9 @@
 продуктовая фича с искусственным эпиком. Задача: `ris-cbs`.
 
 База сравнения — `e386a85`: завершённая поставка `ris-bf4` уже интегрирована.
-Основания: [архитектура](../../concepts/01-architecture.md),
-[композиция](../../concepts/03-composition.md),
-[проверка скилов](../../concepts/05-adoption-and-validation.md),
+Основания: [архитектура](../../product/01-architecture.md),
+[композиция](../../product/03-composition.md),
+[проверка скилов](../../product/05-adoption-and-validation.md),
 [правила разработки](../../rules/development.md).
 
 ## Требования

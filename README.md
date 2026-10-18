@@ -115,9 +115,6 @@ Registration, investigation and fixing are separate direct-load calls, with no n
 slash commands. See the [delivery evidence](docs/specs/local-bugfix/delivery-checks.md)
 for the inspected revision, coverage and limits.
 
-For a first portable operation and the conditional prerequisites for project work,
-follow [Getting started](docs/getting-started.md).
-
 See the **[complete skill and command catalog](docs/skills.md)** for all operations,
 their results, naming conventions and links to individual contracts.
 
@@ -149,12 +146,13 @@ consumer/config changes, see the [namespace transition guide](docs/skill-command
 - [Skill and command catalog](docs/skills.md)
 - [Installation, updates, removal and recovery](docs/installation.md)
 - [Development guide and package checks](docs/development.md)
-- [Project concepts and target methodology](docs/concepts/index.md)
+- [RIS product knowledge and target methodology](docs/product/index.md)
 - [Repository rules](docs/rules/index.md) and [agent instructions](AGENTS.md)
 - [Delivery specifications and plans](docs/specs/README.md)
 
-Concepts and plans include future work; consult the catalog and linked `SKILL.md`
-contracts for the available operations.
+Product knowledge and plans include future work; bundle presence does not establish
+acceptance or readiness for a particular operation. Consult the catalog and linked
+`SKILL.md` contracts for the available operations.
 
 ## License
 

@@ -123,7 +123,7 @@ Git publication, exact task completion и Dolt publication/read-back прове�
 
 ## 4. Impact и оформление
 
-Нормы concepts/rules меняются через проектного OKF owner с explicit root/scope.
+Нормы product/rules меняются через проектного OKF owner с explicit root/scope.
 Skills/resources/commands изменяются через `ris-proj-op-author-skill` с применением
 `ris-port-op-author-skill` там, где это его предмет. Specs остаются обычным Markdown.
 Перед записью P1 перечитать all-status tasks и links: не создавать дубль, сохранить

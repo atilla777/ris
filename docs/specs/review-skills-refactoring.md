@@ -14,10 +14,10 @@
 
 ## Основания и проблема
 
-- [Архитектура RIS](../concepts/01-architecture.md),
-  [композиция](../concepts/03-composition.md),
-  [проверка скилов](../concepts/05-adoption-and-validation.md),
-  [качество свидетельств](../concepts/07-quality-and-verification.md) и
+- [Архитектура RIS](../product/01-architecture.md),
+  [композиция](../product/03-composition.md),
+  [проверка скилов](../product/05-adoption-and-validation.md),
+  [качество свидетельств](../product/07-quality-and-verification.md) и
   [правила разработки](../rules/development.md).
 - Текущие [база ревью](../../skills/ris-review-base/SKILL.md),
   [проектная обёртка](../../skills/ris-review/SKILL.md) и

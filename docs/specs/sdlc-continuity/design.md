@@ -179,7 +179,7 @@ authority. До установки навигатора `/ris-proj-op-suggest-co
 
 ## 6. Адресные изменения норм и потребителей
 
-Нормативная модель — docs/concepts/01,03,04,06,08; рабочее общее handoff —
+Нормативная модель — docs/product/01,03,04,06,08; рабочее общее handoff —
 ris-proj-lib-common/artifacts, context paths — configuration resource. Сохранить запрет
 назначать next skill в атомарных wrappers, уточнить исключение для самостоятельного
 рекомендательного результата навигации и сценариев. Общая норма не должна
@@ -190,7 +190,7 @@ Owners из §1 получают только свою ответственно�
 `ris-proj-flow-execute-task` сохраняет route/receipts; recovery не дублируется в навигаторе.
 Standalone decomposition проверяет children собственной достаточности до записи.
 Documentation/source/install/commands меняются совместно в будущей реализации;
-реальные concepts/rules бандлы требуют project OKF owner с explicit root/scope,
+реальные product/rules бандлы требуют project OKF owner с explicit root/scope,
 обычные spec/design им не становятся.
 
 ## 7. Static seams и покрытие AC

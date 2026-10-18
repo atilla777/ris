@@ -49,10 +49,10 @@ SHA-256: `23bfad550667fe630e5314a2f2d9cfd59985063bbed7e8e940e3ca639080f8d9`.
 
 - [Правила разработки](../../rules/development.md): захват, отдельные worktree,
   сохранность чужой работы, проверки и независимая публикация Git/Dolt.
-- [Архитектура](../../concepts/01-architecture.md), §§ 2–3, 9, и
-  [композиция](../../concepts/03-composition.md), §§ 5–6: владелец ограниченной
+- [Архитектура](../../product/01-architecture.md), §§ 2–3, 9, и
+  [композиция](../../product/03-composition.md), §§ 5–6: владелец ограниченной
   операции и владелец сквозного порядка различаются.
-- [Каталог SDLC](../../concepts/ris-sdlc-mvp-skills.md): подготовка worktree
+- [Каталог SDLC](../../product/ris-sdlc-mvp-skills.md): подготовка worktree
   пока встроена в планирование/реализацию; отдельная операция не поставлена.
 - Текущее состояние исходников `skills/ris-plan-task/SKILL.md` и
   `skills/ris-implement-task/SKILL.md` проверено на Git

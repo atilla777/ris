@@ -67,7 +67,7 @@ native writes. A claim or lease is not a general content/graph lock. For a full
 single-task cycle, the [execution flow](../skills/ris-proj-flow-execute-task/SKILL.md)
 owns transitions and its required roles; call it only with that cycle authorized.
 Neither operation requires a new setup skill. Optionally add the
-[consumer AGENTS fragment](concepts/templates/agents-fragment.md) to an existing
+[consumer AGENTS fragment](product/templates/agents-fragment.md) to an existing
 project `AGENTS.md`; it supplements the project's instructions without replacing them.
 
 For a read-only overview in an existing tracked project, use `/risp-status` for

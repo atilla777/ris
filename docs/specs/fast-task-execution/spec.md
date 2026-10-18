@@ -208,11 +208,12 @@ AC-001–015 формализуют эти решения и применимы�
 [проектная TDD-реализация](../../../skills/ris-proj-op-implement-task-tdd/SKILL.md),
 [ревью](../../../skills/ris-proj-op-review-task/SKILL.md),
 [публикация](../../../skills/ris-proj-op-publish-task/SKILL.md),
-[архитектура](../../concepts/01-architecture.md),
+[архитектура](../../product/01-architecture.md),
 [правила](../../rules/development.md) и
 [схема компактных команд](../compact-commands/spec.md).
-В актуальном `ris.yaml` выбран `sources.product: docs/product/`; авторский
-product отсутствует, нормативный `docs/concepts/` не подменяет его.
+На момент подготовки в `ris.yaml` был выбран `sources.product: docs/product/`,
+но каталог отсутствовал. После явного переноса `ris-2jn` собственный product-бандл
+RIS находится там; это не меняет основания принятия данной спецификации.
 Для этой инфраструктурной фичи достаточно эпика, решений интервью и контрактов.
 
 Существенных открытых продуктовых решений после интервью нет. Имена,

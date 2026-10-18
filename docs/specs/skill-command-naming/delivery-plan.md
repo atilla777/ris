@@ -20,8 +20,8 @@
   [требований N1](../package-installation/acceptance.md#требования-n1) и
   [дизайна N1](../package-installation/acceptance.md#дизайн-n1).
   Она снимает прежнюю неопределённость §6 D1 именования; принятый D1 не переписан.
-- Источники ограничений: [архитектура](../../concepts/01-architecture.md),
-  [критерии проверки](../../concepts/05-adoption-and-validation.md),
+- Источники ограничений: [архитектура](../../product/01-architecture.md),
+  [критерии проверки](../../product/05-adoption-and-validation.md),
   [правила разработки](../../rules/development.md),
   [фактическая карта](../../rules/architecture/repository.md).
 
@@ -123,7 +123,7 @@ pending refs и продолжение только после завершен�
   без выбора port/proj за пользователя и без команд lib/adapter.
 - Согласовать активные указатели, AGENTS.md, ris.yaml adapter selection,
   README/примеры, действующие нормы и карту архитектуры; role IDs, `general`
-  и configuration v2 остаются прежними. Для реальных OKF-бандлов concepts/rules
+  и configuration v2 остаются прежними. Для реальных OKF-бандлов product/rules
   применять проектного OKF-владельца с явными root/operation/scope.
 - Синхронизировать полный пакет с `.opencode/skills/` и `.opencode/command/`,
   удалить выбывшие имена/алиасы и проверенные пустые остатки; сохранить сторонние
