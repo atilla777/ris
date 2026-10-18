@@ -10,6 +10,9 @@ installation, not a product-foundation-only call or automatic roadmap. Init owns
 agreed settings/bootstrap and combined local readiness; product → architecture →
 engineering content stays with existing authors and separate acceptance. Reuse
 existing material; specific tool/Git/Beads/agent effects need their own permissions.
+This includes project-owned Standard/Advanced, user-agreed pinned models from the
+current available catalog and role bindings, not global-only/model-inherited tiers
+or silent model upgrades. Suitable saved choices need no repeated questionnaire.
 Deferred choices limit dependent operations; publication is offered separately,
 and absent remote does not alone block checked local setup. Init does not configure
 product build/test/format/CI or start development. Help explains, never launches it.

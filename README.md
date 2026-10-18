@@ -80,6 +80,12 @@ human dialogue and delegates standalone operations to agreed available executors
 (`project-initialization`). Missing tools, Git/Beads setup and project agent
 definitions require their specific permissions. The result distinguishes local
 readiness, deferrals and remaining work; commit/push is offered separately.
+Init checks project-owned `standard`/`advanced` subagents with explicitly pinned
+models, recommends choices from the target's current available catalog and agrees
+missing choices/changes without re-asking suitable saved decisions. Its proposed
+role split is Standard for selection/decomposition/orchestration and Advanced for
+requirements/design/implementation/review. No global edits or silent upgrades;
+see [tier setup and readiness limits](docs/installation.md#standardadvanced-project-agents).
 It does not start roadmap/features/development or configure build/test/format/CI.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
 

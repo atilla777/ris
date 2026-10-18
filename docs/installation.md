@@ -43,6 +43,55 @@ permission does not grant them. Init offers publication separately and stops
 before roadmap/product development or build/test/format/CI setup. The installer
 still performs no project initialization or configuration writes.
 
+### Standard/Advanced project agents
+
+`/risp-init` checks **both project definitions and effective OpenCode settings**
+for `standard` and `advanced`, including mode, pinned model/variant and caller/
+child permissions. Global-only agents or model inheritance do not satisfy this
+project-owned tier setup. New agents use `mode: subagent`; an existing suitable
+`all` mode may be preserved. Hidden agents need exact-ID availability checks;
+visibility alone is not launch permission.
+
+Init recommends exact model IDs from the **target project's current available
+catalog**, with source/date, reasons and known capability/cost limits, then asks
+which models you want where the choice is missing or materially changing.
+Standard favors adequate capability and cost/latency for ordinary organizational
+work; Advanced favors capability for complex work and review. No model version or
+provider is a permanent package default; a missing catalog is an explicit gap,
+not permission to guess a "latest" model. Existing suitable saved choices are
+reused without another questionnaire or automatic upgrade. Catalog availability
+is not proof of a successful authenticated model request.
+
+The proposed `ris.yaml` bindings are:
+
+| Agent | RIS roles |
+| --- | --- |
+| `standard` | `feature-selection`, `task-decomposition`, `task-execution` |
+| `advanced` | `feature-preparation`, `task-implementation`, `task-review` |
+
+`project-initialization` is agreed separately, normally proposed as `advanced`
+for document work. Existing alternative bindings are preserved until a specific
+migration is agreed. These are init proposals, not new resolver defaults or
+mandatory roles for every direct RIS operation. An independent reviewer is a
+fresh invocation separate from all authors/fixers, not necessarily another model.
+
+After agreement, init creates/updates only the bounded project definitions in
+`.opencode/agents/<name>.md` or the project's existing native V2 `agents` config
+entries, preserving unrelated settings, comments, visibility and permission
+policy. The model is explicit in each OpenCode agent definition, not in RIS's
+role records. Init does not edit global settings, write credentials, silently
+escalate rights or duplicate competing definitions. It records choices in the
+agreed settings-decision document, default `docs/ris-initialization.md`.
+
+Saved definitions, effective agent/model discovery and agreed role mappings are
+rechecked without test sessions or model requests. A disruptive refresh requires
+appropriate permission. Refusal, override conflicts or unavailable discovery/
+models/permissions leave explicit readiness limits and remaining actions; they
+do not erase independent useful results or count as a fully ready working cycle.
+The [operational contract](../skills/ris-proj-flow-initialize-project/references/agents.md)
+and [bounded amendment](specs/project-initialization/agent-tiers-amendment.md)
+describe the current tier requirements; historical v1/D1 decisions stay pinned.
+
 ## Selecting a version
 
 Leave `ref` empty in the quick start to follow upstream remote HEAD, regardless of

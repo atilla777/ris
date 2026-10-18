@@ -85,6 +85,10 @@ One leading dialogue; standalone operations use actual agreed executors. Tools,
 Git/Beads side effects and project agents need specific permissions. Commit/push
 is offered separately; an absent remote does not invalidate checked local setup. No
 build/test/format/CI setup, roadmap or feature/task development follows.
+Checks project-owned `standard`/`advanced` with explicit models and agreed RIS role
+bindings; recommends models from the target's current available catalog, reuses
+suitable saved choices and agrees changes. No global edits, silent upgrades or
+inherited tier models; missing/refused setup limits dependent readiness.
 Example: `/risp-init <project>, preserve existing material and agree local setup`.
 
 ### ris-proj-op-plan-roadmap

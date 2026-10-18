@@ -35,6 +35,11 @@ The historical [18-entry v1 set](specs/compact-commands/spec.md) is extended by
 `/risp-status` under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость)
 and `/risp-run-simple-task` under the [fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход),
 plus `/risp-init` under [project-initialization D1](specs/project-initialization/design.md).
+Its [tier-setup amendment](specs/project-initialization/agent-tiers-amendment.md)
+adds project-owned Standard/Advanced, explicitly pinned user-agreed models from
+the current available catalog and checked role mappings, without global edits or
+automatic upgrades. Suitable existing choices are reused; incomplete setup has
+explicit readiness limits. Package installation alone does not configure agents.
 The current source map adds the [workflow-help exception](specs/workflow-help/spec.md):
 **22 entries (17 project + 4 portable + one help exception)**;
 availability in a project requires installation

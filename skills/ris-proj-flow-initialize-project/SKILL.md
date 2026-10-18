@@ -54,17 +54,18 @@ skill's directory**, not the target or source repository:
 | Git is absent or agreed Git/ignore adjustments are needed | [references/git.md](references/git.md) |
 | Beads is selected and its workspace needs checking/preparation | [references/beads.md](references/beads.md) |
 | A required RIS tool is missing or installation is proposed | [references/tools.md](references/tools.md) |
-| Agent suitability/availability is unresolved or project definitions are proposed | [references/agents.md](references/agents.md) |
+| Every initialization, including reuse/resume: check Standard/Advanced, pinned models and role bindings | [references/agents.md](references/agents.md) |
 | Repeat/resume, partial or uncertain effects, or concurrent changes | [references/recovery.md](references/recovery.md) |
 
-Do not load all rare branches on the ordinary path. Installation of this package
-alone authorizes none of these project changes.
+The agents check is part of the ordinary path; other branches remain conditional.
+Installation of this package alone authorizes none of these project changes.
 
 ## Agree one settings/change set, then bootstrap
 
 Present ONE complete justified set: target/config path, document and workspace
-paths, selected task adapter/options, actual agent bindings needed for intended RIS
-operations, local directories/ignore/Git/tracker changes, bounded `AGENTS.md` delta
+paths, selected task adapter/options, project `standard`/`advanced` definitions,
+their explicitly pinned models and RIS role bindings, local directories/ignore/
+Git/tracker changes, bounded `AGENTS.md` delta
 and decision-record location. For each value explain existing project practice or
 RIS default, preservation/reuse, proposed change and consequences. Do not import
 the RIS repository's own Beads, TDD or publication policy into a consumer project.
@@ -74,10 +75,19 @@ changing structure; no forced relocation or silent Markdown-to-OKF conversion.
 This scenario consumes semantic role **`project-initialization`** for standalone
 noninteractive operations below. Agree its binding to an actually available,
 suitable executor; the identifier is not a universal mandatory role for every RIS
-operation. Reuse available agents first, with no automatic model/rights selection.
-Other roles are proposed only for the intended operations, using their actual
-contracts. A configured name does not prove availability or launch. If needed,
-use the agents resource for agreed bootstrap definitions/discovery refresh.
+operation. Agree this binding separately; `advanced` is a suitable proposal for
+the complex document work, not an automatic assignment. For the working-cycle
+setup propose `standard` for `feature-selection`, `task-decomposition` and
+`task-execution`; `advanced` for `feature-preparation`, `task-implementation` and
+`task-review`. This is init's proposed setup, not new context-schema defaults or
+a universal role requirement for unrelated direct operations. Preserve existing
+bindings until their change is agreed. Read the agents resource to inspect project
+definitions/effective settings, recommend models from the target's current
+available catalog and resolve only missing/material choices in this dialogue.
+For these two tiers, parent/global model inheritance is not a pinned project
+model. Reuse suitable project settings without repetitive questions; no automatic
+model upgrade, fallback or rights selection. Declined/deferred tier setup limits
+the dependent working-cycle readiness, not independent useful results.
 
 Obtain attributable agreement to the exact settings/change set and write scope;
 the person may accept it whole or select material points for discussion. This
@@ -117,15 +127,17 @@ converting ordinary Markdown or replacing content ownership.
 
 After actual bootstrap save, freshly apply context v2 to the selected saved
 config, not the earlier proposal. Verify full validity, actual values/provenance,
-source/current-copy vs workspace/checked-primary bases, role binding and path
-access/write scope. Check created infrastructure through its owner, not config
+source/current-copy vs workspace/checked-primary bases, all agreed role bindings
+and path access/write scope. Recheck both project tier definitions and effective
+agent/model/permission discovery under the agents resource, including reused
+definitions. Check created infrastructure through its owner, not config
 presence. No tracker tasks, worktrees or per-ID directories are created merely
 because workspace base directories are configured.
 
 ## Compose the document owners
 
 After the bootstrap/context gate, **actually launch a bounded separate executor
-for every standalone noninteractive operation**. Resolve the agreed
+for every standalone noninteractive document operation**. Resolve the agreed
 `project-initialization` binding through context and check host availability and
 permissions to launch. Missing/unlaunchable agents block that dependent operation:
 no silent leader execution, fallback/model switch or invented tool. Bootstrap is
@@ -195,7 +207,9 @@ task ID; supply the baseline, complete candidate, actual Git/branch state (inclu
 absence), decisions and check limits. The reviewer is a fresh
 invocation independent of **all** content authors/fixers, including bootstrap
 authors; the same configured agent identifier alone proves neither independence
-nor a launch. Check role/availability as above; no review self-approval. Material
+nor a launch. Resolve the agreed `task-review` binding for this review (the tier
+proposal uses `advanced`), rather than assuming the authoring executor is the
+reviewer. Check role/availability as above; no review self-approval. Material
 high/medium findings return to their owners and this dialogue for affected decisions,
 repairs, checks and fresh independent re-review; record dispositions for optional
 low findings. Missing required checks/review blocks the
@@ -204,12 +218,16 @@ dependent readiness claim; preserve the checked partial result.
 The scenario checks the combined result against the actual agreed set: config
 read-back/context, correct AGENTS pointers/routes, sufficient accepted/saved/checked
 documents and accessible decisions, actual tool/tracker/executor availability,
-path access/ignores and unresolved conflicts. Do not call files alone ready, a
+project `standard`/`advanced` definitions with pinned and effective model IDs,
+agreed role mappings, path access/ignores and unresolved conflicts. Do not call
+files alone ready, a
 declaration a working tool, or document checks product implementation compliance.
 
 Return `ok|blocked|conflict|error`, selected project/copy/config provenance, agreed
 scope/decision address, actual changed/reused files and versions, component and
-independent-review evidence, available tools/executors, accepted/saved/checked
+independent-review evidence, available tools/executors, both tier model IDs and
+definition paths, effective-discovery results and agreed role mappings,
+accepted/saved/checked
 facts, deferred decisions and their specific operation limits, remaining actions
 and exact cause/recovery for incomplete effects. An expressly agreed setup scope
 may finish with accepted deferrals, but never call dependent operations or the
