@@ -1,14 +1,3 @@
-# Full view
-
-Return the Markdown view below for explicit full help, localizing descriptive
-labels under SKILL.md. Keep exact identifiers. Each operation stays in its own
-block with a heading, call and explanation, blank lines and section separators.
-Pages are thematic sections in one answer, not newly invented commands or a
-mandatory checklist. A direct-skill label means ask the agent to load that exact
-skill with the skill tool and supply the selected project/ID/scope as needed;
-do not turn it into a slash name or launch it from help. Placeholders need actual
-inputs; write and publication effects retain the owner's permission gates.
-
 # RIS · FULL HELP
 
 ### 🧭 PROJECT PLAN

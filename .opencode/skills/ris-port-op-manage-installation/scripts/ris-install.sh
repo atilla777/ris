@@ -31,6 +31,15 @@ command_owned() {
     while IFS= read -r line; do [ "$line" != "$name" ] || return 0; done < "$file"
     return 1
 }
+plugin_owned() {
+    local base=$1 line file
+    file=$base/.opencode/skills/$MANAGEMENT/references/plugin-ownership.txt
+    ordinary_dir "$base/.opencode/skills/$MANAGEMENT" &&
+        ordinary_dir "$base/.opencode/skills/$MANAGEMENT/references" &&
+        [ -f "$file" ] && [ ! -L "$file" ] || return 1
+    while IFS= read -r line; do [ "$line" != ris-help ] || return 0; done < "$file"
+    return 1
+}
 dependencies() {
     local tool version major minor
     [ "${BASH_VERSINFO[0]}" -gt 3 ] || { [ "${BASH_VERSINFO[0]}" = 3 ] && [ "${BASH_VERSINFO[1]}" -ge 2 ]; } || { die 'Bash 3.2+ required'; return 1; }
@@ -45,7 +54,7 @@ dependencies() {
 ordinary_dir() { [ -d "$1" ] && [ ! -L "$1" ]; }
 parents() {
     local p
-    for p in "$ROOT/.opencode" "$ROOT/.opencode/skills" "$ROOT/.opencode/command"; do
+    for p in "$ROOT/.opencode" "$ROOT/.opencode/skills" "$ROOT/.opencode/command" "$ROOT/.opencode/plugins"; do
         if exists "$p"; then ordinary_dir "$p" || { die "unsafe parent: $p"; return 1; }; fi
     done
 }
@@ -73,10 +82,16 @@ managed() {
         [ -L "$p" ] || [ -f "$p" ] || { die "invalid file type: $p"; return 1; }
         PATHS[${#PATHS[@]}]=${p#"$ROOT/"}
     done
+    p=$ROOT/.opencode/plugins/ris-help
+    if [ "${legacy_plugins:-0}" != 1 ] && exists "$p"; then
+        plugin_owned "$ROOT" || { die "unproven plugin ownership: $p; preserve and resolve conflict explicitly"; return 1; }
+        ordinary_dir "$p" || { die "unsafe plugin directory: $p"; return 1; }
+        PATHS[${#PATHS[@]}]=.opencode/plugins/ris-help
+    fi
 }
 acquire() {
     git -c core.hooksPath=/dev/null clone --no-checkout -- "$SOURCE" "$WORK/repo" || return 1
-    local expr entry info path mode type oid name file first line found closed names
+    local expr entry info path mode type oid name file first line found closed names command_format=0
     if [ -z "$REF" ]; then expr=HEAD
     elif [[ "$REF" =~ ^[0-9a-fA-F]{40}$ ]]; then
         [ "$(git -C "$WORK/repo" cat-file -t "$REF")" = commit ] || { die 'full SHA must name a commit object'; return 1; }
@@ -88,9 +103,9 @@ acquire() {
     fi
     SHA=$(git -C "$WORK/repo" rev-parse --verify "$expr^{commit}") || return 1
     [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || return 1
-    mkdir -p "$WORK/stage/.opencode/skills" "$WORK/stage/.opencode/command" || return 1
+    mkdir -p "$WORK/stage/.opencode/skills" "$WORK/stage/.opencode/command" "$WORK/stage/.opencode/plugins" || return 1
     git -C "$WORK/repo" ls-tree -rz "$SHA" > "$WORK/tree" || return 1
-    SKILLS=(); COMMANDS=()
+    SKILLS=(); COMMANDS=(); PLUGINS=()
     while IFS= read -r -d '' entry; do
         info=${entry%%$'\t'*}; path=${entry#*$'\t'}
         IFS=' ' read -r mode type oid <<< "$info"
@@ -105,6 +120,9 @@ acquire() {
                 name=${path#commands/opencode/}; [[ "$name" != */* ]] || continue
                 file="$WORK/stage/.opencode/command/$name"
                 COMMANDS[${#COMMANDS[@]}]=$name;;
+            plugins/opencode/ris-help/*)
+                file="$WORK/stage/.opencode/plugins/${path#plugins/opencode/}"
+                PLUGINS=(ris-help);;
             skills/ris-*) die "incomplete skill: $path"; return 1;;
             *) continue;;
         esac
@@ -143,11 +161,29 @@ acquire() {
     if exists "$file"; then
         names=()
         while IFS= read -r name || [ -n "$name" ]; do
+            # This header deliberately fails pre-plugin engines before writes.
+            # Otherwise they would copy plugin ownership but omit the plugin.
+            if [ "$name" = format=2 ]; then
+                [ "$command_format" = 0 ] && [ "${#names[@]}" = 0 ] &&
+                    plugin_owned "$WORK/stage" && [ "${#PLUGINS[@]}" = 1 ] || { die 'invalid plugin package format'; return 1; }
+                command_format=2
+                continue
+            fi
             case "$name" in risp-*.md|risb-*.md|ris-help.md) ;; *) die 'invalid command ownership'; return 1;; esac
             [[ "$name" != */* ]] && [ -f "$WORK/stage/.opencode/command/$name" ] || { die 'invalid command ownership'; return 1; }
             for entry in "${names[@]}"; do [ "$entry" != "$name" ] || { die 'invalid command ownership: duplicate'; return 1; }; done
             names[${#names[@]}]=$name
         done < "$file"
+    fi
+    file=$WORK/stage/.opencode/skills/$MANAGEMENT/references/plugin-ownership.txt
+    if exists "$file" || [ "${#PLUGINS[@]}" -gt 0 ]; then
+        [ -f "$file" ] && [ "$(<"$file")" = ris-help ] &&
+            [ -f "$WORK/stage/.opencode/plugins/ris-help/index.ts" ] &&
+            [ -f "$WORK/stage/.opencode/plugins/ris-help/tui.tsx" ] || { die 'invalid plugin ownership/package'; return 1; }
+        for name in help.mjs pages/daily.en.md pages/daily.ru.md pages/full.en.md pages/full.ru.md; do
+            [ -f "$WORK/stage/.opencode/plugins/ris-help/$name" ] || { die "incomplete plugin package: $name"; return 1; }
+        done
+        [ ! -e "$WORK/stage/.opencode/command/ris-help.md" ] || { die 'help command collides with client plugin'; return 1; }
     fi
     printf 'format=1\nsource=%s\nrevision=%s\nharness=opencode\n' "$SOURCE" "$SHA" > "$WORK/stage/.opencode/ris-installation"
 }
@@ -181,6 +217,10 @@ copy_stage() {
     mkdir -p "$ROOT/.opencode/skills" "$ROOT/.opencode/command" || return 1
     for p in "$WORK/stage/.opencode/skills"/*; do cp -pPR "$p" "$ROOT/.opencode/skills/" || return 1; done
     for p in "$WORK/stage/.opencode/command"/*; do cp -pP "$p" "$ROOT/.opencode/command/" || return 1; done
+    for p in "$WORK/stage/.opencode/plugins"/*; do
+        exists "$p" || continue
+        mkdir -p "$ROOT/.opencode/plugins" && cp -pPR "$p" "$ROOT/.opencode/plugins/" || return 1
+    done
     cp -pP "$WORK/stage/.opencode/ris-installation" "$ROOT/.opencode/.ris-version.tmp" &&
         mv -f "$ROOT/.opencode/.ris-version.tmp" "$ROOT/.opencode/ris-installation"
 }
@@ -222,9 +262,13 @@ foreign_walk() {
         .opencode/command/risp-*.md|.opencode/command/risb-*.md)
             recovery_foreign_command "$rel" || return 0;;
     esac
+    if [ "${legacy_plugins:-0}" != 1 ] && [ "$rel" = .opencode/plugins/ris-help ] && plugin_owned "$base"; then return 0; fi
     p=$base/$rel
     # Container existence can change; their foreign children cannot.
-    case "$rel" in .opencode|.opencode/skills|.opencode/command)
+    case "$rel" in .opencode/plugins)
+        if [ "${legacy_plugins:-0}" = 1 ]; then record_tree "$base" "$rel" no; return; fi;;
+    esac
+    case "$rel" in .opencode|.opencode/skills|.opencode/command|.opencode/plugins)
         if [ -d "$p" ]; then
             for child in "$p"/* "$p"/.[!.]* "$p"/..?*; do
                 exists "$child" || continue
@@ -241,8 +285,8 @@ check_marker() { [ -f "$J/$1" ] && [ ! -L "$J/$1" ] && [ "$(<"$J/$1")" = 1 ]; }
 snapshot() {
     mkdir -p "$ROOT/.opencode" || return 1
     (umask 077; mkdir "$J") || return 1
-    marker schema || return 1
-    mkdir -p "$J/backup/.opencode/skills" "$J/backup/.opencode/command" || return 1
+    printf '2\n' > "$J/schema.tmp" && mv -f "$J/schema.tmp" "$J/schema" || return 1
+    mkdir -p "$J/backup/.opencode/skills" "$J/backup/.opencode/command" "$J/backup/.opencode/plugins" || return 1
     managed_ledger "$ROOT" > "$J/oracle.tmp" && mv "$J/oracle.tmp" "$J/oracle" || return 1
     foreign_walk "$ROOT" .opencode > "$J/foreign.tmp" && mv "$J/foreign.tmp" "$J/foreign" || return 1
     managed || return 1
@@ -260,6 +304,7 @@ valid_path() {
     local tail
     case "$1" in
         .opencode/ris-installation) return 0;;
+        .opencode/plugins/ris-help) [ "${legacy_plugins:-0}" != 1 ]; return;;
         .opencode/skills/ris-*) tail=${1#.opencode/skills/};;
         .opencode/command/ris-*.md|.opencode/command/risp-*.md|.opencode/command/risb-*.md) tail=${1#.opencode/command/};;
         *) return 1;;
@@ -269,6 +314,7 @@ valid_path() {
 validate_backup() {
     local p
     for p in backup backup/.opencode backup/.opencode/skills backup/.opencode/command; do ordinary_dir "$J/$p" || return 1; done
+    if [ "${legacy_plugins:-0}" != 1 ]; then ordinary_dir "$J/backup/.opencode/plugins" || return 1; fi
     for p in manifest oracle foreign; do [ -f "$J/$p" ] && [ ! -L "$J/$p" ] || return 1; done
     while IFS= read -r -d '' p; do valid_path "$p" || return 1; done < "$J/manifest"
     managed_ledger "$J/backup" > "$WORK/backup-ledger" && cmp -s "$J/oracle" "$WORK/backup-ledger" || return 1
@@ -316,7 +362,8 @@ cleanup() {
 recover() {
     exists "$J" || return 0
     ordinary_dir "$J" && [ -O "$J" ] || return 1
-    local p name terminal= attrs
+    local p name terminal= attrs legacy_plugins=0
+    if [ -f "$J/schema" ] && [ ! -L "$J/schema" ] && [ "$(<"$J/schema")" = 1 ]; then legacy_plugins=1; fi
     attrs=$(ls -ld "$J") || return 1
     [ "${attrs%% *}" = drwx------ ] || return 1
     # Recognize only this engine's building/cleanup shapes, including mkdir ->
@@ -324,13 +371,15 @@ recover() {
     for p in "$J"/* "$J"/.[!.]* "$J"/..?*; do
         exists "$p" || continue
         name=${p##*/}
-        case "$name" in schema|prepared|committed|rolled-back)
+        case "$name" in schema)
+            [ -f "$p" ] && [ ! -L "$p" ] && { [ "$(<"$p")" = 1 ] || [ "$(<"$p")" = 2 ]; } || return 1;;
+            prepared|committed|rolled-back)
             [ -f "$p" ] && [ ! -L "$p" ] && [ "$(<"$p")" = 1 ] || return 1;;
             schema.tmp|prepared.tmp|committed.tmp|rolled-back.tmp)
                 [ -f "$p" ] && [ ! -L "$p" ] || return 1
                 # Redirection can be interrupted before printf. An unpublished
                 # empty marker has no state-transition authority.
-                [ ! -s "$p" ] || [ "$(<"$p")" = 1 ] || return 1;;
+                [ ! -s "$p" ] || [ "$(<"$p")" = 1 ] || { [ "$name" = schema.tmp ] && [ "$(<"$p")" = 2 ]; } || return 1;;
             backup) ordinary_dir "$p" || return 1;;
             oracle|oracle.tmp|foreign|foreign.tmp|manifest|manifest.tmp) [ -f "$p" ] && [ ! -L "$p" ] || return 1;;
             *) return 1;;
@@ -340,10 +389,11 @@ recover() {
     if exists "$J/committed"; then terminal=committed
     elif exists "$J/rolled-back"; then terminal=rolled-back
     elif exists "$J/prepared"; then
-        check_marker schema && check_marker prepared || return 1
+        check_marker prepared || return 1
+        [ -f "$J/schema" ] || return 1
         rollback || { die "recovery required at $J; repeat bootstrap after fixing the filesystem error"; return 1; }
         terminal=rolled-back
-    elif exists "$J/schema"; then check_marker schema || return 1
+    elif exists "$J/schema"; then :
     else
         # Only the empty initial/cleanup directory or first schema temp is safe.
         for p in "$J"/* "$J"/.[!.]* "$J"/..?*; do

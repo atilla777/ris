@@ -12,7 +12,7 @@ project rules and missing-input handling remain the owner's, not granted by help
 
 | Topic/label | Facade, or exact direct-load owner |
 | --- | --- |
-| help | `/ris-help` → `ris-proj-op-show-help` |
+| help | Client `/ris-help`; semantic questions attach `ris-proj-op-show-help` |
 | init | `/risp-init` → `ris-proj-flow-initialize-project` |
 | product-proposal* (portable product foundation) | `ris-port-op-formulate-product-foundation` |
 | product-author* (project product foundation) | `ris-proj-op-author-product-foundation` |
@@ -70,8 +70,8 @@ only for a context question read **Service context**. No facade is implied by `*
 ### ris-proj-op-show-help
 [Owner](../SKILL.md). Purpose: explain RIS capabilities and routes.
 Choose when: how-to help, not actual work/status. Inputs: optional question.
-Result/stop: daily Markdown help, full thematic pages, card, comparison or
-recommendation; zero writes/launch.
+Result/stop: card, comparison or recommendation; zero writes/launch. The client
+plugin owns fixed daily/full no-model pages, shared with direct skill requests.
 Example: `/ris-help`, `/ris-help full` or `/ris-help run-task`.
 
 ### ris-proj-flow-initialize-project

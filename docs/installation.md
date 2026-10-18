@@ -129,11 +129,14 @@ installed engine for this first migration. Subsequent updates use the new instal
 engine at the unchanged technical path below. There are no old-name aliases.
 See the [complete 39-command map](skill-command-naming-migration.md#compact-command-migration--39).
 
-The first update to a package with `/ris-help` also needs the **new engine** if
-the installed compact engine predates the exact help ownership exception. Its
-old validator rejects `ris-help.md` in that resource before target mutation.
-Use the same checked-download bootstrap pinned to the new package revision;
-this is not a new installer mode or a change to rollback/schema-1 semantics.
+The first update to the client `/ris-help` package needs the **new plugin-aware
+engine** via the same checked-download bootstrap pinned to the new revision.
+Old engines do not ship plugins; do not use an old self-update for this migration.
+The shipped ownership manifest begins with `format=2`, so pre-plugin engines
+reject acquisition before target writes rather than recording false ownership.
+The obsolete `.opencode/command/ris-help.md` is removed to avoid a collision.
+After migration use the plugin-aware engine for update, uninstall and recovery;
+an old external engine does not manage the complete new package.
 
 ```bash
 bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' update --project '/absolute/project' # Optional --ref TAG_OR_SHA
@@ -154,21 +157,25 @@ its loaded instructions.
 The reserved package paths are:
 
 - `.opencode/skills/ris-*` — complete skill folders and their resources.
-- `.opencode/command/ris-*.md` — reserved legacy templates and the exact active
-  `/ris-help` exception (`ris-help.md`), without aliases.
+- `.opencode/command/ris-*.md` — reserved legacy templates, including removal of
+  the obsolete agent-backed `ris-help.md` facade, without aliases.
 - `.opencode/command/risp-*.md` and `risb-*.md` — compact command templates,
   only after package ownership has been established.
 - `.opencode/ris-installation` — four-line format/source/full revision/harness record.
+- `.opencode/plugins/ris-help/` — paired server/TUI plugin and its bilingual
+  fixed Markdown pages, only with proven installed package ownership.
 
 **Local edits to proven package paths and legacy reserved paths are overwritten**,
 and retired elements are removed. Short-name ownership is recorded by the shipped
 management-skill resource `references/command-ownership.txt`, whose list must
-cover the selected package's compact command files plus the exact `ris-help.md`
-exception, without extra paths. This permits no arbitrary new `ris-*` ownership
-entries. `ris-help.md` remains inside the existing reserved legacy overwrite
-namespace: a pre-existing file at that name is replaced/removed, not protected
-by the unproven-short-name collision guard. Schema-1 recovery, management command
-and the four-line version record are unchanged.
+cover the selected package's compact command files without extra paths after
+its `format=2` capability header (not a command or alias). The
+separate `references/plugin-ownership.txt` proves ownership of the exact
+`ris-help` plugin directory, never an arbitrary `ris-*` prefix. An existing plugin
+at that name without installed ownership evidence, including a symlink, causes a
+preserved conflict. Do not extend these resources to claim foreign files.
+`ris-help.md` remains in the reserved legacy overwrite/removal namespace.
+The management command and four-line version record are unchanged.
 An old version marker or the new prefix alone is insufficient. Pre-existing
 unproven short files/links cause a conflict before replacement/removal: preserve
 them, inspect their ownership and explicitly resolve the collision (for example,
@@ -178,7 +185,7 @@ with complete manual package copies; do not extend it to claim foreign files.
 Use names outside `ris-`, `risp-` and `risb-` for project additions. No timestamp or
 backup history is kept in the unchanged four-line version record.
 
-Other skills and commands, OpenCode settings, `ris.yaml`, `AGENTS.md`, docs/tasks,
+Other skills, commands and plugins, OpenCode settings, `ris.yaml`, `AGENTS.md`, docs/tasks,
 alternate `skill/` and `commands/` locations, and global installations are preserved.
 Check alternate/global locations for shadowing; the installer does not migrate them.
 For old identifiers and consumer/config changes, see the
@@ -200,23 +207,43 @@ The engine serializes cooperating processes for the same OS user and physical
 project root. A busy lock exits without target writes. Before replacing its own
 script, it continues from a private external copy.
 
-A verified snapshot and schema-1 journal at `.opencode/.ris-install-transaction/`
+A verified snapshot and schema-2 journal at `.opencode/.ris-install-transaction/`
 support offline recovery **before any network operation**. A pre-commit failure
 restores old bytes, types, modes and link targets. After SIGKILL, the next valid
 request repeats the restore from immutable backup. Committed or rolled-back
-terminal markers permit cleanup only, even after partial backup removal.
+terminal markers permit cleanup only, even after partial backup removal. The new
+engine also reads historical schema-1 journals, retaining their foreign plugin
+classification. Old engines must not recover a schema-2 transaction.
 
 Exit **0** means verification and cleanup completed. Nonzero diagnostics distinguish
 not changed, restored, recovery required, or applied/restored with cleanup incomplete.
 
 - Repeat a valid request to finish recovery or cleanup.
 - If the installed script was removed by interruption, use the README bootstrap
-  again for the same project with a compatible schema-1 engine.
+  again for the same project with the new plugin-aware engine.
 - If the journal is unknown or damaged, preserve its exact reported path for
   diagnosis; do not delete it or try another install over it.
 
 Guarantees cover process interruption on a working filesystem, not power loss,
 storage corruption, ACLs/xattrs or concurrent edits by other tools.
+
+## Client help
+
+OpenCode V2 discovers `.opencode/plugins/ris-help/index.ts` and its `tui.tsx`
+automatically (checked on 2.0.32); no global `cli.json` or `opencode.json` edits
+are needed. The paired server entry is a no-op. Fixed daily/full Markdown is
+rendered by the client with no model call, including without credentials/session.
+English/Russian whole-argument selectors and locale defaults are in the README.
+Semantic questions resolve the installed `ris-proj-op-show-help` skill and queue
+one prompt with that attachment, creating a location-scoped help session from Home
+only when needed. Missing/ambiguous skill or request failure produces an error,
+not a fake alias or silent model fallback. This is a TUI entry, not a server/CLI
+`opencode run --command` facade. Clients without this TUI plugin can directly load
+the help skill; that is agent-backed and does not promise a no-model page.
+
+Fixed pages have one source at `plugins/opencode/ris-help/pages/`; the installer
+copies it into the plugin, and direct help-skill requests read that same installed
+location. A manual complete-help copy needs the plugin/pages as well as the skill.
 
 ## Manual installation of a portable skill
 

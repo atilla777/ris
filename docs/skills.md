@@ -7,7 +7,9 @@ inputs, dependencies, permissions, checks and stopping point.
 All 53 source skills are listed below, independently of the 22-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
-and passes `$ARGUMENTS` through its existing contract.
+and passes `$ARGUMENTS` through its existing contract. The exception is `/ris-help`:
+[`plugins/opencode/ris-help/`](../plugins/opencode/ris-help/) owns the client command,
+not a Markdown slash facade. The menu has 21 agent commands plus this client entry.
 
 ## Naming
 
@@ -24,7 +26,8 @@ Names are lowercase ASCII words separated by single hyphens, at most 64 characte
 Skill source directory, frontmatter `name` and installed directory agree.
 Command basenames define independent slash names: `risp-` explicitly selects a
 project contract, `risb-` a portable contract, without environment-based routing.
-The single accepted exception is `/ris-help` → `ris-proj-op-show-help`, without
+The single accepted exception is `/ris-help` → local fixed pages or semantic
+questions with `ris-proj-op-show-help`, without
 `risp-`/`risb-` or technical-name aliases; other naming rules are unchanged.
 For older names, use the
 [namespace transition guide](skill-command-naming-migration.md); there are no aliases.
@@ -48,7 +51,7 @@ of the chosen package and client restart.
 | Command | Exact skill target |
 | --- | --- |
 | `/risp-init` | `ris-proj-flow-initialize-project` |
-| `/ris-help` | `ris-proj-op-show-help` |
+| `/ris-help` | Client plugin; only semantic questions attach `ris-proj-op-show-help` |
 | `/risp-status` | `ris-proj-op-show-plan` |
 | `/risp-next` | `ris-proj-op-suggest-continuation` |
 | `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
@@ -80,14 +83,18 @@ remain those of each linked owner. No aliases are shipped.
 optional existing ID; empty input asks for the request, never chooses the queue.
 It adds one entry under the [D2 menu amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 
-`/ris-help` immediately returns daily Markdown help on empty/simple input:
+`/ris-help` immediately displays fixed daily Markdown on empty/simple input,
+without a model call:
 status/next, feature preparation/decomposition and task execution. `/ris-help full`
 (`/ris-help полный` in Russian) returns detailed thematic pages with separate
 operation blocks, including installation/init, roadmap, individual task stages,
 bugs, acceptance and retrospective. A named command, comparison or intent still
-yields focused short help, never execution. There are no new slash commands or
-mandatory pager calls, and no fixed 80×24 layout.
-Its installed resources cover all user-facing methods, not internal menus.
+yields agent-backed focused help, never execution. Fixed pages open in a scrollable
+client dialog (Esc closes); no fixed 80×24 layout. Exact English/Russian selectors
+and locale defaults are documented in [README](../README.md#start-using-ris).
+Questions are queued in the current session or create a help session from Home.
+The plugin and direct skill share the same independent bilingual Markdown assets
+in `plugins/opencode/ris-help/pages/`; cards/routes remain skill resources.
 No `ris.yaml`, Beads, source checkout or project setup is required. One RIS-specific
 skill suffices because the subject is RIS itself; no artificial portable pair.
 It preserves common/context ownership, zero-write/zero-launch limits and the
@@ -152,7 +159,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-op-author-skill](../skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring |
-| [ris-proj-op-show-help](../skills/ris-proj-op-show-help/SKILL.md) | Read-only daily SDLC help, full thematic pages, command cards, comparisons and intent routes, without project setup |
+| [ris-proj-op-show-help](../skills/ris-proj-op-show-help/SKILL.md) | Agent-backed read-only command cards, comparisons and intent routes; direct fixed requests use shared pages, without project setup |
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
 | [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
 | [ris-proj-op-investigate-bug](../skills/ris-proj-op-investigate-bug/SKILL.md) | Exact-ID investigation, protected current report/criteria and justified message disposition |

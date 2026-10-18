@@ -44,8 +44,13 @@ OpenCode settings and project documents are preserved. Use other names for your
 own additions. The installer reports the full revision and installed counts;
 the version is recorded in `.opencode/ris-installation`.
 
+The package also owns `.opencode/plugins/ris-help/` once the installed management
+resource proves ownership. An unproven plugin-directory collision stops unchanged;
+foreign plugins and all global settings are preserved. Local edits inside the
+proven package plugin are replaced. No global CLI/plugin configuration is written.
+
 **Quit and restart OpenCode** after installation or any package change so it
-discovers the updated skills and commands.
+discovers the updated skills, commands and client plugin (OpenCode V2, checked on 2.0.32).
 
 ## Start using RIS
 
@@ -53,7 +58,8 @@ The current source menu has 22 explicit entries (17 project + 4 portable + one
 help exception), extending the historical 18-entry v1 set with `/risp-status`,
 `/risp-run-simple-task`, `/risp-init` and `/ris-help`.
 `risp-` selects a project contract, `risb-` a portable contract. `/ris-help` is the
-sole naming exception, with no aliases. All 53 source skills
+sole naming exception, supplied by a client/TUI plugin rather than a Markdown
+command facade, with no aliases. All 53 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
@@ -90,11 +96,18 @@ It does not start roadmap/features/development or configure build/test/format/CI
 Feature preparation ends at a published feature ID; decomposition is a separate step.
 
 Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty input
-returns only daily Markdown help: status/next, feature preparation/decomposition
+displays fixed daily Markdown locally, **without any model call**: status/next, feature preparation/decomposition
 and task execution. `/ris-help full` (`/ris-help полный` in Russian) shows detailed
-thematic pages, including installation/init, roadmap, individual execution stages,
-bugs, acceptance and retrospective. Cards/comparisons/intent routes load on demand.
-It recommends but never writes or launches work, and does not certify readiness.
+thematic pages locally without a model, including installation/init, roadmap,
+individual execution stages, bugs, acceptance and retrospective. Use arrows/j/k,
+PgUp/PgDn, Home/End to scroll and Esc to close. Empty input uses the terminal's
+`LC_ALL`/`LC_MESSAGES`/`LANG` (Russian for `ru`, otherwise English); `simple`/`brief`
+and `full`/`detailed` explicitly select English, `простой`/`кратко` and
+`полный`/`подробная справка` Russian. Only exact whole arguments select fixed pages.
+Questions invoke the agent with `ris-proj-op-show-help` attached: they are queued
+in the current session, or open a new location-scoped help session from Home.
+Unlike fixed pages, these questions use the model. The help skill recommends but
+never writes or launches work, and does not certify readiness.
 Actual task continuation remains `/risp-next`, actual plan/status `/risp-status`.
 Package availability is not proof that the current client has discovered the command.
 
@@ -170,10 +183,12 @@ replaces the previous complete package; subsequent updates use `/risb-installati
 Old slash names are removed without aliases; see the complete
 [39-command migration map](docs/skill-command-naming-migration.md#compact-command-migration--39).
 
-**First update to `/ris-help`:** pre-help compact engines also reject its exact
-ownership-resource entry. Use that same new-revision bootstrap, even if `risp-`/
-`risb-` commands are already installed. A rejected acquisition leaves the target
-unchanged; subsequent updates use the new installed engine.
+**First update to client `/ris-help`:** use that same new-revision bootstrap,
+even if `risp-`/`risb-` commands or the older agent-backed `/ris-help` are installed.
+Old engines reject the new ownership-manifest `format=2` header before writes,
+because they cannot ship client plugins. The new engine removes the obsolete
+`ris-help.md` facade so it cannot collide with the client command; subsequent
+updates use the new installed engine. Use a plugin-aware bootstrap for recovery.
 
 For shell commands, version selection, manual installation and interrupted-operation
 recovery, see the **[installation guide](docs/installation.md)**. For old names and

@@ -63,9 +63,14 @@ for project contracts and `risb-` for portable contracts, with one explicit skil
 target and `$ARGUMENTS`. The accepted compact command map governs the inventory;
 do not add a command for every op/flow. Libraries/adapters have none.
 The sole accepted naming exception is
-`/ris-help` targeting `ris-proj-op-show-help`, without aliases; it does not change
-the prefixes of other commands. Skills without
-a command remain directly loadable. `skills/` and `commands/opencode/` own source; installation
+`/ris-help`, owned by the paired OpenCode client plugin: fixed bilingual pages
+render without a model, while semantic questions attach `ris-proj-op-show-help`.
+Do not create a Markdown slash facade or alias that collides with that entry.
+The shared fixed-page source is `plugins/opencode/ris-help/pages/`, installed at
+`.opencode/plugins/ris-help/pages/`, not inside the agent skill. This exception
+does not change the prefixes of other commands. Skills without
+a command remain directly loadable. `skills/`, `commands/opencode/` and
+`plugins/opencode/` own source; installation
 is synchronized output. Do not add aliases, a dispatcher or dependencies merely
 to satisfy a name. Identify the applicable supplied
 RIS result/operation contract, owner, inputs, boundary, checks and stop

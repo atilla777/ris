@@ -244,6 +244,8 @@ if match:
                 tuple("commands/opencode/" + p for p in ("ris-", "risp-", "risb-"))
             ):
                 dest = ".opencode/command/" + path.removeprefix("commands/opencode/")
+            elif path.startswith("plugins/opencode/ris-help/"):
+                dest = ".opencode/plugins/" + path.removeprefix("plugins/opencode/")
             else:
                 continue
             data = subprocess.check_output(
@@ -257,6 +259,7 @@ if match:
             if v[0] != "dir"
             and (
                 k.startswith(".opencode/skills/ris-")
+                or k.startswith(".opencode/plugins/ris-help/")
                 or k.startswith(
                     tuple(".opencode/command/" + p for p in ("ris-", "risp-", "risb-"))
                 )
@@ -996,7 +999,7 @@ if match:
         before = oracle(self.project)
         p, control, kill = self.pause([self.rule("mv", "prepared")])
         kill()
-        self.assertEqual((self.journal / "schema").read_bytes(), b"1\n")
+        self.assertEqual((self.journal / "schema").read_bytes(), b"2\n")
         ledger_path = self.journal / "oracle"
         raw = ledger_path.read_bytes()
         raw_hash = self.raw_blob(data).encode()
@@ -1005,6 +1008,7 @@ if match:
         self.assertEqual(raw.split(b"\0").count(raw_hash), 1)
         # Disposable historical-data fixture, not an installer migration:
         # schema-1 encoding with the old writer's EOL-normalized checksum.
+        (self.journal / "schema").write_bytes(b"1\n")
         ledger_path.write_bytes(raw.replace(raw_hash, filtered_hash))
         retained = oracle(self.project)
         self.git_context(**{"core.autocrlf": "true"})

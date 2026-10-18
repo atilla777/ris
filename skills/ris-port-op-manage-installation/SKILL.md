@@ -39,7 +39,11 @@ Beads, other skill, initialized project or target Git repository is required.
    package's `references/command-ownership.txt`; a prefix or version marker alone
     is insufficient. Preserve unproven collisions and report explicit resolution
     is needed. Other
-   skills/commands, settings, `ris.yaml`, `AGENTS.md`, docs and tasks are preserved.
+    skills/commands, foreign plugins, settings, `ris.yaml`, `AGENTS.md`, docs and tasks are preserved.
+    The exact `.opencode/plugins/ris-help/` directory is replaced/removed only
+    when `references/plugin-ownership.txt` in the installed management skill proves
+    ownership. Unproven directory/link collisions stop unchanged. Local edits
+    inside a proven package plugin are replaced. No global config is written.
    Project additions should avoid `ris-`, `risp-` and `risb-`. Known duplicate installations in
    alternate `skill/`, `commands/`, global, parent or config-defined locations
    may shadow these files: report known paths, without expanding into cleanup.
@@ -70,10 +74,13 @@ remain unchanged. For the first migration from long commands, an old installed
 engine cannot acquire the compact package: use the README checked-download
 bootstrap from the chosen new revision with the same pin. Subsequent updates use
 the newly installed engine. Do not claim an old self-update works or add an alias.
-The exact active `ris-help.md` is still in the reserved legacy overwrite namespace,
-not the compact collision guard. Pre-help compact engines reject its ownership
-entry too: first acquisition of a help-bearing package needs that same new-engine
-bootstrap, without a new mode or a claim that the old self-update succeeds.
+The client help package requires a plugin-aware new-revision bootstrap for its
+first acquisition: older engines reject the shipped `format=2` ownership-manifest
+header before writes, because they do not ship plugins. This header is not a
+command or alias. The obsolete reserved
+`ris-help.md` facade is removed; the TUI plugin supplies `/ris-help` instead.
+New journals use schema 2; the new engine can also recover schema 1 while keeping
+its foreign-plugin classification. Never use an old engine to recover schema 2.
 
 ## Verify and report
 
@@ -82,7 +89,8 @@ stdout alone. The engine verifies the complete selected Git tree, bytes/modes,
 foreign files and cleanup; do not implement a second installer to verify it.
 Check the reported physical project root matches the selected target, the
 expected managed directories/management skill, command and executable script
-exist for install/update, and no transaction journal remains after success.
+exist for install/update, along with `.opencode/plugins/ris-help/index.ts`,
+`tui.tsx` and bilingual pages, and no transaction journal remains after success.
 Count actual managed skill directories/commands and compare with the report.
 Read `.opencode/ris-installation` strictly as four lines of data:
 
@@ -104,10 +112,11 @@ change ignores, force-add, commit or push. Existing ignores are not overridden.
 On nonzero exit inspect diagnostics and actual state. Distinguish **not changed**,
 **restored**, **recovery required**, and **applied/restored with cleanup incomplete**;
 nonzero does not imply no write or a rollback. A busy lock permits no new writes.
-For interruption, a repeat valid request first recovers offline using schema 1,
+For interruption, a repeat valid request first recovers the existing schema-1 or
+schema-2 journal offline,
 then processes the request; repeat only within the existing authorization.
 If the installed script vanished, use the README checked-download bootstrap with
-a compatible schema-1 engine and the same target. For unknown/damaged journal
+a compatible plugin-aware engine and the same target. For unknown/damaged journal
 preserve and report the exact `.opencode/.ris-install-transaction/` path and
 diagnostics; stop for diagnosis, never delete evidence or install over it.
 Report any separately named temporary-engine cleanup path too. Guarantees cover

@@ -6,19 +6,25 @@ type: Architecture
 
 ## Владельцы и размещение
 
-В выбранный upstream входит read-only владелец
-`ris-proj-op-show-help` с условными map/cards/routes и тонкой `/ris-help`.
+В этой редакции исходников и синхронизированной установки реализована клиентская
+`/ris-help`: paired OpenCode
+TUI-плагин локально показывает фиксированные daily/full Markdown без модели;
+семантические вопросы передаёт read-only владельцу `ris-proj-op-show-help`
+с условными cards/routes.
 Это единственное исключение из `risp-`/`risb-`, без aliases и искусственной
 portable-пары: предмет — сам RIS. Обычная справка не требует config/Beads/repo,
 применяет только нужные общие правила, ничего не пишет/запускает и не подменяет
-`next`/`status`. Источник и установленная task-копия синхронизируются вместе.
+`next`/`status`. Исходники и установленная копия синхронизируются вместе.
 Help и init локально объединены с выбранным upstream в task copy `ris-y2u.2`;
 оценка и публикация нового полного результата требуют отдельных свидетельств.
-Текущий source-кандидат: 53 скила, пять flow, 22 команды
+Текущий состав исходников: 53 скила, пять flow, 22 пользовательских входа
 (17 project + 4 portable + одно help-исключение). Исторические числа ниже
-относятся к указанным там ревизиям. Installer разрешает только точное
-`ris-help.md` в ownership-ресурсе; существующая reserved legacy overwrite-семантика
-`ris-*.md`, schema-1 recovery и management-вход не меняются.
+относятся к указанным там ревизиям. Старый `ris-help.md` удаляется из reserved
+legacy `ris-*.md`, чтобы не конфликтовать с клиентом. Новый установщик управляет
+точным `.opencode/plugins/ris-help/` только по installed `plugin-ownership.txt`;
+чужие плагины и глобальные настройки сохраняет. Журнал schema 2 включает плагин;
+schema 1 восстанавливается с прежней foreign-классификацией. Первая миграция
+требует нового plugin-aware bootstrap; старый движок плагины не поставляет.
 
 | Область | Фактическое размещение и владелец |
 |---|---|
@@ -26,8 +32,9 @@ Help и init локально объединены с выбранным upstrea
 | OKF-операции | `ris-port-op-manage-okf-bundle` автономно владеет форматной методикой и единственным pinned snapshot/attribution; `ris-proj-op-manage-okf-bundle` применяет common/context/base, проверяет явные project/root/operation/scope и совокупный проектный результат. Авторы правил и обновление документации сохраняют содержательную ответственность. |
 | Исходная основа продукта | Source/install пара интегрирована в [9d0399ea](https://github.com/atilla777/ris/commit/9d0399ea048145bba1d2b66d0da45fa8c87e8454) по принятому [D1, §4](../../specs/project-initialization/design.md#4-документы-и-порядок-работы): `ris-port-op-formulate-product-foundation` владеет переносимым read-only содержательным предложением и условно применяет существующее интервью; `ris-proj-op-author-product-foundation` — common/context, отдельным принятием конкретного содержания, сохранением в `sources.product` через проектного OKF-owner и совокупным read-back. Формат остаётся у OKF, содержание — у автора; create/bounded update не запускают init/roadmap/разработку. Прямая загрузка без новых команд; свидетельства той поставки не означают приёмку инициализации или live-поведения. |
 | Инициализация проекта | В task copy `ris-y2u.2` подготовлены `ris-proj-flow-initialize-project` и тонкая `/risp-init` по [D1](../../specs/project-initialization/design.md). Flow владеет единым диалогом, обоснованным набором настроек, согласованными bootstrap-записями и совокупной локальной готовностью; после записи повторно применяет read-only context v2. Самостоятельные неинтерактивные операции фактически делегируются согласованному доступному исполнителю `project-initialization`, независимый reviewer не автор/исправитель. Продукт → архитектура → инженерные правила остаются у существующих авторов с отдельными принятиями и scoped OKF-save. Условные Git/Beads/tools/agents/recovery-ресурсы не расширяют установщик и сохраняют раздельные разрешения. Commit/push — отдельное предложение через existing publisher; отсутствие remote не отменяет локальные проверки. Не создаёт roadmap/фичи и не настраивает build/test/format/CI. Кандидат локально объединён с выбранным origin/main; независимая переоценка и публикация нового полного snapshot требуют отдельных свидетельств. |
-| Проектная установка OpenCode | `.opencode/skills/<name>/` содержит установленные копии исходников с ресурсами. Изменения синхронизируются с `skills/`; это не второй независимо редактируемый источник. Команды — `.opencode/command/`. |
-| Управление комплектом RIS | `ris-port-op-manage-installation` владеет намерением/параметрами/проверенным отчётом; тонкая команда `/risb-installation` только загружает скил. Единственный файловый движок — его `scripts/ris-install.sh` (W1); он владеет namespace, version/schema-1 journal, self-copy и rollback, без ris.yaml/Beads/инициализации. Компактные команды требуют пакетного свидетельства принадлежности `references/command-ownership.txt`; старый version marker или префикс не разрешают удалять чужие файлы. Первая миграция требует нового checked-download/bootstrap, старый движок не приобретает компактный пакет. `tests/package_installation_integration/` проверяет полный фактический комплект; отдельный workflow — Linux/macOS. Опубликованный W2 `86d2f24f4dd831de3ef00e16973d7c285220340e` прошёл обе ОС в [run 38739083951](https://github.com/atilla777/ris/actions/runs/38739083951) и реальный public pinned bootstrap. В локальной интеграционной копии W2 объединён с U1, source/install синхронны; hosted CI и public bootstrap относятся к исходному W2 SHA, не к интегрированному снимку. Новый движок compact-commands требует собственных обычных CLI-проверок и независимой переоценки полного снимка; main-публикация — отдельная операция. |
+| Проектная установка OpenCode | `.opencode/skills/<name>/` содержит установленные копии исходников с ресурсами. Изменения синхронизируются с `skills/`; это не второй независимо редактируемый источник. Команды — `.opencode/command/`; paired client-плагин — `.opencode/plugins/ris-help/` из `plugins/opencode/ris-help/`, без глобальных config writes. |
+| Клиентская справка (ris-1te) | Плагин владеет одной `/ris-help`, exact whole-argument выбором daily/full на русском/английском и scrollable Markdown dialog без модели. Единственный источник четырёх страниц — `plugins/opencode/ris-help/pages/`; прямой скил читает те же installed assets. Вопрос разрешает фактический ID/name `ris-proj-op-show-help` и передаёт один `session.prompt` с attachment и `delivery: queue`; из Home создаёт location-scoped help session. Отсутствующий/неоднозначный скил и ошибка запроса видимы, без fake alias/fallback. Реальный bounded ABI-тест OpenCode 2.0.32 проверяет production TUI и prompt schema с `resume:false`, без запуска агента; это не агентское поведенческое свидетельство. |
+| Управление комплектом RIS | `ris-port-op-manage-installation` владеет намерением/параметрами/проверенным отчётом; тонкая команда `/risb-installation` только загружает скил. Единственный файловый движок — его `scripts/ris-install.sh`; он владеет namespace, version/schema-2 journal с чтением legacy schema 1, self-copy и rollback, без ris.yaml/Beads/инициализации. Компактные команды и точный help-плагин требуют пакетных `references/command-ownership.txt` и `plugin-ownership.txt`; старый version marker или префикс не разрешают удалять чужие файлы. Первая миграция требует нового checked-download/bootstrap, старый движок не поставляет плагин. `tests/package_installation_integration/` проверяет полный фактический комплект; отдельный workflow — Linux/macOS. Исторический опубликованный W2 `86d2f24f4dd831de3ef00e16973d7c285220340e` прошёл обе ОС в [run 38739083951](https://github.com/atilla777/ris/actions/runs/38739083951) и реальный public pinned bootstrap. Hosted CI и public bootstrap относятся к исходному W2 SHA, не к новому снимку. Текущий движок требует своих обычных CLI-проверок и независимой переоценки полного снимка; main-публикация — отдельная операция. |
 | Продукт и методика пакета | [Product-бандл RIS](../../product/index.md), выбранный в `sources.product` корневого `ris.yaml`. Содержит нормативную методику, дизайн, требования и целевые компоненты; перенос не переобъявляет их принятие или готовность для каждой продуктовой операции. Фактический состав исходников/установки перечислен в [README](../../../README.md). |
 | Правила разработки RIS | [development.md](../development.md); конфигурация путей и адаптера — корневой [ris.yaml](../../../ris.yaml). |
 | Принятые поставки | [docs/specs/](../../specs/README.md), обычный Markdown, не дополнительный OKF-корень. Будущие решения остаются в спецификациях до реализации. |
@@ -50,7 +57,7 @@ Namespace этой редакции поставляется согласова�
 [карте перехода](../../skill-command-naming-migration.md) с добавлением W2 и U3;
 текущий инвентарь — в [каталоге скилов](../../skills.md).
 С парой автора основы продукта, справкой и сценарием инициализации кандидат содержит
-53 скила, пять flow и 22 команды (17 project + 4 portable + исключение help); это состав текущих исходников, не новая
+53 скила, пять flow и 22 входа (17 project + 4 portable + клиентское исключение help); это состав текущих исходников, не новая
 оценка runtime или перепринятие исторических поставок.
 Компактные команды `risp-`/`risb-` находятся в `commands/opencode/` с явной картой
 к сохранённым скилам; остальные операции доступны прямой загрузкой, lib/adapter

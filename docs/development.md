@@ -6,6 +6,31 @@ changing the repository. Source skills live in [`skills/`](../skills/), command
 templates in [`commands/opencode/`](../commands/opencode/); installation is
 synchronized from these sources.
 
+The client-only `/ris-help` entry lives in `plugins/opencode/ris-help/`, installed
+at `.opencode/plugins/ris-help/` with paired server/TUI entrypoints. Its `pages/`
+is the sole bilingual fixed-help source, shared with direct help-skill calls.
+Do not recreate `commands/opencode/ris-help.md` or duplicate pages inside a skill.
+The installer owns the exact plugin directory only with shipped ownership evidence;
+all other plugins/global configuration remain foreign. Update isolated installed
+mirrors alongside source; preserve historical accepted specifications.
+
+Deterministic client checks (no agent sessions):
+
+```sh
+node --test tests/client_help/help.test.mjs
+RIS_OPENCODE_RUNTIME="$(command -v opencode)" python3 -B -m unittest discover -s tests/client_help -p test_runtime.py -v
+```
+
+The opt-in runtime check pins installed OpenCode 2.0.32, uses a disposable project
+and isolated XDG directories, renders the production TUI module and validates the
+actual skill-attachment prompt schema with `resume:false` (no agent/model call).
+Unit doubles establish routing only, not runtime compatibility. Current V2 docs:
+[discovery](https://opencode.ai/v2/docs/cli/plugins),
+[TUI API](https://opencode.ai/v2/docs/build/plugins/cli),
+[client](https://opencode.ai/v2/docs/build/client). The installed client uses
+`session.prompt({sessionID,text,skills,delivery})`; do not copy outdated
+`session.command({command,arguments})` examples into forwarding code.
+
 Development state and dependencies belong to Beads (Dolt). New local task notes
 live in the primary copy's `.sdlc/tasks/<confirmed-ID>/`; `tasks/PLAN-*` is a
 historical archive. Git push does not synchronize Beads. Follow the rules for

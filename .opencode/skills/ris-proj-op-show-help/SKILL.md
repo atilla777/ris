@@ -13,8 +13,12 @@ description: >-
 Own only a helpful answer in the person's language. One RIS-specific operation
 suffices: the subject is RIS itself, not a portable method plus a project wrapper.
 No configured project, `ris.yaml`, Beads, source repository, execution role or
-context preparation is required. All resources below resolve from **this installed
-skill folder**, not from a source checkout or the user's project.
+context preparation is required. Cards/routes resolve from **this installed
+skill folder**, not a source checkout. Fixed pages are independent shared package
+assets at `../../plugins/ris-help/pages/` relative to this installed skill folder.
+The OpenCode client plugin owns `/ris-help`: fixed requests render locally without
+a model; only semantic questions are admitted to an agent with this skill attached.
+There is no Markdown slash facade or alternate alias for this command.
 
 Ensure `ris-proj-lib-common` is available and apply its baseline and resources
 only under their actual triggers (dialogue before a clarification, artifacts for
@@ -25,7 +29,8 @@ execution owners or their methods merely to explain a route.
 ## Select the smallest answer
 
 - **Empty input or explicit simple help** (`простой`, `кратко`, `simple`, `brief`):
-  read only `references/map.md` (besides applicable common rules) and immediately
+  read only the shared `../../plugins/ris-help/pages/daily.<language>.md`
+  (`ru` or `en`, besides applicable common rules) and immediately
   return its daily Markdown view. No initial question, fenced map, ASCII frames,
   complete catalog, cards or appended explanation. Preserve all commands and short
   explanations; omit installation, init, roadmap, bugs, acceptance and retro here.
@@ -33,7 +38,8 @@ execution owners or their methods merely to explain a route.
   separators **between sections**, not directly below the main title. There is no
   fixed 80x24 geometry: prioritize readable daily help, not denser one-line chains.
 - **Explicit full help** (`полный`, `подробная справка`, `full`, `detailed`): read
-  only `references/full.md` (besides applicable common rules) and return its detailed
+  only the shared `../../plugins/ris-help/pages/full.<language>.md`
+  (`ru` or `en`, besides applicable common rules) and return its detailed
   thematic pages in order. Each operation has its own heading, exact call and short
   explanation. Pages are sections of one answer, not extra commands, a client pager
   or an execution sequence. Do not collapse distinct operations into one line.
@@ -60,7 +66,7 @@ are `ГДЕ МЫ`, `ПРОРАБОТАТЬ ФИЧУ (ПОДГОТОВИТЬ ЗА
 `ВЫПОЛНИТЬ ОЧЕРЕДНУЮ ПОДГОТОВЛЕННУЮ ЗАДАЧУ` and `ПОДРОБНЕЕ`.
 The title is `RIS · ОСНОВНОЕ`; the full-help link is `/ris-help полный`
 (`/ris-help full` in English). These are arguments to the existing help command,
-not new slash facades or executable parser flags. Never append an implementation
+not new slash facades. Never append an implementation
 disclaimer about the two views: they are this skill's current source contract.
 
 For details not settled by these resources, inspect only the relevant installed

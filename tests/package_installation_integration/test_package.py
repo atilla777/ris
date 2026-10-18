@@ -166,6 +166,8 @@ class ProductionPackage(unittest.TestCase):
             ".opencode/opencode.json",
             ".opencode/skills/grilling/data",
             ".opencode/command/grillme.md",
+            ".opencode/plugins/foreign/index.ts",
+            ".opencode/cli.json",
         ):
             p = self.project / name
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -509,7 +511,7 @@ Path(a[a.index("--output")+1]).write_bytes(data)
         # Pinned accepted input, not a count-derived or renamed candidate fixture.
         # CI fetches history so this test has no network boundary of its own.
         base = "8d1d8a5bb7c64ff246f6c266b1956e0594fe5ced"
-        for directory in ("skills", "commands/opencode"):
+        for directory in ("skills", "commands/opencode", "plugins/opencode"):
             shutil.rmtree(self.fixture / directory)
         entries = subprocess.check_output(
             [self.git, "-C", str(ROOT), "ls-tree", "-rz", base]
@@ -573,7 +575,7 @@ Path(a[a.index("--output")+1]).write_bytes(data)
             "risb-" + n + ".md"
             for n in ("interview", "review-change", "skill", "installation")
         }
-        expected.add("ris-help.md")
+        expected.add("risp-init.md")
         for _ in range(2):
             self.exact(self.cli("update"))
             actual = {
@@ -583,6 +585,55 @@ Path(a[a.index("--output")+1]).write_bytes(data)
             }
             self.assertEqual(actual, expected)
         self.preserved()
+
+    def test_genuine_schema1_recovery_preserves_foreign_plugin_collision(self):
+        self.install_genuine_legacy()
+        plugin = self.project / ".opencode/plugins/ris-help/index.ts"
+        plugin.parent.mkdir(parents=True)
+        plugin.write_bytes(b"foreign same-name plugin\0\r\n")
+        before = w1.oracle(self.project)
+        kill = self.pause_update()
+        kill()
+        self.assertEqual((self.journal / "schema").read_text(), "1\n")
+        self.env["OFFLINE"] = "1"
+        result = self.cli()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(
+            self.journal.exists(), "legacy recovery precedes new ownership guards"
+        )
+        self.assertIn("plugin ownership", result.stderr)
+        self.assertEqual(w1.oracle(self.project), before)
+
+    def test_pre_plugin_engine_cannot_acquire_ownership_without_plugin(self):
+        previous = subprocess.check_output(
+            [
+                self.git,
+                "-C",
+                str(ROOT),
+                "show",
+                "0b752db296132991cb157dc9905585cd245e2b7f:skills/ris-port-op-manage-installation/scripts/ris-install.sh",
+            ]
+        )
+        old_engine = self.base / "real-pre-plugin-engine.sh"
+        old_engine.write_bytes(previous)
+        plugin = self.project / ".opencode/plugins/ris-help/index.ts"
+        plugin.parent.mkdir(parents=True)
+        plugin.write_bytes(b"foreign plugin must not acquire false ownership")
+        before = w1.oracle(self.project)
+        result = self.cli(script=old_engine)
+        self.assertNotEqual(
+            result.returncode, 0, "old engine must reject plugin package before writes"
+        )
+        self.assertIn("not changed", result.stderr)
+        self.assertEqual(w1.oracle(self.project), before)
+        # Explicit fixture-owner collision resolution, not installer cleanup.
+        retained = plugin.parent.with_name("user-help")
+        plugin.parent.rename(retained)
+        self.exact(self.cli())
+        self.assertEqual(
+            (retained / "index.ts").read_bytes(),
+            b"foreign plugin must not acquire false ownership",
+        )
 
     def legacy_foreign_compact_recovery(self, boundary):
         self.install_genuine_legacy()

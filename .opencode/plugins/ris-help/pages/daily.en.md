@@ -1,9 +1,3 @@
-# Daily view
-
-Return only the Markdown view below on empty/simple input. Localize its prose
-under SKILL.md; do not wrap it in a code fence or add an outer separator below
-the main title. Keep the section icons, spacing, commands and boundaries.
-
 # RIS · DAILY HELP
 
 ### 🧭 WHERE WE ARE
