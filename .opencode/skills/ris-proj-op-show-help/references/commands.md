@@ -13,6 +13,8 @@ project rules and missing-input handling remain the owner's, not granted by help
 | Topic/label | Facade, or exact direct-load owner |
 | --- | --- |
 | help | `/ris-help` → `ris-proj-op-show-help` |
+| product-proposal* (portable product foundation) | `ris-port-op-formulate-product-foundation` |
+| product-author* (project product foundation) | `ris-proj-op-author-product-foundation` |
 | roadmap | `/risp-roadmap` → `ris-proj-op-plan-roadmap` |
 | refine-epic | `/risp-refine-epic` → `ris-proj-op-refine-epic` |
 | select-feature | `/risp-select-feature` → `ris-proj-op-select-feature` |
@@ -96,7 +98,9 @@ Example: `/risp-select-feature <epic ID>`.
 Choose when: carry a feature from choice through separately accepted inputs.
 Inputs: project, epic/context, known decisions and document/Git/tracker authority.
 Result/stop: reviewed published requirements/design and remotely verified feature ID;
-no decomposition, implementation or claim.
+design is explained in plain language before separate acceptance of its complete
+candidate. Optional authorized draft storage is not acceptance/publication. No
+decomposition, implementation or claim.
 Example: `/risp-prepare-feature <epic ID>: add authorization`.
 
 ### ris-proj-op-interview-feature
@@ -121,7 +125,10 @@ Choose when: design or revise bounded accepted behavior, not choose requirements
 Inputs: project, ID or document-only subject, accepted requirements/current code,
 separate design acceptance and permitted save/publication/record effects.
 Result/stop: independently accepted versioned design and aligned refs, or explicit
-limited contribution; no task decomposition or code.
+limited contribution. New/materially changed designs get a plain-language explanation
+before separate acceptance of the complete accessible candidate, not just a summary;
+an explicitly authorized draft save can precede acceptance without publishing it.
+No task decomposition or code.
 Example: `/risp-design-feature <ID>`.
 
 ### ris-proj-op-decompose-feature
@@ -261,6 +268,18 @@ Example: `/risp-status` or `/risp-status <ID>`.
 
 ## Other project operations
 
+### ris-proj-op-author-product-foundation
+[Owner](../../ris-proj-op-author-product-foundation/SKILL.md). Purpose: accepted project product knowledge.
+Choose when: create or make an explicitly bounded update to the product foundation,
+not initialize a project, plan a roadmap or select architecture/stack.
+Inputs: selected project/current copy, create/update boundary, available materials,
+existing content/decisions for update, acceptance authority and allowed save scope.
+Result/stop: separately accepted complete content saved and checked in sources.product
+through the project OKF owner, including decision/navigation/read-back; proposal-only,
+refusal or absent acceptance writes no product files. No next-stage launch, tracker,
+commit/push or claim of complete project readiness.
+Example: `Load ris-proj-op-author-product-foundation for <project/copy>, create product knowledge from <materials>; obtain separate content acceptance then save/check within <authorized scope>`.
+
 ### ris-proj-op-retrospect-session
 [Owner](../../ris-proj-op-retrospect-session/SKILL.md). Purpose: one local session retrospective.
 Choose when: stopped OpenCode session postmortem in RIS, not multi-session audit.
@@ -302,6 +321,17 @@ Result/stop: checked combined source/dependencies/resources; no installation or 
 Example: `Load ris-proj-op-author-skill; improve <RIS skill folder> within <scope>; do not install`.
 
 ## Portable methods (direct inputs, no RIS setup)
+
+### ris-port-op-formulate-product-foundation
+[Owner](../../ris-port-op-formulate-product-foundation/SKILL.md). Purpose: sourced product-foundation proposal.
+Choose when: purpose/users/tasks/capabilities/boundaries/constraints/unknowns need a
+coherent initial proposal or bounded amendment, not a feature spec or technical design.
+Inputs: create/update, product/scope, materials/versions, constraints/prior answers;
+update also requires existing content and an explicit boundary.
+Result/stop: checked read-only proposal with provenance, decisions/statuses and
+deferred-impact limits; conditional interview only for interdependent gaps.
+No acceptance, saving, initialization, roadmap, stack/architecture choice or next skill.
+Example: `Load ris-port-op-formulate-product-foundation with <product/materials>, create or bounded update <scope>; return an unsaved proposal`.
 
 ### ris-port-op-manage-installation
 [Owner](../../ris-port-op-manage-installation/SKILL.md). Purpose: full RIS package management.

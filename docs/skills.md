@@ -80,7 +80,8 @@ No `ris.yaml`, Beads, source checkout or project setup is required. One RIS-spec
 skill suffices because the subject is RIS itself; no artificial portable pair.
 It preserves common/context ownership, zero-write/zero-launch limits and the
 boundary with actual-work `next`/`status`. Source readiness does not confirm client
-discovery or live behavior; this candidate's docs await integration with its source.
+discovery or live behavior; help docs/source are locally integrated with upstream,
+pending fresh combined review and primary-branch publication.
 
 `select-feature` and `next` recommend a direction or owner from minimum sufficient
 facts; they do not certify execution readiness. A selected ID uses bounded reads,

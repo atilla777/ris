@@ -13,7 +13,7 @@ Choose a scenario OR its atomic operations; do not run both.
 Idea/goal -> p:roadmap -> epic (p:refine-epic if unclear)
 +-- p:prepare-feature ------------------------------------------+
 | p:select-feature -> requirements: p:specify-feature             |
-| -> separately accepted design: p:design-feature                |
+| -> explained, separately accepted design: p:design-feature     |
 | -> reviewed/published inputs + published feature ID            |
 +---------------------------------------------------------------+
   -> p:decompose-feature -> one task or children with blockers
@@ -29,5 +29,5 @@ Bug -> register-bug* -> investigate-bug* -> fix-bug*
 Container acceptance/close: separately p:complete-container
   verify is read-only; administrative close is NOT acceptance
 Actual continuation: p:next <ID>; actual plan: p:status [ID]
-Other methods/install/rules/OKF/skills/retro: /ris-help <topic>
+Other product/install/rules/OKF/skills/retro: /ris-help <topic>
 ```

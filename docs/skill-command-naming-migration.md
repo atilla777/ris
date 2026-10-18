@@ -17,7 +17,8 @@ exception `/ris-help` → `ris-proj-op-show-help`, without aliases. Empty input 
 one compact SDLC map; cards/comparisons/routes are conditional and read-only,
 without config/tracker/source-checkout prerequisites. Actual work stays with
 `next`/`status` and execution owners. One RIS-specific skill suffices; no artificial
-portable wrapper pair. These source/docs changes await integration together.
+portable wrapper pair. These help source/docs changes are locally integrated
+with upstream, pending fresh combined review and primary-branch publication.
 The combined current source inventory is **52 skills / four flows** and **21
 commands (16 project + 4 portable + one help exception)**. Original tables/AC and acceptance remain
 historical; bug operations and the product-foundation proposal/project author

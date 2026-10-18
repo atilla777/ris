@@ -78,7 +78,8 @@ Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty in
 returns only one 80×24 map; cards/comparisons/intent routes are loaded on demand.
 It recommends but never writes or launches work, and does not certify readiness.
 Actual task continuation remains `/risp-next`, actual plan/status `/risp-status`.
-These help source/docs changes travel together pending integration; package
+The help source/docs candidate is locally integrated with upstream and awaits
+fresh combined review and primary-branch publication; package
 availability is not proof that the current client has discovered the command.
 
 Simple-task execution uses a clear bounded request without mandatory interview,

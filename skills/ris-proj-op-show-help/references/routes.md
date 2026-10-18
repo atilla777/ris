@@ -3,6 +3,29 @@
 Read only the section relevant to the question, plus the named cards. These are
 capability explanations, not prescribed stages or confirmed task readiness.
 
+## Product foundation, before feature-level questions
+
+"Help me describe what this product is for and who needs it" is product-foundation
+work, not automatically a roadmap, individual feature specification or full design.
+`product-proposal*` means direct `ris-port-op-formulate-product-foundation`: research
+supplied materials and known answers, conditionally interview only material
+interdependent gaps, return a sourced read-only proposal. `product-author*` means
+direct `ris-proj-op-author-product-foundation`: selected-project context, the same
+content method, separate acceptance of complete content, then bounded OKF save and
+read-back in sources.product. Neither has a slash facade or initializes a project,
+chooses stack/architecture, plans a roadmap, publishes or starts development.
+
+For "write my initial product knowledge", clarify proposal-only versus accepted
+project save if that effect is ambiguous; do not infer acceptance from the request
+or material presence. Update needs existing content and a defined boundary, not
+silent create. Sufficient existing accepted knowledge can be reused; no mandatory
+new foundation file, full future design or extra SDLC stage is introduced. Deferred
+choices retain their specific impact and do not certify downstream readiness.
+Example proposal: `Load ris-port-op-formulate-product-foundation with <materials>,
+product <subject>, create proposal only`. Example saved result: `Load
+ris-proj-op-author-product-foundation for <project>, bounded update <scope>;
+obtain separate content acceptance, then save/check within <authorized scope>`.
+
 ## Feature and task
 
 - "I want to add authorization": if this is a new feature needing decisions,
@@ -25,6 +48,13 @@ capability explanations, not prescribed stages or confirmed task readiness.
 - `design-feature` owns technical choices from accepted behavior, with separate
   acceptance; `decompose-feature` determines one-task sufficiency or child tasks;
   `plan-task` plans implementation of one confirmed task in its supplied copy.
+  For new/materially changed design, both the design owner and prepare-feature
+  explain essence/flow, reused/new technologies and why, tradeoffs, material risks
+  and hard-to-reverse choices in plain language before asking acceptance. Roughly
+  one screen is a readability guideline, not the help map's measured 80x24 limit.
+  Acceptance is of the complete identified accessible candidate, not merely its
+  summary. Optional explicitly authorized full Markdown draft storage can precede
+  approval; it is not accepted-content save/publication or a mandatory draft store.
 - `run-task` owns the complete one-task cycle, including prepared copy/claim,
   plan when required, implementation/checks, independent review, Git, separate
   completion and tracker publication. An explicit ID is the sole target; no ID
