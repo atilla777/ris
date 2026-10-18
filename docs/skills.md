@@ -80,15 +80,19 @@ remain those of each linked owner. No aliases are shipped.
 optional existing ID; empty input asks for the request, never chooses the queue.
 It adds one entry under the [D2 menu amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 
-`/ris-help` immediately returns a single 80×24 SDLC map on empty input; a named
-command, comparison or intent yields conditional short help, never execution.
+`/ris-help` immediately returns daily Markdown help on empty/simple input:
+status/next, feature preparation/decomposition and task execution. `/ris-help full`
+(`/ris-help полный` in Russian) returns detailed thematic pages with separate
+operation blocks, including installation/init, roadmap, individual task stages,
+bugs, acceptance and retrospective. A named command, comparison or intent still
+yields focused short help, never execution. There are no new slash commands or
+mandatory pager calls, and no fixed 80×24 layout.
 Its installed resources cover all user-facing methods, not internal menus.
 No `ris.yaml`, Beads, source checkout or project setup is required. One RIS-specific
 skill suffices because the subject is RIS itself; no artificial portable pair.
 It preserves common/context ownership, zero-write/zero-launch limits and the
 boundary with actual-work `next`/`status`. Source readiness does not confirm client
-discovery or live behavior. Help is present in the selected upstream; the combined
-help/init candidate requires its own review and publication evidence.
+discovery or live behavior.
 
 `select-feature` and `next` recommend a direction or owner from minimum sufficient
 facts; they do not certify execution readiness. A selected ID uses bounded reads,
@@ -148,7 +152,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-op-author-skill](../skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring |
-| [ris-proj-op-show-help](../skills/ris-proj-op-show-help/SKILL.md) | Read-only compact SDLC map, command cards, comparisons and intent routes, without project setup |
+| [ris-proj-op-show-help](../skills/ris-proj-op-show-help/SKILL.md) | Read-only daily SDLC help, full thematic pages, command cards, comparisons and intent routes, without project setup |
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
 | [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
 | [ris-proj-op-investigate-bug](../skills/ris-proj-op-investigate-bug/SKILL.md) | Exact-ID investigation, protected current report/criteria and justified message disposition |

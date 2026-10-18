@@ -70,8 +70,9 @@ only for a context question read **Service context**. No facade is implied by `*
 ### ris-proj-op-show-help
 [Owner](../SKILL.md). Purpose: explain RIS capabilities and routes.
 Choose when: how-to help, not actual work/status. Inputs: optional question.
-Result/stop: map, card, comparison or recommendation; zero writes/launch.
-Example: `/ris-help run-task`.
+Result/stop: daily Markdown help, full thematic pages, card, comparison or
+recommendation; zero writes/launch.
+Example: `/ris-help`, `/ris-help full` or `/ris-help run-task`.
 
 ### ris-proj-flow-initialize-project
 [Owner](../../ris-proj-flow-initialize-project/SKILL.md). Purpose: agreed local RIS setup.

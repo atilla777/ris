@@ -1,33 +1,46 @@
-# Default view
+# Daily view
 
-Return only this fenced view on empty input, localizing descriptive labels under
-SKILL.md without changing identifiers, routes or the 80x24 bound. This packaged
-baseline is ASCII; headings and legend are inside the measured view. Cards and
-routes are conditional. Translated renderings have not been pre-verified.
+Return only the Markdown view below on empty/simple input. Localize its prose
+under SKILL.md; do not wrap it in a code fence or add an outer separator below
+the main title. Keep the section icons, spacing, commands and boundaries.
 
-```text
-RIS SDLC -- routes, not an obligatory checklist
-p:name = /risp-name; b:name = /risb-name
-* = direct skill call (exact names/examples: ask /ris-help <label>)
-Choose a scenario OR its atomic operations; do not run both.
-Idea/goal -> p:roadmap -> epic (p:refine-epic if unclear)
-+-- p:prepare-feature ------------------------------------------+
-| p:select-feature -> requirements: p:specify-feature             |
-| -> explained, separately accepted design: p:design-feature     |
-| -> reviewed/published inputs + published feature ID            |
-+---------------------------------------------------------------+
-  -> p:decompose-feature -> one task or children with blockers
-+-- p:run-task -------------------------------------------------+
-| prep-copy* -> p:plan-task -> implement/check* (+ docs*)          |
-| -> independent p:review-task -> p:publish-task (Git)             |
-| -> exact task completion* -> tracker publication*              |
-+---------------------------------------------------------------+
-Simple assigned change -> p:run-simple-task (own branch, checks,
-  independent review, Git; separate tracked completion/publish)
-Bug -> register-bug* -> investigate-bug* -> fix-bug*
-  fix-bug* admits saved inputs, then REUSES p:run-task above
-Container acceptance/close: separately p:complete-container
-  verify is read-only; administrative close is NOT acceptance
-Actual continuation: p:next <ID>; actual plan: p:status [ID]
-Other init/product/install/rules/OKF/skills/retro: /ris-help <topic>
-```
+# RIS · DAILY HELP
+
+### 🧭 WHERE WE ARE
+
+**`/risp-status [ID]`** — project plan and blockers.
+
+**`/risp-next <ID>`** — next step for selected work.
+
+---
+
+### 🧩 WORK OUT A FEATURE (PREPARE TASKS)
+
+**`/risp-prepare-feature <epic>`** — choose a feature, separately accept requirements
+and design, and publish the inputs.
+
+**Or use individual stages:**
+
+- `/risp-select-feature` — choose a feature.
+- `/risp-specify-feature` — agree requirements.
+- `/risp-design-feature` — agree the design.
+
+**Then `/risp-decompose-feature <ID>`** — obtain tasks from the prepared feature.
+
+---
+
+### ⚙️ EXECUTE THE NEXT PREPARED TASK
+
+**`/risp-run-task <ID>`** — implement, check, independently review, publish Git,
+then separately complete the task and publish the tracker.
+
+**`/risp-run-simple-task <request>`** — execute a clear, bounded assigned change.
+
+*Choose the whole workflow OR its individual stages — not both.*
+
+---
+
+### 📚 MORE DETAIL
+
+**`/ris-help full`** — installation, initialization, roadmap, individual execution
+stages, bugs, acceptance and retrospective.

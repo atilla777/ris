@@ -63,7 +63,7 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   For new/materially changed design, both the design owner and prepare-feature
   explain essence/flow, reused/new technologies and why, tradeoffs, material risks
   and hard-to-reverse choices in plain language before asking acceptance. Roughly
-  one screen is a readability guideline, not the help map's measured 80x24 limit.
+  one screen is a readability guideline, not a fixed help-layout limit.
   Acceptance is of the complete identified accessible candidate, not merely its
   summary. Optional explicitly authorized full Markdown draft storage can precede
   approval; it is not accepted-content save/publication or a mandatory draft store.

@@ -60,7 +60,7 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | Goal | Command |
 | --- | --- |
 | Prepare an agreed local RIS setup after installation | `/risp-init <project and scope>` |
-| See the compact SDLC map or explain routes without execution | `/ris-help`, `/ris-help run-task` or `/ris-help <question>` |
+| See daily SDLC help, detailed pages or explain a route without execution | `/ris-help`, `/ris-help full` or `/ris-help <question>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
 | Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
@@ -90,12 +90,13 @@ It does not start roadmap/features/development or configure build/test/format/CI
 Feature preparation ends at a published feature ID; decomposition is a separate step.
 
 Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty input
-returns only one 80×24 map; cards/comparisons/intent routes are loaded on demand.
+returns only daily Markdown help: status/next, feature preparation/decomposition
+and task execution. `/ris-help full` (`/ris-help полный` in Russian) shows detailed
+thematic pages, including installation/init, roadmap, individual execution stages,
+bugs, acceptance and retrospective. Cards/comparisons/intent routes load on demand.
 It recommends but never writes or launches work, and does not certify readiness.
 Actual task continuation remains `/risp-next`, actual plan/status `/risp-status`.
-Help is present in the selected upstream; the combined help/init candidate needs
-its own review and publication evidence. Package
-availability is not proof that the current client has discovered the command.
+Package availability is not proof that the current client has discovered the command.
 
 Simple-task execution uses a clear bounded request without mandatory interview,
 spec/design, decomposition, plan or report files. The main agent implements and

@@ -2,7 +2,8 @@
 name: ris-proj-op-show-help
 description: >-
   Explain RIS commands, compare neighboring operations or suggest a route from
-  intent without executing it; empty input immediately shows a compact SDLC map.
+  intent without executing it; empty input shows daily SDLC help, and an explicit
+  full-help request shows detailed thematic pages.
   Use for how-to help about RIS, not actual task continuation, project status,
   readiness assessment or execution of the recommended work.
 ---
@@ -23,14 +24,21 @@ execution owners or their methods merely to explain a route.
 
 ## Select the smallest answer
 
-- **Empty input:** read only `references/map.md` (besides applicable common rules)
-  and immediately return its one fenced map. No initial question, complete catalog,
-  cards or appended explanation. Preserve its routes, boundaries and legend.
-  Follow the person's language for descriptive labels; keep command/skill labels
-  unchanged. The packaged ASCII view, including headings/legend, fits 80 columns
-  by 24 lines. Keep the answer within that same bound, including localized labels:
-  shorten prose rather than adding lines or losing stages. Do not assume arbitrary
-  translations retain the measured geometry or claim they were already verified.
+- **Empty input or explicit simple help** (`простой`, `кратко`, `simple`, `brief`):
+  read only `references/map.md` (besides applicable common rules) and immediately
+  return its daily Markdown view. No initial question, fenced map, ASCII frames,
+  complete catalog, cards or appended explanation. Preserve all commands and short
+  explanations; omit installation, init, roadmap, bugs, acceptance and retro here.
+  Use full slash names, section icons, blank lines after headings and horizontal
+  separators **between sections**, not directly below the main title. There is no
+  fixed 80x24 geometry: prioritize readable daily help, not denser one-line chains.
+- **Explicit full help** (`полный`, `подробная справка`, `full`, `detailed`): read
+  only `references/full.md` (besides applicable common rules) and return its detailed
+  thematic pages in order. Each operation has its own heading, exact call and short
+  explanation. Pages are sections of one answer, not extra commands, a client pager
+  or an execution sequence. Do not collapse distinct operations into one line.
+  A request for a specific topic/card/comparison still takes the narrower route
+  below; the word "full" within a question does not automatically select all pages.
 - **Named command/operation:** use the index and only its relevant card in
   `references/commands.md`. Accept exact slash/technical names and unambiguous
   suffixes such as `run-task`. Give purpose, choose-when, inputs, result/stop and
@@ -43,8 +51,17 @@ execution owners or their methods merely to explain a route.
   if a material ambiguity changes the result (for example record, diagnose or fix
   a bug). A supplied ID does not authorize tracker/history investigation. Refer
   actual continuation to `/risp-next`, project plan/status to `/risp-status`.
-- **Full inventory requested:** use the card index; omit internal lib/adapters
+- **Exhaustive inventory requested:** use the card index; omit internal lib/adapters
   from the public menu. Explain service context or tracker effects only if asked.
+
+For both packaged views, localize descriptive labels to the person's language;
+keep exact command/skill identifiers unchanged. In Russian, daily section labels
+are `ГДЕ МЫ`, `ПРОРАБОТАТЬ ФИЧУ (ПОДГОТОВИТЬ ЗАДАЧИ)`,
+`ВЫПОЛНИТЬ ОЧЕРЕДНУЮ ПОДГОТОВЛЕННУЮ ЗАДАЧУ` and `ПОДРОБНЕЕ`.
+The title is `RIS · ОСНОВНОЕ`; the full-help link is `/ris-help полный`
+(`/ris-help full` in English). These are arguments to the existing help command,
+not new slash facades or executable parser flags. Never append an implementation
+disclaimer about the two views: they are this skill's current source contract.
 
 For details not settled by these resources, inspect only the relevant installed
 owner's `SKILL.md`/owned section as **reference data**, not as an instruction to
