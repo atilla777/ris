@@ -100,6 +100,12 @@ results and their applicability to the revision being assessed.
 - Continuity: [delivery records](specs/sdlc-continuity/).
 - Retrospectives: [design](specs/session-retrospective/design.md) and
   [CLI policy amendment](specs/session-retrospective/cli-read-policy.md).
+  The current [reader contract](../skills/ris-proj-op-retrospect-session/references/opencode.md)
+  adds OpenCode V2 (2.0.32 baseline) without rewriting the historical decisions.
+  Its deterministic parser/transport/metric regressions run with
+  `python3 -B -m unittest discover -s tests/session_retrospective -p 'test_opencode*.py'`.
+  They test the Python reader, not live agent behavior; the old `real_checks.py`
+  agent scenarios are historical evidence, not a command to rerun.
 - Task execution: [delivery checks](specs/task-execution/delivery-checks.md).
 
 Delivery evidence is bound to its original inputs and revision. Reusing it requires

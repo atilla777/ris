@@ -266,3 +266,9 @@ Consult the linked skills for shared-root provenance and source-version checks.
 For a retrospective without an ID/export, the project operation follows its
 permitted session-list-and-selection procedure. It returns a response by default;
 saving requires an explicit authorized destination.
+The reader supports the OpenCode V2 client/server transcript contract (baseline
+2.0.32) and legacy 1.18.33 exports. V2 reads use the authenticated standard client,
+body-cursor pagination and confirmed `subagent` child links. Projected/unsettled
+history and unknown usage semantics remain explicit limitations; the portable
+analysis method is client-independent. See the owned
+[OpenCode reader reference](../skills/ris-proj-op-retrospect-session/references/opencode.md).

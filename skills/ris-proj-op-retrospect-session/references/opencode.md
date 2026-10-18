@@ -1,9 +1,13 @@
 # Local OpenCode reader
 
 Read from the installed wrapper before collection/interpretation. This resource
-owns mechanics; the portable base owns retrospective reasoning. Baseline is
-OpenCode **1.18.33**, Python 3 standard library. Unknown semantic versions preserve
-content but give unknown request metrics. No dependency install is needed.
+owns mechanics; the portable base owns retrospective reasoning. The V2 baseline
+is OpenCode **2.0.32**, Python 3 standard library. Existing **1.18.33** exports
+and its fixed CLI/GET contracts remain readable. V2 CLI releases with a stable
+`2.x.y` version may acquire content under the checked structural contract; other
+V2 semantic versions preserve content with unknown request metrics. No dependency
+install is needed. V2 skill discovery itself does not require a skill rewrite;
+the changed CLI/API/transcript contracts require this reader adapter.
 
 ## Invocation and permissions
 
@@ -57,15 +61,24 @@ never a convenient guess. `--cutoff` is Unix milliseconds. Only use
 captured then; an export obtained later does not qualify.
 
 With no supplied export, `--session <exact-ID> --allow-cli` permits fixed
-`opencode --pure --version` and `opencode --pure export <ID>`, cwd=selected project,
-shell=False. `list --allow-cli` runs `opencode --pure session list --format json
+`opencode --version`, then for V2 `opencode session export <ID>` and allowlisted
+`opencode api get '<path>?<encoded-allowlisted-query>'`, cwd=selected project,
+shell=False. The standard V2 client owns service discovery and authentication;
+never read/copy its credentials into arguments or use an unauthenticated fallback
+after an auth failure. Export and every GET use `--server <URL>` when `--endpoint`
+is supplied with CLI permission. Without an explicit endpoint they use the same
+standard managed-service context. The producing server version comes from
+`/api/info`, not from the client version; explicit `--version` disagreement is a
+conflict. `list --allow-cli` runs `opencode session list --format json
 --max-count 5` and returns bounded `ok` with `selected: null` and remaining exact
 session selection, never a selected session or analysis readiness. CLI
 permission is supplied by the retrospective request unless the caller or project
 restricts CLI use. Pass `--allow-cli` for these fixed reads; it acknowledges
 permission, not independently verified initialized storage or a fitness witness.
 Do not inspect SQLite, enumerate service paths or request an export solely to
-prove readiness. Prefer a supplied export when one is already provided.
+prove readiness. Prefer a supplied export when one is already provided. For
+1.18.33 only, export/list retain their legacy `--pure` argv and export command.
+V2 has no documented `--pure` isolation contract; do not claim one.
 
 Ordinary OpenCode metadata, DB/WAL/checkpoint housekeeping and own logs outside
 the developed project are accepted service effects. Message/part content and
@@ -73,7 +86,11 @@ semantic history links, project files/config/docs/Git, task state/edges and
 telemetry stay protected. This is not permission for arbitrary outside-project
 writes, plugins or analyst storage edits. A known service path inside the
 developed project or another concrete out-of-scope effect blocks CLI use; an
-absent service-path inventory alone does not.
+absent service-path inventory alone does not. Automatic discovery/start of the
+managed V2 service by its standard client is accepted; explicit lifecycle commands,
+`--standalone`, server setup/restarts and private-server fallback are not. A caller
+forbidding all service startup must supply an export or an already authorized GET
+source without CLI permission. No service state/DB inspection is required.
 
 Stop CLI acquisition on a bootstrap/migration indication, request for setup,
 unsupported version, reader/CLI error (including timeout/invalid JSON), identity
@@ -99,20 +116,62 @@ for ordinary retrospective reads. Test-owner instrumentation
 is separate from retrospective runtime and does not authorize analyst SQL,
 service startup, export capture files or experiments.
 
-`--endpoint <authorized-base-URL>` uses an already available endpoint for missing
-participants and recursive children/status reads. No discovery/start/import:
+For V2 with `--allow-cli`, `--endpoint <authorized-base-URL>` selects the standard
+client's explicit server, including its authentication context. Without CLI
+permission it uses direct GET to an already available caller-authorized endpoint;
+the caller must establish V2 source version with `--version 2.x.y`. V2 allowlist:
+`/api/info`, `/api/session/active`, `/api/session/<ID>`,
+`/api/session/<ID>/message`, and `/api/session` filtered by `parentID` for children.
+Direct GET unwraps `data`; message and child lists follow body `cursor.next`,
+preserving filters and omitting `order` after the first page. No arbitrary paths,
+methods or caller-defined queries are accepted.
+In 2.0.32, raw method/path mode ignores `--param`; the reader encodes validated
+queries into the path instead. Do not drop a parent filter or pagination cursor.
+V2 session scope is checked from
+`projectID` and `location.directory`; it is not a legacy directory query added
+to every request. Child enumeration is not directory-filtered: a moved/foreign
+child must be disclosed, not silently hidden. Active means foreground execution
+on the observed process only, never successful completion or absence of background
+work. A changed identity is a conflict.
+
+Legacy 1.18.33 `--endpoint` retains already available recursive children/status
+reads. No discovery/start/import:
 allowlisted GET `/session/status`, `/session/<ID>`, `/session/<ID>/children`,
 `/session/<ID>/message`, `/session/<ID>/message/<messageID>` only. Directory query
 is the exact selected canonical project. No redirects, proxies, embedded URL
 credentials, mutation methods or other paths. Caller must establish endpoint
-identity/version and access; this delivery does not handle authenticated endpoints.
-Public no-limit messages response is expected complete; continuation headers,
+identity/version and access. Direct GET does not handle authenticated endpoints;
+use the permitted V2 standard client for its supported authentication context.
+Only the legacy public no-limit messages response is expected complete; continuation headers,
 unsupported schema/errors/limits produce explicit gaps/errors, not guessed pages.
 Malformed selected root is not silently replaced by another transport/session.
 
 ## Schema, coverage and boundaries
 
-Export is `{info,messages}`; each message has `{info,parts}`. Session identity is
+V2 CLI export is `{data:{info,messages}}`; the inner `{info,messages}` is also
+accepted as a supplied transcript. Messages have `id,type,time`; assistant items
+have `content`, including text/reasoning/tool items, while system, skill, shell,
+synthetic, compaction, idle and switch messages retain their own fields. Tool call
+IDs are opaque strings, not `prt_*`. Pages preserve all original fields and use
+`session/message/content/<zero-based-index>` refs; these are reader addresses in
+the fingerprinted projection, not invented native part IDs. Message refs remain
+`session/message`. Internal normalization is only for tree/metric mechanics.
+
+V2 identity uses `info.id`, `info.projectID`, `info.location.directory` and
+`info.parentID`. Subagent links use tool `name: subagent`,
+`state.metadata.sessionID`, and the child's matching `parentID`; no prose/output
+regex establishes ancestry. Running/progress/error metadata may retain the link.
+Both foreground and background calls are supported. Repeated calls to one child
+count once; forks are not participants. Without a link/enumeration, children
+remain unknown. A sanitized V2 directory starts `/[redacted:session-directory:`
+and needs the same independent `--project-id` binding as legacy sanitized data.
+V2 transcripts are projections, not complete event logs. The standard export
+omits unsettled assistant/shell/compaction messages; this is always disclosed as
+a coverage gap, not silently treated as a full event history. API message reads
+can include unsettled messages. System/skill messages are historical evidence;
+missing historical tool/system schemas still remain unknown.
+
+Legacy export is `{info,messages}`; each message has `{info,parts}`. Session identity is
 `info.id`, `info.directory`, `info.projectID`; child `info.parentID` must match
 the task metadata's `sessionId`/`parentSessionId`. List rows instead have
 `id,title,updated,created,projectId,directory`. Root listing does not enumerate
@@ -138,7 +197,9 @@ Separate CLI invocations reacquire and verify fingerprints: batch reasonably siz
 ranges, do not re-export per event. Supplied files avoid CLI/storage overhead.
 All content remains in memory; no reader-owned disk export/cache/temp. Input cap
 is 64 MiB per source, page content budget 1–65536 bytes (default 8192), acquisition
-cap 256 participants, timeout 30 seconds per CLI/GET. These are local resource
+cap 256 participants, timeout 30 seconds per CLI/GET. V2 pagination is capped at
+256 pages and 65536 rows per list; repeated cursors/IDs or invalid page shapes
+fail the acquisition rather than silently dropping a page. These are local resource
 limits, not universal performance promises. Limit failures disclose unprocessed
 scope. Tool-output truncation remains unseen; reduce page budget and resume.
 
@@ -154,6 +215,19 @@ and removed messages cannot be reconstructed from summary/current state.
 
 ## Metrics and safety
 
+For verified 2.0.32, an assistant message projects one provider step; a compaction
+message's tokens describe its own compaction request. Both contribute once to
+request metrics (undated completion remains unknown at historical cutoff). Their tokens
+are the step's normalized usage, not the session aggregate. Context is noncached
+input + cache.read + cache.write, excluding output/reasoning. Missing provider
+components may be normalized to zero: positive context is reported as a lower
+bound, all-zero/absent usage is unknown. Retries can include unmeasured attempts;
+their gap is retained, never multiplied/summed from the retry counter. Do not use
+the client version, `info.tokens`, provider context/checkpoint size or accumulated
+session cost to establish a per-request peak. V2 source version is not embedded
+in the export: supplied evidence needs an independently established `--version`
+for known semantics; absent version keeps content readable and metrics unknown.
+
 For verified 1.18.33, step-finish defines a request. Context is noncached input +
 cache.read + cache.write, excluding output/reasoning/session aggregate. A single
 step missing tokens may use its message tokens once, with fallback provenance;
@@ -167,7 +241,10 @@ known subset and coverage. Exactly 150000 is not the mandatory threshold signal;
 150001 is. Unknown full peak cannot rule out an exceedance.
 
 Times are milliseconds. Unions are per category and across participants; parent
-task wait is separate from tool union. Assistant created/completed is elapsed,
+task wait is separate from tool union. V2 tool execution uses `time.ran` through
+`time.completed`; subagent call lifetime records dispatch/foreground blocking,
+not the lifetime of a background child. Child intervals are read from that child's
+own history and never added to the parent's delegation interval. Assistant created/completed is elapsed,
 not pure generation/thinking. Human/external wait requires content evidence;
 unclassified time is not automatically waste, and overlapping categories need
 not sum to wall time. Historical late intervals must not be promoted to exact
@@ -193,7 +270,15 @@ displayed content; this is defense in depth, **not guaranteed secret discovery**
 Prefer references and manually minimize excerpts, especially error/default/file
 parts. Never treat `--sanitize` as a guarantee that all secrets disappeared.
 
-Checked public source contracts: [export.ts](https://github.com/anomalyco/opencode/blob/v1.18.33/packages/opencode/src/cli/cmd/export.ts),
+Checked V2 contracts: [migration](https://opencode.ai/v2/docs/migrate-v1),
+[API/OpenAPI](https://opencode.ai/v2/docs/api), and pinned 2.0.32
+[CLI export](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/cli/src/commands/handlers/session/export.ts),
+[transcript export](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/core/src/session/transfer.ts),
+[messages](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/schema/src/session-message.ts),
+[step mapping](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/core/src/session/runner/step.ts),
+[usage](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/core/src/session/usage.ts),
+[subagents](https://github.com/anomalyco/opencode/blob/v2.0.32/packages/core/src/tool/plugin/subagent.ts).
+Legacy contracts: [export.ts](https://github.com/anomalyco/opencode/blob/v1.18.33/packages/opencode/src/cli/cmd/export.ts),
 [session CLI](https://github.com/anomalyco/opencode/blob/v1.18.33/packages/opencode/src/cli/cmd/session.ts),
 and [public GET documentation](https://opencode.ai/docs/server/). Runtime capability
 and side-effect evidence must come from the actual installation, not these links.

@@ -34,7 +34,8 @@ Pass a compact self-contained assignment, not the entire leading conversation:
   saving. No secrets in arguments, excerpts or results. No further delegation.
   The leading report-save permission and CLI service exception are not child
    write rights; any permitted CLI acquisition needs explicit bounded read
-   authorization in the handoff and the fixed calls/stop conditions from
+   authorization in the handoff, the same selected server/authentication context,
+   and the fixed calls/stop conditions from
    `opencode.md`, not a separate initialization/fitness witness. Otherwise use
    supplied evidence.
 - Return compact coverage/ranges, episode/event refs, observed consequences,

@@ -16,6 +16,17 @@ from typing import TypeGuard
 
 MAX_BYTES = 64 * 1024 * 1024
 MAX_JSON_DEPTH = 128
+V2_BASELINE = "2.0.32"
+
+
+def v2_version(value):
+    return isinstance(value, str) and re.fullmatch(r"2\.\d+\.\d+", value) is not None
+
+
+class Captured(bytes):
+    """Keep the producing CLI version out of the original transcript bytes."""
+
+    source_version: str
 
 
 def identifier(value, prefix):
@@ -237,7 +248,19 @@ def check_boundary_time(obj, cutoff, boundary):
         and cutoff is not None
         and any(
             number(interval.get(key)) and interval[key] > cutoff
-            for key in ("created", "updated", "completed", "start", "end", "compacted")
+            for key in (
+                "created",
+                "updated",
+                "completed",
+                "start",
+                "end",
+                "compacted",
+                "streamed",
+                "ran",
+                "idle",
+                "viewed",
+                "archived",
+            )
         )
     ):
         raise ReadError("boundary snapshot conflict")
@@ -283,7 +306,10 @@ def metrics(source, cutoff=None, boundary=False):
     task_wait = []
     gaps = []
     threshold_evidence = []
-    supported = source["version"] == "1.18.33"
+    is_v2 = source.get("format") == "v2"
+    supported = source["version"] == "1.18.33" or (
+        is_v2 and source["version"] == V2_BASELINE
+    )
     sums: dict[str, int | float] = {
         k: 0 for k in ("input", "cache_read", "cache_write", "output", "reasoning")
     }
@@ -298,7 +324,18 @@ def metrics(source, cutoff=None, boundary=False):
             and (cutoff is None or boundary or temporal(mi, cutoff) == "before-cutoff")
         ):
             spans.append((mt["created"], mt["completed"]))
-        steps = [p for p in m["parts"] if p.get("type") == "step-finish"]
+        steps = (
+            ([mi] if mi.get("role") in ("assistant", "compaction") else [])
+            if is_v2
+            else [p for p in m["parts"] if p.get("type") == "step-finish"]
+        )
+        if is_v2 and mi.get("retry"):
+            gaps.append(
+                {
+                    "ref": f"{source['session']}/{mid}",
+                    "kind": "unmeasured-retry-attempts",
+                }
+            )
         for p in m["parts"]:
             if p.get("type") == "tool":
                 interval = p.get("state", {}).get("time", {})
@@ -311,7 +348,7 @@ def metrics(source, cutoff=None, boundary=False):
                         (interval["start"], interval["end"])
                     )
         for p in steps:
-            ref = f"{source['session']}/{mid}/{p['id']}"
+            ref = f"{source['session']}/{mid}" + ("" if is_v2 else f"/{p['id']}")
             timing = temporal(p, cutoff, boundary)
             # A completed assistant message establishes an upper bound for its steps.
             if cutoff is not None and temporal(mi, cutoff) == "before-cutoff":
@@ -322,7 +359,13 @@ def metrics(source, cutoff=None, boundary=False):
             message_ref = f"{source['session']}/{mid}"
             step_reading = usage_reading(tokens, ref, supported)
             message_reading = usage_reading(message_tokens, message_ref, supported)
-            readings = [step_reading] + ([message_reading] if len(steps) == 1 else [])
+            if is_v2:
+                for reading in (step_reading, message_reading):
+                    if reading["context"] is not None:
+                        reading["quality"] = "lower-bound"
+            readings = [step_reading] + (
+                [message_reading] if len(steps) == 1 and not is_v2 else []
+            )
             conflicting_fields = []
             step_measured = any(
                 number(value) and value > 0 for value in step_reading["fields"].values()
@@ -371,6 +414,10 @@ def metrics(source, cutoff=None, boundary=False):
                 if context is not None
                 else "unknown"
             )
+            if is_v2 and context is not None:
+                # V2 normalizes absent provider components to zero. Preserve the
+                # measured positive bound, not a claim of complete provider usage.
+                quality = "lower-bound"
             requests.append(
                 {
                     "ref": ref,
@@ -432,7 +479,11 @@ def metrics(source, cutoff=None, boundary=False):
     )
     return {
         "session": source["session"],
-        "semantics": "1.18.33 noncached input + cache.read + cache.write"
+        "semantics": (
+            "2.0.32 assistant/compaction-step normalized noncached input + cache.read + cache.write; missing provider components may be zero; unrecorded attempts excluded"
+            if is_v2
+            else "1.18.33 noncached input + cache.read + cache.write"
+        )
         if supported
         else "unknown version",
         "peak": peak,
@@ -470,7 +521,7 @@ def metrics(source, cutoff=None, boundary=False):
             "tool_intervals": tools,
             "task_wait_intervals": task_wait,
             "human_external_wait": None,
-            "limitations": "elapsed is not generation/thinking; waits need content evidence; categories overlap; unclassified gaps remain",
+            "limitations": "elapsed is not generation/thinking; waits need content evidence; categories overlap; unclassified gaps remain; V2 parent task wait is delegation-call lifetime only, not background child runtime",
         },
     }
 
@@ -496,11 +547,24 @@ def valid_interval(start, end):
 
 
 def cli_capture(
-    project, operation, session=None, executable="opencode", use_memfd=True, timeout=30
+    project,
+    operation,
+    session=None,
+    executable="opencode",
+    use_memfd=True,
+    timeout=30,
+    endpoint=None,
+    query=None,
 ):
     # Caller authorizes fixed standard-client reads and accepts ordinary service
     # effects. No initialization witness, SQL/bootstrap or blanket write grant.
-    if operation == "export":
+    if operation == "api":
+        validate_v2_get(session, query)
+        # V2 raw method/path mode ignores --param (it only interpolates operation
+        # IDs). Put the validated query in the path, or pagination/filtering lies.
+        path = session + ("?" + urllib.parse.urlencode(query) if query else "")
+        args = ["api", "get", path]
+    elif operation == "export":
         args = ["export", identifier(session, "ses")]
     elif operation == "list":
         args = ["session", "list", "--format", "json", "--max-count", "5"]
@@ -514,29 +578,40 @@ def cli_capture(
     }
     try:
         version = subprocess.run(
-            [executable, "--pure", "--version"], stdout=subprocess.PIPE, **kwargs
+            [executable, "--version"], stdout=subprocess.PIPE, **kwargs
         )
-        if version.returncode != 0 or version.stdout.strip() != b"1.18.33":
+        version_text = version.stdout.decode("ascii", errors="replace").strip()
+        version_text = re.sub(r"^opencode v?", "", version_text)
+        is_v2 = v2_version(version_text)
+        if version.returncode != 0 or not (version_text == "1.18.33" or is_v2):
             raise ReadError("unsupported CLI version")
+        if is_v2 and operation == "export":
+            args = ["session", "export", identifier(session, "ses")]
+        if endpoint:
+            validate_endpoint(endpoint)
+            if not is_v2:
+                raise ReadError("explicit CLI server requires V2")
+            args.extend(["--server", endpoint])
+        if operation == "api" and not is_v2:
+            raise ReadError("API client requires V2")
+        command = [executable] + ([] if is_v2 else ["--pure"]) + args
         if use_memfd and hasattr(os, "memfd_create"):
             with os.fdopen(
                 os.memfd_create("ris-opencode-read", os.MFD_CLOEXEC), "w+b"
             ) as output:
-                result = subprocess.run(
-                    [executable, "--pure"] + args, stdout=output, **kwargs
-                )
+                result = subprocess.run(command, stdout=output, **kwargs)
                 output.seek(0)
                 raw = output.read(MAX_BYTES + 1)
         else:
-            result = subprocess.run(
-                [executable, "--pure"] + args, stdout=subprocess.PIPE, **kwargs
-            )
+            result = subprocess.run(command, stdout=subprocess.PIPE, **kwargs)
             raw = result.stdout
         if result.returncode != 0:
             raise ReadError("CLI read failed")
         if len(raw) > MAX_BYTES:
             raise ReadError("source byte limit exceeded; no content processed")
-        return raw
+        captured = Captured(raw)
+        captured.source_version = version_text
+        return captured
     except (OSError, subprocess.TimeoutExpired):
         raise ReadError("CLI unavailable or timed out") from None
 
@@ -546,7 +621,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-def get_json(endpoint, project, path, timeout=30):
+def validate_endpoint(endpoint):
     base = urllib.parse.urlsplit(endpoint)
     if (
         base.scheme not in ("http", "https")
@@ -558,7 +633,14 @@ def get_json(endpoint, project, path, timeout=30):
         or base.path not in ("", "/")
     ):
         raise ReadError("invalid endpoint scope")
-    if not re.fullmatch(
+
+
+def get_json(endpoint, project, path, timeout=30, query=None):
+    validate_endpoint(endpoint)
+    is_v2 = path.startswith("/api/")
+    if is_v2:
+        validate_v2_get(path, query)
+    elif not re.fullmatch(
         r"/session/status|/session/ses_[A-Za-z0-9]+(?:/children|/message(?:/msg_[A-Za-z0-9]+)?)?",
         path,
     ):
@@ -567,7 +649,9 @@ def get_json(endpoint, project, path, timeout=30):
         endpoint.rstrip("/")
         + path
         + "?"
-        + urllib.parse.urlencode({"directory": os.path.realpath(project)})
+        + urllib.parse.urlencode(
+            query or {} if is_v2 else {"directory": os.path.realpath(project)}
+        )
     )
     request = urllib.request.Request(
         url, method="GET", headers={"Accept": "application/json"}
@@ -618,6 +702,7 @@ def participants(root, sources, cutoff=None, boundary=False, children=None):
     found = []
     gaps = []
     links = []
+    linked_pairs = set()
     visited = set()
     queue = deque([root])
     while queue:
@@ -677,6 +762,23 @@ def participants(root, sources, cutoff=None, boundary=False, children=None):
             if declared != sid or other["data"]["info"].get("parentID") != sid:
                 gaps.append({"kind": "foreign-parent", "session": child, "parent": sid})
                 continue
+            parent_project = source["data"]["info"].get("projectID")
+            if (
+                parent_project is not None
+                and other["data"]["info"].get("projectID") != parent_project
+            ):
+                gaps.append(
+                    {"kind": "foreign-project", "session": child, "parent": sid}
+                )
+                continue
+            if other["data"]["info"].get("fork"):
+                gaps.append(
+                    {"kind": "fork-not-participant", "session": child, "parent": sid}
+                )
+                continue
+            if (sid, child) in linked_pairs:
+                continue
+            linked_pairs.add((sid, child))
             links.append(
                 {"parent": sid, "child": child, "ref": ref, "temporal": timing}
             )
@@ -702,7 +804,22 @@ def read_export(
     boundary=False,
     project_id=None,
 ):
+    captured_version = getattr(raw, "source_version", None)
+    if captured_version:
+        if version and version != captured_version:
+            raise SourceConflict("version conflict")
+        version = captured_version
     data = decode_json(raw, "invalid export JSON")
+    if isinstance(data, dict) and "data" in data and "info" not in data:
+        data = data["data"]
+    if (
+        isinstance(data, dict)
+        and isinstance(data.get("info"), dict)
+        and "location" in data["info"]
+    ):
+        return read_v2_export(
+            data, project, session, version, cutoff, boundary, project_id
+        )
     if (
         not isinstance(data, dict)
         or not isinstance(data.get("info"), dict)
@@ -806,6 +923,190 @@ def read_export(
     }
 
 
+def validate_v2_get(path, query=None):
+    if not isinstance(path, str) or not re.fullmatch(
+        r"/api/info|/api/session(?:/active|/ses_[A-Za-z0-9]+(?:/message)?)?", path
+    ):
+        raise ReadError("GET path not allowed")
+    allowed = (
+        {"directory", "parentID", "limit", "order", "cursor"}
+        if path == "/api/session"
+        else {"limit", "order", "cursor"}
+        if path.endswith("/message")
+        else set()
+    )
+    if any(
+        key not in allowed or not isinstance(value, str)
+        for key, value in (query or {}).items()
+    ):
+        raise ReadError("GET query not allowed")
+
+
+def v2_page_data(get, path, query):
+    """Follow body cursors, in source order, with bounded non-repeating pages."""
+    rows, seen_cursors, seen_ids = [], set(), set()
+    byte_count = 0
+    params = dict(query, order="asc", limit="100")
+    for _ in range(256):
+        page = get(path, params)
+        if (
+            not isinstance(page, dict)
+            or not isinstance(page.get("data"), list)
+            or not isinstance(page.get("cursor"), dict)
+        ):
+            raise ReadError("unsupported V2 page schema")
+        for row in page["data"]:
+            if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+                raise ReadError("unsupported V2 page row")
+            if row["id"] in seen_ids:
+                raise ReadError("duplicate V2 page row")
+            seen_ids.add(row["id"])
+            byte_count += len(encode_json(row, ensure_ascii=True).encode())
+            if byte_count > MAX_BYTES:
+                raise ReadError("source byte limit exceeded; no content processed")
+            rows.append(row)
+            if len(rows) > 65536:
+                raise ReadError("V2 row limit exceeded")
+        cursor = page["cursor"].get("next")
+        if cursor is None:
+            return rows
+        if not isinstance(cursor, str) or not cursor or cursor in seen_cursors:
+            raise ReadError("invalid V2 pagination cursor")
+        seen_cursors.add(cursor)
+        params.pop("order", None)
+        params["cursor"] = cursor
+    raise ReadError("V2 page limit exceeded")
+
+
+def read_v2_export(data, project, session, version, cutoff, boundary, project_id):
+    """Normalize mechanics only; displayed events keep all original V2 fields."""
+    info = data["info"]
+    sid = identifier(info.get("id"), "ses")
+    if session is not None and sid != identifier(session, "ses"):
+        raise SourceConflict("session mismatch")
+    if version and not v2_version(version):
+        raise SourceConflict("version conflict")
+    location = info.get("location")
+    directory = location.get("directory") if isinstance(location, dict) else None
+    redacted = isinstance(directory, str) and directory.lstrip("/").startswith(
+        "[redacted:session-directory:"
+    )
+    if project_id is not None and info.get("projectID") != project_id:
+        raise SourceConflict("project ID mismatch")
+    if (
+        not isinstance(info.get("projectID"), str)
+        or not isinstance(directory, str)
+        or (
+            os.path.realpath(directory) != os.path.realpath(project)
+            and not (redacted and project_id is not None)
+        )
+    ):
+        raise SourceConflict("project mismatch")
+    if not isinstance(data.get("messages"), list):
+        raise ReadError("unsupported V2 export schema")
+    check_boundary_time(info, cutoff, boundary)
+    messages, events, seen = [], [], set()
+    for message in data["messages"]:
+        if not isinstance(message, dict) or not isinstance(message.get("type"), str):
+            raise ReadError("unsupported V2 message schema")
+        mid = identifier(message.get("id"), "msg")
+        if mid in seen:
+            raise ReadError("duplicate message")
+        seen.add(mid)
+        check_boundary_time(message, cutoff, boundary)
+        content = message.get("content") if message["type"] == "assistant" else []
+        if not isinstance(content, list):
+            raise ReadError("unsupported V2 assistant content")
+        original_info = {
+            k: v
+            for k, v in message.items()
+            if k != "content" or message["type"] != "assistant"
+        }
+        mi = dict(original_info, sessionID=sid, role=message["type"])
+        parts, tool_ids = [], set()
+        objects = [(original_info, message["type"], f"{sid}/{mid}", message)]
+        for index, part in enumerate(content):
+            if not isinstance(part, dict) or not isinstance(part.get("type"), str):
+                raise ReadError("unsupported V2 content item")
+            check_boundary_time(part, cutoff, boundary)
+            p = dict(part, id=f"content/{index}", sessionID=sid, messageID=mid)
+            if part["type"] == "tool":
+                state = part.get("state")
+                if (
+                    not isinstance(state, dict)
+                    or not isinstance(part.get("name"), str)
+                    or not isinstance(part.get("id"), str)
+                ):
+                    raise ReadError("unsupported V2 tool")
+                if state.get("status") not in (
+                    "streaming",
+                    "running",
+                    "completed",
+                    "error",
+                ):
+                    raise ReadError("unsupported V2 tool state")
+                if state["status"] == "completed" and (
+                    not isinstance(state.get("content"), list) or not state["content"]
+                ):
+                    raise ReadError("unsupported V2 tool content")
+                if part["id"] in tool_ids:
+                    raise ReadError("duplicate V2 tool call")
+                tool_ids.add(part["id"])
+                meta = state.get("metadata", {})
+                if not isinstance(meta, dict):
+                    raise ReadError("unsupported V2 tool metadata")
+                interval = part.get("time", {})
+                p["state"] = dict(
+                    state,
+                    metadata=dict(meta),
+                    time={
+                        "start": interval.get("ran"),
+                        "end": interval.get("completed"),
+                    },
+                )
+                p["tool"] = part["name"]
+                if part["name"] == "subagent":
+                    p["tool"] = "task"
+                    if meta.get("sessionID"):
+                        p["state"]["metadata"].update(
+                            sessionId=meta["sessionID"], parentSessionId=sid
+                        )
+            parts.append(p)
+            objects.append((part, part["type"], f"{sid}/{mid}/content/{index}", part))
+        messages.append({"info": mi, "parts": parts})
+        for obj, kind, ref, timing in objects:
+            events.append(
+                {
+                    "ref": ref,
+                    "type": kind,
+                    "content": encode_json(
+                        safe(obj), sort_keys=True, ensure_ascii=True
+                    ),
+                    "temporal": temporal(timing, cutoff, boundary),
+                }
+            )
+    fingerprint = hashlib.sha256(
+        encode_json(
+            {"data": data, "version": version, "cutoff": cutoff, "boundary": boundary},
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+        ).encode()
+    ).hexdigest()
+    return {
+        "session": sid,
+        "project": os.path.realpath(project),
+        "version": version,
+        "fingerprint": fingerprint,
+        "captured_at": int(time.time() * 1000),
+        "cutoff": cutoff,
+        "boundary": boundary,
+        "format": "v2",
+        "events": events,
+        "data": {"info": dict(info, directory=directory), "messages": messages},
+    }
+
+
 def operate(args):
     if args.cutoff is not None and args.cutoff < 0:
         raise ReadError("invalid cutoff")
@@ -816,7 +1117,14 @@ def operate(args):
             raise ReadError("CLI read permission required")
         return {
             "status": "ok",
-            "sessions": list_rows(cli_capture(args.project, "list"), args.project),
+            "sessions": list_rows(
+                cli_capture(
+                    args.project,
+                    "list",
+                    **({"endpoint": args.endpoint} if args.endpoint else {}),
+                ),
+                args.project,
+            ),
             "selected": None,
             "cause": [],
             "remaining": ["Select an exact session before session analysis."],
@@ -833,10 +1141,56 @@ def operate(args):
             args.project_id,
         )
 
+    v2_cli_stopped = False
+    is_v2 = v2_version(args.version)
+
+    def v2_get(path, query=None):
+        nonlocal v2_cli_stopped
+        if args.allow_cli:
+            if v2_cli_stopped:
+                raise ReadError("CLI acquisition stopped")
+            try:
+                raw = cli_capture(
+                    args.project, "api", path, endpoint=args.endpoint, query=query
+                )
+                return decode_json(raw, "invalid API JSON")
+            except ReadError:
+                v2_cli_stopped = True
+                raise
+        if args.endpoint:
+            return get_json(args.endpoint, args.project, path, query=query)
+        raise ReadError("V2 source unavailable")
+
     def acquire(sid):
         if args.allow_cli:
-            return parse(cli_capture(args.project, "export", sid), sid, boundary=False)
+            if v2_cli_stopped:
+                raise ReadError("CLI acquisition stopped")
+            raw = cli_capture(
+                args.project,
+                "export",
+                sid,
+                **({"endpoint": args.endpoint} if args.endpoint else {}),
+            )
+            if v2_version(getattr(raw, "source_version", None)):
+                server = v2_get("/api/info")
+                if not isinstance(server, dict) or not v2_version(
+                    server.get("version")
+                ):
+                    raise ReadError("unsupported server version")
+                # In V2 the producer is the server, not the CLI binary.
+                raw.source_version = server["version"]
+            return parse(raw, sid, boundary=False)
         if args.endpoint:
+            if is_v2:
+                info = v2_get(f"/api/session/{identifier(sid, 'ses')}")
+                if not isinstance(info, dict) or not isinstance(info.get("data"), dict):
+                    raise ReadError("unsupported V2 session schema")
+                messages = v2_page_data(v2_get, f"/api/session/{sid}/message", {})
+                return parse(
+                    encode_json({"info": info["data"], "messages": messages}),
+                    sid,
+                    boundary=False,
+                )
             info = get_json(
                 args.endpoint, args.project, f"/session/{identifier(sid, 'ses')}"
             )
@@ -852,6 +1206,8 @@ def operate(args):
         else acquire(identifier(args.session, "ses"))
     )
     sources = {root["session"]: root}
+    is_v2 = root.get("format") == "v2"
+    v2_online = is_v2 and (args.allow_cli or args.endpoint)
     gaps = []
     children = {}
     statuses = None
@@ -881,7 +1237,19 @@ def operate(args):
         if sid in sources and child["fingerprint"] != sources[sid]["fingerprint"]:
             raise ReadError("snapshot conflict in supplied participants")
         sources[sid] = child
-    if args.endpoint:
+    if v2_online:
+        try:
+            response = v2_get("/api/session/active")
+            if not isinstance(response, dict) or not isinstance(
+                response.get("data"), dict
+            ):
+                raise ReadError("unsupported V2 status schema")
+            statuses = response["data"]
+        except ReadError:
+            if args.allow_cli:
+                v2_cli_stopped = True
+            gaps.append({"kind": "status-unavailable"})
+    elif args.endpoint:
         try:
             statuses = get_json(args.endpoint, args.project, "/session/status")
             if not isinstance(statuses, dict):
@@ -911,9 +1279,15 @@ def operate(args):
                             candidates.add(identifier(child, "ses"))
                         except ReadError:
                             gaps.append({"kind": "invalid-task-link", "session": sid})
-        if args.endpoint:
+        if args.endpoint or v2_online:
             try:
-                rows = get_json(args.endpoint, args.project, f"/session/{sid}/children")
+                rows = (
+                    v2_page_data(v2_get, "/api/session", {"parentID": sid})
+                    if is_v2
+                    else get_json(
+                        args.endpoint, args.project, f"/session/{sid}/children"
+                    )
+                )
                 if not isinstance(rows, list):
                     raise ReadError("unsupported children schema")
                 children[sid] = []
@@ -935,6 +1309,8 @@ def operate(args):
                     }
                 )
             except ReadError:
+                if is_v2 and args.allow_cli:
+                    v2_cli_stopped = True
                 children.pop(sid, None)
                 gaps.append({"kind": "children-GET-unavailable", "session": sid})
         for child in sorted(candidates):
@@ -970,17 +1346,23 @@ def operate(args):
                         }
                     )
                     continue
-            if sources[child]["data"]["info"].get("parentID") == sid:
+            child_info = sources[child]["data"]["info"]
+            if (
+                child_info.get("parentID") == sid
+                and not child_info.get("fork")
+                and child_info.get("projectID")
+                == source["data"]["info"].get("projectID")
+            ):
                 queue.append(child)
     tree = participants(
         root,
         sources,
         args.cutoff,
         args.captured_boundary,
-        children if args.endpoint else None,
+        children if args.endpoint or v2_online else None,
     )
     snapshot_tree = participants(
-        root, sources, children=children if args.endpoint else None
+        root, sources, children=children if args.endpoint or v2_online else None
     )
     late = [
         sid for sid in snapshot_tree["participants"] if sid not in tree["participants"]
@@ -992,7 +1374,11 @@ def operate(args):
             gaps.append({"kind": "not-in-confirmed-scope", "session": sid})
     for sid in tree["participants"]:
         s = sources[sid]
-        if s["data"]["info"]["directory"].startswith("[redacted:session-directory:"):
+        if (
+            s["data"]["info"]["directory"]
+            .lstrip("/")
+            .startswith("[redacted:session-directory:")
+        ):
             gaps.append(
                 {
                     "kind": "redacted-project-directory",
@@ -1000,8 +1386,16 @@ def operate(args):
                     "binding": "caller-established project ID",
                 }
             )
-        if s["version"] != "1.18.33":
+        if s["version"] not in ("1.18.33", V2_BASELINE):
             gaps.append({"kind": "unverified-version", "session": sid})
+        if s.get("format") == "v2":
+            gaps.append(
+                {
+                    "kind": "projected-history",
+                    "session": sid,
+                    "limitation": "V2 transcript is a projection, not the event log; CLI/supplied exports may omit unsettled assistant, shell and compaction messages",
+                }
+            )
         for e in s["events"]:
             if e["type"] not in (
                 "message",
@@ -1017,10 +1411,21 @@ def operate(args):
                 "patch",
                 "compaction",
                 "retry",
+                "assistant",
+                "user",
+                "system",
+                "synthetic",
+                "skill",
+                "shell",
+                "agent-switched",
+                "model-switched",
+                "location-switched",
+                "idle",
             ):
                 gaps.append({"kind": "unknown-part-type", "ref": e["ref"]})
             if (
                 "[redacted:" in e["content"]
+                or '"redacted":' in e["content"]
                 or '"compacted"' in e["content"]
                 or e["type"] == "compaction"
             ):
@@ -1128,6 +1533,7 @@ def operate(args):
         "invalid-task-link": "conflict",
         "missing-child": "blocked",
         "foreign-parent": "conflict",
+        "foreign-project": "conflict",
         "reused-or-cycle": "conflict",
     }
     cause = [g for g in gaps if g["kind"] in failures]
@@ -1184,7 +1590,7 @@ def parser():
     p.add_argument(
         "--allow-cli",
         action="store_true",
-        help="authorize fixed --pure CLI reads; accepts ordinary service effects, not a storage-fitness assertion",
+        help="authorize fixed CLI reads (V2 authenticated service client; V1 --pure); accepts ordinary service effects, not a storage-fitness assertion",
     )
     p.add_argument("--cutoff", type=int, help="Unix milliseconds")
     p.add_argument(
