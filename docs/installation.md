@@ -22,7 +22,7 @@ require `ris.yaml`, Beads, OpenCode or a Git repository in the target project.
 Project-integrated skills have their own prerequisites after installation.
 
 The combined current source menu is **21 commands (16 project + 4 portable + one
-help exception)** and **50 skills / four flows**, including `/ris-help` →
+help exception)** and **52 skills / four flows**, including `/ris-help` →
 `ris-proj-op-show-help` and `/risp-run-simple-task` →
 `ris-proj-flow-execute-simple-task` under the
 [accepted D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).

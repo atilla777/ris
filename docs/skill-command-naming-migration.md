@@ -18,9 +18,10 @@ one compact SDLC map; cards/comparisons/routes are conditional and read-only,
 without config/tracker/source-checkout prerequisites. Actual work stays with
 `next`/`status` and execution owners. One RIS-specific skill suffices; no artificial
 portable wrapper pair. These source/docs changes await integration together.
-The combined current source inventory is **50 skills / four flows** and **21
+The combined current source inventory is **52 skills / four flows** and **21
 commands (16 project + 4 portable + one help exception)**. Original tables/AC and acceptance remain
-historical; bug operations remain direct-load without new commands. No aliases or
+historical; bug operations and the product-foundation proposal/project author
+remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
 Verification and remote publication require separate revision-bound evidence;

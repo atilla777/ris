@@ -53,7 +53,7 @@ The current source menu has 21 explicit entries (16 project + 4 portable + one
 help exception), extending the historical 18-entry v1 set with `/risp-status`,
 `/risp-run-simple-task` and `/ris-help`.
 `risp-` selects a project contract, `risb-` a portable contract. `/ris-help` is the
-sole naming exception, with no aliases. All 50 source skills
+sole naming exception, with no aliases. All 52 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
@@ -127,6 +127,12 @@ for the inspected revision, coverage and limits.
 
 See the **[complete skill and command catalog](docs/skills.md)** for all operations,
 their results, naming conventions and links to individual contracts.
+
+For initial product knowledge, directly load `ris-port-op-formulate-product-foundation`
+to obtain a sourced, read-only proposal, or `ris-proj-op-author-product-foundation`
+for a selected project's separately accepted, saved and checked `sources.product`
+content. Both support create and bounded update; neither initializes the project,
+plans a roadmap or starts development. No new slash command is added.
 
 ## Update or remove
 

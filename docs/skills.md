@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, four workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 50 source skills are listed below, independently of the 21-command menu.
+All 52 source skills are listed below, independently of the 21-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -102,6 +102,8 @@ Load ris-port-op-investigate-bug with <message, expectation sources, code/versio
 Load ris-proj-flow-fix-bug for <exact native bug ID> in <project>, actor <actor>, within <authorized fix/publication scope>; use the saved sufficient report and existing execution route.
 Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
 Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
+Load ris-port-op-formulate-product-foundation with <product, create/update scope, materials and prior answers>; return an unsaved proposal.
+Load ris-proj-op-author-product-foundation for <project/copy>, <create or bounded update>; obtain separate content acceptance and save/check in sources.product within <authorized scope>.
 Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <selected files>.
 ```
 
@@ -129,6 +131,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-op-verify-feature](../skills/ris-port-op-verify-feature/SKILL.md) | Integrated all-criterion feature verification |
 | [ris-port-op-formulate-architecture-rules](../skills/ris-port-op-formulate-architecture-rules/SKILL.md) | Architecture-rules proposal |
 | [ris-port-op-formulate-development-rules](../skills/ris-port-op-formulate-development-rules/SKILL.md) | Engineering-rules proposal |
+| [ris-port-op-formulate-product-foundation](../skills/ris-port-op-formulate-product-foundation/SKILL.md) | Sourced read-only product-foundation proposal or bounded amendment |
 | [ris-port-op-manage-okf-bundle](../skills/ris-port-op-manage-okf-bundle/SKILL.md) | Explicit-root autonomous OKF read/create/edit/check |
 | [ris-port-op-manage-installation](../skills/ris-port-op-manage-installation/SKILL.md) | Checked full-package install/update/uninstall |
 
@@ -161,6 +164,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-manage-okf-bundle](../skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation |
 | [ris-proj-op-author-architecture-rules](../skills/ris-proj-op-author-architecture-rules/SKILL.md) | Accepted scoped architecture rules in project OKF |
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
+| [ris-proj-op-author-product-foundation](../skills/ris-proj-op-author-product-foundation/SKILL.md) | Separately accepted, saved and checked initial product knowledge in sources.product |
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Feature choice through accepted published inputs to verified ID |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
 | [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
@@ -264,6 +268,15 @@ completion. Confirmed closure is never repeated for pending publication.
 Both OKF operations require an explicitly selected bundle; ordinary feature
 Markdown is not automatically OKF. Project architecture/development rule authors
 own accepted content; their portable counterparts return proposals.
+
+The product-foundation pair follows the same content/format boundary: the portable
+owner researches materials and conditionally applies the existing interview; the
+project author owns separate acceptance, scoped OKF persistence and read-back.
+It covers purpose, users, tasks, capabilities, boundaries, constraints and unknown
+impact, not full product design. Suitable existing structure and decisions are
+reused; proposal-only/refusal/no acceptance writes no product files. Neither
+author runs initialization, selects a next skill or starts roadmap/development.
+These are directly loadable contracts without additional slash commands.
 
 Worktree preparation reports working-copy and environment readiness separately.
 Git is the default worktree adapter; having Worktrunk installed does not select it.
