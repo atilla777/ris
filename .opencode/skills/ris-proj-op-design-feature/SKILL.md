@@ -58,6 +58,20 @@ dialogue/artifact/quality resources before their actions. Apply installed
 provenance, diagnostics and permission scope. Do not infer project from the
 skill's location or use defaults on invalid selected configuration.
 
+Before any document/evidence write intended for Git publication, including an
+optional pre-approval draft, require the caller to supply an already prepared,
+confirmed own branch and safe copy: work identity/association, repository/path/
+branch/base, checked current state and adequate write/publication authority.
+A suitable current copy is allowed; isolation or project rules may require a
+worktree. Apply this to full combined/document-only calls and limited saves intended
+for a caller's later publication. Validate the evidence and resolve destinations
+in that copy. This wrapper does not create/switch branches or prepare copies;
+neither does the publisher. Missing preparation blocks dependent publication before
+writing. Independently authorized local/unpublished saving may proceed only within
+project rules, stating the limitation and making no publisher call; do not silently
+reduce a full request or promise later publication from a dirty primary copy.
+Proposal-only and record-only calls need no new document working copy.
+
 With an ID discover actual type/kind/key, own scope, source/decision links,
 complete children and directed blockers through selected adapter reads. Retrieve
 the actual accepted versions; do not ask the user to repeat accessible facts.

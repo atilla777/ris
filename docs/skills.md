@@ -214,9 +214,23 @@ resources retain action-specific authority and read-back. The final result
 distinguishes accepted/saved/checked, available tools/executors, deferred operation
 limits and remaining work. Missing remote or declined push does not invalidate
 checked local readiness: it limits publication, offered separately through the existing
-publisher and its gates. Init stops before roadmap/features/development and does
+publisher and its gates. Intended publication requires a caller-supplied prepared
+own branch/safe copy before initialization writes; otherwise the result remains
+local/unpublished, with no promise of late branching or dirty-primary transfer.
+Init stops before roadmap/features/development and does
 not configure product build/test/format/CI. It is not the installer or a whole-rules
 refresh operation. See its complete [contract](../skills/ris-proj-flow-initialize-project/SKILL.md).
+
+`prepare-feature` delegates the existing portable copy preparer before its first
+document write, including optional drafts/decision storage. It supplies an explicit
+pre-ID work identity, authorized path/own branch and pinned base, verifies new/reused
+copy evidence and reconciles partial effects before retry. No future tracker ID is
+needed. Writers, reviewers and the publisher consume that same checked copy.
+Direct `specify-feature`/`design-feature` calls instead require a caller-supplied
+prepared own copy before writes intended for publication, or report an explicitly
+authorized local/unpublished limitation. The publisher only consumes preparation;
+it never creates/switches branches or prepares worktrees. Separate acceptance,
+independent whole-snapshot review and Git/tracker publication gates remain.
 
 For simple assigned work, `run-simple-task` judges clarity, consequences and
 checkability rather than diff size. The main agent applies portable implementation

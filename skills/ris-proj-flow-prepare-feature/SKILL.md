@@ -39,9 +39,11 @@ silently run it in the leading context, choose a fallback or require the
 Before writable preparation, delegate bounded read-only preflight: the adapter
 checks actual operations, create/read feature-record support, local-write
 isolation, configured remote, outgoing scope and publication guarantees;
-`ris-proj-op-publish-task` preflights its authorized Git document subject,
-destination and publication gates without writing. Establish actual publication
-permissions, including full outgoing tracker history. No remote or guarantee
+`ris-proj-op-publish-task` preflights its prospective authorized Git document subject,
+destination and publication gates without writing. An unprepared copy is a pending
+prerequisite owned by the pre-ID gate below, not permission for publisher setup.
+Establish actual publication permissions, including full outgoing tracker history.
+No remote or guarantee
 means a blocker for the dependent effect. Direct document-only components may
 still return their authorized local result. Consume the adapter's fresh-read,
 targeted native-operation/read-back guarantees without requiring a manual window
@@ -83,6 +85,53 @@ with an explicit proposal/local-update-only boundary; this scenario owns the
 later tracker publication, including any authorized refinement debt.
 Do not refine just because the epic is large or create speculative tasks.
 
+### Prepare the pre-ID document copy before writing
+
+Once the subject is chosen, and **before the first document write**, including
+optional candidate/draft or decision storage, establish an explicit pre-ID work
+identity for this preparation subject. Agree its repository association, exact
+absolute copy path, own document branch, base revision and permitted creation/reuse
+and hook/setup effects. This identity is not a future task ID or a tracker record;
+do not invent an ID directory, branch/path from config, or a second registry.
+Use context's checked primary root only where shared paths are needed.
+
+Delegate `ris-port-op-prepare-worktree` through the existing feature-preparation
+executor. Pass the work identity/association, repository/current and checked primary
+roots, exact path/branch, explicit accessible base commit (or selected remote and
+established primary-branch rule to resolve/pin it), permissions, isolation/project
+constraints and selected adapter if any. The portable owner loads its contract and
+selected adapter, pins the full base before creation, and owns copy preparation,
+preservation and recovery; no tracker ID or task-worktree operation is required.
+Check its actual availability and returned evidence, not just its name.
+
+From a free primary copy without a prepared own branch, use that owner's new
+worktree route at the agreed path/branch and pinned base; do not write documents
+on shared local primary/main first or ask the publisher to create a branch later.
+A suitable already associated own document branch/copy may instead be verified
+and reused read-only by the same owner, including on resume with known document
+changes. A branch name or clean status alone is not association evidence. A busy,
+foreign or ambiguous current copy, overlapping work, or required isolation uses
+an authorized separate copy, not takeover of the current one. Missing permission,
+collision, unfinished Git operation or unresolved association stops dependent
+document writes; do not reset, stash, move or discard existing work.
+
+Consume the checked result's repository/path/branch/HEAD, pinned new-copy base,
+association, copy/environment verdicts, actual effects and limits. Continue only
+with a verified safe own copy and any required setup complete; absent optional
+setup is not environment readiness. For partial/interrupted preparation, retain
+the established identity/path/branch and ask that same owner to reconcile actual
+refs, registration, files and setup effects before repeating anything. Continue
+only missing authorized actions; never blindly create another copy or retry setup.
+No default report file is required; keep an accessible exact result in the existing
+authorized channel, with addressable evidence when the owner's recovery gate needs it.
+
+Make this prepared copy the document working root. Reapply context to its selected
+config, re-resolve document destinations there, and pass checked copy/config
+provenance and exact paths to every writer, reviewer and publisher. Recheck mutable
+state before writes and reconcile drift rather than transferring dirty primary
+files implicitly. Read-only proposals may continue while preparation is blocked;
+they do not unlock saving. Preserve the separate content-acceptance gates below.
+
 Before deciding whether requirements need an interview, load and apply installed
 `ris-proj-op-interview-feature`'s **Map the material requirements** and **Check
 and hand off** in this leading dialogue. Reuse known answers and current sources;
@@ -100,8 +149,9 @@ candidate before acceptance; resolve material gaps/conflicts before accepting
 their dependent result. Show the concrete requirements and obtain their
 **separate** acceptance under project rules. Keep the accepted candidate identity
 and actual authority/decision recoverable; generic workflow approval is not
-acceptance. Delegate `ris-proj-op-specify-feature` in explicitly requested document-only,
-explicitly limited accepted-local-save mode. Supply the full exact accepted text
+acceptance. With the pre-ID copy gate satisfied, delegate `ris-proj-op-specify-feature`
+in explicitly requested document-only, explicitly limited accepted-local-save mode.
+Supply the full exact accepted text
 and distinguishable version/scope, or a recipient-accessible file at an exact
 address/version, with the separate attributable requirements decision, destination
 path/section and permitted writes. It validates those inputs and saved content/
@@ -168,8 +218,9 @@ delegate repairs and rerun affected checks and fresh review. High/medium finding
 must be resolved before publication. Do not treat review as human acceptance.
 
 Delegate `ris-proj-op-publish-task` for authorized preparation-artifact Git
-publication using its pre-ID document branch. Pass exact project-relative
-subject paths, accepted requirements/design and separate decision addresses,
+publication using the already prepared pre-ID document branch/copy above. Pass
+its checked identity/association, path/branch/base and current state, exact
+project-relative subject paths, accepted requirements/design and separate decision addresses,
 substantive checks, full candidate base+overlay/add/delete/modes snapshot,
 independent review/provenance, destination evidence and allowed effects. The
 publisher owns its single integration/reassessment/push/read-back algorithm;

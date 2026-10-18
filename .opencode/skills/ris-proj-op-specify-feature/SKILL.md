@@ -83,6 +83,20 @@ actual content and status. An unresolved ownership, path or feature identity
 conflict blocks dependent writes. No path or acceptance evidence is inferred
 from a proposed tracker ID, file presence, or a past conversation not supplied.
 
+Before any document/evidence write intended for Git publication, require the
+caller to supply an already prepared, confirmed own branch and safe copy, with
+work identity/association, repository/path/branch/base, checked current state and
+adequate write/publication authority. A suitable current copy is allowed; isolation
+or project rules may require a worktree. This applies to full combined/document-only
+calls and limited local saves intended for a caller's later publication. Validate
+the supplied evidence and resolve destinations in that copy; this wrapper saves
+content but does not create/switch branches or prepare copies, and the publisher
+does not do so later. Without that prerequisite, block dependent publication before
+writing. Only independently authorized local/unpublished saving may proceed within
+project rules, with that limitation explicit and no publisher call; never silently
+downgrade a full request or promise later publication from a dirty primary copy.
+Proposal-only and record-only calls need no new document working copy.
+
 For a feature at creation agree a permanent slug and check existing document paths;
 the selected adapter owns all-status tracker collision checks when needed. The
 tracker task is the sole ID ↔ slug ↔ spec link, not a second registry. A title
