@@ -1,6 +1,7 @@
 # Independent design acceptance and persistence
 
-Read before selecting accepted design content, accepting or saving it. The
+Read before presenting a candidate, selecting accepted design content, accepting
+or saving a draft or accepted result. The
 wrapper owns design/applicability decisions; the adapter owns tracker encoding
 and protected writes. No second feature registry or per-step skill is needed.
 
@@ -28,6 +29,25 @@ a mandatory hashing scheme. No intermediate file, registry or intermediate
 publication is required; optional candidate storage needs its own authorized destination and
 portable authors remain read-only.
 
+### Optional pre-approval draft
+
+A short full candidate may be shown inline. For a long design, an authorized
+project writer may save the full candidate as an optional Markdown draft before
+acceptance, only after the exact destination and write scope are explicitly agreed
+and authorized. Inspect current files/rights, preserve unrelated and accepted
+content, then read back and check the full draft's version/scope and accessibility.
+If permission or an agreed path is missing, do not write: return the full unsaved
+candidate in the dialogue/caller channel and the precise gap for optional storage.
+The portable designer remains read-only; in a flow the lead delegates the bounded
+draft write to an authorized writer and supplies the full exact candidate.
+
+Label this result proposed/draft, not accepted, saved-as-accepted or published.
+Draft storage requires no design acceptance and cannot replace it. It is separate
+from the accepted-content save protocol below; do not enter that protocol with
+an unaccepted draft. No mandatory draft directory, registry, file or intermediate
+publication is introduced. Before later acceptance, verify the actual full draft
+still matches the presented candidate; a changed candidate needs its own decision.
+
 For an ordinary native bug, accepted requirements may be the full current report,
 aligned fix criteria and sufficient accepted constraints/decisions, with exact
 project/tracker/bug/report identity and version (or published Git report locator)
@@ -38,8 +58,17 @@ content selector, actual separate acceptance and the save/review/Git/record/trac
 gates below. A material report/criteria change needs targeted applicability review;
 preserve unchanged authority/refs. No execution snapshot is required before design.
 
-Show the specific design and material impact to the authorized acceptor in the
-leading dialogue, or verify the supplied separate decision for this candidate.
+Before asking for separate acceptance of a new or materially changed design in
+the leading dialogue, give a plain-language explanation of its essence, main flow,
+reused/new technologies and why, tradeoffs, material risks and irreversible or
+hard-to-reverse choices. Roughly one screen is a readability guideline, not a
+measured limit or permission to hide material decisions. A short full inline
+design can itself provide that explanation without a duplicate summary. Identify
+the exact COMPLETE candidate version/scope to be approved, make its full text
+accessible inline or at a checked exact address/version, and show material impact.
+The summary does not replace the full candidate or accept unseen/changed content.
+For bounded supplied acceptance, verify the actual separate decision for this
+complete candidate instead of requesting approval again.
 Record its real decision in a permitted Git document/section, without imposing
 a mandatory decision file. It names content path, section (including null),
 revision, `decision: accepted` and attributable acceptor. Requirements approval
@@ -121,8 +150,10 @@ acceptance and file saving, then enters step 5. It performs no second push.
     require a manual window or atomic freeze of record, graph and external
     evidence. Unsupported explicitly required stronger guarantees block only
     dependent record writes; authorized independent file saving may proceed.
-3. Reread expected files immediately before saving. Save only accepted content
-   and actual decision evidence, no unaccepted intermediate draft. Read back,
+3. Reread expected files immediately before saving accepted content. Save only
+   accepted content and actual decision evidence, no unaccepted intermediate draft
+   in this accepted-save branch. The optional pre-approval draft branch above is
+   separate and grants no acceptance or publication. Read back,
    compare selected content with the exact accepted candidate and separate design
    decision for either supplied form, check substantive
     coverage, format/links and preserved requirements. An explicitly limited

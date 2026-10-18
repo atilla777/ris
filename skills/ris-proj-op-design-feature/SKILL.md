@@ -25,7 +25,8 @@ An explicitly requested **document-only** mode owns a complete accepted, saved
 and checked/published design plus its separate decision evidence, before a task
 exists. It is not an implicit fallback for failed combined work. Interview,
 discussion and separate acceptance remain in the leading dialogue in a scenario.
-Bounded formulation/save may execute noninteractively in a subagent; require
+Bounded formulation/accepted-content save may execute noninteractively in a
+subagent; require
 full exact candidate text with distinguishable version/scope, or a recipient-accessible
 file at an exact address/version, accepted requirements inputs, destination
 path/section, separate attributable design acceptance decision and permitted writes for save.
@@ -34,6 +35,9 @@ and decision/provenance without foreign-chat assumptions; return incomplete,
 inaccessible, ambiguous or changed candidates before save. Do not reformulate
 accepted content. Return missing decisions
 to the caller without asking user questions, including through dependencies.
+An explicitly limited optional draft-save contribution instead uses the resource's
+pre-approval draft branch: full exact candidate/version/scope and agreed authorized
+destination/write scope, without requiring or inventing design acceptance.
 Direct invocation needs no configured execution role or new per-step skill.
 
 ## Establish inputs and permitted effects
@@ -44,8 +48,8 @@ file/evidence/record/optional ADR changes. Combined mode requires a confirmed
 tracker ID (task or explicitly ordinary native bug); only the feature branch
 requires an epic. Document-only requires neither.
 Full finished operation is default. An explicitly limited contribution names
-proposal, accepted local save or record-only reconciliation from a checked Git
-receipt; nesting/Gas City does not select limited mode. Ensure
+proposal, optional pre-approval draft save, accepted local save or record-only
+reconciliation from a checked Git receipt; nesting/Gas City does not select limited mode. Ensure
 installed `ris-proj-lib-common` is available and apply its conditional
 dialogue/artifact/quality resources before their actions. Apply installed
 `ris-proj-op-resolve-context` with its configuration resource for `sources.rules`, related
@@ -114,7 +118,12 @@ new approved work scope; do not mutate it as open work.
 ## Compose design and focused decisions
 
 Read `references/acceptance-and-save.md` relative to this installed skill before
-selecting accepted content, acceptance or save. If unavailable block that part.
+presenting a candidate, selecting accepted content, acceptance or any draft/accepted
+save. If unavailable block that part.
+For explicitly limited draft save, apply only its pre-approval draft branch to
+the supplied full candidate; skip formulation, acceptance and accepted-content
+persistence/publication. Return checked draft address/version/scope, actual effects
+and limitations to the caller without asking the human in a subagent.
 For bounded save of a verified accepted candidate, skip formulation/interview
 and apply the persistence resource. For noninteractive formulation use supplied
 decisions; return the full checked proposal with a distinguishable version/scope,
@@ -160,9 +169,18 @@ moving files mechanically. Do not add OKF indexes/frontmatter to ordinary specs.
 Read `references/acceptance-and-save.md` relative to this installed skill before
 choosing the exact scope, obtaining acceptance or writing either document or
 record. It owns the version/persistence protocol, including revisions and partial
-effects; if unavailable, block that part. Prepare independent content selectors,
-show the specific proposed design and impact to the project's acceptance authority,
-and obtain a recoverable decision approving exactly this design scope/version.
+effects; if unavailable, block that part. Prepare independent content selectors.
+Before requesting separate acceptance of a new or materially changed design,
+explain it in plain language: essence, main flow, reused/new technologies and why,
+tradeoffs, material risks and irreversible/hard-to-reverse choices. Aim for roughly
+one screen, not a measured limit; never hide material decisions to fit it. Identify
+the exact COMPLETE candidate version/scope being accepted and keep its full text
+accessible. A short full inline design may itself supply this explanation without
+a duplicate summary. For a long design, the resource's optional authorized Markdown
+draft branch may precede acceptance; no draft file/store is required. Show material
+impact and obtain a recoverable decision approving exactly that complete design
+scope/version, not merely its summary. For bounded supplied acceptance, validate
+the actual candidate/decision instead of re-asking approval or opening dialogue.
 Generic authorization, requirements approval, a commit or file presence does
 not accept design. An unchanged requirements scope is not reaccepted merely
 because design changed. Apply the resource's save, adapter update and read-back
