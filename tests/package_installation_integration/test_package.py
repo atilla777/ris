@@ -573,6 +573,7 @@ Path(a[a.index("--output")+1]).write_bytes(data)
             "risb-" + n + ".md"
             for n in ("interview", "review-change", "skill", "installation")
         }
+        expected.add("ris-help.md")
         for _ in range(2):
             self.exact(self.cli("update"))
             actual = {

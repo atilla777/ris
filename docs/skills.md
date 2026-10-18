@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, four workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 49 source skills are listed below, independently of the compact 20-command menu.
+All 50 source skills are listed below, independently of the 21-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -24,6 +24,8 @@ Names are lowercase ASCII words separated by single hyphens, at most 64 characte
 Skill source directory, frontmatter `name` and installed directory agree.
 Command basenames define independent slash names: `risp-` explicitly selects a
 project contract, `risb-` a portable contract, without environment-based routing.
+The single accepted exception is `/ris-help` → `ris-proj-op-show-help`, without
+`risp-`/`risb-` or technical-name aliases; other naming rules are unchanged.
 For older names, use the
 [namespace transition guide](skill-command-naming-migration.md); there are no aliases.
 
@@ -32,12 +34,14 @@ For older names, use the
 The historical [18-entry v1 set](specs/compact-commands/spec.md) is extended by
 `/risp-status` under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость)
 and `/risp-run-simple-task` under the [fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
-The current source map has **20 entries (16 project + 4 portable)**;
+The current source map adds the [workflow-help exception](specs/workflow-help/spec.md):
+**21 entries (16 project + 4 portable + one help exception)**;
 availability in a project requires installation
 of the chosen package and client restart.
 
 | Command | Exact skill target |
 | --- | --- |
+| `/ris-help` | `ris-proj-op-show-help` |
 | `/risp-status` | `ris-proj-op-show-plan` |
 | `/risp-next` | `ris-proj-op-suggest-continuation` |
 | `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
@@ -68,6 +72,15 @@ remain those of each linked owner. No aliases are shipped.
 `run-simple-task` executes only already assigned clear bounded work, with an
 optional existing ID; empty input asks for the request, never chooses the queue.
 It adds one entry under the [D2 menu amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
+
+`/ris-help` immediately returns a single 80×24 SDLC map on empty input; a named
+command, comparison or intent yields conditional short help, never execution.
+Its installed resources cover all user-facing methods, not internal menus.
+No `ris.yaml`, Beads, source checkout or project setup is required. One RIS-specific
+skill suffices because the subject is RIS itself; no artificial portable pair.
+It preserves common/context ownership, zero-write/zero-launch limits and the
+boundary with actual-work `next`/`status`. Source readiness does not confirm client
+discovery or live behavior; this candidate's docs await integration with its source.
 
 `select-feature` and `next` recommend a direction or owner from minimum sufficient
 facts; they do not certify execution readiness. A selected ID uses bounded reads,
@@ -124,6 +137,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | Skill | Result |
 | --- | --- |
 | [ris-proj-op-author-skill](../skills/ris-proj-op-author-skill/SKILL.md) | Combined RIS skill authoring |
+| [ris-proj-op-show-help](../skills/ris-proj-op-show-help/SKILL.md) | Read-only compact SDLC map, command cards, comparisons and intent routes, without project setup |
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
 | [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
 | [ris-proj-op-investigate-bug](../skills/ris-proj-op-investigate-bug/SKILL.md) | Exact-ID investigation, protected current report/criteria and justified message disposition |

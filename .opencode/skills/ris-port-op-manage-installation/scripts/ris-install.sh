@@ -143,7 +143,7 @@ acquire() {
     if exists "$file"; then
         names=()
         while IFS= read -r name || [ -n "$name" ]; do
-            case "$name" in risp-*.md|risb-*.md) ;; *) die 'invalid command ownership'; return 1;; esac
+            case "$name" in risp-*.md|risb-*.md|ris-help.md) ;; *) die 'invalid command ownership'; return 1;; esac
             [[ "$name" != */* ]] && [ -f "$WORK/stage/.opencode/command/$name" ] || { die 'invalid command ownership'; return 1; }
             for entry in "${names[@]}"; do [ "$entry" != "$name" ] || { die 'invalid command ownership: duplicate'; return 1; }; done
             names[${#names[@]}]=$name

@@ -1,0 +1,464 @@
+# Operation index and short cards
+
+Read the index to locate a name, then only the relevant card(s). Each heading is
+an exact technical owner; links refer to installed sibling skills, not a source
+repository. Each card has purpose, choose-when, inputs, result/stop and example.
+Examples are prompts, not automatic calls or proof of command discovery. `Load`
+means ask the agent to load that exact skill with its skill tool and supply the
+stated inputs. Replace example IDs/paths with actual selected inputs. Permissions,
+project rules and missing-input handling remain the owner's, not granted by help.
+
+## Index
+
+| Topic/label | Facade, or exact direct-load owner |
+| --- | --- |
+| help | `/ris-help` → `ris-proj-op-show-help` |
+| roadmap | `/risp-roadmap` → `ris-proj-op-plan-roadmap` |
+| refine-epic | `/risp-refine-epic` → `ris-proj-op-refine-epic` |
+| select-feature | `/risp-select-feature` → `ris-proj-op-select-feature` |
+| prepare-feature | `/risp-prepare-feature` → `ris-proj-flow-prepare-feature` |
+| interview-feature | `ris-proj-op-interview-feature` |
+| specify-feature | `/risp-specify-feature` → `ris-proj-op-specify-feature` |
+| design-feature | `/risp-design-feature` → `ris-proj-op-design-feature` |
+| decompose-feature | `/risp-decompose-feature` → `ris-proj-op-decompose-feature` |
+| run-task | `/risp-run-task` → `ris-proj-flow-execute-task` |
+| run-simple-task | `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` |
+| prep-copy* | `ris-proj-op-prepare-task-worktree` |
+| plan-task | `/risp-plan-task` → `ris-proj-op-plan-task` |
+| implement/check* | `ris-proj-op-implement-task-tdd` |
+| docs* | `ris-proj-op-update-documentation` |
+| review-task | `/risp-review-task` → `ris-proj-op-review-task` |
+| publish-task | `/risp-publish-task` → `ris-proj-op-publish-task` |
+| complete-container | `/risp-complete-container` → `ris-proj-op-complete-container` |
+| register-bug* | `ris-proj-op-register-bug` |
+| investigate-bug* | `ris-proj-op-investigate-bug` |
+| fix-bug* | `ris-proj-flow-fix-bug` |
+| next | `/risp-next` → `ris-proj-op-suggest-continuation` |
+| status | `/risp-status` → `ris-proj-op-show-plan` |
+| retro | `/risp-retro` → `ris-proj-op-retrospect-session` |
+| architecture rules | `ris-proj-op-author-architecture-rules` |
+| development rules | `ris-proj-op-author-development-rules` |
+| project OKF | `ris-proj-op-manage-okf-bundle` |
+| integrated skill author | `ris-proj-op-author-skill` |
+| installation | `/risb-installation` → `ris-port-op-manage-installation` |
+| interview | `/risb-interview` → `ris-port-op-interview` |
+| review-change | `/risb-review-change` → `ris-port-op-review-change` |
+| skill | `/risb-skill` → `ris-port-op-author-skill` |
+| portable requirements | `ris-port-op-formulate-feature-spec` |
+| portable design | `ris-port-op-design-feature` |
+| portable decomposition | `ris-port-op-decompose-feature-spec` |
+| portable roadmap | `ris-port-op-plan-roadmap` |
+| portable task plan | `ris-port-op-plan-task` |
+| portable worktree | `ris-port-op-prepare-worktree` |
+| portable implementation | `ris-port-op-implement-change` |
+| portable bug research | `ris-port-op-investigate-bug` |
+| portable retrospective | `ris-port-op-retrospect-session` |
+| integrated verification | `ris-port-op-verify-feature` |
+| architecture proposal | `ris-port-op-formulate-architecture-rules` |
+| engineering proposal | `ris-port-op-formulate-development-rules` |
+| autonomous OKF | `ris-port-op-manage-okf-bundle` |
+
+Service details are outside the public menu. Only for a question about map labels
+`exact task completion*` / `tracker publication*`, read **Tracker effects** below;
+only for a context question read **Service context**. No facade is implied by `*`.
+
+## Feature preparation
+
+### ris-proj-op-show-help
+[Owner](../SKILL.md). Purpose: explain RIS capabilities and routes.
+Choose when: how-to help, not actual work/status. Inputs: optional question.
+Result/stop: map, card, comparison or recommendation; zero writes/launch.
+Example: `/ris-help run-task`.
+
+### ris-proj-op-plan-roadmap
+[Owner](../../ris-proj-op-plan-roadmap/SKILL.md). Purpose: goal-level roadmap.
+Choose when: turn product knowledge into epic outcomes, not feature tasks.
+Inputs: selected project, product evidence, goal, starting state, write scope.
+Result/stop: checked proposal or authorized verified tracker epics/dependencies.
+Example: `/risp-roadmap propose an MVP roadmap for <project>, without writes`.
+
+### ris-proj-op-refine-epic
+[Owner](../../ris-proj-op-refine-epic/SKILL.md). Purpose: clarify one unclear epic.
+Choose when: its boundary prevents feature selection, not to specify every feature.
+Inputs: project, exact epic, current evidence and optional update authority.
+Result/stop: bounded outcomes/prerequisites or verified agreed epic update.
+Example: `/risp-refine-epic <epic ID>, propose only`.
+
+### ris-proj-op-select-feature
+[Owner](../../ris-proj-op-select-feature/SKILL.md). Purpose: recommend a small feature.
+Choose when: decide what outcome to pursue in an epic, not to execute it.
+Inputs: project, epic/roadmap scope and current outcome/source facts.
+Result/stop: recommendation or precise selection gap; no write or readiness grant.
+Example: `/risp-select-feature <epic ID>`.
+
+### ris-proj-flow-prepare-feature
+[Owner](../../ris-proj-flow-prepare-feature/SKILL.md). Purpose: whole preparation route.
+Choose when: carry a feature from choice through separately accepted inputs.
+Inputs: project, epic/context, known decisions and document/Git/tracker authority.
+Result/stop: reviewed published requirements/design and remotely verified feature ID;
+no decomposition, implementation or claim.
+Example: `/risp-prepare-feature <epic ID>: add authorization`.
+
+### ris-proj-op-interview-feature
+[Owner](../../ris-proj-op-interview-feature/SKILL.md). Purpose: elicit requirements.
+Choose when: feature behavior/quality decisions need dialogue, not acceptance/save.
+Inputs: selected feature/project, known answers, evidence and interview scope.
+Result/stop: sourced status-aware handoff, without writing a specification.
+Example: `Load ris-proj-op-interview-feature for authorization in <project>`.
+
+### ris-proj-op-specify-feature
+[Owner](../../ris-proj-op-specify-feature/SKILL.md). Purpose: accepted requirements.
+Choose when: formulate/accept/save/publish behavior, not technical design.
+Inputs: project and feature ID/epic or explicit standalone/document subject,
+known decisions, separate acceptance and allowed effects; ID discovers own refs.
+Result/stop: accepted saved/published requirements and reconciled record, or the
+explicitly limited contribution; no decomposition/implementation.
+Example: `/risp-specify-feature <ID>, requirements scope <scope>`.
+
+### ris-proj-op-design-feature
+[Owner](../../ris-proj-op-design-feature/SKILL.md). Purpose: sufficient technical design.
+Choose when: design or revise bounded accepted behavior, not choose requirements.
+Inputs: project, ID or document-only subject, accepted requirements/current code,
+separate design acceptance and permitted save/publication/record effects.
+Result/stop: independently accepted versioned design and aligned refs, or explicit
+limited contribution; no task decomposition or code.
+Example: `/risp-design-feature <ID>`.
+
+### ris-proj-op-decompose-feature
+[Owner](../../ris-proj-op-decompose-feature/SKILL.md). Purpose: sufficient task set.
+Choose when: accepted inputs are ready for one-task assessment/decomposition.
+Inputs: project, confirmed feature or explicit standalone ID, accepted inputs,
+design/contracts and authorized tracker effects.
+Result/stop: verified one-task case or necessary children/dependencies and tracker
+publication; no technical plan for one task or implementation.
+Example: `/risp-decompose-feature <ID>`.
+
+## Execution and distinct effects
+
+### ris-proj-flow-execute-task
+[Owner](../../ris-proj-flow-execute-task/SKILL.md). Purpose: full single-task execution.
+Choose when: execute/resume ready work, not just plan/review or run a container.
+Inputs: project, optional exact ID, actor, accepted basis, execution/publication
+rights and available configured executors; explicit native bug needs saved snapshot.
+Result/stop: checked independently reviewed change, verified Git, separate exact
+completion and tracker publication, or exact preserved remainder.
+Example: `/risp-run-task <ID>, actor <actor>`.
+
+### ris-proj-flow-execute-simple-task
+[Owner](../../ris-proj-flow-execute-simple-task/SKILL.md). Purpose: clear assigned work.
+Choose when: bounded request with proportionate checks, not unassigned queue work.
+Inputs: project, attributable request/criteria, optional real ID, constraints/rights.
+Result/stop: own-branch implementation, independent review, verified direct Git;
+separate tracker result/close/publication when used. Mandatory project rules/TDD
+remain; no mandatory plan/log/review files by default, short Beads required in RIS.
+Example: `/risp-run-simple-task correct the documented flag in <file>; check links`.
+
+### ris-proj-op-prepare-task-worktree
+[Owner](../../ris-proj-op-prepare-task-worktree/SKILL.md). Purpose: claim-aware copy.
+Choose when: prepare/reuse a copy for a confirmed task, not plan or implement.
+Inputs: project, task ID, actor, explicit/verified primary, selected adapter and
+authorized claim/copy/setup scope.
+Result/stop: verified claim/blockers, copy association and separate environment
+readiness; no publication or task completion.
+Example: `Load ris-proj-op-prepare-task-worktree for <ID> in <project>, actor <actor>, primary <path>, allowed setup <scope>`.
+
+### ris-proj-op-plan-task
+[Owner](../../ris-proj-op-plan-task/SKILL.md). Purpose: save a technical task plan.
+Choose when: one confirmed task needs actionable approach/check strategy.
+Inputs: project/task ID, supplied suitable copy, accepted basis and save authority.
+Result/stop: verified saved plan in checked primary task notes; no claim required,
+no worktree creation or implementation. Direct invocation always saves a plan.
+Example: `/risp-plan-task <ID> in <copy>`.
+
+### ris-proj-op-implement-task-tdd
+[Owner](../../ris-proj-op-implement-task-tdd/SKILL.md). Purpose: checked task change.
+Choose when: code/test implementation or review-finding repair with mandatory TDD.
+Inputs: project/task/actor, suitable supplied copy, fresh claim/unblocked state,
+accepted inputs/plan and allowed code/tests/docs/evidence paths.
+Result/stop: observed RED/GREEN, affected checks and exact code/tests/docs snapshot;
+no independent approval, commit/push or closure. Text-only work uses its content owner.
+Example: `Load ris-proj-op-implement-task-tdd for <ID> in <copy>, actor <actor>, within <accepted plan and permissions>`.
+
+### ris-proj-op-update-documentation
+[Owner](../../ris-proj-op-update-documentation/SKILL.md). Purpose: synchronize affected docs.
+Choose when: inspected implementation makes authorized guidance stale, not redesign.
+Inputs: project/copy, exact change/integration state and explicitly allowed documents.
+Result/stop: checked bounded docs or justified no-change; no autonomous product rewrite.
+Example: `Load ris-proj-op-update-documentation for <project/copy>, snapshot <base+overlay>, allowed docs <paths>`.
+
+### ris-proj-op-review-task
+[Owner](../../ris-proj-op-review-task/SKILL.md). Purpose: assess a project change.
+Choose when: independent review/re-review, not repair or acceptance of design.
+Inputs: project, optional ID, full concrete snapshot, criteria and review purpose.
+Result/stop: checked findings and versioned report; save when required/authorized.
+Self-review does not supply independent publication approval.
+Example: `/risp-review-task <ID>, full candidate <snapshot>`.
+
+### ris-proj-op-publish-task
+[Owner](../../ris-proj-op-publish-task/SKILL.md). Purpose: verified primary Git publication.
+Choose when: independently reviewed task/change or pre-ID documents need integration.
+Inputs: project, confirmed own branch/copy, complete approved snapshot and check/
+independence evidence, destination and whole-outgoing direct-push authority.
+Result/stop: integrated reviewed commit and fresh remote confirmation; no PR/deploy,
+content acceptance, tracker publication or leaf/container closure.
+Example: `/risp-publish-task <ID>, approved snapshot <snapshot and review locator>`.
+
+### ris-proj-op-complete-container
+[Owner](../../ris-proj-op-complete-container/SKILL.md). Purpose: selected container result.
+Choose when: administrative close, read-only verification or verify-and-close of
+one feature/standalone task-container/epic; never ordinary leaf completion.
+Inputs: project, exact ID/kind, explicit intent; assessment needs accepted full
+scope/integrated evidence, writes need separate authority.
+Result/stop: status-only administrative close (not acceptance), read-only criterion
+verdict, or successful verified save/close and authorized tracker publication;
+no child/parent auto-close or Git publication.
+Example: `/risp-complete-container verify <ID> read-only`.
+
+## Bug and current-work navigation
+
+### ris-proj-op-register-bug
+[Owner](../../ris-proj-op-register-bug/SKILL.md). Purpose: record unconfirmed bug message.
+Choose when: preserve report before investigation, not diagnose or claim it.
+Inputs: project, original message/context and registration authority.
+Result/stop: all-status duplicate reconciliation, verified ID/new or supplemented
+original; no investigation, fix or closure.
+Example: `Load ris-proj-op-register-bug for <project>: <message>; record and return ID only`.
+
+### ris-proj-op-investigate-bug
+[Owner](../../ris-proj-op-investigate-bug/SKILL.md). Purpose: investigate registered bug.
+Choose when: exact-ID diagnosis/report, not registration or fixing.
+Inputs: project, exact native bug ID, expectation/code/evidence and research/write scope.
+Result/stop: checked current report and aligned fix criteria when protected saving
+is available, or exact unsaved remainder; justified correct/duplicate disposition
+is separate. Confirmation is not fix readiness; no automatic fix.
+Example: `Load ris-proj-op-investigate-bug for <bug ID> in <project>, allowed scope <scope>; stop before fixing`.
+
+### ris-proj-flow-fix-bug
+[Owner](../../ris-proj-flow-fix-bug/SKILL.md). Purpose: fix one registered native bug.
+Choose when: exact-ID fix/resume has a sufficient saved basis, not fresh diagnosis.
+Inputs: project, exact bug ID, actor, current report/aligned criteria/accepted
+constraints and authorized fix/publication scope. Material design needs separate acceptance.
+Result/stop: recoverable full input snapshot, complete existing run-task route,
+checked fix, independent review, Git, separate exact fix-completion/tracker publication;
+no second engine, bug selection or automatic investigation.
+Example: `Load ris-proj-flow-fix-bug for <bug ID> in <project>, actor <actor>, allowed fix/publication <scope>`.
+
+### ris-proj-op-suggest-continuation
+[Owner](../../ris-proj-op-suggest-continuation/SKILL.md). Purpose: actual-work continuation.
+Choose when: next step for selected work, not generic how-to or execution.
+Inputs: project and ID or explicit no-ID source/scope locator, permitted bounded reads.
+Result/stop: one checked prompt, necessary human decision or blocker; no write/launch,
+readiness certification or acceptance.
+Example: `/risp-next <ID>`.
+
+### ris-proj-op-show-plan
+[Owner](../../ris-proj-op-show-plan/SKILL.md). Purpose: actual complete unclosed plan.
+Choose when: project status/ID subtree overview, not a help catalog or task execution.
+Inputs: selected project and optional exact ID; actual adapter/source reads.
+Result/stop: compact real hierarchy, directed blockers and one continuation action;
+no saving, claiming, acceptance or execution.
+Example: `/risp-status` or `/risp-status <ID>`.
+
+## Other project operations
+
+### ris-proj-op-retrospect-session
+[Owner](../../ris-proj-op-retrospect-session/SKILL.md). Purpose: one local session retrospective.
+Choose when: stopped OpenCode session postmortem in RIS, not multi-session audit.
+Inputs: project, exact session/export or permitted list-and-selection, acquisition
+scope; saving requires explicitly authorized destination.
+Result/stop: sourced causes/costs/minimal owner-addressed improvements in response;
+no repairs, full diff review or feature acceptance.
+Example: `/risp-retro <session ID>, read-only, return report here`.
+
+### ris-proj-op-author-architecture-rules
+[Owner](../../ris-proj-op-author-architecture-rules/SKILL.md). Purpose: accepted architecture norms.
+Choose when: create/amend project rules, not code audit or feature design.
+Inputs: project, evidence/decisions, bounded topic and authorized rules destination.
+Result/stop: explicitly accepted scope saved/checked as OKF in sources.rules;
+no installing tools, impact delivery or library extraction.
+Example: `Load ris-proj-op-author-architecture-rules for <project>, scope <boundary rules>, authorized save <scope>`.
+
+### ris-proj-op-author-development-rules
+[Owner](../../ris-proj-op-author-development-rules/SKILL.md). Purpose: accepted engineering norms.
+Choose when: versions/build/style/testing/review/CI rules, not configuring CI.
+Inputs: project evidence, justified customizable practices and authorized rules scope.
+Result/stop: separately accepted engineering content saved/checked as project OKF;
+no architecture redesign, tool install or audit.
+Example: `Load ris-proj-op-author-development-rules for <project>, scope <testing rules>, allowed save <scope>`.
+
+### ris-proj-op-manage-okf-bundle
+[Owner](../../ris-proj-op-manage-okf-bundle/SKILL.md). Purpose: project-context OKF operation.
+Choose when: selected bundle in an authorized RIS project area, not ordinary Markdown.
+Inputs: explicit project/root/operation/scope, rules/config provenance and permissions.
+Result/stop: bounded read/create/edit/check result with format/content responsibility
+kept distinct; no discovery, acceptance or skill authoring.
+Example: `Load ris-proj-op-manage-okf-bundle: project <path>, root <bundle>, operation check, scope <files>`.
+
+### ris-proj-op-author-skill
+[Owner](../../ris-proj-op-author-skill/SKILL.md). Purpose: combined RIS-integrated skill source.
+Choose when: target actually integrates with RIS; autonomous targets use portable author.
+Inputs: worked-out requirements, destination, neighboring contracts and allowed scope.
+Result/stop: checked combined source/dependencies/resources; no installation or execution.
+Example: `Load ris-proj-op-author-skill; improve <RIS skill folder> within <scope>; do not install`.
+
+## Portable methods (direct inputs, no RIS setup)
+
+### ris-port-op-manage-installation
+[Owner](../../ris-port-op-manage-installation/SKILL.md). Purpose: full RIS package management.
+Choose when: explicit install/update/uninstall, not project initialization or auto-update.
+Inputs: operation, existing absolute target project path, optional exact tag/full
+commit for install/update, package replacement authority.
+Result/stop: checked filesystem outcome/version/counts or recovery diagnostic;
+restart OpenCode after package changes. No Git commit/push.
+Example: `/risb-installation update RIS in /absolute/project to commit <full SHA>`.
+
+### ris-port-op-interview
+[Owner](../../ris-port-op-interview/SKILL.md). Purpose: bounded decision-tree interview.
+Choose when: interdependent decisions need dialogue, not a single clarification.
+Inputs: topic, bounds, known answers; limited mode needs explicit sufficiency criterion.
+Result/stop: sourced status-aware handoff, not a saved/accepted specification.
+Example: `/risb-interview deployment tradeoffs for <system>`.
+
+### ris-port-op-author-skill
+[Owner](../../ris-port-op-author-skill/SKILL.md). Purpose: autonomous skill source.
+Choose when: standalone skill even in a RIS project, not actual RIS integration.
+Inputs: worked-out requirements, target rules, destination and write scope.
+Result/stop: ready source folder or labeled unsaved draft, not install/publication
+or performance of the authored operation.
+Example: `/risb-skill create <autonomous skill> from <requirements> in <folder>, source only`.
+
+### ris-port-op-review-change
+[Owner](../../ris-port-op-review-change/SKILL.md). Purpose: concrete change assessment.
+Choose when: read-only review/re-review, not repair, design approval or publication.
+Inputs: concrete code/doc change or WIP, baseline, criteria and review scope.
+Result/stop: versioned evidence-based required fixes/optional recommendations;
+no project report storage or self-approved publication.
+Example: `/risb-review-change <diff/snapshot>, scope <criteria>`.
+
+### ris-port-op-formulate-feature-spec
+[Owner](../../ris-port-op-formulate-feature-spec/SKILL.md). Purpose: substantive requirements proposal.
+Choose when: decisions/evidence are known, not an interview from scratch.
+Inputs: bounded feature, known decisions, sources/status and constraints.
+Result/stop: checked portable behavior/constraints/AC content and gaps; no acceptance,
+project save or decomposition.
+Example: `Load ris-port-op-formulate-feature-spec with <feature decisions/evidence>; return proposal`.
+
+### ris-port-op-design-feature
+[Owner](../../ris-port-op-design-feature/SKILL.md). Purpose: technical design proposal.
+Choose when: bounded requirements need sufficient design, not implementation.
+Inputs: requirements/version, actual code/architecture and technical constraints.
+Result/stop: checked sufficient design/alternatives/gaps; no acceptance or project save.
+Example: `Load ris-port-op-design-feature with <requirements and code>; propose only`.
+
+### ris-port-op-decompose-feature-spec
+[Owner](../../ris-port-op-decompose-feature-spec/SKILL.md). Purpose: verifiable work-unit proposal.
+Choose when: requirements/design are ready to split work, not plan one task.
+Inputs: spec, accepted design, criteria, test seams and necessary dependencies.
+Result/stop: smallest sufficient traced work set; no tracker creation or approval.
+Example: `Load ris-port-op-decompose-feature-spec with <spec/design>; return work proposal`.
+
+### ris-port-op-plan-roadmap
+[Owner](../../ris-port-op-plan-roadmap/SKILL.md). Purpose: goal-to-epic proposal.
+Choose when: plan project outcomes without tracker persistence.
+Inputs: explicitly supplied product knowledge/high-level spec, chosen goal and observed state.
+Result/stop: checked bounded roadmap with light architecture/source impact; no task decomposition.
+Example: `Load ris-port-op-plan-roadmap with <product>, goal <MVP>, current state <evidence>`.
+
+### ris-port-op-plan-task
+[Owner](../../ris-port-op-plan-task/SKILL.md). Purpose: one task's technical plan.
+Choose when: implementation approach/checks need working out, not task selection.
+Inputs: selected task requirements, current code and accepted constraints/design.
+Result/stop: checked actionable plan in response; no project save or implementation.
+Example: `Load ris-port-op-plan-task with <task, requirements and code>; plan only`.
+
+### ris-port-op-prepare-worktree
+[Owner](../../ris-port-op-prepare-worktree/SKILL.md). Purpose: checked working copy/environment.
+Choose when: autonomous new/reused worktree for identified work, not claim or planning.
+Inputs: exact work/repository/path/branch/base, selected adapter and optional setup authority.
+Result/stop: verified copy and separate environment handoff; no repair/publication.
+Example: `Load ris-port-op-prepare-worktree for <work>, repository <path>, target <path/branch>, base <SHA>, Git adapter, no setup`.
+
+### ris-port-op-implement-change
+[Owner](../../ris-port-op-implement-change/SKILL.md). Purpose: bounded change or finding repair.
+Choose when: accepted change needs code/tests, not redesign or approval.
+Inputs: requirements/current code, accepted constraints, allowed files/checks and
+standard or required TDD mode; TDD wins when mandated.
+Result/stop: checked exact candidate/tests, observed RED/GREEN in TDD; no tracker,
+worktree management, independent approval or publication.
+Example: `Load ris-port-op-implement-change for <change>, mode tdd, allowed scope <files/checks>`.
+
+### ris-port-op-investigate-bug
+[Owner](../../ris-port-op-investigate-bug/SKILL.md). Purpose: supplied-input defect research.
+Choose when: diagnose locally without a registered project bug operation.
+Inputs: message, authoritative expectations, code/version, evidence and research scope.
+Result/stop: sourced confirmation/findings/fix-readiness report; no registration,
+tracker write, implementation or full incident investigation.
+Example: `Load ris-port-op-investigate-bug with <message/expectations/code/evidence>, scope <research>`.
+
+### ris-port-op-retrospect-session
+[Owner](../../ris-port-op-retrospect-session/SKILL.md). Purpose: one supplied-history retrospective.
+Choose when: transcript/event history is already supplied, even outside RIS.
+Inputs: one session and proven participant branches, question/scope and metric semantics.
+Result/stop: evidence-based causes/costs/minimal improvements in response; no history
+collection, full diff review, repairs or multi-session Langfuse audit.
+Example: `Load ris-port-op-retrospect-session with <transcript>, question <bottleneck>; read-only report`.
+
+### ris-port-op-verify-feature
+[Owner](../../ris-port-op-verify-feature/SKILL.md). Purpose: full integrated criterion verification.
+Choose when: assess delivered feature on one revision, not diff review.
+Inputs: complete requirements/AC, accepted design, identified integrated revision,
+architecture/docs and applicable evidence.
+Result/stop: pass/fail/unverified per criterion and limits; no code, acceptance of
+new design or tracker closure. Actual project prohibitions on checks apply.
+Example: `Load ris-port-op-verify-feature for <feature> at <full revision>, inputs <accepted refs>; read-only`.
+
+### ris-port-op-formulate-architecture-rules
+[Owner](../../ris-port-op-formulate-architecture-rules/SKILL.md). Purpose: architecture norms proposal.
+Choose when: formulate/amend justified rules, not code audit or feature design.
+Inputs: supplied project facts, decisions, sources and bounded constraints.
+Result/stop: sourced portable proposal/open questions; no acceptance/save, tooling
+setup, impact delivery or library extraction.
+Example: `Load ris-port-op-formulate-architecture-rules with <facts/decisions>, scope <boundaries>`.
+
+### ris-port-op-formulate-development-rules
+[Owner](../../ris-port-op-formulate-development-rules/SKILL.md). Purpose: engineering norms proposal.
+Choose when: choose versions/build/style/testing/review/CI practices, not install tools.
+Inputs: project evidence, justified customizable tool/practice needs and constraints.
+Result/stop: checked proposal/compatibility limits; no acceptance/save, CI config,
+code audit, feature design or extraction.
+Example: `Load ris-port-op-formulate-development-rules with <project evidence>, scope <testing/review>`.
+
+### ris-port-op-manage-okf-bundle
+[Owner](../../ris-port-op-manage-okf-bundle/SKILL.md). Purpose: autonomous OKF 0.2 operation.
+Choose when: direct selected-bundle work in any authorized location, no RIS context.
+Inputs: explicit bundle root, read/create/edit/check operation, bounded scope/rights.
+Result/stop: checked bounded OKF result and limits; not ordinary Markdown or skill authoring.
+Example: `Load ris-port-op-manage-okf-bundle: root <absolute bundle>, operation check, scope <files>`.
+
+## Tracker effects (conditional service explanation, not public menu)
+
+`exact task completion*` and `tracker publication*` use the **selected tasks
+adapter's** advertised operations, not fictional slash commands. In the shipped
+Beads integration the exact direct owner is
+[ris-proj-adapter-beads-tasks](../../ris-proj-adapter-beads-tasks/SKILL.md).
+Purpose: bounded native result/exact close and separately authorized Dolt publication.
+Choose when: an authorized execution owner reaches those effects, not generic help
+or automatic parent acceptance. Inputs: selected project, exact ID/type, explicit
+effect/authority, fresh criteria/children/blockers and published Git/check/review
+evidence where required; publication additionally needs authorized shared-history
+scope and actual remote/revision. Result/stop: independently verified local effect
+or selected-remote revision reachability, not a guarantee that both occurred.
+Example: `Load ris-proj-adapter-beads-tasks for <project>, exact task <ID>; persist supplied published result then separately verify native exact completion within <authority>`.
+Publication example: `Load ris-proj-adapter-beads-tasks for <project>; separately publish authorized Dolt history <scope>, required revision <S>, selected remote <R>`.
+Another selected adapter must actually support the needed operations; tasks v1
+alone does not promise claim, close or publication. Do not configure one via help.
+
+## Service context (only when asked)
+
+[ris-proj-op-resolve-context](../../ris-proj-op-resolve-context/SKILL.md) prepares
+selected project settings/paths/optional role names for a caller, not domain
+readiness, tracker execution or files. Inputs: project, operation, required fields
+and config provenance. Result/stop: checked settings/diagnostics, zero writes.
+Example: `Load ris-proj-op-resolve-context for <project>, calling operation <operation>, needed settings <fields>, read-only`.
+Shared common instructions and worktree adapters are internal dependencies, not
+extra required user stages; their presence is not proof of tool or agent availability.

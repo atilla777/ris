@@ -12,8 +12,14 @@ without claiming or executing work. See the current source inventory in the
 The [accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход)
 also adds `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` for already
 assigned simple work (empty input asks for the request, never selects the queue).
-The combined current source inventory is **49 skills / four flows** and **20
-commands (16 project + 4 portable)**. Original tables/AC and acceptance remain
+The [workflow-help requirements](specs/workflow-help/spec.md) add the sole naming
+exception `/ris-help` → `ris-proj-op-show-help`, without aliases. Empty input shows
+one compact SDLC map; cards/comparisons/routes are conditional and read-only,
+without config/tracker/source-checkout prerequisites. Actual work stays with
+`next`/`status` and execution owners. One RIS-specific skill suffices; no artificial
+portable wrapper pair. These source/docs changes await integration together.
+The combined current source inventory is **50 skills / four flows** and **21
+commands (16 project + 4 portable + one help exception)**. Original tables/AC and acceptance remain
 historical; bug operations remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
 revision when distributing it; accepted requirements alone do not contain the package.
@@ -101,6 +107,11 @@ Afterwards `/risb-installation` uses the newly installed unchanged script path.
 Repeat updates keep the exact compact set. Quit and **restart OpenCode** after
 replacement; the running session retains loaded configuration/instructions.
 
+The same new-engine bootstrap is needed for the first help-bearing package when
+the installed compact engine predates the exact `ris-help.md` ownership exception:
+the older validator rejects that entry before target writes. This does not make
+an old compact self-update successful or require a new installer mode.
+
 The engine handles legacy `ris-*.md` and compact `risp-*.md`/`risb-*.md` for
 replacement, uninstall and schema-1 recovery. Pre-existing unproven short-name
 files/links are preserved with a conflict; neither prefix nor old version marker
@@ -108,6 +119,11 @@ establishes ownership. Resolve their ownership explicitly before retrying; see
 [installation ownership and recovery](installation.md#what-changes-and-what-is-preserved).
 Do not delete journals or report a mixed set as ready. Existing same-revision
 resources, types/modes and foreign-file preservation checks still apply.
+The exact active `ris-help.md` fits the already reserved legacy `ris-*.md`
+namespace, so existing files there are overwritten/removed rather than receiving
+the compact collision guard. Its ownership-resource entry has an exact-name
+validation exception, not a general `ris-*` manifest wildcard. Old 18/39-entry
+tables and accepted decisions are not rewritten to include it.
 
 ## Historical complete skill replacement map — 41
 

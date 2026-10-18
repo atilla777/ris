@@ -18,3 +18,4 @@ risp-run-task.md
 risp-select-feature.md
 risp-specify-feature.md
 risp-status.md
+ris-help.md

@@ -308,6 +308,67 @@ if match:
             {"risp-next.md", "risb-installation.md"},
         )
 
+    def help_fixture(self):
+        self.compact_fixture()
+        self.put("commands/opencode/ris-help.md", "help facade\n", 0o644)
+        self.put(
+            "skills/ris-port-op-manage-installation/references/command-ownership.txt",
+            "risb-installation.md\nrisp-next.md\nris-help.md\n",
+        )
+        self.put(
+            "skills/ris-proj-op-show-help/SKILL.md",
+            "---\nname: ris-proj-op-show-help\n---\nhelp contract\n",
+        )
+        self.put("skills/ris-proj-op-show-help/references/map.md", "map\n")
+        return self.commit("help exception")
+
+    def test_exact_help_exception_lifecycle_and_retirement(self):
+        help_revision = self.help_fixture()
+        # ris-help is already inside the legacy reserved overwrite namespace.
+        command = self.project / ".opencode/command/ris-help.md"
+        command.parent.mkdir(parents=True)
+        command.write_text("legacy reserved collision\n")
+        for op in ("install", "update", "update"):
+            self.ok(self.cli(op))
+            self.assert_package(help_revision)
+        before = oracle(self.project)
+        self.rules.write_text(json.dumps([self.rule("mv", "committed", action="fail")]))
+        r = self.cli("update")
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("restored", r.stderr)
+        self.assertEqual(oracle(self.project), before)
+        p, control, kill = self.pause([self.apply_rule()], op="update")
+        kill()
+        self.offline_recovery()
+        self.assertEqual(oracle(self.project), before)
+        shutil.rmtree(self.fixture / "skills/ris-proj-op-show-help")
+        retired = self.compact_fixture()
+        self.ok(self.cli("update"))
+        self.assert_package(retired)
+        self.assertFalse(command.exists())
+        self.assertFalse(
+            (self.project / ".opencode/skills/ris-proj-op-show-help").exists()
+        )
+        self.ok(self.cli("install", "--ref", help_revision))
+        self.assert_package(help_revision)
+        self.ok(self.cli("uninstall"))
+        self.env["OFFLINE"] = "1"
+        self.ok(self.cli("uninstall"))
+        self.assertFalse(command.exists())
+
+    def test_help_exception_does_not_allow_arbitrary_legacy_manifest_names(self):
+        self.help_fixture()
+        self.put("commands/opencode/ris-other.md", "not an ownership exception\n")
+        self.put(
+            "skills/ris-port-op-manage-installation/references/command-ownership.txt",
+            "risb-installation.md\nrisp-next.md\nris-help.md\nris-other.md\n",
+        )
+        self.commit("invalid broader exception")
+        r = self.cli()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("invalid command ownership", r.stderr)
+        self.assertEqual(oracle(self.project), {})
+
     def test_compact_rollback_crashes_and_uninstall(self):
         self.ok(self.cli("install", "--ref", "v-a"))
         self.compact_fixture()
