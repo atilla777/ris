@@ -5,6 +5,15 @@ capability explanations, not prescribed stages or confirmed task readiness.
 
 ## Product foundation, before feature-level questions
 
+"Prepare this project to use RIS" is `/risp-init <project and scope>` after package
+installation, not a product-foundation-only call or automatic roadmap. Init owns
+agreed settings/bootstrap and combined local readiness; product → architecture →
+engineering content stays with existing authors and separate acceptance. Reuse
+existing material; specific tool/Git/Beads/agent effects need their own permissions.
+Deferred choices limit dependent operations; publication is offered separately,
+and absent remote does not alone block checked local setup. Init does not configure
+product build/test/format/CI or start development. Help explains, never launches it.
+
 "Help me describe what this product is for and who needs it" is product-foundation
 work, not automatically a roadmap, individual feature specification or full design.
 `product-proposal*` means direct `ris-port-op-formulate-product-foundation`: research

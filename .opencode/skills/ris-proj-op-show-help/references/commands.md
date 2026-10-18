@@ -13,6 +13,7 @@ project rules and missing-input handling remain the owner's, not granted by help
 | Topic/label | Facade, or exact direct-load owner |
 | --- | --- |
 | help | `/ris-help` → `ris-proj-op-show-help` |
+| init | `/risp-init` → `ris-proj-flow-initialize-project` |
 | product-proposal* (portable product foundation) | `ris-port-op-formulate-product-foundation` |
 | product-author* (project product foundation) | `ris-proj-op-author-product-foundation` |
 | roadmap | `/risp-roadmap` → `ris-proj-op-plan-roadmap` |
@@ -71,6 +72,20 @@ only for a context question read **Service context**. No facade is implied by `*
 Choose when: how-to help, not actual work/status. Inputs: optional question.
 Result/stop: map, card, comparison or recommendation; zero writes/launch.
 Example: `/ris-help run-task`.
+
+### ris-proj-flow-initialize-project
+[Owner](../../ris-proj-flow-initialize-project/SKILL.md). Purpose: agreed local RIS setup.
+Choose when: onboard a new/existing project after package installation, not install
+the package, refresh all rules or start roadmap/product development.
+Inputs: selected project, existing evidence/decisions, setup/write scope and agreed
+available executors; empty input establishes target/scope, never selects a task.
+Result/stop: checked settings, bounded AGENTS addition, separately accepted product
+and rules through their authors, RIS infrastructure and explicit readiness limits.
+One leading dialogue; standalone operations use actual agreed executors. Tools,
+Git/Beads side effects and project agents need specific permissions. Commit/push
+is offered separately; an absent remote does not invalidate checked local setup. No
+build/test/format/CI setup, roadmap or feature/task development follows.
+Example: `/risp-init <project>, preserve existing material and agree local setup`.
 
 ### ris-proj-op-plan-roadmap
 [Owner](../../ris-proj-op-plan-roadmap/SKILL.md). Purpose: goal-level roadmap.

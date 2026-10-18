@@ -29,5 +29,5 @@ Bug -> register-bug* -> investigate-bug* -> fix-bug*
 Container acceptance/close: separately p:complete-container
   verify is read-only; administrative close is NOT acceptance
 Actual continuation: p:next <ID>; actual plan: p:status [ID]
-Other product/install/rules/OKF/skills/retro: /ris-help <topic>
+Other init/product/install/rules/OKF/skills/retro: /ris-help <topic>
 ```
