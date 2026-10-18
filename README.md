@@ -49,14 +49,15 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-The current source menu has 20 explicit entries (16 project + 4 portable), extending
-the historical 18-entry v1 set with `/risp-status` and `/risp-run-simple-task`.
-`risp-` selects a project contract, `risb-` a portable contract. All 51 source skills
+The current source menu has 21 explicit entries (17 project + 4 portable), extending
+the historical 18-entry v1 set with `/risp-status`, `/risp-run-simple-task` and `/risp-init`.
+`risp-` selects a project contract, `risb-` a portable contract. All 52 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
 | --- | --- |
+| Prepare an agreed local RIS setup after installation | `/risp-init <project and scope>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
 | Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
@@ -69,6 +70,14 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 Replace angle-bracket placeholders with your inputs. Skills clarify missing
 information and required permissions. Project-integrated work checks its own
 prerequisites; installing the package does not initialize a project or tracker.
+Use `/risp-init` separately for a new or existing project's settings, bounded
+`AGENTS.md` addition, separately accepted product/architecture/engineering documents
+and checked RIS infrastructure. It preserves usable existing material, keeps one
+human dialogue and delegates standalone operations to agreed available executors
+(`project-initialization`). Missing tools, Git/Beads setup and project agent
+definitions require their specific permissions. The result distinguishes local
+readiness, deferrals and remaining work; commit/push is offered separately.
+It does not start roadmap/features/development or configure build/test/format/CI.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
 
 Simple-task execution uses a clear bounded request without mandatory interview,

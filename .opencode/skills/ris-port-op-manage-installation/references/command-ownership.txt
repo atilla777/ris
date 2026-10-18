@@ -5,6 +5,7 @@ risb-skill.md
 risp-complete-container.md
 risp-decompose-feature.md
 risp-design-feature.md
+risp-init.md
 risp-next.md
 risp-plan-task.md
 risp-prepare-feature.md

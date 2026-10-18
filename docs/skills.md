@@ -1,10 +1,10 @@
 # Skills and commands
 
-RIS includes portable operations, project-integrated operations, four workflows,
+RIS includes portable operations, project-integrated operations, five workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 51 source skills are listed below, independently of the compact 20-command menu.
+All 52 source skills are listed below, independently of the compact 21-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract.
@@ -31,13 +31,15 @@ For older names, use the
 
 The historical [18-entry v1 set](specs/compact-commands/spec.md) is extended by
 `/risp-status` under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость)
-and `/risp-run-simple-task` under the [fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
-The current source map has **20 entries (16 project + 4 portable)**;
+and `/risp-run-simple-task` under the [fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход),
+plus `/risp-init` under [project-initialization D1](specs/project-initialization/design.md).
+The current source map has **21 entries (17 project + 4 portable)**;
 availability in a project requires installation
 of the chosen package and client restart.
 
 | Command | Exact skill target |
 | --- | --- |
+| `/risp-init` | `ris-proj-flow-initialize-project` |
 | `/risp-status` | `ris-proj-op-show-plan` |
 | `/risp-next` | `ris-proj-op-suggest-continuation` |
 | `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
@@ -151,6 +153,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-architecture-rules](../skills/ris-proj-op-author-architecture-rules/SKILL.md) | Accepted scoped architecture rules in project OKF |
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
 | [ris-proj-op-author-product-foundation](../skills/ris-proj-op-author-product-foundation/SKILL.md) | Separately accepted, saved and checked initial product knowledge in sources.product |
+| [ris-proj-flow-initialize-project](../skills/ris-proj-flow-initialize-project/SKILL.md) | Agreed checked local RIS setup, one dialogue, delegated document owners and separately offered publication |
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Feature choice through accepted published inputs to verified ID |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
 | [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
@@ -166,6 +169,23 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
 ## Choosing an operation
+
+`init` prepares a selected new/existing project **after** package installation;
+empty input establishes project/setup scope, never selects work. The flow owns
+the justified settings/change set and agreed bootstrap writes, then reapplies
+read-only context v2. `project-initialization` maps to an agreed available executor
+for actual standalone noninteractive calls; no automatic model, rights or fallback.
+Product foundation → architecture → engineering use existing authors, each with
+separate exact-content acceptance and scoped save/check, preserving suitable
+existing material. Human decisions stay in one leading dialogue; a fresh reviewer
+is independent of all authors/fixers. Conditional Git/Beads/tools/agents/recovery
+resources retain action-specific authority and read-back. The final result
+distinguishes accepted/saved/checked, available tools/executors, deferred operation
+limits and remaining work. Missing remote or declined push does not invalidate
+checked local readiness: it limits publication, offered separately through the existing
+publisher and its gates. Init stops before roadmap/features/development and does
+not configure product build/test/format/CI. It is not the installer or a whole-rules
+refresh operation. See its complete [contract](../skills/ris-proj-flow-initialize-project/SKILL.md).
 
 For simple assigned work, `run-simple-task` judges clarity, consequences and
 checkability rather than diff size. The main agent applies portable implementation

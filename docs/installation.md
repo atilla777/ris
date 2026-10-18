@@ -21,15 +21,26 @@ The installer reports missing tools and never installs dependencies. It does not
 require `ris.yaml`, Beads, OpenCode or a Git repository in the target project.
 Project-integrated skills have their own prerequisites after installation.
 
-The combined current source menu is **20 commands (16 project + 4 portable)** and **51
-skills / four flows**, including `/risp-run-simple-task` →
+The combined current source menu is **21 commands (17 project + 4 portable)** and **52
+skills / five flows**, including `/risp-run-simple-task` →
 `ris-proj-flow-execute-simple-task` under the
 [accepted D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 It also includes `/risp-status` → `ris-proj-op-show-plan` under
 [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
-Choose a complete published package revision containing that addition; the local B
-candidate and this guide alone do not establish installation, parity or delivery
+It adds `/risp-init` → `ris-proj-flow-initialize-project` under
+[initialization D1](specs/project-initialization/design.md). Choose a complete
+published package revision containing the needed additions; a source candidate
+and this guide alone do not establish installation, parity or delivery
 success. Counts in a historical pinned revision remain those of that revision.
+
+After package installation and discovery refresh, invoke `/risp-init <project and
+scope>` separately to agree and check local project settings, instructions,
+documents and RIS infrastructure. It preserves existing work and obtains separate
+content decisions through the document authors. Tool installation, Git/Beads side
+effects and project agent definitions need their own agreed scope; installation
+permission does not grant them. Init offers publication separately and stops
+before roadmap/product development or build/test/format/CI setup. The installer
+still performs no project initialization or configuration writes.
 
 ## Selecting a version
 

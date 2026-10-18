@@ -12,8 +12,11 @@ without claiming or executing work. See the current source inventory in the
 The [accepted fast D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход)
 also adds `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` for already
 assigned simple work (empty input asks for the request, never selects the queue).
-The combined current source inventory is **51 skills / four flows** and **20
-commands (16 project + 4 portable)**. Original tables/AC and acceptance remain
+The [initialization D1](specs/project-initialization/design.md) adds `/risp-init` →
+`ris-proj-flow-initialize-project` for separately agreed checked local setup after
+installation, without automatic roadmap/development or publication.
+The combined current source inventory is **52 skills / five flows** and **21
+commands (17 project + 4 portable)**. Original tables/AC and acceptance remain
 historical; bug operations and the product-foundation proposal/project author
 remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
