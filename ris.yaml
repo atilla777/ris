@@ -12,14 +12,14 @@ adapters:
 execution:
   roles:
     feature-selection:
-      agent: general
+      agent: standard
     feature-preparation:
-      agent: general
+      agent: advanced
     task-decomposition:
-      agent: general
+      agent: standard
     task-execution:
-      agent: general
+      agent: standard
     task-implementation:
-      agent: general
+      agent: advanced
     task-review:
-      agent: general
+      agent: advanced

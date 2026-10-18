@@ -37,7 +37,7 @@ HEAD, or set an exact tag/full 40-hex commit SHA to pin a package revision:
 ```
 
 **Installation replaces local edits in `.opencode/skills/ris-*` and
-legacy `.opencode/command/ris-*.md` and proven package `risp-*.md`/`risb-*.md`
+reserved `.opencode/command/ris-*.md` (including `ris-help.md`) and proven package `risp-*.md`/`risb-*.md`
 commands, and removes retired package entries.** Unproven short-name collisions
 stop with a conflict and preserve the files. Other skills,
 OpenCode settings and project documents are preserved. Use other names for your
@@ -49,15 +49,18 @@ discovers the updated skills and commands.
 
 ## Start using RIS
 
-The current source menu has 21 explicit entries (17 project + 4 portable), extending
-the historical 18-entry v1 set with `/risp-status`, `/risp-run-simple-task` and `/risp-init`.
-`risp-` selects a project contract, `risb-` a portable contract. All 52 source skills
+The current source menu has 22 explicit entries (17 project + 4 portable + one
+help exception), extending the historical 18-entry v1 set with `/risp-status`,
+`/risp-run-simple-task`, `/risp-init` and `/ris-help`.
+`risp-` selects a project contract, `risb-` a portable contract. `/ris-help` is the
+sole naming exception, with no aliases. All 53 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
 | --- | --- |
 | Prepare an agreed local RIS setup after installation | `/risp-init <project and scope>` |
+| See the compact SDLC map or explain routes without execution | `/ris-help`, `/ris-help run-task` or `/ris-help <question>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
 | Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
@@ -79,6 +82,14 @@ definitions require their specific permissions. The result distinguishes local
 readiness, deferrals and remaining work; commit/push is offered separately.
 It does not start roadmap/features/development or configure build/test/format/CI.
 Feature preparation ends at a published feature ID; decomposition is a separate step.
+
+Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty input
+returns only one 80×24 map; cards/comparisons/intent routes are loaded on demand.
+It recommends but never writes or launches work, and does not certify readiness.
+Actual task continuation remains `/risp-next`, actual plan/status `/risp-status`.
+The help source/docs candidate is locally integrated with upstream and awaits
+fresh combined review and primary-branch publication; package
+availability is not proof that the current client has discovered the command.
 
 Simple-task execution uses a clear bounded request without mandatory interview,
 spec/design, decomposition, plan or report files. The main agent implements and
@@ -151,6 +162,11 @@ An old installed engine cannot acquire compact commands. The bootstrap's `instal
 replaces the previous complete package; subsequent updates use `/risb-installation`.
 Old slash names are removed without aliases; see the complete
 [39-command migration map](docs/skill-command-naming-migration.md#compact-command-migration--39).
+
+**First update to `/ris-help`:** pre-help compact engines also reject its exact
+ownership-resource entry. Use that same new-revision bootstrap, even if `risp-`/
+`risb-` commands are already installed. A rejected acquisition leaves the target
+unchanged; subsequent updates use the new installed engine.
 
 For shell commands, version selection, manual installation and interrupted-operation
 recovery, see the **[installation guide](docs/installation.md)**. For old names and

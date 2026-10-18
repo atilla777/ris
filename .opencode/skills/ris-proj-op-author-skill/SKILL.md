@@ -61,7 +61,10 @@ operations, `lib` shared instructions, and `adapter` bounded tool operations.
 Only selected user-facing operations/flows have thin OpenCode commands: `risp-`
 for project contracts and `risb-` for portable contracts, with one explicit skill
 target and `$ARGUMENTS`. The accepted compact command map governs the inventory;
-do not add a command for every op/flow. Libraries/adapters have none. Skills without
+do not add a command for every op/flow. Libraries/adapters have none.
+The sole accepted naming exception is
+`/ris-help` targeting `ris-proj-op-show-help`, without aliases; it does not change
+the prefixes of other commands. Skills without
 a command remain directly loadable. `skills/` and `commands/opencode/` own source; installation
 is synchronized output. Do not add aliases, a dispatcher or dependencies merely
 to satisfy a name. Identify the applicable supplied

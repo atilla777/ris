@@ -21,8 +21,9 @@ The installer reports missing tools and never installs dependencies. It does not
 require `ris.yaml`, Beads, OpenCode or a Git repository in the target project.
 Project-integrated skills have their own prerequisites after installation.
 
-The combined current source menu is **21 commands (17 project + 4 portable)** and **52
-skills / five flows**, including `/risp-run-simple-task` →
+The combined current source menu is **22 commands (17 project + 4 portable + one
+help exception)** and **53 skills / five flows**, including `/ris-help` →
+`ris-proj-op-show-help` and `/risp-run-simple-task` →
 `ris-proj-flow-execute-simple-task` under the
 [accepted D2 amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 It also includes `/risp-status` → `ris-proj-op-show-plan` under
@@ -79,6 +80,12 @@ installed engine for this first migration. Subsequent updates use the new instal
 engine at the unchanged technical path below. There are no old-name aliases.
 See the [complete 39-command map](skill-command-naming-migration.md#compact-command-migration--39).
 
+The first update to a package with `/ris-help` also needs the **new engine** if
+the installed compact engine predates the exact help ownership exception. Its
+old validator rejects `ris-help.md` in that resource before target mutation.
+Use the same checked-download bootstrap pinned to the new package revision;
+this is not a new installer mode or a change to rollback/schema-1 semantics.
+
 ```bash
 bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' update --project '/absolute/project' # Optional --ref TAG_OR_SHA
 bash '/absolute/project/.opencode/skills/ris-port-op-manage-installation/scripts/ris-install.sh' uninstall --project '/absolute/project'
@@ -98,7 +105,8 @@ its loaded instructions.
 The reserved package paths are:
 
 - `.opencode/skills/ris-*` — complete skill folders and their resources.
-- `.opencode/command/ris-*.md` — retired/legacy slash-command templates.
+- `.opencode/command/ris-*.md` — reserved legacy templates and the exact active
+  `/ris-help` exception (`ris-help.md`), without aliases.
 - `.opencode/command/risp-*.md` and `risb-*.md` — compact command templates,
   only after package ownership has been established.
 - `.opencode/ris-installation` — four-line format/source/full revision/harness record.
@@ -106,7 +114,12 @@ The reserved package paths are:
 **Local edits to proven package paths and legacy reserved paths are overwritten**,
 and retired elements are removed. Short-name ownership is recorded by the shipped
 management-skill resource `references/command-ownership.txt`, whose list must
-exactly cover the selected package's compact command files, without extra paths.
+cover the selected package's compact command files plus the exact `ris-help.md`
+exception, without extra paths. This permits no arbitrary new `ris-*` ownership
+entries. `ris-help.md` remains inside the existing reserved legacy overwrite
+namespace: a pre-existing file at that name is replaced/removed, not protected
+by the unproven-short-name collision guard. Schema-1 recovery, management command
+and the four-line version record are unchanged.
 An old version marker or the new prefix alone is insufficient. Pre-existing
 unproven short files/links cause a conflict before replacement/removal: preserve
 them, inspect their ownership and explicitly resolve the collision (for example,

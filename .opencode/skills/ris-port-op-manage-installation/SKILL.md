@@ -34,11 +34,11 @@ Beads, other skill, initialized project or target Git repository is required.
    commit SHA. Uninstall accepts no ref. Preserve the requested operation/ref.
 4. Explain the effect as needed: the whole `.opencode/skills/ris-*` and
    legacy `.opencode/command/ris-*.md`, proven package `risp-*.md`/`risb-*.md`
-   commands and `.opencode/ris-installation` are replaced/removed; retired entries
-   and local edits are not merged. Short command ownership comes from the installed
+    commands and `.opencode/ris-installation` are replaced/removed; retired entries
+    and local edits are not merged. Short command ownership comes from the installed
    package's `references/command-ownership.txt`; a prefix or version marker alone
-   is insufficient. Preserve unproven collisions and report explicit resolution
-   is needed. Other
+    is insufficient. Preserve unproven collisions and report explicit resolution
+    is needed. Other
    skills/commands, settings, `ris.yaml`, `AGENTS.md`, docs and tasks are preserved.
    Project additions should avoid `ris-`, `risp-` and `risb-`. Known duplicate installations in
    alternate `skill/`, `commands/`, global, parent or config-defined locations
@@ -70,6 +70,10 @@ remain unchanged. For the first migration from long commands, an old installed
 engine cannot acquire the compact package: use the README checked-download
 bootstrap from the chosen new revision with the same pin. Subsequent updates use
 the newly installed engine. Do not claim an old self-update works or add an alias.
+The exact active `ris-help.md` is still in the reserved legacy overwrite namespace,
+not the compact collision guard. Pre-help compact engines reject its ownership
+entry too: first acquisition of a help-bearing package needs that same new-engine
+bootstrap, without a new mode or a claim that the old self-update succeeds.
 
 ## Verify and report
 
