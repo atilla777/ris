@@ -226,10 +226,15 @@ or changed facts before deciding the next operation.
    costly evaluation. Use existing applicable evidence first; do not invent a
    preflight experiment for an ordinary local edit or exceed probe permissions.
 3. Recheck actor ownership and blockers before each new change batch. Delegate
-   code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`; require
-   observed expected RED before behavior changes, GREEN afterwards, affected
-   checks and the exact code/tests/authorized-docs snapshot. Environment errors
-   are not RED. For text-only work read `references/text-work.md` and delegate
+   code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`;
+   apply its base method by actual slice, not the task's name. Behavior-changing
+   slices require observed expected RED before the corresponding production edit
+   and GREEN afterwards; environment errors are not RED. Pure behavior-preserving
+   refactors may remain GREEN without artificial RED, with sufficient applicable
+   existing/characterization and affected regression/static checks under that method.
+   Mixed work retains the behavioral gate for every behavior-changing slice;
+   unknown scope is not refactor-only. Require affected checks and the exact
+   code/tests/authorized-docs snapshot. For text-only work read `references/text-work.md` and delegate
    its bounded content owner without artificial RED. Check actual artifacts and
    criterion coverage; author evidence is not independent approval.
 4. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full

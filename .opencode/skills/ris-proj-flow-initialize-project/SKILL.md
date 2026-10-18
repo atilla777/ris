@@ -38,6 +38,18 @@ package defaults **for the proposal**. An invalid/inaccessible explicitly select
 config is diagnosed, never replaced by defaults; agree its bounded repair before
 dependent preparation. Do not merge omitted required fields from defaults.
 
+Before the first initialization file write, establish whether the requested result
+is local-only or includes intended optional Git publication. For a publishable
+result require the caller to supply an already prepared, confirmed own branch/safe
+copy and its work identity/association, repository/path/branch/base, checked state
+and permissions. Validate that input and use that copy/config for all writers;
+isolation/project rules may require a worktree. Init bootstrap and the publisher
+do not create/switch a document branch or transfer dirty primary files. Missing
+preparation limits the result to authorized local/unpublished setup, or blocks
+the dependent publishable request; do not silently narrow it. Local-only init
+still works without Git, a remote or a publication decision granting push rights.
+Do not promise that a later offer can safely publish changes saved on primary.
+
 For material interdependent setup gaps, load and actually apply installed
 `ris-port-op-interview` here, with the bounded topic, decision dependencies, known
 answers/statuses and intended initialization result. Keep its discussion and later
@@ -235,8 +247,11 @@ whole working cycle fully ready while material obstacles remain. Separate local
 readiness from publication; unperformed publication is **unpublished**, not failed
 local setup. Use the recovery resource before replaying any uncertain effect.
 
-Offer commit/push separately when Git and a suitable remote exist. Only with
-explicit authority and its actual independent-review/own-branch/whole-outgoing/
+Offer commit/push separately when Git and a suitable remote exist, but execute it
+only from the confirmed prepared own copy established before writes. If it was
+not supplied, report local/unpublished results and the exact preparation gap;
+do not invoke the publisher or improvise a dirty-copy transfer/late branch switch.
+Only with explicit authority and its actual independent-review/own-branch/whole-outgoing/
 remote gates, delegate existing `ris-proj-op-publish-task` for the exact no-ID
 initialization change or applicable confirmed task subject; inspect its full
 snapshot and remote receipt. No remote or declined push leaves the checked local
