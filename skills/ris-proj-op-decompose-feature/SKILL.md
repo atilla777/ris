@@ -128,8 +128,14 @@ identifiable, nonoverlapping accepted results; no byte ranges, heading/EOF
 protocol, scope digest or tracker decision history is required.
 `design: null` is missing accepted design and blocks dependent writes.
 
+Apply common's conditional published-input reading method: an absent local
+`sources.specs`/file in an older checkout is a copy diagnostic, not missing accepted
+requirements/design. Retrieve pinned content and decisions without synchronizing
+that checkout. Establish the intended integration target separately; if unknown,
+report the applicability gap rather than treating old HEAD as the only target.
 Compare each accepted result's actual content with its semantic section at
-the current project revision (diff plus content review). Inspect relevant code,
+that target revision (diff plus content review), recording the current checkout
+revision separately. Inspect relevant code,
 contracts and linked source changes for applicability of the accepted design
 and requirements to this decomposition. Changes elsewhere in a shared document
 do not invalidate unchanged requirements; matching paths/section labels or

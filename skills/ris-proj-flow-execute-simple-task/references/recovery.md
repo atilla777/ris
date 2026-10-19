@@ -33,6 +33,9 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
   sent commit/tree and reachability. A local commit or timeout is not push proof.
   Confirmed publication is reused without recommit/redundant push; missing
   read-back gets that check, and unsent work keeps outgoing/review gates.
+  In full mode reconcile primary-copy sync separately through the same publisher;
+  pending sync is not remote failure or permission to replay push. Preserve an
+  explicitly authorized remote-only boundary without claiming local currentness.
 - Tracker: adapter reads distinguish saved result, exact closure and separately
   published history. Reconcile unknown create/update/close before retry. Reuse
   known ID/confirmed close; a closed own task pending publication receives only

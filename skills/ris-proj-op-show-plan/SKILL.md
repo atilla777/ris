@@ -117,16 +117,35 @@ Line form (localize labels):
 ## Select exactly one candidate and apply continuation
 
 Choose within the requested working scope, not contextual ancestors/external blockers
-outside it. Containers remain candidates even with children: the missing result may
-belong to the container itself. Do not silently replace a selected container by a child.
+outside it. Distinguish a container's **own next result** from unfinished work
+already represented by its descendants; they are not independent peers merely
+because both records are open. Containers are not unconditionally excluded.
+For an exact-ID request retain that selected container/subtree scope and explain
+any child-level need with its exact ID; never silently substitute a child subject.
 
 1. First consider started unfinished work; `in_progress` is a signal to inspect,
    not proof of an executing scenario. Among several, order by priority, then earlier
    start time, with stable ID as final tie-break. Disclose unknown ordering fields;
    do not infer start from ID or updated time or claim a proven order when it matters.
-2. Only if none is started, use priority and directed dependencies. At equal priority
+2. Only if none is started, before ranking a container against its descendants,
+   inspect its own outcome/criteria, actual child composition and known effects.
+   Identify a concrete own result needed **now** (for example acceptance/completeness,
+   reconciliation, or selecting a genuinely missing feature). Open status, a broad
+   goal or an old next-feature sentence is not alone such evidence. Eventual final
+   acceptance is not a competing next result while its mandatory descendant work
+   is unfinished, unless a concrete current acceptance/reconciliation issue needs
+   container-level action. When work is
+   already represented by existing descendants and no own next result is found,
+   advance that existing work within the branch instead of letting its ancestor
+   win by ID. This is navigation, not choosing a new product feature or defining
+   tasks. Preserve a genuinely pending container result; if the distinction is
+   material but unresolved, inspect bounded relevant sources/decisions or report
+   the exact gap rather than treating unknown as no own result. Do not hide a
+   blocked/foreign-assigned descendant by recommending new work at its parent.
+   Rank the resulting candidates by priority and directed dependencies. At equal priority
    consider a prerequisite before the work depending on it; use stable ID for otherwise
-   equal independent candidates. A cycle or unknown material ordering fact is a visible
+   equal **independent results**, not a parent and the same represented child work.
+   A cycle or unknown material ordering fact is a visible
    selection limitation, not invented readiness. Do not discard blocked work or containers
    merely to get an executable command.
 3. Load and **apply** installed `ris-proj-op-suggest-continuation` for that exact ID,

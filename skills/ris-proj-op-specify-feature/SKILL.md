@@ -53,7 +53,9 @@ acceptance evidence. A feature proposal is not a chosen feature; a title is not
 an epic or task ID. Do not select the next feature or refine an unclear epic.
 From an existing ID use context and the selected adapter's exact read, complete
 children and directed blocker reads to discover kind/key, scope, current sources
-and separate decisions. Read linked versions and compare current applicability;
+and separate decisions. Apply common's conditional published-input reading method
+for saved results; exact ID and permanent associations suffice without a previous
+caller/chat/receipt. Read linked versions and compare current applicability;
 ask only for the exact missing/ambiguous/stale dependency. Existing ID never
 authorizes a new record. Establish feature, standalone task/container or
 document-only subject explicitly; a failed feature parse is not a standalone

@@ -74,7 +74,8 @@ Proposal-only and record-only calls need no new document working copy.
 
 With an ID discover actual type/kind/key, own scope, source/decision links,
 complete children and directed blockers through selected adapter reads. Retrieve
-the actual accepted versions; do not ask the user to repeat accessible facts.
+the actual accepted versions using common's conditional published-input reading
+method; do not ask the user to repeat accessible facts or supply a prior receipt.
 Missing/ambiguous/stale links block only the dependent result with an exact gap.
 Explicit ordinary standalone work uses the adapter's advertised tool-specific
 source update/reconciliation resource and guarantees, not feature-record/1 or

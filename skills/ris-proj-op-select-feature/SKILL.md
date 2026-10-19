@@ -87,6 +87,13 @@ other current-state evidence needed to avoid recommending completed, redundant
 or blocked work; do not design each candidate's implementation. Identify any
 existing feature specification and its known status without deciding whether
 it is sufficient or whether another interview is necessary.
+An existing selected feature need not have `in_progress` status to be the work to
+continue. Before proposing a new feature, reconcile its current identity/known
+results against the epic's remaining need. Inspect linked versions/decisions only
+where they can change that choice using common's conditional published-input
+method; a stale checkout is not absent preparation. Recommend continuing that
+existing feature in plain terms when justified, without duplicating selection or
+assuming it needs a new specification. Do not assign or execute its next skill.
 
 Keep a **light boundary/currency check** against relevant current source/code and
 known related work: obvious responsibility/state overlaps, undefined/incompatible
@@ -155,7 +162,9 @@ version is uncertainty, not proof it is obsolete. If unavoidable material ambigu
 prevents a justified choice, ask one focused question (or return it to the caller).
 The recommendation grants no readiness or authority.
 
-Once the person accepts a feature, identify working out its specification as
-a possible separate, explicitly authorized next result in plain terms. Do not
+For a newly chosen feature without saved requirements, identify working out its
+specification as a possible separate, explicitly authorized next result in plain
+terms. For an existing feature preserve its discovered results and identify only
+the evidenced remaining need, without prescribing another owner's method. Do not
 start an interview, save a specification, create a task or launch implementation
 here. Stop after the checked recommendation or an honest blocked handoff.

@@ -43,6 +43,10 @@ containing this `SKILL.md` (the skill's installed location):
 - `references/quality.md` before selecting checks, applying completion
   criteria, or making a quality/readiness assessment; merely displaying checked
   tracker facts is not such an assessment.
+- `references/published-inputs.md` when the conclusion or dependent work needs
+  previously saved linked requirements, design, decisions or other project evidence,
+  including from an older checkout. Ordinary tree/list display alone does not
+  trigger this source-reading method.
 
 If the applicable current content is already available in your context, do not
 reload it. Restore missing content after context loss, a project change, or a

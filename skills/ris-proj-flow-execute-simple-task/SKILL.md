@@ -138,6 +138,10 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    mandatory check or reviewer blocks dependent publication with the accessible
    local result and exact remainder. An ambiguous push activates recovery before
    retry. Require sent commit/tree/ref/remote and fresh remote evidence.
+   Also require its primary-sync evidence for the full Git result; explicitly
+   limited remote-only must be agreed, not inferred from a successful push.
+   Pending local sync stops dependent full completion and returns only that
+   remainder to the publisher without replaying remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker
    resource for short result/Git SHA persistence, separately verified exact close

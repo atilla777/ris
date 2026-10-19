@@ -20,8 +20,12 @@ installed resource directory only when shared workspace paths are needed.
   selected root, inspect the actual target and authorized scope; explicitly
   approved external storage may be used, silent escape may not. Resolve
   Markdown links from the document's directory, not the path's config base.
-- If a required **input** directory is missing or inaccessible, block its
-  dependent operation. A prospective **output** directory need not yet exist
+- If a required **input** directory is missing or inaccessible, diagnose the
+  current-copy path gap; block only work that requires that local path. This is
+  not proof that linked published inputs are absent. The calling owner applies
+  common's conditional `published-inputs.md` to retrieve pinned content/decisions
+  and distinguish source availability, target applicability and copy preparation.
+  Context does not select/read those documents or update the checkout. A prospective **output** directory need not yet exist
   if creation is permitted; check authorization and conflicts when the
   result owner actually writes. If writing is not authorized, return a
   proposal without claiming creation. Directory presence does not validate

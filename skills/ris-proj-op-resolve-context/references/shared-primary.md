@@ -1,7 +1,9 @@
 # Bounded primary resolution
 
 This context owner resolves primary identity; consumers use its checked result
-rather than duplicating discovery. Read only when shared paths are needed:
+rather than duplicating discovery. Read only when shared paths or the primary
+copy's identity for publication synchronization are needed; resolution grants no
+permission to mutate that copy:
 
 1. Validate an explicitly supplied `primary_root` first. Check existence,
    accessibility and physical target, selected-project identity, repository

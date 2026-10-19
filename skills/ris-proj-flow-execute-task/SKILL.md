@@ -258,6 +258,10 @@ or changed facts before deciding the next operation.
    for this reassessment, not silently approve itself. Reconcile ambiguous pushes
    by remote reads. Direct-push prohibition blocks this route without PR fallback.
    Record actual integrated commit/ref and independent remote visibility evidence.
+   Consume the publisher's full remote-plus-primary-sync result, unless this flow
+   was explicitly limited to remote-only Git publication. Confirmed remote with
+   pending local sync preserves the published commit but blocks the dependent
+   full-flow completion gate; recover only missing sync through that owner.
 7. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, delegate selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific

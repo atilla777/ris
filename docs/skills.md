@@ -177,7 +177,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; response-only where rules permit, saved when required and authorized |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
-| [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed project change with optional ID, or pre-ID document integration and verified Git push from a confirmed own branch |
+| [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed change or pre-ID document integration/push from an own branch plus safe primary-copy synchronization; explicit remote-only is limited |
 | [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Administrative exact-container close, read-only fulfillment verification, or verify-and-close on success |
 | [ris-proj-op-retrospect-session](../skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence |
 | [ris-proj-op-manage-okf-bundle](../skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation |

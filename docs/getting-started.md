@@ -153,7 +153,12 @@ resolves conflicts there, and requires affected rechecks and independent
 reassessment of the complete new snapshot before a normal non-force push. Remote
 advancement triggers only the affected reconciliation/check/reassessment work;
 compatible evidence and unchanged acceptance remain applicable. No global
-publisher queue or manual writer pause is required for ordinary work.
+publisher queue or manual writer pause is required for ordinary own-branch work.
+Full publication also preflights the checked primary local copy and, after remote
+confirmation, safely fast-forwards it without switching branches or overwriting
+local/untracked work. An unsafe/busy copy blocks that local effect; confirmed remote
+publication with pending local sync is partial, never a reason to push again.
+An explicitly agreed remote-only result excludes synchronization and must say so.
 
 Git publication, exact task completion and Dolt publication are **separate
 effects**. A successful Git push does not close a task or synchronize its tracker;

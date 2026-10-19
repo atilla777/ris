@@ -95,7 +95,11 @@ then compares saved content with that accepted candidate and decision. Incomplet
 inaccessible, ambiguous or changed candidates return to the caller; never infer
 foreign-chat content or reformulate accepted meaning. Optional candidate files
 need an authorized destination; no intermediate file or intermediate publication is required.
-Response-only content requires explicit forwarding to a new session. Local
+These explicit transfers concern intermediate unsaved/not-yet-discoverable results,
+not a new session consuming a completed saved stage. For the latter apply common's
+`published-inputs.md`: project plus exact ID/saved associations must discover the
+content and decisions without a prior chat or receipt. Response-only content
+requires explicit forwarding to a new session. Local
 notes are usable only where accessible, never mandatory remote inputs for another
 copy. A receiver re-resolves paths and checks actual content/version, fresh
 permissions and, where required, ownership, blockers and write guarantees.

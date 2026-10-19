@@ -126,9 +126,12 @@ success; independently authorized local saving preserves useful effects. Full
 mode returns `blocked|conflict|error` from the stopping cause with exact remaining
 channels; an expressly limited successful local save may be `ok` only for its boundary.
 
-An explicitly limited record-only call reads published accepted content/decisions
-and the applicable independent review/Git receipt, skips formulation, renewed
-acceptance and file saving, then enters step 5. It performs no second push.
+An explicitly limited record-only call discovers published accepted content/decisions
+and applicable independent review/publication evidence from saved associations
+(or a supplied checked result within an unfinished flow), skips formulation, renewed
+acceptance and file saving, then enters step 5. It performs no second push. No
+particular receipt file or previous chat is required; missing actual evidence
+remains a precise dependent gap, never invented.
 
 1. Check exact file/evidence paths, rights, format and current state under the
    project writer protocol. Apply an installed appropriate OKF operation only
@@ -182,7 +185,10 @@ acceptance and file saving, then enters step 5. It performs no second push.
     review scope without importing future execution prerequisites. Mixed fix changes
     are outside this design-only handoff and cannot use that exception.
     Consume its commit/tree/ref/remote receipt and independent remote evidence;
-    match accepted selected content and preserved requirements. Integration drift
+    match accepted selected content and preserved requirements. The publisher's
+    primary-sync/explicit remote-only scope must be checked
+    against this operation's promised whole. Pending primary sync is partial,
+    not full Git success or a reason to repeat a confirmed push. Integration drift
     requires applicable independent reassessment. Reuse checked existing
     publication without empty commit/push. A limited record-only contribution
     consumes the existing applicable receipt; limited local save stops earlier.
