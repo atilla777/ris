@@ -43,6 +43,20 @@ permission does not grant them. Init offers publication separately and stops
 before roadmap/product development or build/test/format/CI setup. The installer
 still performs no project initialization or configuration writes.
 
+### Feature-record data compatibility
+
+Package update replaces instructions, not stored Beads descriptions. Installer
+success does not establish that historical features can be continued. Only the
+current `tasks.feature-record/1` structure is supported; the former
+`scope`/`sha256`/`history` payload shares its markers/schema but is unsupported.
+There is no backward-compatibility or migration capability, even with conversion
+permission. Dependent operations return an exact-ID `historical/unsupported`,
+`blocked` no-write refusal; read/status/retry preserve original data, history,
+prose and acceptance pins. Separately authorized administrative status-only close
+remains possible without payload changes or acceptance. The next incompatible
+contract needs a distinct version identifier; this update does not renumber `/1`.
+See the [policy, observed variants and consumer inventory](specs/feature-record-compatibility.md).
+
 ### Standard/Advanced project agents
 
 `/risp-init` checks **both project definitions and effective OpenCode settings**

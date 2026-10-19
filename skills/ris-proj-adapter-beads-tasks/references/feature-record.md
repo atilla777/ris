@@ -111,11 +111,29 @@ use it as accepted input. A task without a block is likewise unsupported.
 Use the main result envelope with `status: blocked` and a
 `historical/unsupported` diagnostic, not an alternate operational schema;
 include the inspected ID and unchanged payload so the data remains readable.
-Do not reinterpret the old fields, silently drop history, append a guessed
-block or migrate on read/retry/update. An explicitly authorized migration of
-one old record is a separate operation outside this current write protocol;
-there is no dual-schema API or `/2` fallback. Block dependent writes and leave
-the historical record intact.
+Support only the current structure above; matching `/1` markers/schema alone
+does not establish compatibility. There is no backward-compatibility or migration
+capability, even when a caller authorizes conversion. Do not reinterpret old
+fields, silently drop history, append a guessed block or migrate on read/status/
+retry/update. Block dependent operations and leave the original payload, history,
+surrounding prose and existing acceptance pins unchanged.
+
+For an exact historical-record request return `status: blocked`,
+`historical/unsupported`, the inspected ID, requested dependent operation and
+observed incompatible fields, unchanged data, and `changes: []`. Distinguish
+checked identity/source/decision facts from unverified facts; do not invent Git
+revisions or acceptance from digests. State that the requested operation and
+migration are unsupported, not that conversion awaits permission. On retry
+reread the actual record and return the applicable no-write refusal (or a newly
+observed conflict), never replay a replacement. This refusal does not block the
+separately authorized native status-only close described above.
+
+Keep today's identifier unchanged: no `/2` fallback or dual-schema API. The next
+incompatible encoding or semantic contract change must use a distinct version
+identifier, with producers, consumers and unsupported-input diagnostics updated
+together before dependent writes; never reuse one identifier for another
+incompatible structure again. This rule neither converts historical records nor
+renews or rebinds their original decisions.
 
 For initial create, validate the approved block and published requirements
 (and design if supplied), then read/apply `create.md` v1 create checks. Search the
