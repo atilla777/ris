@@ -141,8 +141,9 @@ acceptance and file saving, then enters step 5. It performs no second push.
     Native bug source links use explicitly advertised ordinary bug updates; a
     native notes append may record the pinned design/decision refs without replacing
     the current report. Reconcile marker AND content before append/retry. Any
-    necessary investigation report/acceptance replacement retains its stronger
-    content-protection gate; a source-link update cannot bypass it.
+    necessary investigation report/acceptance replacement applies its owner's
+    bounded single-investigator persistence conditions; source-link append alone
+    cannot establish a saved aligned report/criteria pair.
     Existing-record writes
     use the adapter's fresh expected-content/composition/blocker checks, targeted
     native operations and independent read-back. State native predicates and

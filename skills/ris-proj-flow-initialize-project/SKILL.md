@@ -127,6 +127,14 @@ infer fix permission merely from mentioning a bug. A simple question is not a
 task. Preserve each owner's inputs/permissions/stop; no automatic full cycle,
 queue selection, fabricated task ID or mandatory init for unrelated requests.
 Check actual skill/command availability before naming a route.
+Distinguish research availability, report persistence and full fix readiness:
+ordinary investigation saving needs one assigned investigator, authorized native
+writes, fresh comparison, preserved original/foreign content and read-back, not a
+mandatory CAS provider. This is organizational control, not concurrent-write
+isolation. Missing authority/capability or observed conflict can block saving
+without blocking research. Init/config/claim alone certifies neither a saved
+report/criteria pair nor sufficient fix inputs, a historical execution snapshot,
+required design acceptance or the execution/publication route.
 
 Persist the accepted settings decision and material deferrals compactly in the
 agreed project document, default `docs/ris-initialization.md`. Include exact scope/

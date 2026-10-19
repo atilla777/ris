@@ -35,6 +35,11 @@ delimited description section, or the exact published Git path/revision linked
 from the bug. A file-backed report must be retrieved, not inferred from a summary;
 local ignored notes/chat cannot be its only source. Ambiguous current reports,
 misaligned criteria or stale/conflicting inputs require precise reconciliation.
+Admit actual independently read-back saved report/criteria, not an assertion of
+CAS protection. Ordinary investigation saving uses a single assigned investigator
+and bounded freshness checks; neither assignment nor read-back excludes all
+parallel content edits. A missing/partial pair is not fix-ready; return that exact
+gap without silently repairing the investigation or demanding a CAS provider.
 
 Check advertised ordinary native bug reads, claim, execution snapshot append/read,
 result persistence and separate fix-completion, plus tracker publication. For
@@ -103,7 +108,7 @@ occurrences before and after; reuse exact existing effects, stop on conflicting 
 ambiguous identity, reconcile lost responses before retry. Native append preserves
 foreign notes but promises neither append-once nor report+append atomicity. The
 snapshot is historical input, never a second current report or a replacement for
-the investigation owner's protected report/acceptance persistence.
+the investigation owner's bounded current report/acceptance persistence.
 
 Pass the **same exact ID**, full snapshot text and locator (project/tracker + ID +
 marker), report source/version, accepted decisions, permissions, copy/effect receipts

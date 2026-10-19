@@ -137,8 +137,13 @@ verified ID and stops. Investigation and fixing are separate requests.
 To investigate that ID, load `ris-proj-op-investigate-bug` for the selected
 project and research/write scope. It saves a current report and distinguishes
 defect confirmation from fix readiness; proved not-bug/duplicate messages have
-separate justified disposition. Required content protection can block a report
-write without blocking useful research. For supplied inputs without a tracker,
+separate justified disposition. One assigned investigator is sufficient
+organizational control for ordinary saving with authorized targeted native writes,
+fresh comparison, preserved original/foreign content and independent read-back;
+this is not CAS or exclusion of every parallel writer. Missing authority/capability
+or observed conflict can block saving without blocking research. See the separately
+accepted [persistence policy amendment](docs/specs/local-bugfix/investigation-persistence-policy.md).
+For supplied inputs without a tracker,
 load `ris-port-op-investigate-bug`. Investigation stops before fixing.
 
 To fix an exact registered native bug, load `ris-proj-flow-fix-bug` with the

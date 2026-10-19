@@ -73,15 +73,22 @@ criteria/decisions. Unknown/unagreed criteria remain explicit gaps, never silent
 accepted new product behavior. Keep historical notes as supporting evidence only.
 Ambiguous/multiple current sections or conflicting versions require reconciliation.
 
-Require real protection of the modified description and acceptance content,
-including preserved original/foreign text. Baseline Beads 1.3.1 has no general
-content CAS: claim, status/assignee guards, sandbox and fresh read-back are not
-substitutes. The adapter must inspect actual supported protection; unavailable
-protection blocks replacement, not independent research. Do not invent locks,
-upgrade the tool, request a writer pause or downgrade the guarantee. Return the
-unsaved report and precise persistence limitation; notes-only storage cannot be
-called a saved current report. Verify report and criteria separately after writes;
-a partial pair is not ready for use. Reconcile both before any retry.
+For ordinary persistence require one assigned investigator for this bug, freshly
+checked against actual ownership and authorized scope. This is a sufficient
+organizational condition, not a content lock or a claim that arbitrary parallel
+writers are excluded. A foreign/conflicting assignment or an unestablished single
+executor blocks dependent persistence, not useful research; do not steal a claim.
+The adapter fresh-compares expected description/acceptance, preserves original and
+foreign sections, writes only authorized fields through native sandbox operations
+and independently reads both results. Stop on observed conflicting/newer content.
+Baseline Beads 1.3.1 has no general content CAS: claim, status/assignee guards,
+sandbox and read-back do not prevent every same-field lost update. Ordinary saving
+does not require a CAS provider, coordinator, upgrade or writer pause. If a stronger
+guarantee is explicitly required, or the bounded operation is unavailable, return
+the exact unsupported predicate before its write, with the unsaved report and
+settled effects. Notes-only storage is not a saved current report. Verify report
+and criteria separately; a partial pair is not ready for use. Reconcile both and
+reuse settled effects before retry; never overwrite foreign/newer content to finish.
 
 When project rules require a separate document, use an agreed path ending in
 `investigation.md` as the sole full current report, not ignored local notes. Use
@@ -89,7 +96,7 @@ the existing Git publication owner `ris-proj-op-publish-task` only with applicab
 authorization, document checks and required independent review, and verify its
 exact published revision/path receipt. Without those gates return the file's
 actual draft/local/publication remainder. Save only a summary and exact published
-Git locator in the bug, under the same content-protection gate; retain aligned
+Git locator in the bug, under the same bounded persistence conditions; retain aligned
 acceptance. Verify retrieval at that revision from the bug. Do not keep a competing
 full current description copy, delete historical content or claim publication from
 a local file. Reconcile any existing full report explicitly before changing storage.

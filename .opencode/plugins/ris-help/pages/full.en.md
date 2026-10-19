@@ -263,8 +263,11 @@ not investigate, claim or fix it.
 
 **Direct skill: `ris-proj-op-investigate-bug`**
 
-Investigate an exact native bug ID and save the report/aligned fix criteria when
-permitted and protected. Confirmation is not fix readiness. No automatic fixing.
+Investigate an exact native bug ID. Ordinary saving uses one assigned investigator,
+authorized native writes, fresh comparison and read-back, preserving original/foreign
+content; not CAS or exclusion of all parallel writers. Missing authority/capability
+or observed conflict can block saving, not useful research. Confirmation and saving
+are not fix readiness. No automatic fixing.
 
 ---
 

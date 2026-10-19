@@ -36,13 +36,13 @@ do not advertise full CAS merely because current upstream has added it.
 
 ## Freshness, limits and conflicts
 
-Bug investigation report/acceptance replacement explicitly requires real content
-protection under `investigation.md`, unlike an ordinary bounded field update.
-Read that resource for the requested investigation write: fresh comparison and
-status/assignee guards cannot satisfy its stronger predicate. If actual native
-support or proven applicable existing coordination is absent, stop the dependent
-replacement with its exact limitation; do not weaken the requirement or prevent
-independent research. Report/acceptance effects are reconciled separately.
+Bug investigation report/acceptance persistence applies `investigation.md`: one
+assigned investigator is sufficient organizational control for ordinary bounded
+fresh-compare/targeted-write/read-back, not a technical exclusion of other writers.
+No CAS provider is mandatory for that ordinary request. Preserve original/foreign
+content, stop observed conflicts and reconcile report/acceptance separately. An
+explicitly required stronger unsupported content predicate still blocks its write;
+status/assignee guards cannot satisfy it. Independent research remains possible.
 
 Before each mutation reread identity and expected target values; reread ownership,
 accepted sources and complete children/typed blockers only when its actual

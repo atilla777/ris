@@ -91,9 +91,13 @@ it. Do not diagnose through help or launch the suggested owner.
 
 Registration records an **unconfirmed** message/verified ID and stops.
 Investigation checks expectations, code and evidence, saves aligned report/criteria
-when permitted and protected; it separates confirmation from fix readiness.
-Unsupported content protection can block a report write without blocking useful
-research. Proved-correct/duplicate disposition is not fixing. Fix-bug needs an
+with one assigned investigator, write authority and bounded fresh-compare/native
+sandbox-write/read-back, preserving original/foreign sections. This is sufficient
+organizational control, not CAS or exclusion of all parallel writers; a CAS
+provider is not mandatory for ordinary saving. Missing authority/capability or
+observed conflict can block persistence without blocking useful research. Saving
+does not establish fix readiness: aligned sufficient inputs are checked separately.
+Proved-correct/duplicate disposition is not fixing. Fix-bug needs an
 exact native bug and sufficient saved basis, separate acceptance of material design
 if needed, and a recoverable historical input snapshot before reusing the whole
 run-task engine. It does not silently register or investigate anew. All three

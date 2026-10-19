@@ -46,7 +46,7 @@ before and after append and after ambiguous responses. Reuse exact prior effects
 conflicting/repeated markers stop. No concurrent append-once guarantee. This link
 append needs no not-yet-created execution snapshot and does not assert fix readiness
 or completion. Any necessary report/acceptance replacement uses investigation's
-unchanged real-content-protection gate, not this append capability.
+bounded single-investigator persistence conditions, not this append capability.
 
 ## Full recoverable historical execution-input snapshot
 
@@ -91,7 +91,9 @@ append-once**, a report+snapshot transaction or general content CAS. No strict
 guarantee is inferred from claim/status/sandbox/read-back. If expressly required
 stronger protection is unavailable, return that exact limitation before its write;
 do not install coordination, pause writers or invent flags. Investigation report/
-acceptance replacements keep their stronger `investigation.md` gate unchanged.
+acceptance replacements apply `investigation.md`'s bounded single-investigator
+persistence conditions; ordinary saving requires no CAS provider. An explicitly
+required unsupported stronger content predicate still stops its dependent write.
 
 On later material report/criteria/decision changes preserve the snapshot and pass
 old/current content to the affected consumer for targeted plan/change/review/evidence

@@ -255,8 +255,10 @@ Example: `Load ris-proj-op-register-bug for <project>: <message>; record and ret
 [Owner](../../ris-proj-op-investigate-bug/SKILL.md). Purpose: investigate registered bug.
 Choose when: exact-ID diagnosis/report, not registration or fixing.
 Inputs: project, exact native bug ID, expectation/code/evidence and research/write scope.
-Result/stop: checked current report and aligned fix criteria when protected saving
-is available, or exact unsaved remainder; justified correct/duplicate disposition
+Result/stop: checked current report and aligned fix criteria with one assigned
+investigator, authorized native writes, fresh comparison and read-back, or exact
+unsaved/partial remainder. This is not CAS; ordinary saving needs no CAS provider.
+Observed conflicts stop writes; justified correct/duplicate disposition
 is separate. Confirmation is not fix readiness; no automatic fix.
 Example: `Load ris-proj-op-investigate-bug for <bug ID> in <project>, allowed scope <scope>; stop before fixing`.
 

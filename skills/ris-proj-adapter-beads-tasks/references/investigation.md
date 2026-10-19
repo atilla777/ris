@@ -19,7 +19,7 @@ content, allowed fields and result; for duplicates also exact original ID/type,
 proof, approved useful supplement or verified no useful delta, and scoped retry
 identity. Never infer substantive duplicate proof from a link or similar title.
 
-## Current report and acceptance: protected replacements
+## Current report and acceptance: bounded single-executor persistence
 
 Require one caller-approved current description section with stable project/bug
 identity, version, investigator and inspected code revision. Preserve the original
@@ -29,27 +29,38 @@ retrievable exact published Git revision/path instead, with no competing full
 current copy. Preserve history and unrelated acceptance/decision pins. The adapter
 does not accept new behavior or author diagnosis.
 
-Inspect installed command/backend support for **real protection of changed and
-preserved content**, including description and acceptance, before replacement.
-This investigation contract explicitly requires that protection: ordinary bounded
-fresh compare/write/read alone is insufficient. Prefer a supported safe native
-operation or already established applicable coordination whose coverage is proven.
-Status/assignee guards, claim/lease, worktree, sandbox, a returned revision or
-multiple fresh reads are not content CAS. Baseline 1.3.1 exposes no general CLI
-revision CAS. If no applicable provider exists, return `conflict` with the exact
-unsupported predicate before its write; retain research and settled effects. Do
-not invent flags/locks, install a coordinator, upgrade Beads, pause writers or use
-raw storage writes. Do not substitute append-only notes for the current report.
+Require the caller's identified single assigned investigator and authority for
+this exact bug; freshly inspect actual status/assignee and reconcile conflicting
+ownership before writes. An absent established executor blocks persistence;
+foreign/conflicting ownership returns conflict, without stealing a claim. This
+organizational condition suffices for ordinary saving; it is not a global lock or
+a technical exclusion of all concurrent writers. No new claim API is added here.
 
-With actual protection, fresh-read and compare expected content, prepare only
-authorized description/acceptance fields and apply `update.md` with that provider's
-supported conditions and sandbox. Do not replay the whole issue. Treat report and
-acceptance as separate effects even if passed together; do not assume cross-field
+Inspect installed command/backend capabilities. Baseline 1.3.1 supports targeted
+`bd --sandbox update <bug-id> --description <approved-content> --json` and
+`--acceptance <approved-criteria>` under `update.md`, plus native notes append for
+history. It exposes no general CLI revision CAS. The unsupported stronger predicate
+is rejecting every write when description/acceptance or preserved content changed
+since the expected read, including a same-field edit with unchanged status/assignee.
+Claim/lease, worktree, sandbox, returned revision and read-back do not supply it.
+Status/assignee guards cover only their own fields; use them when applicable, never
+as content CAS. Ordinary persistence needs no CAS provider or existing coordination.
+If a stronger guarantee is explicitly demanded, return `conflict` with its exact
+unsupported predicate before writing; unavailable native capability/authority
+blocks that effect, not independent research. Do not invent flags/locks, install a
+coordinator, upgrade Beads, pause writers or use raw storage writes. Append-only
+notes cannot substitute for the current report.
+
+Immediately before each replacement fresh-read and compare expected description
+and acceptance, including preserved sections/pins; observed drift stops dependent
+writes for reconciliation. Prepare only authorized fields and apply `update.md`
+with applicable native conditions and sandbox. Do not replay the whole issue.
+Treat report and acceptance as separate effects even if passed together; do not assume cross-field
 atomicity. Independently read both after success, failure or ambiguous output;
 verify exact desired content and preserved sections/pins. Return each as saved,
 unchanged, missing, conflicting or unknown. A saved report with old/missing criteria
 is a partial result, not fully saved fix inputs. Before retry reconcile both,
-reuse exact settled fields and protect only remaining authorized changes. Same
+reuse exact settled fields and fresh-compare only remaining authorized changes. Same
 identity/version with different content is conflict. Never roll back by replaying
 an old snapshot or overwrite a newer/foreign report to complete a partial pair.
 
