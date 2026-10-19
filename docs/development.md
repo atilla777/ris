@@ -36,7 +36,10 @@ live in the primary copy's `.sdlc/tasks/<confirmed-ID>/`; `tasks/PLAN-*` is a
 historical archive. Git push does not synchronize Beads. Follow the rules for
 review and separate Git/tracker publication and completion.
 
-The ris-17f candidate removes default `worktree.md`/`execution.md` and equivalent
+For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),
+not this guide or historical delivery reports as a second readiness register.
+
+The integrated ris-17f change removes default `worktree.md`/`execution.md` and equivalent
 transition-ledger requirements. Keep the local plan, progress/result notes,
 independent review report and sufficient Beads result required by the rules.
 Use live Git/Beads and accessible exact owner results at transitions; missing
@@ -47,8 +50,8 @@ Reuse and hooks/setup activate scoped preservation. Recipient context validates
 the entire selected config but compares only settings used by the operation and
 recipient; a valid unused product-source difference is not a handoff blocker.
 See [the read/action comparison and check limits](specs/worktree-preparation-simplification/delivery-checks.md).
-This synchronized text is pending independent review and integration with its
-source candidate; it is not publication or live-behavior evidence.
+The source change is integrated in `d8c5bac6164eeb559d07e987f42c12467141477a`;
+that fact does not establish new live-behavior evidence or regrade the historical report.
 
 Only explicitly selected [simple-task execution](../skills/ris-proj-flow-execute-simple-task/SKILL.md)
 uses the rules' fast exception: no mandatory plan, implementation/execution log or

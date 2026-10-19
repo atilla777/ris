@@ -54,6 +54,50 @@ discovers the updated skills, commands and client plugin (OpenCode V2, checked o
 
 ## Start using RIS
 
+### Current readiness and limits
+
+This section is the current readiness entrypoint; the catalog supplies exact
+contracts, while delivery records retain their original revisions and limits.
+The boundaries below are checked against source revision
+[`00d012fe35e70f1857ef12216b76a33318e77e37`](https://github.com/atilla777/ris/tree/00d012fe35e70f1857ef12216b76a33318e77e37),
+not a certification of every project or runtime.
+
+| Route | Prerequisites and boundary |
+| --- | --- |
+| Portable interview, formulation, planning or review | Supply the selected operation's inputs and scope; no RIS config or tracker is required. |
+| Project initialization | Install first, select the project and agree writes/decisions. `/risp-init` checks that specific local setup and names deferred or blocked operations, not whole-system readiness. |
+| Roadmap and feature preparation | Applicable product/rules, selected capable tracker and separate content acceptance; preparation stops at a published feature ID, decomposition is separate. |
+| Task or registered-bug execution | Sufficient accepted inputs, actor/claim/blocker checks, safe own copy/branch, available executors and independent review. Bug investigation and fix readiness are distinct. |
+| Publication and completion | Established target, direct-push rights, applicable checks and exact reviewed snapshot; Git, exact tracker completion and Dolt publication are separate effects. PR-only projects cannot use this direct-push route. |
+| Status, continuation and retrospective | Status/next inspect current facts; retrospective needs accessible identified session evidence. None grants execution authority or proves lifecycle readiness. |
+
+- **Installed is not discovered:** restart OpenCode after package changes and check
+  the actual client command/skill availability. The client-help baseline is
+  **OpenCode 2.0.32**, not a claim about every client/version.
+- **Tracker limits:** the Beads adapter baseline is **1.3.1**. Claims, native row/
+  close guards, `--sandbox` and fresh read/write/read are not general content/graph
+  CAS or distributed exclusion. Unsupported required guarantees block the dependent
+  write; see the [adapter contract](skills/ris-proj-adapter-beads-tasks/SKILL.md).
+- **Data compatibility:** only the current feature-record shape is supported.
+  Historical payloads remain history, without migration/backward compatibility;
+  incompatible dependent operations return a precise no-write refusal. Package
+  update does not repair data. See the [accepted policy](docs/specs/feature-record-compatibility.md).
+- **Recovery:** task notes are local, not automatically synchronized or mandatory
+  remote inputs. Resume reconciles accessible exact evidence and actual effects;
+  missing notes do not justify invented acceptance, review or publication. See the
+  [execution contract](skills/ris-proj-flow-execute-task/SKILL.md).
+- **Evidence:** source/static checks establish instruction structure and consistency;
+  actually executed program checks establish only their tested mechanisms/versions.
+  Observed agent behavior remains tied to its session, inputs and revision. Neither
+  documents nor program tests establish general agent reliability, cost or
+  repeatability; historical unverified obligations remain unverified. See
+  [verification levels](docs/product/05-adoption-and-validation.md#4-три-уровня-проверки)
+  and [program checks](docs/development.md).
+- **Operational boundary:** RIS does not supply release, deploy, rollback or
+  production operations. Source publication is not deployment or production readiness.
+
+### Available commands and operations
+
 The current source menu has 22 explicit entries (17 project + 4 portable + one
 help exception), extending the historical 18-entry v1 set with `/risp-status`,
 `/risp-run-simple-task`, `/risp-init` and `/ris-help`.

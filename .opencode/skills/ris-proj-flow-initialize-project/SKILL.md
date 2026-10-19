@@ -243,6 +243,19 @@ agreed role mappings, path access/ignores and unresolved conflicts. Do not call
 files alone ready, a
 declaration a working tool, or document checks product implementation compliance.
 
+Report readiness per specific operation with its checked inputs, tool/backend
+versions and remaining gates, not as a blanket lifecycle or production claim.
+Distinguish installed package files from actual client discovery, static source
+checks from executed program checks and version-bound observed agent behavior;
+none implies general agent reliability or repeatability. With Beads, apply the
+adapter's checked baseline/capabilities: claim, native guards and read/write/read
+are not general content/graph CAS. Check current feature-record shape when an
+operation needs it; preserve incompatible historical payloads and report the
+dependent no-write refusal, not migration or backward compatibility. Local notes
+are not automatically remote inputs; recovery uses accessible evidence, not an
+assumed mandatory transition ledger. State the direct-push/PR-only boundary for
+publication. RIS setup does not supply release/deploy/rollback/production operations.
+
 Return `ok|blocked|conflict|error`, selected project/copy/config provenance, agreed
 scope/decision address, actual changed/reused files and versions, component and
 independent-review evidence, available tools/executors, both tier model IDs and
