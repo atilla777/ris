@@ -112,6 +112,19 @@ which shows real hierarchy/blockers and one recommendation. Help explains those
 inputs but never reads their tracker set or certifies readiness on their behalf.
 Recommendation, readiness, acceptance and permission remain distinct.
 
+These answer different questions: status chooses one project/specified-subtree
+next action, next continues the selected ID, and no-ID `/risp-run-task` selects
+work for the current actor. Status first considers started unfinished work in
+its scope, including a foreign assignee; `in_progress` is not proof of a running
+flow. A foreign-work recommendation calls for coordination, never takeover.
+No-ID run-task first reconciles confirmed own unfinished execution, then selects
+a ready task only if none exists. Blocked selected own work stops that flow,
+not a switch to fresh work. Different recommendations are therefore expected;
+status is read-only navigation, not an execution-readiness gate. With an explicit
+ID, run-task keeps that target. Next retains the selected container's scope;
+run-task does not replace a container with a child or execute a multi-task
+container as a leaf. Container verification/completion is a separate intent.
+
 ## Container, verification and publication
 
 Leaf Git publication, exact leaf completion and tracker publication are separate

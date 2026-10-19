@@ -162,6 +162,12 @@ facts. With incomplete input keep the available tree labeled partial; a conditio
 recommendation must say it is only among observed records. If selection itself is
 underdetermined, return the precise missing read/decision instead of a ranked winner.
 
+When the recommendation concerns foreign started work or could be confused with
+automatic execution selection, briefly explain: this is a project/scoped next
+action, `/risp-next <ID>` continues selected work, while no-ID `/risp-run-task`
+checks confirmed own unfinished work before ready tasks and stops on blocked own
+work. Different results are possible; foreign work requires coordination, not takeover.
+
 A complete set with no unclosed work says so directly and creates no artificial
 action. A closed ID with open descendants still shows those descendants; a closed
 ID without them says no unclosed work **in that scope**, not the whole project.

@@ -2,9 +2,12 @@
 
 ### 🧭 WHERE WE ARE
 
-**`/risp-status [ID]`** — project plan and blockers.
+**`/risp-status [ID]`** — project plan (or ID subtree), blockers and one recommendation.
 
 **`/risp-next <ID>`** — next step for selected work.
+
+Both are read-only. Status first considers started work in its scope, even another
+assignee's; a recommendation does not authorize takeover.
 
 ---
 
@@ -27,6 +30,11 @@ and design, and publish the inputs.
 
 **`/risp-run-task <ID>`** — implement, check, independently review, publish Git,
 then separately complete the task and publish the tracker.
+
+Without ID — confirmed unfinished work of the current actor first, then a ready
+task: the choice may differ from status. Blocked selected own work stops the flow.
+With ID the target stays fixed; a container is not replaced by a child, and a
+multi-task container is not executed as a leaf task.
 
 **`/risp-run-simple-task <request>`** — execute a clear, bounded assigned change.
 
