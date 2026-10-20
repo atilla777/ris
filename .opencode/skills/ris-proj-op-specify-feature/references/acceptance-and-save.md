@@ -66,10 +66,13 @@ cause's `blocked|conflict|error`, plus completed channels and exact remainder;
 only an expressly limited successful local save can be `ok` at that boundary.
 Never infer authority from nesting.
 
-Record-only reconciliation reads already published accepted content/decisions
-and the applicable independent review/Git receipt, skipping formulation, renewed
+Record-only reconciliation discovers already published accepted content/decisions
+and applicable independent review/publication evidence from saved associations
+(or a supplied checked result within an unfinished flow), skipping formulation, renewed
 acceptance and file saving. Enter step 5 with verified inputs; perform no push
-in this explicitly limited mode. Return its local record result and remainder.
+in this explicitly limited mode. No particular receipt file or previous chat is
+required; missing actual evidence remains a precise dependent gap, never invented.
+Return its local record result and remainder.
 
 1. Check exact file/evidence paths, rights, format and current state under the
    project's writer protocol. Reread existing files before update, preserve
@@ -86,9 +89,13 @@ in this explicitly limited mode. Return its local record result and remainder.
    candidate revision, decision, effects and any pending immutable refs. No task
    ID, epic or tracker capability is needed. Local addresses are explicitly local,
    not mandatory remote inputs for another session.
-4. In full mode, after saving apply independent `ris-port-op-review-change` for
-   a pre-ID document subject, or `ris-proj-op-review-task` for applicable
-   project-integrated review with or without an ID.
+4. In full mode, after saving apply independent `ris-proj-op-review-task` for
+   the project document subject, with or without an ID; it composes portable
+   assessment and saves the full local YAML under its references/report-format.md.
+   Pass publication-gate purpose and an explicit authorized report path before ID;
+   do not invent a task folder.
+   Consume its address/round through validity and external applicability checks,
+   not a copied verdict or old approval bypassing later adverse/unknown rounds.
    Supply exact whole candidate snapshot (base/overlay/add/delete/modes), content,
    decisions, rules and substantive checks. The reviewer must be independent of
    all authors/repair authors; self-review does not grant approval. Return
@@ -98,6 +105,10 @@ in this explicitly limited mode. Return its local record result and remainder.
    decisions, checks, review/provenance, destination evidence and allowed effects.
    Inspect its commit/tree/ref/remote receipt and independent remote evidence;
    match published selected content to the accepted candidate and decisions.
+   Inspect the publisher's primary-sync evidence too: full mode requires its
+   full result, unless this operation was explicitly bounded to remote-only Git
+   publication. Confirmed remote with pending local sync remains a preserved
+   partial effect; do not replay push or silently waive the full-result gate.
    Integration drift requires applicable independent reassessment, not self-approval.
    Requirements-only needs no future design, implementation evidence or task ID.
    Already published matching content reuses verified publication without empty

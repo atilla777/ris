@@ -77,6 +77,22 @@ use Task/change and retain all implementation/snapshot guards below.
    This exception cannot approve a fix or bypass separate material-design acceptance,
    whole-tree review, permissions, integration or remote-publication gates.
 
+For ordinary project review evidence, read/apply the installed
+`ris-proj-op-review-task/references/report-format.md` before the gate. Require one
+accessible local `ris.review/1` YAML and explicit round selector, including no-ID
+document subjects at their authorized path. Portable assessment contributes content
+but does not bypass the ordinary project save contract. Explicit fast execution
+may instead supply its sufficient independent session result; no mandatory file
+is introduced there, and an optional save uses the same format. Keep format
+validity separate from approval applicability: require `purpose: publication`
+and compare expected work/scope,
+full tree/base/exclusions, input versions, required coverage/checks and actual
+invocation/all-author provenance with the selected round. Read the full history;
+later refuting/blocked or invalid/unsupported rounds cannot be bypassed by an older
+approved round. Missing/invalid/stale report or required evidence gives no gate;
+asserted verdict/reviewer identity alone is insufficient. Historical Markdown
+reports are preserved, not automatically migrated or accepted as current YAML.
+
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,
 additions, deletions and modes, including unchanged base files and exclusions

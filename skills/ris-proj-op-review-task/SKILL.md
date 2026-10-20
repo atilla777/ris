@@ -2,7 +2,7 @@
 name: ris-proj-op-review-task
 description: >-
   Review one bounded RIS project change, with or without a task ID, and return
-  checked findings, saving a versioned report when required and authorized. Use for
+  checked findings and one local YAML report in the ordinary project route. Use for
   project code or document review and focused re-review; not fixing findings, feature design approval,
   publication or tracker completion. Self-review does not supply independent approval.
 ---
@@ -14,6 +14,13 @@ Own the checked project report. Load/apply `ris-proj-lib-common` with applicable
 specs, selected adapter or shared report paths, and `ris-port-op-review-change`
 for the assessment. Check dependency availability and actual results. A direct invocation
 needs no execution role or scenario skill.
+
+Before producing/saving a project report or consuming prior rounds, read
+`references/report-format.md` from this installed skill. It is the sole owner of
+`ris.review/1` serialization, types, history and approval applicability. Ordinary
+project review requires that complete YAML; explicit fast execution alone permits
+a sufficient session result without a file. An optional fast save uses the same
+format. No duplicate Markdown report or Beads verdict/findings copy.
 
 Establish the exact project, attributable agreed request, boundaries/criteria,
 accepted technical constraints/material decisions, requested review scope/version
@@ -30,10 +37,11 @@ Analysis requires neither claim mutation nor report-write permission.
 With a supplied ID, load/apply the selected available adapter and freshly read
 exact typed identity, content, membership and relevant dependencies. Discover the
 ID's accepted versions/decisions from its links and current candidate evidence
-from the supplied copy and accessible primary task reports (default
-`implementation.md`, `plan.md`, available optional receipts or inspected overrides;
-no execution journal is required), retaining
-project-required inputs. Adapter commands/storage belong to it. Missing essential
+from the actual supplied tree, tests, documents and applicable checks. Do not
+discover or require implementation reports, saved plans or historical RED/GREEN
+logs as review admission evidence. Assess final correctness/test sufficiency,
+not the author's development chronology; executor TDD obligations remain theirs.
+Adapter commands/storage belong to it. Missing essential
 identity blocks a task-bound report. Structural parent is not feature identity;
 ordinary standalone children retain their own sufficient scope/criteria/refs and
 constraints. Missing/malformed feature data cannot select an ordinary contract.
@@ -62,9 +70,9 @@ Select the review basis by the **actual subject**, not the existence of a bug ID
   versions to original divergence and affected regressions. Material drift requires
   targeted plan/change/review/evidence applicability assessment before approval,
   preserving compatible evidence with reasons. Never approve a changed expectation
-  just because the implementation passes it. Check saved plan or justified applicable
-  omission with sufficient technical inputs; omission cannot waive mandatory project
-  persistence, including RIS local plans. A mixed implementation/document subject
+  just because the implementation passes it. Assess sufficient accepted technical
+  inputs and current code/tests, not the author's plan or TDD-history persistence.
+  A mixed implementation/document subject
   retains these implementation guards; it cannot select the pre-execution exception.
 
 For dependent shared-path actions use context's checked primary selection and
@@ -79,7 +87,7 @@ not independent approval. Missing required independence leaves that gate
 unverified, even if useful assessment is possible. Reassessment of affected fixes
 is required; independence of that reassessment follows project/caller rules.
 
-Check report sufficiency: scope/version and baseline limits, applicable
+Check report sufficiency under the format resource: scope/version and baseline limits, applicable
 criterion/design/architecture/document coverage, evidence applicability, exactly
 one severity per finding, two groups (required high/medium; optional low), verdict
 and unresolved limitations. Project display may translate severities to
@@ -90,18 +98,31 @@ bound separately from context. A missing/ambiguous mapping or changed subject
 during review leaves approval unverified; saving a local report must not alter
 its subject. Ordinary review need not invent a publication manifest.
 
-Return a versioned response-only report when project rules permit; saving is not
-inherently required. Save when explicitly authorized or required by project/caller
-rules, with actual write permission. With a real ID use checked
-`workspace.tasks/<confirmed-ID>/review.md` by default; an explicit report address
-overrides it. Without an ID require an explicitly authorized address for a save;
-never invent an ID/directory. Read existing content, preserve history and unrelated
-notes, append/identify the new round and read it back. On a write conflict or
-missing required address/permission, return the assessment unsaved with the exact
-dependent gap; an unmet mandatory save is not optional no-save success. Do not
-overwrite history. Include actual independence,
-inputs/versions, checks, both finding groups (explicitly empty when applicable),
-verdict, prior dispositions and limitations.
+Save the ordinary project result as one `ris.review/1` file, using checked primary
+`workspace.tasks/<confirmed-ID>/review.yaml` by default or an explicit authorized
+local override. No-ID save requires an explicit authorized address, not an invented
+ID/directory. Translate the portable semantic assessment into complete coverage,
+checks, findings, provenance and verdict per the format resource; do not impose
+RIS serialization on the portable base. Preserve previous rounds, append the new
+round with semantic mapping `pass` → `approved`, `changes-required` →
+`changes_required`, `unverified` → `blocked` only when the format's verdict and
+external applicability predicates actually hold. No mechanical conversion creates
+approval from insufficient evidence. Append that
+round after fresh comparison and independently read back. On conflict, missing
+permission/path or unresolved snapshot return useful assessment unsaved/blocked;
+do not call an unmet ordinary mandatory save success. Fast alone permits the
+response-only exception. A response may summarize/link the YAML, not replace it.
+Return its local address and explicit round selector for any separately authorized
+tracker operation; this review owner never writes Beads. The address is not a
+promise of availability from another machine. Historical reports remain unchanged,
+without automatic migration or new-format approval from an old Markdown verdict.
+
+Keep format validity (`valid|invalid|unsupported`) separate from approval for the
+expected subject. Before returning a gate, apply the resource's external tree/base/
+exclusions, inputs, required checks and actual invocation/authorship observations.
+Read later rounds too: refuting or invalid/unknown later rounds forbid fallback.
+Missing required provenance/evidence or an inaccessible local report leaves no
+approval; the report's own `approved`/`confirmed` fields cannot certify themselves.
 
 Return status, project/change identity (confirmed ID only when supplied), reviewed
 version, report content/location and saved/unsaved

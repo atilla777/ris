@@ -60,6 +60,10 @@ apply to the reviewed version; later edits or integration require reassessment.
    an earlier passing tree is not execution evidence. Reuse suitable current
    checks; repeat only for changed coverage, failures or unresolved concerns.
    Use authorized read-only checks; do not mutate files or shared services.
+   Assess final code/tests and their sufficiency, not the author's internal work
+   or historical RED/GREEN chronology. Executor testing/TDD obligations remain
+   theirs; an absent implementation log is not review admission evidence. Never
+   copy its fields into the assessment as a replacement process report.
 4. For each finding give a stable local ID, precise file/line or artifact scope,
    basis, consequence and exactly one severity: **high**, **medium**, **low**.
    Label confirmed defect, rule violation, unverified hypothesis or optional
@@ -82,7 +86,9 @@ decision owner. No round limit creates automatic approval; the caller owns the
 repair loop. Low alone requires no automatic repair, task creation or new round;
 a collective disposition such as “considered, deferred from this delivery” suffices.
 
-Return subject/scope, baseline or its absence, reviewed version, independence,
+Return a semantic assessment (no project schema, persistence or paths): subject/scope,
+baseline or its absence, reviewed version, actual reviewer/context identity and
+invocation evidence when available, all known authors/repairers and the basis for independence,
 inputs and limits, observed/unrun checks and evidence applicability, two groups:
 **required fixes (high/medium)** and **optional recommendations (low)**. Explicitly
 say when a group is empty. Include prior-ID dispositions on re-review and, for a
@@ -92,5 +98,13 @@ context. Verdict: `changes-required` for unresolved confirmed high/medium;
 `pass` only with sufficient applicable evidence and no unresolved high/medium.
 When both blockers and missing evidence exist, report `changes-required` **and**
 the unverified scope. Low does not block pass. Changed bytes never inherit approval
-automatically. Stop at the assessment: no file edits, saved project report,
+automatically. Distinguish requirements, architecture, rules, correctness, tests
+and docs coverage with basis/outcome/evidence/reason (or justified inapplicability).
+For each check state identity, necessity, result and exact exercised snapshot;
+identify blocking limitations. Retain finding statuses and reasoned re-review
+dispositions; never rewrite a previous result as approval after an author's fix.
+A wrapper maps this semantic output into its own format/verdict vocabulary and
+checks structural validity separately from external applicability; the base does
+not require that format or a Git repository for ordinary portable review.
+Stop at the assessment: no file edits, saved project report,
 repair, publication, tracker changes/closure or next-operation launch.

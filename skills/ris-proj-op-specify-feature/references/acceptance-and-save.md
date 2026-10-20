@@ -89,9 +89,13 @@ Return its local record result and remainder.
    candidate revision, decision, effects and any pending immutable refs. No task
    ID, epic or tracker capability is needed. Local addresses are explicitly local,
    not mandatory remote inputs for another session.
-4. In full mode, after saving apply independent `ris-port-op-review-change` for
-   a pre-ID document subject, or `ris-proj-op-review-task` for applicable
-   project-integrated review with or without an ID.
+4. In full mode, after saving apply independent `ris-proj-op-review-task` for
+   the project document subject, with or without an ID; it composes portable
+   assessment and saves the full local YAML under its references/report-format.md.
+   Pass publication-gate purpose and an explicit authorized report path before ID;
+   do not invent a task folder.
+   Consume its address/round through validity and external applicability checks,
+   not a copied verdict or old approval bypassing later adverse/unknown rounds.
    Supply exact whole candidate snapshot (base/overlay/add/delete/modes), content,
    decisions, rules and substantive checks. The reviewer must be independent of
    all authors/repair authors; self-review does not grant approval. Return

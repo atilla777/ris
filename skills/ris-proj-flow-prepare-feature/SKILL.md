@@ -209,13 +209,20 @@ and preservation. A local saved result is not publication.
 
 ## Review, publish Git, then create the feature
 
-Delegate independent `ris-port-op-review-change` assessment of the concrete
+Delegate independent `ris-proj-op-review-task` assessment (composing portable review)
+of the concrete
 pre-ID document subject: specific accepted requirements/design and
 their decision evidence against rules, AC and actual architecture. Provide exact
 candidate revisions and addresses, not just an earlier verdict. Return material
 findings to their content owner; discuss/accept only changed content here,
 delegate repairs and rerun affected checks and fresh review. High/medium findings
 must be resolved before publication. Do not treat review as human acceptance.
+Pass publication-gate purpose and an explicit authorized local YAML report path for this pre-ID subject; never
+invent a task folder. Apply the review owner's references/report-format.md for
+the complete saved report and explicit round, validity separately from external
+whole-subject/provenance/check applicability, and no old-approval fallback past
+later adverse/unknown rounds. This change does not introduce early feature records
+or change preparation/decomposition order.
 
 Delegate `ris-proj-op-publish-task` for authorized preparation-artifact Git
 publication using the already prepared pre-ID document branch/copy above. Pass

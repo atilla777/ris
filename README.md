@@ -245,6 +245,13 @@ consumer/config changes, see the [namespace transition guide](docs/skill-command
 
 ## Documentation and development
 
+Ordinary project review saves one local `review.yaml` using
+[ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); Beads
+keeps only its address/round. Fast retains independent session-only review, with
+the same format for optional saves. Format validity alone is not current-snapshot
+approval; local reports are not automatically available on another machine.
+This review slice does not introduce the other planned lifecycle changes.
+
 - [Skill and command catalog](docs/skills.md)
 - [Installation, updates, removal and recovery](docs/installation.md)
 - [Development guide and package checks](docs/development.md)

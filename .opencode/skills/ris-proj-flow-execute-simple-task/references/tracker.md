@@ -55,6 +55,11 @@ concurrency, identity reconciliation and write/read-back algorithms.
   short remotely sufficient outcome, checks/independent review and limits, published
   Git SHA and actual decisions/refs. Ignored local reports cannot be required remote
   inputs. Preserve foreign fields and original acceptance addresses; read back.
+  For saved review, retain only its local YAML address and round ID in Beads,
+  never a verdict/findings duplicate. No report file is mandatory for fast;
+  session-only review retains its sufficient provenance in the session. Local
+  report access from another machine is not promised. The short work outcome,
+  actual checks, Git SHA and completion facts remain distinct tracker content.
 - Separately request **verified-work exact close** of this confirmed task, only
   after all required work/evidence and fresh native predicates pass. Use the
   adapter's normal close and independent read-back, never administrative close,

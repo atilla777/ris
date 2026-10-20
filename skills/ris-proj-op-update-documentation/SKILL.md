@@ -41,6 +41,12 @@ the request/rules; never infer product or other writes from an ID.
    actually integrated, checked components/contracts/state owners. Before
    integration, proposed synchronized text may be prepared in the change branch,
    explicitly as pending integration; do not publish it independently as current.
+   If relying on project change-review evidence for those claims, read the local
+   YAML/selected round under the installed review owner's references/report-format.md;
+   check validity and external applicability separately, including later rounds.
+   Do not copy verdict/findings into documentation/Beads or treat author process
+   logs as the reviewer result. This does not turn documentation into a review
+   owner or impose a file on the explicit fast session-only exception.
    Future components stay future in accepted design/ADR. Keep normative principles
    distinct from factual implementation. Record the implementation/tree on which
    each material factual change depends so integration can revalidate it.

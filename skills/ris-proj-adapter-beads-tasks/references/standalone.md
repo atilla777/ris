@@ -149,8 +149,14 @@ Advertise only actual supported Beads operations:
   replacement. Include exact ID/kind, own criteria/outcomes and disposition,
   integrated revision(s), the accepted request/decisions and external refs when
   present, check/review provenance,
-  mandatory composition/blockers, evidence addresses and limits. Reports must
-  be accessible without local ignored notes. Reconcile uncertain append before
+  mandatory composition/blockers, evidence addresses and limits. The short work
+  result must be accessible without local ignored notes. For project change-review
+  content, preserve only the local YAML address and round selector in Beads, not
+  copied verdict/findings or a remote-availability promise. The caller assesses
+  the report via the review owner's format/applicability contract; short work/check,
+  published SHA and completion facts remain sufficient tracker results, not a
+  second review report. Fast session-only review needs no invented file.
+  Reconcile uncertain append before
   retry. Append/key merge protects only its native row operation; snapshot-bound
   evidence needs fresh applicability/composition checks, not an atomic freeze
   over all relevant content/graph/external evidence.

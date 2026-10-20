@@ -164,9 +164,13 @@ remains a precise dependent gap, never invented.
     local save is now complete without tracker ID, epic or adapter; return
    checked addresses/revisions/decision and pending immutable refs. Do not infer
    workspace.tasks/<ID> before confirmation or require a draft directory.
-4. In full mode apply independent `ris-port-op-review-change` to the pre-ID
-    document subject, or `ris-proj-op-review-task` for applicable project-integrated
-    review with or without an ID, passing
+4. In full mode apply independent `ris-proj-op-review-task` to this project
+    document subject with or without an ID. It composes portable assessment and
+    saves one local YAML under its references/report-format.md. Pass publication-gate
+    purpose; before ID pass an
+    explicit authorized report path, not an invented task folder. Consume exact
+    address/round with separate validity/applicability checks and no fallback past
+    later adverse/unknown rounds, passing
     exact whole candidate base/overlay/add/delete/modes, accepted inputs/decisions,
     rules and checks. All authors/repair authors are distinct from the reviewer.
     For a native bug ID explicitly request **pre-execution design/document review**:

@@ -108,6 +108,10 @@ coverage, actual integrated Git revision/publication receipt, checks and indepen
 review applicability, mandatory scope/children/blockers, limits and accessible
 evidence. Preserve existing notes/decisions and reconcile marker/content on retry.
 Local persistence is neither closure nor tracker publication.
+For project change-review references store only local YAML address and selected
+round, not a copied verdict/findings. The caller checks its applicability before
+completion; keep the short fix/check/publication/completion facts distinct. Local
+review availability on another machine is not promised, unlike remote bug inputs.
 
 Then apply `completion.md` verified-work branch separately to this exact native bug: require caller's
 verified real fix criteria and full mandatory-scope disposition, applicable checks/

@@ -47,3 +47,10 @@ that portion unverified; if a critical input, permission, or dependency is
 missing, block only the dependent action and continue independent work where
 possible. Verify the result within the current task when appropriate; neither
 verification nor review automatically starts another lifecycle stage.
+
+When a project operation relies on a saved change-review gate, read/apply the
+installed `ris-proj-op-review-task/references/report-format.md`, the single owner
+of format/history and external approval predicates. Do not copy its schema here
+or infer pass from a verdict/name. This condition does not impose RIS format on
+portable assessments or override explicit fast session-only review. Integrated
+feature verification remains a different result, not a change-review report.

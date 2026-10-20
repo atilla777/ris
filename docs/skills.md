@@ -175,7 +175,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-prepare-task-worktree](../skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware working-copy/environment handoff |
 | [ris-proj-op-plan-task](../skills/ris-proj-op-plan-task/SKILL.md) | Verified saved task plan |
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
-| [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; response-only where rules permit, saved when required and authorized |
+| [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one local ris.review/1 YAML, with explicit fast no-file exception |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
 | [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed change or pre-ID document integration/push from an own branch plus safe primary-copy synchronization; explicit remote-only is limited |
 | [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Administrative exact-container close, read-only fulfillment verification, or verify-and-close on success |
@@ -298,9 +298,16 @@ publication remain distinct effects.
 
 Project review and Git publication also accept a sufficient agreed bounded request
 without an ID: supply its authority, criteria/constraints, exact copy/branch/base
-and complete candidate, checks and review purpose. No spec/design/plan/report file
-is inherently required; project-required tracking and saving still apply. Review
-uses the portable assessment method; actual independence belongs to its caller.
+and complete candidate, checks and review purpose. No spec/design/plan file is
+inherently required; project-required tracking still applies. Ordinary project
+review saves one local `review.yaml` under the [format owner](../skills/ris-proj-op-review-task/references/report-format.md),
+with complete rounds, exact Git subject and actual independence provenance.
+No-ID save needs an explicit local path. Beads keeps only address/round, not copied
+verdict/findings; another machine is not promised access. Explicit fast permits
+sufficient independent session-only review; optional save uses the same format.
+Review uses the portable assessment method; actual independence belongs to its
+caller. Structural validity is separate from current subject/input/check approval
+applicability; later adverse/unknown rounds cannot be bypassed by old approval.
 Publication requires independent review of the complete snapshot, an already
 prepared own branch and a safe copy (current copy where suitable, separate worktree
 when isolation/rules require), whole outgoing authority and remote confirmation.

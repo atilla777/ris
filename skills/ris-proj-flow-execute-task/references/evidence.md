@@ -45,8 +45,15 @@ result with provenance and explicit discovery gaps:
   deletions and modes), checks and independent review applicability. Follow the
   review/publication owners' snapshot contract; a HEAD commit alone is insufficient
   for dirty work. Record exclusions without losing foreign changes.
-- Review round/finding IDs, severity, disposition, reviewer independence and
-  progress facts. Keep authors of all repairs distinct from independent reviewer.
+- Review: local YAML address and explicit round selector. Apply installed
+  `ris-proj-op-review-task/references/report-format.md` for full content/history,
+  validity versus approval applicability, exact subject/inputs/checks and actual
+  invocation/all-author independence. Read findings/dispositions from that one
+  authority, not a copied verdict in Beads or implementation chronology. Keep
+  authors of all repairs distinct from reviewer; later adverse/invalid/unsupported
+  rounds forbid old-approval fallback. Missing local report gives no approval and
+  no remote-availability promise. Tracker holds address/round only for review;
+  short work/check/publication/completion facts remain distinct.
 - Actual Git remote/primary ref/integrated commit, snapshot checks/reassessment,
   push result and independent remote read-back address/revision.
 - Separately: criterion/composition verification, applicable write protection scope

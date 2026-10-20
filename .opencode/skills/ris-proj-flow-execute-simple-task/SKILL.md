@@ -107,16 +107,26 @@ Loading an owner is not applying it; inspect its actual output before advancing.
 4. **Actually launch independent review.** Load/apply `ris-proj-op-review-task`
    in a fresh invocation of the configured, available `task-review` subagent,
    independent of all implementation/repair authors. Supply project/config/rules,
-   attributable request/clarifications/criteria, accepted decisions and versions,
+   attributable request/clarifications/criteria, publication-gate purpose, accepted decisions and versions,
    real ID only if used, copy/branch/base, full exact candidate and checks/limits.
    Bind base plus overlays, additions, deletions and modes, including unchanged
    base files, and exclusions declared before review; HEAD alone or a dirty-tree
    hash is insufficient. Give the reviewer accessible bytes and bounded read-only
-   scope (report writes only when needed/authorized). Ask for a checkable report,
+   scope (report writes only when separately needed/authorized). Explicitly pass
+   this fast no-file exception: a sufficient independent result may remain in
+   session; absence of review.yaml alone does not block. If saving is requested,
+   use the installed review owner's references/report-format.md and the same
+   ris.review/1 format, never a Markdown twin. Ask for a checkable report,
    early return on missing essential evidence or material conflict, not a live
    agent test. Verify actual launch/context identity and returned subject/version,
    coverage, stable findings with exactly one high/medium/low severity, verdict
    and limits. Missing/unavailable/inapplicable independence blocks publication.
+   Apply that format owner for saved-file validity versus external applicability,
+   whole-tree/base/exclusions, inputs/checks and actual provenance; later adverse
+   or invalid/unsupported rounds forbid fallback. For session-only evidence check
+   the same substantive independence/snapshot/repair gates without requiring
+   YAML serialization. Review final results, not author implementation logs or
+   historical RED/GREEN runs.
 5. **Repair and recheck.** High/medium returns to the main agent applying the
    implementation owner with finding IDs; repair, run affected checks and obtain
    fresh independent review. Preserve links across rounds. Repeat until none
@@ -138,6 +148,10 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    mandatory check or reviewer blocks dependent publication with the accessible
    local result and exact remainder. An ambiguous push activates recovery before
    retry. Require sent commit/tree/ref/remote and fresh remote evidence.
+   Also require its primary-sync evidence for the full Git result; explicitly
+   limited remote-only must be agreed, not inferred from a successful push.
+   Pending local sync stops dependent full completion and returns only that
+   remainder to the publisher without replaying remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker
    resource for short result/Git SHA persistence, separately verified exact close

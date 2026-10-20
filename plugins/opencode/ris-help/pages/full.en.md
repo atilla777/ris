@@ -210,6 +210,10 @@ Does not redefine product requirements or redesign the feature.
 **`/risp-review-task [ID]`**
 
 Assess a concrete complete change and return findings. Does not repair or publish.
+Ordinary project review saves one local `review.yaml` (ris.review/1); no-ID saving
+needs an explicit path. Beads stores address/round only, not verdict/findings.
+Fast permits session-only independent review; optional save uses the same format.
+Valid YAML alone is not approval of the current snapshot and provenance.
 Self-review does not provide independent publication approval.
 
 ---

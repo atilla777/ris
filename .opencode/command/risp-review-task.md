@@ -1,5 +1,5 @@
 ---
-description: Review one bounded RIS project change with or without a task ID and return checked findings.
+description: Review one bounded RIS project change with or without a task ID and save one local YAML report (fast no-file exception).
 ---
 
 Load `ris-proj-op-review-task` with the skill tool and follow its contract for

@@ -36,6 +36,13 @@ live in the primary copy's `.sdlc/tasks/<confirmed-ID>/`; `tasks/PLAN-*` is a
 historical archive. Git push does not synchronize Beads. Follow the rules for
 review and separate Git/tracker publication and completion.
 
+Ordinary project review uses one local `review.yaml` under the
+[ris.review/1 owner](../skills/ris-proj-op-review-task/references/report-format.md).
+Beads stores only address/round, not verdict/findings. Fast retains session-only
+independent review; optional save uses the same format. YAML parsing checks syntax,
+not schema/approval: assess final subject, inputs, checks and actual independence
+separately. No historical report migration or author TDD-history audit is added.
+
 For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),
 not this guide or historical delivery reports as a second readiness register.
 

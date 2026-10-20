@@ -209,13 +209,20 @@ and preservation. A local saved result is not publication.
 
 ## Review, publish Git, then create the feature
 
-Delegate independent `ris-port-op-review-change` assessment of the concrete
+Delegate independent `ris-proj-op-review-task` assessment (composing portable review)
+of the concrete
 pre-ID document subject: specific accepted requirements/design and
 their decision evidence against rules, AC and actual architecture. Provide exact
 candidate revisions and addresses, not just an earlier verdict. Return material
 findings to their content owner; discuss/accept only changed content here,
 delegate repairs and rerun affected checks and fresh review. High/medium findings
 must be resolved before publication. Do not treat review as human acceptance.
+Pass publication-gate purpose and an explicit authorized local YAML report path for this pre-ID subject; never
+invent a task folder. Apply the review owner's references/report-format.md for
+the complete saved report and explicit round, validity separately from external
+whole-subject/provenance/check applicability, and no old-approval fallback past
+later adverse/unknown rounds. This change does not introduce early feature records
+or change preparation/decomposition order.
 
 Delegate `ris-proj-op-publish-task` for authorized preparation-artifact Git
 publication using the already prepared pre-ID document branch/copy above. Pass
@@ -228,7 +235,10 @@ do not reproduce it here. Read the returned receipt and check subject/version,
 commit/tree/ref/remote, review/check applicability, decision locators, actual
 effects and limits against the scenario's promised whole. Changed accepted
 content returns to its content owner and this dialogue; publication cannot
-accept it. A local/partial receipt cannot unlock dependent tracker creation.
+accept it. Require full remote-plus-primary-sync publication unless the person
+explicitly limited this scenario's Git result to remote-only. A partial result,
+including confirmed remote publication with pending primary sync, preserves the
+published inputs but cannot unlock dependent tracker creation in this full call.
 The document owners supply content/decision matching evidence; no mandatory
 Markdown byte-scope hashes.
 Decisions can name `containing-commit`, resolved by their commit-pinned address;
@@ -277,6 +287,9 @@ component result addresses, actual effects, limitations and decisions needed.
 and a remotely verified feature record. For incomplete execution use the stopping
 cause's `blocked|conflict|error`, giving each channel's actual state, cause and exact
 recovery; a bounded component's `ok` does not make the whole scenario `ok`.
-A new session can consume the ID and published
-addresses without local notes or this chat. Stop without decomposition, claim,
+A new session can consume project plus ID and discover published content and
+separate decisions from its saved associations under common's conditional
+published-input reading method, even if its checkout is stale. Verify those
+associations at completion; do not require the person to forward this receipt,
+local notes or chat. Stop without decomposition, claim,
 technical planning, implementation or closure.

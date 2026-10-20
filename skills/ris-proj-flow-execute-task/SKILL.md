@@ -240,8 +240,15 @@ or changed facts before deciding the next operation.
 4. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full
    candidate snapshot, requirements/design or sufficient bug report/snapshot and
    separately accepted decisions, project rules and check evidence.
-   Require saved findings, stable finding IDs, one high/medium/low level per
-   finding, verdict, version and independence provenance.
+   Pass publication-gate purpose; require one saved local `review.yaml` and explicit round ID under the installed
+   `ris-proj-op-review-task/references/report-format.md`; read/apply that owner
+   before consuming review. Check full content/history, structural validity and
+   separately current work/purpose/tree/base/exclusions, accepted inputs, required
+   checks and actual invocation/all-author provenance. A verdict field alone is
+   not approval; later refuting/blocked or invalid/unsupported rounds forbid old
+   approval fallback. Review assesses final results, not author RED/GREEN history
+   or implementation-report discovery. Current plan/implementation persistence
+   remains with its execution owner, not a reviewer admission audit.
 5. High/medium findings go back to the implementation owner for fixes, affected
    checks and a new independent review. Record low dispositions collectively or
    individually; low alone does not trigger repair, a new task or a new round.
@@ -267,7 +274,10 @@ or changed facts before deciding the next operation.
    result persistence and separate native exact-ID completion (advertised tool-specific
    ordinary operations for standalone tasks or native bug fix-completion, not
    investigation disposition or feature-record/1) with criterion/check/review
-   evidence and published commit. Require fresh status, complete child/blocker
+   evidence and published commit. In tracker review references store only the local
+   YAML address and round ID, not copied verdict/findings; short work result,
+   checks, published SHA and completion facts remain remotely sufficient. Local
+   reports are not promised available on another machine. Require fresh status, complete child/blocker
    reads, fresh applicable external evidence/mandatory composition and honest
    predicate-specific native limits, without freezing graph/evidence. No future
    `ris-complete-task` dependency is required. For a selected one-task feature,

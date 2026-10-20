@@ -20,6 +20,12 @@ accessible session content or authorized saved evidence. No history is assumed
 available to a new session; ask only for the missing essential input. Do not
 invent acceptance, passing checks or review because no report file was required.
 Missing/inapplicable independent review requires a fresh independent invocation.
+When an optional file was saved, read/apply the installed review owner's
+`references/report-format.md`: exact local YAML/round, validity separate from
+external applicability, actual provenance, and no old-approval fallback past later
+refuting/invalid/unsupported rounds. Without a file, accessible sufficient session
+review remains valid fast evidence; no YAML requirement is introduced. Beads
+contains only address/round for a saved review, not a verdict/findings copy.
 Compare current inputs and whole snapshot to evidence; reuse unchanged compatible
 results with reasons, rerun affected checks/review for changed parts under the
 main route's whole-snapshot publication gate. Material drift returns the affected
@@ -33,6 +39,9 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
   sent commit/tree and reachability. A local commit or timeout is not push proof.
   Confirmed publication is reused without recommit/redundant push; missing
   read-back gets that check, and unsent work keeps outgoing/review gates.
+  In full mode reconcile primary-copy sync separately through the same publisher;
+  pending sync is not remote failure or permission to replay push. Preserve an
+  explicitly authorized remote-only boundary without claiming local currentness.
 - Tracker: adapter reads distinguish saved result, exact closure and separately
   published history. Reconcile unknown create/update/close before retry. Reuse
   known ID/confirmed close; a closed own task pending publication receives only

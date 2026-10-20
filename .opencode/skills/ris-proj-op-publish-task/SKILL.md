@@ -2,17 +2,19 @@
 name: ris-proj-op-publish-task
 description: >-
   Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
-  established primary Git branch and verify authorized direct push. Use for
+  established primary Git branch, verify authorized direct push and safely synchronize the primary local copy. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
 ---
 
 # Integrate and verify Git publication
 
-Own one bounded Git integration/publication result. One skill suffices: this is
+Own one bounded Git integration/publication result: by default confirmed remote
+publication **and** safely synchronized primary local copy. Explicit remote-only
+is a limited result, never an implicit fallback. One skill suffices: this is
 an operational Git result, not a distinct portable content method. Load/apply
 `ris-proj-lib-common` and applicable resources, and `ris-proj-op-resolve-context` for project rules and
-evidence paths only when needed. Load the selected task adapter only for necessary identity/
+evidence paths when needed and primary identity for full publication. Load the selected task adapter only for necessary identity/
 blocker/ownership reads; this operation never writes or publishes tracker state.
 Direct invocation requires no execution role.
 
@@ -75,6 +77,22 @@ use Task/change and retain all implementation/snapshot guards below.
    This exception cannot approve a fix or bypass separate material-design acceptance,
    whole-tree review, permissions, integration or remote-publication gates.
 
+For ordinary project review evidence, read/apply the installed
+`ris-proj-op-review-task/references/report-format.md` before the gate. Require one
+accessible local `ris.review/1` YAML and explicit round selector, including no-ID
+document subjects at their authorized path. Portable assessment contributes content
+but does not bypass the ordinary project save contract. Explicit fast execution
+may instead supply its sufficient independent session result; no mandatory file
+is introduced there, and an optional save uses the same format. Keep format
+validity separate from approval applicability: require `purpose: publication`
+and compare expected work/scope,
+full tree/base/exclusions, input versions, required coverage/checks and actual
+invocation/all-author provenance with the selected round. Read the full history;
+later refuting/blocked or invalid/unsupported rounds cannot be bypassed by an older
+approved round. Missing/invalid/stale report or required evidence gives no gate;
+asserted verdict/reviewer identity alone is insufficient. Historical Markdown
+reports are preserved, not automatically migrated or accepted as current YAML.
+
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,
 additions, deletions and modes, including unchanged base files and exclusions
@@ -95,6 +113,12 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
 
 ## Integrate, reassess, publish
 
+Read and apply `references/primary-sync.md` from this installed skill for full
+publication before a new push, and after remote confirmation, including no-change
+and recovery calls. It owns preflight, local synchronization and their evidence;
+do not substitute Git primary inference for context's checked selection. Record
+full versus explicitly authorized remote-only scope before dependent effects.
+
 Use native `git fetch --quiet` and `git push --quiet` for routine network
 progress, with the explicit selected remote/refspec required below. Keep stderr,
 command exit status and the verified result/receipt available; do not redirect
@@ -109,7 +133,8 @@ inspection, independent review or remote read-back.
    ownership, overlapping foreign changes or a busy shared copy block dependent
    publication until the caller supplies safe preparation through existing owners.
    This operation does not create/switch branches or prepare worktrees.
-   Never switch, checkout, reset or mutate shared local primary/main to publish.
+   Never switch, checkout, reset or use shared local primary/main for integration;
+   its only permitted update here is the resource's post-confirmation safe FF.
    One publisher owns this subject, not every project's publication. Fetch the
    latest established primary branch from the selected remote and inspect its
    new code/contracts, divergence and the full outgoing commit/file set.
@@ -122,7 +147,8 @@ inspection, independent review or remote read-back.
    own copy within the accepted scope and checked below.
 2. If there are no intended changes, verify the existing result's applicable
    checks/review, decisions and required remote visibility; return its actual
-   receipt without an empty commit or redundant push. Existing unsent commits
+   remote evidence without an empty commit or redundant push; full mode still
+   completes/checks primary synchronization. Existing unsent commits
    still require the full outgoing gate. Otherwise commit intended changes using
    project history style in this own branch/copy. Merge the fetched latest
    established primary remote branch into it, resolving conflicts there; do not
@@ -150,7 +176,8 @@ inspection, independent review or remote read-back.
 4. Reinspect target/remote and complete outgoing scope immediately before direct
    push; send the checked resulting own-branch commit to the authorized primary
    remote ref with an explicit source:destination refspec and normal non-force
-   push. Do not switch/move shared local main. On remote advancement/rejection,
+   push after the resource's fresh full-mode primary preflight. Do not move
+   shared local main before remote confirmation. On remote advancement/rejection,
    freshly fetch and reconcile refs, merge the new target in this own copy,
    resolve conflicts and repeat only affected integration/check/reassessment
    steps before the next push. On ambiguous response independently inspect the
@@ -163,12 +190,20 @@ inspection, independent review or remote read-back.
    evidence, not merely command exit. On failed verification return the stopping
    cause's `blocked|conflict|error`, confirmed local/remote effects and the exact
    remaining check; reconcile an uncertain push before repeating it.
+6. In full mode complete and read back primary synchronization under the resource.
+   Full `ok` needs both confirmed remote publication and local primary state at the
+   last independently observed remote tip. A confirmed remote with pending local
+   completion is a partial result using the stopping cause's non-`ok` status;
+   it never requires republishing S. Explicit remote-only `ok` covers remote only
+   and names excluded local effects. No-change/retry does not waive this distinction.
 
 Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,
 commits/tree/ref, input/result versions and separate decision locators,
 checks/review addresses, provenance and applicability, docs state, actual push
-and remote-read evidence, preserved local effects and recovery needs. Persist
+and remote-read evidence, publication scope, primary selection/provenance, before/
+after local ref/HEAD/tree and safety/read-back evidence (or excluded/pending local
+sync with its cause), preserved local effects and recovery needs. Persist
 authorized evidence with an exact filename and read it back. With an ID use the
 checked task evidence area only when authorized; without an ID use an explicitly
 authorized address or the response and state any discovery gap. Never invent an
