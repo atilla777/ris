@@ -21,7 +21,7 @@ verification method to all children indiscriminately.
    result; default verify returns it unsaved and stops, with fulfilled / unfulfilled /
    insufficient-data coverage. Reuse applicable evidence, identifying its revisions
    and currency. Do not append
-   `ris.feature-record/1` or introduce a second registry or mandatory report file.
+   `ris.feature-record/2` or introduce a second registry or mandatory report file.
    For verify-and-close require usable evidence and no unresolved material
    limitation. Failed/unverified outcomes never authorize close; an existing
    closed status remains unchanged and is not acceptance.

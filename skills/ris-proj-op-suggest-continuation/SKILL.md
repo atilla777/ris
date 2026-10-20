@@ -113,6 +113,18 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    downstream readiness checks to its owner. Never assert unproven stage success.
    Published proposals are not accepted design or implementation permission;
    closed children are not container acceptance or authority to close it.
+   For an early /2 feature, inspect nullable identity/refs and any supplied copy
+   association, not just raw status. Name the first evidenced preparation gap:
+   safe same-ID copy (purpose feature-preparation), unpinned slug/spec pair before
+   document writes, missing accepted requirements, or missing accepted design.
+   Apply actual rights/foreign claim and action-specific blockers before suggesting
+   an effect; execution-only prerequisites do not automatically ban requirements
+   clarification. Unknown copy facts remain an exact evidence gap, not a claim
+   that no copy exists. Read only the fitting preparation/spec/design owner's
+   actual contract; recommend an explicitly limited result, not run-task readiness
+   from ID existence. Null design means no accepted sufficient design, not merely
+   missing design.md; an accepted nonoverlapping inline section is valid.
+   Historical /1 remains unsupported/no-write with no migration recommendation.
    For an existing feature distinguish, where material: accepted requirements
    with design missing/proposed; both separately accepted with work composition
    not yet determined; an already determined sufficient one-task or child-task

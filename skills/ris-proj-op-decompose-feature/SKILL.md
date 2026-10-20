@@ -78,7 +78,7 @@ from reads first, then check each operation and guarantee **before** its
 dependent write, including the required concurrency level. A configured
 adapter or a similarly named CLI command is not evidence of support; never
 bypass the adapter by calling `bd` or editing tracker storage. Read the selected
-task; for a feature confirm its `task` type, open status, epic parent, scoped identity, exact
+task; for a feature confirm its `task` type, open status, optional epic parent, scoped identity, exact
 spec link and acceptance-evidence address **in either its readable content or the
 linked specification**, and reread the saved specification and decision.
 Cross-check their identity and status; a closed feature or mismatched link
@@ -101,15 +101,15 @@ a simple task can use sufficient accepted constraints without a design file.
 Read each exact accepted source/decision version, verify publication and compare
 current applicability as below. Name missing inputs instead of inventing them.
 
-The following payload/epic/slug/both-ref gates apply to the **feature branch**;
+The following payload/optional-parent/slug/both-ref gates apply to the **feature branch**;
 the shared applicability, readiness, reconciliation and coverage checks apply
 to both branches using their actual accepted inputs.
 
-Require the selected adapter's optional `tasks.feature-record/1` capability
+Require the selected adapter's optional `tasks.feature-record/2` capability
 with `tasks.features.read` in addition to the v1 reads. Read its owned record
-resource for the one current payload's encoding/version checks. Former payloads
-with `scope`, `sha256`, digest verification or `history` are explicitly
-`historical/unsupported` even under the same `/1` marker/schema. Return the
+resource for the one current payload's encoding/version checks. Every /1 payload
+and former payloads with `scope`, `sha256`, digest verification or `history` are
+`historical/unsupported`. Return the
 inspected ID, unchanged payload and diagnostic; block dependent writes, never
 reinterpret, remove or migrate it on read/retry. Unsupported or malformed input
 does not authorize guessing a slug or adding a replacement block.
@@ -126,7 +126,10 @@ decisions are published in the selected Git remote. A commit/file or a branch
 URL alone is not acceptance. Shared-file selectors must yield independently
 identifiable, nonoverlapping accepted results; no byte ranges, heading/EOF
 protocol, scope digest or tracker decision history is required.
-`design: null` is missing accepted design and blocks dependent writes.
+Null slug/spec or requirements is an early preparation/input gap, not readiness
+or ordinary kind. `design: null` is missing accepted design and blocks dependent
+writes, even when no separate design.md is needed; a distinct accepted inline
+section can supply its non-null ref. Do not fabricate refs or an epic.
 
 Apply common's conditional published-input reading method: an absent local
 `sources.specs`/file in an older checkout is a copy diagnostic, not missing accepted

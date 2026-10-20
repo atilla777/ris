@@ -157,7 +157,9 @@ inputs and current contracts, status, ownership, typed directed blockers and
 complete mandatory composition. A missing plan is allowed at admission; decide
 its necessity under step 2 before implementation.
 For feature-linked work obtain current published requirements/design and separate
-acceptance references through the adapter; inspect the referenced versions and
+acceptance references through the adapter's current /2 capability; null identity/
+requirements/design is an early preparation gap, not execution-ready or ordinary.
+No epic is fabricated for a root feature. Inspect the referenced versions and
 their applicability to current inputs. Do not repin refs or migrate unsupported
 historical payloads. Membership is not a `blocks` edge; evaluate parent restrictions
 under project rules without inventing an edge.
@@ -273,7 +275,7 @@ or changed facts before deciding the next operation.
    the published version. For a leaf task, delegate selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific
    ordinary operations for standalone tasks or native bug fix-completion, not
-   investigation disposition or feature-record/1) with criterion/check/review
+   investigation disposition or feature-record/2) with criterion/check/review
    evidence and published commit. In tracker review references store only the local
    YAML address and round ID, not copied verdict/findings; short work result,
    checks, published SHA and completion facts remain remotely sufficient. Local

@@ -1,4 +1,4 @@
-# Optional `tasks.feature-record/1` on Beads 1.3.1
+# Optional `tasks.feature-record/2` on Beads 1.3.1
 
 Read for `tasks.features.read|update|record-verification|complete`, or
 `tasks.items.create` with an initial feature-record. The caller owns feature
@@ -21,12 +21,21 @@ never reclassifies it as ordinary. `tasks.features.complete` below remains stric
 ## One current payload, Git-owned history
 
 Keep one fenced JSON object in the task **description**, between literal
-`<!-- ris.feature-record/1 begin -->` and `<!-- ris.feature-record/1 end -->`.
+`<!-- ris.feature-record/2 begin -->` and `<!-- ris.feature-record/2 end -->`.
 Preserve all surrounding prose byte-for-byte. The object has exactly these
-top-level keys: `schema: "ris.feature-record/1"`, `slug`, `spec_path`,
-`requirements`, `design`, `verification`. Slug and spec association remain
-immutable; title changes do not change them. `requirements` is required;
-not-yet-accepted `design` and not-yet-recorded `verification` are `null`.
+top-level keys: `schema: "ris.feature-record/2"`, `slug`, `spec_path`,
+`requirements`, `design`, `verification`. Reject duplicate/unknown/missing keys.
+`slug` and `spec_path` are either both null or a consistent nonempty pair.
+The pair is pinned once, after collision checks and **before the first document
+write**; thereafter neither member can change or return to null, even if documents
+disappear. Title/metadata changes never rename ID, copy, slug or spec path.
+Early requirements, design and verification are null, never fabricated refs.
+Non-null requirements/design require a pinned pair and checked published content
+and decisions. Requirements path equals spec_path; design belongs to this feature's
+agreed documents. Design cannot be non-null without requirements. Verification
+requires both accepted refs. No temporary slug, epic, phase or ready key is added.
+The native type is task; a confirmed epic parent is optional and lives only in
+the actual parent-child relationship, not in this payload.
 Git holds displaced documents and decisions; do not add `history` to Beads.
 
 Each non-null requirements/design reference has:
@@ -83,10 +92,17 @@ existence. Record checked addresses/revisions and publication evidence. Missing
 content, unreachable decision, ambiguous section or unconfirmed publication
 blocks a dependent write; a syntactically valid reference alone is not enough.
 
-Example initial payload (placeholders require real published values):
+Early payload, with exactly six keys (no document or acceptance prerequisite):
 
 ```json
-{"schema":"ris.feature-record/1","slug":"basic-crafting","spec_path":"docs/specs/basic-crafting/spec.md","requirements":{"path":"docs/specs/basic-crafting/spec.md","revision":"<full published Git commit>","section":"Requirements","acceptance":{"address":"<immutable requirements decision>","decision":"accepted"}},"design":null,"verification":null}
+{"schema":"ris.feature-record/2","slug":null,"spec_path":null,"requirements":null,"design":null,"verification":null}
+```
+
+Pinned identity may also have all three refs null. Example accepted requirements
+payload (placeholders require real published values):
+
+```json
+{"schema":"ris.feature-record/2","slug":"basic-crafting","spec_path":"docs/specs/basic-crafting/spec.md","requirements":{"path":"docs/specs/basic-crafting/spec.md","revision":"<full published Git commit>","section":"Requirements","acceptance":{"address":"<immutable requirements decision>","decision":"accepted"}},"design":null,"verification":null}
 ```
 
 `verification` contains `git_sha` (full published integrated commit),
@@ -100,18 +116,22 @@ history. Recording failed checks is allowed; it does not permit closure.
 
 Read exactly one matching `task` via `bd show <id> --brief-deps --json`; the
 description must be complete, not the brief inventory's omitted field. Confirm selected
-epic parent, stable key, spec link and marker cardinality. Return actual data
+optional epic parent (or checked absence), stable key, nullable spec association
+and marker cardinality. A single complete /2 block matching the six-key invariants
+identifies current feature data, including the all-null early form; null inputs
+mean missing readiness, not malformed or ordinary kind. Return actual data
 and which references/content/decisions were checked; unverified references
-must be labeled. Duplicate/malformed blocks are `conflict`.
+must be labeled. Duplicate/malformed blocks, including mixed /1 and /2 blocks,
+are `conflict`; never select a convenient block and ignore the other.
 
-The former payload with `scope`, `sha256`, digest-based verification or
-`history` is **historical/unsupported**, despite the same markers/schema.
+Every /1 marker/schema and other former payload with `scope`, `sha256`,
+digest-based verification or `history` is **historical/unsupported**.
 Return its unchanged data and explicit diagnostics: current operations cannot
 use it as accepted input. A task without a block is likewise unsupported.
 Use the main result envelope with `status: blocked` and a
 `historical/unsupported` diagnostic, not an alternate operational schema;
 include the inspected ID and unchanged payload so the data remains readable.
-Support only the current structure above; matching `/1` markers/schema alone
+Support only the current /2 structure above; matching markers/schema alone
 does not establish compatibility. There is no backward-compatibility or migration
 capability, even when a caller authorizes conversion. Do not reinterpret old
 fields, silently drop history, append a guessed block or migrate on read/status/
@@ -128,24 +148,28 @@ reread the actual record and return the applicable no-write refusal (or a newly
 observed conflict), never replay a replacement. This refusal does not block the
 separately authorized native status-only close described above.
 
-Keep today's identifier unchanged: no `/2` fallback or dual-schema API. The next
+There is no /1 fallback, dual-schema API or replacement-record workaround. The next
 incompatible encoding or semantic contract change must use a distinct version
 identifier, with producers, consumers and unsupported-input diagnostics updated
 together before dependent writes; never reuse one identifier for another
 incompatible structure again. This rule neither converts historical records nor
 renews or rebinds their original decisions.
 
-For initial create, validate the approved block and published requirements
-(and design if supplied), then read/apply `create.md` v1 create checks. Search the
+For explicitly requested early feature create require chosen feature, title/goal,
+stable project-scoped retry key and authority. Abstract ideas are not automatic
+registrations. Validate the approved /2 block and any supplied non-null published
+refs; missing requirements/design/epic do not block early registration. Apply
+`create.md` with this explicit /2 extension, not ordinary fallback. Search the
 complete **all-state project task set**, not only the selected parent:
 `bd list --all --limit 0 --type task --brief --json`, then disclose all content
 needed under the main read policy. Slug and historical blocks live in description:
 read every relevant task's description unless a proven coverage-preserving native
 filter establishes that predicate. Key/spec-only candidates cannot exclude a
 slug collision elsewhere. Full list JSON remains a fallback. Compare stable key **and**
-slug/spec association: collect candidates matching any of key, slug or
+known non-null slug/spec association: collect candidates matching any of key, slug or
 specification path/link, including historical blocks. A match on just one
-dimension is not absence. Require one exact match on key, type, epic, slug,
+dimension is not absence. Null is not a shared collision key. Require one exact
+match on key, type, optional parent (including absence), slug,
 spec link, approved content and all accepted references/decisions for reuse.
 Different values, multiple matches or unsupported candidate input are an
 explicit collision/diagnostic, never permission to overwrite or create again.
@@ -166,7 +190,7 @@ record or imply readiness/completion.
 
 ## Bounded existing-record writes
 
-For update, verification and complete require exact ID, expected current
+For identity pin, update, verification and complete require exact ID, expected current
 content and allowed fields. Apply `concurrency.md` from this resource's directory:
 freshly compare the exact block and surrounding prose, use applicable native
 conditions and only the approved description replacement, then independently
@@ -179,6 +203,19 @@ atomic guarantee is explicitly required but unsupported, return its exact limita
 before writing. Unexpected content/ownership/structure changes conflict; never
 overwrite a changed acceptance block or silently rebind its pins.
 
+Before and after each feature description mutation (including verification),
+repeat the complete all-status key/known slug/spec collision check above. Preserve
+every known persisted ID and report conflict if a concurrent collision appears;
+do not claim uniqueness or delete/undo either record. Expected identity/refs and
+the exact authorized mutation must be independently read back.
+
+- **Identity pin:** only the null/null → nonempty pair transition is allowed,
+  explicitly authorized on this exact ID before document writes. Check agreed paths,
+  all-status key/known slug/spec collisions before and after mutation, including
+  historical records, using the create search above. Preserve null refs, prose and
+  unrelated fields; fresh-compare and independently read back the pair. Existing
+  identical pair is verified unchanged, not repinned; different/one-sided pair is
+  conflict. No second feature, rename, migration or implicit epic addition.
 - **Update:** check every new accepted reference and its actual content/decision
   as above. Preserve immutable slug/spec, unrelated prose and fields. On a
   design-only update preserve the entire old requirements reference, including
@@ -194,7 +231,10 @@ overwrite a changed acceptance block or silently rebind its pins.
   and check design applicability rather than assuming the old design remains
   valid. Any changed result reference invalidates existing verification: set
   it to null unless fresh applicable verification is explicitly authorized.
-  Write only the prepared description using `bd --sandbox update <id>
+  Repeat the all-status key/known slug/spec collision check before and after a
+  feature description mutation; null dimensions do not prove absence. An epic
+  added later requires separate authorized `structure.md` composition, never a
+  side effect of requirements update. Write only the prepared description using `bd --sandbox update <id>
   --body-file <prepared-file> --json` (or stdin `--body-file -`), never stale
   notes/title/labels. Reread the entire description and unaffected fields.
 - **Record verification:** require accepted applicable requirements/design,

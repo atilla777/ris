@@ -78,7 +78,15 @@ not a certification of every project or runtime.
   close guards, `--sandbox` and fresh read/write/read are not general content/graph
   CAS or distributed exclusion. Unsupported required guarantees block the dependent
   write; see the [adapter contract](skills/ris-proj-adapter-beads-tasks/SKILL.md).
-- **Data compatibility:** only the current feature-record shape is supported.
+- **Data compatibility (bounded early-feature source candidate):** this change
+  introduces the optional `tasks.feature-record/2` contract. It is not acceptance
+  of the complete S1 lifecycle or evidence of live agent behavior. Explicitly limited
+  early registration via `/risp-specify-feature` needs a chosen feature, title/goal
+  and stable key, not spec/design/epic. The same ID can obtain a safe copy via
+  `ris-proj-op-prepare-task-worktree` with purpose `feature-preparation`; pin the
+  nullable slug/spec pair once before document writes. Accepted refs still require
+  real published content/decisions. ID/copy existence is not execution readiness.
+  This direct seam does not supply the separately planned unified preparation flow.
   Historical payloads remain history, without migration/backward compatibility;
   incompatible dependent operations return a precise no-write refusal. Package
   update does not repair data. See the [accepted policy](docs/specs/feature-record-compatibility.md).

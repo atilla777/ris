@@ -3,7 +3,7 @@ name: ris-proj-op-prepare-task-worktree
 description: >-
   Prepare or safely reuse one confirmed RIS task's worktree with checked claim,
   shared roots, selected Git or Worktrunk adapter and a self-contained handoff.
-  Use for project task working-copy preparation; not task selection, technical
+  Use for feature-preparation or execution working copies; not task selection, technical
   planning, implementation, repair, publication or task completion.
 ---
 
@@ -18,7 +18,8 @@ loads the selected worktree adapter; the tasks adapter owns tracker effects.
 
 ## Project inputs and preflight
 
-Require selected project, exact task ID, actor, current working copy and explicit
+Require selected project, exact task ID, actor, current working copy, purpose
+`execution` (default) or explicitly selected `feature-preparation`, and explicit
 permissions for claim, copy creation/reuse, environment actions and optional
 evidence writes. Never choose a task or infer its ID from a title. Prepare context
 for these inputs; read the applicable project rules. For shared paths consume
@@ -32,9 +33,20 @@ product/specification acceptance just to prepare a copy, or change `ris.yaml`.
 Through the selected available tasks adapter freshly verify exactly this task's
 identity/type/content, membership, status, blockers and assignee. Check supported
 read and claim operations and their actual guarantees; `tasks` v1 alone does not
-promise claim. Closed/invalid/blocked tasks stop dependent filesystem mutation;
+promise claim. Closed/invalid tasks stop dependent filesystem mutation;
 a foreign live claim is a conflict, never overwritten. Read-only inspection may
 return observations without claiming or creating anything.
+
+For `execution`, retain all existing execution-readiness and active-blocker gates;
+the existence of an ID/copy never supplies sufficient accepted task inputs.
+For `feature-preparation`, require current /2 feature identity, open own preparation
+work/claim and permitted preparation actions; nullable slug/spec/accepted refs are
+not copy prerequisites. Through the adapter read every active directed blocker
+and establish which requested preparation action it actually prohibits. An
+execution-only prerequisite is not automatically a ban on clarifying requirements;
+an actual or unresolved blocker of the chosen preparation action stops that action.
+Do not remove/ignore edges, override native claim refusal or weaken execution
+gates to prepare a copy. /1/historical/malformed remains a no-write diagnostic.
 
 An exact native bug uses explicitly advertised ordinary bug reads, complete
 children/directed blockers and native claim (Beads `references/bug-execution.md`),
@@ -67,11 +79,21 @@ without fallback; do not copy the base's creation or preservation algorithm here
 ## Claim-aware composition
 
 Before any creation or environment mutation, confirm an existing own claim or
-obtain an explicitly authorized claim of the open unblocked task through the
-adapter's supported guarded operation. If permission/capability is missing, stop
+obtain an explicitly authorized claim of the open task unblocked for its selected
+purpose/action through the adapter's supported guarded operation. Pass the exact
+purpose/action and inspected blocker-scope evidence to the claim owner; verify
+that its admission and post-claim checks support that purpose before relying on
+them. With Beads apply its owned `references/claim.md` action-specific branch:
+only proved execution-only blockers may permit feature preparation, not unknown
+or actual preparation blockers. No purpose-specific support means a dependent
+capability gap, not permission to bypass the adapter. If permission/capability is missing, stop
 that mutation. Independently reread ownership, in-progress status and blockers
 after claim and before each new mutation batch, including retry, setup and
-optional evidence writes. Stop on ownership loss/new blockers and report effects.
+optional evidence writes. Stop on ownership loss or blockers of that action and
+report effects; retain strict execution blockers for execution purpose. Any
+blocker/content drift needs fresh scope evidence and claim-owner reconciliation
+before filesystem progress, even after a successful claim. Preserve a partial
+claim when blocked; do not remove edges, force or bypass a native refusal.
 Claim/worktree do not isolate shared state or supply CAS/concurrent uniqueness.
 
 Apply the base's preparation/reuse, selected adapter and conditional environment
@@ -96,7 +118,13 @@ must use the confirmed project workspace, not an ambient new database in the cop
 
 ## Handoff, optional evidence and stop
 
-Return the base's complete copy/environment result plus task ID, actor, fresh
+Use the same ID/path/branch on resume and after title/metadata/slug changes. Keep
+existing document/user changes; do not rename, create a draft store or second
+publication copy, or replay create/setup because a journal is absent. The base
+continues to own preservation, hooks/setup and confirmation-first partial recovery.
+
+Return the base's complete copy/environment result plus task ID, actor, purpose,
+the selected action and its blocker interpretation, fresh
 claim/status/blocker observations, current and primary project roots, confirmed
 tracker workspace, config provenance and re-resolved rules/shared paths. Include
 association evidence as exact forwarded facts or an accessible locator (unknown

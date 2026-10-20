@@ -58,6 +58,17 @@ publication does not establish acceptance.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 
+Before suggesting feature selection for an epic, inspect its existing related
+features and material saved results: is a feature actually missing, or does the
+needed result advance an already selected feature? A stale epic description cannot
+override current children/refs. Apply common's conditional published-input reading
+method when those links/decisions can change the answer; do not stop at a missing
+file in the current checkout or require a prior-chat receipt. If the selected
+subject is explicitly the epic, retain that scope, explain the existing child's
+exact identity and needed result, and make any child locator explicit rather
+than silently changing the selected subject. Foreign assignment/blockers or a
+proven unfinished flow remain constraints, not reasons to invent a new feature.
+
 For no-ID work inspect the supplied authorized source and selected scope directly;
 require neither an artificial bead nor a product directory. Preserve the exact
 document/candidate path and version, session ID/export or OKF root and operation
@@ -102,6 +113,32 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    downstream readiness checks to its owner. Never assert unproven stage success.
    Published proposals are not accepted design or implementation permission;
    closed children are not container acceptance or authority to close it.
+   For an early /2 feature, inspect nullable identity/refs and any supplied copy
+   association, not just raw status. Name the first evidenced preparation gap:
+   safe same-ID copy (purpose feature-preparation), unpinned slug/spec pair before
+   document writes, missing accepted requirements, or missing accepted design.
+   Apply actual rights/foreign claim and action-specific blockers before suggesting
+   an effect; execution-only prerequisites do not automatically ban requirements
+   clarification. Unknown copy facts remain an exact evidence gap, not a claim
+   that no copy exists. Read only the fitting preparation/spec/design owner's
+   actual contract; recommend an explicitly limited result, not run-task readiness
+   from ID existence. Null design means no accepted sufficient design, not merely
+   missing design.md; an accepted nonoverlapping inline section is valid.
+   Historical /1 remains unsupported/no-write with no migration recommendation.
+   For an existing feature distinguish, where material: accepted requirements
+   with design missing/proposed; both separately accepted with work composition
+   not yet determined; an already determined sufficient one-task or child-task
+   composition; and a known unfinished operation/flow, conflict, blocker or foreign
+   assignment. Inspect exact content and separate decisions before relying on
+   acceptance. Both accepted inputs with undetermined composition support a
+   decomposition-owner recommendation, **not** implementation readiness or an
+   obligation to create children: that owner checks the one-task case and all
+   readiness gates. An empty child list alone does not show decomposition is
+   missing; inspect any saved one-task/coverage result when known. Requirements
+   without accepted design cannot be advertised as decomposition-ready. Historical/
+   malformed refs leave an exact reconciliation/input gap, not inferred acceptance.
+   These are examples of needed results to match against current owner contracts,
+   not an exhaustive lifecycle stage table.
 4. **Return to caller:** for nested/component invocations return the bounded
    recommendation and evidence to the caller; do not take over its dialogue,
    transitions or combined result or silently change full/limited mode.
@@ -133,6 +170,13 @@ selected container's scope: report missing mandatory work or separate acceptance
 need, never switch to executing a child or automatically closing its parent.
 
 ## Verify the recommendation, report and stop
+
+First check **necessity**, separately from command compatibility: name the missing
+result, the material current facts/decisions inspected, and why an existing saved
+result does not already satisfy it. If a linked source could change this choice,
+read it or return that precise evidence gap before recommending the operation.
+Finding a compatible installed command cannot prove its result is needed. Do not
+audit unrelated history or repeat the executing owner's entire readiness check.
 
 Before a slash prompt inspect the **actual installed command's explicit target** and
 confirm it targets that owner, exists in this client and accepts the proposed

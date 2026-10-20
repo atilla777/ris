@@ -12,7 +12,9 @@ The caller supplies endpoints, scope, expected structure and authorization.
   `parent-child` dependency (child → parent), and unlimited parent selection.
   Reparenting/removing membership (`--parent ''`) changes mandatory scope;
   require explicit permission, fresh expected structure and result checks.
-  Do not substitute a `blocks` edge for membership or add both.
+  Do not substitute a `blocks` edge for membership or add both. A /2 root feature
+  may receive a confirmed epic later only as a separately authorized composition
+  operation; keep payload/refs/pins unchanged. Requirements update does not add it.
 - **Blocking:** `bd --sandbox dep add <blocked-id> <blocker-id> --type blocks --json`;
   `bd --sandbox dep remove <blocked-id> <blocker-id>` only for an explicitly authorized
   edge removal. Check both IDs and existing typed edges. Confirm the dependent

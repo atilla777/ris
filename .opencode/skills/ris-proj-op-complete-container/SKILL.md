@@ -101,7 +101,7 @@ Check active blockers on the container and mandatory members. Four closed childr
 are useful completion facts, not feature acceptance or permission to close parents.
 
 For features require `tasks` v1 reads of items/children/dependencies and the
-explicitly advertised `tasks.feature-record/1` operations `tasks.features.read`,
+explicitly advertised `tasks.feature-record/2` operations `tasks.features.read`,
 `tasks.features.record-verification`, `tasks.features.complete` with their actual
 guarantees before each needed write; assessment alone needs only reads. Read its
 adapter-owned resource before use. Validate ID ↔ immutable slug ↔ spec/design
@@ -110,9 +110,11 @@ full published Git revision, whole-file or unambiguous semantic section and each
 result's own immutable Git acceptance address. Read both pinned content and
 separate decisions; match the named content/section/revision and authorized
 acceptor, resolving decision-only `containing-commit` per the adapter contract.
-Confirm remote publication, not merely local object existence. A null design
-blocks completion. Former scope/sha256/digest-verification/history payloads are
-`historical/unsupported` despite the same `/1` schema/markers: return their ID,
+Confirm remote publication, not merely local object existence. Null identity,
+requirements or design blocks verified completion; an early /2 record is not
+malformed or ordinary. Sufficient inline design still needs a non-null accepted
+design ref. Every /1 and former scope/sha256/digest-verification/history payload is
+`historical/unsupported`: return its ID,
 unchanged payload and diagnostic, block dependent writes and preserve the data.
 Do not reinterpret, drop history or migrate on read/retry/completion. Malformed
 records also block dependent writes. Another adapter may supply equivalent operations only

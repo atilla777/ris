@@ -26,7 +26,7 @@ accepted design, architecture/contracts, documentation and check evidence on
 that remote-backed revision. Inspect its criterion coverage and limits; diff
 review is not integrated acceptance. Otherwise assess this bounded composition's
 own outcomes against addressed evidence/revisions for each delivery; do not force
-unrelated deliveries onto one SHA or require feature-record/1. Substantial design
+unrelated deliveries onto one SHA or require feature-record/2. Substantial design
 needs independent acceptance where material, simple constraints need no artificial
 design file. Record pass/fail/unverified with concrete evidence for every outcome.
 The assessment must satisfy project independence requirements; an implementation
@@ -43,7 +43,7 @@ Only this intent uses the following write branch, with authorized persistence.
 
 Check the selected adapter's explicitly advertised tool-specific ordinary result
 persistence and exact-close support and apply its owned resource. `tasks` v1 and
-feature-record/1 alone do not promise ordinary-container writes. Supply only
+feature-record/2 alone do not promise ordinary-container writes. Supply only
 authorized fields, exact expected identity/content/composition, accepted refs/
 decisions, outcome verdicts, integrated revisions, actual checks/independent
 assessment provenance, usable evidence addresses and limits. Evidence must be

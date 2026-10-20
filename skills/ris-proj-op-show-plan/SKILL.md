@@ -107,7 +107,11 @@ Line form (localize labels):
   the container's mandatory work is fully specified or accepted.
 - Features show compact requirements/design evidence: reference present, acceptance
   unverified; acceptance checked against exact version and separate decision; checked
-  absent; or unknown/malformed. Brief omission cannot prove absence; a structurally
+  absent; or unknown/malformed. Include early /2 root features without inventing
+  an epic: show nullable identity and refs as unfinished preparation, not ordinary
+  tasks or malformed records. Known copy/identity/accepted-input gaps inform the
+  continuation recommendation; no extra registry or acceptance audit for the tree.
+  Brief omission cannot prove absence; a structurally
   valid feature record, file/link, closed children or no blockers cannot prove acceptance.
 - Interpret stage only from sufficient facts and preserve raw status. `in_progress`
   means **in work according to Beads**, not a proven running flow. `needs design` or

@@ -1,7 +1,8 @@
 ---
 name: ris-proj-op-specify-feature
 description: >-
-  Accept, save and publish RIS requirements and reconcile an epic-backed feature,
+  Register an explicitly selected early feature, or accept, save and publish RIS
+  requirements and reconcile a feature with optional epic,
   explicit standalone task/container, or document-only subject. Discover existing
   inputs by ID; support explicitly limited formulation/save/record contributions.
   Use for accepted project requirements, including bounded noninteractive save;
@@ -13,7 +14,7 @@ description: >-
 
 By default own the **combined project result**: a specific accepted specification, its
 verified saved/published version and a correctly linked record: a feature `task`
-under a confirmed `epic`, or an explicitly selected ordinary standalone task or
+with an optional confirmed `epic`, or an explicitly selected ordinary standalone task or
 task-container. `ris-port-op-formulate-feature-spec` owns portable content; `ris-proj-op-interview-feature`
 owns the reusable material-coverage map/check and an interview handoff when needed; the
 selected task adapter owns bounded tracker operations. Apply their results and
@@ -53,7 +54,9 @@ acceptance evidence. A feature proposal is not a chosen feature; a title is not
 an epic or task ID. Do not select the next feature or refine an unclear epic.
 From an existing ID use context and the selected adapter's exact read, complete
 children and directed blocker reads to discover kind/key, scope, current sources
-and separate decisions. Read linked versions and compare current applicability;
+and separate decisions. Apply common's conditional published-input reading method
+for saved results; exact ID and permanent associations suffice without a previous
+caller/chat/receipt. Read linked versions and compare current applicability;
 ask only for the exact missing/ambiguous/stale dependency. Existing ID never
 authorizes a new record. Establish feature, standalone task/container or
 document-only subject explicitly; a failed feature parse is not a standalone
@@ -97,13 +100,46 @@ project rules, with that limitation explicit and no publisher call; never silent
 downgrade a full request or promise later publication from a dirty primary copy.
 Proposal-only and record-only calls need no new document working copy.
 
-For a feature at creation agree a permanent slug and check existing document paths;
+For a new combined feature result, reconcile the selected feature's early identity
+through the registration branch before its first document write, then use that
+exact ID/copy and pin the pair. This is a contribution to the full requested
+result, not permission to report limited registration as full success. An explicit
+document-only result retains its no-tracker contract; do not invent an ID for it.
+
+For a feature before its first document write agree a permanent slug/spec pair
+and pin it through the adapter on the same exact ID. Until then both may be null;
+no temporary slug is needed. Check existing document paths;
 the selected adapter owns all-status tracker collision checks when needed. The
 tracker task is the sole ID ↔ slug ↔ spec link, not a second registry. A title
 change never renames the slug or path. Default to ordinary
 `sources.specs/<slug>/spec.md` without OKF index/frontmatter; a documented project
-override takes precedence. Read a legacy record before any migration: never
+override takes precedence. Read a legacy record for diagnostics only: never migrate,
 guess its slug from its title or silently relocate its accepted document.
+
+## Explicitly limited early registration
+
+When explicitly requested for an already chosen feature (as a limited result or
+an explicitly scoped contribution to an authorized combined result), own bounded
+registration rather than claiming the default accepted-document result. Require
+selected project, approved title/brief goal, stable project-scoped retry key,
+exact existing ID if known, optional confirmed epic and tracker-write authority.
+Do not register an abstract idea automatically or disguise this as ordinary work.
+Apply the selected adapter's advertised `tasks.feature-record/2` initial-create/
+read and owned encoding/collision protocol. No requirements/design acceptance,
+published document, slug/spec pair, document copy or Git push is prerequisite.
+Use the six-key early /2 form with null identity/refs; include only known validated
+associations. A known ID means exact read/reuse, never another create. All-status
+key and known slug/spec checks precede/follow create; reconcile ambiguous effects
+before retry and return every conflicting ID. Existing /1/historical/malformed
+data receives a no-write diagnostic, not conversion or ordinary fallback.
+
+Read back actual ID/type/key, optional parent, payload and preserved content.
+Stop with this limited local result and separate tracker-publication facts/debt;
+publish only if separately requested through the adapter's publication owner.
+No document, claim, copy, acceptance or readiness is implied. A subsequent save
+uses this same ID and an already checked own preparation copy, pins the pair
+before any document/evidence write, then follows the normal acceptance and
+published-reference gates below. No second "ready" feature or second copy.
 
 ## Compose one content and acceptance dialogue
 
@@ -154,7 +190,8 @@ earlier version or a successful format check is insufficient. If acceptance
 occurs in the current dialogue, establish how the decision and version will be
 recoverable to a later recipient, with a precise accessible address under the
 project's rules. If no project mechanism or durable verifiable address for the
-decision is available, do not create a tracker feature task. Never manufacture
+decision is available, do not record accepted requirements refs. This does not
+prohibit the explicitly limited early registration above. Never manufacture
 an acceptance record or treat an unaccepted candidate as the accepted file.
 After a material change to accepted content, obtain acceptance of the changed
 version again; do not silently append requirements during formatting.
@@ -182,8 +219,8 @@ fresh expected content/structure checks and bounded native operations/read-back;
 changed refs invalidate dependent evidence.
 The following feature-record requirements apply only to the feature branch.
 For a feature combined result preflight the selected available adapter's `tasks` v1 epic
-read, item list/read/create and `tasks.feature-record/1` read/initial-create
-support. Check actual guarantees, confirmed open epic/scope, stable retry key,
+read, item list/read/create and `tasks.feature-record/2` read/initial-create/update
+support. Check actual guarantees, optional confirmed open epic/scope, stable retry key,
 slug/spec association and approved task content. Ordinary creation uses the
 adapter's best-effort all-state collision detection, exact reuse and read-back;
 it requires no global creator window or extra risk question. If the caller
@@ -193,8 +230,9 @@ saving; report the causal non-`ok` status, preserved local effects and exact
 remaining adapter operation. Never bypass it via direct storage.
 
 Only published document and decision inputs may enter a tracker reference.
-Invoke create/reuse through the adapter with type `task`, confirmed epic,
-approved content/key and current `ris.feature-record/1`: immutable slug/spec_path,
+Invoke create/reuse or update of the already registered exact ID through the
+adapter with type `task`, optional confirmed epic,
+approved content/key and current `ris.feature-record/2`: pinned slug/spec_path,
 requirements reference `{path, revision, section, acceptance: {address,
 decision: "accepted"}}`, design and verification `null` for requirements-only
 creation. Do not add scope hashes or tracker history. If a separately accepted

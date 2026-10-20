@@ -5,12 +5,33 @@ Require exact ID/type, actor and authorization. Bug execution adds its own
 `bug-execution.md` capability; this method does not expand feature APIs.
 
 `bd --sandbox --actor <actor> update <id> --claim --json` atomically guards
-claim ownership; require an open, unblocked issue (or a claim already owned
-by the same actor), and verify `in_progress`, `assignee` and current blockers
-after. `bd` allows `--claim` on a blocked issue: this check is not atomic
-with the claim. If blocker changes during the attempt, report partial claim
-and stop; do not proceed as ready. A second actor must
-receive a conflict; never overwrite a live claim with `--force`.
+claim ownership. Require an open issue, exact actor and permitted claim; a claim
+already owned by that actor may be verified unchanged. Purpose defaults to
+`execution`: active or unresolved blockers prevent new claim admission and
+dependent execution, including when an own claim already exists.
+
+Only an explicitly requested `feature-preparation` claim for a current /2 feature
+may use action-specific admission. Require the caller's exact authorized
+preparation action and inspectable scope evidence for **every** active directed
+blocker, matched to freshly read edge/endpoints/content. The caller owns the
+substantive action/scope decision; verify its evidence against actual tracker
+facts. Admit a fresh claim despite active edges only when each is proved
+execution-only and does not prohibit that preparation action. Unknown applicability,
+missing evidence or a real preparation blocker blocks admission. Do not infer
+execution-only scope from a title, raw status, null refs or caller's purpose alone.
+This exception does not authorize execution, remove edges or waive ownership.
+
+`bd` allows `--claim` on a blocked issue: blocker admission is not atomic with
+the claim. Independently verify `in_progress`, exact `assignee`, current directed
+blockers and the purpose/action's evidence after claim (or own-claim reuse).
+If blockers/content changed during the attempt, reconcile the fresh facts before
+dependent progress: execution remains blocked by any active/unresolved blocker;
+preparation proceeds only if every remaining active blocker is freshly proved
+execution-only for that exact action. Otherwise report the persisted partial
+claim and exact blocker/evidence gap and stop; claim success is not readiness.
+Ownership loss or native refusal stops the dependent action regardless of purpose;
+reconcile ambiguous effects before retry. A second actor receives conflict. Never
+use `--force`, remove edges, silently release/reclaim or bypass native refusal.
 
 For continuing work, `bd --sandbox --actor <actor> heartbeat <id>` refreshes the current
 owner's lease. Baseline 1.3.1 `heartbeat --help` documents `lease_expires_at` and

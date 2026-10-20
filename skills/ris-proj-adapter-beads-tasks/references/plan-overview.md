@@ -1,7 +1,7 @@
 # Read-only plan overview on Beads 1.3.1
 
 Read before serving the Beads-specific plan-overview capability. This is separate
-from task-only `tasks` v1 and `tasks.feature-record/1`; it changes no mutation
+from task-only `tasks` v1 and `tasks.feature-record/2`; it changes no mutation
 contract. The caller owns working-set interpretation, tree, candidate selection
 and recommendation. Return checked data, coverage and field-level unknowns.
 Apply the main skill's selected-workspace, exit/body and bounded-read rules.

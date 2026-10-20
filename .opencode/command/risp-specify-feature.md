@@ -1,5 +1,5 @@
 ---
-description: Accept and publish RIS requirements for a feature or explicit standalone subject; support limited contributions.
+description: Register an explicitly chosen early feature, or accept and publish RIS requirements; support limited contributions.
 ---
 
 Load `ris-proj-op-specify-feature` with the skill tool and follow its contract

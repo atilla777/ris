@@ -7,7 +7,7 @@ Apply main typed read/reconcile; read/apply `claim.md`, `update.md` or
 `completion.md` for the requested action, and `concurrency.md`
 before dependent writes. Use the single `dolt-publication.md` method only for
 separately authorized publication. This resource adds bounded capabilities, not
-tasks v1 feature operations, feature-record/1, diagnosis or composition.
+tasks v1 feature operations, feature-record/2, diagnosis or composition.
 
 ## Advertise the requested capability and inputs
 

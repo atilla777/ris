@@ -40,6 +40,16 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
 
 ## Feature and task
 
+- For an **already explicitly chosen** feature needing early tracking, use
+  `/risp-specify-feature`: explicitly limited early registration, title/goal and
+  stable project key, optional epic, no spec/design/acceptance required. It returns
+  the same /2 ID with nullable identity/refs, not execution readiness. Then the
+  existing task-copy owner can prepare that ID with purpose `feature-preparation`
+  before documents; pin slug/spec together once before first writes. Status/next
+  expose the actual copy/input/blocker gap. Historical /1 is unsupported without
+  conversion/fallback. This direct seam does not change the full prepare-flow's
+  acceptance/decomposition boundary below.
+
 - "I want to add authorization": if this is a new feature needing decisions,
   explain `/risp-prepare-feature <epic/context>`: select a bounded result, accept
   requirements and design separately, publish inputs and feature ID. Decomposition

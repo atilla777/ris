@@ -1,7 +1,7 @@
 ---
 name: ris-proj-adapter-beads-tasks
 description: >-
-  Serve the tasks v1 and optional feature-record/1 adapter roles and verify
+  Serve the tasks v1 and optional feature-record/2 adapter roles and verify
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim, conditionally update feature evidence,
@@ -29,7 +29,7 @@ Support `tasks` v1 roadmap `tasks.epics.list|read|create|update` and
 `tasks.blocks.list|add|remove`; optional task operations are
 `tasks.items.list|read|create`, `tasks.children.list` and
 `tasks.dependencies.list|add`. These are semantic names, not CLI commands.
-Feature and child records use native `task`, feature parent `epic`; native
+Feature and child records use native `task`, optional feature parent `epic`; native
 `feature` is not a substitute. Read routes below cover these reads and ordinary
 native bug reads/lists with the caller's expected type. No feature payload is
 required for ordinary reads. Report requested supported operations/guarantees
@@ -56,8 +56,10 @@ do not load other branches merely to list or exact-read a record:
 | Separately authorized `dolt.publish` or remote-gated write preflight | `references/dolt-publication.md` |
 | Explicitly authorized selected-project initialization only | `references/init.md` |
 
-The feature-record capability is optional `tasks.feature-record/1`, not implicit
-in tasks v1; its resource owns its guarantees. Malformed/absent feature data never
+The feature-record capability is optional `tasks.feature-record/2`, not implicit
+in tasks v1; its resource owns early nullable identity/refs, paired one-time pin,
+optional epic and operation-specific readiness. /1 remains historical/unsupported
+without migration/fallback. Malformed/absent feature data never
 selects ordinary kind. Administrative status close is Beads-specific, not
 `tasks.features.complete`; it preserves the payload and is not acceptance.
 List/read/list-blocks give complete inspected results or an explicit failure.

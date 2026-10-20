@@ -169,10 +169,10 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-suggest-continuation](../skills/ris-proj-op-suggest-continuation/SKILL.md) | Read-only continuation prompt, human decision or exact blocker |
 | [ris-proj-op-show-plan](../skills/ris-proj-op-show-plan/SKILL.md) | Complete compact read-only project/ID-subtree plan and one checked next action |
 | [ris-proj-op-interview-feature](../skills/ris-proj-op-interview-feature/SKILL.md) | Feature-requirements interview handoff |
-| [ris-proj-op-specify-feature](../skills/ris-proj-op-specify-feature/SKILL.md) | Accepted published requirements and feature/standalone record, or explicit limited contribution |
+| [ris-proj-op-specify-feature](../skills/ris-proj-op-specify-feature/SKILL.md) | Explicit early /2 registration, or accepted published requirements and feature/standalone record |
 | [ris-proj-op-design-feature](../skills/ris-proj-op-design-feature/SKILL.md) | Separately accepted published design and record references, or explicit limited contribution |
 | [ris-proj-op-decompose-feature](../skills/ris-proj-op-decompose-feature/SKILL.md) | ID-based feature/standalone one-task check or sufficient children and tracker publication |
-| [ris-proj-op-prepare-task-worktree](../skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware working-copy/environment handoff |
+| [ris-proj-op-prepare-task-worktree](../skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware feature-preparation/execution copy/environment handoff |
 | [ris-proj-op-plan-task](../skills/ris-proj-op-plan-task/SKILL.md) | Verified saved task plan |
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one local ris.review/1 YAML, with explicit fast no-file exception |
@@ -231,6 +231,17 @@ prepared own copy before writes intended for publication, or report an explicitl
 authorized local/unpublished limitation. The publisher only consumes preparation;
 it never creates/switches branches or prepares worktrees. Separate acceptance,
 independent whole-snapshot review and Git/tracker publication gates remain.
+
+The direct early-registration contribution of `specify-feature` needs only an
+explicitly chosen feature, title/goal, stable project key and write authority;
+epic/spec/design are optional. It checks/reuses one /2 ID with honest nulls,
+without document/acceptance/claim effects. The existing task-copy wrapper accepts
+that exact ID with purpose `feature-preparation`, preserving action-specific
+blockers and all ownership/copy guards before documents. Pin slug/spec together
+once before first writes; later published refs update that same record. Execution,
+decomposition and verified completion retain accepted-input gates; /1 is unchanged
+historical/unsupported, not an ordinary fallback. This direct seam does not change
+the full prepare-flow's end boundary or supply the planned unified dialogue.
 
 For simple assigned work, `run-simple-task` judges clarity, consequences and
 checkability rather than diff size. The main agent applies portable implementation

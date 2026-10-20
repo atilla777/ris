@@ -28,7 +28,13 @@ On uncertain creation, re-list all records
 and reconcile the stable identity before another attempt. With no reliable
 identity evidence, do not retry an ambiguous create: `conflict`.
 
-For common `tasks.items.create`, require a confirmed open epic as parent of a feature
+For an explicitly advertised /2 initial feature create, apply `feature-record.md`:
+title/goal and stable scoped key suffice; epic, identity pair and accepted refs may
+be absent. Validate a supplied epic and its open status/membership; omit --parent
+when absent and --spec-id when no actual spec link exists. Never manufacture them.
+This is the /2 extension, not ordinary creation or a relaxation for child inputs.
+
+For common `tasks.items.create` without that extension, require a confirmed open epic as parent of a feature
 task, or a confirmed open feature task as parent of a direct child. Require
 caller-approved task content, a stable retry key and expected absence; for
 the feature also require the exact accepted-spec link and a verifiable

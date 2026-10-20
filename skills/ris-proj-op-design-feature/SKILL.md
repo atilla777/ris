@@ -45,8 +45,8 @@ Direct invocation needs no configured execution role or new per-step skill.
 Identify project, combined or explicitly requested document-only mode, selected
 feature/slug, create or revise intent, linked requirements/design and authorized
 file/evidence/record/optional ADR changes. Combined mode requires a confirmed
-tracker ID (task or explicitly ordinary native bug); only the feature branch
-requires an epic. Document-only requires neither.
+tracker ID (task or explicitly ordinary native bug); a feature's epic is optional
+and checked when present. Document-only requires neither.
 Full finished operation is default. An explicitly limited contribution names
 proposal, optional pre-approval draft save, accepted local save or record-only
 reconciliation from a checked Git receipt; nesting/Gas City does not select limited mode. Ensure
@@ -78,7 +78,7 @@ the actual accepted versions using common's conditional published-input reading
 method; do not ask the user to repeat accessible facts or supply a prior receipt.
 Missing/ambiguous/stale links block only the dependent result with an exact gap.
 Explicit ordinary standalone work uses the adapter's advertised tool-specific
-source update/reconciliation resource and guarantees, not feature-record/1 or
+source update/reconciliation resource and guarantees, not feature-record/2 or
 an invented epic/slug. Preserve structural parent and unrelated content. Simple
 accepted constraints need no ceremonial design file; material design still needs
 separate acceptance. A malformed/historical feature is never reclassified.
@@ -103,15 +103,19 @@ that document result. The persistence resource carries this subject distinction
 through both owners without waiving their independent whole-tree checks.
 
 In the feature combined branch load the selected available adapter and check `tasks` v1 reads
-for exact task, epic, children and directed blockers; use complete all-status task
+for exact task, epic when present, children and directed blockers; use complete all-status task
 selection only when related-design discovery or identity reconciliation needs it,
 not merely because the feature ID is known. Additionally require
-`tasks.feature-record/1` with `tasks.features.read` and, for a saved combined
+`tasks.feature-record/2` with `tasks.features.read` and, for a saved combined
 result, `tasks.features.update`. Check each operation's guarantees before any
 dependent write. Read exact ID/type/parent and its identity block: slug, spec
 path, requirements `{path, revision, section, acceptance: {address, decision:
 "accepted"}}` and its actual content/decision. Read prior design and current
 verification on revision; Git owns displaced decisions, not tracker history.
+Early null requirements are a precise missing accepted-input gate, not malformed
+or ordinary kind. Before feature document writes require its pinned slug/spec
+pair and same-ID checked own copy; a root feature needs no invented epic. A
+non-null accepted design ref is required downstream even for inline design.
 Historical unsupported records block dependent writes and remain intact; do not
 guess a slug, overwrite malformed blocks or migrate in this operation. Title
 edits preserve slug/spec. Document-only reads the supplied accepted requirements

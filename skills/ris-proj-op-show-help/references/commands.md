@@ -131,13 +131,19 @@ Result/stop: sourced status-aware handoff, without writing a specification.
 Example: `Load ris-proj-op-interview-feature for authorization in <project>`.
 
 ### ris-proj-op-specify-feature
-[Owner](../../ris-proj-op-specify-feature/SKILL.md). Purpose: accepted requirements.
+[Owner](../../ris-proj-op-specify-feature/SKILL.md). Purpose: accepted requirements,
+or explicitly limited early /2 registration of an already selected feature.
 Choose when: formulate/accept/save/publish behavior, not technical design.
 Inputs: project and feature ID/epic or explicit standalone/document subject,
 known decisions, separate acceptance and allowed effects; ID discovers own refs.
 Result/stop: accepted saved/published requirements and reconciled record, or the
 explicitly limited contribution; no decomposition/implementation.
 Example: `/risp-specify-feature <ID>, requirements scope <scope>`.
+Early example: `/risp-specify-feature early registration only: <title/goal>,
+stable key <project-scoped-key>, optional epic <ID>; no documents yet`.
+The registration result is an ID with honest null inputs, not acceptance or
+readiness. The existing copy owner accepts that ID with purpose
+`feature-preparation` before document writes; execution purpose keeps its gates.
 
 ### ris-proj-op-design-feature
 [Owner](../../ris-proj-op-design-feature/SKILL.md). Purpose: sufficient technical design.

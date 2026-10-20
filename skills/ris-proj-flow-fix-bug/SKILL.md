@@ -44,7 +44,7 @@ gap without silently repairing the investigation or demanding a CAS provider.
 Check advertised ordinary native bug reads, claim, execution snapshot append/read,
 result persistence and separate fix-completion, plus tracker publication. For
 Beads these belong to `ris-proj-adapter-beads-tasks` and its conditional
-`references/bug-execution.md`; feature-record/1 and investigation disposition do
+`references/bug-execution.md`; feature-record/2 and investigation disposition do
 not supply them. Delegate bounded tracker operations to that owner with exact
 content, identity, expected state and authority; inspect actual read-back.
 

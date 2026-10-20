@@ -57,6 +57,15 @@ the dependent action, not independently authorized work.
 
 ## Save, check and gate tracker effects
 
+The explicitly limited early-registration branch in SKILL.md stops before this
+accepted-document protocol. Its null /2 record needs no acceptance or Git receipt.
+For a later feature save, require the same exact ID and checked own preparation
+copy; pin the initially null slug/spec pair through the adapter before the first
+document/evidence write. Existing pinned paths remain immutable. Pending local
+content/decisions never become tracker accepted refs before publication. No
+second record or publication copy is created. Ordinary/document-only modes retain
+their own no-artificial-ID contract.
+
 For full mode preflight the existing Git publisher and, when records are part
 of the result, adapter publication before dependent writes: exact subject,
 destinations, authority, whole outgoing scope and required guarantees. Missing

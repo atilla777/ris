@@ -21,7 +21,7 @@ authorized publication/preflight. The caller owns kind, content and acceptance.
 ### Native bug registration capability
 
 Advertise ordinary **bug read, list, create/reconcile and update** as
-Beads-specific operations, not `tasks.items.*` or feature-record/1. The task
+Beads-specific operations, not `tasks.items.*` or feature-record/2. The task
 operations below remain task-only; registration itself does not extend claim,
 close, children, composition or blocking to bugs. The conditional investigation
 and bug-execution resources add only their explicitly advertised disposition and

@@ -3,7 +3,7 @@
 Read before report/acceptance persistence, duplicate relation or investigation
 disposition-close. Registration does not need this resource. Apply main typed
 read/reconcile, `standalone.md` native supplementation and `concurrency.md` before
-writes. These are bounded ordinary capabilities, not tasks v1 or feature-record/1.
+writes. These are bounded ordinary capabilities, not tasks v1 or feature-record/2.
 The investigator owns proof, agreed criteria, useful delta and disposition
 authority; this adapter checks supplied evidence/permissions and actual effects.
 
