@@ -113,13 +113,15 @@ the investigation owner's bounded current report/acceptance persistence.
 Pass the **same exact ID**, full snapshot text and locator (project/tracker + ID +
 marker), report source/version, accepted decisions, permissions, copy/effect receipts
 and limits to `ris-proj-flow-execute-task`. Apply that scenario **in full**, including
-its conditional plan policy, copy/claim, roles, code TDD or text owner, independent
+its copy/claim, roles, code TDD or text owner, independent
 review, Git publication, separate exact completion and tracker publication. Do not
-copy or skip its stages. In RIS its mandatory persisted local plan remains; direct
-plan-task still saves a plan. No new slash command is required.
+copy or skip its substantive gates. Implementation starts from sufficient accepted
+inputs/current code, without a saved plan, omission-decision or implementation
+report. The historical bug-input snapshot remains required, not a substitute log.
+No new slash command is required.
 
 At handoff and resume compare current report/criteria/decisions with the historical
-snapshot. Material changes go to affected plan/change/review/evidence owners for
+snapshot. Material changes go to affected change/review/evidence owners for
 targeted applicability assessment before dependent effects; compatible results may
 be retained with reasons. Preserve old snapshots; a newly needed basis gets its
 own identified full snapshot rather than rewriting history. Existing published or

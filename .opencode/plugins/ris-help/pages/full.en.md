@@ -165,7 +165,7 @@ already included in prepare-feature. Does not plan one task's implementation.
 
 **`/risp-run-task [ID]`**
 
-Execute or resume one prepared task: copy/claim, plan as required, implementation,
+Execute or resume one prepared task: copy/claim, implementation from sufficient accepted inputs,
 checks, independent review, Git publication, separate task completion and tracker
 publication. An explicit ID selects only that work; without one, reconcile own
 unfinished work before ready-task choice. Not a whole multi-task container.
@@ -181,21 +181,13 @@ association and authorized setup. Does not plan or implement the task.
 
 ---
 
-### 📝 PLAN THE TASK
-
-**`/risp-plan-task <ID>`**
-
-Save a technical plan and check strategy in a supplied suitable copy. Does not
-create a worktree or implement the change.
-
----
-
 ### 🧪 IMPLEMENT AND CHECK WITH TDD
 
 **Direct skill: `ris-proj-op-implement-task-tdd`**
 
 Implement code/tests or repair review findings with mandatory TDD and affected
 checks. Stops at checked changes, not independent approval, publication or close.
+No saved plan, implementation report or author test-history report is required.
 
 ---
 

@@ -17,7 +17,7 @@ load/apply `ris-proj-op-update-documentation`. Check actual dependency availabil
 results, not just their names. Direct execution needs no configured agent role.
 
 Establish exact task ID/project, actor, authorized code/test/docs scope, current
-working copy, applicable plan or enough accepted technical inputs, and optional
+working copy, sufficient accepted technical inputs, and optional
 review findings from the request, project and available evidence; ask only for
 missing material decisions. Through the selected available adapter freshly read
 task identity/content, membership, blockers and claim. Check its explicitly
@@ -40,8 +40,8 @@ not a guessed migration. Standalone work needs accepted technical constraints,
 not an invented feature record. Compare actual accepted content and contract
 versions with current code and relevant integration; labels alone do not prove
 applicability. Preserve accepted refs; material departures return to their owner.
-Discover own accepted inputs by ID and links, and the plan at context-checked
-primary `workspace.tasks/<ID>/plan.md` or its inspected override. Confirm actual
+Discover own accepted inputs by ID and links. Old plans are optional context;
+their absence or staleness creates no planning stage or approval gate. Confirm actual
 feature linkage: structural parent alone does not imply a feature. Standalone
 children need their own scope/criteria/refs/seams, not copied global AC. Simple
 accepted constraints need no ceremonial design file; material design does.
@@ -58,14 +58,13 @@ choices still need separate design acceptance. Read the complete snapshot via
 project/tracker + bug ID + marker, compare current report/criteria/decisions and
 code applicability before changes/resume, and identify that basis in implementation
 and check evidence. Material drift requires targeted reassessment of affected
-plan/change/review/evidence before dependent edits. When no saved plan is required
-by rules or execution/handoff sufficiency, verify the recorded omission and enough
-accessible accepted technical inputs; otherwise a missing plan blocks dependent
-work. RIS retains its mandatory local plan. Pass original divergence, success and
+change/review/evidence before dependent edits. Confirm current-input sufficiency
+and a viable approach in current code, without saved plan or omission-decision.
+Pass original divergence, success and
 affected-regression criteria to the base without tuning expectations to the bug.
 
 Pass verified inputs, constraints and required TDD mode to `ris-port-op-implement-change`;
-actually apply its method and check its criterion/test and RED/GREEN evidence.
+actually apply its method, test-first cycles and criterion/test checks.
 Do not duplicate the loop here or waive it for convenience. Text-only work belongs
 to its document operation; associated docs and behavior-preserving refactors use
 the base's applicable checks without artificial RED.
@@ -75,21 +74,16 @@ record a justified no-change result). Supply actual implementation evidence and
 whether the tree is pre-integration; future architecture must not be presented as
 current before integration. Product writes need separate explicit permission.
 Check the combined code/tests/docs diff against task criteria and accepted
-contracts. With authorized evidence writes save scope, mode, checks/TDD evidence,
-repair mapping and exact final snapshot identity under the primary copy's
-`workspace.tasks/<confirmed-ID>/implementation.md` by default; explicit address,
-then project-prescribed convention take priority. Read existing content, preserve
-history/unrelated notes, append or identify the new result and verify read-back.
-If shared-path access or saving is blocked, return the checked evidence unsaved
-and choose `blocked` for missing access/permission, `conflict` for changed or
-contradictory target state, or `error` for a technical save failure. Preserve
-independent code/test results and exact snapshot; name the cause and remaining
-report-persistence operation, without rerunning successful implementation/checks.
+contracts. Return the checked change without a saved implementation report or
+replacement journal; do not distribute its fields into review, Beads or new files.
+No saved author RED/GREEN chronology is required for review/recovery. Missing
+history is not proven TDD; a known violation must not be hidden. Independent review
+checks the final result and applicable current checks, not author process history.
 Do not write tracker content/evidence unless separately authorized through the
 adapter's supported concurrency guarantees.
 
 Return status `ok|blocked|conflict|error`, ID/claim/copy, scope and input versions, final snapshot identity,
-criteria/checks/TDD/docs results, saved/unsaved report paths and remaining needs. Local
+criteria/checks/docs results and remaining needs. Local
 choices do not reopen global design; material departures return bounded impact
 and decision needs, with dependent changes stopped. Stop at the checked change;
 no independent approval, commit/push, task/container closure or next-skill launch.

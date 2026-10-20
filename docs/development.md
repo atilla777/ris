@@ -52,11 +52,20 @@ acceptance of both scopes (one act allowed), independent review/Git, same-record
 refs and existing full decomposition with separate tracker publication. Internal
 executors are optional; independent review is actually separate. Sufficient inline
 design needs no design.md. Direct component operations remain available. This does
-not remove task plans/implementation notes or start implementation after prepare.
+not start implementation after prepare.
+
+The source contract introduced by ris-b1a.4 applies accepted S1 §4 / D1 §5: execution
+uses sufficient accepted inputs/current code without a standalone planner, saved
+plan/omission-decision or implementation report. Do not replace/distribute the
+removed journal in other artifacts. TDD stays with the executor; final-result
+review/recovery do not require saved author RED/GREEN chronology. Current checks,
+independent review, safe publication and separate tracker gates remain.
+This contract description is not evidence of publication, independent approval
+or complete lifecycle acceptance; each requires its own applicable observations.
 
 The integrated ris-17f change removes default `worktree.md`/`execution.md` and equivalent
-transition-ledger requirements. Keep the local plan, progress/result notes,
-independent review report and sufficient Beads result required by the rules.
+transition-ledger requirements. Keep the independent review report and sufficient
+Beads result required by the rules, not a substitute implementation log.
 Use live Git/Beads and accessible exact owner results at transitions; missing
 association, reviewed-snapshot identity or independence blocks only the dependent
 step. Ordinary creation without hooks/setup checks registrations, target/ref,
@@ -76,8 +85,8 @@ blocker checks. The main agent applies existing implementation/publication owner
 `task-review` must actually launch as an independent subagent. A suitable current
 copy on a verified own branch is allowed; isolation needs activate worktree
 preparation. Checks remain proportionate and project-mandatory checks/TDD apply.
-Full task/bug/feature execution, direct plan-task persistence and the TDD operation
-retain their contracts. Result/Git SHA persistence, exact close and Dolt publication
+Full task/bug/feature execution and the TDD operation retain their substantive
+gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
 remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).
 
 For routine Beads inventories use the adapter's native compact forms, for example

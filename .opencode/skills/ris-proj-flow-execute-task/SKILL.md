@@ -27,21 +27,23 @@ and provenance for shared paths in a worktree (explicit or verified available
 saved indication), optional exact task ID, actor, accepted scope, applicable
 rules and permissions. Load/apply installed `ris-proj-lib-common` and its conditional
 resources before their actions; apply `ris-proj-op-resolve-context` with its owned configuration
-resource to prepare sources, workspace, selected tasks adapter and these roles:
+resource to prepare sources, needed workspace paths, selected tasks adapter and
+roles only for operations actually delegated:
 
 | Configured role | Standalone operations |
 |---|---|
-| `task-execution` | Queue/readiness investigation, copy/claim preparation, plan, Git publication, completion, tracker publication and fresh next recommendation |
+| `task-execution` | Queue/readiness investigation, copy/claim preparation, Git publication, completion, tracker publication and fresh next recommendation |
 | `task-implementation` | Code/text implementation and repairs |
 | `task-review` | Independent review and integrated-snapshot reassessment |
 
-For fresh work check all three role mappings and host availability/permissions
-before the first mutation. For recovery first reconcile read-only, then gate only
+Check the independent review role and any actually delegated role's mapping and
+host availability/permissions before dependent effects. For recovery first reconcile read-only, then gate only
 roles and permissions needed by the remaining route; completed implementation or
 review does not require launching its role again. Reassess the gate if the remainder
 changes. One agent name may serve all roles, but review uses a **fresh invocation**
 independent of every implementation/repair author. Missing/unavailable roles block
-the dependent route; no fallback, model switch or execution in the leading context.
+the dependent delegated route; no silent fallback or model switch. The leading
+agent may directly apply bounded operation owners, except independent review.
 Do not require feature-preparation/decomposition roles for this task route.
 
 The request for a full run authorizes the agreed single-task cycle, working
@@ -57,9 +59,10 @@ read-only preflight to the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.
 
-For **each standalone noninteractive operation**, actually launch the configured
-subagent with its bounded owner skill/operation. Do not split internal reads into
-agents or load all child methods merely to route them. Pass project/config/rule
+Apply each bounded operation's owner directly or actually launch the configured
+subagent when delegating it. Reuse suitable implementation/repair context; always
+launch independent review separately from all authors/repairers. Do not split internal
+reads into agents or load all child methods merely to route them. Pass project/config/rule
 provenance, current/primary roots, actor, exact IDs, accepted input versions and
 decisions, allowed files/effects, output/evidence addresses and expected result.
 The recipient loads/applies its owner and dependencies and returns choices here
@@ -89,7 +92,7 @@ exact result or evidence locator; copy and snapshot; executor provenance;
 actual effects; limitations; necessary decision; remaining operations
 ```
 
-Before each transition verify actual launch/provenance, accessible exact results
+Before each transition verify actual executor/provenance (including launch when delegated), accessible exact results
 and current prerequisites from live Git/adapter facts and published input versions;
 unsupported “done” is insufficient. Bind checks/review to the complete candidate
 (base plus all additions/deletions/modes), inputs and independent reviewer; unknown
@@ -98,9 +101,10 @@ step. Forward just the verified context needed by the recipient, including fresh
 rights, claim/blocker gates and checked primary provenance for shared-path actions.
 
 Do not require `worktree.md`, `execution.md` or an equivalent file/Beads transition
-journal, or a persisted entry for each handoff. Preserve project-required local
-plan, progress/result notes, independent review report and sufficient tracker
-result without turning them into a transition ledger. Existing journals are hints,
+journal, or a persisted entry for each handoff. No saved plan, implementation
+report, omission-decision or replacement log is required. Preserve independent
+review and sufficient tracker result without distributing the removed report's
+fields into them. Existing plans/journals are optional hints,
 not authoritative or mandatory inputs; their absence alone is not a blocker.
 Read `references/evidence.md` only for recovery or insufficient/conflicting
 transition proof. For own unfinished work, previous/partial effects, an interrupted
@@ -114,7 +118,7 @@ gap and block that action. Do not introduce a replacement journal or registry.
 
 ## Select exactly one target
 
-Delegate the necessary exact-ID or queue reads below and relevant epic/typed-edge
+Apply the necessary exact-ID or queue reads below and relevant epic/typed-edge
 reads to the selected adapter. It must advertise actual complete item/child/dependency reads,
 feature-record reads where needed, tool-specific claim/complete and separately
 verified tracker publication; `tasks` v1 alone does not promise all of these.
@@ -154,8 +158,8 @@ from preparation** or skip blocked own work to choose another task.
 For the chosen ID, check agreed outcome/scope/criteria, accepted applicable design
 or sufficient accepted technical constraints for a standalone task, essential
 inputs and current contracts, status, ownership, typed directed blockers and
-complete mandatory composition. A missing plan is allowed at admission; decide
-its necessity under step 2 before implementation.
+complete mandatory composition. Implementation proceeds directly from sufficient
+accepted inputs/current code; missing plans/reports do not create a stage or gate.
 For feature-linked work obtain current published requirements/design and separate
 acceptance references through the adapter's current /2 capability; null identity/
 requirements/design is an early preparation gap, not execution-ready or ordinary.
@@ -183,7 +187,7 @@ preparation. Before starting fresh bug execution require the full adapter-verifi
 snapshot text and project/tracker + exact ID + marker locator; if absent return
 that preparation gap to the caller rather than executing on an unsaved basis.
 At transitions/resume compare current report/criteria/decisions with this basis;
-material drift requires targeted assessment by affected plan/change/review/evidence
+material drift requires targeted assessment by affected change/review/evidence
 owners before dependent effects. Preserve compatible evidence with reasons and
 existing published/closed effects. Do not treat parent membership as feature identity.
 
@@ -205,7 +209,7 @@ leading scenario authorizes each transition after inspecting the owner's receipt
 owners retain their full methods. Reconcile again after partial/uncertain effects
 or changed facts before deciding the next operation.
 
-1. Delegate `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
+1. Apply `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
    copy/environment actions and checked primary root with selection evidence. Check its verified claim,
    blockers, copy association, proportionate preservation observations/limits
    (ordinary new create versus reuse or hooks/setup) and separate copy/environment
@@ -213,21 +217,7 @@ or changed facts before deciding the next operation.
    a guessed branch/path. Refresh context after a copy change. Retain the
    verified copy/primary association facts in the handoff; neither replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
-2. Determine whether a **saved plan** is required by project rules or needed for
-   sufficient implementation/handoff. If so, delegate `ris-proj-op-plan-task` in
-   the supplied copy with accepted versions/contracts (bug snapshot when applicable)
-   and authorized plan address; read the saved plan and coverage. Otherwise record
-   the justified omission, applicable rules, sufficient technical inputs and their
-   accessible locator/version in execution evidence and every dependent handoff.
-   Missing file alone does not require a formal plan when this decision remains
-   applicable. In RIS the mandatory persisted local plan remains. Direct plan-task
-   always retains its own save contract. Changed scope or missing decisions return
-   to this dialogue, not silent redesign.
-   When feasibility depends on an uncertain platform behavior or external boundary,
-   place the smallest permitted decisive probe before dependent implementation or
-   costly evaluation. Use existing applicable evidence first; do not invent a
-   preflight experiment for an ordinary local edit or exceed probe permissions.
-3. Recheck actor ownership and blockers before each new change batch. Delegate
+2. Recheck actor ownership and blockers before each new change batch. Apply
    code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`;
    apply its base method by actual slice, not the task's name. Behavior-changing
    slices require observed expected RED before the corresponding production edit
@@ -236,10 +226,12 @@ or changed facts before deciding the next operation.
    existing/characterization and affected regression/static checks under that method.
    Mixed work retains the behavioral gate for every behavior-changing slice;
    unknown scope is not refactor-only. Require affected checks and the exact
-   code/tests/authorized-docs snapshot. For text-only work read `references/text-work.md` and delegate
+   code/tests/authorized-docs snapshot. The implementation owner checks current-input
+   sufficiency and chooses a viable approach in current code; material gaps return
+   to this dialogue, not silent redesign or a planner. For text-only work read `references/text-work.md` and apply
    its bounded content owner without artificial RED. Check actual artifacts and
    criterion coverage; author evidence is not independent approval.
-4. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full
+3. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full
    candidate snapshot, requirements/design or sufficient bug report/snapshot and
    separately accepted decisions, project rules and check evidence.
    Pass publication-gate purpose; require one saved local `review.yaml` and explicit round ID under the installed
@@ -249,9 +241,9 @@ or changed facts before deciding the next operation.
    checks and actual invocation/all-author provenance. A verdict field alone is
    not approval; later refuting/blocked or invalid/unsupported rounds forbid old
    approval fallback. Review assesses final results, not author RED/GREEN history
-   or implementation-report discovery. Current plan/implementation persistence
-   remains with its execution owner, not a reviewer admission audit.
-5. High/medium findings go back to the implementation owner for fixes, affected
+   or implementation-report discovery. No implementation report or author cycle-history audit
+   is introduced at execution/recovery/publication.
+4. High/medium findings go back to the implementation owner for fixes, affected
    checks and a new independent review. Record low dispositions collectively or
    individually; low alone does not trigger repair, a new task or a new round.
    Changed snapshots need applicable review. Compare rounds by resolved causes,
@@ -259,7 +251,7 @@ or changed facts before deciding the next operation.
    justified new approach needs cause diagnosis; if no viable progress, preserve
    actual effects, stopping cause and exact remainder with the cause's
    `blocked|conflict|error`, or ask the necessary question. There is no fixed round cap.
-6. Delegate `ris-proj-op-publish-task` with exact approved full snapshot, independence
+5. Apply `ris-proj-op-publish-task` with exact approved full snapshot, independence
    evidence and authorized primary branch/remote. Never stage foreign paths,
    reset/stash their work, bypass hooks or force push. If integration/hook changes
    the snapshot, obtain affected checks and fresh independent reassessment through
@@ -271,8 +263,8 @@ or changed facts before deciding the next operation.
    was explicitly limited to remote-only Git publication. Confirmed remote with
    pending local sync preserves the published commit but blocks the dependent
    full-flow completion gate; recover only missing sync through that owner.
-7. Only after confirmed Git publication, verify criteria and mandatory scope on
-   the published version. For a leaf task, delegate selected-adapter bounded
+6. Only after confirmed Git publication, verify criteria and mandatory scope on
+   the published version. For a leaf task, apply selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific
    ordinary operations for standalone tasks or native bug fix-completion, not
    investigation disposition or feature-record/2) with criterion/check/review
@@ -283,11 +275,11 @@ or changed facts before deciding the next operation.
    reads, fresh applicable external evidence/mandatory composition and honest
    predicate-specific native limits, without freezing graph/evidence. No future
    `ris-complete-task` dependency is required. For a selected one-task feature,
-   delegate `ris-proj-op-complete-container` with explicit **verify-and-close**
+   apply `ris-proj-op-complete-container` with explicit **verify-and-close**
    intent for **all** feature AC, integrated revision,
    verification persistence/read-back and separate closure. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
-8. Delegate **separate** selected-adapter tracker publication. For prior/ambiguous
+7. Apply **separate** selected-adapter tracker publication. For prior/ambiguous
    publication pass exact requested/recovered revision S, inspectable receipt/history
    and separate local result/records/typed-link evidence. Have the adapter freshly
    confirm S reachability from selected remote R before incoming-only/divergence
@@ -319,7 +311,7 @@ revision and record unrun checks and remaining limits, never a fabricated pass.
 
 ## Assess and report
 
-Delegate fresh read-only queue/readiness assessment for the next recommendation,
+Apply fresh read-only queue/readiness assessment for the next recommendation,
 using the same ordering and readiness rules. Recommend one ready task with its
 basis or a concrete preparation step. Do not claim or start it and do not switch
 to it when the current target is blocked.

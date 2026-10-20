@@ -60,10 +60,12 @@ This section is the current readiness entrypoint; the catalog supplies exact
 contracts, while delivery records retain their original revisions and limits.
 The earlier readiness baseline is source revision
 [`00d012fe35e70f1857ef12216b76a33318e77e37`](https://github.com/atilla777/ris/tree/00d012fe35e70f1857ef12216b76a33318e77e37),
-not a certification of every project or runtime. The feature-preparation statements
-are synchronized here with the ris-b1a.3 source change on base
-`7d42b449b4e1cb432e3a7ea1df78e71408f92ec8`, pending integration/publication and
-independent review; they do not certify the rest of the accepted S1 lifecycle.
+not a certification of every project or runtime. The feature-preparation source
+change ris-b1a.3 is integrated and Git-published in
+[`c5de3e112c9e35813a5af91b290acccbe1758ec1`](https://github.com/atilla777/ris/commit/c5de3e112c9e35813a5af91b290acccbe1758ec1).
+This source-publication fact does not itself certify independent review, live
+behavior or the rest of the accepted S1 lifecycle; review evidence retains its
+own snapshot, provenance and scope.
 
 | Route | Prerequisites and boundary |
 | --- | --- |
@@ -81,8 +83,9 @@ independent review; they do not certify the rest of the accepted S1 lifecycle.
   close guards, `--sandbox` and fresh read/write/read are not general content/graph
   CAS or distributed exclusion. Unsupported required guarantees block the dependent
   write; see the [adapter contract](skills/ris-proj-adapter-beads-tasks/SKILL.md).
-- **Data compatibility (bounded early-feature source candidate):** this change
-  introduces the optional `tasks.feature-record/2` contract. It is not acceptance
+- **Data compatibility (bounded early-feature source contract):**
+  [`7d42b449b4e1cb432e3a7ea1df78e71408f92ec8`](https://github.com/atilla777/ris/commit/7d42b449b4e1cb432e3a7ea1df78e71408f92ec8)
+  introduced the optional `tasks.feature-record/2` contract. It is not acceptance
   of the complete S1 lifecycle or evidence of live agent behavior. Explicitly limited
   early registration via `/risp-specify-feature` needs a chosen feature, title/goal
   and stable key, not spec/design/epic. The same ID can obtain a safe copy via
@@ -110,12 +113,12 @@ independent review; they do not certify the rest of the accepted S1 lifecycle.
 
 ### Available commands and operations
 
-The current source menu has 22 explicit entries (17 project + 4 portable + one
-help exception), extending the historical 18-entry v1 set with `/risp-status`,
-`/risp-run-simple-task`, `/risp-init` and `/ris-help`.
+The current source menu has 21 explicit entries (16 project + 4 portable + one
+help exception), adding `/risp-status`, `/risp-run-simple-task`, `/risp-init` and
+`/ris-help` to the historical 18-entry v1 set and retiring `/risp-plan-task`.
 `risp-` selects a project contract, `risb-` a portable contract. `/ris-help` is the
 sole naming exception, supplied by a client/TUI plugin rather than a Markdown
-command facade, with no aliases. All 53 source skills
+command facade, with no aliases. All 51 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
@@ -182,7 +185,8 @@ its real contract; mandatory project accounting creates/reconciles a short task
 (**Beads remains mandatory in RIS**). Empty input asks for work, never selects a
 queue item. Direct push requires rights, checks, independent review and remote
 confirmation; tracker result, exact close and publication are separate effects.
-Full task/bug execution and direct plan-task retain their contracts.
+Full task/bug execution likewise needs no saved plan or implementation report;
+its safe-copy, TDD, ordinary YAML review and publication/completion gates remain.
 
 `status` is read-only: without an ID it shows the project's complete unclosed plan;
 with an ID it shows that subtree and necessary context/blockers. It recommends one
@@ -212,9 +216,9 @@ selected project, ID, actor and authorized fix/publication scope. It checks the
 saved report and criteria, returns precise gaps when insufficient, obtains separate
 acceptance for material design when needed, preserves a full historical input
 snapshot in bug notes, then uses the complete existing task execution flow.
-A sufficient report replaces formal spec/design files. A saved plan is conditional
-on execution/handoff needs and project rules; RIS itself keeps its mandatory local
-plan, and a direct plan-task call still saves one. Code TDD, independent review,
+A sufficient report replaces formal spec/design files. Implementation starts from
+sufficient accepted inputs and current code, without a standalone planner, saved
+plan/omission-decision or implementation report. Code TDD, independent review,
 working-copy/claim and publication requirements remain. Fix/checks, Git publication,
 separate exact bug completion and tracker publication are distinct verified effects.
 Registration, investigation and fixing are separate direct-load calls, with no new
@@ -267,7 +271,15 @@ Ordinary project review saves one local `review.yaml` using
 keeps only its address/round. Fast retains independent session-only review, with
 the same format for optional saves. Format validity alone is not current-snapshot
 approval; local reports are not automatically available on another machine.
-This review slice does not introduce the other planned lifecycle changes.
+The source contract introduced by ris-b1a.4 removes both standalone task planners
+and `/risp-plan-task`, without aliases,
+and removes plan/implementation-report producers and consumers under accepted
+[S1 §4 / D1 §5](docs/specs/sdlc-feature-lifecycle/acceptance.md). Source availability
+does not establish Git publication, independent approval, live behavior or whole-S1
+acceptance; those require their own applicable evidence. Execution checks current-input sufficiency and a viable approach;
+review/recovery assess final results, not author RED/GREEN history. TDD remains
+the executor's duty; missing history is not proof and known violations stay visible.
+Historical plans and delivery records remain unchanged optional context.
 
 - [Skill and command catalog](docs/skills.md)
 - [Installation, updates, removal and recovery](docs/installation.md)

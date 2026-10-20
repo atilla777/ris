@@ -28,15 +28,15 @@ failure by breaking correct code. Independent authorized work may continue.
 
 ## Existing work, refactors and evidence
 
-- On resumption, read existing tests, code and cycle evidence. Reuse an already
-  proven RED/GREEN sequence only when its versions and behavior remain applicable;
-  perform new cycles for uncovered behavioral changes. Do not reset or overwrite
-  existing work to recreate RED. Missing historical evidence leaves that portion
-  unverified, even if the final tests pass.
+- On resumption inspect current tests/code and available observations; continue
+  missing changes with test-first cycles and run applicable current checks. Do not
+  reset or overwrite work to recreate RED. Missing historical chronology does not
+  block final-result review or reuse, and passing tests do not prove past TDD.
+  Never claim test-last as TDD or conceal a known violation.
 - Behavior-preserving refactors use existing tests/characterization where needed
   and maintain GREEN; they do not require an artificial RED. Associated documents
   use their own checks. TDD does not waive project-mandated static/integration checks.
-- Preserve concise inspectable evidence for each behavioral slice: criterion/test,
-  pre-change version, command and expected observed RED, resulting implementation
-  version and GREEN, and any refactor checks. A complete transcript or separate
-  file per cycle is unnecessary. Bind final checks to the handed-off snapshot.
+- Observe the actual expected RED and GREEN for each new behavioral slice; no
+  saved cycle chronology or historical audit by reviewer/recovery/publication is
+  required. Bind applicable final checks to the handed-off snapshot. Do not create
+  a substitute implementation journal or copy cycle history into other artifacts.

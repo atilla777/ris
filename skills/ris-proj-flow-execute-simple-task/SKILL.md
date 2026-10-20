@@ -47,8 +47,8 @@ Explicitly narrower requests, environment permissions and mandatory project rule
 win. Do not infer content acceptance or rights from a command, status or claim.
 No PR, release or deploy fallback. No mandatory plan, execution/implementation log
 or review **file** by default: retain sufficient evidence in the session, with
-short tracker accounting when used. Required project saves/checks still apply;
-this flow does not silently waive them or direct plan-task's save contract.
+short tracker accounting when used. Required project checks still apply;
+this flow does not silently waive TDD or other substantive gates.
 
 Read resources from **this installed skill folder**, only before their triggers:
 

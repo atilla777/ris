@@ -72,8 +72,9 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   `formulate-feature-spec` makes a proposal from known decisions; project
   `specify-feature` owns actual acceptance/save/publication within authority.
 - `design-feature` owns technical choices from accepted behavior, with separate
-  acceptance; `decompose-feature` determines one-task sufficiency or child tasks;
-  `plan-task` plans implementation of one confirmed task in its supplied copy.
+  acceptance; `decompose-feature` determines one-task sufficiency or child tasks.
+  Implementation determines its approach from sufficient accepted inputs/current
+  code, without a standalone planner, saved plan or implementation report.
   For new/materially changed design, both the design owner and prepare-feature
   explain essence/flow, reused/new technologies and why, tradeoffs, material risks
   and hard-to-reverse choices in plain language before asking acceptance. Roughly
@@ -82,7 +83,7 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   summary. Optional explicitly authorized full Markdown draft storage can precede
   approval; it is not accepted-content save/publication or a mandatory draft store.
 - `run-task` owns the complete one-task cycle, including prepared copy/claim,
-  plan when required, implementation/checks, independent review, Git, separate
+  implementation/checks from sufficient accepted inputs, independent review, Git, separate
   completion and tracker publication. An explicit ID is the sole target; no ID
   reconciles own unfinished work before ready-task selection. A multi-task
   container is not executed as one leaf.

@@ -8,9 +8,9 @@ authorized report paths come from checked project context and confirmed ID.
 
 Use live Git/adapter facts, published versions and accessible exact operation
 results. No `execution.md`, `worktree.md` or equivalent file/Beads transition ledger
-is required; a missing journal alone cannot block. Project-required plan, local
-progress/result notes, review report and sufficient tracker result remain, without
-per-transition persistence. Existing notes may guide discovery but do not prove
+is required; a missing journal alone cannot block. No saved plan, omission-decision,
+implementation report or substitute/distributed log is required. Independent review
+and sufficient tracker result remain. Existing notes may guide discovery but do not prove
 current state. Inspect only facts needed for the dependent transition below;
 this is a proof checklist, not a demand to write all fields after every operation.
 When an authorized result/note needs updating, read it first, preserve history and
@@ -28,19 +28,16 @@ result with provenance and explicit discovery gaps:
   capabilities/guarantees rather than inventing feature-record evidence.
 - For native bugs: exact current-report source/version (retrieve full published
   file when used), full historical execution-input notes snapshot locator/marker
-  and content, aligned criteria and accepted decisions/constraints. Each plan,
-  implementation and review identifies that snapshot, not just a report hash.
+  and content, aligned criteria and accepted decisions/constraints. Implementation
+  and review identify that input snapshot, not just a report hash.
   Record old/current basis and targeted applicability assessment on material drift.
-- Saved-plan necessity decision under current rules and implementation/handoff
-  sufficiency. When legitimately omitted, record reason and sufficient technical
-  inputs/locator in every handoff; omission never waives mandatory RIS local plans
-  or direct plan-task persistence.
-- For a result relied on: configured role, actual agent invocation/context ID,
+- For a result relied on: actual executor/context and, when delegated, configured
+  role and actual agent invocation/context ID,
   selected owner, permissions, input versions, output address, returned status,
   inspected evidence and actual effects. Mark unavailable provenance as a gap.
 - Copy branch/path/base and scope-appropriate preservation observations/limits;
   claim actor and fresh blockers. Ordinary create does not require all-copy hashes.
-- Plan, implementation and review addresses and their history. For each candidate
+- Accessible independent review and actual current candidate. For each candidate
   identify baseline commit and complete task snapshot (including additions,
   deletions and modes), checks and independent review applicability. Follow the
   review/publication owners' snapshot contract; a HEAD commit alone is insufficient

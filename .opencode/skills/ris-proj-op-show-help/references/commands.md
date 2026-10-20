@@ -27,7 +27,6 @@ project rules and missing-input handling remain the owner's, not granted by help
 | run-task | `/risp-run-task` → `ris-proj-flow-execute-task` |
 | run-simple-task | `/risp-run-simple-task` → `ris-proj-flow-execute-simple-task` |
 | prep-copy* | `ris-proj-op-prepare-task-worktree` |
-| plan-task | `/risp-plan-task` → `ris-proj-op-plan-task` |
 | implement/check* | `ris-proj-op-implement-task-tdd` |
 | docs* | `ris-proj-op-update-documentation` |
 | review-task | `/risp-review-task` → `ris-proj-op-review-task` |
@@ -51,7 +50,6 @@ project rules and missing-input handling remain the owner's, not granted by help
 | portable design | `ris-port-op-design-feature` |
 | portable decomposition | `ris-port-op-decompose-feature-spec` |
 | portable roadmap | `ris-port-op-plan-roadmap` |
-| portable task plan | `ris-port-op-plan-task` |
 | portable worktree | `ris-port-op-prepare-worktree` |
 | portable implementation | `ris-port-op-implement-change` |
 | portable bug research | `ris-port-op-investigate-bug` |
@@ -197,22 +195,14 @@ Result/stop: verified claim/blockers, copy association and separate environment
 readiness; no publication or task completion.
 Example: `Load ris-proj-op-prepare-task-worktree for <ID> in <project>, actor <actor>, primary <path>, allowed setup <scope>`.
 
-### ris-proj-op-plan-task
-[Owner](../../ris-proj-op-plan-task/SKILL.md). Purpose: save a technical task plan.
-Choose when: one confirmed task needs actionable approach/check strategy.
-Inputs: project/task ID, supplied suitable copy, accepted basis and save authority.
-Result/stop: verified saved plan in checked primary task notes; no claim required,
-no worktree creation or implementation. Direct invocation always saves a plan.
-Example: `/risp-plan-task <ID> in <copy>`.
-
 ### ris-proj-op-implement-task-tdd
 [Owner](../../ris-proj-op-implement-task-tdd/SKILL.md). Purpose: checked task change.
 Choose when: code/test implementation or review-finding repair with mandatory TDD.
 Inputs: project/task/actor, suitable supplied copy, fresh claim/unblocked state,
-accepted inputs/plan and allowed code/tests/docs/evidence paths.
+accepted inputs/current code and allowed code/tests/docs paths.
 Result/stop: observed RED/GREEN, affected checks and exact code/tests/docs snapshot;
 no independent approval, commit/push or closure. Text-only work uses its content owner.
-Example: `Load ris-proj-op-implement-task-tdd for <ID> in <copy>, actor <actor>, within <accepted plan and permissions>`.
+Example: `Load ris-proj-op-implement-task-tdd for <ID> in <copy>, actor <actor>, within <accepted scope and permissions>`.
 
 ### ris-proj-op-update-documentation
 [Owner](../../ris-proj-op-update-documentation/SKILL.md). Purpose: synchronize affected docs.
@@ -425,13 +415,6 @@ Choose when: plan project outcomes without tracker persistence.
 Inputs: explicitly supplied product knowledge/high-level spec, chosen goal and observed state.
 Result/stop: checked bounded roadmap with light architecture/source impact; no task decomposition.
 Example: `Load ris-port-op-plan-roadmap with <product>, goal <MVP>, current state <evidence>`.
-
-### ris-port-op-plan-task
-[Owner](../../ris-port-op-plan-task/SKILL.md). Purpose: one task's technical plan.
-Choose when: implementation approach/checks need working out, not task selection.
-Inputs: selected task requirements, current code and accepted constraints/design.
-Result/stop: checked actionable plan in response; no project save or implementation.
-Example: `Load ris-port-op-plan-task with <task, requirements and code>; plan only`.
 
 ### ris-port-op-prepare-worktree
 [Owner](../../ris-port-op-prepare-worktree/SKILL.md). Purpose: checked working copy/environment.

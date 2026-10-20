@@ -68,7 +68,7 @@ Select the review basis by the **actual subject**, not the existence of a bug ID
   marker and name it in the report; a number/hash alone is insufficient. Compare
   current report/criteria/decisions with that basis and bind exact candidate/check
   versions to original divergence and affected regressions. Material drift requires
-  targeted plan/change/review/evidence applicability assessment before approval,
+  targeted change/review/evidence applicability assessment before approval,
   preserving compatible evidence with reasons. Never approve a changed expectation
   just because the implementation passes it. Assess sufficient accepted technical
   inputs and current code/tests, not the author's plan or TDD-history persistence.

@@ -1,16 +1,20 @@
 # RIS — инструкции агенту
 
-Только явно выбранный `ris-proj-flow-execute-simple-task` (`/risp-run-simple-task`)
-имеет [fast-исключение](docs/rules/development.md#узкое-исключение-явно-выбранный-fast):
-без обязательных файлов плана/журнала/ревью, основной агент реализует и публикует
-через существующих владельцев, независимый reviewer фактически запускается отдельно.
+Выполнение задачи следует принятой [S1 §4 / D1 §5](docs/specs/sdlc-feature-lifecycle/acceptance.md):
+без отдельного planner, обязательного плана и журнала реализации; исполнитель
+проверяет достаточность принятых входов, актуальный код и выбирает подход.
+TDD сохраняется, но история RED/GREEN не является отчётом или гейтом ревью/recovery.
+Основной агент может применять существующих владельцев, reviewer реально независим.
+Явно выбранный `ris-proj-flow-execute-simple-task` (`/risp-run-simple-task`)
+сохраняет [fast-исключение](docs/rules/development.md#узкое-исключение-явно-выбранный-fast)
+без обязательного файла ревью.
 Краткий Beads-учёт в RIS и собственная ветка обязательны; подходящая текущая копия
-допустима, worktree — при необходимости изоляции. Полный flow, прямой plan-task и
-обязательный TDD сохраняют свои контракты.
+допустима в fast, worktree — при необходимости изоляции. Полный flow сохраняет
+свои copy/claim, quality, publication и отдельные completion/tracker gates.
 
-Подготовка фичи отдельно следует принятой [S1 §3 / D1 §§2–4](docs/specs/sdlc-feature-lifecycle/acceptance.md): ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, same-record refs и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Это не fast-исключение к плану/заметкам выполнения задач и не разрешение реализации после подготовки.
+Подготовка фичи отдельно следует принятой [S1 §3 / D1 §§2–4](docs/specs/sdlc-feature-lifecycle/acceptance.md): ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, same-record refs и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
 
-Обычное проектное ревью сохраняется одним локальным `review.yaml` по [ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); в Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же формат. Планирование и заметки реализации этой review-поправкой не отменяются.
+Обычное проектное ревью сохраняется одним локальным `review.yaml` по [ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); в Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же формат. Отчёт не заменяет журнал реализации и не содержит его перенесённых полей.
 
 Для автономной работы с явно выбранным OKF-бандлом используй `ris-port-op-manage-okf-bundle`; для OKF-операции в выбранном RIS-проекте — `ris-proj-op-manage-okf-bundle` с явными project/root/operation/scope. Обычные Markdown-спецификации не обрабатываются как OKF автоматически.
 

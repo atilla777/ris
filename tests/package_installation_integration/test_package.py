@@ -507,6 +507,50 @@ Path(a[a.index("--output")+1]).write_bytes(data)
         self.assertEqual(w1.oracle(self.project), before)
         self.preserved()
 
+    def test_planners_retired_on_install_and_owned_update(self):
+        retired = (
+            ".opencode/skills/ris-port-op-plan-task",
+            ".opencode/skills/ris-proj-op-plan-task",
+            ".opencode/command/risp-plan-task.md",
+        )
+        self.exact(self.cli("install"))
+        for path in retired:
+            self.assertFalse((self.project / path).exists(), path)
+
+        # Restore the exact pre-retirement source payload and ownership evidence
+        # in this disposable upstream, never in the real working copy.
+        previous = "c5de3e112c9e35813a5af91b290acccbe1758ec1"
+        entries = subprocess.check_output(
+            [self.git, "-C", str(ROOT), "ls-tree", "-rz", previous]
+        )
+        for entry in filter(None, entries.split(b"\0")):
+            meta, raw = entry.split(b"\t", 1)
+            path = os.fsdecode(raw)
+            if not (
+                path.startswith(
+                    ("skills/ris-port-op-plan-task/", "skills/ris-proj-op-plan-task/")
+                )
+                or path == "commands/opencode/risp-plan-task.md"
+                or path
+                == "skills/ris-port-op-manage-installation/references/command-ownership.txt"
+            ):
+                continue
+            mode, _, oid = meta.split()
+            data = subprocess.check_output(
+                [self.git, "-C", str(ROOT), "cat-file", "blob", oid.decode()]
+            )
+            self.put(path, data.decode())
+            (self.fixture / path).chmod(int(mode, 8) & 0o777)
+        old = self.commit("Exact pre-retirement planner payload")
+        self.exact(self.cli("update", "--ref", old), old)
+        for path in retired:
+            self.assertTrue((self.project / path).exists(), path)
+        self.g("reset", "--hard", self.a)
+        self.exact(self.cli("update"))
+        for path in retired:
+            self.assertFalse((self.project / path).exists(), path)
+        self.preserved()
+
     def install_genuine_legacy(self):
         # Pinned accepted input, not a count-derived or renamed candidate fixture.
         # CI fetches history so this test has no network boundary of its own.
@@ -562,7 +606,6 @@ Path(a[a.index("--output")+1]).write_bytes(data)
                 "specify-feature",
                 "design-feature",
                 "decompose-feature",
-                "plan-task",
                 "run-task",
                 "run-simple-task",
                 "review-task",

@@ -96,7 +96,7 @@ persistence conditions; ordinary saving requires no CAS provider. An explicitly
 required unsupported stronger content predicate still stops its dependent write.
 
 On later material report/criteria/decision changes preserve the snapshot and pass
-old/current content to the affected consumer for targeted plan/change/review/evidence
+old/current content to the affected consumer for targeted change/review/evidence
 reassessment. New accepted basis needs a newly identified full snapshot. Compatible
 unchanged evidence may be reused with reasons; old hashes/status do not prove it.
 

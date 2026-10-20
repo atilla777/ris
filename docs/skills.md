@@ -4,7 +4,7 @@ RIS includes portable operations, project-integrated operations, five workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 53 source skills are listed below, independently of the 22-command menu.
+All 51 source skills are listed below, independently of the 21-command menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract. The exception is `/ris-help`:
@@ -44,7 +44,7 @@ the current available catalog and checked role mappings, without global edits or
 automatic upgrades. Suitable existing choices are reused; incomplete setup has
 explicit readiness limits. Package installation alone does not configure agents.
 The current source map adds the [workflow-help exception](specs/workflow-help/spec.md):
-**22 entries (17 project + 4 portable + one help exception)**;
+**21 entries (16 project + 4 portable + one help exception)**;
 availability in a project requires installation
 of the chosen package and client restart.
 
@@ -61,7 +61,6 @@ of the chosen package and client restart.
 | `/risp-specify-feature` | `ris-proj-op-specify-feature` |
 | `/risp-design-feature` | `ris-proj-op-design-feature` |
 | `/risp-decompose-feature` | `ris-proj-op-decompose-feature` |
-| `/risp-plan-task` | `ris-proj-op-plan-task` |
 | `/risp-run-task` | `ris-proj-flow-execute-task` |
 | `/risp-run-simple-task` | `ris-proj-flow-execute-simple-task` |
 | `/risp-review-task` | `ris-proj-op-review-task` |
@@ -119,7 +118,7 @@ Load ris-proj-op-register-bug for <project>: <message and available context>; re
 Load ris-proj-op-investigate-bug for <exact bug ID> in <project>, research/write scope <scope>; save the investigation and stop before fixing.
 Load ris-port-op-investigate-bug with <message, expectation sources, code/version, evidence and allowed research scope>; return a report without tracker writes.
 Load ris-proj-flow-fix-bug for <exact native bug ID> in <project>, actor <actor>, within <authorized fix/publication scope>; use the saved sufficient report and existing execution route.
-Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted plan and permissions.
+Load ris-proj-op-implement-task-tdd for <ID> in <project/copy>, actor <actor>, within the accepted scope and permissions.
 Load ris-proj-op-update-documentation for <project/copy>, inspected change <snapshot>, authorized documents <paths>.
 Load ris-port-op-formulate-product-foundation with <product, create/update scope, materials and prior answers>; return an unsaved proposal.
 Load ris-proj-op-author-product-foundation for <project/copy>, <create or bounded update>; obtain separate content acceptance and save/check in sources.product within <authorized scope>.
@@ -142,7 +141,6 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-op-design-feature](../skills/ris-port-op-design-feature/SKILL.md) | Technical design proposal |
 | [ris-port-op-decompose-feature-spec](../skills/ris-port-op-decompose-feature-spec/SKILL.md) | Verifiable work-unit proposal |
 | [ris-port-op-plan-roadmap](../skills/ris-port-op-plan-roadmap/SKILL.md) | Goal-level roadmap proposal |
-| [ris-port-op-plan-task](../skills/ris-port-op-plan-task/SKILL.md) | Technical task plan |
 | [ris-port-op-prepare-worktree](../skills/ris-port-op-prepare-worktree/SKILL.md) | Checked working-copy/environment handoff |
 | [ris-port-op-implement-change](../skills/ris-port-op-implement-change/SKILL.md) | Bounded implementation or review-finding repair |
 | [ris-port-op-review-change](../skills/ris-port-op-review-change/SKILL.md) | Read-only change assessment |
@@ -173,7 +171,6 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-design-feature](../skills/ris-proj-op-design-feature/SKILL.md) | Separately accepted published design and record references, or explicit limited contribution |
 | [ris-proj-op-decompose-feature](../skills/ris-proj-op-decompose-feature/SKILL.md) | ID-based feature/standalone one-task check or sufficient children and tracker publication |
 | [ris-proj-op-prepare-task-worktree](../skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware feature-preparation/execution copy/environment handoff |
-| [ris-proj-op-plan-task](../skills/ris-proj-op-plan-task/SKILL.md) | Verified saved task plan |
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one local ris.review/1 YAML, with explicit fast no-file exception |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
@@ -258,7 +255,7 @@ own branch in a suitable current copy is allowed; isolation/rules activate exist
 worktree owners. Material decisions stop dependent work for targeted acceptance;
 resume reconciles actual effects and repeats missing/inapplicable independent review.
 PR-only, forbidden push or missing mandatory checks/review block publication.
-This fast-only exception preserves full task/bug/feature and direct plan-task/TDD
+This fast-only review-file exception preserves full task/bug/feature and TDD
 contracts; verified Git, result persistence, exact close and tracker publication
 remain separate effects.
 
@@ -290,8 +287,10 @@ historical notes snapshot; consumers identify it and reassess affected evidence
 on material report drift. It is not a second current report. The complete existing
 execute-task route retains copy/claim, roles, code TDD, independent review, Git,
 separate real fix-completion and tracker publication; disposition is different.
-Saved plans are conditional on project rules or implementation/handoff sufficiency;
-RIS keeps its mandatory local plan and direct plan-task persists its own result.
+Full task/bug execution starts directly from sufficient accepted inputs/current
+code. No standalone planner, saved plan/omission-decision or implementation report
+is required. Old plans remain optional history; author TDD remains required without
+a saved cycle-history audit. Review assesses the final result and current checks.
 See [integrated delivery checks](specs/local-bugfix/delivery-checks.md) for coverage
 and revision/evidence limits, rather than inferring live reliability from contracts.
 Requirements and design have separate acceptance. Task execution preserves an
@@ -357,12 +356,12 @@ Worktree preparation reports working-copy and environment readiness separately.
 Git is the default worktree adapter; having Worktrunk installed does not select it.
 The ris-17f candidate streamlines ordinary create and makes preservation details
 conditional on reuse or hooks/setup. Preparation and full task execution need no
-`worktree.md`, `execution.md` or substitute transition ledger; project-required
-plan, progress/result, review and tracker result remain. A valid unused config
+`worktree.md`, `execution.md` or substitute transition ledger; independent
+review and sufficient tracker result remain, without a replacement implementation log. A valid unused config
 difference does not block preparation; tracker identity and used paths still gate
 the dependent handoff. See [delivery checks](specs/worktree-preparation-simplification/delivery-checks.md)
 for the pending-review/integration snapshot and static evidence limits.
-Planning consumes the supplied copy without creating it or requiring a claim.
+Implementation consumes the supplied copy and checks fresh claim/blocker gates.
 Consult the linked skills for shared-root provenance and source-version checks.
 
 For a retrospective without an ID/export, the project operation follows its

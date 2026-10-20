@@ -2,7 +2,7 @@
 
 The historical [compact-commands v1 map](specs/compact-commands/spec.md) contains
 18 explicit slash entries, 14 `risp-` project contracts and four `risb-` portable
-contracts. All 43 baseline technical skill identities/resources remain; the
+contracts. Baseline identities/resources remain except the two retired task planners; the
 additional `ris-proj-op-register-bug` is directly loadable without a new command.
 The current menu extends that accepted baseline with `/risp-status` targeting
 `ris-proj-op-show-plan`, under [plan-status D1](specs/plan-status/design.md#8-поставка-и-совместимость).
@@ -24,8 +24,11 @@ without config/tracker/source-checkout prerequisites. Actual work stays with
 portable wrapper pair. Help is present in the selected upstream; local integration
 of the combined help/init candidate does not transfer prior review or publication
 evidence to its new full snapshot.
-The combined current source inventory is **53 skills / five flows** and **22
-commands (17 project + 4 portable + one help exception)**. Original tables/AC and acceptance remain
+The combined current source inventory is **51 skills / five flows** and **21
+commands (16 project + 4 portable + one help exception)**. Both standalone task
+planners and `/risp-plan-task` are retired under accepted S1 §4 / D1 §5, without
+aliases; implementation determines its approach directly from sufficient accepted
+inputs/current code. Old plans remain optional history. Original tables/AC and acceptance remain
 historical; bug operations and the product-foundation proposal/project author
 remain direct-load without new commands. No aliases or
 environment-dependent dispatcher are supplied. Select an actual published package
@@ -75,7 +78,7 @@ inputs/scope/permissions; it is not a slash alias. All long command files are re
 | `/ris-port-op-manage-installation` | `/risb-installation` |
 | `/ris-port-op-manage-okf-bundle` | Load `ris-port-op-manage-okf-bundle` |
 | `/ris-port-op-plan-roadmap` | Load `ris-port-op-plan-roadmap` |
-| `/ris-port-op-plan-task` | Load `ris-port-op-plan-task` |
+| `/ris-port-op-plan-task` | Retired; use `ris-port-op-implement-change` for an accepted change |
 | `/ris-port-op-prepare-worktree` | Load `ris-port-op-prepare-worktree` |
 | `/ris-port-op-retrospect-session` | Load `ris-port-op-retrospect-session` |
 | `/ris-port-op-review-change` | `/risb-review-change` |
@@ -92,7 +95,7 @@ inputs/scope/permissions; it is not a slash alias. All long command files are re
 | `/ris-proj-op-interview-feature` | Load `ris-proj-op-interview-feature` |
 | `/ris-proj-op-manage-okf-bundle` | Load `ris-proj-op-manage-okf-bundle` |
 | `/ris-proj-op-plan-roadmap` | `/risp-roadmap` |
-| `/ris-proj-op-plan-task` | `/risp-plan-task` |
+| `/ris-proj-op-plan-task` | Retired; use `/risp-run-task <ID>` for authorized execution |
 | `/ris-proj-op-prepare-task-worktree` | Load `ris-proj-op-prepare-task-worktree` |
 | `/ris-proj-op-publish-task` | `/risp-publish-task` |
 | `/ris-proj-op-refine-epic` | `/risp-refine-epic` |

@@ -48,9 +48,10 @@ use Task/change and retain all implementation/snapshot guards below.
    Require the snapshot's project/tracker + exact bug ID + marker in implementation/
    review evidence and read its complete text. Compare current report/criteria/
    decisions with that basis before publication; material drift returns affected
-   plan/change/review/evidence for targeted reassessment before dependent push.
-   Keep separate material-design acceptance and project plan requirements; an
-   applicable justified omission is allowed only where rules/sufficiency permit.
+   change/review/evidence for targeted reassessment before dependent push.
+   Keep separate material-design acceptance and sufficient current technical inputs;
+   no plan, omission-decision, implementation report or author TDD-history audit
+   is required. Do not infer past TDD from missing history or conceal known violations.
    These gates converge into the same Git algorithm; fix-completion belongs to
    the adapter separately after publication, never investigation disposition here.
 - **Documents (including pre-ID):** exact project-relative paths and subject/scope, separate

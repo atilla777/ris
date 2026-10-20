@@ -8,7 +8,6 @@ risp-decompose-feature.md
 risp-design-feature.md
 risp-init.md
 risp-next.md
-risp-plan-task.md
 risp-prepare-feature.md
 risp-publish-task.md
 risp-refine-epic.md

@@ -10,8 +10,8 @@ description: >-
 # Implement a bounded change
 
 Own code/test changes and their checked handoff. Work outside RIS with supplied
-requirements, current code, accepted technical constraints/design, plan if
-available, project rules and explicit file/command permissions. Do not require
+requirements, current code, accepted technical constraints/design,
+project rules and explicit file/command permissions. Do not require
 RIS skills, configuration, directories or a tracker. The caller owns project
 identity, claim, documentation integration, independent approval and publication.
 
@@ -38,9 +38,11 @@ Unavailable required resources block dependent work, not independent inspection.
 
 1. Establish outcome, exclusions and criteria; inspect the actual implementation,
    conventions, current working tree and relevant tests. Record base revision,
-   existing user changes and the exact permitted scope. Compare the plan's code
-   assumptions and accepted contract versions to current facts; stale plans need
-   bounded replanning, not blind execution. Missing essential inputs block only
+   existing user changes and the exact permitted scope. Compare the task's code
+   assumptions and accepted contract versions to current facts. Old plans may be
+   optional context, never a prerequisite or approval stage. Before dependent edits,
+   confirm sufficient accepted inputs and choose a viable approach in the actual
+   code within accepted architecture. Missing essential inputs block only
    dependent changes. A feature implementation needs independent acceptance of
    the applicable requirements and design; a standalone change uses its accepted
    technical constraints without invented feature metadata.
@@ -87,7 +89,7 @@ Unavailable required resources block dependent work, not independent inspection.
    expanding dependent verification. Do not silently waive a mandatory check;
    any accepted reduction retains explicit unverified claims and limits.
    Failed/unavailable mandatory checks remain failed/unverified, not inapplicable.
-   Record commands, environment, selection rationale, outcomes and limits against
+   Identify current checks, outcomes and limits against
    the exact final snapshot: base revision plus authorized additions/changes/
    deletions bound to content and modes, retaining unchanged base files. Include
    new files; identify the snapshot reproducibly by commit or content fingerprint.
@@ -106,7 +108,10 @@ Unavailable required resources block dependent work, not independent inspection.
 Return `ok|blocked|conflict|error` for the bounded operation, with checked evidence
 as a separate fact, preserved effects, stopping cause and exact remainder; include
 mode, scope, input/design/contract versions,
-files and final snapshot identity, criterion-to-check results, TDD evidence when
-required, repair mapping, unrun checks and revision needs. Do not call the change
+files and final snapshot identity, criterion-to-check results,
+repair mapping, unrun checks and revision needs. No plan or implementation-report
+persistence, substitute log or distribution of its fields is required. TDD remains
+the executor's obligation; do not claim unknown history or conceal a known violation.
+Do not call the change
 independently approved.
 Do not commit/push, manage tracker/worktrees, close work, or start another skill.
