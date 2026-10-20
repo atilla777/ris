@@ -65,7 +65,10 @@ The immutable decision address identifies the Git repository, full decision
 commit, path and, if needed, unique decision section. A commit-pinned blob URL
 is one possible form; a branch URL or local note is insufficient. Fetch/read
 the decision at that commit. Each result has its **own** acceptance decision,
-even when both decisions share a file/commit. It explicitly names the accepted
+even when both decisions share a file/commit or one attributable human act.
+One decision address may serve both refs only when the act explicitly identifies
+and accepts each complete selector/version; validate each result's entry separately.
+It explicitly names the accepted
 content path, section (including null for whole-file), revision and an accepted
 decision attributable to the authorized acceptor. Do not infer acceptance from
 the existence of a file or commit.

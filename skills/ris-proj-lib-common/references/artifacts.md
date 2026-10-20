@@ -89,7 +89,11 @@ For a requirements/design candidate, the caller (the lead in a flow) conveys
 the full exact text with its distinguishable version/scope, or a file accessible
 to the recipient at an exact address/version, together with the separate
 attributable acceptance decision when saving accepted content. Requirements and
-design need separate decisions. The recipient reads and validates complete
+design need independently identifiable accepted scopes. One attributable act and
+decision address may cover both only when it explicitly identifies both complete
+content selectors/versions and acceptance of each; generic approval of one never
+accepts the other. Each receiving owner checks its own scope without re-asking
+unchanged acceptance. The recipient reads and validates complete
 content, version/scope and actual decision/provenance before dependent writes,
 then compares saved content with that accepted candidate and decision. Incomplete,
 inaccessible, ambiguous or changed candidates return to the caller; never infer

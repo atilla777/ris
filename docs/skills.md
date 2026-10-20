@@ -185,7 +185,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
 | [ris-proj-op-author-product-foundation](../skills/ris-proj-op-author-product-foundation/SKILL.md) | Separately accepted, saved and checked initial product knowledge in sources.product |
 | [ris-proj-flow-initialize-project](../skills/ris-proj-flow-initialize-project/SKILL.md) | Agreed checked local RIS setup, one dialogue, delegated document owners and separately offered publication |
-| [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Feature choice through accepted published inputs to verified ID |
+| [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Early same-ID/copy, unified requirements/design dialogue, precise acceptance, independent review/Git and verified decomposition/tracker publication |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
 | [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
 | [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, full input snapshot and complete existing execution route |
@@ -221,15 +221,15 @@ Init stops before roadmap/features/development and does
 not configure product build/test/format/CI. It is not the installer or a whole-rules
 refresh operation. See its complete [contract](../skills/ris-proj-flow-initialize-project/SKILL.md).
 
-`prepare-feature` delegates the existing portable copy preparer before its first
-document write, including optional drafts/decision storage. It supplies an explicit
-pre-ID work identity, authorized path/own branch and pinned base, verifies new/reused
-copy evidence and reconciles partial effects before retry. No future tracker ID is
-needed. Writers, reviewers and the publisher consume that same checked copy.
+`prepare-feature` early-registers the explicitly chosen feature through specify,
+then applies the existing task-copy owner with purpose `feature-preparation` before
+its first document/draft/decision write. It preserves one exact /2 ID and checked
+own path/branch/base, action-specific claim/blocker gates and confirmation-first
+recovery. Writers, reviewers and the publisher consume that same checked copy.
 Direct `specify-feature`/`design-feature` calls instead require a caller-supplied
 prepared own copy before writes intended for publication, or report an explicitly
 authorized local/unpublished limitation. The publisher only consumes preparation;
-it never creates/switches branches or prepares worktrees. Separate acceptance,
+it never creates/switches branches or prepares worktrees. Precise scope acceptance,
 independent whole-snapshot review and Git/tracker publication gates remain.
 
 The direct early-registration contribution of `specify-feature` needs only an
@@ -240,8 +240,12 @@ that exact ID with purpose `feature-preparation`, preserving action-specific
 blockers and all ownership/copy guards before documents. Pin slug/spec together
 once before first writes; later published refs update that same record. Execution,
 decomposition and verified completion retain accepted-input gates; /1 is unchanged
-historical/unsupported, not an ordinary fallback. This direct seam does not change
-the full prepare-flow's end boundary or supply the planned unified dialogue.
+historical/unsupported, not an ordinary fallback. The full flow composes these
+same owners, one requirements/design dialogue and a possible shared acceptance act
+with two exact selectors/versions. It publishes reviewed inputs before same-record
+ref reconciliation and applies the existing full decomposition method, in this
+session or an executor. Inline sufficient design is a distinct accepted spec section;
+design.md/ADR are conditional. Independent review remains a separate context.
 
 For simple assigned work, `run-simple-task` judges clarity, consequences and
 checkability rather than diff size. The main agent applies portable implementation
@@ -262,7 +266,9 @@ Portable operations take supplied inputs; project operations add the applicable
 context, rules, paths and persistence. The RIS skill author composes the portable
 author; neither installs its output without separate authorization.
 
-Feature preparation ends at the published feature ID; decomposition is separate.
+Feature preparation ends at verified sufficient one-task or multi-task decomposition
+and separate tracker publication, without implementation. Direct decomposition
+remains available for already accepted published inputs or its bounded continuation.
 Bug registration preserves a message before investigation, checks all-status
 duplicates and stops at a verified ID. It does not confirm a defect or start
 investigation/fixing; those are separately requested results. No bug slash command

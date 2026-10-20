@@ -58,15 +58,18 @@ discovers the updated skills, commands and client plugin (OpenCode V2, checked o
 
 This section is the current readiness entrypoint; the catalog supplies exact
 contracts, while delivery records retain their original revisions and limits.
-The boundaries below are checked against source revision
+The earlier readiness baseline is source revision
 [`00d012fe35e70f1857ef12216b76a33318e77e37`](https://github.com/atilla777/ris/tree/00d012fe35e70f1857ef12216b76a33318e77e37),
-not a certification of every project or runtime.
+not a certification of every project or runtime. The feature-preparation statements
+are synchronized here with the ris-b1a.3 source change on base
+`7d42b449b4e1cb432e3a7ea1df78e71408f92ec8`, pending integration/publication and
+independent review; they do not certify the rest of the accepted S1 lifecycle.
 
 | Route | Prerequisites and boundary |
 | --- | --- |
 | Portable interview, formulation, planning or review | Supply the selected operation's inputs and scope; no RIS config or tracker is required. |
 | Project initialization | Install first, select the project and agree writes/decisions. `/risp-init` checks that specific local setup and names deferred or blocked operations, not whole-system readiness. |
-| Roadmap and feature preparation | Applicable product/rules, selected capable tracker and separate content acceptance; preparation stops at a published feature ID, decomposition is separate. |
+| Roadmap and feature preparation | Applicable product/rules, capable tracker and precise requirements/design acceptance; preparation uses one early ID/copy and dialogue through reviewed published inputs, verified decomposition and separate tracker publication. |
 | Task or registered-bug execution | Sufficient accepted inputs, actor/claim/blocker checks, safe own copy/branch, available executors and independent review. Bug investigation and fix readiness are distinct. |
 | Publication and completion | Established target, direct-push rights, applicable checks and exact reviewed snapshot; Git, exact tracker completion and Dolt publication are separate effects. PR-only projects cannot use this direct-push route. |
 | Status, continuation and retrospective | Status/next inspect current facts; retrospective needs accessible identified session evidence. None grants execution authority or proves lifecycle readiness. |
@@ -86,7 +89,8 @@ not a certification of every project or runtime.
   `ris-proj-op-prepare-task-worktree` with purpose `feature-preparation`; pin the
   nullable slug/spec pair once before document writes. Accepted refs still require
   real published content/decisions. ID/copy existence is not execution readiness.
-  This direct seam does not supply the separately planned unified preparation flow.
+  The preparation flow composes these owners through verified decomposition;
+  a direct limited registration call does not launch that flow.
   Historical payloads remain history, without migration/backward compatibility;
   incompatible dependent operations return a precise no-write refusal. Package
   update does not repair data. See the [accepted policy](docs/specs/feature-record-compatibility.md).
@@ -121,8 +125,8 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | See daily SDLC help, detailed pages or explain a route without execution | `/ris-help`, `/ris-help full` or `/ris-help <question>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
-| Prepare a project feature through accepted requirements and design | `/risp-prepare-feature <epic or context>` |
-| Decompose an accepted feature into tasks | `/risp-decompose-feature <ID>` |
+| Prepare a feature through one requirements/design dialogue and verified decomposition | `/risp-prepare-feature <ID, epic or context>` |
+| Independently decompose or resume decomposition of accepted published inputs | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
 | Execute or resume one clear, already assigned simple request | `/risp-run-simple-task <request and optional ID>` |
 | See the complete unclosed plan and one next action | `/risp-status` or `/risp-status <ID>` |
@@ -145,7 +149,12 @@ role split is Standard for selection/decomposition/orchestration and Advanced fo
 requirements/design/implementation/review. No global edits or silent upgrades;
 see [tier setup and readiness limits](docs/installation.md#standardadvanced-project-agents).
 It does not start roadmap/features/development or configure build/test/format/CI.
-Feature preparation ends at a published feature ID; decomposition is a separate step.
+Feature preparation uses early registration and one safe ID-associated copy before
+document writes. One dialogue yields two precisely accepted scopes (one explicit
+act may accept both), sufficient inline design, independent review and Git
+publication; the same record then reaches verified decomposition and separate
+tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
+not mandatory extra steps. Preparation does not start implementation.
 
 Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty input
 displays fixed daily Markdown locally, **without any model call**: status/next, feature preparation/decomposition

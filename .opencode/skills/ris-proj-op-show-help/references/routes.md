@@ -47,18 +47,22 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   existing task-copy owner can prepare that ID with purpose `feature-preparation`
   before documents; pin slug/spec together once before first writes. Status/next
   expose the actual copy/input/blocker gap. Historical /1 is unsupported without
-  conversion/fallback. This direct seam does not change the full prepare-flow's
-  acceptance/decomposition boundary below.
+  conversion/fallback. The full prepare-flow composes these same owners below;
+  a direct limited registration call does not start that flow.
 
 - "I want to add authorization": if this is a new feature needing decisions,
-  explain `/risp-prepare-feature <epic/context>`: select a bounded result, accept
-  requirements and design separately, publish inputs and feature ID. Decomposition
-  is outside that scenario: `/risp-decompose-feature <ID>` is a separate request.
+  explain `/risp-prepare-feature <ID or epic/context>`: early-register the chosen
+  result, prepare its one safe ID-associated copy, work out requirements/design
+  in one dialogue, precisely accept both scopes (one act may cover both), review/
+  publish inputs, update the same ID and verify decomposition/tracker publication.
+  `/risp-decompose-feature <ID>` remains useful independently or on resume when
+  accepted published inputs already exist; it is not mandatory after prepare.
   If it might instead be an already assigned clear fix, clarify that distinction,
   or conditionally mention `/risp-run-simple-task <bounded request>`; do not
   demand the full SDLC for every simple change.
 - `prepare-feature` vs `specify-feature`: the former owns the combined preparation
-  route through separately accepted design and published feature ID; the latter
+  route through independently accepted requirements/design and published verified
+  one-task or multi-task decomposition; the latter
   owns requirements and their permitted document/record effects, not design or
   decomposition. Their atomic stages are alternatives to manually orchestrating
   preparation, not mandatory extra calls after the scenario.

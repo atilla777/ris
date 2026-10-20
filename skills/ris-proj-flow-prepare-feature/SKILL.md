@@ -1,295 +1,251 @@
 ---
 name: ris-proj-flow-prepare-feature
 description: >-
-  Guide one RIS project feature from a roadmap choice through separately accepted,
-  reviewed and published requirements/design to a remotely verified feature ID.
-  Use for interactive feature preparation; not for only selecting, interviewing,
-  drafting, decomposing an accepted feature, technical planning or implementation.
+  Prepare one RIS feature from early registration and its safe copy through one
+  requirements/design dialogue, precise acceptance, independent review and Git
+  publication to verified one-task or multi-task decomposition and tracker
+  publication. Use for interactive preparation or its resume; not selection alone,
+  a single document operation, technical task planning or implementation.
 ---
 
-# Prepare and publish one feature
+# Prepare one feature through verified decomposition
 
-Own the sequence, one human dialogue and combined result. Component skills own
-their complete subject results and checks; the adapter owns tracker identity,
-concurrency and publication. This project-specific scenario needs no portable
-base. Stop at a published feature ID and inputs, **without decomposition**.
-Decomposition is a separate invocation/session starting from that ID.
+Own transitions, one human dialogue and the **combined result**. Component owners
+retain their complete methods, scoped results and direct invocation; the adapter
+owns tracker encoding/operations/publication. This project scenario needs no new
+portable base. Stop after verified decomposition and separate tracker publication,
+without executing or closing the feature/tasks.
 
 ## Scope, permissions and execution
 
-Establish project/current copy, explicit epic or roadmap scope, accepted goal,
-known answers, linked prior work, applicable rules and permitted document,
-decision, Git and tracker effects. Workflow authorization does not accept unseen
-content. Apply installed `ris-proj-lib-common` and its conditional dialogue/artifact/
-quality resources, and `ris-proj-op-resolve-context` with its configuration resource for relevant
-sources, adapter and execution settings. Shared workspace paths require context's
-checked primary selection/provenance, explicit or verified available saved
-indication, in a worktree. Do not derive a task directory before ID
-confirmation, invent filenames from config, or require a draft store.
+Establish project/current copy, chosen feature or epic/roadmap context, actor,
+known answers, linked prior work and permitted claim, copy/setup, document/decision,
+Git and tracker effects. An epic is optional, never invented. Workflow permission
+does not accept unseen content or authorize unrelated source/structure changes.
+Apply installed `ris-proj-lib-common` and its applicable dialogue/artifact/quality/
+published-input resources; apply `ris-proj-op-resolve-context` with its owned
+configuration resource for relevant sources, tasks adapter and needed shared paths.
+In a worktree, consume its checked primary selection/provenance and current-copy
+association; never select primary from Git alone or invent a task directory.
 
-The scenario consumes `execution.roles.feature-selection` for selection and
-`execution.roles.feature-preparation` for the other noninteractive component
-operations, including independent review and publication. Verify that each
-configured agent is an available subagent and actually launches. The reviewer
-must be a fresh invocation independent of content authors. Direct component
-calls need no roles. Missing executor blocks its dependent operation; do not
-silently run it in the leading context, choose a fallback or require the
-`task-decomposition` role for preparation.
+Apply existing owners in this context or delegate bounded work when useful; no
+executor, separate session or configured role is mandatory for each internal
+action. For delegation only, prepare the consumed role (`feature-selection`,
+`feature-preparation`, or `task-decomposition`) through context's role resource,
+verify the configured agent is available and actually launched; no silent fallback.
+Independent review **must** actually run in a separate context independent of all
+content authors/repairers. Check invocation evidence, not a configured name.
+Unavailable required review blocks publication, not independent useful analysis.
 
-Before writable preparation, delegate bounded read-only preflight: the adapter
-checks actual operations, create/read feature-record support, local-write
-isolation, configured remote, outgoing scope and publication guarantees;
-`ris-proj-op-publish-task` preflights its prospective authorized Git document subject,
-destination and publication gates without writing. An unprepared copy is a pending
-prerequisite owned by the pre-ID gate below, not permission for publisher setup.
-Establish actual publication permissions, including full outgoing tracker history.
-No remote or guarantee
-means a blocker for the dependent effect. Direct document-only components may
-still return their authorized local result. Consume the adapter's fresh-read,
-targeted native-operation/read-back guarantees without requiring a manual window
-or transaction over graph and external evidence; permission, claim and sandbox
-are not technical locks. Unsupported complex guarantees return an exact limitation.
+Each acting context loads/applies its selected owner and required resources before
+that operation; do not load every child method merely to route work. Pass goal,
+project/config/copy provenance, exact scope/permissions, known decisions and full
+candidate text with distinguishable version/selectors or an accessible exact
+file/version, and attributable acceptance when saving. The recipient reads/checks
+complete inputs without assumed foreign-chat access; noninteractive work returns
+questions here, never accepts for the human. Inspect actual saved/read-back
+results, effects and limitations, not just “done”. The lead checks sufficiency of
+the whole without copying owners' algorithms.
 
-For **every standalone noninteractive operation**, launch a bounded subagent.
-Do not load all child methods merely to route work, split each internal read
-into an agent, or copy their algorithms here. Pass selected skill/operation,
-goal, project/config provenance, permitted scope, known decisions and input/
-output scope. Supply full exact candidate text with a distinguishable version/scope,
-or a recipient-accessible file at an exact address/version, and any separate
-attributable acceptance decision. The lead owns this transfer; foreign chat is
-not inherited. The executor loads/applies that component and dependencies and
-checks its result. A read-only author returns its full proposal; optional file
-storage belongs to an authorized writer at an agreed destination. Require:
+Before dependent writes preflight the selected adapter's actual /2 create/read/
+update, claim, child/edge and separate publication capabilities as needed, with
+local-write isolation, remote, entire outgoing-history authority and native limits.
+Preflight `ris-proj-op-publish-task` for the intended authorized document subject,
+target and full publication gates; the not-yet-prepared copy is a prerequisite
+below, not publisher-owned setup. Missing capabilities/permissions block dependent
+effects, not authorized read-only proposals. Claim/sandbox/read-back are not CAS,
+distributed exclusion or strict uniqueness. Do not require a manual window or
+transaction over graph and external evidence; return unsupported required guarantees.
 
-```text
-status; operation/scope; full proposal and version or verified result address;
-revision or confirmed ID when applicable; decision/evidence; actual effects;
-limitations; decision needed
-```
+## Register the selected feature and prepare its one copy
 
-Check actual launch, completion status and full returned text or accessible
-result/evidence, not an unsupported “done”. The consumer reads the full result and checks its
-applicability. Do not repeat the owner's field, digest, SQL or publication
-algorithm. Repeat a component check when its inputs or effects changed, or its
-evidence no longer applies; independent review checks its subject independently.
-Subagents never ask the human or accept content on their behalf: return choices
-here. Human interview, discussion and acceptance stay in this dialogue.
+If the outcome is not yet selected, apply read-only `ris-proj-op-select-feature`
+and obtain the person's choice. Apply `ris-proj-op-refine-epic` only if a real epic
+ambiguity blocks that choice; keep its human decisions here and explicitly limit
+any authorized write contribution to local update, leaving publication here.
+Do not register abstract ideas or create speculative tasks.
 
-## Choose and accept requirements
+Once chosen, apply `ris-proj-op-specify-feature` in **explicitly limited early
+registration** mode: approved title/brief goal, stable project-scoped retry key,
+known exact ID and optional confirmed epic, with tracker-write authority. Consume
+the adapter's all-status collision/reuse/read-back result. No spec/design,
+acceptance, slug/spec pair or document copy is required for that contribution.
+Require one confirmed current /2 task ID with honest nullable fields, never a
+replacement “ready” record. /1/historical/malformed remains unchanged with a
+precise dependent no-write diagnostic, not conversion or ordinary fallback.
 
-Delegate read-only `ris-proj-op-select-feature`; confirm the person's chosen small
-outcome and epic. If an unclear epic boundary blocks selection, apply
-`ris-proj-op-refine-epic` only for that ambiguity: its interactive decisions stay here,
-its standalone noninteractive investigation/write operations use the executor
-with an explicit proposal/local-update-only boundary; this scenario owns the
-later tracker publication, including any authorized refinement debt.
-Do not refine just because the epic is large or create speculative tasks.
+Before **any** document/evidence write, including optional drafts, apply
+`ris-proj-op-prepare-task-worktree` for this exact ID/actor with purpose
+`feature-preparation`. Pass authorized claim/copy/setup scope, repository/current
+and context-checked primary roots, known association, path/branch and explicit
+base or established remote/main rule. That owner composes the portable preparer
+and selected worktree adapter; do not duplicate creation/preservation algorithms.
+Require open own preparation work/claim, fresh action-specific directed-blocker
+checks and a safe own copy. Execution-only blockers do not automatically forbid
+clarification, but actual/unknown preparation blockers and native refusal are not
+bypassed. Keep execution gates unchanged. Recheck ownership/status/blockers before
+each mutation batch through the selected adapter.
 
-### Prepare the pre-ID document copy before writing
+Consume exact ID/repository/path/branch/HEAD, pinned new-copy base or verified reuse,
+association, index/files/operation state, copy/environment verdicts, setup effects
+and limits. Setup not requested is not environment readiness. Use that same
+prepared copy as the document root; reapply context there and verify project/
+tracker/settings association before writers, review and publication. Never write
+on shared main first or ask the publisher to branch later. Preserve user/foreign
+changes; no implicit reset/stash/move or dirty-primary transfer.
 
-Once the subject is chosen, and **before the first document write**, including
-optional candidate/draft or decision storage, establish an explicit pre-ID work
-identity for this preparation subject. Agree its repository association, exact
-absolute copy path, own document branch, base revision and permitted creation/reuse
-and hook/setup effects. This identity is not a future task ID or a tracker record;
-do not invent an ID directory, branch/path from config, or a second registry.
-Use context's checked primary root only where shared paths are needed.
+Agree and pin the initially null permanent slug/spec pair **once**, through
+specify/adapter on the same ID before document writes. Check path collisions and
+existing approved associations; title/slug changes never rename the worktree.
+Write directly at the future project paths in this copy, ordinarily
+`sources.specs/<slug>/spec.md`; no draft store, registry or second publication copy.
+On pause/setup failure retain this ID/path/branch and existing documents; the copy
+owner reconciles actual refs/registration/files/setup before only missing actions.
+No mandatory transition journal, intermediate commit or draft file is introduced.
 
-Delegate `ris-port-op-prepare-worktree` through the existing feature-preparation
-executor. Pass the work identity/association, repository/current and checked primary
-roots, exact path/branch, explicit accessible base commit (or selected remote and
-established primary-branch rule to resolve/pin it), permissions, isolation/project
-constraints and selected adapter if any. The portable owner loads its contract and
-selected adapter, pins the full base before creation, and owns copy preparation,
-preservation and recovery; no tracker ID or task-worktree operation is required.
-Check its actual availability and returned evidence, not just its name.
+## One requirements and design dialogue
 
-From a free primary copy without a prepared own branch, use that owner's new
-worktree route at the agreed path/branch and pinned base; do not write documents
-on shared local primary/main first or ask the publisher to create a branch later.
-A suitable already associated own document branch/copy may instead be verified
-and reused read-only by the same owner, including on resume with known document
-changes. A branch name or clean status alone is not association evidence. A busy,
-foreign or ambiguous current copy, overlapping work, or required isolation uses
-an authorized separate copy, not takeover of the current one. Missing permission,
-collision, unfinished Git operation or unresolved association stops dependent
-document writes; do not reset, stash, move or discard existing work.
+Apply `ris-proj-op-interview-feature`'s **Map the material requirements** and
+**Check and hand off** to known answers, relevant product/rules and actual sources.
+This is coverage, not a mandatory interview or separate report. Use its conditional
+interview route only for material gaps. Apply `ris-port-op-formulate-feature-spec`
+to formulate/check the full requirements candidate, including observable `AC-nnn`,
+and `ris-port-op-design-feature` to develop/check sufficient design against those
+requirements, actual code/architecture and related contracts. Design may be proposed
+against explicitly proposed requirements while exploring; it cannot be saved as
+accepted until those requirements and the design are both actually accepted.
+Resolve interdependent functional/technical choices in **this one dialogue**;
+reuse known answers, investigate factual questions and ask only material gaps.
+Use the existing focused technical interview method if genuinely needed, not a
+second functional questionnaire. Return behavior changes to the requirements
+candidate; do not silently accept them as design choices.
 
-Consume the checked result's repository/path/branch/HEAD, pinned new-copy base,
-association, copy/environment verdicts, actual effects and limits. Continue only
-with a verified safe own copy and any required setup complete; absent optional
-setup is not environment readiness. For partial/interrupted preparation, retain
-the established identity/path/branch and ask that same owner to reconcile actual
-refs, registration, files and setup effects before repeating anything. Continue
-only missing authorized actions; never blindly create another copy or retry setup.
-No default report file is required; keep an accessible exact result in the existing
-authorized channel, with addressable evidence when the owner's recovery gate needs it.
+Preserve the design method's responsibility/state owners, public contracts and
+dependency directions, errors/retries/concurrency, compatibility, affected active
+decisions/AC and test seams. Alternatives/ADR are conditional on material choices,
+not ceremony. Prefer a sufficient design as its own unambiguous section in
+`spec.md`, with nonoverlapping requirements/design selectors. Use `design.md` when
+separation is useful or appending to already accepted whole-file requirements
+would change their scope. Absence of design.md is not a gap; insufficient design
+or `design: null` is. Ordinary specs are not OKF bundles.
 
-Make this prepared copy the document working root. Reapply context to its selected
-config, re-resolve document destinations there, and pass checked copy/config
-provenance and exact paths to every writer, reviewer and publisher. Recheck mutable
-state before writes and reconcile drift rather than transferring dirty primary
-files implicitly. Read-only proposals may continue while preparation is blocked;
-they do not unlock saving. Preserve the separate content-acceptance gates below.
+Before acceptance show both **complete, distinguishable versions/scopes**, accessible
+inline or at checked exact addresses. Explain design essence/flow, reused/new
+technologies and why, tradeoffs, material risks and hard-to-reverse choices in
+plain language; a short complete design can itself suffice. A summary never
+accepts unseen content. Optional full draft storage needs explicit path/write
+authority and the design owner's draft branch; it is not accepted save/publication.
 
-Before deciding whether requirements need an interview, load and apply installed
-`ris-proj-op-interview-feature`'s **Map the material requirements** and **Check
-and hand off** in this leading dialogue. Reuse known answers and current sources;
-this is the shared coverage method, not a standalone checking operation or an
-interview invocation. Return only material gaps/conflicts to the human; use a
-single clarification when sufficient, and that owner's conditional interview
-route here only when needed. With sufficient inputs proceed directly to the
-proposal, without a questionnaire, repeated interview, new executor or separate
-coverage report. Preserve independent useful work while resolving gaps.
-Delegate `ris-port-op-formulate-feature-spec` with the resulting known answers,
-sources/statuses and remaining gaps for a full read-only proposal. Read the
-complete candidate for human discussion; unresolved choices return here, not to an
-executor's guessed answers. Apply the same owner's map/check to the actual
-candidate before acceptance; resolve material gaps/conflicts before accepting
-their dependent result. Show the concrete requirements and obtain their
-**separate** acceptance under project rules. Keep the accepted candidate identity
-and actual authority/decision recoverable; generic workflow approval is not
-acceptance. With the pre-ID copy gate satisfied, delegate `ris-proj-op-specify-feature`
-in explicitly requested document-only, explicitly limited accepted-local-save mode.
-Supply the full exact accepted text
-and distinguishable version/scope, or a recipient-accessible file at an exact
-address/version, with the separate attributable requirements decision, destination
-path/section and permitted writes. It validates those inputs and saved content/
-decision matching; incomplete, inaccessible, ambiguous or changed candidates return
-here without guessed answers or reformulation. No feature task is created yet.
+One explicit human act may accept **both** requirements and design only when it
+identifies both exact content selectors/versions and the authorized acceptor's
+decision/provenance. Keep two independently identifiable accepted results even
+if their immutable decision address is shared. Requirements acceptance alone
+does not accept design. Apply the specify/design owners' installed
+`references/acceptance-and-save.md` for their respective scope; each verifies its
+own complete candidate and actual decision, without demanding a second answer
+merely because it is called separately. No new acceptance schema/file is required.
 
-For revisions before publication, pass the current accepted result and its
-separate actual decision to each consumer. Briefly record a material replacement
-(superseded version/decision, change and new actual acceptance) through the
-document owner; no full archive of intermediate accepted snapshots, draft log or
-commit per acceptance is required. Optional drafts/commits remain allowed.
-Preserve already published versions/decisions and their original pinned refs.
+Apply `ris-proj-op-specify-feature` and `ris-proj-op-design-feature` as **explicitly
+limited accepted-local-save contributions** for their document scopes, no record
+refs or duplicate Git/tracker publication. For design use its document-only local
+accepted-input branch with the verified local accepted requirements/decision;
+the known ID remains the copy/review association, not a demand for already
+published requirements. Pass the same checked copy, exact destinations, complete
+accepted text/version/selectors, both attributable decisions and write authority.
+Check content/decision read-back and preserved sections. Missing/changed/ambiguous
+inputs return here, never guessed acceptance or reformulation during save.
 
-## Discuss and separately accept design
+On revision preserve published pins and original decision addresses. Briefly
+identify material replacement and obtain acceptance only for changed scope.
+Requirements changes require design-owner applicability review; compatible
+unchanged design keeps its acceptance. Uncertain applicability blocks dependent
+work, not independent analysis; unchanged compatible content is not reaccepted
+or repinned merely for save retries/integration.
 
-Delegate `ris-port-op-design-feature` for sufficient design from the accepted
-requirements, actual code/architecture and alternatives. Read its full read-only candidate
-and discuss material technical decisions here; use a focused technical interview
-only for unresolved interdependent choices. Delegate revised analysis when
-needed. A behavior change returns to requirements discussion and targeted
-acceptance; unchanged requirements are not reaccepted for a design-only change.
-After requirements change, delegate a bounded applicability check of any existing
-dependent design to `ris-proj-op-design-feature` with the current requirements,
-their decision and the prior design/decision. Compatible unchanged design keeps
-its original acceptance; obtain a separate decision here only for materially
-changed design. Uncertain applicability blocks dependent saving/publication,
-not independently authorized work.
-For a new or materially changed design, before asking for its **separate** acceptance,
-explain it here in plain language: essence, main flow, reused/new technologies and
-why, tradeoffs, material risks and irreversible/hard-to-reverse choices. Aim for
-roughly one screen as a readability guideline, not a measured limit; never hide
-material decisions to fit it. Identify the exact COMPLETE candidate version/scope
-being approved and keep its full text accessible. A short full inline design may
-itself supply this explanation without a duplicate summary. For a long design,
-optional full Markdown draft storage may precede approval: first explicitly agree
-and authorize its exact destination/write scope here, then delegate a bounded draft
-write to an authorized writer applying `ris-proj-op-design-feature`'s draft branch,
-never to the read-only author. Check the returned full candidate/version and
-accessibility. Without draft permission, keep the full candidate unsaved in the
-dialogue; no draft file/store is mandatory. Draft storage needs no acceptance and
-is neither accepted-content save nor publication. Obtain a separate attributable
-decision approving that exact complete design, not merely the summary; changed
-candidates return here for a focused decision, unchanged decisions retain their
-original references. Delegate
-`ris-proj-op-design-feature` in document-only explicitly limited accepted-local-save
-mode (no Git/record/tracker effects), without inventing an ID. The lead supplies
-the full exact accepted design text and distinguishable version/scope, or a
-recipient-accessible file at an exact address/version, its separate attributable
-design decision, accepted requirements and their decision, destination path/section
-and permitted writes. Optional candidate storage is authorized separately, never
-assigned to the read-only author or required before save. Incomplete, inaccessible,
-ambiguous or changed input returns here before dependent save.
-The owner checks accepted requirements applicability, sufficient design, versions
-and preservation. A local saved result is not publication.
+## Independently review, publish Git and reconcile the same record
 
-## Review, publish Git, then create the feature
+Actually launch independent `ris-proj-op-review-task` for the **complete document
+subject**: requirements/design and decisions against rules, AC and architecture,
+exact full base+overlay/add/delete/modes snapshot and all authors/repairers.
+Use publication-gate purpose and context-checked primary
+`workspace.tasks/<confirmed-ID>/review.yaml` unless an exact authorized override
+applies. Apply its installed `references/report-format.md`: one full local YAML,
+explicit round, separate validity and external snapshot/input/check/provenance
+applicability, no fallback past later adverse/unknown rounds. Review is not human
+acceptance. Return high/medium findings to content owners, repair/check, obtain
+targeted acceptance only for changed meaning and fresh independent review.
 
-Delegate independent `ris-proj-op-review-task` assessment (composing portable review)
-of the concrete
-pre-ID document subject: specific accepted requirements/design and
-their decision evidence against rules, AC and actual architecture. Provide exact
-candidate revisions and addresses, not just an earlier verdict. Return material
-findings to their content owner; discuss/accept only changed content here,
-delegate repairs and rerun affected checks and fresh review. High/medium findings
-must be resolved before publication. Do not treat review as human acceptance.
-Pass publication-gate purpose and an explicit authorized local YAML report path for this pre-ID subject; never
-invent a task folder. Apply the review owner's references/report-format.md for
-the complete saved report and explicit round, validity separately from external
-whole-subject/provenance/check applicability, and no old-approval fallback past
-later adverse/unknown rounds. This change does not introduce early feature records
-or change preparation/decomposition order.
+Apply `ris-proj-op-publish-task` for accepted documents from the **same prepared
+ID-associated copy/branch**. Pass checked association/current state/base, exact paths,
+accepted content/decision selectors, checks, independent review/provenance and
+full prospective tree, target evidence and permissions. Consume its existing
+whole-outgoing-history/integration/reassessment/non-force/remote-read-back and safe
+primary-sync result; do not repeat its algorithm. Full remote-plus-primary-sync
+is required unless this scenario was explicitly limited to remote-only Git.
+Confirmed remote with pending primary sync is a preserved partial effect, not
+permission to replay push or proceed past the full-result gate.
 
-Delegate `ris-proj-op-publish-task` for authorized preparation-artifact Git
-publication using the already prepared pre-ID document branch/copy above. Pass
-its checked identity/association, path/branch/base and current state, exact
-project-relative subject paths, accepted requirements/design and separate decision addresses,
-substantive checks, full candidate base+overlay/add/delete/modes snapshot,
-independent review/provenance, destination evidence and allowed effects. The
-publisher owns its single integration/reassessment/push/read-back algorithm;
-do not reproduce it here. Read the returned receipt and check subject/version,
-commit/tree/ref/remote, review/check applicability, decision locators, actual
-effects and limits against the scenario's promised whole. Changed accepted
-content returns to its content owner and this dialogue; publication cannot
-accept it. Require full remote-plus-primary-sync publication unless the person
-explicitly limited this scenario's Git result to remote-only. A partial result,
-including confirmed remote publication with pending primary sync, preserves the
-published inputs but cannot unlock dependent tracker creation in this full call.
-The document owners supply content/decision matching evidence; no mandatory
-Markdown byte-scope hashes.
-Decisions can name `containing-commit`, resolved by their commit-pinned address;
-tracker refs use full published commits. Git publication must be confirmed
-before creating the feature record.
+Match published content and decisions to both accepted scopes. Resolve
+decision-only `containing-commit` at the original immutable decision address;
+tracker refs always use full real published SHAs. Only after verified required
+Git publication apply specify's **limited record-only reconciliation** to the
+same exact ID with expected prior state, pinned pair, approved task content and
+both published accepted refs/decisions. If only design remains, use design's
+limited record-only update preserving requirements pins. Inspect actual ID/type/
+optional parent/identity, complete refs/decision matching, preservation and
+verification invalidation. These contributions do not create a replacement ID,
+reaccept content or push again. Unsupported payload/conflict stops dependent writes.
 
-Then delegate `ris-proj-op-specify-feature` in explicitly limited record-only
-reconciliation mode with checked Git receipt, confirmed epic, permanent slug,
-stable key, approved task content and **published** requirements/design/decision
-references. It owns accepted identity/content reconciliation and applies the
-selected adapter's collision/create/read-back/protection operations. Inspect its
-actual ID/type/parent/refs and content/decision matching evidence against this
-scenario's published result. Existing ID never implies create; preserve unknown/
-historical payloads. If the record already exists and only design refs remain,
-delegate `ris-proj-op-design-feature` limited record-only update with expected
-prior state, separate decisions and receipt, preserving requirements pins.
-These contributions perform no duplicate Git or Dolt push. Do not create children
-or invoke decomposition.
+## Apply full decomposition, then publish the tracker
 
-Delegate separate tracker publication for the verified ID and refs and any
-authorized local refinement effects. The adapter
-checks authorized shared project main scope and history direction, ordinary
-non-force publication and fresh selected-remote revision/reachability. It returns
-required S, observed L/fresh R and IDs alongside separate local content evidence,
-not exact sent-snapshot or remote field equivalence and not raw
-database internals for this scenario to reinterpret. Git and tracker results
-are independently confirmed; one success cannot clear the other gate.
+Apply `ris-proj-op-decompose-feature` with the same ID, current published accepted
+requirements and sufficient design, constraints/contracts/test seams, existing
+task IDs and permitted child/edge effects. Explicitly request its **limited local
+write/verification contribution**; this flow owns the final tracker publication.
+Use its entire portable/project method and readiness/coverage/reconciliation
+checks unchanged, in this session or a suitable executor without formal complexity
+thresholds. Do not substitute a short split algorithm or Markdown backlog.
 
-## Partial effects, retry and handoff
+Check its complete result: for one unit, the existing feature itself has sufficient
+scope/criteria/accepted coverage, reconciled complete child set and directed
+blockers, without an artificial child. For multiple units, every child has own
+result/scope/criteria, applicable accepted selectors/decisions, `slug#AC-nnn`
+coverage, contracts/test seams/exclusions, stable key and only necessary directed
+`blocks` edges (blocked → blocker), with exact ID/content/parent/edge read-back.
+Unmatched children, missing AC/seams, cyclic edges or unconfirmed prerequisites
+remain gaps, not ready work. A one-task content gap returns to authorized record
+reconciliation; it does not permit an implicit adapter update or fake child.
 
-After an ambiguous/failed effect stop dependent writes. Ask the corresponding
-owner to reconcile its actual local/remote state before retry. Retain saved
-addresses, published commits, keys and confirmed IDs. If Git succeeded and
-tracker creation/publication failed, recover that tracker operation using the
-same published inputs, without repeating unchanged acceptance, recreating known
-IDs or undoing another owner's work. Changed content/identity returns conflict
-and focused resolution. A failed read-back after push requires remote snapshot
-verification, not another blind push. A missing executor preserves independent
-results and blocks that step explicitly.
+After the owners' local checks invoke the adapter's **separate tracker publication**
+for the verified same record/refs, one-task result or children/edges and any
+authorized refinement/early-registration debt. Check authority for the entire
+shared-main outgoing scope, ordinary non-force publication and fresh selected
+remote revision/reachability evidence alongside local composition/coverage.
+No-change verifies required availability/debt without empty push. Remote revision
+assurance is not independent field equivalence. Do not close, claim execution,
+plan technical steps or launch implementation after decomposition.
 
-Return `ok|blocked|conflict|error` for the whole scenario, project/config scope,
-confirmed epic/feature ID and slug, published requirements/design and separate
-decision addresses, Git revision/ref and tracker snapshot/read-back evidence,
-component result addresses, actual effects, limitations and decisions needed.
-`ok` requires both reviewed, independently accepted published document results
-and a remotely verified feature record. For incomplete execution use the stopping
-cause's `blocked|conflict|error`, giving each channel's actual state, cause and exact
-recovery; a bounded component's `ok` does not make the whole scenario `ok`.
-A new session can consume project plus ID and discover published content and
-separate decisions from its saved associations under common's conditional
-published-input reading method, even if its checkout is stale. Verify those
-associations at completion; do not require the person to forward this receipt,
-local notes or chat. Stop without decomposition, claim,
-technical planning, implementation or closure.
+## Partial effects, resume and result
+
+On ambiguous/failed writes stop dependent mutations and use the corresponding
+owner to reconcile actual local/remote effects before retry. Keep the same ID,
+copy/path/branch, published commits/decision pins and known child IDs/keys/edges.
+Resume from current Git/Beads/accessible accepted inputs and applicable review,
+not a state file or stale success token. Unknown create/setup/push is inspected
+first; confirmed publication is not repeated for pending read-back, primary sync,
+record update, decomposition or tracker debt. Revalidate only affected inputs/
+checks/review; unchanged acceptance stays. No rollback of foreign work or blind
+recreation is allowed. Missing evidence/owner blocks that step precisely.
+
+Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
+provenance, exact feature/optional epic and pinned pair, separate accepted refs and
+decision addresses, Git/primary and tracker publication evidence, review address/
+round, one-task justification or exact children/keys/statuses/directed edges,
+criterion coverage/integration prerequisites, actual effects and limitations.
+For partial results name each channel's confirmed state and only missing recovery.
+`ok` requires reviewed accepted published documents, matching same feature record,
+verified sufficient decomposition and confirmed separate tracker publication;
+component `ok`, ID/copy existence or closed prerequisites alone are insufficient.
+Check that a new session can discover published inputs/decisions from project+ID
+without chat, ignored notes or mandatory receipt forwarding. Stop at preparation,
+not implementation or feature acceptance/completion.

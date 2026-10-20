@@ -89,13 +89,21 @@ For a requirements/design candidate, the caller (the lead in a flow) conveys
 the full exact text with its distinguishable version/scope, or a file accessible
 to the recipient at an exact address/version, together with the separate
 attributable acceptance decision when saving accepted content. Requirements and
-design need separate decisions. The recipient reads and validates complete
+design need independently identifiable accepted scopes. One attributable act and
+decision address may cover both only when it explicitly identifies both complete
+content selectors/versions and acceptance of each; generic approval of one never
+accepts the other. Each receiving owner checks its own scope without re-asking
+unchanged acceptance. The recipient reads and validates complete
 content, version/scope and actual decision/provenance before dependent writes,
 then compares saved content with that accepted candidate and decision. Incomplete,
 inaccessible, ambiguous or changed candidates return to the caller; never infer
 foreign-chat content or reformulate accepted meaning. Optional candidate files
 need an authorized destination; no intermediate file or intermediate publication is required.
-Response-only content requires explicit forwarding to a new session. Local
+These explicit transfers concern intermediate unsaved/not-yet-discoverable results,
+not a new session consuming a completed saved stage. For the latter apply common's
+`published-inputs.md`: project plus exact ID/saved associations must discover the
+content and decisions without a prior chat or receipt. Response-only content
+requires explicit forwarding to a new session. Local
 notes are usable only where accessible, never mandatory remote inputs for another
 copy. A receiver re-resolves paths and checks actual content/version, fresh
 permissions and, where required, ownership, blockers and write guarantees.

@@ -13,8 +13,9 @@ assignee's; a recommendation does not authorize takeover.
 
 ### 🧩 WORK OUT A FEATURE (PREPARE TASKS)
 
-**`/risp-prepare-feature <epic>`** — choose a feature, separately accept requirements
-and design, and publish the inputs.
+**`/risp-prepare-feature <ID or context>`** — early-register the chosen feature,
+use one safe copy and requirements/design dialogue, precisely accept both scopes,
+review/publish inputs and verify decomposition plus tracker publication.
 
 **Or use individual stages:**
 
@@ -22,7 +23,8 @@ and design, and publish the inputs.
 - `/risp-specify-feature` — agree requirements.
 - `/risp-design-feature` — agree the design.
 
-**Then `/risp-decompose-feature <ID>`** — obtain tasks from the prepared feature.
+**`/risp-decompose-feature <ID>`** — independently obtain/verify tasks from accepted
+published inputs; already included in the whole preparation flow. No implementation.
 
 ---
 

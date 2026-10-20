@@ -25,7 +25,10 @@ source discovery/reading, not copy preparation, publication or content acceptanc
    the missing object/access permission precisely if no permitted read route works.
 3. Check the actual decision's content selector/version, acceptor and scope using
    the owner's acceptance protocol. Resolve decision-only `containing-commit`
-   from its original immutable address, never from a later copy. A record flag,
+    from its original immutable address, never from a later copy. Requirements and
+    design may share a decision address only when that act explicitly accepts both
+    independently identifiable content selectors/versions; check each entry rather
+    than infer one acceptance from the other. A record flag,
    proposed design, publication or file presence is not acceptance. Read the
    complete selected substantive content, not only the link or summary, when the
    conclusion depends on it. Verify publication separately where the owner needs it;

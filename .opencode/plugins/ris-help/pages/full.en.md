@@ -104,9 +104,11 @@ feature selection. Does not specify every future feature.
 
 **`/risp-prepare-feature <epic or context>`**
 
-Choose a feature, separately accept requirements and design, review/publish the
-inputs and obtain a published feature ID. Decomposition and implementation are
-outside this scenario.
+Early-register the chosen feature, prepare one safe ID-associated copy and work
+out requirements/design in one dialogue. One precise act may accept both complete
+scopes. Independently review/publish inputs, update the same ID and apply existing
+decomposition through verified one-task or child-task/edge coverage and separate
+tracker publication. Sufficient inline design needs no design.md. No implementation.
 
 ---
 
@@ -152,7 +154,8 @@ save/publication. Does not decompose or implement tasks.
 **`/risp-decompose-feature <ID>`**
 
 Check whether one task suffices or create necessary tasks and dependencies from
-accepted requirements/design. Does not plan one task's implementation.
+accepted requirements/design. Also available independently or to resume this result;
+already included in prepare-feature. Does not plan one task's implementation.
 
 ---
 

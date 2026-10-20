@@ -123,7 +123,9 @@ the separate decision at its pinned address. Match decision path, section,
 resolved revision and authorized acceptor; resolve decision-only
 `containing-commit` as specified by the adapter. Confirm both content and
 decisions are published in the selected Git remote. A commit/file or a branch
-URL alone is not acceptance. Shared-file selectors must yield independently
+URL alone is not acceptance. A shared decision address is allowed only when the
+act explicitly accepts both exact selectors/versions; verify each entry separately,
+without renewed acceptance of unchanged inputs. Shared-file selectors must yield independently
 identifiable, nonoverlapping accepted results; no byte ranges, heading/EOF
 protocol, scope digest or tracker decision history is required.
 Null slug/spec or requirements is an early preparation/input gap, not readiness

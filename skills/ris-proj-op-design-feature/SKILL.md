@@ -201,7 +201,9 @@ impact and obtain a recoverable decision approving exactly that complete design
 scope/version, not merely its summary. For bounded supplied acceptance, validate
 the actual candidate/decision instead of re-asking approval or opening dialogue.
 Generic authorization, requirements approval, a commit or file presence does
-not accept design. An unchanged requirements scope is not reaccepted merely
+not accept design. One act may accept both complete scopes only under the resource's
+explicit two-selector/version protocol; a bounded save validates its design entry
+without demanding another answer. An unchanged requirements scope is not reaccepted merely
 because design changed. Apply the resource's save, adapter update and read-back
 checks; do not claim the combined result from a document write alone.
 

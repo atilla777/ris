@@ -9,7 +9,8 @@ and protected writes. No second feature registry or per-step skill is needed.
 
 Use project-relative `path`, full published Git `revision` and `section: null`
 for a whole file or an unambiguous semantic section. Requirements/design may
-be separate sections or files, but cannot overlap ambiguously. Prefer separate
+be separate sections or files, but cannot overlap ambiguously. Prefer a sufficient
+short design in its own distinct spec.md section; use separate
 design.md when adding design to whole-file accepted requirements; retain safe
 existing sections instead of moving them mechanically. No mandatory scoped
 hash, exact heading syntax, byte range or EOF boundary is required.
@@ -72,8 +73,13 @@ complete candidate instead of requesting approval again.
 Record its real decision in a permitted Git document/section, without imposing
 a mandatory decision file. It names content path, section (including null),
 revision, `decision: accepted` and attributable acceptor. Requirements approval
-does not approve design; each result has its own identifiable decision even in
-one file/commit. Unchanged content retains its checked acceptance on retry.
+does not approve design; each result has its own identifiable accepted scope even
+in one file/commit. One attributable act/decision section may accept both complete
+requirements and design candidates when it explicitly lists each selector/version;
+the two refs may share its address. Check the design entry and accepted requirements
+entry independently, without another human answer just for a bounded save.
+This permission does not accept an unseen design or merge overlapping selectors.
+Unchanged content retains its checked acceptance on retry.
 
 Published references use `{path, revision, section, acceptance: {address,
 decision: "accepted"}}`. The immutable decision address pins repository, full

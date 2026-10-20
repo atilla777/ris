@@ -46,6 +46,14 @@ separately. No historical report migration or author TDD-history audit is added.
 For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),
 not this guide or historical delivery reports as a second readiness register.
 
+Feature preparation has its own bounded [S1 §3 / D1 §§2–4 amendment](specs/sdlc-feature-lifecycle/acceptance.md):
+early same-ID registration/copy, one requirements/design dialogue and precise
+acceptance of both scopes (one act allowed), independent review/Git, same-record
+refs and existing full decomposition with separate tracker publication. Internal
+executors are optional; independent review is actually separate. Sufficient inline
+design needs no design.md. Direct component operations remain available. This does
+not remove task plans/implementation notes or start implementation after prepare.
+
 The integrated ris-17f change removes default `worktree.md`/`execution.md` and equivalent
 transition-ledger requirements. Keep the local plan, progress/result notes,
 independent review report and sufficient Beads result required by the rules.

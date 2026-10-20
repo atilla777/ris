@@ -145,7 +145,8 @@ published-reference gates below. No second "ready" feature or second copy.
 
 Read `references/acceptance-and-save.md` relative to this installed skill before
 selecting the accepted section, accepting or saving. If unavailable block that
-part. It defines candidate identity, separate decisions and publication gates.
+part. It defines candidate identity, independently accepted scopes (including a
+shared act explicitly covering both requirements/design) and publication gates.
 Ensure installed `ris-proj-op-interview-feature` is available and apply its
 **Map the material requirements** and **Check and hand off** sections to the
 known answers, sources and candidate. This reuses the coverage method, not an

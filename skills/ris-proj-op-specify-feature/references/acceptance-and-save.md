@@ -8,7 +8,8 @@ owns the requirements result; the adapter owns tracker encoding and operations.
 Use project-relative `path` and `section: null` for a whole file or an unambiguous
 semantic section, such as `Requirements / Failure behavior`. Requirements and
 design must be independently identifiable without ambiguous/overlapping
-selectors. Prefer separate spec.md/design.md where useful; retain safe existing
+selectors. A sufficient short design may occupy a distinct section of spec.md;
+use separate spec.md/design.md where useful and retain safe existing
 sections instead of relocating them for uniformity. Appending design to an
 accepted whole requirements file changes that content: use a separate design
 file instead. No mandatory Markdown heading/EOF digest protocol is introduced.
@@ -32,7 +33,13 @@ blocked/conflict, not permission to invent its acceptance or revision.
 Record the actual authorized requirements decision in a permitted Git document
 or decision section; no mandatory acceptance file/manifest. It names accepted
 content path, section (including null), revision and `decision: accepted`, with
-acceptor provenance. Each result has its own decision. A published decision
+acceptor provenance. Each result has its own identifiable acceptance scope. One
+attributable human act/decision section may accept requirements and design together
+only if it explicitly names both complete content selectors and versions. Its
+address may be shared by the two refs; check the requirements entry yourself,
+not merely a generic approval or a design entry. This does not make requirements
+acceptance imply design acceptance or require a second answer on a bounded save.
+A published decision
 address pins repository, full decision commit, path and any unique decision
 section. A branch URL, local note, file presence or commit alone is insufficient.
 If content and decision will share a commit, the decision may name content
@@ -95,8 +102,10 @@ Return its local record result and remainder.
    substantive coverage, format, links and preserved sections. Never put an
    unaccepted intermediate candidate at the accepted path.
 3. For an explicitly limited local save this is its complete contribution: return checked addresses,
-   candidate revision, decision, effects and any pending immutable refs. No task
-   ID, epic or tracker capability is needed. Local addresses are explicitly local,
+   candidate revision, decision, effects and any pending immutable refs. No new task
+   ID, epic or tracker capability is needed for this document contribution; a known
+   feature ID/copy association is retained without demanding published refs first.
+   Local addresses are explicitly local,
    not mandatory remote inputs for another session.
 4. In full mode, after saving apply independent `ris-proj-op-review-task` for
    the project document subject, with or without an ID; it composes portable

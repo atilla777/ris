@@ -115,12 +115,14 @@ Example: `/risp-select-feature <epic ID>`.
 
 ### ris-proj-flow-prepare-feature
 [Owner](../../ris-proj-flow-prepare-feature/SKILL.md). Purpose: whole preparation route.
-Choose when: carry a feature from choice through separately accepted inputs.
-Inputs: project, epic/context, known decisions and document/Git/tracker authority.
-Result/stop: reviewed published requirements/design and remotely verified feature ID;
-design is explained in plain language before separate acceptance of its complete
-candidate. Optional authorized draft storage is not acceptance/publication. No
-decomposition, implementation or claim.
+Choose when: prepare or resume one feature through verified decomposition.
+Inputs: project, feature ID or epic/context, actor, known decisions and permitted
+claim/copy/document/Git/tracker effects.
+Result/stop: early same-ID record and one safe preparation copy, one dialogue and
+precise acceptance of both complete requirements/design scopes (one act allowed),
+independent review, published inputs and verified one-task or child-task/edge
+coverage with separate tracker publication. Sufficient inline design needs no
+design.md. Optional drafts are not acceptance/publication. No implementation/close.
 Example: `/risp-prepare-feature <epic ID>: add authorization`.
 
 ### ris-proj-op-interview-feature
