@@ -49,8 +49,9 @@ accepted sources and complete children/typed blockers only when its actual
 predicates depend on them. A simple title/priority/independent-key edit does not
 require delivery, acceptance or graph reconstruction. Changed accepted content,
 claim, membership/edge mutation and completion retain their specific checks.
-Administrative container
-status-only close checks direct native predicates; it requires no recursive
+Ordinary child-based container close checks the nonempty complete direct-child
+set (all closed) and parent blockers; administrative container
+status-only close checks direct native predicates. Neither requires recursive
 delivery/acceptance reconstruction or external Git/verification evidence.
 For operations depending on external evidence, check it at its
 actual pinned version and assess currency; these are substantive checks, not a

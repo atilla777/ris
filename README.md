@@ -88,8 +88,13 @@ own snapshot, provenance and scope.
   readable H1 and column-zero `Feature-ID:`, `Summary:`, optional `Keywords:`.
   Requirements and sufficient inline/adjacent design retain actual independent
   scope/version acceptance. Beads holds ordinary goal/scope/criteria/state/edges,
-  not duplicate accepted refs, identity pins or saved verification. Successful
+  not duplicate accepted refs, identity pins or saved verification. Explicit
   verify-and-close still checks the whole feature but needs no persisted assessment.
+  Ordinary parent closure instead trusts a nonempty complete set of closed direct
+  children and checks parent blockers, without recursive acceptance/Git/review
+  reconstruction. Closure-eligibility questions use those same reads without writes;
+  zero-child features retain own-result verification. See the
+  [container rules](docs/rules/development.md#отдельные-намерения-для-контейнера).
   Early registration needs a chosen feature, title/goal and stable key, not
   spec/design/epic; the same ID can obtain a safe preparation copy. ID/copy is not
   readiness. Existing explicit links/readable legacy hints lead to actual documents

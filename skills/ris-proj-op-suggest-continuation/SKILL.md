@@ -171,8 +171,12 @@ internal stage. Insufficient evidence is not closure; disposition differs from
 fix-completion. Preserve exact ID/type, use ordinary bug reads, never convert it or
 invent feature payloads. These are facts to match to contracts, not a dispatch table.
 Closed pending-publication work stays closed, without reclose. Retain an explicitly
-selected container's scope: report missing mandatory work or separate acceptance
-need, never switch to executing a child or automatically closing its parent.
+selected container's scope. When its complete nonempty direct-child set is all
+closed and no active parent blockers remain, recommend ordinary container close,
+not a new acceptance/Git/review audit. This is a recommendation, not close authority
+or fresh whole-result acceptance. Zero-child features keep own-result gates;
+explicit substantive verification stays distinct. Report actual missing work or
+blockers; never switch to executing a child or automatically close its parent.
 
 ## Verify the recommendation, report and stop
 

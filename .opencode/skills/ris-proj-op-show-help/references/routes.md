@@ -151,11 +151,15 @@ container as a leaf. Container verification/completion is a separate intent.
 ## Container, verification and publication
 
 Leaf Git publication, exact leaf completion and tracker publication are separate
-effects. Completing a child never accepts/closes its parent. Ask
+effects. Completing a child never accepts/closes its parent. An explicit ordinary
+parent close checks a nonempty complete set of direct children (all closed) and
+parent blockers; no recursive delivery/acceptance reconstruction. A question about
+closure eligibility makes only those reads, without writing. Zero-child features
+retain own-result verification. Ask
 `/risp-complete-container verify <ID>` for read-only fulfillment; explicit
 administrative close changes status, not acceptance, without delivery reconstruction;
-verify-and-close requires successful full current verification and separate
-authorized save/closure. No automatic recursive closure. Portable `verify-feature`
+explicit verify-and-close requires successful full current verification and
+authorized closure, with no mandatory saved assessment. No automatic recursive closure. Portable `verify-feature`
 assesses integrated criteria on a revision, not a diff or tracker closure.
 
 ## Other operations and portable counterparts

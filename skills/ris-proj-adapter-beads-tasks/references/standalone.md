@@ -160,6 +160,10 @@ Advertise only actual supported Beads operations:
   retry. Append/key merge protects only its native row operation; snapshot-bound
   evidence needs fresh applicability/composition checks, not an atomic freeze
   over all relevant content/graph/external evidence.
+- **ordinary child-based container close:** `completion.md` child-based branch
+  for an explicitly selected parent with nonempty direct children, all closed,
+  and no active parent blockers; no recursive acceptance or delivery audit.
+  Zero-child own-result completion retains verified-work gates.
 - **ordinary administrative container close:** `completion.md` administrative
   branch, on the exact explicitly identified container. No new acceptance,
   recursive reconstruction, Git evidence or result persistence. Inspect only

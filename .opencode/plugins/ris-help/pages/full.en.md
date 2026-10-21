@@ -290,10 +290,13 @@ does not silently register or investigate a fresh report.
 
 **`/risp-complete-container <intent> <ID>`**
 
-For a feature, standalone task-container or epic, choose read-only verification,
-explicit administrative close, or verify-and-close with successful verification
-and authorized writes. Administrative close is NOT acceptance. Not ordinary
-leaf-task completion; children/ancestors are never closed automatically.
+Ordinary parent close checks a nonempty complete direct-child list (all closed)
+and no active parent blockers; no recursive acceptance/Git/review audit. Asking
+whether it can be closed uses those reads only. Zero-child features retain
+own-result verification. Explicit read-only fulfillment verification,
+verify-and-close and administrative close remain available. Child-based or
+administrative closure is NOT fresh whole-result acceptance. Not ordinary leaf
+completion; children/ancestors are never closed automatically.
 
 ---
 

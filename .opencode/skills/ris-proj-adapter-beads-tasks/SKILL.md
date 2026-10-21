@@ -5,8 +5,8 @@ description: >-
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim,
-  ordinary bug execution claim/snapshot/fix-completion, administratively close
-  exact containers or complete verified work, and
+  ordinary bug execution claim/snapshot/fix-completion, close exact containers from
+  closed direct children or administratively, complete verified work, and
   separately publish authorized Dolt history; also provide read-only all-work-type
   plan inventories and exact unknown-type reads. Use for
   bounded tracker operations, not for planning a feature or configuring remotes.
@@ -47,7 +47,7 @@ do not load other branches merely to list or exact-read a record:
 | Create/reconcile epic or task; `tasks.items.create` | `references/create.md` and `references/concurrency.md` |
 | Membership or blocking-edge mutation | `references/structure.md` and `references/concurrency.md` |
 | Claim/heartbeat | `references/claim.md` and `references/concurrency.md` |
-| Administrative exact-container status close or verified completion | `references/completion.md` and `references/concurrency.md` |
+| Ordinary child-based container close, administrative exact-container close or verified completion | `references/completion.md` and `references/concurrency.md` |
 | Ordinary standalone create/source-content/child-link/result/close specifics | `references/standalone.md` plus only the action resource it selects; no standalone resource for a simple non-source field edit |
 | Native bug registration create/update (not ordinary read/list) | `references/standalone.md` and its selected resources |
 | Bug report/acceptance persistence, duplicate relation or disposition-close | `references/investigation.md` |
@@ -63,7 +63,10 @@ calling owner applying common's published-inputs convention. Preserve historical
 JSON/prose/links unchanged; readable legacy hints may locate actual documents but
 missing/old/malformed JSON alone cannot block the new route. Native type/content,
 explicit selected scope and actual source associations establish kind, never JSON,
-title or parent-child alone. Administrative status close is not acceptance;
+title or parent-child alone. Ordinary child-based container close checks nonempty
+complete direct children (all closed) and parent blockers, without recursive
+delivery/acceptance reconstruction; it is not fresh whole-result acceptance.
+Administrative status close is not acceptance;
 verified-work close consumes the caller's substantive current assessment.
 List/read/list-blocks give complete inspected results or an explicit failure.
 Create is best-effort, update uses fresh expected fields/native guards, and edge

@@ -115,6 +115,12 @@ Full task/bug/feature execution and the TDD operation retain their substantive
 gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
 remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).
 
+Ordinary container closure trusts a nonempty complete direct-child set (all
+`closed`) and checks parent blockers, without recursive delivery/acceptance audits.
+Closure-feasibility questions use the same reads without writing. Explicit
+verify/verify-and-close remains substantive; zero-child features retain own-result
+verification. See the [current container rules](rules/development.md#отдельные-намерения-для-контейнера).
+
 For routine Beads inventories use the adapter's native compact forms, for example
 `bd list --all --limit 0 --type task --brief --json` (or `--type epic`). For a
 known ID use `bd list --id <id> --all --limit 0 --brief --json`, checking exact

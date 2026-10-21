@@ -232,12 +232,15 @@ Example: `/risp-publish-task <ID>, approved snapshot <snapshot and review locato
 
 ### ris-proj-op-complete-container
 [Owner](../../ris-proj-op-complete-container/SKILL.md). Purpose: selected container result.
-Choose when: administrative close, read-only verification or verify-and-close of
+Choose when: ordinary parent close/closure eligibility, administrative close,
+read-only verification or explicit verify-and-close of
 one feature/standalone task-container/epic; never ordinary leaf completion.
 Inputs: project, exact ID/kind, explicit intent; assessment needs accepted full
 scope/integrated evidence, writes need separate authority.
-Result/stop: status-only administrative close (not acceptance), read-only criterion
-verdict, or successful verified save/close and authorized tracker publication;
+Result/stop: ordinary close from nonempty closed direct children and no parent blockers
+(not fresh whole-result acceptance), read-only eligibility, administrative status,
+read-only criterion verdict, or successful verified close and authorized tracker publication;
+zero-child features retain own-result verification. No mandatory saved assessment;
 no child/parent auto-close or Git publication.
 Example: `/risp-complete-container verify <ID> read-only`.
 

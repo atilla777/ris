@@ -175,7 +175,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one local ris.review/1 YAML, with explicit fast no-file exception |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
 | [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed change or pre-ID document integration/push from an own branch; confirmed remote Git and optional safe primary-copy maintenance are separate results |
-| [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Administrative exact-container close, read-only fulfillment verification, or verify-and-close on success |
+| [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Ordinary close/eligibility from closed direct children, explicit substantive verification, or administrative close |
 | [ris-proj-op-retrospect-session](../skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence |
 | [ris-proj-op-manage-okf-bundle](../skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation |
 | [ris-proj-op-author-architecture-rules](../skills/ris-proj-op-author-architecture-rules/SKILL.md) | Accepted scoped architecture rules in project OKF |
@@ -333,7 +333,12 @@ when isolation/rules require), whole outgoing authority and remote confirmation.
 The ordinary Beads task may preserve the accepted self-contained request instead
 of artificial specification links; supplied feature/bug contracts remain strict.
 
-Container requests distinguish administrative close by explicit decision from
+Ordinary container close/eligibility checks a complete nonempty set of direct
+children (all closed) and parent blockers, trusting child completion without a
+recursive acceptance/Git/review or decomposition audit. Eligibility is read-only;
+closure uses native exact guards/read-back and separate tracker publication.
+This is not fresh whole-result acceptance. Zero-child features retain own-result
+verification. Container requests also distinguish administrative close by explicit decision from
 read-only verification and verify-and-close. Administrative `closed` is not
 independent acceptance and leaves feature verification untouched; it needs no
 new delivery reconstruction, Git evidence or verification persistence. Native

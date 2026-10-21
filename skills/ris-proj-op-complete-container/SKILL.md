@@ -1,7 +1,7 @@
 ---
 name: ris-proj-op-complete-container
 description: >-
-  Administratively close, verify fulfillment, or verify and close one exact RIS
+  Close from completed direct children, verify fulfillment, or verify and close one exact RIS
   feature, standalone task-container or epic, according to the requested intent.
   Verification is read-only by default. Use for explicit container requests; not leaf-task completion,
   code publication, automatic parent closure or planning repair work.
@@ -9,13 +9,13 @@ description: >-
 
 # Close or verify one selected container
 
-Own the requested container result. Keep administrative status, substantive
+Own the requested container result. Keep child-based closure, administrative status, substantive
 verification, evidence persistence and tracker publication distinct. This single
 project owner combines project identity/authority and adapter effects; its
 conditional feature assessment reuses the portable verifier, without a new base.
 Load/apply `ris-proj-lib-common` and its applicable resources, and `ris-proj-op-resolve-context` with its
 configuration resource for selected rules and adapter; resolve specs/product only
-when assessment needs them, not as administrative prerequisites. A
+when assessment needs them, not as ordinary or administrative close prerequisites. A
 direct call needs no execution role. From a worktree require context's checked
 primary selection/provenance through context's explicit → verified saved →
 verified ordinary Git source-copy procedure
@@ -23,6 +23,10 @@ only if shared workspace paths are needed; no local report is mandatory.
 
 ## Select the requested result before assessment loads
 
+- **Close (default for a closure request):** for a parent with direct children,
+  use the short child-based path below. “Close the feature/epic” or “check whether
+  it can be closed” does not request a new substantive acceptance assessment.
+  A feasibility-only question uses the same bounded reads without any write.
 - **Administrative close:** an explicit decision to close this exact container.
   Use the bounded administrative path below, with no new acceptance assessment.
 - **Verify fulfillment:** read-only by default, including on a closed ID. Return
@@ -33,9 +37,12 @@ only if shared workspace paths are needed; no local report is mandatory.
 - **Verify-and-close:** assess the whole, then close
   only on successful current verification and native closure checks.
 
-Use natural-language intent, not a new CLI mode. If intent or ID is genuinely
+Use natural-language intent, not a new CLI mode. Do not require the user to say
+“administratively” to get ordinary child-based closure. Explicit “verify fulfillment”
+or “verify-and-close” selects substantive assessment; a mere closure-feasibility
+check does not. If intent or ID is genuinely
 ambiguous, clarify only that gap; never infer close from a verification request
-or child completion. Without closing authority only read-only assessment is allowed.
+or child completion. Without closing authority only the requested read-only check is allowed.
 Do not obtain a new design/acceptance decision merely to execute administrative close.
 
 ## Identify scope and authority
@@ -48,6 +55,43 @@ optional epic; an ordinary task-container needs explicit subject/content
 evidence. Neither a title, zero children nor absent/invalid feature JSON proves
 ordinary kind. Preserve historical/malformed feature data; parser failure never
 silently reclassifies it. An implementation leaf is outside this operation.
+
+### Ordinary child-based exact-ID path
+
+Freshly read the exact parent ID/type/status, its complete all-status **direct**
+children and the parent's directed active blockers through the selected adapter.
+For an already closed ID report unchanged status without another close or acceptance
+reconstruction. Otherwise require a nonempty direct-child list, every child in
+`closed` status and no active parent blocker. Unknown/incomplete reads block the
+conclusion; cancelled/deferred/open children are not `closed` substitutes.
+
+Trust the children's completion statuses. Do not recurse into descendants, inspect
+child blockers, repeat child checks/reviews, read accepted specs/design, reconstruct
+Git deliveries, audit decomposition completeness or require a new criterion report,
+verification record, claim, worktree or independent reviewer. Missing historical
+evidence is not a blocker for this path. This proves completion of the recorded
+direct children, not a new independent acceptance of the whole or proof that all
+conceivable work was recorded. Leave description, historical payloads and evidence
+unchanged. Do not reinterpret this result as successful substantive verification.
+
+For feasibility-only requests report eligible/not eligible and any open child or
+active blocker, then stop read-only. For an authorized close, request the adapter's
+ordinary child-based exact-container close, not verified-work completion. Use its
+fresh native child/blocker guards, close only this ID without force, independently
+reread status/reason and direct children/blockers, then apply the separate tracker
+publication section. On refusal or ambiguous output reconcile actual effects before
+retrying only a proved-missing effect. Never close children/ancestors or remove edges.
+
+**No vacuous success:** an open feature with zero children may represent a one-task
+implementation. Its ordinary closure must assess its own result using the feature
+verification/verified-close sections below (closure authority already comes from
+the request); execution's checks, independent review and Git gates stay intact.
+A zero-child epic/ordinary container is not eligible for child-based close: report
+the absence and use substantive assessment or an explicitly requested administrative
+decision, never invent children or silently take the administrative shortcut.
+Feasibility-only requests stay read-only and report that own-result assessment is
+needed; do not launch it unless requested. Skip all assessment resources for the
+nonempty child-based path.
 
 ### Administrative exact-ID path
 
@@ -79,11 +123,11 @@ publication/result section; skip all assessment/persistence sections below.
 
 ## Verification inputs and conditional method
 
-For verify and verify-and-close require the accepted
+Only for explicit verify/verify-and-close or own-result closure of a zero-child feature require the accepted
 mandatory outcomes/member set (including any one-task feature), applicable
 criteria/decisions, integrated revision evidence and allowed tracker fields.
 Discover them from exact reads and linked versions before asking for missing
-facts. Closing authority is needed only for verify-and-close. Missing material
+facts. Closing authority is needed for verify-and-close or own-result close. Missing material
 inputs leave dependent criteria insufficient-data; retain independent observations.
 For a feature load/apply `ris-port-op-verify-feature`. For an epic read only
 `references/epic.md`; do not apply the feature method indiscriminately to children.
@@ -94,7 +138,8 @@ to this installed folder and are not loaded on the administrative path.
 Load the selected adapter from its actual available location. Verify operation
 versions, completeness and guarantees before using it, not merely its configured
 name. Use complete all-status selections, exact reads, recursive child membership
-and directed blockers to verify actual identity and full mandatory scope. Compare
+and directed blockers to verify actual identity and full mandatory scope. These are
+assessment-only requirements, never prerequisites to ordinary child-based close. Compare
 expected outcomes/members to actual records; absence of open children cannot
 establish that missing mandatory work was done. A cancelled member needs explicit
 scope disposition/acceptance, not treatment as completed. Unexpected membership
@@ -153,7 +198,8 @@ return the unsaved assessment now: no persistence, closure or publication follow
 
 ## Verify-and-close: assess, then exact close
 
-This section applies to authorized verify-and-close. No saved verification or
+This section applies to authorized verify-and-close and own-result closure of a
+zero-child feature, not ordinary child-based close. No saved verification or
 readiness record, report file or evidence-write permission is prerequisite. A
 short ordinary outcome may be included in the close reason; any separately
 requested save stays a distinct bounded effect. An already closed ID is never closed again: assess requested scope,
@@ -188,7 +234,7 @@ not a new closure; do not rewrite history solely for a repeated call.
 ## Publication and result
 
 Git integration/publication is an assessment input where required, never an
-administrative-close input/output and never performed here. Default verify does
+ordinary child-based or administrative-close input/output and never performed here. Default verify does
 not publish. For authorized write branches tracker publication
 is separate: only when authorized/required use the selected adapter's publication
 operation, check authorized shared-main scope and remote, suppress auto-push during
@@ -201,8 +247,15 @@ the actual local evidence and closure intact; report the cause's non-`ok` status
 confirmed effects and concrete remaining publication/read-back operation. Never
 repeat a confirmed closure merely because publication or its evidence is missing.
 
-Return `status: ok|blocked|conflict|error`, project, exact ID/kind, requested intent,
-scope, criterion verdict/revision where assessed (administrative: not assessed), operations/guarantees, saved vs unsaved
+For ordinary child-based close/eligibility keep the result brief: exact ID,
+closed/total direct children, parent blockers, eligible/not eligible/unknown,
+actual status and (only for writes) separate tracker publication confirmation or
+remainder. State that whole-result acceptance was not reassessed; no formal report
+or unrelated revision/acceptance reconstruction is needed.
+
+For substantive assessment/administrative branches return
+`status: ok|blocked|conflict|error`, project, exact ID/kind, requested intent,
+scope, criterion verdict/revision where assessed (child-based/administrative: not assessed), operations/guarantees, saved vs unsaved
 evidence, actual local status and separate remote publication/read-back evidence.
 For assessment-only state `closed: false` or existing status, never imply completion.
 Full remote-gated `ok` requires both channels independently confirmed. Stop at this

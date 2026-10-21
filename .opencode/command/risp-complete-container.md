@@ -1,5 +1,5 @@
 ---
-description: Administratively close, verify read-only, or verify and close one exact RIS container.
+description: Close a RIS parent from closed direct children, check closure eligibility, or explicitly verify fulfillment.
 ---
 
 Load `ris-proj-op-complete-container` with the skill tool and follow its contract

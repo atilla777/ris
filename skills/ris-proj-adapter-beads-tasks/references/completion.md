@@ -1,6 +1,6 @@
 # Complete one exact record
 
-Read before either completion branch, together with `concurrency.md` and main
+Read before a completion branch, together with `concurrency.md` and main
 typed reads. Require caller's exact ID/type, chosen branch and authority.
 Administrative status-only close supports explicitly identified epic, ordinary
 task-container or feature task with actual container-kind evidence and expected
@@ -11,6 +11,22 @@ Preserve description, feature block/refs/verification and unrelated fields;
 administrative closed is not independent acceptance and never promotes null,
 failed, historical or malformed verification to success.
 
+- **Complete — ordinary child-based container close:** require exact project/ID/type,
+  confirmed feature/epic/ordinary container kind and explicit closing authority.
+  Freshly read exact status, complete all-status direct children and the parent's
+  directed blockers. Already closed returns unchanged. Otherwise require at least
+  one direct child, all children exactly `closed`, and no active parent blockers.
+  Empty/unknown/incomplete membership does not pass this gate; zero-child feature
+  own-result completion uses the verified-work branch. No descendant traversal,
+  child evidence/blocker audit, decomposition reconstruction, specs/design/Git
+  evidence, new acceptance, result persistence or verification write is required.
+  Trust closed children without calling their status a fresh whole-result acceptance.
+  Use `bd --sandbox -C <selected-workspace> close <exact-ID> --reason <reason> --json`
+  without force/continue/claim-next or a multi-ID call. Retain native direct-child/
+  blocker refusal, preserve content/evidence and independently reread status/reason,
+  direct children and parent blockers. Reconcile ambiguous effects before retry;
+  never repeat confirmed closure for pending publication. Native guards cover only
+  their predicates, not a distributed graph CAS. Do not close children/ancestors.
 - **Complete — administrative container status:** require exact project/ID/type,
   confirmed container kind and explicit administrative authority/reason. Freshly
   read status, complete direct children and directed blockers. Already closed is
@@ -42,7 +58,7 @@ failed, historical or malformed verification to success.
   is not full feature verification or a distributed transaction. An unsupported
   explicitly required stronger guarantee returns its exact limitation.
 
-Feature verified completion uses the caller's current whole-feature criterion,
+Feature **verified-work** completion uses the caller's current whole-feature criterion,
 accepted-document and integrated-revision assessment, with no mandatory saved
 verification/readiness record or duplicate refs. Leave historical payloads untouched.
 Ordinary verified completion applies its specifics in `standalone.md`, bug fix-completion in
