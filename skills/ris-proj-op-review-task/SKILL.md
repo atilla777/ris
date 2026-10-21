@@ -21,6 +21,10 @@ Before producing/saving a project report or consuming prior rounds, read
 project review requires that complete YAML; explicit fast execution alone permits
 a sufficient session result without a file. An optional fast save uses the same
 format. No duplicate Markdown report or Beads verdict/findings copy.
+Use that resource's skill-local validator/setup instructions for mechanical file
+checks when available; keep operational/dependency errors separate from report
+invalidity. It neither establishes external evidence/independence nor replaces
+this assessment. Never install its dependency silently.
 
 Establish the exact project, attributable agreed request, boundaries/criteria,
 accepted technical constraints/material decisions, requested review scope/version
@@ -108,7 +112,8 @@ round with semantic mapping `pass` → `approved`, `changes-required` →
 `changes_required`, `unverified` → `blocked` only when the format's verdict and
 external applicability predicates actually hold. No mechanical conversion creates
 approval from insufficient evidence. Append that
-round after fresh comparison and independently read back. On conflict, missing
+round after fresh comparison and independently read back; check the complete
+saved file under the format owner's validation instructions. On conflict, missing
 permission/path or unresolved snapshot return useful assessment unsaved/blocked;
 do not call an unmet ordinary mandatory save success. Fast alone permits the
 response-only exception. A response may summarize/link the YAML, not replace it.

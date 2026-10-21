@@ -41,7 +41,20 @@ Ordinary project review uses one local `review.yaml` under the
 Beads stores only address/round, not verdict/findings. Fast retains session-only
 independent review; optional save uses the same format. YAML parsing checks syntax,
 not schema/approval: assess final subject, inputs, checks and actual independence
-separately. No historical report migration or author TDD-history audit is added.
+separately. The owner documents the bundled read-only Python validator, its
+explicit venv dependency installation, CLI and distinct format/setup outcomes.
+It checks mechanics, not external approval; self-review remains analysis only.
+No historical report migration or author TDD-history audit is added.
+
+Validator program tests (after explicitly authorized installation from the
+skill's `requirements.txt` into the selected venv):
+
+```sh
+/path/to/venv/bin/python -B -m unittest discover -s tests/review_validation -p 'test_*.py' -v
+```
+
+These exercise synthetic reports and the CLI, including an isolated skill copy
+without Git/Beads executables, not live agents or actual evidence/approval.
 
 For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),
 not this guide or historical delivery reports as a second readiness register.

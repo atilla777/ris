@@ -2,8 +2,52 @@
 
 Read before producing, saving or consuming a project review file, including an
 optional fast-route save. This resource alone owns serialization, types and gate
-semantics; portable review owns assessment. No standalone validator, schema
-registry or Gas City metadata is supplied or required.
+semantics; portable review owns assessment. The bundled Python validator implements
+only mechanical checks under this resource; it is not another norm owner, an
+approval engine, schema registry or Gas City metadata.
+
+## Mechanical validator: setup and CLI
+
+Use Python **>=3.10** and **ruamel.yaml==0.18.16** (YAML 1.2, pure-Python safe
+loader). `requirements.txt` and `scripts/validate_review.py` live inside this
+skill, so the same command works from a source or installed skill folder.
+Dependency installation is a separate, explicitly authorized action, never a
+validator side effect. For example, choose an authorized venv location and set
+`skill` to the actual installed folder (not the caller's project root):
+
+```sh
+skill='/absolute/path/to/.opencode/skills/ris-proj-op-review-task'
+python3 -m venv /authorized/path/review-venv
+/authorized/path/review-venv/bin/python -m pip install -r "$skill/requirements.txt"
+/authorized/path/review-venv/bin/python -B "$skill/scripts/validate_review.py" /absolute/path/review.yaml
+```
+
+CLI: `python -B <skill>/scripts/validate_review.py <review.yaml>`. Exit **0** means
+`valid` format only; **1** means `invalid` (including non-UTF-8); **2** means
+`unsupported` schema; **3** is a separate operational/setup error (usage, I/O,
+unsupported Python or missing/incompatible dependency), not an invalid report.
+Diagnostics identify a YAML line/column or field path and reason. Nothing is
+repaired, written or published. Git, Beads, network and agents are not needed.
+The validator never installs dependencies or fetches evidence. Missing dependency
+returns the setup error with explicit-install guidance; do not treat it as a pass
+or auto-install. If unavailable, substantive manual inspection remains possible,
+but must not be described as machine validation.
+
+The program checks the document profile, exact schema, intrinsic round/finding
+history and formally represented verdict contradictions below. It cannot compare
+past file bytes for append-only saving, determine whether prose is truthful or a
+reason is substantively adequate, resolve objects/addresses, establish actual
+independence, detect external mandatory violations or approve publication.
+Consumers still own all external predicates and concurrent save/read-back checks.
+
+Implementation basis for **ris-7qq / T3**: requirements and V1 decision at
+`ff79c496b733756a86003b44e70eb72c60efa532`,
+`docs/specs/sdlc-audit-remediation/spec.md`, T3. The user separately accepted the
+bounded implementation design (execution-request version) in the dialogue: Python >=3.10, pinned
+ruamel.yaml, these skill-local files/CLI, distinct validity/unsupported/setup
+results, explicit venv installation, mechanical read-only scope and no external
+approval claims. This records that design scope, not a renewal of the historical
+V1 decision or an independent review/acceptance of implementation.
 
 ## Storage and authority
 
@@ -96,20 +140,24 @@ strings for substantial explanations. Unknown schema is `unsupported`, not pass.
   mandatory violations, failed/unverified gates or blocking limitations, and
   confirmed independence. Open low is allowed. Contradictory verdict is invalid;
   a repaired finding alone is not approval.
-- `reviewer_context` is not in `authors`. Confirmed independence requires real
-  inspectable invocation/context evidence, compared by the caller with the actual
+- `reviewer_context` may be in `authors` when `independence: self`; otherwise it
+  must not be. Self-review may be a valid `blocked` or `changes_required` analysis
+  (according to findings), never `approved`, and never replaces required separate
+  independent review. Confirmed independence requires a non-null invocation
+  evidence address and real inspectable invocation/context evidence, compared by
+  the caller with the actual
   launch and **all** authors/repairers. A name, configured role or self-declared
   `confirmed` does not prove this. Null/missing-access evidence cannot establish
-  an independent gate. Self-review may supply useful analysis but not independent
-  approved status. No cryptographic attestation or trusted registry is implied.
+  an independent gate. No cryptographic attestation or trusted registry is implied.
 
 ## Two separate consumer results
 
 1. Establish format validity: syntax, supported schema, exact keys/types/enums,
    OIDs/round/finding references and verdict consistency → `valid`, `invalid` or
    `unsupported`. Ordinary YAML parsing establishes syntax only, not full schema
-   validity. Without a validator, inspect the contract substantively; do not claim
-   machine validation that did not occur.
+   validity. Use the bundled CLI above for mechanical validation when available;
+   retain its operational error separately from the three format results. Manual
+   inspection must not claim machine validation that did not occur.
 2. For an approval gate receive expected project/work identity and scope, purpose,
    complete current tree/base/exclusions, applicable input versions, necessary
    coverage/checks and trusted caller provenance observations. Read the **whole**
@@ -197,7 +245,8 @@ Apply these independent mutations to the example for substantive negative readin
 | Keep approved but make F1 high/medium open, a required check unverified/failed, coverage unverified or a limitation blocking | Contradictory/invalid verdict, no gate |
 | Set F1 high/open and verdict changes_required | Valid adverse result, no gate |
 | Set independence unverified, invocation_evidence null, verdict blocked | Valid blocked result, no gate |
-| Retain approved while invocation_evidence is unavailable to the caller, or an author was also reviewer | External provenance fails, no gate regardless of asserted confirmed |
+| Set independence self, reviewer_context author-session, invocation_evidence null, verdict blocked | Valid self-review analysis, no independent approval |
+| Retain approved while invocation_evidence is unavailable to the caller, or reviewer was an unlisted actual author/repairer | External provenance fails, no gate regardless of asserted confirmed |
 | Current tree/base/exclusions or required input version differs | Stale/inapplicable, no gate despite valid format |
 | Pass evidence inaccessible or exercises a different tree | Missing/inapplicable mandatory evidence, no gate |
 | Append r2 with previous r1, F1 high/open, verdict changes_required | Preserve r1; selecting r1 cannot bypass later refutation |
@@ -205,6 +254,6 @@ Apply these independent mutations to the example for substantive negative readin
 | Duplicate round ID, broken previous link, absent prior finding or resolved F1 without disposition | Invalid history, no gate |
 | Append malformed/unsupported later round | Reconcile, never fallback to r1 |
 
-These are instruction-reading oracles, not a delivered executable validator or
+These are synthetic reading/program-test oracles, not real review evidence or
 claims of observed agent behavior. No author RED/GREEN chronology is needed to
 review the final result; substantive test sufficiency and current checks remain.
