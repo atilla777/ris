@@ -148,8 +148,15 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    mandatory check or reviewer blocks dependent publication with the accessible
    local result and exact remainder. An ambiguous push activates recovery before
    retry. Require sent commit/tree/ref/remote and fresh remote evidence.
-   Also require its primary-sync evidence for the full Git result; explicitly
-   limited remote-only must be agreed, not inferred from a successful push.
+   Also require its primary-sync evidence for the full Git result. When the own
+   current publication copy is the context-verified primary root, pass its exact
+   subject/copy/branch association and authority for the publisher's guarded return
+   to the existing primary branch and FF only after independent remote confirmation.
+   This route does not require another worktree merely because this own copy is
+   still on the task branch. The publisher owns safety/preflight and local read-back;
+   foreign/busy/overlapping copies still require the existing isolation route before
+   work, never forced switching. Explicitly limited remote-only must be agreed,
+   not inferred from a successful push.
    Pending local sync stops dependent full completion and returns only that
    remainder to the publisher without replaying remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session

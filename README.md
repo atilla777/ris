@@ -179,7 +179,11 @@ Simple-task execution uses a clear bounded request without mandatory interview,
 spec/design, decomposition, plan or report files. The main agent implements and
 publishes through existing owners; a separate independent subagent reviews, with
 high/medium repair and re-review. It requires its own branch; a suitable current
-copy is allowed, and isolation needs activate worktree preparation. Checks are
+copy is allowed, and isolation needs activate worktree preparation. When that own
+copy is also the verified primary root, the publisher may safely return it from
+the task branch to the established primary branch and fast-forward only after
+remote confirmation. Busy/foreign/dirty copies remain protected; pending local
+completion never calls for repeating a confirmed push. Checks are
 proportionate and mandatory project checks/TDD still apply. A supplied ID keeps
 its real contract; mandatory project accounting creates/reconciles a short task
 (**Beads remains mandatory in RIS**). Empty input asks for work, never selects a

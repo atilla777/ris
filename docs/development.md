@@ -84,7 +84,10 @@ remains mandatory in RIS**, with existing-ID/type, identity, claim, composition 
 blocker checks. The main agent applies existing implementation/publication owners;
 `task-review` must actually launch as an independent subagent. A suitable current
 copy on a verified own branch is allowed; isolation needs activate worktree
-preparation. Checks remain proportionate and project-mandatory checks/TDD apply.
+preparation. If that own current copy is the verified primary root, the publisher
+owns its guarded return to the established primary branch and FF after remote
+confirmation; no foreign/busy/dirty copy switching or replay of a confirmed push.
+Checks remain proportionate and project-mandatory checks/TDD apply.
 Full task/bug/feature execution and the TDD operation retain their substantive
 gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
 remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).

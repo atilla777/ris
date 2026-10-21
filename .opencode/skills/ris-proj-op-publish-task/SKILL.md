@@ -133,9 +133,11 @@ inspection, independent review or remote read-back.
    worktree is required when isolation or project rules demand it. Ambiguous
    ownership, overlapping foreign changes or a busy shared copy block dependent
    publication until the caller supplies safe preparation through existing owners.
-   This operation does not create/switch branches or prepare worktrees.
-   Never switch, checkout, reset or use shared local primary/main for integration;
-   its only permitted update here is the resource's post-confirmation safe FF.
+   This operation does not prepare worktrees or create work branches. Its only
+   branch switch is the resource's guarded post-confirmation return of the same
+   verified own-current-primary copy from this subject's branch to the established
+   primary branch, followed by safe FF/read-back. Never switch a foreign/busy copy,
+   reset primary/main or use the local primary branch for integration.
    One publisher owns this subject, not every project's publication. Fetch the
    latest established primary branch from the selected remote and inspect its
    new code/contracts, divergence and the full outgoing commit/file set.
