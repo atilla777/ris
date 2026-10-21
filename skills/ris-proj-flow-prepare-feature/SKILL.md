@@ -213,9 +213,15 @@ blockers, without an artificial child. For multiple units, every child has own
 result/scope/criteria, applicable accepted selectors/decisions, `<ID>#AC-nnn`
 coverage, contracts/test seams/exclusions, stable key and only necessary directed
 `blocks` edges (blocked → blocker), with exact ID/content/parent/edge read-back.
-Unmatched children, missing AC/seams, cyclic edges or unconfirmed prerequisites
-remain gaps, not ready work. A one-task content gap returns to authorized record
-reconciliation; it does not permit an implicit adapter update or fake child.
+Known, sufficiently defined accepted future prerequisites may remain unfinished
+in a complete decomposition when necessary directed blocks are verified; this
+does not make dependent tasks executable. Unknown or disputed contracts block
+only dependent decomposition, preserving independently sufficient results and
+their actual publication state without claiming whole-flow success. Unmatched
+children, missing AC/seams or cyclic edges remain gaps. Native refusal and actual
+decomposition blockers are not bypassed. A one-task content gap returns to
+authorized record reconciliation; it does not permit an implicit adapter update
+or fake child.
 
 After the owners' local checks invoke the adapter's **separate tracker publication**
 for the verified ordinary record, one-task result or children/edges and any

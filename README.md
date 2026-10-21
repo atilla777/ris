@@ -159,6 +159,14 @@ publication; the same record then reaches verified decomposition and separate
 tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
 not mandatory extra steps. Preparation does not start implementation.
 
+Decomposition can describe dependent tasks before a sufficiently defined accepted
+prerequisite is implemented, retaining necessary directed blocks (dependent →
+prerequisite). Unknown or disputed contracts block only the dependent portion;
+independently sufficient results remain usable without a claim of full coverage.
+Execution readiness is checked separately against accepted inputs, needed
+integrated prerequisites, current blockers and authority. Planning permission or
+task existence never grants permission to implement; native refusal is preserved.
+
 Help needs no configured project, `ris.yaml`, Beads or source checkout. Empty input
 displays fixed daily Markdown locally, **without any model call**: status/next, feature preparation/decomposition
 and task execution. `/ris-help full` (`/ris-help полный` in Russian) shows detailed

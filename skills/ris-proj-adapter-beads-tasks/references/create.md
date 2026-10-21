@@ -38,7 +38,14 @@ exists; do not manufacture one. A known exact ID is read/reused, not created aga
 For decomposition children require a confirmed open feature parent and caller's
 sufficient accepted scope/criteria, source/decision inputs and stable parent-scoped
 key; early-registration permission does not waive child-input readiness. The caller
-checks actual acceptance in documents, not a registry/--spec-id flag. Use supplied
+checks actual acceptance in documents, not a registry/--spec-id flag. It also
+distinguishes decomposition sufficiency from execution readiness: a sufficiently
+defined accepted future prerequisite can support child creation before its
+implementation, with necessary directed blocks verified through `structure.md`.
+Unknown/disputed required contracts or a blocker applicable to the creation
+action stop the dependent write, not independently sufficient authorized work.
+The adapter does not infer execution readiness from creation or bypass native
+refusal, ownership or caller-supplied scope guards. Use supplied
 `--type task`, optional confirmed `--parent`, `--external-ref` and ordinary content;
 existing explicit links may be retained but do not duplicate accepted-reference
 objects. On retry compare key/type/parent/content/actual source association across

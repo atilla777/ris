@@ -134,8 +134,12 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    acceptance. Both accepted inputs with undetermined composition support a
    decomposition-owner recommendation, **not** implementation readiness or an
    obligation to create children: that owner checks the one-task case and all
-   readiness gates. An empty child list alone does not show decomposition is
-   missing; inspect any saved one-task/coverage result when known. Requirements
+   decomposition gates. A defined accepted future prerequisite may permit
+   decomposition with necessary directed blocks while dependent execution stays
+   blocked; an unknown/disputed contract stops only the dependent portion, not
+   independently sufficient preparation. Never recommend execution from task
+   existence or planning permission. An empty child list alone does not show
+   decomposition is missing; inspect any saved one-task/coverage result when known. Requirements
    without accepted design cannot be advertised as decomposition-ready. Unreadable
    actual documents/decisions leave an exact input gap, not inferred acceptance.
    These are examples of needed results to match against current owner contracts,

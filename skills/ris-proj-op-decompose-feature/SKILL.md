@@ -85,7 +85,7 @@ Cross-check their identity and status; a closed feature or mismatched link
 blocks child creation. Read all existing direct children and relevant blockers,
 including closed tasks, before deciding whether new work is needed.
 
-## Compute readiness before dependent work
+## Check decomposition sufficiency separately from execution readiness
 
 For explicitly identified **ordinary standalone** work, obtain kind/key, own
 outcome/scope/criteria, accepted sources/decisions, sufficient constraints and
@@ -136,18 +136,28 @@ revisions and comparison evidence. Material requirements changes return to the
 requirements owner; design gaps return to the design owner. Preserve unchanged
 accepted references and decisions, never repin them just to the latest commit.
 
-Compute readiness anew on every invocation; do not write a `ready` status.
+Compute action-specific sufficiency anew on every invocation; do not write a
+`ready` status.
 Check sufficient design/test seams, accessible applicable architectural
 contracts and versions, related product source currency, and resolved product/
 architecture conflicts. Missing source baselines leave currency unconfirmed;
 material unconfirmed applicability blocks dependent writes. Read feature and
-relevant task blockers; active feature blockers prevent child writes even if
-the CLI allows them. Accepted future contracts may justify prerequisite work,
-but readiness to execute a particular unit requires their integration first
-where needed. A necessary unresolved external prerequisite is a partial result,
-not silently completed work. Do not confuse parent membership with blockers.
-With any failed gate return supported coverage analysis and exact gaps with no
-dependent child/edge mutations; do not use an inapplicable design or fabricate
+relevant task blockers and their actual scope/content. A known, sufficiently
+defined accepted prerequisite that is not yet implemented does not itself block
+describing or creating dependent tasks. Retain necessary directed `blocks`
+(blocked unit → prerequisite), with confirmed endpoints and read-back; never
+silently mark the prerequisite complete. With active feature blockers, permit
+child/edge writes only when every blocker's freshly checked scope/content proves
+it execution-only for that exact decomposition action. Unknown applicability or
+a real decomposition blocker stops the dependent writes; native refusal and ownership/permission guards are
+never bypassed. Unknown or disputed contracts block only dependent units and
+coverage claims: preserve independently sufficient analysis and authorized
+task/edge results, without claiming complete decomposition or inventing decisions.
+Do not confuse parent membership with blockers. Execution readiness is a separate
+per-unit check of sufficient accepted inputs, needed integrated prerequisites,
+current blockers and execution authority; neither task existence nor successful
+decomposition supplies it. With a failed gate return the supported result and
+exact affected remainder; do not use an inapplicable design or fabricate
 acceptance. Do not repeat the preparation interview without a discovered gap;
 ask only for the bounded missing decision and name its owner.
 
@@ -255,14 +265,16 @@ applicable accepted requirements/design or sufficient constraints and their sepa
 the same references and content applicability, and applicable contract currency; map
 every accepted criterion to the verified feature or child tasks, and name where
 combined behavior will be checked. Confirm no contradictory extras or cyclic
-dependencies. A dependency on unconfirmed external work or a missing
-criterion prevents `ok`; mere presence of children or an adapter `ok` does
-not prove coverage. Report `ok|blocked|conflict|error` for **this combined
+dependencies. An unknown/disputed required contract or a missing
+criterion prevents full decomposition `ok`; a defined accepted future prerequisite
+with verified necessary edges does not, although dependent execution remains
+blocked until its requirements are met. Mere presence of children or an adapter
+`ok` does not prove coverage. Report `ok|blocked|conflict|error` for **this combined
 result**, the project/config source, subject kind and exact task/parent IDs, source address and
 version, checked current Git revision, full feature ID where applicable, applicable accepted content
 objects/acceptance addresses, publication and applicability evidence, contract
-versions/test seams and computed readiness (including per-unit integration
-prerequisites), actual child IDs/keys and statuses,
+versions/test seams and decomposition sufficiency separately from per-unit
+execution gaps/integration prerequisites, actual child IDs/keys and statuses,
 directed dependencies, requirement coverage, `changes` (including `[]`),
 read-back evidence, limitations and exact next needed substantive result.
 For partial outcomes use the reason's non-`ok` status and distinguish confirmed

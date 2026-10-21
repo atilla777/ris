@@ -160,6 +160,12 @@ or sufficient accepted technical constraints for a standalone task, essential
 inputs and current contracts, status, ownership, typed directed blockers and
 complete mandatory composition. Implementation proceeds directly from sufficient
 accepted inputs/current code; missing plans/reports do not create a stage or gate.
+Successful decomposition or task existence is not execution readiness or authority.
+Defined future prerequisites may have allowed task creation, but needed results
+must now be integrated/applicable and active or unresolved execution blockers
+stop dependent execution, even with an existing own claim. Preserve necessary
+directed blocks and native refusal; permission to plan/decompose is not permission
+to implement.
 For feature-linked work apply common's published-inputs document convention and
 bounded legacy discovery to actual published requirements/design and separate
 attributable decisions. Missing actual accepted inputs is a preparation gap;
