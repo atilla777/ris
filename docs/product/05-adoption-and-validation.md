@@ -133,7 +133,7 @@ ris-plan-roadmap
 | CFG-07 | Проектный `ris.yaml` задан | Его полный набор значений заменяет defaults; пропущенное обязательное поле не заполняется из пакета |
 | CFG-08 | Явный update без существующего эпика roadmap | Нет молчаливого перехода к create; проверяет будущий потребитель трекера, не `ris-proj-op-resolve-context` |
 | CFG-09 | Установка RIS вне проекта или внутри Gas City Pack | Корень и пути целевого проекта определяются независимо от установки RIS |
-| CFG-10 | Смена worktree / контейнера | `sources.*` заново разрешаются от текущей копии; `workspace.*` — от context-checked primary: valid explicit имеет приоритет, иначе verified available saved indication с provenance/project/repository/copy association; invalid explicit не fallback; missing/ambiguous/conflicting/foreign/stale блокирует только dependent shared part |
+| CFG-10 | Смена worktree / контейнера | `sources.*` заново разрешаются от текущей копии; `workspace.*` — от context-checked primary: valid explicit имеет приоритет, иначе verified available saved indication с provenance/project/repository/copy association, затем при отсутствии указаний проверенная обычная non-bare Git source copy; invalid explicit не fallback; неразрешённые missing/ambiguous/conflicting/foreign/stale блокируют только dependent shared part |
 | DEP-01 | Прямой запуск без оркестратора | Обязательные зависимости обеспечены |
 | DEP-02 | `ris-proj-lib-common` или нужный ресурс отсутствует | Зависимая часть не объявляется выполненной |
 | DEP-03 | Адаптер настроен, но не нужен | Его CLI не загружается и не запускается |

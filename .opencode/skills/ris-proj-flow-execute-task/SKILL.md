@@ -23,8 +23,8 @@ historical records, repair/remove worktrees, deploy, release or substitute a PR.
 ## Prepare scope and executors before effects
 
 Establish the selected project/current copy, context-checked primary selection
-and provenance for shared paths in a worktree (explicit or verified available
-saved indication), optional exact task ID, actor, accepted scope, applicable
+and provenance for shared paths through context's explicit → verified saved →
+verified ordinary Git source-copy procedure, optional exact task ID, actor, accepted scope, applicable
 rules and permissions. Load/apply installed `ris-proj-lib-common` and its conditional
 resources before their actions; apply `ris-proj-op-resolve-context` with its owned configuration
 resource to prepare sources, needed workspace paths, selected tasks adapter and
@@ -60,6 +60,14 @@ A claim, lease, sandbox or worktree is not general content/graph CAS. Apply
 read-only preflight through the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.
+
+Resolve a missing actor for a new assignment through the selected adapter's claim
+owner (explicit → applicable configured → verified current session ID), then
+forward that exact actor to participants. Existing execution recovery instead
+requires verified assignment/copy linkage and continuation/transfer authority;
+the fallback or a matching name never takes over old work. Full execution uses
+its own branch and separate working copy, never simultaneous independent writers
+in one copy; the explicitly selected fast route retains its own exception.
 
 Apply each bounded operation's owner directly or actually launch the configured
 subagent when delegating it. Reuse suitable implementation/repair context; always
@@ -273,10 +281,11 @@ or changed facts before deciding the next operation.
    for this reassessment, not silently approve itself. Reconcile ambiguous pushes
    by remote reads. Direct-push prohibition blocks this route without PR fallback.
    Record actual integrated commit/ref and independent remote visibility evidence.
-   Consume the publisher's full remote-plus-primary-sync result, unless this flow
-   was explicitly limited to remote-only Git publication. Confirmed remote with
-   pending local sync preserves the published commit but blocks the dependent
-   full-flow completion gate; recover only missing sync through that owner.
+   Consume its verified remote Git result and separately report local primary
+   maintenance. Skipped/failed local synchronization never blocks criterion
+   verification, exact close or Dolt publication. An explicitly requested local
+   update remains an unfinished part of that request; recover only that local
+   effect through the publisher, never repeat confirmed push.
 6. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, apply selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific

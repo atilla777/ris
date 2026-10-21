@@ -203,9 +203,9 @@ remains a precise dependent gap, never invented.
     are outside this design-only handoff and cannot use that exception.
     Consume its commit/tree/ref/remote receipt and independent remote evidence;
     match accepted selected content and preserved requirements. The publisher's
-    primary-sync/explicit remote-only scope must be checked
-    against this operation's promised whole. Pending primary sync is partial,
-    not full Git success or a reason to repeat a confirmed push. Integration drift
+    local primary maintenance is a separate effect: skipped/failed sync never
+    invalidates confirmed remote Git or blocks record/tracker actions. An explicit
+    local-update request retains its unfinished part, never a repeated push. Integration drift
     requires applicable independent reassessment. Reuse checked existing
     publication without empty commit/push. A limited record-only contribution
     consumes the existing applicable receipt; limited local save stops earlier.

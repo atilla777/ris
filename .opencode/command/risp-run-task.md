@@ -13,6 +13,9 @@ unfinished work first, otherwise select one ready task under the skill's rules.
 For prior/partial effects use its recovery route, preserving completed work.
 Invocation requests the full single-task cycle under the skill's permission
 contract; establish actual permissions and project limits before effects.
+Ordinary owner transitions need no repeated technical permission. For a new
+assignment resolve a missing actor through the claim owner, never by taking over
+old work. Confirmed remote Git is independent of optional safe local updating.
 Keep human decisions in the leading dialogue and actually launch the configured
 executors as required. Stop at the selected task's verified result or concrete
 blocker; recommend the next work without claiming or starting it.

@@ -44,7 +44,7 @@ schema 1 восстанавливается с прежней foreign-класс
 | Принятые поставки | [docs/specs/](../../specs/README.md), обычный Markdown, не дополнительный OKF-корень. Будущие решения остаются в спецификациях до реализации. |
 | Очередь, статусы и связи | Beads/Dolt через выбранный `ris-proj-adapter-beads-tasks`; Git-публикация не синхронизирует эти записи. |
 | Адресная поправка ris-wcv | [Принятый document route](../../specs/ris-wcv/spec.md) заменяет feature-record/same-record refs и saved-verification gates в описаниях поставок ниже: common published-inputs владеет full-ID convention/legacy discovery, project owners — actual independent acceptance/applicability, Beads — ordinary native task/edges/close, без JSON/реестра/миграции. New `sources.specs/<full feature ID>/spec.md`: H1 и Feature-ID/Summary/optional Keywords, дизайн inline либо adjacent. Старые данные и evidence сохраняются; их schema не gate. Review YAML/bug snapshot и substantive claim/copy/Git/close/Dolt сохраняются. Это контракт исходников, не заявление о публикации текущего дерева или live-поведении. |
-| Primary/context и handoff (U1) | `ris-proj-op-resolve-context` владеет bounded explicit→verified available saved primary resolution/provenance; потребители не копируют discovery. `ris-proj-lib-common/references/artifacts.md` задаёт recoverable locator/version/decision/channel/remainder без registry/mandatory next prompt. |
+| Primary/context и handoff (U1) | `ris-proj-op-resolve-context` владеет bounded explicit→verified available saved→verified ordinary Git source-copy primary resolution/provenance; потребители не копируют discovery. `ris-proj-lib-common/references/artifacts.md` задаёт recoverable locator/version/decision/channel/remainder без registry/mandatory next prompt. |
 | Git-публикация (U1) | Existing `ris-proj-op-publish-task` принимает task/change и pre-ID document subject, включая requirements-only без будущих ID/design/implementation, через один whole-snapshot/review/authority/outgoing/preservation/reassessment/remote алгоритм. `ris-proj-flow-prepare-feature` вызывает этого owner и проверяет receipt; tracker writes/publication и closure не входят в publisher. |
 | Подготовка рабочей копии | `ris-port-op-prepare-worktree` владеет переносимой проверкой copy/environment; `ris-proj-op-prepare-task-worktree` — task/actor/claim, project/shared roots, свежим context и совокупным handoff. Ограниченные `worktrees/1` list/read/create принадлежат `ris-port-adapter-git-worktrees` и явно выбранному `ris-port-adapter-worktrunk-worktrees`. |
 | Единая подготовка фичи (ris-b1a.3) | Source/install `ris-proj-flow-prepare-feature` интегрирован и Git-опубликован в [c5de3e112c9e35813a5af91b290acccbe1758ec1](https://github.com/atilla777/ris/commit/c5de3e112c9e35813a5af91b290acccbe1758ec1) по [S1 §3 / D1 §§2–4](../../specs/sdlc-feature-lifecycle/acceptance.md): early same-ID /2 и одна safe copy → один requirements/design dialogue и две точные accepted scopes (один акт допустим) → independent review/Git с primary-sync → same-record refs → полная existing decomposition → separate tracker publication. Inline sufficient design допустим; внутренние executors условны, независимый reviewer обязателен отдельно. Direct specify/design/decompose сохраняются. Факт Git-публикации не удостоверяет независимость/применимость review или live behavior; свидетельства имеют собственные версии и границы. Lean execution — отдельный ris-b1a.4 ниже. |
@@ -124,10 +124,16 @@ operations и read-back без ручного окна или обязатель
 не использует как workspace. Продвижение remote требует только затронутых
 проверок и независимой переоценки нового snapshot, с сохранением применимых
 свидетельств и неизменённых принятий. Это текущий контракт, не runtime evidence.
-Принятая [поправка ris-3hv](../../specs/scs-contract-seams/amendment.md) добавляет
-публикатору preflight и post-confirmation безопасную FF-синхронизацию проверенной
-основной копии, не превращая её в integration workspace. Полный, частичный и
-явно remote-only результаты различаются; remote success не подменяет local sync.
+По [ris-y8z S1/D1](../../specs/ris-y8z/spec.md) публикатор отделяет подтверждённый
+remote Git от optional safe local update. Пропуск/ошибка локальной синхронизации
+не блокируют close/Dolt; явно порученное обновление остаётся отдельным долгом.
+Guarded own-copy return/FF и сохранность файлов не ослаблены; найденный primary
+не разрешает его мутацию. Common владеет полномочиями полного поручения/вопросами,
+Beads claim owner — actor нового назначения (explicit/configured/verified session),
+не правом забрать прежнее исполнение. Standing shared Dolt policy — в правилах RIS,
+не автоматическая настройка соседних проектов. Эта синхронизация описывает контракт
+текущего change tree до интеграции, не новое review/publication/runtime evidence;
+исторические строки поставок выше сохраняют исходные версии.
 Общий условный `published-inputs.md` владеет чтением сохранённых версий/решений
 по project+ID/устойчивым ссылкам независимо от старого checkout; context только
 диагностирует пути. Обзор различает собственный следующий результат контейнера

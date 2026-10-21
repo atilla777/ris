@@ -110,6 +110,17 @@ own snapshot, provenance and scope.
   and [program checks](docs/development.md).
 - **Operational boundary:** RIS does not supply release, deploy, rollback or
   production operations. Source publication is not deployment or production readiness.
+- **Operation authority and delivery:** a full request includes its ordinary
+  constituent actions through existing owners; narrower limits and substantive
+  acceptance/review gates remain. Context selects shared primary paths by explicit
+  input → verified saved association → verified ordinary Git source copy, never
+  the first worktree. This grants no right to change that copy. New assignments
+  can use a verified current-session actor fallback, never to take over old work.
+  Confirmed remote Git is complete independently of optional safe local updating;
+  skipped/failed maintenance does not block exact close or Dolt. An explicitly
+  requested local update remains a separate unfinished part of that request.
+  Shared Dolt publication follows the selected project's accepted policy (RIS
+  permits accumulated shared history), not an automatic policy change elsewhere.
 
 ### Available commands and operations
 
@@ -199,8 +210,9 @@ high/medium repair and re-review. It requires its own branch; a suitable current
 copy is allowed, and isolation needs activate worktree preparation. When that own
 copy is also the verified primary root, the publisher may safely return it from
 the task branch to the established primary branch and fast-forward only after
-remote confirmation. Busy/foreign/dirty copies remain protected; pending local
-completion never calls for repeating a confirmed push. Checks are
+remote confirmation. Busy/foreign/dirty copies remain protected; skipped/failed
+local updating neither invalidates remote Git nor blocks close/Dolt, and never
+calls for repeating a confirmed push. Checks are
 proportionate and mandatory project checks/TDD still apply. A supplied ID keeps
 its real contract; mandatory project accounting creates/reconciles a short task
 (**Beads remains mandatory in RIS**). Empty input asks for work, never selects a

@@ -2,19 +2,22 @@
 name: ris-proj-op-publish-task
 description: >-
   Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
-  established primary Git branch, verify authorized direct push and safely synchronize the primary local copy. Use for
+  established primary Git branch, verify authorized direct push and separately attempt safe primary local synchronization. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
 ---
 
 # Integrate and verify Git publication
 
-Own one bounded Git integration/publication result: by default confirmed remote
-publication **and** safely synchronized primary local copy. Explicit remote-only
-is a limited result, never an implicit fallback. One skill suffices: this is
+Own one bounded Git integration/publication result: confirmed remote publication,
+with local primary synchronization reported as a separate maintenance effect.
+An unavailable/unsafe local update never blocks remote publication, exact task
+completion or separate tracker publication. If the user explicitly requests local
+updating too, retain that unfulfilled requested part separately; do not silently
+drop it or call the whole combined request complete. One skill suffices: this is
 an operational Git result, not a distinct portable content method. Load/apply
 `ris-proj-lib-common` and applicable resources, and `ris-proj-op-resolve-context` for project rules and
-evidence paths when needed and primary identity for full publication. Load the selected task adapter only for necessary identity/
+evidence paths when needed and primary identity for local maintenance. Load the selected task adapter only for necessary identity/
 blocker/ownership reads; this operation never writes or publishes tracker state.
 Direct invocation requires no execution role.
 Reuse already available current owner instructions. For a supplied native bug,
@@ -93,11 +96,11 @@ caller's authority. Check all outgoing history, not just the chosen subject's di
 
 ## Integrate, reassess, publish
 
-Read and apply `references/primary-sync.md` from this installed skill for full
-publication before a new push, and after remote confirmation, including no-change
-and recovery calls. It owns preflight, local synchronization and their evidence;
-do not substitute Git primary inference for context's checked selection. Record
-full versus explicitly authorized remote-only scope before dependent effects.
+Read and apply `references/primary-sync.md` from this installed skill before local
+maintenance, including no-change/recovery calls. It owns local safety preflight,
+synchronization and their evidence; do not duplicate context's primary discovery.
+Record requested remote and local effects separately. A primary identity or
+safety gap blocks only that local action, never the independent remote result.
 
 Use native `git fetch --quiet` and `git push --quiet` for routine network
 progress, with the explicit selected remote/refspec required below. Keep stderr,
@@ -129,8 +132,8 @@ inspection, independent review or remote read-back.
    own copy within the accepted scope and checked below.
 2. If there are no intended changes, verify the existing result's applicable
    checks/review, decisions and required remote visibility; return its actual
-   remote evidence without an empty commit or redundant push; full mode still
-   completes/checks primary synchronization. Existing unsent commits
+   remote evidence without an empty commit or redundant push; separately attempt
+   safe primary synchronization when in scope. Existing unsent commits
    still require the full outgoing gate. Otherwise commit intended changes using
    project history style in this own branch/copy. Merge the fetched latest
    established primary remote branch into it, resolving conflicts there; do not
@@ -158,7 +161,8 @@ inspection, independent review or remote read-back.
 4. Reinspect target/remote and complete outgoing scope immediately before direct
    push; send the checked resulting own-branch commit to the authorized primary
    remote ref with an explicit source:destination refspec and normal non-force
-   push after the resource's fresh full-mode primary preflight. Do not move
+   push after all remote publication gates. Local primary safety is not a push
+   gate. Do not move
    shared local main before remote confirmation. On remote advancement/rejection,
    freshly fetch and reconcile refs, merge the new target in this own copy,
    resolve conflicts and repeat only affected integration/check/reassessment
@@ -172,12 +176,14 @@ inspection, independent review or remote read-back.
    evidence, not merely command exit. On failed verification return the stopping
    cause's `blocked|conflict|error`, confirmed local/remote effects and the exact
    remaining check; reconcile an uncertain push before repeating it.
-6. In full mode complete and read back primary synchronization under the resource.
-   Full `ok` needs both confirmed remote publication and local primary state at the
-   last independently observed remote tip. A confirmed remote with pending local
-   completion is a partial result using the stopping cause's non-`ok` status;
-   it never requires republishing S. Explicit remote-only `ok` covers remote only
-   and names excluded local effects. No-change/retry does not waive this distinction.
+6. After confirmed remote publication, attempt the separately safe local update
+   under the resource unless excluded. Report updated/skipped/failed/unknown and
+   its cause independently from remote confirmation. Ordinary Git publication is
+   `ok` once its remote gates succeed even when local maintenance cannot finish.
+   If local updating was explicitly requested, the combined request retains its
+   causal non-`ok` status and exact local remainder; its confirmed Git result is
+   still successful and consumable by completion/Dolt owners. Retry checks facts
+   first and never republishes S just to repair local maintenance.
 
 Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,

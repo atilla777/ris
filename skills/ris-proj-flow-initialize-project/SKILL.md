@@ -278,8 +278,9 @@ do not invoke the publisher or improvise a dirty-copy transfer/late branch switc
 Only with explicit authority and its actual independent-review/own-branch/whole-outgoing/
 remote gates, apply directly or delegate existing `ris-proj-op-publish-task` for the
 exact no-ID initialization change or applicable confirmed task subject; inspect its full
-snapshot, remote and primary-sync evidence against full or expressly remote-only
-scope. Pending local sync after confirmed push is a preserved partial publication,
+snapshot and remote evidence separately from local primary maintenance. Skipped or
+failed local sync leaves confirmed Git successful and never blocks independent
+tracker actions. An explicit local-update request retains that unfinished part,
 not a reason to repeat initialization or push. No remote or declined push leaves the checked local
 result intact. Beads init's separately approved commit side effect is not source
 publication authority. Tracker/Dolt publication remains separate and is not

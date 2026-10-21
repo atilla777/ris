@@ -26,7 +26,7 @@ review/recovery/publication; неизвестное не доказано, из�
 Full flow может применять bounded owners напрямую и переиспользовать пригодный
 implementation/repair context; reviewer запускается отдельно независимо от всех
 авторов/исправителей. Bug historical input snapshot, claim/blockers, safe copy,
-whole-tree review, Git+primary FF и отдельные tracker effects сохранены; fast —
+whole-tree review, remote Git, отдельный safe local update и tracker effects сохранены; fast —
 без обязательного review-файла. Исторические plan/report строки поставок и таблиц
 ниже сохраняют исходные версии, но не являются активными требованиями/рекомендациями.
 Описание исходного контракта не доказывает Git-публикацию, independent approval,
@@ -53,7 +53,7 @@ Actual independent requirements/design acceptance и original containing-commit
 provenance сохраняются. Legacy explicit links/readable payload hints ведут к real
 documents/decisions; missing/old/malformed JSON сам по себе не блокер, миграции нет.
 Early ID/одна copy → один requirements/design dialogue и точное принятие обеих
-областей → independent review/Git/primary-sync → same-ID ordinary reconciliation
+областей → independent review/confirmed remote Git → same-ID ordinary reconciliation
 → full existing decomposition → separate tracker publication. Prepare не запускает
 реализацию. Direct document-only/ordinary/bug контракты сохраняются без искусственного
 feature ID. Verify-and-close проверяет whole-feature AC/composition/revision/blockers
@@ -297,7 +297,7 @@ Rails/DragonRuby/Odin принадлежат базам; общий ненорм
 
 ## 6. Документы, формат и места хранения
 
-`ris-proj-op-resolve-context` готовит выбранные `sources.*`, `workspace.*`, полномочия и диагностику; прикладной владелец выбирает документы и проверяет их содержательную готовность. Файл `ris.yaml` остаётся необязательной **полной заменой** пакетных defaults по [02](02-configuration.md). В worktree источники относятся к текущей копии, а общие рабочие каталоги — к явно установленному корню основной копии. Никакой путь не выдаёт прав на запись автоматически.
+`ris-proj-op-resolve-context` готовит выбранные `sources.*`, `workspace.*`, полномочия и диагностику; прикладной владелец выбирает документы и проверяет их содержательную готовность. Файл `ris.yaml` остаётся необязательной **полной заменой** пакетных defaults по [02](02-configuration.md). В worktree источники относятся к текущей копии, а общие рабочие каталоги — к проверенному context primary по [процедуре выбора](02-configuration.md#3-две-базы-путей). Никакой путь не выдаёт прав на запись автоматически.
 
 | Сведения | Владелец в целевом проекте |
 |---|---|

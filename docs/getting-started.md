@@ -56,7 +56,7 @@ for the schema, defaults and path checks.
 | When needed | What to prepare |
 | --- | --- |
 | Project documents | The operation's required `sources.*` fields and actual rules/specs/product inputs. Product knowledge is author-owned; a configured directory does not authorize edits. |
-| Shared task notes or worktrees | Required `workspace.*` fields and a checked primary root. `sources.*` resolve in the current project copy; shared paths resolve in the primary. In a separate worktree, supply the primary explicitly or reuse a verified applicable association receipt. |
+| Shared task notes or worktrees | Required `workspace.*` and context-checked primary: explicit → verified saved association → verified ordinary Git source copy. Never the first worktree or a fallback around bad explicit/conflicting facts. Resolving shared addresses grants no permission to change that copy. |
 | Tracked task work | Select an available tasks adapter, e.g. `adapters.tasks.skill: ris-proj-adapter-beads-tasks`, and an existing accessible Beads/Dolt project for that route. Installation does not initialize it. |
 | Delegated operations/flows | Configure the roles that the chosen owner requires under `execution.roles.<role>.agent` and verify actual agent availability/launch. A configured name alone is insufficient; direct calls do not universally require roles. |
 | Publication | Configured relevant remotes, access, explicit publication authority and inspection of the entire outgoing scope, plus the owner's required checks/review and independent remote read-back. |
@@ -154,11 +154,15 @@ reassessment of the complete new snapshot before a normal non-force push. Remote
 advancement triggers only the affected reconciliation/check/reassessment work;
 compatible evidence and unchanged acceptance remain applicable. No global
 publisher queue or manual writer pause is required for ordinary own-branch work.
-Full publication also preflights the checked primary local copy and, after remote
-confirmation, safely fast-forwards it without switching branches or overwriting
-local/untracked work. An unsafe/busy copy blocks that local effect; confirmed remote
-publication with pending local sync is partial, never a reason to push again.
-An explicitly agreed remote-only result excludes synchronization and must say so.
+After remote confirmation the publisher separately attempts safe local primary
+maintenance, with guarded own-copy return/FF only where authorized. An unsafe/busy
+copy remains untouched. Skipped/failed local updating does not invalidate remote
+Git or block exact completion/Dolt; report it separately, never push again for it.
+An explicitly requested local update remains an unfinished part of that request.
+Full requests include ordinary constituent actions across existing owners, without
+repeated technical permissions; narrower authority and substantive gates remain.
+For a new assignment actor may fall back to a verified current host-session ID,
+never to steal an existing claim/copy. Missing reliable identity is an exact gap.
 
 Git publication, exact task completion and Dolt publication are **separate
 effects**. A successful Git push does not close a task or synchronize its tracker;

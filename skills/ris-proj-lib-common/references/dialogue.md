@@ -10,6 +10,12 @@ missing information from conflicting sources, and explain which decision or
 part of the work they affect. Ask the user for decisions that materially affect
 the goal, scope, permissions, or result. Continue independent work if a gap can
 be stated as a nonblocking assumption; do not guess a critical decision.
+An already authorized operation carries its ordinary actions across skill
+boundaries; do not ask again merely to invoke their owners. Inspect settings,
+Git facts and available evidence before requesting a technical parameter. A
+failed command or unsupported capability is a concrete blocker with preserved
+effects and the missing check/action, not a generic “may I continue?”. Narrower
+authority, substantive new choices and real conflicts still require resolution.
 
 Ask **one user decision question at a time** and wait for the answer before
 choosing the next, even when questions are independent. Ask dependent questions

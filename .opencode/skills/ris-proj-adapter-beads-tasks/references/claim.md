@@ -4,6 +4,20 @@ Read only for claim/heartbeat, with `concurrency.md` and the main typed reads.
 Require exact ID/type, actor and authorization. Bug execution adds its own
 `bug-execution.md` capability; this method does not expand feature APIs.
 
+For a **new assignment**, use the explicitly authorized actor first, then an
+applicable existing project/tool identity after checking its provenance. If
+neither exists, obtain the current session's exact ID from trusted host session
+metadata/API and use `opencode:<verified-session-ID>` in OpenCode. Do not guess
+from a neighboring session, OS user, model name, branch or issue owner. Missing
+reliable host identity blocks only the dependent assignment with that exact gap;
+no new config field or session registry is required. Pass actor and provenance
+to participating owners; delegated work retains the caller's assigned actor.
+An invalid explicit identity or conflicting configured facts is not fallback
+permission. This selects a technical identity, not continuation rights: an
+existing assignee/lease, even with the same string, requires verified execution/
+copy association and current authority. Never use fallback to steal an old
+claim, silently release/reclaim it or treat expired lease as transfer permission.
+
 `bd --sandbox --actor <actor> update <id> --claim --json` atomically guards
 claim ownership. Require an open issue, exact actor and permitted claim; a claim
 already owned by that actor may be verified unchanged. Purpose defaults to

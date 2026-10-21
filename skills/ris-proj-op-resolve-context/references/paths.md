@@ -13,7 +13,9 @@ installed resource directory only when shared workspace paths are needed.
 - Resolve `workspace.*` against `primary_root`, the primary working-copy root
   of the selected project. In the primary copy it equals `project_root` only
   when that copy's primary identity is established. For a separate copy apply
-  `shared-primary.md` before using shared paths.
+  `shared-primary.md` before using shared paths, including its verified ordinary
+  Git source-copy fallback only when explicit and applicable saved selections
+  are absent. Path resolution grants no authority to mutate that copy.
 - Config location does not move either root. Absolute path values remain
   absolute, subject to scope and access checks. Do not interpolate `~`,
   `${ENV_VAR}` or `{{variable}}`. For `..`, symlinks or paths outside the

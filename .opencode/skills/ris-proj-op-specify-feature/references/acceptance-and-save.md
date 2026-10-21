@@ -121,10 +121,10 @@ Return its local record result and remainder.
    decisions, checks, review/provenance, destination evidence and allowed effects.
    Inspect its commit/tree/ref/remote receipt and independent remote evidence;
    match published selected content to the accepted candidate and decisions.
-   Inspect the publisher's primary-sync evidence too: full mode requires its
-   full result, unless this operation was explicitly bounded to remote-only Git
-   publication. Confirmed remote with pending local sync remains a preserved
-   partial effect; do not replay push or silently waive the full-result gate.
+   Report the publisher's local primary maintenance separately. Skipped/failed
+   synchronization never invalidates confirmed remote Git or blocks authorized
+   record reconciliation/tracker publication. An explicitly requested update
+   remains unfinished in that request; never replay confirmed push to repair it.
    Integration drift requires applicable independent reassessment, not self-approval.
    Requirements-only needs no future design, implementation evidence or task ID.
    Already published matching content reuses verified publication without empty
@@ -135,7 +135,7 @@ Return its local record result and remainder.
    content at full Git revision, semantic section and separate pinned decision.
    Resolve containing-commit at its original decision and match actual content
    path/section/revision. Do not copy accepted refs into the tracker. The wrapper
-   invokes the existing Git owner in full mode, never copies its algorithm.
+   invokes the existing Git owner, never copies its algorithm.
    Failed Git blocks dependent record writes. With published accepted inputs,
    reconcile the selected feature or ordinary standalone record and then invoke
    adapter publication in full mode. Inspect its required revision/fresh remote

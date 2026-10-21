@@ -218,7 +218,10 @@ Self-review does not provide independent publication approval.
 **`/risp-publish-task [ID]`**
 
 Integrate an independently reviewed whole change into the established primary
-branch and verify the authorized direct push. Does not complete the task,
+branch and verify the authorized direct push. Local primary updating is separate:
+an unsafe/busy copy stays untouched and skipped/failed updating does not block
+task completion or tracker publication. An explicitly requested local update
+remains its own unfinished part. Does not complete the task,
 publish tracker history, deploy or create a PR.
 
 ---
@@ -230,6 +233,9 @@ publish tracker history, deploy or create a PR.
 After verified Git publication, persist the result, verify exact task completion,
 then separately publish tracker history through the selected adapter under its
 gates. Git push alone proves none of these effects. Never close parents implicitly.
+Full requests include ordinary actions across skill boundaries; narrower limits
+and substantive gates remain. Tracker publication uses the selected project's
+standing shared-history policy or explicit authority, without automatic policy changes.
 
 ---
 

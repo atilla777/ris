@@ -2,8 +2,8 @@
 
 Load only for separately authorized tracker publication or its remote-gated
 write preflight. The adapter owns this route, outside `tasks` v1. Publication
-sends shared project `main` history, including other agents' authorized records
-for explicitly agreed tasks; there is no per-issue push. Git publication,
+sends shared project `main` history under its standing policy or explicit
+shared-history authority, including neighboring records; there is no per-issue push. Git publication,
 local record writes and exact completion are separate effects.
 
 ## Establish project, destination and authority
@@ -22,15 +22,20 @@ are not empty results. Do not invent SQL or parse storage objects as a fallback.
    safe access blocks dependent work. Run native commands in the verified database.
 2. For a new push or dependent record mutation only, establish authority for
    shared project `main` history in that destination:
-   explicitly agreed tasks/initiatives and permitted actions, including authorized
-   records of other agents. Respect narrower permissions. Status, epic membership
-   or claim alone is not authority. Known unknown/foreign scope or actions outside
-   permission block dependent publication; ask only the necessary scope question.
+    use the selected project's accepted standing shared-history policy when
+    available, otherwise explicit authority for agreed tasks/initiatives and
+    permitted actions. A standing policy may authorize the whole accumulated
+    shared history, including neighboring tasks, without approval per ID/commit.
+    Record its source; do not automatically install RIS repository policy in
+    another project. Respect narrower permissions and explicit exclusions.
+    Status, epic membership or claim alone is not authority. Uncovered scope,
+    conflicting policy or actions outside permission block dependent publication;
+    ask only the necessary substantive scope question, not a technical reapproval.
    Co-publication gives no right to edit, accept or close another agent's records.
 3. Before remote-gated record mutations, verify `bd --sandbox` and actual hooks/
    auto-publication routes. Sandbox suppresses bd auto-push, not concurrent writers.
    Preflight destination, shared scope and history direction using this route;
-   recheck before a later push. A preflight is not permission for unknown changes.
+    recheck before a later push. A preflight does not expand the applicable policy.
 
 Do not configure/adopt remotes, use `--yes`, force, deletion/`--all` push, or
 silently pull, merge, reset, commit, checkout or change upstream. Fetch changes

@@ -100,7 +100,7 @@ execution:
 | Путь | База |
 |---|---|
 | `sources.*` (проектный или default) | `project_root` выбранного проекта в текущей рабочей копии |
-| `workspace.*` (проектный или default) | Проверенный context корень **основной рабочей копии** этого проекта (`primary_root`): explicit либо verified saved indication |
+| `workspace.*` (проектный или default) | Проверенный context `primary_root`: explicit → verified saved → проверенная обычная Git source copy |
 | Путь к файлу конфигурации из задания | Директория запуска |
 | Указатель в `AGENTS.md` | Каталог файла `AGENTS.md` |
 | Ресурс скила | Каталог установленного скила-владельца |
@@ -109,19 +109,26 @@ execution:
 При подтверждённой основной копии `primary_root = project_root`. Для shared paths
 context сначала проверяет explicit `primary_root`: существование/физическое
 назначение, выбранный проект, repository relationship и связь с текущей copy.
-Невалидный explicit не заменяется fallback. Без explicit допустимо только уже
+Невалидный explicit не заменяется fallback. Без explicit сначала проверяется уже
 доступное сохранённое указание в применимых project instructions либо результате
 подготовки copy, с точным адресом/provenance и проверенной current-copy association.
 Не искать произвольные receipts по диску. Relative indication требует известной
 базы. Git common-dir/registration подтверждают связь, но первый/main worktree,
 ветка и наличие `.sdlc/` не выбирают root. Противоречащие применимые указания нельзя
 скрывать: valid explicit имеет приоритет над старым неприменимым hint; конфликт
-самой association требует диагностики. Без explicit missing/stale/foreign
-association блокирует shared paths, ambiguous/conflicting даёт conflict; назвать
-точный недостающий root/связь/решение и вернуть независимо полезные `sources.*`.
+самой association требует диагностики. Когда explicit и применимое saved indication
+отсутствуют, context проверяет обычную non-bare исходную Git-копию по фактическим
+top-level/common-dir, registration, physical accessible path и связи выбранного
+проекта с репозиторием/текущей копией. Для subproject сохраняется проверенное
+repository-relative расположение. Это не первая строка worktree list и не выбор
+произвольного linked worktree. Bare без подходящей копии, missing path и
+неоднозначная project association блокируют shared paths; противоречивые/foreign/
+stale сведения нельзя обходить этим fallback. Назвать точный gap и вернуть
+независимо полезные `sources.*`.
 Context возвращает root, источник выбора/адрес evidence, проверенные факты и
 ограничения, ничего не сохраняет. Потребители перепроверяют применимость перед
 действием; старый receipt не заменяет права/claim/blockers/защиту записи.
+Разрешение адресов review/worktree не даёт права менять файлы/ветку основной копии.
 Путь к `ris.yaml` сам по себе не определяет ни один из корней. `workspace.tasks`
 и `workspace.worktrees` — только базовые каталоги: пока нет подтверждённого ID
 задачи, не выдумывать путь `<id>`, ветку или имя проекта.

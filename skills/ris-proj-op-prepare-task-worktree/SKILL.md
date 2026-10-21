@@ -23,8 +23,8 @@ Require selected project, exact task ID, actor, current working copy, purpose
 permissions for claim, copy creation/reuse, environment actions and optional
 evidence writes. Never choose a task or infer its ID from a title. Prepare context
 for these inputs; read the applicable project rules. For shared paths consume
-context's checked `primary_root`, selected explicitly or from an already available
-verified saved indication under its owned procedure. Inspect its provenance and
+context's checked `primary_root`, selected through its explicit → verified saved
+→ verified ordinary Git source-copy procedure. Inspect its provenance and
 current-copy association; do not derive a root independently from Git. Resolve `sources.*` in
 the current project and `workspace.*` in the primary copy; config location is
 not a root. Missing settings block only the part needing them. Do not require
@@ -36,6 +36,16 @@ read and claim operations and their actual guarantees; `tasks` v1 alone does not
 promise claim. Closed/invalid tasks stop dependent filesystem mutation;
 a foreign live claim is a conflict, never overwritten. Read-only inspection may
 return observations without claiming or creating anything.
+
+For a new assignment resolve actor through the selected task adapter's claim
+owner: explicit identity, then applicable configured identity, otherwise a
+verified current host-session ID. Forward the exact chosen actor and provenance
+to all participants; a delegated recipient uses the caller's assigned actor,
+not its own session fallback. No reliable identity means an exact dependent gap,
+not an invented OS-user/model/branch identity. This fallback never grants old
+claim/copy ownership: on resume verify assignment, association and permission to
+continue or transfer. A matching actor string or lost chat history alone does
+not authorize reclaiming another execution or creating a replacement copy.
 
 For `execution`, retain all existing execution-readiness and active-blocker gates;
 the existence of an ID/copy never supplies sufficient accepted task inputs.

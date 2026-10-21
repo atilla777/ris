@@ -18,18 +18,31 @@ permission to mutate that copy:
    selected-project/repository relationship, the witness's provenance and its
    association to this current copy/path/branch where applicable. Check for
    conflicting applicable saved indications. Git common-dir and worktree
-   registration corroborate an association, but never select a primary alone.
-   Neither branch name, first/main worktree listing nor `.sdlc/` presence is
-   a selector. A stale, moved or foreign witness is not usable association.
+    registration corroborate an association. A stale, moved or foreign witness
+    is not usable association and must not be silently bypassed by inference.
 4. A valid explicit selection wins over an older saved hint; expose contradictory
    facts and why the hint is inapplicable, never silently conceal them or let it
    override the selection. If the explicit selection's own association remains
-   contradictory, return conflict. Without explicit selection, missing evidence
-   is blocked, ambiguous/conflicting evidence is conflict, and foreign/stale
-   association blocks shared-path use. Name the exact missing root/association
-   or decision and retain independently usable current-copy source settings.
-5. Return the selected physical root, selection source/evidence address,
+    contradictory, return conflict. Ambiguous/conflicting evidence is conflict;
+    foreign/stale association blocks shared-path use, not fallback permission.
+5. Only when explicit and applicable saved selections are absent, inspect native
+    Git facts for the ordinary non-bare source working copy: resolve the current
+    top-level/common Git directory and worktree registrations (for example
+    `git rev-parse --show-toplevel --git-common-dir` and `git worktree list --porcelain`).
+    Verify the common directory's ordinary source copy by its actual Git mapping,
+    physical accessible path, non-bare status and registration, shared repository
+    identity and selected-project location/config/instruction association. For a
+    subproject preserve its verified repository-relative project location. Do not
+    choose the first listing, a branch named main or a directory containing `.sdlc`.
+    Bare repositories, missing source copies, ambiguous project mapping or
+    contradictory facts block this fallback; do not choose an arbitrary linked
+    worktree. No saved receipt is required for an unambiguous verified Git source
+    copy. Name the exact gap and retain independent current-copy settings.
+6. Return the selected physical root, selection source/evidence address or Git facts,
    verification facts and limits. Make no persistent changes or new registry.
    Consumers recheck applicability after copy/project changes and mutable facts
    before acting. A receipt proves neither fresh permission, ownership/blockers
-   nor operation-specific write protection; these remain the acting owner's gates.
+    nor operation-specific write protection; these remain the acting owner's gates.
+    Resolving shared review/worktree addresses never authorizes branch switching
+    or mutation of primary files; copy ownership and local synchronization safety
+    are separate checks.

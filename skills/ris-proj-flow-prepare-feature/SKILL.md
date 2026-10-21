@@ -26,7 +26,10 @@ Apply installed `ris-proj-lib-common` and its applicable dialogue/artifact/quali
 published-input resources; apply `ris-proj-op-resolve-context` with its owned
 configuration resource for relevant sources, tasks adapter and needed shared paths.
 In a worktree, consume its checked primary selection/provenance and current-copy
-association; never select primary from Git alone or invent a task directory.
+association through its owned selection procedure; never duplicate primary
+discovery or invent a task directory. Resolve a new-assignment actor through the
+selected adapter's claim owner and forward it unchanged; recovery requires
+verified prior assignment/copy association, not a fresh session fallback.
 
 Apply existing owners in this context or delegate bounded work when useful; no
 executor, separate session or configured role is mandatory for each internal
@@ -182,11 +185,11 @@ Apply `ris-proj-op-publish-task` for accepted documents from the **same prepared
 ID-associated copy/branch**. Pass checked association/current state/base, exact paths,
 accepted content/decision selectors, checks, independent review/provenance and
 full prospective tree, target evidence and permissions. Consume its existing
-whole-outgoing-history/integration/reassessment/non-force/remote-read-back and safe
-primary-sync result; do not repeat its algorithm. Full remote-plus-primary-sync
-is required unless this scenario was explicitly limited to remote-only Git.
-Confirmed remote with pending primary sync is a preserved partial effect, not
-permission to replay push or proceed past the full-result gate.
+whole-outgoing-history/integration/reassessment/non-force/remote-read-back result;
+do not repeat its algorithm. Primary maintenance is reported separately: skipped
+or failed local sync does not block same-ID reconciliation, decomposition or Dolt.
+An explicitly requested local update remains an unfinished requested part, not
+permission to replay a confirmed push or mutate a busy copy.
 
 Match published content and decisions to both accepted scopes. Resolve
 decision-only `containing-commit` at the original immutable decision address.

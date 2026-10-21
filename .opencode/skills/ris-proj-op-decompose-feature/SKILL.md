@@ -59,8 +59,8 @@ and `sources.specs`, `adapters.tasks.skill` and, if needed, shared workspace
 paths in this project. Inspect status, config provenance, diagnostics and
 permission scope; select relevant documents by actual links and content, not
 assumed filenames. In a worktree, source paths use its current project root;
-shared paths need context's checked primary selection/provenance, explicit or
-from a verified available saved indication. An invalid explicit
+shared paths need context's checked primary selection/provenance through its
+explicit → verified saved → verified ordinary Git source-copy procedure. An invalid explicit
 config is an error, not a reason to fall back to defaults. The project decides
 its specification format and mechanism of acceptance; verify accessible
 evidence addresses and their match to the saved version, not merely a flag.

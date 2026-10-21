@@ -138,6 +138,18 @@ revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
+The ris-y8z source contract separates confirmed remote Git from optional safe
+local primary maintenance. Skipped/failed local updating does not block exact
+close or Dolt; an explicitly requested update retains its own unfinished part.
+Context owns explicit → verified saved → verified ordinary Git source-copy
+resolution without granting mutation rights. Claim owners resolve a new actor
+from explicit/configured identity or verified host-session ID, never as takeover
+authority. Full requests carry ordinary constituent actions across owner seams;
+technical failures are exact blockers, not repeat permission questions. RIS's
+standing shared Dolt policy is repository-local; other projects keep theirs.
+This describes the source contract, not evidence of remote publication or
+observed agent behavior; static checks establish instruction consistency only.
+
 Ordinary Beads record writes and heartbeat use `bd --sandbox ...` under the
 adapter's own contract, independent of consumer project rules. Heartbeat's lease
 update is node-local, but its command can commit pending changes and invoke native

@@ -1,20 +1,22 @@
-# Preflight and complete primary-copy synchronization
+# Separately maintain the primary copy safely
 
-Read for full publication, including no-change/recovery calls. The Git publisher
-owns this local completion; context owns primary identity/provenance. Integration,
+Read for local maintenance, including no-change/recovery calls. The Git publisher
+owns this separate effect; context owns primary identity/provenance. Integration,
 commits and conflicts stay in the subject's own branch/copy, even when that copy
 is the selected primary root. Never integrate on the local primary branch or
 return to/update it before remote confirmation.
-Explicit **remote-only** skips this mutation, reports local synchronization as
-excluded and never represents full publication. Do not select it silently.
+Explicit **remote-only** excludes this mutation. Otherwise attempt it only when
+safety is verified, reporting skip/failure separately without narrowing or
+invalidating confirmed Git publication. An explicit user request to update the
+local copy remains an unfinished part of that request until checked successful.
 
-## Before a new push
+## Local preflight (not a remote-push gate)
 
-Use context's checked explicit/available-saved primary selection and association,
-not the first Git worktree, branch name or common-dir alone. Require authority
-for this copy/ref update as well as remote push; unknown identity/authority blocks
-full publication before push. An existing project prohibition on moving local main
-is a blocker, not something this package overrides.
+Use context's checked explicit → verified saved → verified ordinary Git source-copy
+selection and association, not the first worktree or branch name. Require separate
+authority for this copy/ref update; remote push authority and shared-path
+resolution do not grant it. Unknown identity/authority or a project prohibition
+blocks this local action only; do not ask for a remote-only exception to publish.
 
 Inspect the selected physical copy, repository/worktree registration, symbolic
 HEAD and exact local primary ref, index/worktree status, full untracked paths
@@ -42,20 +44,21 @@ Select one of two bounded completion paths:
 Both paths require no staged/tracked changes, no unfinished operation and no
 untracked/ignored file-directory or symlink collision with the exact target tree.
 For the return path check both the existing local primary tree (the intermediate
-checkout) and the intended remote tree, plus checkout hooks/side effects. Preflight
-the return before a new push, but do not perform it until remote confirmation.
+checkout) and the intended remote tree, plus checkout hooks/side effects. Perform
+the return only after remote confirmation and fresh local safety checks.
 Unrelated untracked files may remain. Even byte-identical untracked files are
 protected; do not adopt, stage, stash, move, delete or overwrite them automatically.
 Check actual path/type collisions rather than treating an untracked directory
 summary as one file. A different branch outside the verified own-return case blocks
-completion; do not switch it to primary or silently choose remote-only.
+local maintenance; do not switch it to primary. Report a skipped local update.
 Check ancestry of the established local primary ref's tip, not the own subject
 branch HEAD, to the intended remote target: ahead/divergent local primary history
 is not an automatic merge/reset opportunity. Unknown/unsafe hooks or
 custom checkout mechanisms block this automatic path; do not bypass them.
-Known failure of any full-result gate stops a **new** push. Independently permitted
-local own-branch work is preserved. The person may separately authorize a bounded
-remote-only operation, but a caller must accept that limited result explicitly.
+Failure of a local gate skips/stops only this mutation, never a **new** authorized
+remote push. Preserve own-branch work and the busy/foreign copy unchanged. Report
+the exact cause; if local updating was explicitly requested, retain it as the
+unfinished requested part without holding up independent completion/Dolt gates.
 
 ## After independent remote read-back (or on recovery)
 
@@ -92,7 +95,7 @@ established, stop.
 
 Read back symbolic HEAD, local ref/HEAD, index/tree, status and protected paths;
 confirm the copy represents R with no unexpected changes and S is an ancestor.
-Read the remote branch again: full success requires local primary HEAD equals
+Read the remote branch again: local synchronization success requires primary HEAD equals
 that last observed remote tip. Report this observation's time/ref, not a guarantee
 against future advancement. If it moved, reconsider only synchronization to the
 new confirmed tip and protection/scope; after one bounded retry return conflict
@@ -101,11 +104,13 @@ An already matching safe copy on primary needs no merge; still check and report
 its state. An own branch at R is not completed primary synchronization until the
 guarded return and read-back succeed.
 
-If remote publication is confirmed but local completion is blocked/failed/unknown,
-return the cause's `blocked|conflict|error`, **remote published, local sync pending**,
-S/R, actual local branch/tip/copy state and exact remaining gate/action. Never undo
-remote history or replay a confirmed push. Retry only the missing local return,
-FF or verification after fresh reads. If return succeeded but FF/read-back did not,
-reuse the already-primary state through its safety gates; do not switch back to the
-task branch or recreate commits. No-change calls also owe this local completion
-in full mode.
+If local maintenance is blocked/failed/unknown, report it separately with S/R,
+actual local branch/tip/copy state and exact cause/remainder. Confirmed remote
+publication remains successful; ordinary publication may return `ok` with local
+maintenance skipped/failed. For an explicitly requested local update return the
+cause's `blocked|conflict|error` for that part/combined request, not for verified
+remote Git. Never undo remote history or replay a confirmed push. On an authorized
+local retry check facts first and perform only the missing return, FF or read-back.
+If return succeeded but FF/read-back did not, reuse the already-primary state
+through its safety gates; do not switch back or recreate commits. No-change calls
+preserve the same separation.

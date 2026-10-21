@@ -148,14 +148,15 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    or add after-the-fact exclusions. Require sent commit/tree/ref/remote and fresh
    remote evidence; missing rights/checks/review or PR-only policy blocks this
    route, and ambiguous effects activate recovery before retry.
-   Require the publisher's primary-sync evidence for the full Git result. Pass
+   Consume remote confirmation separately from local primary maintenance. Pass
    checked primary selection and exact subject/copy/branch association plus
    authority for its guarded own-current-primary return/FF when applicable;
    being on this own task branch alone does not require another worktree.
-   Its primary-sync resource owns safety/preflight and local read-back; an
-   explicitly limited remote-only result must be agreed, never inferred.
-   Pending local sync stops dependent full completion and returns only that
-   remainder to the publisher without replaying remote publication.
+   Its primary-sync resource owns safety/preflight and local read-back. A busy,
+   dirty or foreign primary stays untouched; skipped/failed local sync does not
+   block exact close or Dolt. If updating was explicitly requested, retain that
+   unfinished requested part separately and return only its local remainder to
+   the publisher without replaying remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker
    resource for short result/Git SHA persistence, separately verified exact close

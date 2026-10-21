@@ -35,7 +35,11 @@ adapter owns bounded tracker operations and their guarantees, not Git publicatio
    actual guarantees. Ambiguous/multiple matches stop creation for reconciliation.
    In RIS itself short Beads accounting remains mandatory, even for explicit fast.
 4. Before execution obtain or confirm the authorized own claim through the
-   adapter, with exact actor and confirmed task/copy association. Independently
+   adapter, with exact actor and confirmed task/copy association. Resolve a new
+   assignment's missing actor through that adapter's claim owner (explicit →
+   applicable configured → verified current session ID) and forward it unchanged.
+   Existing claim/copy continuation requires verified linkage and authority;
+   fallback or name equality never grants takeover. Independently
    check in-progress ownership, blockers and mandatory composition before each new
    mutation batch and dependent publication. Never overwrite a foreign live claim.
    Active blockers, unfinished mandatory children or lost ownership stop dependent
