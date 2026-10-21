@@ -44,7 +44,9 @@ unused shared roots or execution settings. Return applicable resolved settings,
 source/provenance, run scope, status, and actionable diagnostics. Confirm that
 the result pertains to the current project and operation; `ok` is only
 preparation, not downstream completion. A configured agent name is not proof
-that the subagent exists or was launched; the caller checks that when its
-operation requires isolation. Never select a fallback agent, switch models,
+that the subagent exists, uses a particular model, was launched or is independent;
+the caller checks actual delegated invocation and required review independence.
+Roles select delegated executors, not mandatory delegation of each internal step.
+Never select a fallback agent, switch models,
 launch a subagent or skill, or write a config, output, task, or persistent
 context, even when the caller has write permission. Stop at the context result.

@@ -10,16 +10,9 @@ already owned by that actor may be verified unchanged. Purpose defaults to
 `execution`: active or unresolved blockers prevent new claim admission and
 dependent execution, including when an own claim already exists.
 
-Only an explicitly requested `feature-preparation` claim for an explicitly confirmed feature
-may use action-specific admission. Require the caller's exact authorized
-preparation action and inspectable scope evidence for **every** active directed
-blocker, matched to freshly read edge/endpoints/content. The caller owns the
-substantive action/scope decision; verify its evidence against actual tracker
-facts. Admit a fresh claim despite active edges only when each is proved
-execution-only and does not prohibit that preparation action. Unknown applicability,
-missing evidence or a real preparation blocker blocks admission. Do not infer
-execution-only scope from a title, raw status, null refs or caller's purpose alone.
-This exception does not authorize execution, remove edges or waive ownership.
+Only an explicitly requested `feature-preparation` claim for a confirmed feature
+activates `claim-preparation.md` beside this resource. Read/apply it before
+admission or own-claim reuse; ordinary execution never uses that exception.
 
 `bd` allows `--claim` on a blocked issue: blocker admission is not atomic with
 the claim. Independently verify `in_progress`, exact `assignee`, current directed

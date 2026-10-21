@@ -39,6 +39,14 @@ return observations without claiming or creating anything.
 
 For `execution`, retain all existing execution-readiness and active-blocker gates;
 the existence of an ID/copy never supplies sufficient accepted task inputs.
+For an explicitly selected **pre-execution bug design** action under that purpose,
+check the admitted full current report, aligned criteria, accepted behavior/
+constraints and authorized material-design scope as the copy-preparation basis.
+The pending design's acceptance and the later historical execution-input snapshot
+are not prerequisites to this copy-only action; they remain required at their
+respective design-save and implementation gates. This is not implementation
+admission or the feature-preparation blocker exception: retain exact native bug
+claim/ownership/children checks and strict active/unresolved blocker refusal.
 For `feature-preparation`, require explicit confirmed feature scope/identity,
 open own preparation work/claim and permitted actions; accepted documents are
 not copy prerequisites and no JSON identity block is required. Through the adapter read every active directed blocker

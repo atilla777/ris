@@ -15,12 +15,21 @@ specs, selected adapter or shared report paths, and `ris-port-op-review-change`
 for the assessment. Check dependency availability and actual results. A direct invocation
 needs no execution role or scenario skill.
 
-Before producing/saving a project report or consuming prior rounds, read
+Before producing/saving a project review **file** or consuming saved rounds, read
 `references/report-format.md` from this installed skill. It is the sole owner of
 `ris.review/1` serialization, types, history and approval applicability. Ordinary
 project review requires that complete YAML; explicit fast execution alone permits
 a sufficient session result without a file. An optional fast save uses the same
 format. No duplicate Markdown report or Beads verdict/findings copy.
+Use that resource's skill-local validator/setup instructions for mechanical file
+checks when available; keep operational/dependency errors separate from report
+invalidity. It neither establishes external evidence/independence nor replaces
+this assessment. Never install its dependency silently.
+For explicit fast session-only review, apply the portable assessment and this
+skill's subject/independence gates without loading YAML serialization resources.
+Read `references/bug-subject.md` only for a supplied native bug, before selecting
+its document versus fix-implementation basis. Read resources relative to this
+installed skill folder; reuse already available current instructions.
 
 Establish the exact project, attributable agreed request, boundaries/criteria,
 accepted technical constraints/material decisions, requested review scope/version
@@ -49,32 +58,6 @@ Without an ID, do not load a task adapter or require task-note discovery, a task
 directory or a fabricated record. Apply project-required tracking/report policy;
 no-ID admission does not waive a mandatory project gate.
 
-For a supplied exact native bug use ordinary typed bug reads and retrieve the full current
-report (including the exact published file when linked), aligned criteria and
-accepted constraints/decisions with their authority. A sufficient report replaces
-formal spec/design, not authority or separate acceptance of material design.
-Select the review basis by the **actual subject**, not the existence of a bug ID:
-
-- **Pre-execution design/document review:** bind the exact document candidate and
-  separate acceptance decision where applicable to the full current report/criteria/
-  accepted constraints and source versions. No future historical execution-input
-  snapshot, fix implementation, implementation checks or execution plan/omission
-  decision is required for this subject. Compare current inputs with that bound
-  basis; material drift returns affected design/document evidence for reassessment.
-  This exception does not accept the design or approve a future fix. Keep independent
-  review, applicable document checks and complete candidate-tree binding.
-- **Fix implementation review, including its publication gate:** additionally read
-  the full historical notes execution-input snapshot at project/tracker + bug ID +
-  marker and name it in the report; a number/hash alone is insufficient. Compare
-  current report/criteria/decisions with that basis and bind exact candidate/check
-  versions to original divergence and affected regressions. Material drift requires
-  targeted change/review/evidence applicability assessment before approval,
-  preserving compatible evidence with reasons. Never approve a changed expectation
-  just because the implementation passes it. Assess sufficient accepted technical
-  inputs and current code/tests, not the author's plan or TDD-history persistence.
-  A mixed implementation/document subject
-  retains these implementation guards; it cannot select the pre-execution exception.
-
 For dependent shared-path actions use context's checked primary selection and
 provenance (explicit or verified available saved indication). If unresolved,
 return available analysis unsaved with the exact dependent save gap; do not guess.
@@ -87,7 +70,7 @@ not independent approval. Missing required independence leaves that gate
 unverified, even if useful assessment is possible. Reassessment of affected fixes
 is required; independence of that reassessment follows project/caller rules.
 
-Check report sufficiency under the format resource: scope/version and baseline limits, applicable
+Check assessment sufficiency: scope/version and baseline limits, applicable
 criterion/design/architecture/document coverage, evidence applicability, exactly
 one severity per finding, two groups (required high/medium; optional low), verdict
 and unresolved limitations. Project display may translate severities to
@@ -108,7 +91,8 @@ round with semantic mapping `pass` → `approved`, `changes-required` →
 `changes_required`, `unverified` → `blocked` only when the format's verdict and
 external applicability predicates actually hold. No mechanical conversion creates
 approval from insufficient evidence. Append that
-round after fresh comparison and independently read back. On conflict, missing
+round after fresh comparison and independently read back; check the complete
+saved file under the format owner's validation instructions. On conflict, missing
 permission/path or unresolved snapshot return useful assessment unsaved/blocked;
 do not call an unmet ordinary mandatory save success. Fast alone permits the
 response-only exception. A response may summarize/link the YAML, not replace it.
@@ -117,12 +101,11 @@ tracker operation; this review owner never writes Beads. The address is not a
 promise of availability from another machine. Historical reports remain unchanged,
 without automatic migration or new-format approval from an old Markdown verdict.
 
-Keep format validity (`valid|invalid|unsupported`) separate from approval for the
-expected subject. Before returning a gate, apply the resource's external tree/base/
-exclusions, inputs, required checks and actual invocation/authorship observations.
-Read later rounds too: refuting or invalid/unknown later rounds forbid fallback.
-Missing required provenance/evidence or an inaccessible local report leaves no
-approval; the report's own `approved`/`confirmed` fields cannot certify themselves.
+Before returning a saved-file gate, apply the format owner's two consumer results
+to the expected subject, inputs/checks and actual invocation/all-author evidence;
+require its external approval gate, not merely format validity or a verdict.
+For fast session-only review verify the same substantive subject, independence,
+evidence and repair predicates without YAML; changed bytes never inherit approval.
 
 Return status, project/change identity (confirmed ID only when supplied), reviewed
 version, report content/location and saved/unsaved

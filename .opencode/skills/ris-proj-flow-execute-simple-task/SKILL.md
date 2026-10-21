@@ -33,8 +33,11 @@ Read the selected project's instructions and relevant implementation. Load/apply
 `ris-proj-op-resolve-context` and its owned configuration resource for applicable
 rules and the required `task-review` role; request adapter settings, document or
 shared paths only when needed. Check status, provenance, diagnostics and rights.
-Missing unused paths or execution roles do not block work; `task-execution` and
-`task-implementation` are not required. Context's configured agent name alone
+Missing unused paths or execution roles do not block work; direct work requires
+neither `task-execution` nor `task-implementation`. If delegating bounded work,
+resolve its corresponding configured role and verify host availability/permissions
+and actual launch; an unavailable role blocks that delegated route, without silent
+substitution. Context's configured agent name alone
 does not prove reviewer availability. Before fresh mutations verify the actual
 host can launch the configured reviewer independently of every author/repairer.
 No fallback agent, self-approval or model switch substitutes for that gate.
@@ -109,9 +112,9 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    independent of all implementation/repair authors. Supply project/config/rules,
    attributable request/clarifications/criteria, publication-gate purpose, accepted decisions and versions,
    real ID only if used, copy/branch/base, full exact candidate and checks/limits.
-   Bind base plus overlays, additions, deletions and modes, including unchanged
-   base files, and exclusions declared before review; HEAD alone or a dirty-tree
-   hash is insufficient. Give the reviewer accessible bytes and bounded read-only
+   Bind the complete publication tree/base and predeclared exclusions, including
+   additions/deletions/modes and unchanged base bytes, not HEAD alone or a dirty-tree
+   hash. Give the reviewer accessible bytes and bounded read-only
    scope (report writes only when separately needed/authorized). Explicitly pass
    this fast no-file exception: a sufficient independent result may remain in
    session; absence of review.yaml alone does not block. If saving is requested,
@@ -121,12 +124,11 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    agent test. Verify actual launch/context identity and returned subject/version,
    coverage, stable findings with exactly one high/medium/low severity, verdict
    and limits. Missing/unavailable/inapplicable independence blocks publication.
-   Apply that format owner for saved-file validity versus external applicability,
-   whole-tree/base/exclusions, inputs/checks and actual provenance; later adverse
-   or invalid/unsupported rounds forbid fallback. For session-only evidence check
-   the same substantive independence/snapshot/repair gates without requiring
-   YAML serialization. Review final results, not author implementation logs or
-   historical RED/GREEN runs.
+   For a saved file apply the format owner's consumer gate with the expected
+   subject, inputs/checks and actual launch/all-author evidence; require its
+   applicable approval, not just a verdict. For session-only evidence check
+   substantive independence/snapshot/repair gates without loading YAML resources.
+   Review final results, not author logs or historical RED/GREEN runs.
 5. **Repair and recheck.** High/medium returns to the main agent applying the
    implementation owner with finding IDs; repair, run affected checks and obtain
    fresh independent review. Preserve links across rounds. Repeat until none
@@ -139,24 +141,19 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    `ris-proj-op-publish-task`, Task/change branch, with exact independently
    approved **whole** snapshot, check/review provenance, prepared own branch/copy,
    accepted inputs and actual direct-push authority/target. Inspect its receipt,
-   not a success assertion. It owns the sole Git integration, outgoing-history,
-   commit/push and fresh remote-confirmation algorithm. If integration, hooks,
-   upstream or documentation changes the snapshot, return to affected checks and
-   an independent `task-review` whole-snapshot reassessment **before push**;
-   unchanged evidence may be reused with applicability reasons. No self-approval
-   or after-the-fact exclusions. PR-only policy, forbidden push, missing rights,
-   mandatory check or reviewer blocks dependent publication with the accessible
-   local result and exact remainder. An ambiguous push activates recovery before
-   retry. Require sent commit/tree/ref/remote and fresh remote evidence.
-   Also require its primary-sync evidence for the full Git result. When the own
-   current publication copy is the context-verified primary root, pass its exact
-   subject/copy/branch association and authority for the publisher's guarded return
-   to the existing primary branch and FF only after independent remote confirmation.
-   This route does not require another worktree merely because this own copy is
-   still on the task branch. The publisher owns safety/preflight and local read-back;
-   foreign/busy/overlapping copies still require the existing isolation route before
-   work, never forced switching. Explicitly limited remote-only must be agreed,
-   not inferred from a successful push.
+   not a success assertion. It owns Git integration, outgoing-history, commit/push
+   and remote confirmation. A changed integrated/hook/upstream/document snapshot
+   returns to affected checks and independent `task-review` whole-tree reassessment
+   **before push**, reusing compatible evidence with reasons. Never self-approve
+   or add after-the-fact exclusions. Require sent commit/tree/ref/remote and fresh
+   remote evidence; missing rights/checks/review or PR-only policy blocks this
+   route, and ambiguous effects activate recovery before retry.
+   Require the publisher's primary-sync evidence for the full Git result. Pass
+   checked primary selection and exact subject/copy/branch association plus
+   authority for its guarded own-current-primary return/FF when applicable;
+   being on this own task branch alone does not require another worktree.
+   Its primary-sync resource owns safety/preflight and local read-back; an
+   explicitly limited remote-only result must be agreed, never inferred.
    Pending local sync stops dependent full completion and returns only that
    remainder to the publisher without replaying remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session

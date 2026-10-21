@@ -44,6 +44,8 @@ changes. One agent name may serve all roles, but review uses a **fresh invocatio
 independent of every implementation/repair author. Missing/unavailable roles block
 the dependent delegated route; no silent fallback or model switch. The leading
 agent may directly apply bounded operation owners, except independent review.
+Role configuration alone proves neither model, invocation, independence nor
+Advanced implementation; verify actual executor/model evidence for such claims.
 Do not require feature-preparation/decomposition roles for this task route.
 
 The request for a full run authorizes the agreed single-task cycle, working
@@ -54,8 +56,8 @@ workflow permission. Let the selected adapter establish operation-specific
 guarantees: use fresh reads, targeted native atomic/conditional operations and
 read-back, and shared-history tracker publication with remote revision assurance.
 Ordinary work needs no manual window, mandatory global lock or graph/external-evidence transaction.
-A claim, lease, sandbox or worktree is not general content/graph CAS. Delegate
-read-only preflight to the selected adapter and Git publication owner for actual
+A claim, lease, sandbox or worktree is not general content/graph CAS. Apply
+read-only preflight through the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.
 
@@ -160,6 +162,12 @@ or sufficient accepted technical constraints for a standalone task, essential
 inputs and current contracts, status, ownership, typed directed blockers and
 complete mandatory composition. Implementation proceeds directly from sufficient
 accepted inputs/current code; missing plans/reports do not create a stage or gate.
+Successful decomposition or task existence is not execution readiness or authority.
+Defined future prerequisites may have allowed task creation, but needed results
+must now be integrated/applicable and active or unresolved execution blockers
+stop dependent execution, even with an existing own claim. Preserve necessary
+directed blocks and native refusal; permission to plan/decompose is not permission
+to implement.
 For feature-linked work apply common's published-inputs document convention and
 bounded legacy discovery to actual published requirements/design and separate
 attributable decisions. Missing actual accepted inputs is a preparation gap;
@@ -217,6 +225,13 @@ or changed facts before deciding the next operation.
    a guessed branch/path. Refresh context after a copy change. Retain the
    verified copy/primary association facts in the handoff; neither replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
+   If the caller already prepared this native bug's copy for necessary design,
+   pass its exact checked ID/repository/path/branch association and actual effects
+   to this same preparation owner for reuse, now with the sufficient accepted
+   execution basis and full historical snapshot. Verify the same association
+   against live state; mismatch or unavailable association evidence blocks the
+   dependent step, not permission to choose a second copy. Reconcile partial
+   copy/setup effects before retry without replaying creation or completed setup.
 2. Recheck actor ownership and blockers before each new change batch. Apply
    code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`;
    apply its base method by actual slice, not the task's name. Behavior-changing
@@ -236,11 +251,10 @@ or changed facts before deciding the next operation.
    separately accepted decisions, project rules and check evidence.
    Pass publication-gate purpose; require one saved local `review.yaml` and explicit round ID under the installed
    `ris-proj-op-review-task/references/report-format.md`; read/apply that owner
-   before consuming review. Check full content/history, structural validity and
-   separately current work/purpose/tree/base/exclusions, accepted inputs, required
-   checks and actual invocation/all-author provenance. A verdict field alone is
-   not approval; later refuting/blocked or invalid/unsupported rounds forbid old
-   approval fallback. Review assesses final results, not author RED/GREEN history
+   before consuming review. Apply its consumer gate with current work/purpose,
+   full tree/base/exclusions, accepted inputs, required checks and actual launch/
+   all-author evidence; require applicable external approval, not just a verdict.
+   Review assesses final results, not author RED/GREEN history
    or implementation-report discovery. No implementation report or author cycle-history audit
    is introduced at execution/recovery/publication.
 4. High/medium findings go back to the implementation owner for fixes, affected
@@ -280,20 +294,15 @@ or changed facts before deciding the next operation.
    current substantive assessment and exact closure without mandatory saved
    feature verification or duplicate refs. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
-7. Apply **separate** selected-adapter tracker publication. For prior/ambiguous
-   publication pass exact requested/recovered revision S, inspectable receipt/history
-   and separate local result/records/typed-link evidence. Have the adapter freshly
-   confirm S reachability from selected remote R before incoming-only/divergence
-   and new-write gates; a newer remote
-   does not block confirmation-only recovery or require a repeated push, closure,
-   merge, working-branch update or write window. Unknown S/read failure remains
-   unverified. Proven unsent work needs authority for shared project main history,
-   including other agents' authorized records for explicitly agreed tasks, and
-   fresh destination/direction checks under the adapter's ordinary non-force route.
-   Inspect S/L/fresh R and revision evidence, not private-ref/AS OF/full-row proof;
-   moving main does not establish exact sent bytes or remote field equivalence.
-   Git push and local closure do not prove
-   tracker publication. Keep all three channel facts separate.
+7. Apply **separate** selected-adapter tracker publication with authorized shared-
+   history scope, selected destination and local result/records/typed-link evidence;
+   for prior/ambiguous effects pass the exact requested/recovered revision and
+   inspectable evidence. The adapter owns remote reconciliation, non-force
+   publication and reachability verification (Beads: its conditional
+   `references/dolt-publication.md`). Require its fresh remote confirmation of
+   that revision; unknown revision/read failure remains unverified. A newer remote
+   never justifies replaying confirmed effects. Git push, local result/closure
+   and tracker publication remain three separate facts.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or
 lost executor response. Apply the recovery resource with the corresponding owner

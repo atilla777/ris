@@ -84,9 +84,9 @@ the RIS repository's own Beads, TDD or publication policy into a consumer projec
 Explain a proposed move/conversion to RIS conventions and get agreement before
 changing structure; no forced relocation or silent Markdown-to-OKF conversion.
 
-This scenario consumes semantic role **`project-initialization`** for standalone
-noninteractive operations below. Agree its binding to an actually available,
-suitable executor; the identifier is not a universal mandatory role for every RIS
+This scenario consumes semantic role **`project-initialization`** when delegating
+standalone noninteractive operations below. When delegation is chosen, agree its
+binding to an actually available, suitable executor; the identifier is not a universal mandatory role for every RIS
 operation. Agree this binding separately; `advanced` is a suitable proposal for
 the complex document work, not an automatic assignment. For the working-cycle
 setup propose `standard` for `feature-selection`, `task-decomposition` and
@@ -156,25 +156,27 @@ because workspace base directories are configured.
 
 ## Compose the document owners
 
-After the bootstrap/context gate, **actually launch a bounded separate executor
-for every standalone noninteractive document operation**. Resolve the agreed
-`project-initialization` binding through context and check host availability and
-permissions to launch. Missing/unlaunchable agents block that dependent operation:
-no silent leader execution, fallback/model switch or invented tool. Bootstrap is
-the explicit exception above, not an exception for subject authoring.
+After the bootstrap/context gate, apply each document owner directly or delegate
+a bounded operation. Direct authorized work needs no `project-initialization`
+role. When delegating, resolve its agreed binding through context, check host
+availability/permissions and verify actual launch. Missing/unlaunchable agents
+block that delegated route, not independent authorized direct work; choose the
+direct route explicitly, never disguise a failed delegation as success or silently
+substitute an executor/model. Required independent review remains separate below.
 
 Pass selected owner/operation, goal, project/current/checked-primary and config
 provenance as needed, create/bounded-update boundary, applicable rules, sources/
 versions, confirmed answers/statuses, prior decisions, precise read/write scope
-and requested output. The executor loads/applies its owner's dependencies; naming
-an owner is not executing it. Do not load every child method into the leader or
-delegate individual internal reads as separate operations.
+and requested output. The acting context loads/applies its owner's dependencies;
+naming an owner is not executing it. Load child methods in the leader only when
+applying them there, not merely to route work; do not delegate individual internal
+reads as separate operations.
 
-Keep discussion/interview/content acceptance here. Delegate proposal-only work,
-inspect the **complete** actual candidate with version and exact scope, discuss
+Keep discussion/interview/content acceptance here. Apply or delegate proposal-only
+work, inspect the **complete** actual candidate with version and exact scope, discuss
 returned material choices, and obtain a separate attributable content decision
-using that author's acceptance contract. Then delegate the same project owner in
-bounded accepted-save/check mode, passing full exact accepted text or a
+using that author's acceptance contract. Then apply or delegate the same project
+owner in bounded accepted-save/check mode, passing full exact accepted text or a
 recipient-accessible exact file/version locator plus the separate decision and
 permitted files/sections. Optional draft storage needs agreed scope, is not
 acceptance and is not mandatory. Subagents return questions/choices here, never
@@ -209,7 +211,8 @@ to fill files. Retain an explicitly deferred decision with affected operations
 and return triggers; proceed with independent sufficient content. Unknown
 architecture may limit design/implementation even when local setup is complete.
 
-For each operation require actual launch/completion and `ok|blocked|conflict|error`,
+For each operation require actual executor/completion (and launch when delegated),
+`ok|blocked|conflict|error`,
 scope, full proposal/version or exact accessible saved-result/decision addresses,
 sources, actual effects, content/format/link/read-back checks, preserved content,
 limitations and needed decisions. Read the returned complete result and inspect
@@ -273,8 +276,8 @@ only from the confirmed prepared own copy established before writes. If it was
 not supplied, report local/unpublished results and the exact preparation gap;
 do not invoke the publisher or improvise a dirty-copy transfer/late branch switch.
 Only with explicit authority and its actual independent-review/own-branch/whole-outgoing/
-remote gates, delegate existing `ris-proj-op-publish-task` for the exact no-ID
-initialization change or applicable confirmed task subject; inspect its full
+remote gates, apply directly or delegate existing `ris-proj-op-publish-task` for the
+exact no-ID initialization change or applicable confirmed task subject; inspect its full
 snapshot, remote and primary-sync evidence against full or expressly remote-only
 scope. Pending local sync after confirmed push is a preserved partial publication,
 not a reason to repeat initialization or push. No remote or declined push leaves the checked local

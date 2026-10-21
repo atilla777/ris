@@ -35,10 +35,14 @@ scope/version, applicable contracts and versions, component/state owners,
 allowed dependency direction, error/data flows and test seams. A short design
 confirming existing contracts can suffice; no separate design file or new
 abstraction is mandatory. Check relevant observed code and whether contracts
-are current, accepted future prerequisites, or unavailable. Missing or disputed
-design/test boundaries prevent a ready task set: return supported analysis as
-partial, without inventing architecture or treating requirements approval as
-design approval. An explicitly requested provisional proposal stays conditional.
+are current, accepted future prerequisites, or unavailable. A sufficiently
+defined accepted future contract may support a dependent task proposal before
+its implementation; retain the necessary directed prerequisite, not a claim that
+it already exists in code. Unknown or disputed contracts/design/test boundaries
+block only the dependent units and coverage claims: retain independently
+sufficient proposals as partial, without inventing architecture or treating
+requirements approval as design approval. An explicitly requested provisional
+proposal stays conditional.
 On changed design, identify affected units/criteria/checks and retain unchanged
 requirements decisions; return substantive contract conflicts to their owner.
 
@@ -88,9 +92,13 @@ effect and boundary are explicit; do not pre-plan it as accepted scope.
    available first. State direction unambiguously (blocked unit → prerequisite)
    with a reason; distinguish necessity from preferred order or shared scope.
    Verify that endpoints exist in the proposed or confirmed-existing set and
-   there are no cycles. Independent units need no invented chain. A dependency
-   on a disputed, unfinished or inaccessible external result is a readiness
-   gap, not a silently completed prerequisite.
+   there are no cycles. Independent units need no invented chain. Known,
+   sufficiently defined but unfinished prerequisites do not prevent decomposition:
+   include dependent units with their necessary edges and explicit outstanding
+   integration conditions. Unknown, disputed or inaccessible required contracts
+   block only dependent proposals; do not invent their content or endpoints.
+   Execution readiness is separate and requires needed prerequisite results to
+   be available and applicable, not merely proposed or recorded.
 5. Cross-check every accepted requirement and observable criterion against
    the proposal **and** any confirmed existing work; check exclusions, key
    alternative/error scenarios, overlap, unsupported additions, missing
@@ -107,8 +115,10 @@ and traceable source coverage; for multiple units return a clear mapping of
 requirements to proposed/existing units and combined checks. List necessary
 directed dependencies and their reasons, or explicitly say none are needed.
 State whether all **available accepted** requirements are covered, and whether
-missing evidence or unaccepted decisions block declaring a complete, ready
-task set. Give the exact open questions and their effects. Labels are local
+missing evidence or unaccepted decisions block declaring a complete decomposition.
+Distinguish decomposition sufficiency from each unit's execution prerequisites;
+a complete proposal may contain units not yet executable. Give the exact open
+questions and their effects. Labels are local
 proposal references, not tracker IDs; include enough source substance or
 accessible references and statuses for continuation without this chat.
 

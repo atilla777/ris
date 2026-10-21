@@ -13,6 +13,12 @@ existing material; specific tool/Git/Beads/agent effects need their own permissi
 This includes project-owned Standard/Advanced, user-agreed pinned models from the
 current available catalog and role bindings, not global-only/model-inherited tiers
 or silent model upgrades. Suitable saved choices need no repeated questionnaire.
+Roles select executors when delegating, not mandatory delegation of every internal
+step: the lead may do authorized work directly. A delegated operation uses its
+configured role and checks actual launch; an unavailable role blocks that route,
+without silent substitution. Required independent review actually launches apart
+from all authors/repairers. Bindings alone prove neither model, invocation,
+independence nor Advanced implementation; changes need agreement.
 Deferred choices limit dependent operations; publication is offered separately,
 and absent remote does not alone block checked local setup. Init does not configure
 product build/test/format/CI or start development. Help explains, never launches it.
