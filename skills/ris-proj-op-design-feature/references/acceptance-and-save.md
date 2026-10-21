@@ -133,6 +133,12 @@ success; independently authorized local saving preserves useful effects. Full
 mode returns `blocked|conflict|error` from the stopping cause with exact remaining
 channels; an expressly limited successful local save may be `ok` only for its boundary.
 
+Before proposing limited publication, explain which parts of the requested whole
+it excludes and what remains. A restriction on primary-copy synchronization does
+not by itself exclude or authorize local record reconciliation or publication
+through the selected adapter; check their existing permissions separately. An
+agreed Git-only result stays Git-only, with the excluded remainder explicit.
+
 An explicitly limited record-only call discovers published accepted content/decisions
 and applicable independent review/publication evidence from saved associations
 (or a supplied checked result within an unfinished flow), skips formulation, renewed
