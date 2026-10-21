@@ -93,6 +93,13 @@ blocks publication with useful local state reported. A task's in-progress status
 is not a publication gate.
 Publication does not accept content, create tracker records or enlarge the
 caller's authority. Check all outgoing history, not just the chosen subject's diff.
+Direct-push authority may be supplied by the full parent operation or accepted
+project policy, not only a new publication-specific human message. Verify its
+source, subject, destination and exclusions; do not re-ask when already covered.
+An explicit project requirement for further approval remains binding. Return the
+exact missing authority to the lead (or ask the specific question on direct
+invocation), never reinterpret the parent's scope as local-only. This does not
+authorize unrelated outgoing commits, a new remote/ref, force or bypassed review.
 
 ## Integrate, reassess, publish
 

@@ -74,6 +74,11 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   owns requirements and their permitted document/record effects, not design or
   decomposition. Their atomic stages are alternatives to manually orchestrating
   preparation, not mandatory extra calls after the scenario.
+  Once full preparation is authorized, “continue” retains its endpoint: internal
+  local saves return to the lead for review, publication and decomposition. Normal
+  Git/tracker effects need no new message when already covered; explicit restrictions,
+  unrelated outgoing Git commits and uncovered shared Dolt history remain gates.
+  A real permission gap needs one concrete question, not silent local-only completion.
 - `select-feature` chooses a small outcome within an epic; `refine-epic` clarifies
   an unclear epic; `roadmap` proposes/records goal-level epics. None implements.
 - `interview-feature` elicits requirements without saving; portable

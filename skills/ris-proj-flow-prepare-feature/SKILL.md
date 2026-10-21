@@ -22,6 +22,24 @@ Establish project/current copy, chosen feature or epic/roadmap context, actor,
 known answers, linked prior work and permitted claim, copy/setup, document/decision,
 Git and tracker effects. An epic is optional, never invented. Workflow permission
 does not accept unseen content or authorize unrelated source/structure changes.
+For a full preparation request, these ordinary effects include registration/claim,
+one safe copy, accepted-document saving, checks/independent review and repairs,
+Git commit/integration/non-force push to the established target, same-ID record
+reconciliation, decomposition and separate tracker publication. No new permission
+is needed merely for an internal step or owner. Unrelated outgoing Git commits
+are excluded; shared Dolt history needs the project's accepted policy or explicit
+authority for its actual outgoing scope. Explicit user/project restrictions win.
+If they require a separate publication decision, ask one specific question about
+the missing authority; do not end the flow at local saving. Independent permitted
+review/analysis may continue while publication is blocked.
+
+Select this full route for an authorized request to prepare the chosen feature,
+including continuation of an already established preparation dialogue. A request
+only for requirements/design documents keeps the direct owners' scoped results;
+selection alone or content acceptance alone does not start this flow. Resolve a
+material ambiguity in the intended endpoint once, before dependent effects,
+rather than silently selecting local-only or full preparation. “Accept both and
+continue” in this flow preserves its endpoint, not a new local-save boundary.
 Apply installed `ris-proj-lib-common` and its applicable dialogue/artifact/quality/
 published-input resources; apply `ris-proj-op-resolve-context` with its owned
 configuration resource for relevant sources, tasks adapter and needed shared paths.
@@ -160,6 +178,11 @@ published requirements. Pass the same checked copy, exact destinations, complete
 accepted text/version/selectors, both attributable decisions and write authority.
 Check content/decision read-back and preserved sections. Missing/changed/ambiguous
 inputs return here, never guessed acceptance or reformulation during save.
+These local-only limits are internal contributions, not limits on the full
+request. After checking both saves, the lead continues immediately to independent
+review and the remaining authorized route below. Do not promote a child's `ok`
+or preserved documents into whole-flow completion; missing authority requires
+the concrete decision question, and technical failure the exact blocker.
 
 On revision preserve published pins and original decision addresses. Briefly
 identify material replacement and obtain acceptance only for changed scope.

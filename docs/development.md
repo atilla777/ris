@@ -67,6 +67,13 @@ executors are optional; independent review is actually separate. Sufficient inli
 design needs no design.md. Direct component operations remain available. This does
 not start implementation after prepare.
 
+Full preparation carries ordinary Git/tracker publication authority across owners,
+subject to explicit project/user limits and the actual outgoing-history scope.
+Limited child saves return to the lead for continued review/publication/decomposition;
+they never silently reduce the request. A missing permission needs one concrete
+question, a technical failure an exact blocker. Shared Dolt policy is agreed once
+per project, not inferred from one feature's authorization or installed settings.
+
 The accepted [ris-wcv amendment](specs/ris-wcv/spec.md) removes feature JSON,
 duplicate accepted refs/readiness and mandatory saved verification. New feature
 documents use configured `sources.specs/<full feature ID>/spec.md`, readable H1

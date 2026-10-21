@@ -51,6 +51,11 @@ coverage/effects are facts, never a fifth status. `ok` means the explicitly
 requested bounded operation succeeded and was checked. An expressly limited
 proposal/save can be `ok` with downstream work remaining; never silently narrow
 a full request to claim success or imply acceptance/publication from that `ok`.
+An internal local-save/record-only boundary limits the child's contribution, not
+the parent's authorized operation. Return it to the lead, who continues the
+remaining route. Only the user's scoped request or an agreed scope change can
+make that intermediate boundary the final requested result; a blocker preserves
+the unfinished full scope instead of redefining it.
 
 For an ordinary list, exact read or short recommendation, give the requested
 outcome and material limits under common's baseline; no universal handoff is

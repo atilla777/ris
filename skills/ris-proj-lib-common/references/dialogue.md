@@ -16,6 +16,10 @@ Git facts and available evidence before requesting a technical parameter. A
 failed command or unsupported capability is a concrete blocker with preserved
 effects and the missing check/action, not a generic “may I continue?”. Narrower
 authority, substantive new choices and real conflicts still require resolution.
+At a permission gap, name the blocked action, destination and uncovered scope,
+then ask the one concrete decision needed to proceed. Do not replace that question
+with a final local-save report or a generic offer to continue. A technical blocker
+with no human decision needs a precise report, not an invented permission question.
 
 Ask **one user decision question at a time** and wait for the answer before
 choosing the next, even when questions are independent. Ask dependent questions

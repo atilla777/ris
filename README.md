@@ -184,6 +184,15 @@ publication; the same record then reaches verified decomposition and separate
 tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
 not mandatory extra steps. Preparation does not start implementation.
 
+An authorized full preparation includes its normal Git and tracker publication
+without approval at every internal step. “Continue” retains that scope; a local-save
+child result is not the endpoint. Missing authority requires one concrete question,
+not an invented local-only limit. Explicit project/user restrictions remain binding.
+Git excludes unrelated outgoing commits; shared Dolt history requires the project's
+accepted policy or explicit outgoing-scope authority. Content acceptance, action
+authority and verified publication remain distinct facts. Init offers this policy
+for agreement, never silently changes an existing project's restrictions.
+
 Decomposition can describe dependent tasks before a sufficiently defined accepted
 prerequisite is implemented, retaining necessary directed blocks (dependent →
 prerequisite). Unknown or disputed contracts block only the dependent portion;

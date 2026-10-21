@@ -167,6 +167,9 @@ writers, or suppress foreign hooks and other publication routes. Preserve the
 separate route checks for remote-gated writes in `references/dolt-publication.md`.
 Publication requires its own authorization and that resource's remote gates;
 never replace native `dolt` commands with sandboxed issue writes.
+That authorization may be carried by the full parent request or accepted project
+policy, not necessarily a new human message. Verify actual shared-history coverage;
+a request concerning one task alone does not authorize arbitrary neighboring history.
 Heartbeat's node-local lease and command-wide effects are distinguished in
 `references/claim.md`. Infrastructure initialization retains its separately
 scoped effects and permissions in `references/init.md`; neither operation

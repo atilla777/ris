@@ -127,6 +127,27 @@ infer fix permission merely from mentioning a bug. A simple question is not a
 task. Preserve each owner's inputs/permissions/stop; no automatic full cycle,
 queue selection, fabricated task ID or mandatory init for unrelated requests.
 Check actual skill/command availability before naming a route.
+Include `ris-proj-flow-prepare-feature` for a request to prepare a selected feature
+through requirements/design to published verified decomposition. Direct document
+requests remain scoped specify/design operations; selection does not start
+preparation, and preparation never starts implementation. “No automatic full
+cycle” forbids unrequested work/stages, not finishing an authorized flow. A later
+“continue” preserves its established scope; clarify a genuinely ambiguous endpoint
+once rather than silently narrowing it.
+
+Agree the project's ongoing publication policy separately from this init's local
+or published result. Recommend that authorized full preparation include its normal
+Git commit/integration/non-force push and separate tracker publication without
+step-by-step approval. Bound Git authority to the assigned result and established
+remote/ref, excluding unrelated local commits/foreign edits. For shared Dolt,
+explain that push sends common history, not one ID; offer a one-time standing
+policy for accumulated shared history at the established destination, explicitly
+distinct from accepting/editing/closing foreign records. If declined or deferred,
+retain explicit outgoing-scope approval before uncovered publication. Preserve
+existing prohibitions until their change is accepted; never auto-adopt RIS's own
+policy. Record the agreed scope in existing project rules/AGENTS and the settings
+decision, with no new config fields or permission log. Reuse accepted policy on
+later operations; its establishment does not authorize init to publish itself.
 Distinguish research availability, report persistence and full fix readiness:
 ordinary investigation saving needs one assigned investigator, authorized native
 writes, fresh comparison, preserved original/foreign content and read-back, not a

@@ -109,6 +109,10 @@ out requirements/design in one dialogue. One precise act may accept both complet
 scopes. Independently review/publish inputs, update the same ID and apply existing
 decomposition through verified one-task or child-task/edge coverage and separate
 tracker publication. Sufficient inline design needs no design.md. No implementation.
+The full request includes ordinary Git/tracker publication within its authority;
+no approval per internal step. Local saving is intermediate. Missing authority
+requires one concrete question; explicit restrictions remain. Unrelated Git commits
+and uncovered shared Dolt history are not authorized by one feature request.
 
 ---
 

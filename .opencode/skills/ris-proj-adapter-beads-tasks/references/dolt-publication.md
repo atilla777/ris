@@ -5,6 +5,13 @@ write preflight. The adapter owns this route, outside `tasks` v1. Publication
 sends shared project `main` history under its standing policy or explicit
 shared-history authority, including neighboring records; there is no per-issue push. Git publication,
 local record writes and exact completion are separate effects.
+“Separately authorized” means independently established authority for this effect,
+not necessarily a separate user message. A full parent operation may authorize
+publication of its tracker result; pass its attributable scope through this gate.
+It does not by itself authorize neighboring history. Use the accepted shared-history
+policy or explicit coverage below, preserving any project requirement for additional
+approval. Missing coverage returns the exact decision to the lead, or a specific
+question on direct invocation, not an invented local-only endpoint.
 
 ## Establish project, destination and authority
 
