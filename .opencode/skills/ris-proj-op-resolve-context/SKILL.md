@@ -35,7 +35,8 @@ the whole selected config even when some fields are unused. Missing unused field
 do not block independent preparation. From this installed folder read:
 
 - `references/paths.md` before resolving/checking document or workspace paths;
-- `references/shared-primary.md` only before using shared workspace paths;
+- `references/shared-primary.md` only before using shared workspace paths or
+  resolving the primary copy for authorized publication synchronization;
 - `references/execution-roles.md` only when the caller requires a role.
 
 An explicit tracker workspace read need not invoke context at all. Never require
