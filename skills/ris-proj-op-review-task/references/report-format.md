@@ -114,14 +114,12 @@ strings for substantial explanations. Unknown schema is `unsupported`, not pass.
   tracked exclusions the tree retains base bytes/modes, not missing tracked files.
   Compare the actual complete publication tree/base/exclusions with this subject.
   Saving ignored local review evidence does not change that tree.
-- `rounds` is chronological, without forks/cycles: first `previous: null`, each
-  later `previous` equals the preceding element's ID. Never renumber IDs. Re-review
-  retains earlier finding IDs and their current statuses/dispositions; new defects
-  receive new IDs. All prior findings remain represented. A resolved finding needs
-  the reviewer's reasoned Disposition. High/medium cannot be resolved by `deferred`;
-  author's repair never rewrites a past round as approval. Low permits collective
-  reasoned prose disposition; per-ID dispositions may be used, without a new round
-  for low alone.
+- First round has `previous: null`; a resolved finding needs a reasoned reviewer
+  disposition, never `deferred` for high/medium. Read `review-history.md` beside
+  this resource before appending/consuming multiple rounds, prior-finding
+  dispositions or conflicting historical evidence. It owns the detailed history
+  branch of this same format, not another report contract. No new round for low
+  alone; collective reasoned prose disposition remains sufficient.
 - Coverage has exactly one result for each of the six areas. Keep requirements
   and rules/quality distinguishable. `fail`/`unverified` coverage forbids approved;
   `not_applicable` needs a specific checked reason. Publication inputs identify
@@ -164,22 +162,21 @@ strings for substantial explanations. Unknown schema is `unsupported`, not pass.
    report, selecting an explicit round ID. Verify structural validity and every
    external predicate; `passed` is a consumer outcome, never a saved report flag.
    It requires a supported valid approved round, exact subject/inputs, actual
-   independence, sufficient applicable checks and no later refuting round. A later
-   applicable unresolved high/medium or blocked result forbids fallback to an old
-   approval until independently resolved. Later invalid/unknown rounds require
-   reconciliation, never fallback. Missing/invalid/unsupported/stale/contradictory
+   independence, sufficient applicable checks and no later refuting round. Multiple
+   rounds/conflicting history activate `review-history.md` before deciding the gate;
+   never fall back past later adverse/invalid/unknown evidence. Missing/invalid/unsupported/stale/contradictory
    reports or inaccessible required evidence give **no gate**, not an invented
    defect or pass. Report the exact unmet predicate separately from format validity.
 
 The publisher still owns whole-tree integration/reassessment and remote/primary
 sync; this format grants neither publication authority nor feature acceptance.
 
-## Reading examples (not live tests or real evidence)
+## Synthetic serialization example
 
-The complete synthetic example below illustrates approved with open low. Locators
-and OIDs are illustrative; syntax/shape alone cannot make it a real approval.
-Assume, only for the positive applicability example, that the caller independently
-resolves those exact objects, inputs, evidence and distinct invocation/authors.
+Locators and OIDs below are illustrative, not real evidence. Syntax/shape alone
+cannot establish approval. Positive applicability assumes the caller independently
+resolves these exact objects, inputs, evidence and distinct invocation/authors.
+The validator's existing program-test fixture reads this example here.
 
 ```yaml
 schema: ris.review/1
@@ -236,24 +233,8 @@ rounds:
     limitations: []
 ```
 
-Apply these independent mutations to the example for substantive negative reading:
+## Optional negative reading examples
 
-| Mutation / external fact | Expected result |
-|---|---|
-| Add root `passed: true`, omit a required key, use string `required: "true"`, duplicate/merge a key or add an alias | Invalid format, no gate; parsers may accept more than this profile |
-| Change schema to `ris.review/99` | Unsupported, no gate |
-| Keep approved but make F1 high/medium open, a required check unverified/failed, coverage unverified or a limitation blocking | Contradictory/invalid verdict, no gate |
-| Set F1 high/open and verdict changes_required | Valid adverse result, no gate |
-| Set independence unverified, invocation_evidence null, verdict blocked | Valid blocked result, no gate |
-| Set independence self, reviewer_context author-session, invocation_evidence null, verdict blocked | Valid self-review analysis, no independent approval |
-| Retain approved while invocation_evidence is unavailable to the caller, or reviewer was an unlisted actual author/repairer | External provenance fails, no gate regardless of asserted confirmed |
-| Current tree/base/exclusions or required input version differs | Stale/inapplicable, no gate despite valid format |
-| Pass evidence inaccessible or exercises a different tree | Missing/inapplicable mandatory evidence, no gate |
-| Append r2 with previous r1, F1 high/open, verdict changes_required | Preserve r1; selecting r1 cannot bypass later refutation |
-| Append r2 resolving F1 with reviewer disposition fixed and independently sufficient checks/provenance | New round may approve its exact subject; r1 is unchanged |
-| Duplicate round ID, broken previous link, absent prior finding or resolved F1 without disposition | Invalid history, no gate |
-| Append malformed/unsupported later round | Reconcile, never fallback to r1 |
-
-These are synthetic reading/program-test oracles, not real review evidence or
-claims of observed agent behavior. No author RED/GREEN chronology is needed to
-review the final result; substantive test sufficiency and current checks remain.
+Read `report-examples.md` beside this resource only when a synthetic serialization
+or negative-history illustration is needed. Routine production/consumption uses
+the rules above and conditional history resource, not illustrative evidence.

@@ -17,6 +17,9 @@ an operational Git result, not a distinct portable content method. Load/apply
 evidence paths when needed and primary identity for full publication. Load the selected task adapter only for necessary identity/
 blocker/ownership reads; this operation never writes or publishes tracker state.
 Direct invocation requires no execution role.
+Reuse already available current owner instructions. For a supplied native bug,
+read `references/bug-subject.md` from this installed folder before selecting the
+publication basis; ordinary tasks and documents do not load it.
 
 ## Select the subject, then gate the common result
 
@@ -41,19 +44,6 @@ use Task/change and retain all implementation/snapshot guards below.
   Without an ID do not require an adapter or fabricate a record/task directory.
   Supplied feature/ordinary/bug identities retain their real contracts; absent or
   malformed feature data cannot select ordinary admission.
-   For an ordinary native bug use advertised typed bug/ownership/blocker reads,
-   full current report/criteria/accepted decisions and the full historical notes
-   execution-input snapshot, not task-only feature APIs or mandatory formal spec/
-   design files. Retrieve file-backed reports at their exact published locator.
-   Require the snapshot's project/tracker + exact bug ID + marker in implementation/
-   review evidence and read its complete text. Compare current report/criteria/
-   decisions with that basis before publication; material drift returns affected
-   change/review/evidence for targeted reassessment before dependent push.
-   Keep separate material-design acceptance and sufficient current technical inputs;
-   no plan, omission-decision, implementation report or author TDD-history audit
-   is required. Do not infer past TDD from missing history or conceal known violations.
-   These gates converge into the same Git algorithm; fix-completion belongs to
-   the adapter separately after publication, never investigation disposition here.
 - **Documents (including pre-ID):** exact project-relative paths and subject/scope, separate
   acceptance decisions for applicable accepted results, substantive checks and
   independent review of the full intended snapshot. Requirements-only publication
@@ -67,32 +57,21 @@ use Task/change and retain all implementation/snapshot guards below.
    discovery; it does not require future implementation evidence or design for
    requirements-only publication. Check its applicable identity/authority/blocker
    gates, but do not treat document publication as task execution or claim it.
-   For pre-execution native-bug design/document publication, explicitly use this
-   Documents branch even with an exact bug ID. Read the full current report/criteria/
-   accepted constraints and authority plus the exact document candidate and its
-   separate acceptance where applicable. Require independent **document-subject**
-   review and applicable checks on the complete tree; no future execution-input
-   snapshot, fix implementation evidence or execution plan/omission decision is
-   required. Compare current report/criteria/decisions with the bound document basis;
-   material drift needs affected design/document reassessment before dependent push.
-   This exception cannot approve a fix or bypass separate material-design acceptance,
-   whole-tree review, permissions, integration or remote-publication gates.
 
-For ordinary project review evidence, read/apply the installed
-`ris-proj-op-review-task/references/report-format.md` before the gate. Require one
+When consuming saved project review evidence, read/apply the installed
+`ris-proj-op-review-task/references/report-format.md` before the gate. Ordinary
+project review requires one
 accessible local `ris.review/1` YAML and explicit round selector, including no-ID
 document subjects at their authorized path. Portable assessment contributes content
 but does not bypass the ordinary project save contract. Explicit fast execution
 may instead supply its sufficient independent session result; no mandatory file
 is introduced there, and an optional save uses the same format. Keep format
-validity separate from approval applicability: require `purpose: publication`
-and compare expected work/scope,
-full tree/base/exclusions, input versions, required coverage/checks and actual
-invocation/all-author provenance with the selected round. Read the full history;
-later refuting/blocked or invalid/unsupported rounds cannot be bypassed by an older
-approved round. Missing/invalid/stale report or required evidence gives no gate;
-asserted verdict/reviewer identity alone is insufficient. Historical Markdown
-reports are preserved, not automatically migrated or accepted as current YAML.
+validity separate from approval applicability: apply that owner's two consumer
+results with expected work/scope, publication purpose, full tree/base/exclusions,
+input versions, required coverage/checks and actual invocation/all-author evidence.
+Require its external approval gate before push. For fast session-only evidence
+check these substantive predicates and repair/history applicability without YAML;
+do not load serialization resources unless a saved review file is used.
 
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,

@@ -251,11 +251,10 @@ or changed facts before deciding the next operation.
    separately accepted decisions, project rules and check evidence.
    Pass publication-gate purpose; require one saved local `review.yaml` and explicit round ID under the installed
    `ris-proj-op-review-task/references/report-format.md`; read/apply that owner
-   before consuming review. Check full content/history, structural validity and
-   separately current work/purpose/tree/base/exclusions, accepted inputs, required
-   checks and actual invocation/all-author provenance. A verdict field alone is
-   not approval; later refuting/blocked or invalid/unsupported rounds forbid old
-   approval fallback. Review assesses final results, not author RED/GREEN history
+   before consuming review. Apply its consumer gate with current work/purpose,
+   full tree/base/exclusions, accepted inputs, required checks and actual launch/
+   all-author evidence; require applicable external approval, not just a verdict.
+   Review assesses final results, not author RED/GREEN history
    or implementation-report discovery. No implementation report or author cycle-history audit
    is introduced at execution/recovery/publication.
 4. High/medium findings go back to the implementation owner for fixes, affected
@@ -295,20 +294,15 @@ or changed facts before deciding the next operation.
    current substantive assessment and exact closure without mandatory saved
    feature verification or duplicate refs. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
-7. Apply **separate** selected-adapter tracker publication. For prior/ambiguous
-   publication pass exact requested/recovered revision S, inspectable receipt/history
-   and separate local result/records/typed-link evidence. Have the adapter freshly
-   confirm S reachability from selected remote R before incoming-only/divergence
-   and new-write gates; a newer remote
-   does not block confirmation-only recovery or require a repeated push, closure,
-   merge, working-branch update or write window. Unknown S/read failure remains
-   unverified. Proven unsent work needs authority for shared project main history,
-   including other agents' authorized records for explicitly agreed tasks, and
-   fresh destination/direction checks under the adapter's ordinary non-force route.
-   Inspect S/L/fresh R and revision evidence, not private-ref/AS OF/full-row proof;
-   moving main does not establish exact sent bytes or remote field equivalence.
-   Git push and local closure do not prove
-   tracker publication. Keep all three channel facts separate.
+7. Apply **separate** selected-adapter tracker publication with authorized shared-
+   history scope, selected destination and local result/records/typed-link evidence;
+   for prior/ambiguous effects pass the exact requested/recovered revision and
+   inspectable evidence. The adapter owns remote reconciliation, non-force
+   publication and reachability verification (Beads: its conditional
+   `references/dolt-publication.md`). Require its fresh remote confirmation of
+   that revision; unknown revision/read failure remains unverified. A newer remote
+   never justifies replaying confirmed effects. Git push, local result/closure
+   and tracker publication remain three separate facts.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or
 lost executor response. Apply the recovery resource with the corresponding owner
