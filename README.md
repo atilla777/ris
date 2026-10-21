@@ -141,9 +141,10 @@ prerequisites; installing the package does not initialize a project or tracker.
 Use `/risp-init` separately for a new or existing project's settings, bounded
 `AGENTS.md` addition, separately accepted product/architecture/engineering documents
 and checked RIS infrastructure. It preserves usable existing material, keeps one
-human dialogue and delegates standalone operations to agreed available executors
-(`project-initialization`). Missing tools, Git/Beads setup and project agent
-definitions require their specific permissions. The result distinguishes local
+human dialogue and applies authorized owners directly or delegates standalone
+operations to the agreed available executor (`project-initialization`). Missing
+tools, Git/Beads setup and project agent definitions require their specific
+permissions. The result distinguishes local
 readiness, deferrals and remaining work; commit/push is offered separately.
 Init checks project-owned `standard`/`advanced` subagents with explicitly pinned
 models, recommends choices from the target's current available catalog and agrees
@@ -152,6 +153,14 @@ role split is Standard for selection/decomposition/orchestration and Advanced fo
 requirements/design/implementation/review. No global edits or silent upgrades;
 see [tier setup and readiness limits](docs/installation.md#standardadvanced-project-agents).
 It does not start roadmap/features/development or configure build/test/format/CI.
+
+Role bindings select executors for delegation, not mandatory delegation of each
+internal step. Delegation uses the configured role and verified actual launch;
+an unavailable role blocks that delegated route, without silent substitution.
+Required independent review actually launches separately from all authors/repairers.
+Bindings alone prove neither model, invocation, independence nor Advanced
+implementation. Direct authorized work does not require unused roles.
+
 Feature preparation uses early registration and one safe ID-associated copy before
 document writes. One dialogue yields two precisely accepted scopes (one explicit
 act may accept both), sufficient inline design, independent review and Git

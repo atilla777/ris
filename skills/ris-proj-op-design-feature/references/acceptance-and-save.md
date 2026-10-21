@@ -39,8 +39,8 @@ and authorized. Inspect current files/rights, preserve unrelated and accepted
 content, then read back and check the full draft's version/scope and accessibility.
 If permission or an agreed path is missing, do not write: return the full unsaved
 candidate in the dialogue/caller channel and the precise gap for optional storage.
-The portable designer remains read-only; in a flow the lead delegates the bounded
-draft write to an authorized writer and supplies the full exact candidate.
+The portable designer remains read-only; in a flow the lead applies the authorized
+project writer directly or delegates the bounded write with the full exact candidate.
 
 Label this result proposed/draft, not accepted, saved-as-accepted or published.
 Draft storage requires no design acceptance and cannot replace it. It is separate

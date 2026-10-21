@@ -44,6 +44,8 @@ changes. One agent name may serve all roles, but review uses a **fresh invocatio
 independent of every implementation/repair author. Missing/unavailable roles block
 the dependent delegated route; no silent fallback or model switch. The leading
 agent may directly apply bounded operation owners, except independent review.
+Role configuration alone proves neither model, invocation, independence nor
+Advanced implementation; verify actual executor/model evidence for such claims.
 Do not require feature-preparation/decomposition roles for this task route.
 
 The request for a full run authorizes the agreed single-task cycle, working
@@ -54,8 +56,8 @@ workflow permission. Let the selected adapter establish operation-specific
 guarantees: use fresh reads, targeted native atomic/conditional operations and
 read-back, and shared-history tracker publication with remote revision assurance.
 Ordinary work needs no manual window, mandatory global lock or graph/external-evidence transaction.
-A claim, lease, sandbox or worktree is not general content/graph CAS. Delegate
-read-only preflight to the selected adapter and Git publication owner for actual
+A claim, lease, sandbox or worktree is not general content/graph CAS. Apply
+read-only preflight through the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.
 

@@ -33,8 +33,11 @@ Read the selected project's instructions and relevant implementation. Load/apply
 `ris-proj-op-resolve-context` and its owned configuration resource for applicable
 rules and the required `task-review` role; request adapter settings, document or
 shared paths only when needed. Check status, provenance, diagnostics and rights.
-Missing unused paths or execution roles do not block work; `task-execution` and
-`task-implementation` are not required. Context's configured agent name alone
+Missing unused paths or execution roles do not block work; direct work requires
+neither `task-execution` nor `task-implementation`. If delegating bounded work,
+resolve its corresponding configured role and verify host availability/permissions
+and actual launch; an unavailable role blocks that delegated route, without silent
+substitution. Context's configured agent name alone
 does not prove reviewer availability. Before fresh mutations verify the actual
 host can launch the configured reviewer independently of every author/repairer.
 No fallback agent, self-approval or model switch substitutes for that gate.

@@ -3,15 +3,21 @@
 Read only when the calling operation requires an execution role. Whole-config
 schema validation remains in `configuration.md`, even when no role is used.
 
-For a caller requiring an isolated role, return the configured `agent` with
-its provenance if present. If the role is absent, report `blocked` for that
-dependent step and name the missing role; do not silently run it in the
-current agent. A present record without a valid `agent` is an `error` for the
-selected config, even when another operation is requested. For a direct
-operation that does not require a role, absence of `execution` is valid:
-prepare its other settings without claiming isolation or a model tier.
-Merely reading `agent` cannot establish that the project-provided subagent
-exists, can run in this environment, has a particular model, or has been
-invoked. The caller checks availability and actual launch before relying on
-isolation. Do not launch agents, select a fallback, switch models, or run a
-skill as part of context preparation. This field grants no write permission.
+`execution.roles` selects the executor when a caller delegates an operation;
+it does not require delegating every internal step. A lead may apply an owner
+directly within its authorized scope, except required independent review.
+For a requested delegation, return the configured `agent` and its provenance.
+An absent role blocks that dependent delegated route; name the missing role,
+without silently substituting the current agent or another model. Choosing
+authorized direct work is an explicit caller decision, not a disguised fallback.
+A present record without a valid `agent` is an `error` for the selected config,
+even when another operation is requested. Direct work needs no unused role;
+absence of `execution` is valid for it, without claiming isolation or a model tier.
+
+A role record alone proves neither a particular model, actual invocation,
+independence nor use of Advanced for implementation. The caller checks host
+availability/permissions and actual launch of the configured executor before
+relying on delegated results. Required independent review must actually launch
+separately from every author/repairer, even when they share an agent name/model.
+Do not launch agents, select a fallback, switch models, rewrite bindings or run
+a skill as part of context preparation. This field grants no write permission.

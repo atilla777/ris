@@ -33,8 +33,10 @@ executor, separate session or configured role is mandatory for each internal
 action. For delegation only, prepare the consumed role (`feature-selection`,
 `feature-preparation`, or `task-decomposition`) through context's role resource,
 verify the configured agent is available and actually launched; no silent fallback.
-Independent review **must** actually run in a separate context independent of all
-content authors/repairers. Check invocation evidence, not a configured name.
+Independent review **must** use the configured `task-review` role and actually run
+in a separate context independent of all content authors/repairers. Prepare that
+role through context and check availability/permissions and invocation evidence,
+not a configured name or assumed model tier.
 Unavailable required review blocks publication, not independent useful analysis.
 
 Each acting context loads/applies its selected owner and required resources before

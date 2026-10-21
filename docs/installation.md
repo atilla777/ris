@@ -89,6 +89,12 @@ for document work. Existing alternative bindings are preserved until a specific
 migration is agreed. These are init proposals, not new resolver defaults or
 mandatory roles for every direct RIS operation. An independent reviewer is a
 fresh invocation separate from all authors/fixers, not necessarily another model.
+Roles select executors when delegating; they do not mandate a separate agent for
+every internal step. The lead may apply authorized owners directly, except for
+required independent review. Delegation uses its configured role and verifies
+actual launch; an unavailable role blocks that delegated route without a silent
+fallback or model switch. A binding alone proves neither model, invocation,
+independence nor use of Advanced for implementation.
 
 After agreement, init creates/updates only the bounded project definitions in
 `.opencode/agents/<name>.md` or the project's existing native V2 `agents` config

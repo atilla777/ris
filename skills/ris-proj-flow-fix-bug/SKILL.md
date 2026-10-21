@@ -23,8 +23,8 @@ are separately requested results.
 Ensure installed `ris-proj-lib-common` is available and apply it, with artifacts
 before handoffs/writes, quality before assessment and dialogue before decisions.
 Apply `ris-proj-op-resolve-context` and its owned configuration resource for rules,
-selected tasks adapter, needed sources/shared paths and execution roles. Use its
-checked explicit-or-verified-saved primary selection/provenance for shared paths;
+selected tasks adapter, needed sources/shared paths and actually consumed execution
+roles. Use its checked explicit-or-verified-saved primary selection/provenance for shared paths;
 do not derive a primary from Git. Read the actual project rules. Missing essential
 inputs/dependencies/authority block their dependent work, never select a fallback.
 
@@ -45,11 +45,13 @@ Check advertised ordinary native bug reads, claim, execution snapshot append/rea
 result persistence and separate fix-completion, plus tracker publication. For
 Beads these belong to `ris-proj-adapter-beads-tasks` and its conditional
 `references/bug-execution.md`; feature-record/2 and investigation disposition do
-not supply them. Delegate bounded tracker operations to that owner with exact
-content, identity, expected state and authority; inspect actual read-back.
+not supply them. Apply bounded tracker operations directly or delegate to that
+owner with exact content, identity, expected state and authority; inspect actual read-back.
 
-Use the existing `task-execution` role for delegated noninteractive admission,
-design formulation/save and snapshot preparation, with bounded owner/inputs,
+Apply authorized admission/design/snapshot owners directly or delegate bounded
+work; direct work needs no unused role. Use the existing `task-execution` role for
+delegated noninteractive admission, design formulation/save and snapshot preparation,
+with bounded owner/inputs,
 allowed effects, accessible outputs and early-return predicates. Check configured
 agent availability and actual launch; a configured name proves neither. Keep all
 human decisions and separate acceptance in this **one leading dialogue**. Missing

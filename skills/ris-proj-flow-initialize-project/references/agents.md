@@ -85,6 +85,13 @@ agreed alternative with its rationale; do not silently normalize it. Agree
 propose `advanced` for document work). A tier name describes an executor profile,
 not a new semantic role or isolation guarantee.
 
+These bindings select executors for delegation, not a separate agent for every
+internal step. The lead may apply authorized owners directly; only required
+independent review must launch separately from all authors/repairers. A saved
+role proves neither model, launch, independence nor Advanced implementation.
+When delegating use the configured role and verify the actual invocation; an
+unavailable role blocks that delegated route, without a silent model/agent switch.
+
 The leading scenario can bootstrap definitions before an executor exists, using
 the main skill's baseline/physical-path/freshness/read-back guards. Save only the
 agreed delta. Record accepted model IDs/variants, definition paths, role bindings,
@@ -110,7 +117,8 @@ not satisfy project-owned tier setup. A deliberately retained alternative role
 mapping is not the standard mapping; report its actual checked scope. Never call
 the full working cycle ready from files alone or while tier gaps remain.
 
-Each required real standalone operation must still actually launch and return a
-checked receipt. Independent review uses a fresh invocation separate from every
-author/fixer, even when both use `advanced`. Do not create an agent test session
+Each delegated operation must actually launch the configured executor and return a
+checked result; direct work also needs its owner's checks. Independent review uses
+a fresh invocation separate from every author/fixer, even when both use `advanced`.
+Do not create an agent test session
 or model request just to prove discovery, permissions or model reliability.
