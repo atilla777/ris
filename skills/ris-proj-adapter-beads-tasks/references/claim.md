@@ -10,7 +10,7 @@ already owned by that actor may be verified unchanged. Purpose defaults to
 `execution`: active or unresolved blockers prevent new claim admission and
 dependent execution, including when an own claim already exists.
 
-Only an explicitly requested `feature-preparation` claim for a current /2 feature
+Only an explicitly requested `feature-preparation` claim for an explicitly confirmed feature
 may use action-specific admission. Require the caller's exact authorized
 preparation action and inspectable scope evidence for **every** active directed
 blocker, matched to freshly read edge/endpoints/content. The caller owns the

@@ -34,7 +34,8 @@ live behavior, ускорение или whole-S1 acceptance; нужны отд�
 
 ### Состояние после принятия целевой методики
 
-Уточнение совместимости `ris-e26`: поддерживается только текущая структура
+История до [принятой поправки ris-wcv](../specs/ris-wcv/spec.md), не текущий gate:
+уточнение совместимости `ris-e26` предписывало только текущую структуру
 feature-record, без backward compatibility и миграционной capability. Прежние
 payload остаются неизменённой историей с адресным no-write отказом для зависимых
 операций; отдельно разрешённый status-only close не меняет payload и не является
@@ -44,7 +45,20 @@ S1/D1 вводит `/2`; прежний `/1` остаётся historical/unsuppo
 Обновление пакета не устанавливает готовность исторических данных; [отдельно
 принятая политика и инвентаризация](../specs/feature-record-compatibility.md).
 
-Рабочие исходники и установленные копии перечислены в [README проекта](../../README.md). `ris-proj-op-resolve-context` поддерживает v2; адаптер — `tasks.feature-record/2`: ранние nullable identity/refs, optional epic, one-time paired slug/spec pin до документов; non-null refs требуют опубликованных версий и точных принятий, без scoped digests/копии истории. Historical payload не мигрируются. Specify имеет limited early-registration с тем же ID без документов; task-copy owner допускает purpose `feature-preparation` до accepted refs с claim/ownership/safe-copy и blockers выбранного действия; execution не ослабляется. Status/next показывают реальный gap, не readiness по существованию. Specify/design сохраняют document-only и scoped combined calls. Decompose читает ID/published accepted requirements+sufficient design, проверяет применимость/контракты/блокеры и применяет полную переносимую методику. По [S1 §3 / D1 §§2–4](../specs/sdlc-feature-lifecycle/acceptance.md) prepare сочетает этих владельцев: early ID/одна копия → один диалог и точное принятие двух областей (один акт допустим) → independent review/Git → same-record refs → existing decomposition → separate tracker publication. Внутреннее делегирование гибкое, reviewer фактически независим; inline sufficient design не требует design.md. Реализация не начинается. Поставки task delivery/verification ниже — история своих ревизий, не evidence текущего encoding/поведения. Автономный/проектный OKF owners поставлены отдельно (§8).
+Рабочие исходники и установленные копии перечислены в [README](../../README.md).
+Текущий ris-wcv route использует ordinary native task, optional epic и документы
+`sources.specs/<full feature ID>/spec.md` с H1/Feature-ID/Summary/optional Keywords,
+без JSON, slug pin, duplicate accepted refs/readiness и saved-verification gate.
+Actual independent requirements/design acceptance и original containing-commit
+provenance сохраняются. Legacy explicit links/readable payload hints ведут к real
+documents/decisions; missing/old/malformed JSON сам по себе не блокер, миграции нет.
+Early ID/одна copy → один requirements/design dialogue и точное принятие обеих
+областей → independent review/Git/primary-sync → same-ID ordinary reconciliation
+→ full existing decomposition → separate tracker publication. Prepare не запускает
+реализацию. Direct document-only/ordinary/bug контракты сохраняются без искусственного
+feature ID. Verify-and-close проверяет whole-feature AC/composition/revision/blockers
+перед native exact close без mandatory saved assessment. Review YAML и bug snapshot
+не меняются. Поставки ниже — история исходных ревизий, не evidence текущего поведения.
 
 По доступной концепции продукта и правилам *целевого проекта под RIS* получить roadmap через выбранный адаптер `tasks`, выбрать фичу, выяснить недостающие сведения, сохранить её спецификацию, создать задачи и зависимости, подготовить технический план выбранной задачи, реализовать её в worktree, выполнить независимое ревью с исправлениями, интегрировать и напрямую отправить изменение в основную ветку, завершить задачу и при явном запросе — полный контейнер, затем провести ретроспективу по фактам выполнения. Концепция, правила и подготовленная среда проекта — входы MVP, а не результат нового скила инициализации продукта. Первый проверенный адаптер — Beads; `tasks` v1 покрывает roadmap и необязательные операции задач фичи, но не захват, завершение и остальные операции MVP.
 

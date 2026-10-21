@@ -48,11 +48,21 @@ not this guide or historical delivery reports as a second readiness register.
 
 Feature preparation has its own bounded [S1 §3 / D1 §§2–4 amendment](specs/sdlc-feature-lifecycle/acceptance.md):
 early same-ID registration/copy, one requirements/design dialogue and precise
-acceptance of both scopes (one act allowed), independent review/Git, same-record
-refs and existing full decomposition with separate tracker publication. Internal
+acceptance of both scopes (one act allowed), independent review/Git, same-ID
+ordinary record and existing full decomposition with separate tracker publication. Internal
 executors are optional; independent review is actually separate. Sufficient inline
 design needs no design.md. Direct component operations remain available. This does
 not start implementation after prepare.
+
+The accepted [ris-wcv amendment](specs/ris-wcv/spec.md) removes feature JSON,
+duplicate accepted refs/readiness and mandatory saved verification. New feature
+documents use configured `sources.specs/<full feature ID>/spec.md`, readable H1
+then column-zero Feature-ID/Summary/optional Keywords; design is inline or adjacent.
+Actual scope/version acceptance and original containing-commit provenance remain.
+Legacy links/payload hints locate real documents, without schema gates, migration
+or title-derived paths. Missing/old/malformed JSON alone is not a blocker. Ordinary,
+document-only and bug subjects keep their paths/contracts; bug snapshots and review
+YAML stay unchanged. Historical specifications/evidence are not rewritten.
 
 The source contract introduced by ris-b1a.4 applies accepted S1 §4 / D1 §5: execution
 uses sufficient accepted inputs/current code without a standalone planner, saved

@@ -29,7 +29,7 @@ only if shared workspace paths are needed; no local report is mandatory.
   insufficient-data. No claim, notes/metadata/verification write, close, publication
   or mandatory report file. Separate permission to save evidence does not imply
   permission to close; any expressly requested save is a separate bounded effect.
-- **Verify-and-close:** assess the whole, then persist authorized evidence and close
+- **Verify-and-close:** assess the whole, then close
   only on successful current verification and native closure checks.
 
 Use natural-language intent, not a new CLI mode. If intent or ID is genuinely
@@ -41,8 +41,9 @@ Do not obtain a new design/acceptance decision merely to execute administrative 
 
 Require exact project/container ID and actual kind. Read the exact record through
 the selected available adapter and confirm its supported reads/closure guarantees.
-An epic has native type `epic`; a feature is a confirmed feature task associated
-with its epic/spec; an ordinary task-container needs explicit subject/content
+An epic has native type `epic`; a feature is a task confirmed by explicit selected
+scope, actual content/source association and relevant native relationships, with
+optional epic; an ordinary task-container needs explicit subject/content
 evidence. Neither a title, zero children nor absent/invalid feature JSON proves
 ordinary kind. Preserve historical/malformed feature data; parser failure never
 silently reclassifies it. An implementation leaf is outside this operation.
@@ -51,7 +52,7 @@ silently reclassifies it. An implementation leaf is outside this operation.
 
 Require explicit authority/reason to close only this container. Request the
 adapter's advertised tool-specific administrative exact-status close (including
-feature containers), **not** `tasks.features.complete`. Freshly read exact
+feature containers), not verified-work completion. Freshly read exact
 ID/type/status, relevant complete direct children and directed active blockers.
 Use native close without force/continue/claim-next; preserve native refusal for
 open direct children/live blockers. Never close children/parents, remove edges,
@@ -100,29 +101,21 @@ or content is a conflict; do not silently reparent, shrink scope or create tasks
 Check active blockers on the container and mandatory members. Four closed children
 are useful completion facts, not feature acceptance or permission to close parents.
 
-For features require `tasks` v1 reads of items/children/dependencies and the
-explicitly advertised `tasks.feature-record/2` operations `tasks.features.read`,
-`tasks.features.record-verification`, `tasks.features.complete` with their actual
-guarantees before each needed write; assessment alone needs only reads. Read its
-adapter-owned resource before use. Validate ID ↔ immutable slug ↔ spec/design
-and exact accepted requirements/design reference objects: project-relative path,
-full published Git revision, whole-file or unambiguous semantic section and each
-result's own immutable Git acceptance address. Read both pinned content and
-separate decisions; match the named content/section/revision and authorized
-acceptor, resolving decision-only `containing-commit` per the adapter contract.
-Confirm remote publication, not merely local object existence. Null identity,
-requirements or design blocks verified completion; an early /2 record is not
-malformed or ordinary. Sufficient inline design still needs a non-null accepted
-design ref. Every /1 and former scope/sha256/digest-verification/history payload is
-`historical/unsupported`: return its ID,
-unchanged payload and diagnostic, block dependent writes and preserve the data.
-Do not reinterpret, drop history or migrate on read/retry/completion. Malformed
-records also block dependent writes. Another adapter may supply equivalent operations only
-under an explicit compatible contract, never by assuming all v1 adapters can close.
+For features require native exact item/children/dependency reads and verified-work
+exact closure with advertised actual guarantees; assessment alone needs only reads.
+Apply common's published-inputs document convention: new feature requirements at
+`sources.specs/<full feature ID>/spec.md`, sufficient independently accepted inline
+or adjacent design. Read both actual content scopes and separate attributable
+decisions at exact published revisions; match path/section/version/acceptor and
+resolve `containing-commit` at its original decision. Confirm remote publication,
+not local file/object existence. Legacy explicit links and readable payload paths
+are only hints to actual documents/decisions. Missing/old/malformed JSON alone is
+no blocker; missing substantive inputs or ambiguous identity is. Preserve all old
+data; no schema validation, migration or substitute registry is required.
 
 ## Verify the feature on the common revision
 
-This section and feature-record verification mapping below apply only to the
+This section applies only to the
 feature branch. Standalone assessment/persistence follows its owned resource;
 shared verification authority/composition/protection and channel gates apply
 to assessment branches only. Epic uses its own resource without artificial feature payloads.
@@ -157,10 +150,12 @@ unfulfilled verdict; unavailable required assessment inputs are `blocked` with
 the insufficient-data coverage and useful observations. For default **verify**,
 return the unsaved assessment now: no persistence, closure or publication follows.
 
-## Verify-and-close: persist, read back, then close
+## Verify-and-close: assess, then exact close
 
-This section applies only to verify-and-close with separately authorized
-persistence. An already closed ID is never closed again: assess requested scope,
+This section applies to authorized verify-and-close. No saved verification or
+readiness record, report file or evidence-write permission is prerequisite. A
+short ordinary outcome may be included in the close reason; any separately
+requested save stays a distinct bounded effect. An already closed ID is never closed again: assess requested scope,
 report any verification gap and perform only an expressly authorized missing
 evidence/publication effect. Do not rewrite history solely for a repeated call.
 
@@ -173,22 +168,16 @@ required stronger unsupported guarantee blocks only its dependent write.
 Re-read the exact record/children/blockers and compare with the verified expected
 state immediately before each operation; changed facts invalidate dependent approval.
 
-Map the method's result to the adapter-owned verification representation, including
-all slug-qualified AC, actual outcomes/check addresses, full Git SHA, both accepted
-reference objects (including their separate acceptance addresses),
-integration/architecture/docs and limitations. Evidence and decisions must
-be accessible to another session, not depend solely on an ignored local report.
-Store the exact references as `verification.requirements` and
-`verification.design`, matching the feature record. Preserve the accepted refs,
-immutable identity and unrelated content; do not add digest fields or decision
-history. Replace only authorized current verification through the adapter.
-Call `record-verification` only with authorized fields and verify exact complete
-read-back before considering closure. Recording evidence does not close the task.
+Consume the actual unsaved criterion assessment: all feature-qualified AC,
+observations/checks, integrated Git SHA, applicable independently accepted content,
+integration/architecture/docs and limitations. Do not encode duplicate refs or
+verification in Beads or require a persisted assessment before closing. Preserve
+historical payloads, explicit links and unrelated content unchanged.
 
 Close only if full mandatory scope is completed, no active blockers remain, all
 criteria and required checks pass, evidence is usable/current and the exact ID is
 authorized for closure. Reconfirm the final published integrated revision and still
-accepted references and actual content applicability; call `complete` separately
+accepted content/decisions and actual applicability; call native verified-work close
 using the adapter's native closure guards and fresh checks, then reread status, close reason,
 unchanged evidence/identity, membership and blockers. On ambiguous/nonzero results
 inspect actual persisted effects before deciding recovery; no blind retry or force.

@@ -11,7 +11,9 @@ verification method to all children indiscriminately.
    Establish necessary item/epic reads and tool-specific content-update/completion
    operations with guarantees; `tasks` v1 epic update is not implicit closure.
    A missing supported safe operation blocks its write, not the read-only assessment.
-2. Compare completed work and persisted feature acceptance to every epic criterion.
+2. Compare completed work and actual feature outcomes/current usable assessment
+   evidence to every epic criterion; no mandatory saved feature verification is
+   required merely to consume the document route.
    Check required cross-feature outcomes/compatibility/publication at the revisions
    relevant to this epic. An epic may require multiple releases; do not invent one
    feature AC set/common SHA when its accepted contract has another evidence model.

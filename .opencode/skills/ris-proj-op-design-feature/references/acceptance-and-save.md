@@ -81,16 +81,17 @@ entry independently, without another human answer just for a bounded save.
 This permission does not accept an unseen design or merge overlapping selectors.
 Unchanged content retains its checked acceptance on retry.
 
-Published references use `{path, revision, section, acceptance: {address,
-decision: "accepted"}}`. The immutable decision address pins repository, full
+Identify published content by path, full revision and semantic section, with its
+actual separate acceptance decision. No tracker reference object is required.
+The immutable decision address pins repository, full
 decision commit, path and any unique decision section. Read actual content and
 decision at those revisions, check semantic selection, match path/section and
 resolved revision, and establish publication of both commits from fetched
 selected-remote evidence. Branch URLs, local notes and file/commit presence do
 not establish published acceptance. A decision may name content revision
 `containing-commit` only for content in that same commit; resolve it from the
-immutable decision address. Tracker revision always stores the actual full
-published commit. Never invent a future commit/address.
+immutable decision address. Never invent a future commit/address or copy accepted
+refs/readiness into a tracker registry.
 Pin the commit recording that actual decision, not a later unchanged copy.
 Copying `containing-commit` into another commit does not renew acceptance;
 retain the original reference or name/link its original full revision.
@@ -145,7 +146,7 @@ remains a precise dependent gap, never invented.
    content, requirements and decisions. An unexpected file change or missing
    required file protection means conflict before the dependent write.
 2. In combined mode preflight exact task/kind/identity and expected prior state:
-    feature uses task/epic/block and `tasks.features.update`; explicit ordinary
+    feature uses native task/optional epic/block reads and bounded update; explicit ordinary
     standalone uses supported tool-specific source updates without feature JSON.
     Native bug source links use explicitly advertised ordinary bug updates; a
     native notes append may record the pinned design/decision refs without replacing
@@ -206,21 +207,21 @@ remains a precise dependent gap, never invented.
     applicable accepted published requirements. Git failure blocks dependent
     record writes and preserves saved effects. Reread record and relevant
     children/blockers immediately before updating; unexpected change conflicts.
-   Invoke the adapter with expected prior state and exact new design reference;
-   preserve feature slug/spec where applicable, complete requirements reference
-   and unrelated prose/fields.
-    Changed feature result refs invalidate verification to null, without tracker history.
-    Ordinary bugs have no feature verification field: record affected evidence
-    applicability instead, preserving the report and original decisions.
+   For features reconcile only authorized ordinary goal/scope/criteria as needed;
+   documents and decisions remain discoverable through common's full-ID convention
+   or checked legacy source links. Do not duplicate accepted refs, write JSON or
+   reset verification. Preserve all historical payloads/links and unrelated fields.
+   Ordinary standalone/bug source-link updates keep their own contracts and paths;
+   preserve current report and original decisions. Assess affected evidence anew.
    Do not record verification or complete here. Specifically authorized blocker
    changes require supported adapter scope, checked endpoints/direction/cycles
    and read-back; otherwise return proposals/limitations.
-6. Check full adapter read-back: actual ID/kind/parent, feature slug/spec where applicable, exact refs and separate
-   decisions, verification invalidation, preserved prose and permitted edges.
+6. Check full adapter read-back: actual ID/kind/parent, authorized ordinary content,
+   preserved prose/historical payload and permitted edges; check document/decision discovery.
    Match actual saved/published content and unchanged applicable requirements.
    An exact repeated invocation returns unchanged after checks, without a new
-   acceptance or redundant update. Historical unsupported payloads remain intact
-    and block dependent operations; no migration/alternate API is introduced.
+   acceptance or redundant update. Historical payloads remain intact and their
+   schema alone never blocks the document route; no migration/alternate API.
 7. In full combined mode invoke the selected adapter's separate publication
     operation for exact verified record/refs, destination and authorized entire
     outgoing scope. Inspect required revision/fresh remote reachability receipt

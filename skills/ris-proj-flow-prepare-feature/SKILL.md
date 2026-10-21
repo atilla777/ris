@@ -47,7 +47,7 @@ questions here, never accepts for the human. Inspect actual saved/read-back
 results, effects and limitations, not just “done”. The lead checks sufficiency of
 the whole without copying owners' algorithms.
 
-Before dependent writes preflight the selected adapter's actual /2 create/read/
+Before dependent writes preflight the selected adapter's native task create/read/
 update, claim, child/edge and separate publication capabilities as needed, with
 local-write isolation, remote, entire outgoing-history authority and native limits.
 Preflight `ris-proj-op-publish-task` for the intended authorized document subject,
@@ -69,10 +69,10 @@ Once chosen, apply `ris-proj-op-specify-feature` in **explicitly limited early
 registration** mode: approved title/brief goal, stable project-scoped retry key,
 known exact ID and optional confirmed epic, with tracker-write authority. Consume
 the adapter's all-status collision/reuse/read-back result. No spec/design,
-acceptance, slug/spec pair or document copy is required for that contribution.
-Require one confirmed current /2 task ID with honest nullable fields, never a
-replacement “ready” record. /1/historical/malformed remains unchanged with a
-precise dependent no-write diagnostic, not conversion or ordinary fallback.
+acceptance or document copy is required for that contribution.
+Require one confirmed task ID with approved goal and available scope/criteria, never a
+replacement “ready” record. Preserve legacy payloads; missing/old/malformed JSON
+alone never blocks the new document route or proves ordinary kind.
 
 Before **any** document/evidence write, including optional drafts, apply
 `ris-proj-op-prepare-task-worktree` for this exact ID/actor with purpose
@@ -94,11 +94,12 @@ tracker/settings association before writers, review and publication. Never write
 on shared main first or ask the publisher to branch later. Preserve user/foreign
 changes; no implicit reset/stash/move or dirty-primary transfer.
 
-Agree and pin the initially null permanent slug/spec pair **once**, through
-specify/adapter on the same ID before document writes. Check path collisions and
-existing approved associations; title/slug changes never rename the worktree.
-Write directly at the future project paths in this copy, ordinarily
-`sources.specs/<slug>/spec.md`; no draft store, registry or second publication copy.
+Apply common's published-inputs convention and check destination/identity before
+document writes. New features use `sources.specs/<full feature ID>/spec.md` with
+readable H1, Feature-ID/Summary/optional Keywords. No suffix or tracker pin;
+title changes never move the directory/copy. Existing explicit legacy links/hints
+lead to actual documents/decisions without migration or relocation. Write in this
+same copy; no draft store, registry or second publication copy.
 On pause/setup failure retain this ID/path/branch and existing documents; the copy
 owner reconciles actual refs/registration/files/setup before only missing actions.
 No mandatory transition journal, intermediate commit or draft file is introduced.
@@ -127,7 +128,7 @@ not ceremony. Prefer a sufficient design as its own unambiguous section in
 `spec.md`, with nonoverlapping requirements/design selectors. Use `design.md` when
 separation is useful or appending to already accepted whole-file requirements
 would change their scope. Absence of design.md is not a gap; insufficient design
-or `design: null` is. Ordinary specs are not OKF bundles.
+or missing actual design acceptance is. Ordinary specs are not OKF bundles.
 
 Before acceptance show both **complete, distinguishable versions/scopes**, accessible
 inline or at checked exact addresses. Explain design essence/flow, reused/new
@@ -186,15 +187,15 @@ Confirmed remote with pending primary sync is a preserved partial effect, not
 permission to replay push or proceed past the full-result gate.
 
 Match published content and decisions to both accepted scopes. Resolve
-decision-only `containing-commit` at the original immutable decision address;
-tracker refs always use full real published SHAs. Only after verified required
-Git publication apply specify's **limited record-only reconciliation** to the
-same exact ID with expected prior state, pinned pair, approved task content and
-both published accepted refs/decisions. If only design remains, use design's
-limited record-only update preserving requirements pins. Inspect actual ID/type/
-optional parent/identity, complete refs/decision matching, preservation and
-verification invalidation. These contributions do not create a replacement ID,
-reaccept content or push again. Unsupported payload/conflict stops dependent writes.
+decision-only `containing-commit` at the original immutable decision address.
+After verified required Git publication apply specify's **limited record-only
+reconciliation** to the same exact ID with expected prior state and approved
+ordinary goal/scope/criteria. Check discoverability of published documents and
+actual decisions, not a duplicate accepted-ref list. If only design remains use
+design's limited reconciliation without duplicating requirements/design refs.
+Inspect actual ID/type/optional parent and preserved content. No JSON/verification
+update, replacement ID, renewed acceptance or second push. Actual identity/content
+conflicts stop dependent writes; legacy JSON schema alone does not.
 
 ## Apply full decomposition, then publish the tracker
 
@@ -209,7 +210,7 @@ thresholds. Do not substitute a short split algorithm or Markdown backlog.
 Check its complete result: for one unit, the existing feature itself has sufficient
 scope/criteria/accepted coverage, reconciled complete child set and directed
 blockers, without an artificial child. For multiple units, every child has own
-result/scope/criteria, applicable accepted selectors/decisions, `slug#AC-nnn`
+result/scope/criteria, applicable accepted selectors/decisions, `<ID>#AC-nnn`
 coverage, contracts/test seams/exclusions, stable key and only necessary directed
 `blocks` edges (blocked → blocker), with exact ID/content/parent/edge read-back.
 Unmatched children, missing AC/seams, cyclic edges or unconfirmed prerequisites
@@ -217,7 +218,7 @@ remain gaps, not ready work. A one-task content gap returns to authorized record
 reconciliation; it does not permit an implicit adapter update or fake child.
 
 After the owners' local checks invoke the adapter's **separate tracker publication**
-for the verified same record/refs, one-task result or children/edges and any
+for the verified ordinary record, one-task result or children/edges and any
 authorized refinement/early-registration debt. Check authority for the entire
 shared-main outgoing scope, ordinary non-force publication and fresh selected
 remote revision/reachability evidence alongside local composition/coverage.
@@ -238,7 +239,7 @@ checks/review; unchanged acceptance stays. No rollback of foreign work or blind
 recreation is allowed. Missing evidence/owner blocks that step precisely.
 
 Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
-provenance, exact feature/optional epic and pinned pair, separate accepted refs and
+provenance, exact feature/optional epic and document paths, separate accepted scopes and
 decision addresses, Git/primary and tracker publication evidence, review address/
 round, one-task justification or exact children/keys/statuses/directed edges,
 criterion coverage/integration prerequisites, actual effects and limitations.

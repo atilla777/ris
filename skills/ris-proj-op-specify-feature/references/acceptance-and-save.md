@@ -64,14 +64,12 @@ the dependent action, not independently authorized work.
 
 ## Save, check and gate tracker effects
 
-The explicitly limited early-registration branch in SKILL.md stops before this
-accepted-document protocol. Its null /2 record needs no acceptance or Git receipt.
-For a later feature save, require the same exact ID and checked own preparation
-copy; pin the initially null slug/spec pair through the adapter before the first
-document/evidence write. Existing pinned paths remain immutable. Pending local
-content/decisions never become tracker accepted refs before publication. No
-second record or publication copy is created. Ordinary/document-only modes retain
-their own no-artificial-ID contract.
+The explicitly limited early-registration branch stops before this accepted-document
+protocol and needs no acceptance or Git receipt. For a later feature save require
+the same exact ID, checked own preparation copy and common's checked document
+destination/header convention. No tracker pin or accepted-ref encoding is needed;
+actual acceptance and required publication still are. Do not create a second
+record/copy. Ordinary/document-only modes retain their no-artificial-ID contract.
 
 For full mode preflight the existing Git publisher and, when records are part
 of the result, adapter publication before dependent writes: exact subject,
@@ -135,8 +133,8 @@ Return its local record result and remainder.
 5. For combined mode require actual published content/decision before tracker
    create/update. Check both via fetched selected-remote evidence and read actual
    content at full Git revision, semantic section and separate pinned decision.
-   Resolve containing-commit and match decision path/section/revision to the ref.
-   Tracker stores the full published commit, never containing-commit. The wrapper
+   Resolve containing-commit at its original decision and match actual content
+   path/section/revision. Do not copy accepted refs into the tracker. The wrapper
    invokes the existing Git owner in full mode, never copies its algorithm.
    Failed Git blocks dependent record writes. With published accepted inputs,
    reconcile the selected feature or ordinary standalone record and then invoke

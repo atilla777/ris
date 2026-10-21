@@ -93,45 +93,32 @@ contracts from exact record reads and its links. No epic/slug/feature JSON is
 required. Structural parent is context, not copied global AC or permission to
 close it. Check adapter-advertised tool-specific ordinary create/reconcile,
 child/link capabilities and guarantees before dependent writes. Apply its owned
-standalone resource, not common feature-only create/add semantics. A malformed,
-historical or unknown feature payload remains unchanged and blocked; absence of
-a payload does not prove standalone kind. Independently accepted substantial
+standalone resource, not common feature-only create/add semantics. Legacy
+payloads stay unchanged; absent or malformed JSON does not prove standalone kind
+or block the document route. Independently accepted substantial
 design is required where material, especially for multi-task contracts/seams;
 a simple task can use sufficient accepted constraints without a design file.
 Read each exact accepted source/decision version, verify publication and compare
 current applicability as below. Name missing inputs instead of inventing them.
 
-The following payload/optional-parent/slug/both-ref gates apply to the **feature branch**;
+The following document/optional-parent/acceptance gates apply to the **feature branch**;
 the shared applicability, readiness, reconciliation and coverage checks apply
 to both branches using their actual accepted inputs.
 
-Require the selected adapter's optional `tasks.feature-record/2` capability
-with `tasks.features.read` in addition to the v1 reads. Read its owned record
-resource for the one current payload's encoding/version checks. Every /1 payload
-and former payloads with `scope`, `sha256`, digest verification or `history` are
-`historical/unsupported`. Return the
-inspected ID, unchanged payload and diagnostic; block dependent writes, never
-reinterpret, remove or migrate it on read/retry. Unsupported or malformed input
-does not authorize guessing a slug or adding a replacement block.
-Confirm the permanent slug and spec association with complete all-status task
-reads; collisions are conflicts, not a global uniqueness guarantee.
-Independently read **both** accepted reference objects: project-relative `path`,
-full published Git `revision`, whole file (`section: null`) or unambiguous
-semantic `section`, and each result's own immutable Git `acceptance.address`
-with `decision: accepted`. Read actual content at each pinned revision and
-the separate decision at its pinned address. Match decision path, section,
-resolved revision and authorized acceptor; resolve decision-only
-`containing-commit` as specified by the adapter. Confirm both content and
-decisions are published in the selected Git remote. A commit/file or a branch
-URL alone is not acceptance. A shared decision address is allowed only when the
-act explicitly accepts both exact selectors/versions; verify each entry separately,
-without renewed acceptance of unchanged inputs. Shared-file selectors must yield independently
-identifiable, nonoverlapping accepted results; no byte ranges, heading/EOF
-protocol, scope digest or tracker decision history is required.
-Null slug/spec or requirements is an early preparation/input gap, not readiness
-or ordinary kind. `design: null` is missing accepted design and blocks dependent
-writes, even when no separate design.md is needed; a distinct accepted inline
-section can supply its non-null ref. Do not fabricate refs or an epic.
+Use native exact task/optional epic/children/blocker reads and supported child/edge
+operations without feature JSON capabilities. Apply common's published-inputs
+feature convention and bounded legacy discovery. New documents use
+`sources.specs/<full feature ID>/spec.md` with sufficient inline or adjacent design;
+no slug pin or accepted-ref registry. Read both actual accepted content scopes and
+their separate attributable decisions at exact published versions. Match path,
+section, revision and acceptor; resolve `containing-commit` at its original decision,
+not a later copy. Confirm content and decisions are published in the selected remote.
+One decision may explicitly accept both independently selectable complete scopes;
+a file/commit alone cannot. Missing actual requirements or sufficient independently
+accepted design blocks dependent decomposition. Missing/old/malformed JSON alone
+never does. Preserve legacy data/links; no schema gate, replacement block, migration
+or invented epic. Identity conflicts trigger bounded wider discovery, not global
+registry scans on every invocation.
 
 Apply common's conditional published-input reading method: an absent local
 `sources.specs`/file in an older checkout is a copy diagnostic, not missing accepted
@@ -179,7 +166,7 @@ material ownership/contracts/test seams, return that design gap rather than
 waiving the base's sufficiency or independent design-acceptance requirements.
 
 Ensure installed `ris-port-op-decompose-feature-spec` is available and **apply** its
-method to checked accepted inputs, own criteria (feature slug/AC where applicable), design/contracts/
+method to checked accepted inputs, own criteria (full feature ID/AC for new features), design/contracts/
 test seams, feature scope, relevant rules and
 technical inputs, and verified existing work. Obtain its bounded work units,
 observable checks, requirements mapping, justified directed prerequisites
@@ -204,7 +191,7 @@ multiple units, require exact authorized scope only
 for missing child or `blocks` writes; a fully persisted set can be verified
 read-only. Agree approved task content and stable retry keys scoped to the
 confirmed feature; preserve spec reference, requirement coverage, observable
-criteria (`slug#AC-nnn` where supplied), own outcome/scope and exact applicable accepted reference objects and separate
+criteria (`<ID>#AC-nnn` for new features; retain legacy qualifiers), own outcome/scope and exact applicable accepted content selectors and separate
 acceptance addresses, technical
 contracts/versions, test seams, exclusions and justified edge direction
 (blocked → blocker). Do not
@@ -272,7 +259,7 @@ dependencies. A dependency on unconfirmed external work or a missing
 criterion prevents `ok`; mere presence of children or an adapter `ok` does
 not prove coverage. Report `ok|blocked|conflict|error` for **this combined
 result**, the project/config source, subject kind and exact task/parent IDs, source address and
-version, checked current Git revision, feature slug where applicable, applicable accepted reference
+version, checked current Git revision, full feature ID where applicable, applicable accepted content
 objects/acceptance addresses, publication and applicability evidence, contract
 versions/test seams and computed readiness (including per-unit integration
 prerequisites), actual child IDs/keys and statuses,

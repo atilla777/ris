@@ -43,19 +43,20 @@ permission does not grant them. Init offers publication separately and stops
 before roadmap/product development or build/test/format/CI setup. The installer
 still performs no project initialization or configuration writes.
 
-### Feature-record data compatibility
+### Feature documents and historical data
 
-Package update replaces instructions, not stored Beads descriptions. Installer
-success does not establish that historical features can be continued. Only the
-current `tasks.feature-record/1` structure is supported; the former
-`scope`/`sha256`/`history` payload shares its markers/schema but is unsupported.
-There is no backward-compatibility or migration capability, even with conversion
-permission. Dependent operations return an exact-ID `historical/unsupported`,
-`blocked` no-write refusal; read/status/retry preserve original data, history,
-prose and acceptance pins. Separately authorized administrative status-only close
-remains possible without payload changes or acceptance. The next incompatible
-contract needs a distinct version identifier; this update does not renumber `/1`.
-See the [policy, observed variants and consumer inventory](specs/feature-record-compatibility.md).
+Package update replaces instructions, not stored Beads descriptions. The accepted
+[ris-wcv amendment](specs/ris-wcv/spec.md) removes feature JSON, duplicate refs and
+mandatory saved verification rather than adding a new schema. New features use
+configured `sources.specs/<full feature ID>/spec.md`, readable H1 then column-zero
+Feature-ID/Summary/optional Keywords, and sufficient inline or adjacent design.
+Actual independent acceptance and publication remain required where applicable.
+Existing explicit links/readable legacy hints locate actual documents/decisions;
+missing/old/malformed JSON alone does not block this route. Preserve historical
+payloads/prose/documents without migration, relocation or acceptance rebinding.
+This scoped supersession does not rewrite the [historical policy](specs/feature-record-compatibility.md)
+or claim historical work is ready. Review YAML, bug snapshots and substantive
+claim/copy/Git/close/Dolt checks remain separate and unchanged.
 
 ### Standard/Advanced project agents
 

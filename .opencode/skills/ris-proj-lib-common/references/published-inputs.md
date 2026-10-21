@@ -7,12 +7,13 @@ source discovery/reading, not copy preparation, publication or content acceptanc
 
 1. Start from the selected project and exact tracker ID through its selected
    adapter, or an explicit document-only locator. Follow saved source/decision
-   links and the project's checked path conventions. For a current feature use
-   its permanent slug/spec association and reference objects under the adapter's
-   record contract; a mutable title is not an identity key. Preserve unsupported,
-   historical or malformed payload diagnostics, never infer acceptance or migrate
-   them. Missing source links need bounded discovery through actual associations,
-   not a second registry, arbitrary receipts or guessed title-derived paths.
+   links and the checked document convention below. A mutable title is not an
+   identity key. Legacy explicit source links and readable payload paths/refs are
+   nonauthoritative discovery hints only: read actual documents and decisions.
+   Missing, old or malformed JSON alone never blocks this route. Preserve old
+   payloads/prose unchanged; do not validate a legacy schema, migrate on read or
+   introduce a compatibility parser. Ambiguous identity, missing actual sources
+   or unproved acceptance blocks only the dependent action with its exact gap.
 2. Read each required published content version at its full Git commit and
    project-relative path/semantic section, then its separate decision at the
    pinned decision address. When objects are already available in the verified
@@ -54,3 +55,46 @@ previous chat, local notes or a publication receipt. Producers check those links
 and decisions at completion. Explicit candidate text/decision transfers remain
 necessary between components for unsaved or not-yet-discoverable intermediate
 results; that rule must not become a manual handoff requirement after completion.
+
+## Feature documents, not a tracker registry
+
+For a confirmed feature, new documents live at
+`sources.specs/<full feature ID>/spec.md` (default specs root `docs/specs/`).
+Use the checked configured root, never the skill installation or a fixed repository
+path. The directory has no title/slug suffix and does not move on title changes.
+Before writing check the exact ID, destination and existing associations/content;
+conflicting identity is a conflict, not permission to overwrite or relocate.
+Start new spec.md with a Markdown H1 readable feature name, followed by these
+column-zero English labels (values/content use the project language):
+
+```markdown
+# Readable feature name
+Feature-ID: <full feature ID>
+Summary: <one-line summary>
+Keywords: <optional comma-separated terms>
+```
+
+Omit Keywords when unnecessary. Requirements are in spec.md; sufficient design is
+an independently selectable section there or adjacent design.md. Retain the
+existing attributable acceptance convention: each complete requirements/design
+scope has its actual content path/semantic section/version and separate decision;
+one act may explicitly accept both. No new acceptance notation is imposed.
+Resolve `containing-commit` from the original decision commit, using its immutable
+link or bounded Git history inspection if needed; copied text never renews it.
+Preserve original provenance and unchanged acceptance, not a latest-HEAD rebind.
+
+For existing work follow explicit checked source links and legacy hints without
+moving files or requiring the new header retrospectively. Missing old JSON or a
+different old layout alone is not a readiness gap. A new session must reach actual
+documents/decisions from project+ID via this convention or existing explicit links.
+Beads holds ordinary goal/scope/criteria/status/dependencies, not duplicate accepted
+refs, readiness or verification. No mandatory JSON/YAML/metadata/sidecar registry,
+pin operation, bulk migration or product/functionality index is introduced.
+
+Establish feature kind from explicit selected scope and actual record content/
+source association, checking native type/relationships where relevant. JSON shape,
+title, directory existence or child-parent membership alone cannot establish kind;
+unknown kind remains a bounded gap, not an ordinary-task fallback. Document-only,
+ordinary standalone and native bug subjects keep their own paths/contracts: never
+invent a feature ID or force this directory/header on them. New feature AC links
+use the full feature ID as qualifier (`<ID>#AC-nnn`); retain existing legacy links.

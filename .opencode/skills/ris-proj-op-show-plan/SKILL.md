@@ -107,9 +107,10 @@ Line form (localize labels):
   the container's mandatory work is fully specified or accepted.
 - Features show compact requirements/design evidence: reference present, acceptance
   unverified; acceptance checked against exact version and separate decision; checked
-  absent; or unknown/malformed. Include early /2 root features without inventing
-  an epic: show nullable identity and refs as unfinished preparation, not ordinary
-  tasks or malformed records. Known copy/identity/accepted-input gaps inform the
+  absent; or unknown. Include explicitly confirmed early root features without
+  inventing an epic or JSON: show actual missing documents/decisions as unfinished
+  preparation, not ordinary fallback. Apply common's document convention/bounded
+  legacy discovery; missing/old/malformed JSON alone is no blocker. Known copy/identity/accepted-input gaps inform the
   continuation recommendation; no extra registry or acceptance audit for the tree.
   Brief omission cannot prove absence; a structurally
   valid feature record, file/link, closed children or no blockers cannot prove acceptance.

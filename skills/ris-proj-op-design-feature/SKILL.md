@@ -43,7 +43,7 @@ Direct invocation needs no configured execution role or new per-step skill.
 ## Establish inputs and permitted effects
 
 Identify project, combined or explicitly requested document-only mode, selected
-feature/slug, create or revise intent, linked requirements/design and authorized
+feature ID or explicit non-feature subject, create or revise intent, linked requirements/design and authorized
 file/evidence/record/optional ADR changes. Combined mode requires a confirmed
 tracker ID (task or explicitly ordinary native bug); a feature's epic is optional
 and checked when present. Document-only requires neither.
@@ -102,25 +102,17 @@ execution snapshot, implementation or execution plan are not prerequisites to
 that document result. The persistence resource carries this subject distinction
 through both owners without waiving their independent whole-tree checks.
 
-In the feature combined branch load the selected available adapter and check `tasks` v1 reads
-for exact task, epic when present, children and directed blockers; use complete all-status task
-selection only when related-design discovery or identity reconciliation needs it,
-not merely because the feature ID is known. Additionally require
-`tasks.feature-record/2` with `tasks.features.read` and, for a saved combined
-result, `tasks.features.update`. Check each operation's guarantees before any
-dependent write. Read exact ID/type/parent and its identity block: slug, spec
-path, requirements `{path, revision, section, acceptance: {address, decision:
-"accepted"}}` and its actual content/decision. Read prior design and current
-verification on revision; Git owns displaced decisions, not tracker history.
-Early null requirements are a precise missing accepted-input gate, not malformed
-or ordinary kind. Before feature document writes require its pinned slug/spec
-pair and same-ID checked own copy; a root feature needs no invented epic. A
-non-null accepted design ref is required downstream even for inline design.
-Historical unsupported records block dependent writes and remain intact; do not
-guess a slug, overwrite malformed blocks or migrate in this operation. Title
-edits preserve slug/spec. Document-only reads the supplied accepted requirements
-and separate decision directly, including checked local pending-publication
-inputs when authorized; it does not load the adapter solely to obtain an ID.
+In the feature combined branch check native exact task, optional epic, children,
+directed-blocker and bounded update capabilities. Use complete all-status reads
+only when related-design discovery or identity reconciliation requires them.
+Apply common's published-inputs feature convention to actual requirements/design
+and independent decisions: new documents use the full-ID directory, never a
+title-derived slug or tracker pin. Before writes require the same-ID own copy and
+checked destination. Missing actual accepted requirements blocks dependent design;
+missing/old/malformed JSON alone does not. Preserve all legacy data and use readable
+links/payload hints only to locate actual content/decisions, without migration.
+Document-only reads supplied accepted requirements and decisions directly,
+including authorized local pending-publication inputs; no artificial ID is needed.
 
 Select relevant product/rules/code/tests and related **active accepted** designs
 from links, contracts and current tracker evidence, not a complete product scan.
@@ -181,9 +173,10 @@ its accepted status as implementation. Preserve unchanged requirements evidence.
 
 ## Accept an independently versioned result
 
-Default to an unambiguous separate design section in ordinary
-`sources.specs/<slug>/spec.md` for a simple design, or `design.md` in that feature
-directory when needed. Use verified existing links/project overrides instead of
+For a confirmed feature default to an unambiguous separate design section in ordinary
+`sources.specs/<full feature ID>/spec.md` for a simple design, or `design.md` in that feature
+directory when needed. Document-only/ordinary standalone/bug subjects keep their
+explicit approved paths without a fabricated feature ID/header/directory. Use verified existing links instead of
 moving files mechanically. Do not add OKF indexes/frontmatter to ordinary specs.
 Read `references/acceptance-and-save.md` relative to this installed skill before
 choosing the exact scope, obtaining acceptance or writing either document or
@@ -210,7 +203,7 @@ checks; do not claim the combined result from a document write alone.
 ## Hand off and stop
 
 Return `ok|blocked|conflict|error`, project/config provenance, confirmed feature
-ID/epic only when confirmed, mode/slug and spec/design paths, separate requirements
+ID/epic only when confirmed, mode and spec/design paths, separate requirements
 and design path/section/revision and acceptance addresses/status, verified
 candidate text/version for an unsaved proposal or verified candidate address/version,
 saved result addresses after saving and pending immutable refs, observed code/contracts versions,

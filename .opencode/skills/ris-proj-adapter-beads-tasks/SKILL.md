@@ -1,10 +1,10 @@
 ---
 name: ris-proj-adapter-beads-tasks
 description: >-
-  Serve the tasks v1 and optional feature-record/2 adapter roles and verify
+  Serve the tasks v1 adapter role and verify
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
-  confirmed ID, manage links, claim, conditionally update feature evidence,
+  confirmed ID, manage links, claim,
   ordinary bug execution claim/snapshot/fix-completion, administratively close
   exact containers or complete verified work, and
   separately publish authorized Dolt history; also provide read-only all-work-type
@@ -52,16 +52,19 @@ do not load other branches merely to list or exact-read a record:
 | Native bug registration create/update (not ordinary read/list) | `references/standalone.md` and its selected resources |
 | Bug report/acceptance persistence, duplicate relation or disposition-close | `references/investigation.md` |
 | Bug execution claim/snapshot/design-link/result/fix-completion | `references/bug-execution.md` |
-| Feature-record read, update, record-verification, complete; or initial block on create | `references/feature-record.md` |
 | Separately authorized `dolt.publish` or remote-gated write preflight | `references/dolt-publication.md` |
 | Explicitly authorized selected-project initialization only | `references/init.md` |
 
-The feature-record capability is optional `tasks.feature-record/2`, not implicit
-in tasks v1; its resource owns early nullable identity/refs, paired one-time pin,
-optional epic and operation-specific readiness. /1 remains historical/unsupported
-without migration/fallback. Malformed/absent feature data never
-selects ordinary kind. Administrative status close is Beads-specific, not
-`tasks.features.complete`; it preserves the payload and is not acceptance.
+Features use ordinary native task content and optional confirmed epic membership.
+Early registration needs approved title/goal and stable retry identity, not documents
+or acceptance. There is no feature-record capability, JSON writer, identity pin or
+saved verification gate. Feature-document discovery/acceptance belongs to the
+calling owner applying common's published-inputs convention. Preserve historical
+JSON/prose/links unchanged; readable legacy hints may locate actual documents but
+missing/old/malformed JSON alone cannot block the new route. Native type/content,
+explicit selected scope and actual source associations establish kind, never JSON,
+title or parent-child alone. Administrative status close is not acceptance;
+verified-work close consumes the caller's substantive current assessment.
 List/read/list-blocks give complete inspected results or an explicit failure.
 Create is best-effort, update uses fresh expected fields/native guards, and edge
 writes verify exact typed direction. Read/write/read and row guards are not

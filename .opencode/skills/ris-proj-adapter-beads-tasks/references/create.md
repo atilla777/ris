@@ -7,9 +7,10 @@ Creation needs caller authority, not merely a record in a list. `bd --sandbox cr
 returns an object with `id` in the checked version; validate the actual response.
 
 Search all relevant records (including closed) for the caller's
-stable identity and compare content/parent; for a feature also search slug
-and spec association across all project tasks, using `feature-record.md`
-when supplied. An exact confirmed prior creation
+stable identity and compare content/optional parent and actual known source
+associations. Disclose the fields needed for those predicates, including legacy
+prose when relevant; unknown is not absent. No feature registry schema or global
+slug/spec scan is required. An exact confirmed prior creation
 returns the existing ID, ambiguous matches are a `conflict`. An authorized
 creation defaults to best-effort without a separate concurrency-risk question:
 `bd` does not enforce unique external references, so concurrent creators can
@@ -22,38 +23,29 @@ with only supplied fields (optional `--external-ref` or `--spec-id` for
 identity; neither is a uniqueness constraint). Prefer `--parent <id>` for
 a child only after checking the parent. Extract the returned ID, `show` it
 and verify content and parent, then repeat the full all-state identity search
-(including feature key/slug/spec) to detect concurrent collisions. Return
+for the relevant stable identity to detect concurrent collisions. Return
 `conflict` with persisted IDs for a duplicate; never silently pick one.
 On uncertain creation, re-list all records
 and reconcile the stable identity before another attempt. With no reliable
 identity evidence, do not retry an ambiguous create: `conflict`.
 
-For an explicitly advertised /2 initial feature create, apply `feature-record.md`:
-title/goal and stable scoped key suffice; epic, identity pair and accepted refs may
-be absent. Validate a supplied epic and its open status/membership; omit --parent
-when absent and --spec-id when no actual spec link exists. Never manufacture them.
-This is the /2 extension, not ordinary creation or a relaxation for child inputs.
+For early feature registration approved title/goal and stable project-scoped key
+suffice. Create native task content, without JSON, duplicate accepted refs or
+ready/verification fields. Epic is optional; validate a supplied epic's type/open
+status and omit --parent when absent. Omit --spec-id when no actual source link
+exists; do not manufacture one. A known exact ID is read/reused, not created again.
 
-For common `tasks.items.create` without that extension, require a confirmed open epic as parent of a feature
-task, or a confirmed open feature task as parent of a direct child. Require
-caller-approved task content, a stable retry key and expected absence; for
-the feature also require the exact accepted-spec link and a verifiable
-address of the acceptance decision (do not infer acceptance from a file or
-`--spec-id`). Persist that address in the approved description, or verify it
-is accessible in the linked specification, and reread it on return/retry.
-If the evidence cannot be retrieved or does not match the accepted version,
-report `blocked` rather than declaring acceptance. Use
-`--type task --parent <id>` with supplied content and `--external-ref` for
-the stable key; use `--spec-id` only when the caller supplied it and retain
-the exact link in the approved description or other readable field. Scope
-child keys to their feature parent and feature keys to their epic/goal; a
-globally reused raw key is insufficient. On retry, compare key, type,
-parent, content, spec link and acceptance evidence address for a feature,
-including all-status records. Reuse only an
-exact match; changed content, moved parent, closed parent or multiple matches
-are `conflict`, not permission to update. Verify the new child's `parent`,
-typed `parent-child` edge (child → parent), parent direct-child selection,
-and the reread content. For a feature verify the epic and the same membership.
+For decomposition children require a confirmed open feature parent and caller's
+sufficient accepted scope/criteria, source/decision inputs and stable parent-scoped
+key; early-registration permission does not waive child-input readiness. The caller
+checks actual acceptance in documents, not a registry/--spec-id flag. Use supplied
+`--type task`, optional confirmed `--parent`, `--external-ref` and ordinary content;
+existing explicit links may be retained but do not duplicate accepted-reference
+objects. On retry compare key/type/parent/content/actual source association across
+the relevant all-status set. Changed content, moved/closed parent or ambiguous
+matches is conflict, not update permission. Verify child parent, typed parent-child
+edge (child → parent), complete parent-child selection and reread content; check
+an optional epic association similarly.
 A feature with no children needs no artificial child. If strict no-duplicate
 creation is requested, require proven native support or report the unsupported
 guarantee before creation: `--external-ref` is not

@@ -14,6 +14,17 @@ type: Specification
 
 ## 2. Уровни документов
 
+По принятому [ris-wcv](../specs/ris-wcv/spec.md) новые feature-документы используют
+`sources.specs/<full feature ID>/spec.md`, H1 readable name и column-zero
+Feature-ID/Summary/optional Keywords; sufficient design inline либо design.md.
+Обычная independent scope/version acceptance notation сохраняется с исходной
+provenance, без duplicate refs/readiness/verification registry в Beads. Legacy
+explicit links/readable payload hints ведут к actual documents/decisions без schema
+gate/миграции; old data/history не переписываются. Missing/old/malformed JSON сам
+по себе не блокер. Feature close требует substantive current assessment, не её
+обязательного сохранения. Ordinary/document-only/bug не получают искусственный ID
+или feature-каталог; bug snapshot и review YAML остаются своими отдельными входами.
+
 | Артефакт | Что содержит | Что не заменяет |
 |---|---|---|
 | Концепция / проектная спецификация | Назначение продукта, основные сценарии, общие правила и границы | Подробный план каждой фичи |

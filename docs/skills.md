@@ -231,16 +231,19 @@ independent whole-snapshot review and Git/tracker publication gates remain.
 
 The direct early-registration contribution of `specify-feature` needs only an
 explicitly chosen feature, title/goal, stable project key and write authority;
-epic/spec/design are optional. It checks/reuses one /2 ID with honest nulls,
+epic/spec/design are optional. It checks/reuses one native task ID with ordinary content,
 without document/acceptance/claim effects. The existing task-copy wrapper accepts
 that exact ID with purpose `feature-preparation`, preserving action-specific
-blockers and all ownership/copy guards before documents. Pin slug/spec together
-once before first writes; later published refs update that same record. Execution,
-decomposition and verified completion retain accepted-input gates; /1 is unchanged
-historical/unsupported, not an ordinary fallback. The full flow composes these
+blockers and all ownership/copy guards before documents. New feature documents use
+`sources.specs/<full feature ID>/spec.md`, readable H1 and Feature-ID/Summary/optional
+Keywords, with sufficient inline or adjacent design and actual separate acceptance.
+No JSON/pin/duplicate refs/readiness registry or mandatory saved verification.
+Execution, decomposition and verified completion retain substantive gates; legacy
+links/payload hints lead to actual documents without schema refusal or migration.
+The full flow composes these
 same owners, one requirements/design dialogue and a possible shared acceptance act
-with two exact selectors/versions. It publishes reviewed inputs before same-record
-ref reconciliation and applies the existing full decomposition method, in this
+with two exact selectors/versions. It publishes reviewed inputs before same-ID
+ordinary content reconciliation and applies the existing full decomposition method, in this
 session or an executor. Inline sufficient design is a distinct accepted spec section;
 design.md/ADR are conditional. Independent review remains a separate context.
 

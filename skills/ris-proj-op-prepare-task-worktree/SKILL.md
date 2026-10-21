@@ -39,14 +39,15 @@ return observations without claiming or creating anything.
 
 For `execution`, retain all existing execution-readiness and active-blocker gates;
 the existence of an ID/copy never supplies sufficient accepted task inputs.
-For `feature-preparation`, require current /2 feature identity, open own preparation
-work/claim and permitted preparation actions; nullable slug/spec/accepted refs are
-not copy prerequisites. Through the adapter read every active directed blocker
+For `feature-preparation`, require explicit confirmed feature scope/identity,
+open own preparation work/claim and permitted actions; accepted documents are
+not copy prerequisites and no JSON identity block is required. Through the adapter read every active directed blocker
 and establish which requested preparation action it actually prohibits. An
 execution-only prerequisite is not automatically a ban on clarifying requirements;
 an actual or unresolved blocker of the chosen preparation action stops that action.
 Do not remove/ignore edges, override native claim refusal or weaken execution
-gates to prepare a copy. /1/historical/malformed remains a no-write diagnostic.
+gates to prepare a copy. Preserve legacy payloads; absent/old/malformed JSON alone
+does not block copy preparation or establish ordinary kind.
 
 An exact native bug uses explicitly advertised ordinary bug reads, complete
 children/directed blockers and native claim (Beads `references/bug-execution.md`),

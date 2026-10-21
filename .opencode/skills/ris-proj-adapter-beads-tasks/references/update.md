@@ -6,8 +6,9 @@ ordinary kind when using ordinary task capabilities, authority, approved target
 fields and fresh expected values. A title/priority/independent metadata edit does
 not require accepted source versions, composition, blockers or delivery evidence
 unless the caller's actual predicate depends on them. Ordinary task source/accepted-
-content updates additionally apply `standalone.md`; feature-record changes apply
-`feature-record.md`, investigation replacements `investigation.md`.
+content updates additionally apply `standalone.md`; investigation replacements
+apply `investigation.md`. Feature content uses ordinary bounded field updates,
+not JSON/accepted-ref/verification writes. Preserve historical payloads and links.
 
 Use `bd --sandbox update <id> --title/--description/--acceptance/... --json`
 only for explicitly supplied fields, never send a whole stale snapshot.

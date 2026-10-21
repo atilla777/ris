@@ -249,9 +249,9 @@ Distinguish installed package files from actual client discovery, static source
 checks from executed program checks and version-bound observed agent behavior;
 none implies general agent reliability or repeatability. With Beads, apply the
 adapter's checked baseline/capabilities: claim, native guards and read/write/read
-are not general content/graph CAS. Check current feature-record shape when an
-operation needs it; preserve incompatible historical payloads and report the
-dependent no-write refusal, not migration or backward compatibility. Local notes
+are not general content/graph CAS. Feature inputs use common's document convention
+and actual acceptance, not a JSON registry. Preserve legacy payloads without
+migration; their missing/old/malformed shape alone is no dependent blocker. Local notes
 are not automatically remote inputs; recovery uses accessible evidence, not an
 assumed mandatory transition ledger. State the direct-push/PR-only boundary for
 publication. RIS setup does not supply release/deploy/rollback/production operations.

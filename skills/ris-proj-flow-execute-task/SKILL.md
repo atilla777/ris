@@ -120,7 +120,7 @@ gap and block that action. Do not introduce a replacement journal or registry.
 
 Apply the necessary exact-ID or queue reads below and relevant epic/typed-edge
 reads to the selected adapter. It must advertise actual complete item/child/dependency reads,
-feature-record reads where needed, tool-specific claim/complete and separately
+ordinary source/content reads where needed, tool-specific claim/complete and separately
 verified tracker publication; `tasks` v1 alone does not promise all of these.
 Automatic selection remains task-only; never search/select bugs as queue candidates.
 An explicit native bug uses the adapter's advertised ordinary typed bug reads,
@@ -160,20 +160,20 @@ or sufficient accepted technical constraints for a standalone task, essential
 inputs and current contracts, status, ownership, typed directed blockers and
 complete mandatory composition. Implementation proceeds directly from sufficient
 accepted inputs/current code; missing plans/reports do not create a stage or gate.
-For feature-linked work obtain current published requirements/design and separate
-acceptance references through the adapter's current /2 capability; null identity/
-requirements/design is an early preparation gap, not execution-ready or ordinary.
-No epic is fabricated for a root feature. Inspect the referenced versions and
-their applicability to current inputs. Do not repin refs or migrate unsupported
-historical payloads. Membership is not a `blocks` edge; evaluate parent restrictions
+For feature-linked work apply common's published-inputs document convention and
+bounded legacy discovery to actual published requirements/design and separate
+attributable decisions. Missing actual accepted inputs is a preparation gap;
+missing/old/malformed JSON alone is not. No epic is fabricated for a root feature.
+Check exact versions and current applicability without repinning unchanged
+acceptance, registry writes or migration. Membership is not a `blocks` edge; evaluate parent restrictions
 under project rules without inventing an edge.
 
 Discover these inputs from exact selected-adapter ID reads and linked versions,
 not a mandatory caller questionnaire. Explicit ordinary standalone leaf/child
 uses its own sufficient contract and accepted sources/constraints; structural
 parent need not be an epic or feature. A child is not feature-linked merely
-because it has a parent. Confirm actual kind before feature-record validation;
-malformed/historical payloads are preserved, never converted to standalone.
+because it has a parent. Confirm actual kind from explicit scope/content/source
+association, not JSON or parent-child alone; preserve historical payloads unchanged.
 
 For an exact native bug discover its full current report (description or exact
 published file), aligned criteria, accepted constraints/decisions and full historical
@@ -277,7 +277,8 @@ or changed facts before deciding the next operation.
    `ris-complete-task` dependency is required. For a selected one-task feature,
    apply `ris-proj-op-complete-container` with explicit **verify-and-close**
    intent for **all** feature AC, integrated revision,
-   verification persistence/read-back and separate closure. Diff review or closed
+   current substantive assessment and exact closure without mandatory saved
+   feature verification or duplicate refs. Diff review or closed
    children cannot substitute for feature acceptance. Never close parents.
 7. Apply **separate** selected-adapter tracker publication. For prior/ambiguous
    publication pass exact requested/recovered revision S, inspectable receipt/history

@@ -132,7 +132,7 @@ Example: `Load ris-proj-op-interview-feature for authorization in <project>`.
 
 ### ris-proj-op-specify-feature
 [Owner](../../ris-proj-op-specify-feature/SKILL.md). Purpose: accepted requirements,
-or explicitly limited early /2 registration of an already selected feature.
+or explicitly limited early native-task registration of an already selected feature.
 Choose when: formulate/accept/save/publish behavior, not technical design.
 Inputs: project and feature ID/epic or explicit standalone/document subject,
 known decisions, separate acceptance and allowed effects; ID discovers own refs.

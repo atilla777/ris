@@ -83,20 +83,20 @@ own snapshot, provenance and scope.
   close guards, `--sandbox` and fresh read/write/read are not general content/graph
   CAS or distributed exclusion. Unsupported required guarantees block the dependent
   write; see the [adapter contract](skills/ris-proj-adapter-beads-tasks/SKILL.md).
-- **Data compatibility (bounded early-feature source contract):**
-  [`7d42b449b4e1cb432e3a7ea1df78e71408f92ec8`](https://github.com/atilla777/ris/commit/7d42b449b4e1cb432e3a7ea1df78e71408f92ec8)
-  introduced the optional `tasks.feature-record/2` contract. It is not acceptance
-  of the complete S1 lifecycle or evidence of live agent behavior. Explicitly limited
-  early registration via `/risp-specify-feature` needs a chosen feature, title/goal
-  and stable key, not spec/design/epic. The same ID can obtain a safe copy via
-  `ris-proj-op-prepare-task-worktree` with purpose `feature-preparation`; pin the
-  nullable slug/spec pair once before document writes. Accepted refs still require
-  real published content/decisions. ID/copy existence is not execution readiness.
-  The preparation flow composes these owners through verified decomposition;
-  a direct limited registration call does not launch that flow.
-  Historical payloads remain history, without migration/backward compatibility;
-  incompatible dependent operations return a precise no-write refusal. Package
-  update does not repair data. See the [accepted policy](docs/specs/feature-record-compatibility.md).
+- **Feature documents, not JSON readiness cards:** new features use
+  `sources.specs/<full feature ID>/spec.md` (default specs root `docs/specs/`),
+  readable H1 and column-zero `Feature-ID:`, `Summary:`, optional `Keywords:`.
+  Requirements and sufficient inline/adjacent design retain actual independent
+  scope/version acceptance. Beads holds ordinary goal/scope/criteria/state/edges,
+  not duplicate accepted refs, identity pins or saved verification. Successful
+  verify-and-close still checks the whole feature but needs no persisted assessment.
+  Early registration needs a chosen feature, title/goal and stable key, not
+  spec/design/epic; the same ID can obtain a safe preparation copy. ID/copy is not
+  readiness. Existing explicit links/readable legacy hints lead to actual documents
+  and decisions without migration; missing/old/malformed JSON alone never blocks
+  this route. Historical data/specifications remain untouched. This scoped
+  [ris-wcv amendment](docs/specs/ris-wcv/spec.md) supersedes old JSON refusal/pin/
+  verification norms, not substantive acceptance or review/Git/close/Dolt gates.
 - **Recovery:** task notes are local, not automatically synchronized or mandatory
   remote inputs. Resume reconciles accessible exact evidence and actual effects;
   missing notes do not justify invented acceptance, review or publication. See the

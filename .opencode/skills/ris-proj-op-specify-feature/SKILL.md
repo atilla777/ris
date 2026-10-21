@@ -102,19 +102,17 @@ Proposal-only and record-only calls need no new document working copy.
 
 For a new combined feature result, reconcile the selected feature's early identity
 through the registration branch before its first document write, then use that
-exact ID/copy and pin the pair. This is a contribution to the full requested
+exact ID/copy. This is a contribution to the full requested
 result, not permission to report limited registration as full success. An explicit
 document-only result retains its no-tracker contract; do not invent an ID for it.
 
-For a feature before its first document write agree a permanent slug/spec pair
-and pin it through the adapter on the same exact ID. Until then both may be null;
-no temporary slug is needed. Check existing document paths;
-the selected adapter owns all-status tracker collision checks when needed. The
-tracker task is the sole ID ↔ slug ↔ spec link, not a second registry. A title
-change never renames the slug or path. Default to ordinary
-`sources.specs/<slug>/spec.md` without OKF index/frontmatter; a documented project
-override takes precedence. Read a legacy record for diagnostics only: never migrate,
-guess its slug from its title or silently relocate its accepted document.
+Before feature document writes apply common's `references/published-inputs.md`
+feature convention: `sources.specs/<full feature ID>/spec.md`, readable H1 and
+column-zero Feature-ID/Summary/optional Keywords. Check exact destination and
+existing identity/content; title changes never move it. Requirements and sufficient
+inline or adjacent design retain actual independent acceptance. No tracker pin,
+duplicate refs or registry is required. Follow existing explicit legacy links/hints
+to real documents/decisions without schema gates, migration or relocation.
 
 ## Explicitly limited early registration
 
@@ -124,21 +122,20 @@ registration rather than claiming the default accepted-document result. Require
 selected project, approved title/brief goal, stable project-scoped retry key,
 exact existing ID if known, optional confirmed epic and tracker-write authority.
 Do not register an abstract idea automatically or disguise this as ordinary work.
-Apply the selected adapter's advertised `tasks.feature-record/2` initial-create/
-read and owned encoding/collision protocol. No requirements/design acceptance,
-published document, slug/spec pair, document copy or Git push is prerequisite.
-Use the six-key early /2 form with null identity/refs; include only known validated
-associations. A known ID means exact read/reuse, never another create. All-status
-key and known slug/spec checks precede/follow create; reconcile ambiguous effects
-before retry and return every conflicting ID. Existing /1/historical/malformed
-data receives a no-write diagnostic, not conversion or ordinary fallback.
+Apply the selected adapter's native task create/read/reconcile protocol with
+ordinary approved goal and available scope/criteria, stable key and optional confirmed epic.
+No requirements/design acceptance, published document, document copy or Git push
+is prerequisite. Do not create JSON, refs or readiness fields. A known ID means
+exact read/reuse, never another create. All-status relevant stable-identity checks
+precede/follow create; reconcile ambiguous effects before retry and return every
+conflicting ID. Preserve legacy data; missing/old/malformed JSON alone is no gate.
 
-Read back actual ID/type/key, optional parent, payload and preserved content.
+Read back actual ID/type/key, optional parent and preserved ordinary content.
 Stop with this limited local result and separate tracker-publication facts/debt;
 publish only if separately requested through the adapter's publication owner.
 No document, claim, copy, acceptance or readiness is implied. A subsequent save
-uses this same ID and an already checked own preparation copy, pins the pair
-before any document/evidence write, then follows the normal acceptance and
+uses this same ID and an already checked own preparation copy, checks the document
+destination before writes, then follows the normal acceptance and
 published-reference gates below. No second "ready" feature or second copy.
 
 ## Compose one content and acceptance dialogue
@@ -179,7 +176,7 @@ work while an essential gap blocks only dependent acceptance or saving.
 Use only related author product passages, retaining source path/heading,
 available version and accepted/draft/example/question status without reorganizing
 them by technical systems. Apply the base's stable `AC-nnn` rules; links use the
-agreed permanent `slug#AC-nnn`. Reused decisions with missing baseline versions
+full feature ID qualifier `<ID>#AC-nnn` for new features. Reused decisions with missing baseline versions
 have unconfirmed applicability; changed linked behavior needs focused impact
 resolution, not a silent edit of product or all existing feature documents.
 
@@ -218,11 +215,10 @@ decisions. Verify actual ID/type/parent/content and guarantees; do not use commo
 feature create semantics or construct feature JSON. Existing-record updates need
 fresh expected content/structure checks and bounded native operations/read-back;
 changed refs invalidate dependent evidence.
-The following feature-record requirements apply only to the feature branch.
-For a feature combined result preflight the selected available adapter's `tasks` v1 epic
-read, item list/read/create and `tasks.feature-record/2` read/initial-create/update
-support. Check actual guarantees, optional confirmed open epic/scope, stable retry key,
-slug/spec association and approved task content. Ordinary creation uses the
+The following requirements apply only to the feature branch.
+For a feature combined result preflight native task list/read/create/update and
+optional epic reads. Check actual guarantees, optional confirmed open epic/scope,
+stable retry key, document identity and approved task content. Creation uses the
 adapter's best-effort all-state collision detection, exact reuse and read-back;
 it requires no global creator window or extra risk question. If the caller
 explicitly requires strict uniqueness, require a real guarantee or block that
@@ -230,29 +226,18 @@ write. An unavailable adapter blocks combined completion, not authorized local
 saving; report the causal non-`ok` status, preserved local effects and exact
 remaining adapter operation. Never bypass it via direct storage.
 
-Only published document and decision inputs may enter a tracker reference.
-Invoke create/reuse or update of the already registered exact ID through the
-adapter with type `task`, optional confirmed epic,
-approved content/key and current `ris.feature-record/2`: pinned slug/spec_path,
-requirements reference `{path, revision, section, acceptance: {address,
-decision: "accepted"}}`, design and verification `null` for requirements-only
-creation. Do not add scope hashes or tracker history. If a separately accepted
-published design is supplied, validate its independent decision before including
-it. Check the returned actual ID, type, parent, identity and exact refs from
-adapter read-back; a detected duplicate remains conflict with known IDs.
-
-For an existing exact record preserve all refs and unrelated prose; never send
-an initial block over it. A requirements revision needs explicit update rights,
-expected old state and the adapter's targeted native-operation protocol with
-fresh checks and independent read-back. Preserve the acceptance block and pins;
-no manual window or graph/external-evidence transaction is required. The adapter
-states native limits; claim, sandbox or a status-only guard is not full content
-CAS. An explicitly required stronger unsupported guarantee blocks only that write.
-Verify a new separate requirements decision and existing design applicability;
-block an unsupported/materially incompatible design rather than silently reusing
-it as accepted input. Changed refs invalidate verification to null. Git owns
-displaced content/decisions. Historical unsupported payloads remain intact and
-block dependent writes; no migration or alternate API is part of this operation.
+After required Git publication reconcile the already registered exact ID's
+ordinary goal/scope/criteria and actual optional epic through targeted native
+operations. Documents and actual decisions are discoverable by the common
+convention or existing explicit links, not a parallel tracker accepted-ref list.
+Do not create or update feature JSON/verification, readiness or replacement fields.
+Read back actual ID/type/parent and approved content; duplicate identity is conflict.
+Preserve unrelated prose and all historical payloads/links. A requirements revision
+needs explicit bounded update rights and fresh expected-state comparison/read-back;
+no graph/external-evidence transaction is required. Native guards/claim/sandbox are
+not full content CAS. Verify the actual new requirements decision and existing
+design applicability; material incompatibility blocks dependent work. Git retains
+displaced content/decisions. Old/malformed JSON alone never blocks the new route.
 Do not create children, add dependencies, claim or close tasks.
 
 ## Report actual outcome and stop
@@ -267,7 +252,7 @@ Missing authority or failed/ambiguous publication leaves the full result blocked
 preserving known Git commits/IDs for only the missing operation.
 
 Return `ok|blocked|conflict|error`, selected project/config provenance,
-mode/kind, exact ID and parent only if confirmed, feature slug where applicable, actual spec address,
+mode/kind, exact ID and parent only if confirmed, actual spec address,
 requirements path/section and checked candidate or published revision,
 source of its acceptance, verified task ID and parent (only when confirmed),
 status of decisions (including design absent or applicability unconfirmed),

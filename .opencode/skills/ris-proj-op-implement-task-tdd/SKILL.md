@@ -32,11 +32,11 @@ or separate copy, or after a copy change, before dependent mutations/shared-path
 access. Missing/conflicting inputs block that part. Use the provided suitable copy;
 do not create/repair/switch/reset it or load preparation skills/worktree adapters.
 
-For a feature-linked task use the selected adapter's supported feature-record read
-and **its owned contract**; require verified published requirements/design and
-their separate acceptance decisions. Missing design, unsupported/historical or
-unverified inputs block dependent implementation; preserve the adapter diagnostic,
-not a guessed migration. Standalone work needs accepted technical constraints,
+For a feature-linked task use exact native record reads and common's published-inputs
+document convention/bounded legacy discovery; require actual published requirements,
+sufficient design and their independent attributable acceptance decisions. Missing
+substantive inputs block dependent implementation; missing/old/malformed JSON alone
+does not. Preserve historical data without migration. Standalone work needs accepted technical constraints,
 not an invented feature record. Compare actual accepted content and contract
 versions with current code and relevant integration; labels alone do not prove
 applicability. Preserve accepted refs; material departures return to their owner.
@@ -45,8 +45,8 @@ their absence or staleness creates no planning stage or approval gate. Confirm a
 feature linkage: structural parent alone does not imply a feature. Standalone
 children need their own scope/criteria/refs/seams, not copied global AC. Simple
 accepted constraints need no ceremonial design file; material design does.
-For an actual feature child read the confirmed feature parent's accepted record
-through supported adapter reads, then restrict implementation to the child's
+For an actual feature child read the confirmed feature parent's actual accepted
+documents/decisions using its exact ID and checked sources, then restrict implementation to the child's
 own criteria/refs/contracts. Do not expect a feature payload in every child or
 replace its contract with the parent's complete acceptance scope.
 

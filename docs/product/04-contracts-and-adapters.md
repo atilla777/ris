@@ -112,19 +112,28 @@ effects/limits/remainder; common задаёт достаточность recover
 
 ### Дополнительные операции `tasks` v1: задачи фичи
 
-Ниже — базовая v1 ветка первого сценария. Явно объявленная capability `/2`
-переопределяет только feature-create prerequisites: ранние spec/epic optional.
-Она не ослабляет child inputs, accepted-ref, decomposition или execution gates.
-Прежний full prepare-flow до отдельной unified-поставки сохраняет свой порядок;
-его Git-before-create не является запретом limited early-registration вызова.
+Ниже — необязательные task-операции v1 с адресной поправкой
+[ris-wcv](../specs/ris-wcv/spec.md): early feature create использует ordinary
+content и optional epic, без JSON capability/accepted-ref registry. Фактические
+принятые документы нужны зависимому результату, не ранней регистрации. Child inputs,
+decomposition, execution, native protection и publication gates сохраняются.
 
-Это **необязательные возможности v1**, необходимые потребителю [первого сценария фичи](../specs/ris-feature-work-first-slice.md); старый roadmap-потребитель их не требует. Запись задачи фичи и её прямых детей имеет тип `task`; родитель фичи — подтверждённый `epic`. Маленькая фича может исполняться собственной задачей типа `task` без детей. Состояние задачи возвращается как фактическое состояние трекера и открытость/закрытость, не преобразуется в статус результата RIS. Идентичность фичи означает подтверждённые ID, родительский эпик, устойчивый ключ принадлежности/повтора и точную ссылку на **принятую** спецификацию с адресом проверяемого источника подтверждения; адаптер не принимает спецификацию за пользователя. Адрес источника сохраняется в доступном при повторном чтении содержании задачи либо в самой спецификации по её точному адресу; при продолжении проверяется доступность источника и соответствие решения этой версии спецификации, иначе статус принятия не доказан. Детям нужны собственные устойчивые ключи в области родителя, содержательная цель и проверяемый критерий. Одно название, одно существование файла или совпадение только ссылки на спецификацию не устанавливает идентичность. Ключи не обязаны быть глобально уникальны в хранилище, но поиск повтора охватывает все необходимые состояния и соответствующую область.
+Запись фичи и её прямых детей имеет native type `task`; epic optional и проверяется
+при наличии. Маленькая фича может исполняться собственной задачей без детей.
+Tracker status возвращается фактически, не как результат RIS. Kind устанавливается
+из явной области, реального content/source association и релевантных native связей,
+не title/JSON/parent-child alone. Exact ID, approved scope и scoped stable retry key
+обеспечивают bounded reconciliation; new full-ID documents либо existing explicit
+links позволяют найти actual content и независимые решения. Адаптер не принимает
+спецификацию за пользователя. Детям нужны own outcome/criteria, parent-scoped key
+и sufficient accepted inputs/contracts/seams; отсутствие дублей проверяется во всей
+релевантной all-status области без обещания строгой конкурентной уникальности.
 
 | Операция | Вход и необходимая семантика | Результат и гарантии |
 |---|---|---|
 | `tasks.items.list` | Проект, тип `task`, все состояния, в том числе закрытые; область/ключ идентичности с проверкой полноты | Полная выборка задач с ID, типом, состоянием, родителем, содержанием и доступными ссылками либо явная неполнота и способ продолжения; усечённая выборка не подтверждает отсутствие |
 | `tasks.items.read` | Подтверждённый ID задачи | Ровно одна задача с совпавшим ID, типом, состоянием, родителем, содержанием, ссылками и доступными связями либо отсутствие/неоднозначность; эпик с тем же ID по смыслу не подходит |
-| `tasks.items.create` | Разрешённая область записи, подтверждённый ID открытого эпика для фичи или открытой задачи фичи для ребёнка, утверждённые содержание и устойчивый ключ, для фичи — точная ссылка на спецификацию и проверяемый адрес источника её принятия; ожидание отсутствия соответствующей записи | Либо проверенно переиспользованный ID и неизменённая запись при **полном** совпадении идентичности, родителя, ссылок и существенного содержания, либо созданный ID с повторно прочитанными полями и связью состава; при расхождении `conflict`, а не скрытый update. Best-effort без обещания строгой уникальности при конкуренции; явно требуемая строгая уникальность требует реальной поддержки инструмента |
+| `tasks.items.create` | Разрешённые ordinary content/goal и scoped stable key, optional подтверждённый open epic для фичи; ребёнку — confirmed open feature parent и достаточные accepted inputs/own criteria; expected absence | Exact reuse при совпадении identity/optional parent/content/source association либо created ID с read-back и проверенной membership; conflict при расхождении, без скрытого update. Нет JSON/refs/ready registry; best-effort не strict uniqueness |
 | `tasks.children.list` | Подтверждённый ID задачи фичи, только **прямые** дети всех состояний | Полный состав прямых детей с ID, типом, состоянием, родителем и содержанием либо явная неполнота; пустой полный состав отличается от ошибки. Потребитель решает, достаточен ли состав |
 | `tasks.dependencies.list` | Подтверждённые ID задач и нужное направление | Полные типизированные направленные связи `blocks`: блокируемая задача → блокирующая задача; не смешивать со связью состава `parent-child` |
 | `tasks.dependencies.add` | Подтверждённые ID задач в разрешённой области, ожидаемое отсутствие точной связи `blocks` | Подтверждённая связь в правильном направлении без цикла; повтор уже существующей точной связи возвращает фактическое состояние без фиктивного изменения |
@@ -157,7 +166,42 @@ tool-specific status-only операция: точные project/ID/type/kind, �
 verify-and-close допускает close только после успешной содержательной проверки.
 Обычная leaf completion в execution flow сохраняет собственные result/Git gates.
 
-### Дополнение `tasks.feature-record` версии 2 (явно объявляемая capability)
+### Текущий document route фичи — поправка ris-wcv
+
+По явно принятым [S1/D1 ris-wcv](../specs/ris-wcv/spec.md) фича использует ordinary
+native task с optional подтверждённым epic. Early create требует выбранную цель,
+title и устойчивый scoped retry key, не spec/design/acceptance; документы и actual
+acceptance обязательны только зависимому результату. Это заменяет прежние требования
+обязательного эпика/accepted-spec при early create в таблице v1 выше. Children
+по-прежнему требуют sufficient accepted scope/criteria и подтверждённого родителя.
+Create/retry сверяют релевантную all-status identity, destination/source association
+и conflicts; unknown не absence, best-effort не CAS или strict uniqueness.
+
+Новые документы: `sources.specs/<full feature ID>/spec.md`, без title suffix и
+переезда при rename. H1 readable name, column-zero Feature-ID/Summary/optional
+Keywords; требования в spec.md, достаточный дизайн — отдельная различимая область
+там либо соседний design.md. Реальные независимые scope/version принятия, original
+`containing-commit` provenance и publication сохраняются; duplicate accepted refs
+в Beads не нужны. Exact project+ID обнаруживает документы по этому соглашению или
+существующим explicit links/readable legacy hints; проверяются actual content и
+decisions, не schema. Missing/old/malformed JSON сам по себе не блокирует маршрут.
+Document-only/ordinary/bug сохраняют собственные пути и contracts.
+
+Снята capability `tasks.feature-record/2`: нет JSON writer/readiness, slug/spec pin,
+duplicate accepted refs, mandatory record-verification/read-back перед feature close
+или заменяющего registry. Verify по умолчанию read-only; verify-and-close проверяет
+полные AC/composition/blockers и evidence на общей integrated revision, затем native
+exact close при успехе. Краткий ordinary outcome допустим без mandatory saved
+verification. Старые JSON/проза/история не изменяются; нет новой `/3`, schema parser,
+bulk migration или product functionality index. Это scoped supersession старой
+compatibility policy и противоположных норм только в этой области, не отказ от
+substantive acceptance, independent review YAML, claim/copy или Git/close/Dolt gates.
+
+### Исторический контракт feature-record — не применяется новым маршрутом
+
+Следующие прежние предписания до раздела «Общая публикация» сохранены как
+описание снятого контракта, **не действующие требования**. Для текущих операций
+используется document route выше; старые delivery evidence не переоцениваются.
 
 Это **не** операции `tasks` v1 по умолчанию и не новая обязательная версия для roadmap. Адаптер отдельно объявляет `tasks.feature-record/2` и поддерживаемые операции и гарантии; потребитель проверяет их до записи. По принятому [D1 §3](../specs/sdlc-feature-lifecycle/design.md#3-ранняя-запись-tasksfeature-record2) явно объявленный ранний feature-create расширяет прежние feature-specific требования v1 к spec/эпику, не обычные операции и не допуски к исполнению. Native type остаётся `task`, epic optional; при наличии проверяется настоящая связь parent-child, в payload epic не копируется. Запись не меняет статус автоматически и не управляет жизненным циклом эпика.
 
@@ -197,6 +241,8 @@ feature subject. Ошибка parser не превращает фичу в ordin
 Явный /2 initial-create сохраняет ранний nullable блок либо проверенные опубликованные refs, если они уже supplied. Title/цель/устойчивый scoped key достаточны для ранней регистрации явно выбранной фичи; абстрактная идея не регистрируется автоматически. Exact reuse сравнивает key/type/optional parent (включая отсутствие), известную identity, refs и существенное содержание; несколько совпадений либо расхождение — conflict, не update. Известный ID не создаётся заново. Для последующего pin/update действуют свежая сверка, targeted native mutation/read-back, collision checks и сохранение prose/pins. Epic добавляется позже только отдельно разрешённой structure-операцией, не requirements update. Verified completion по-прежнему требует оба принятых входа и успешные integrated AC/architecture/docs evidence; early nulls не readiness.
 
 По принятым [S1 §3 / D1 §§2–4](../specs/sdlc-feature-lifecycle/acceptance.md) подготовка включает existing decomposition. Flow рано создаёт/сверяет один ID, готовит его safe copy и закрепляет slug/spec до документов; один диалог даёт две различимые принятые области, один явный акт может назвать обе полные версии/selectors. Один decision address допустим только при проверяемом принятии каждой области; refs остаются раздельными, неизменённые не перепривязываются. После independent review и Git-публикации с требуемой primary-sync обновляется та же запись; затем полная методика декомпозиции проверяет one-task без ребёнка либо children/coverage/необходимые directed blocks. Финальная публикация трекера отдельна. Отдельная сессия каждого действия не требуется, независимый reviewer остаётся отдельным. Direct specify/design/decompose сохраняют scoped full результат и явно limited contributions, не запускают соседнюю стадию. Local accepted inputs допустимы для ограниченного document-save, но не tracker refs. По ID обнаруживаются опубликованные входы без прежнего чата/локальных notes; частичные эффекты сверяются до повтора.
+
+### Общая публикация — действующий контракт
 
 Публикацией общей проектной Dolt-ветки `main` владеет адаптер, не ведущий. Разрешённая область — явно согласованные задачи/инициативы и действия, включая разрешённые записи других агентов; статус, claim и эпик сами по себе не authority. Co-publication не разрешает менять, принимать или закрывать чужие записи. Перед новым обычным non-force push `main` проверяются destination, актуальная область и направление истории. Не требуются per-commit/parent audit, реконструкция всех строк, private snapshot ref, новый clone или SQL AS OF/full-row comparison; не вводится эквивалентный обязательный all-row net diff. Неизвестная/явно чужая область, расхождение или недоступный required CLI останавливают зависимое действие без force, скрытого merge, ручного окна и глобального lock.
 

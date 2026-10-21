@@ -43,11 +43,13 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
 - For an **already explicitly chosen** feature needing early tracking, use
   `/risp-specify-feature`: explicitly limited early registration, title/goal and
   stable project key, optional epic, no spec/design/acceptance required. It returns
-  the same /2 ID with nullable identity/refs, not execution readiness. Then the
+  one ordinary task ID, not execution readiness. Then the
   existing task-copy owner can prepare that ID with purpose `feature-preparation`
-  before documents; pin slug/spec together once before first writes. Status/next
-  expose the actual copy/input/blocker gap. Historical /1 is unsupported without
-  conversion/fallback. The full prepare-flow composes these same owners below;
+  before documents. New documents use `sources.specs/<full feature ID>/spec.md`
+  with readable H1, Feature-ID/Summary/optional Keywords, sufficient inline or
+  adjacent design and actual separate acceptance. No JSON/pin/readiness registry.
+  Status/next expose actual copy/input/blocker gaps; legacy schema alone never
+  blocks the new route and old data is not migrated. The full prepare-flow composes these same owners below;
   a direct limited registration call does not start that flow.
 
 - "I want to add authorization": if this is a new feature needing decisions,

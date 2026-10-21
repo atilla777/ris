@@ -4,7 +4,7 @@ Read before either completion branch, together with `concurrency.md` and main
 typed reads. Require caller's exact ID/type, chosen branch and authority.
 Administrative status-only close supports explicitly identified epic, ordinary
 task-container or feature task with actual container-kind evidence and expected
-status; it is Beads-specific, not tasks v1 or `tasks.features.complete`. Never
+status; it is a Beads-specific bounded status operation, not substantive verification. Never
 infer ordinary kind from absent/failed feature parsing. No kind assessment
 resource or feature-record write validation is needed for status alone.
 Preserve description, feature block/refs/verification and unrelated fields;
@@ -42,7 +42,9 @@ failed, historical or malformed verification to success.
   is not full feature verification or a distributed transaction. An unsupported
   explicitly required stronger guarantee returns its exact limitation.
 
-Feature verified completion also applies `feature-record.md`; ordinary verified
-completion applies its specifics in `standalone.md`, bug fix-completion in
+Feature verified completion uses the caller's current whole-feature criterion,
+accepted-document and integrated-revision assessment, with no mandatory saved
+verification/readiness record or duplicate refs. Leave historical payloads untouched.
+Ordinary verified completion applies its specifics in `standalone.md`, bug fix-completion in
 `bug-execution.md`. Investigation disposition has its separate unchanged owner
 `investigation.md`. None of these branches implicitly publishes Dolt.

@@ -7,7 +7,7 @@ installed resource directory only when shared workspace paths are needed.
   working copy. These values designate directories, not specific documents.
   `product` and `rules` denote separate OKF 0.2 bundles in the default RIS
   documentation profile, with `rules/architecture/adr/` nested inside rules;
-  `specs/<slug>/spec.md` is ordinary Markdown. Context checks path availability,
+  new feature `specs/<full feature ID>/spec.md` is ordinary Markdown. Context checks path availability,
   not OKF validity or the contents/acceptance of a document. A project may
   choose different directories without changing these roles.
 - Resolve `workspace.*` against `primary_root`, the primary working-copy root

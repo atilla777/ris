@@ -1,7 +1,7 @@
 # Read-only plan overview on Beads 1.3.1
 
 Read before serving the Beads-specific plan-overview capability. This is separate
-from task-only `tasks` v1 and `tasks.feature-record/2`; it changes no mutation
+from task-only `tasks` v1; it changes no mutation
 contract. The caller owns working-set interpretation, tree, candidate selection
 and recommendation. Return checked data, coverage and field-level unknowns.
 Apply the main skill's selected-workspace, exit/body and bounded-read rules.
@@ -70,14 +70,13 @@ the data even when the caller suppresses them in presentation.
 
 Native `feature`, native `task` under an epic, title or a spec link alone does not
 establish RIS feature kind. When feature interpretation is needed, read the own
-description/identity and apply this adapter's installed `references/feature-record.md`
-for current markers/schema and historical/malformed diagnostics. Its reading and
-classification rules apply; do not activate its writes or require every linked
-acceptance document merely to draw the tree. Potential feature records must have
-their relevant content disclosed; missing brief description cannot prove ordinary
-kind. A current structural payload is still only a reference, not confirmed
-content acceptance. Historical/malformed feature data stays visible as such and
-never silently selects ordinary kind or migration. Return references as unverified
+description and actual source association/explicit selected scope, checking native
+relationships where relevant. Do not use JSON as a discriminator or validate a
+legacy schema. Explicit links/readable payload hints may support bounded discovery;
+actual acceptance is checked in documents only when needed for the caller's question,
+not merely to draw the tree. Missing brief content cannot prove ordinary kind.
+Preserve historical payload/prose; missing/old/malformed JSON alone does not block
+the new route or silently select ordinary kind. Return source links as unverified
 unless the specific version and independent decision were actually checked for
 the caller's bounded question.
 
