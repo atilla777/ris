@@ -217,6 +217,13 @@ or changed facts before deciding the next operation.
    a guessed branch/path. Refresh context after a copy change. Retain the
    verified copy/primary association facts in the handoff; neither replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
+   If the caller already prepared this native bug's copy for necessary design,
+   pass its exact checked ID/repository/path/branch association and actual effects
+   to this same preparation owner for reuse, now with the sufficient accepted
+   execution basis and full historical snapshot. Verify the same association
+   against live state; mismatch or unavailable association evidence blocks the
+   dependent step, not permission to choose a second copy. Reconcile partial
+   copy/setup effects before retry without replaying creation or completed setup.
 2. Recheck actor ownership and blockers before each new change batch. Apply
    code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`;
    apply its base method by actual slice, not the task's name. Behavior-changing

@@ -95,6 +95,22 @@ contracts needs no separate design unless project rules require it. Conflicting
 expectations return to their authority before dependent edits. Reassess only affected
 inputs/results; unchanged accepted decisions stay pinned.
 
+In that material-design branch, before the first document/evidence write intended
+for publication (including an optional draft), apply
+`ris-proj-op-prepare-task-worktree` for this **same native bug and actor**, purpose
+`execution`, selected action **pre-execution bug design**. Supply the admitted
+report/criteria/accepted constraints, necessary pending design choice, authorized
+claim/copy/environment effects and context-checked primary selection/provenance.
+Inspect its checked handoff before invoking the design writer; forward the same
+verified ID/repository/path/branch association and refreshed context. Reuse a
+suitable existing associated copy through that owner; otherwise let it prepare
+one. Missing association, foreign ownership, active/unresolved blockers or partial
+setup stop dependent writes. Reconcile actual effects through the preparation
+owner before retry; do not create a second copy or repeat completed setup. This prepares
+only the copy, not design acceptance or implementation readiness. No preparation
+algorithm belongs here. With no necessary design, leave copy preparation to the
+execution flow before implementation.
+
 ## Preserve the basis, then use the whole execution route
 
 After necessary decisions, freshly compare report, aligned criteria and constraints
@@ -118,6 +134,11 @@ review, Git publication, separate exact completion and tracker publication. Do n
 copy or skip its substantive gates. Implementation starts from sufficient accepted
 inputs/current code, without a saved plan, omission-decision or implementation
 report. The historical bug-input snapshot remains required, not a substitute log.
+When design used a prepared copy, explicitly forward its checked association and
+preparation effects to execution step 1 for fresh owner-verified reuse of that
+same copy, not another creation. A mismatch blocks the dependent handoff; never
+silently replace the association. Design publication and partial effects remain
+facts to reconcile, not permission to replay preparation or publication.
 No new slash command is required.
 
 At handoff and resume compare current report/criteria/decisions with the historical
