@@ -81,11 +81,14 @@ The proposed `ris.yaml` bindings are:
 
 | Agent | RIS roles |
 | --- | --- |
-| `standard` | `feature-selection`, `task-decomposition`, `task-execution` |
+| `standard` | `task-decomposition`, `task-execution` |
 | `advanced` | `feature-preparation`, `task-implementation`, `task-review` |
 
 `project-initialization` is agreed separately, normally proposed as `advanced`
-for document work. Existing alternative bindings are preserved until a specific
+for document work. Optional delegated feature-graph proposals reuse `task-decomposition`;
+direct planning/navigation needs no selector role. Existing role bindings are not
+automatically migrated.
+Existing alternative bindings are preserved until a specific
 migration is agreed. These are init proposals, not new resolver defaults or
 mandatory roles for every direct RIS operation. An independent reviewer is a
 fresh invocation separate from all authors/fixers, not necessarily another model.

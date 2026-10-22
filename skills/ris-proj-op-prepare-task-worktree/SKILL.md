@@ -9,6 +9,13 @@ description: >-
 
 # Prepare one RIS task's working copy
 
+Before feature preparation claim/copy admission, apply installed specify-feature's
+owned `references/stage-prerequisites.md` to readable requirements prerequisites
+independently of native blocks. For execution, inspect any actual parent confirmed
+as a feature and its needed decisions/results/native blockers too. This does not
+infer feature kind from membership or weaken claim/native refusal/copy guards;
+ordinary and native bug subjects keep their existing scoped contracts.
+
 Own the combined **project copy and environment handoff**. Load/apply installed
 `ris-proj-lib-common` with its applicable resources, `ris-proj-op-resolve-context` for this operation's
 rules, selected tasks adapter and needed shared paths, and

@@ -51,8 +51,8 @@ verified prior assignment/copy association, not a fresh session fallback.
 
 Apply existing owners in this context or delegate bounded work when useful; no
 executor, separate session or configured role is mandatory for each internal
-action. For delegation only, prepare the consumed role (`feature-selection`,
-`feature-preparation`, or `task-decomposition`) through context's role resource,
+action. For delegation only, prepare the consumed role (`feature-preparation`
+or `task-decomposition`, including optional graph proposals) through context's role resource,
 verify the configured agent is available and actually launched; no silent fallback.
 Independent review **must** use the configured `task-review` role and actually run
 in a separate context independent of all content authors/repairers. Prepare that
@@ -82,11 +82,18 @@ transaction over graph and external evidence; return unsupported required guaran
 
 ## Register the selected feature and prepare its one copy
 
-If the outcome is not yet selected, apply read-only `ris-proj-op-select-feature`
-and obtain the person's choice. Apply `ris-proj-op-refine-epic` only if a real epic
-ambiguity blocks that choice; keep its human decisions here and explicitly limit
-any authorized write contribution to local update, leaving publication here.
-Do not register abstract ideas or create speculative tasks.
+If the outcome is not yet selected, apply installed `ris-proj-op-show-plan`'s owned
+`references/feature-candidates.md` as a bounded read-only selection contribution
+for the needed preparation action. Honor existing preliminary feature IDs and
+choose among those records, not invented product outcomes. Return parallel sets
+to the caller; this one-feature flow chooses one without imposing global serial
+work. All-blocked yields diagnosis, not extra features. Apply `ris-proj-op-refine-epic`
+only for a real goal/boundary ambiguity, with local-only contribution here.
+An actually empty epic, or evidenced coverage gap, permits applying installed
+`ris-proj-op-plan-epic-features` under this authorized flow, after its concrete
+human graph agreement and with explicitly local-only writes/publication debt here.
+Reread verified existing records and obtain the feature choice before continuing.
+No status/next request authorizes that planning write. Do not register abstract ideas.
 
 Once chosen, apply `ris-proj-op-specify-feature` in **explicitly limited early
 registration** mode: approved title/brief goal, stable project-scoped retry key,
@@ -96,6 +103,12 @@ acceptance or document copy is required for that contribution.
 Require one confirmed task ID with approved goal and available scope/criteria, never a
 replacement “ready” record. Preserve legacy payloads; missing/old/malformed JSON
 alone never blocks the new document route or proves ordinary kind.
+
+Before claim/copy and each dependent requirements/design/decomposition action,
+apply installed specify-feature's owned `references/stage-prerequisites.md`.
+Check readable requirements prerequisites separately from native implementation
+edges; wait for needed accepted decisions, not whole-feature closure. Same-ID
+preparation never manufactures a replacement record to escape a prerequisite.
 
 Before **any** document/evidence write, including optional drafts, apply
 `ris-proj-op-prepare-task-worktree` for this exact ID/actor with purpose

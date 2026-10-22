@@ -10,6 +10,11 @@ description: >-
 
 # Plan a project roadmap proposal
 
+One epic can be a complete MVP roadmap; never force multiple epics. Return
+proposed epic contexts usable as direct inputs to preliminary feature planning
+without requiring tracker IDs. The caller owns any combined feature graphs and
+their cross-epic reconciliation; this method still owns goal-to-epic boundaries.
+
 Own the content and completeness of a proposed roadmap, not its storage or
 project integration. Work directly from the supplied material and applicable
 rules of the actual project. This skill requires no other RIS skill, `ris.yaml`,

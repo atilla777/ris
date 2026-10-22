@@ -24,6 +24,13 @@ already owned by that actor may be verified unchanged. Purpose defaults to
 `execution`: active or unresolved blockers prevent new claim admission and
 dependent execution, including when an own claim already exists.
 
+For feature/child execution the caller must also provide its stage-prerequisite
+assessment from installed `ris-proj-op-specify-feature`'s owned
+`references/stage-prerequisites.md`: readable requirements prerequisites and actual
+parent-feature needed decisions/results/blockers cannot be bypassed by empty child
+edges. Verify supplied scope/evidence against actual tracker reads; do not infer
+feature kind from membership, duplicate edges or waive native execution refusal.
+
 Only an explicitly requested `feature-preparation` claim for a confirmed feature
 activates `claim-preparation.md` beside this resource. Read/apply it before
 admission or own-claim reuse; ordinary execution never uses that exception.

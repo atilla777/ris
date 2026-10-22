@@ -129,18 +129,20 @@ own snapshot, provenance and scope.
 
 ### Available commands and operations
 
-The current source menu has 21 explicit entries (16 project + 4 portable + one
+The current source menu has 20 explicit entries (15 project + 4 portable + one
 help exception), adding `/risp-status`, `/risp-run-simple-task`, `/risp-init` and
 `/ris-help` to the historical 18-entry v1 set and retiring `/risp-plan-task`.
 `risp-` selects a project contract, `risb-` a portable contract. `/ris-help` is the
 sole naming exception, supplied by a client/TUI plugin rather than a Markdown
-command facade, with no aliases. All 51 source skills
+command facade, with no aliases. The retired feature selector has no alias;
+roadmap now owns preliminary feature planning. All 52 source skills
 are listed in the catalog; operations without
 a slash command can be loaded directly by their exact technical skill name. Examples:
 
 | Goal | Command |
 | --- | --- |
 | Prepare an agreed local RIS setup after installation | `/risp-init <project and scope>` |
+| Plan epics and preliminary features (nearest stage by default) | `/risp-roadmap <goal, epic-only / nearest / all>` |
 | See daily SDLC help, detailed pages or explain a route without execution | `/ris-help`, `/ris-help full` or `/ris-help <question>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
@@ -235,11 +237,23 @@ confirmation; tracker result, exact close and publication are separate effects.
 Full task/bug execution likewise needs no saved plan or implementation report;
 its safe-copy, TDD, ordinary YAML review and publication/completion gates remain.
 
+Roadmap can produce one MVP epic with several preliminary features in one session,
+or several epics. It reads freely structured product sources and agrees the concrete
+graph before tracker writes; planning is not requirements/design acceptance. Load
+`ris-proj-op-plan-epic-features` directly to plan an existing epic, or its portable
+`ris-port-op-plan-epic-features` base with supplied inputs. Preliminary features need
+no spec/design/AC/technical children and keep the same ID during preparation.
+Implementation blocks, readable exact-ID requirements prerequisites and informational
+links stay distinct: implementation dependencies alone do not bar requirements work.
+
 `status` is read-only: without an ID it shows the project's complete unclosed plan;
 with an ID it shows that subtree and necessary context/blockers. It recommends one
 action using the continuation owner and checks the installed command, or reports an
 exact gap. It saves nothing, claims no work and launches nothing. `next` inspects an
-already selected subject; `select-feature` chooses a feature; `run-task` executes.
+already selected subject; `run-task` executes. Existing-feature candidates are ranked
+for the needed stage by own ongoing work, priority, creation time and ID, with parallel
+candidates visible. Empty epics need graph planning; all-blocked means diagnose existing
+prerequisites, not invent more features. Neither navigation command runs planning.
 
 To record a bug before investigation, ask the agent to load
 `ris-proj-op-register-bug` for the selected project and message, with permission

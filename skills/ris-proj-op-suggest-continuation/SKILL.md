@@ -58,7 +58,11 @@ publication does not establish acceptance.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 
-Before suggesting feature selection for an epic, inspect its existing related
+For epic candidate selection apply installed show-plan's owned
+`references/feature-candidates.md` as a bounded read-only contribution. Empty
+epics/actual coverage gaps recommend graph planning; all-blocked means diagnosis,
+not generation. Never execute that recommendation here. Before suggesting advancement
+for an epic, inspect its existing related
 features and material saved results: is a feature actually missing, or does the
 needed result advance an already selected feature? A stale epic description cannot
 override current children/refs. Apply common's conditional published-input reading

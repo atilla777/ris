@@ -27,8 +27,17 @@ dependency nor `adapters.tasks.skill` grants write access.
 
 Support `tasks` v1 roadmap `tasks.epics.list|read|create|update` and
 `tasks.blocks.list|add|remove`; optional task operations are
-`tasks.items.list|read|create`, `tasks.children.list` and
-`tasks.dependencies.list|add`. These are semantic names, not CLI commands.
+`tasks.items.list|read|create|update`, `tasks.children.list` and
+`tasks.dependencies.list|add`. Also support optional
+`tasks.feature-dependencies.add|remove` for preliminary feature graph endpoints
+in an explicitly approved epic scope (including explicitly approved cross-epic
+scope). These are semantic names, not CLI commands. `items.update` is bounded
+ordinary feature content through update.md, not a readiness/metadata API.
+`dependencies.add` is still confined to tasks within one feature; it is not the
+cross-feature graph operation. Complete epic children use the existing complete
+direct-child read below, including all statuses; dependency reads already cover
+the graph. Requirements prerequisites remain caller-authored readable exact-ID
+and needed-decision references, not native requirements edges.
 Feature and child records use native `task`, optional feature parent `epic`; native
 `feature` is not a substitute. Read routes below cover these reads and ordinary
 native bug reads/lists with the caller's expected type. No feature payload is

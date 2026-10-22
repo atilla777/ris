@@ -12,6 +12,12 @@ description: >-
 
 # Accept and save a feature design in a RIS project
 
+For a confirmed feature read/apply installed `ris-proj-op-specify-feature`'s owned
+`references/stage-prerequisites.md` before dependent design work or saving.
+Check readable prerequisite decisions independently from native blocks; unknown
+blocks only the dependent action. Preserve the existing preliminary feature ID
+and all accepted-input/native refusal gates. Document-only/bug routes stay scoped.
+
 By default own the **combined project result**: sufficient accepted design, checked saved
 scope/version, Git publication and matching feature or ordinary standalone record
 with tracker publication where applicable. `ris-port-op-design-feature`

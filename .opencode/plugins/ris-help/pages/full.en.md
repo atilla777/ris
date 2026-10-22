@@ -86,8 +86,10 @@ testing, review and CI practices. Does not install tools or configure CI.
 
 **`/risp-roadmap`**
 
-Turn product knowledge, a chosen goal and the observed starting state into epic
-outcomes. A proposal-only request makes no tracker changes. Not feature tasks.
+Turn freely structured product knowledge, a chosen goal and observed state into
+epics and agreed preliminary feature graphs in one session. One MVP epic is valid.
+Depth: epic-only, nearest stage (default), or all. Proposal-only makes no changes.
+No detailed specs/design or implementation tasks; planning is not acceptance.
 
 ---
 
@@ -95,8 +97,8 @@ outcomes. A proposal-only request makes no tracker changes. Not feature tasks.
 
 **`/risp-refine-epic <ID>`**
 
-Clarify an existing epic's outcome, boundaries and prerequisites when they prevent
-feature selection. Does not specify every future feature.
+Clarify an existing epic's unclear goal/outcome/boundary. Does not build a second
+feature graph or specify every future feature.
 
 ---
 
@@ -116,12 +118,19 @@ and uncovered shared Dolt history are not authorized by one feature request.
 
 ---
 
-### 🎯 SELECT A FEATURE
+### 🎯 PLAN AN EXISTING EPIC'S FEATURES
 
-**`/risp-select-feature <epic ID>`**
+**Direct skill: `ris-proj-op-plan-epic-features` with exact epic ID**
 
-Recommend a small verifiable result within an epic. Does not create tasks or
-launch development.
+Propose/revise its preliminary graph, agree concrete changes, reconcile all states
+and preserve existing IDs/accepted/foreign/completed work before controlled writes
+and separate publication. No spec/design/AC/children required at registration.
+Portable proposal: `ris-port-op-plan-epic-features` with supplied inputs, no RIS required.
+Status/next/prepare select existing records for the needed stage and show parallel
+candidates; empty epics need planning, all-blocked needs diagnosis, not new features.
+Requirements prerequisites wait for exact accepted decisions, not whole-feature
+closure; implementation-only blocks do not automatically bar requirements work.
+Preparation keeps the same preliminary ID and actual acceptance/readiness gates.
 
 ---
 

@@ -3,6 +3,13 @@
 Read with `claim.md` only for an explicitly requested `feature-preparation` claim
 of an explicitly confirmed feature, before admission or own-claim reuse.
 
+Also require the caller's stage-prerequisite assessment from installed
+specify-feature's owned `references/stage-prerequisites.md`. Verify readable
+requirements prerequisites independently of native blocks; a missing needed
+accepted decision blocks dependent preparation even with no active native edge.
+The caller supplies actual content/decision evidence, not a ready flag; never
+require whole-feature closure when its specified accepted contract suffices.
+
 Require the caller's exact authorized preparation action and inspectable scope
 evidence for **every** active directed blocker, matched to freshly read edge/
 endpoints/content. The caller owns the substantive action/scope decision; verify

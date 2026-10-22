@@ -25,6 +25,11 @@ the selected adapter/current-copy contracts. If no owner supplies those guards f
 this textual route, the recipient performs the bounded adapter checks itself.
 Foreign claims, changed inputs or forbidden scope block the change.
 
+For feature/child text work also apply installed `ris-proj-op-specify-feature`'s
+owned `references/stage-prerequisites.md`, reading actual parent-feature required
+decisions/results/native blockers. Empty child edges are not sufficient; do not
+infer feature kind from membership or weaken ordinary/bug/native refusal gates.
+
 Discover the task's own accepted source versions/decisions and constraints by
 exact ID reads and links. Confirm sufficiency and a viable approach within accepted
 constraints; no saved plan or omission-decision is required. Structural parent is

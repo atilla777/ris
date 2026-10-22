@@ -12,6 +12,11 @@ description: >-
 
 # Specify a selected feature in a RIS project
 
+For requirements work on a confirmed feature, read/apply this skill's owned
+`references/stage-prerequisites.md` before the dependent action, independently
+of native blocks. Early registration still needs no spec/design/AC and reuses
+the same preliminary ID; registration alone grants no requirements readiness.
+
 By default own the **combined project result**: a specific accepted specification, its
 verified saved/published version and a correctly linked record: a feature `task`
 with an optional confirmed `epic`, or an explicitly selected ordinary standalone task or

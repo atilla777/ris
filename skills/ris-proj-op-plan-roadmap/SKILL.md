@@ -1,7 +1,7 @@
 ---
 name: ris-proj-op-plan-roadmap
 description: >-
-  Create or update a project's goal-level roadmap as verified tracker epics,
+  Create or update a project's roadmap as verified tracker epics and preliminary features,
   or propose it without writing. Use for project MVP outcomes, epic boundaries
   and dependencies, including bounded product/architecture impact on revision;
   not for a single feature's tasks, raw tracker operations,
@@ -15,6 +15,40 @@ goal-level proposal, reconciliation with all existing tracker epics and a
 verified saved roadmap when authorized. `ris-port-op-plan-roadmap` owns the
 portable proposal method; this skill owns project selection, integration and
 the adequacy of the persisted whole. Do not duplicate its planning algorithm.
+
+## Combined epic and feature depth
+
+One invocation/session owns epics **and** the selected preliminary feature graphs.
+Depth comes from the request: `epic-only`, `nearest` (default), or `all`. One MVP
+epic with several features is a complete roadmap; never split it artificially.
+Determine the nearest stage from accepted goal/constraints and observed starting
+state, not tracker ordering or guessed priority; ask if materially ambiguous.
+`epic-only` may be detailed later by a standalone epic-graph operation. Planning
+does not start requirements interviews, specs/design or implementation tasks.
+
+After the portable epic proposal and before human agreement or any graph writes,
+apply installed `ris-proj-op-plan-epic-features` as an explicitly **proposal-only**
+contribution for selected nearest/all epics. Its base can receive anticipated epic
+context/local labels before parent creation. Supply shared product sources,
+all-state work, other proposed epic boundaries and actual neighbor context.
+Optional isolated parallel proposals use existing `task-decomposition` only when
+delegated; no direct-invocation role requirement. The lead reconciles cross-epic
+coverage, overlaps, identities and dependencies across the whole result before
+presenting one concrete epic+feature graph for human agreement. Endpoints outside
+approved epic scope require an explicit scope decision. Do not run graph planning
+on every nonempty blocked epic: all-blocked requires diagnosis, not new features.
+
+Agreement below includes the selected concrete feature graph and material deltas,
+not just epic boundaries. A consultation waiver for epic breakdown does not waive
+feature graph agreement. Proposal-only stays zero writes. With agreed write scope,
+the lead applies epics serially through their adapter owner and verifies exact IDs,
+then requests explicitly local-only graph-owner contributions for those parents
+and approved graphs. Labels resolve only after create/read-back; retain the graph
+owner's full reconciliation and targeted-write checks. No per-epic duplicate pushes:
+the lead checks the whole persisted epic+feature result and owns separate tracker
+publication. Any parent/feature/edge failure stops further writes, preserves IDs
+and reports exact partial effects; no fake atomicity, rollback or blind recreate.
+Resume reconciles effects before only missing agreed operations.
 
 ## Prepare the operation
 
@@ -163,7 +197,8 @@ the adapter's bounded native removal and exact read-back with its honest limits;
 an explicitly demanded stronger unsupported guarantee blocks that removal.
 Never silently retain an agreed obsolete edge and claim a complete update.
 Do not use a parent-child edge as a blocking edge, create tasks or modify unrelated
-records. Authorized epic creation uses best-effort semantics without a
+records, except preliminary feature records through the scoped graph owner above.
+Authorized epic creation uses best-effort semantics without a
 separate concurrency-risk question only when supported by the selected adapter;
 if the caller requires no-duplicate creation, require its proven strict writer
 guarantee or report its exact limitation before creation, without a pause request.
@@ -179,7 +214,8 @@ or partial operation re-read all affected records, report confirmed changes
 and unsaved parts, then **stop before further writes**, including link edits.
 No automatic rollback, close, assignment or launch of the recommended epic.
 
-Finally re-enumerate the goal's complete open and closed set, re-read saved
+Finally include selected feature graphs in coverage, preservation and publication
+checks. Re-enumerate the goal's complete open and closed set, re-read saved
 records and typed dependencies, and compare the **persisted whole** with the
 accepted goal and agreed or explicitly consultation-waived proposal: content,
 coverage, first result, exclusions, unchanged closed accomplishments, IDs,
@@ -206,5 +242,5 @@ and blocker direction, missing evidence, and available independent work. No
 read-only impact finding authorizes changes outside the agreed roadmap epic scope.
 Without write permission, return only a labelled unsaved proposal and
 `changes: []`; even a complete proposal is not an accepted or persisted
-roadmap. Stop at the roadmap: no feature decomposition, implementation,
+roadmap. Stop at the epic/preliminary-feature roadmap: no technical task decomposition, implementation,
 tracker initialization, Dolt setup or transition of source of truth.

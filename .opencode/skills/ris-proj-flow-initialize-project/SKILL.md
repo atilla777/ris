@@ -89,7 +89,7 @@ standalone noninteractive operations below. When delegation is chosen, agree its
 binding to an actually available, suitable executor; the identifier is not a universal mandatory role for every RIS
 operation. Agree this binding separately; `advanced` is a suitable proposal for
 the complex document work, not an automatic assignment. For the working-cycle
-setup propose `standard` for `feature-selection`, `task-decomposition` and
+setup propose `standard` for `task-decomposition` (also optional feature-graph proposals) and
 `task-execution`; `advanced` for `feature-preparation`, `task-implementation` and
 `task-review`. This is init's proposed setup, not new context-schema defaults or
 a universal role requirement for unrelated direct operations. Preserve existing

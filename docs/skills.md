@@ -4,12 +4,12 @@ RIS includes portable operations, project-integrated operations, five workflows,
 shared instructions and tool adapters. Each linked `SKILL.md` defines its actual
 inputs, dependencies, permissions, checks and stopping point.
 
-All 51 source skills are listed below, independently of the 21-command menu.
+All 52 source skills are listed below, independently of the 20-entry menu.
 Only selected operations/workflows have slash commands. Command sources live in
 [`commands/opencode/`](../commands/opencode/); each explicitly loads one skill
 and passes `$ARGUMENTS` through its existing contract. The exception is `/ris-help`:
 [`plugins/opencode/ris-help/`](../plugins/opencode/ris-help/) owns the client command,
-not a Markdown slash facade. The menu has 21 agent commands plus this client entry.
+not a Markdown slash facade. The menu has 19 agent commands plus this client entry.
 
 ## Naming
 
@@ -44,7 +44,8 @@ the current available catalog and checked role mappings, without global edits or
 automatic upgrades. Suitable existing choices are reused; incomplete setup has
 explicit readiness limits. Package installation alone does not configure agents.
 The current source map adds the [workflow-help exception](specs/workflow-help/spec.md):
-**21 entries (16 project + 4 portable + one help exception)**;
+**20 entries (15 project + 4 portable + one help exception)** after
+[ris-a17](specs/ris-a17/spec.md) retires the standalone feature selector without alias;
 availability in a project requires installation
 of the chosen package and client restart.
 
@@ -56,7 +57,6 @@ of the chosen package and client restart.
 | `/risp-next` | `ris-proj-op-suggest-continuation` |
 | `/risp-roadmap` | `ris-proj-op-plan-roadmap` |
 | `/risp-refine-epic` | `ris-proj-op-refine-epic` |
-| `/risp-select-feature` | `ris-proj-op-select-feature` |
 | `/risp-prepare-feature` | `ris-proj-flow-prepare-feature` |
 | `/risp-specify-feature` | `ris-proj-op-specify-feature` |
 | `/risp-design-feature` | `ris-proj-op-design-feature` |
@@ -73,7 +73,7 @@ of the chosen package and client restart.
 | `/risb-installation` | `ris-port-op-manage-installation` |
 
 `status` shows the complete compact unclosed plan and one checked recommendation;
-`next` recommends for an already selected subject; `select-feature` chooses a feature; `run-task` executes one
+`next` recommends for an already selected subject; `run-task` executes one
 authorized task. `skill` authors autonomous source, without selecting the RIS
 author or installing it. Empty inputs, permissions, recovery and stopping points
 remain those of each linked owner. No aliases are shipped.
@@ -100,11 +100,12 @@ It preserves common/context ownership, zero-write/zero-launch limits and the
 boundary with actual-work `next`/`status`. Source readiness does not confirm client
 discovery or live behavior.
 
-`select-feature` and `next` recommend a direction or owner from minimum sufficient
-facts; they do not certify execution readiness. A selected ID uses bounded reads,
-while no-ID feature selection discovers compact suitable epics. Relevant started
-work and known material blockers/conflicts matter; history, composition, acceptance
-and publication evidence expand only when they can change the recommendation.
+`status` and `next` recommend from existing records and needed-stage evidence;
+they do not certify execution readiness or invent new product outcomes. Relevant
+own started work, priorities, creation time/ID and material prerequisites matter;
+independent parallel candidates stay visible. Empty epics need graph planning,
+all-blocked epics need diagnosis, not automatic new features. History, composition,
+acceptance and publication evidence expand only when they change the recommendation.
 Unknown facts stay explicit. The executing owner checks current readiness,
 acceptance, ownership and permissions; navigation writes nothing and launches nothing.
 
@@ -114,6 +115,8 @@ Ask the agent to load the exact skill with its skill tool and supply the inputs:
 
 ```text
 Load ris-proj-op-author-skill and improve the RIS-integrated skill at <source folder> within <accepted scope>; do not install it.
+Load ris-proj-op-plan-epic-features for <existing epic ID>; propose its preliminary feature graph without writes.
+Load ris-port-op-plan-epic-features with <epic goal, product materials, existing work and neighbors>; return an unsaved graph proposal.
 Load ris-proj-op-register-bug for <project>: <message and available context>; record this unconfirmed report and return its ID without investigation.
 Load ris-proj-op-investigate-bug for <exact bug ID> in <project>, research/write scope <scope>; save the investigation and stop before fixing.
 Load ris-port-op-investigate-bug with <message, expectation sources, code/version, evidence and allowed research scope>; return a report without tracker writes.
@@ -141,6 +144,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-op-design-feature](../skills/ris-port-op-design-feature/SKILL.md) | Technical design proposal |
 | [ris-port-op-decompose-feature-spec](../skills/ris-port-op-decompose-feature-spec/SKILL.md) | Verifiable work-unit proposal |
 | [ris-port-op-plan-roadmap](../skills/ris-port-op-plan-roadmap/SKILL.md) | Goal-level roadmap proposal |
+| [ris-port-op-plan-epic-features](../skills/ris-port-op-plan-epic-features/SKILL.md) | Portable preliminary feature-graph proposal with coverage, stage prerequisites and parallel sets |
 | [ris-port-op-prepare-worktree](../skills/ris-port-op-prepare-worktree/SKILL.md) | Checked working-copy/environment handoff |
 | [ris-port-op-implement-change](../skills/ris-port-op-implement-change/SKILL.md) | Bounded implementation or review-finding repair |
 | [ris-port-op-review-change](../skills/ris-port-op-review-change/SKILL.md) | Read-only change assessment |
@@ -161,9 +165,9 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-resolve-context](../skills/ris-proj-op-resolve-context/SKILL.md) | Read-only project configuration/path preparation |
 | [ris-proj-op-register-bug](../skills/ris-proj-op-register-bug/SKILL.md) | Unconfirmed bug registration or safe original supplementation, verified ID and stop |
 | [ris-proj-op-investigate-bug](../skills/ris-proj-op-investigate-bug/SKILL.md) | Exact-ID investigation, protected current report/criteria and justified message disposition |
-| [ris-proj-op-plan-roadmap](../skills/ris-proj-op-plan-roadmap/SKILL.md) | Project roadmap and authorized tracker persistence |
+| [ris-proj-op-plan-roadmap](../skills/ris-proj-op-plan-roadmap/SKILL.md) | Combined epic/preliminary-feature roadmap, agreement and verified tracker publication |
 | [ris-proj-op-refine-epic](../skills/ris-proj-op-refine-epic/SKILL.md) | One unclear epic's outcome and boundaries |
-| [ris-proj-op-select-feature](../skills/ris-proj-op-select-feature/SKILL.md) | Read-only next-feature recommendation |
+| [ris-proj-op-plan-epic-features](../skills/ris-proj-op-plan-epic-features/SKILL.md) | Existing epic's agreed preliminary graph, safe reconciliation and separate tracker publication |
 | [ris-proj-op-suggest-continuation](../skills/ris-proj-op-suggest-continuation/SKILL.md) | Read-only continuation prompt, human decision or exact blocker |
 | [ris-proj-op-show-plan](../skills/ris-proj-op-show-plan/SKILL.md) | Complete compact read-only project/ID-subtree plan and one checked next action |
 | [ris-proj-op-interview-feature](../skills/ris-proj-op-interview-feature/SKILL.md) | Feature-requirements interview handoff |
@@ -197,6 +201,19 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
 ## Choosing an operation
+
+`roadmap` is the combined planning entry: `epic-only`, default `nearest`, or `all`
+feature depth. A single MVP epic with several preliminary features is valid.
+Freely structured product sources justify many-to-many coverage; gaps and material
+changes need decisions, not new assumed requirements. The lead reconciles isolated
+epic proposals before agreement and serial writes. Direct epic-graph planning works
+without a subagent; its portable base has no RIS/tracker/harness dependency.
+Preliminary features need no spec/design/AC/implementation tasks. Preparation retains
+the same ID and real acceptance gates. Implementation uses native blocks; requirements
+prerequisites name exact IDs and needed accepted contracts in readable content;
+information links never block. Child execution checks parent-feature prerequisites
+too. Plans/files/raw closed alone are not acceptance. Replanning preserves all-state
+identities, accepted/started/foreign/completed work; no new registry/state machine.
 
 `init` prepares a selected new/existing project **after** package installation;
 empty input establishes project/setup scope, never selects work. The flow owns

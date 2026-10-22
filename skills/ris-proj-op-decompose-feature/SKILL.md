@@ -11,6 +11,13 @@ description: >-
 
 # Decompose an accepted feature into verified project tasks
 
+For a confirmed feature read/apply installed specify-feature's owned
+`references/stage-prerequisites.md` before dependent decomposition/writes. Check
+readable requirements prerequisite contracts separately from native blocks and
+preserve the same preliminary ID. Accepted future contracts can support blocked
+tasks before implementation; unknown needed contracts stop only dependent parts.
+Do not duplicate parent-feature native edges onto children merely for membership.
+
 Own the **combined project result**: confirmed accepted inputs and matching
 feature or explicit ordinary standalone task/container, a sufficient single-task
 outcome or verified children/blockers, traceable coverage and required tracker

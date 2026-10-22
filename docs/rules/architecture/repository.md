@@ -18,8 +18,8 @@ portable-пары: предмет — сам RIS. Обычная справка 
 Help и init интегрированы в `929ffe395ada51ed3bb6f331e796be838fbe011d`;
 это статус исходников, не подтверждение runtime или обнаружения конкретным клиентом.
 Единая актуальная точка входа в готовность и ограничения — [README](../../../README.md#current-readiness-and-limits).
-Текущий состав исходников: 51 скил, пять flow, 21 пользовательский вход
-(16 project + 4 portable + одно help-исключение). Контракт lean execution задан
+Текущий состав исходников: 52 скила, пять flow, 20 пользовательских входов
+(15 project + 4 portable + одно help-исключение). Контракт lean execution задан
 исходниками изменения ris-b1a.4; описание контракта не доказывает его Git-публикацию,
 independent approval, runtime evidence или whole-S1 acceptance.
 Исторические числа ниже
@@ -43,6 +43,7 @@ schema 1 восстанавливается с прежней foreign-класс
 | Правила разработки RIS | [development.md](../development.md); конфигурация путей и адаптера — корневой [ris.yaml](../../../ris.yaml). |
 | Принятые поставки | [docs/specs/](../../specs/README.md), обычный Markdown, не дополнительный OKF-корень. Будущие решения остаются в спецификациях до реализации. |
 | Очередь, статусы и связи | Beads/Dolt через выбранный `ris-proj-adapter-beads-tasks`; Git-публикация не синхронизирует эти записи. |
+| Roadmap и граф фич (ris-a17) | В этом change tree до интеграции `ris-proj-op-plan-roadmap` владеет единым эпик/предварительные фичи результатом с epic-only/nearest (default)/all глубиной. `ris-port-op-plan-epic-features` — автономное read-only предложение, `ris-proj-op-plan-epic-features` — проектные входы, согласование графа, bounded writes и отдельная публикация. Один эпик MVP допустим. Show-plan владеет existing-stage candidates, specify — stage prerequisites; parent-feature gates сохраняются при исполнении ребёнка. Selector/его команда удалены без alias; accepted/foreign/completed work и история сохраняются. Проверки исходников не доказывают live-поведение. |
 | Адресная поправка ris-wcv | [Принятый document route](../../specs/ris-wcv/spec.md) заменяет feature-record/same-record refs и saved-verification gates в описаниях поставок ниже: common published-inputs владеет full-ID convention/legacy discovery, project owners — actual independent acceptance/applicability, Beads — ordinary native task/edges/close, без JSON/реестра/миграции. New `sources.specs/<full feature ID>/spec.md`: H1 и Feature-ID/Summary/optional Keywords, дизайн inline либо adjacent. Старые данные и evidence сохраняются; их schema не gate. Review YAML/bug snapshot и substantive claim/copy/Git/close/Dolt сохраняются. Это контракт исходников, не заявление о публикации текущего дерева или live-поведении. |
 | Primary/context и handoff (U1) | `ris-proj-op-resolve-context` владеет bounded explicit→verified available saved→verified ordinary Git source-copy primary resolution/provenance; потребители не копируют discovery. `ris-proj-lib-common/references/artifacts.md` задаёт recoverable locator/version/decision/channel/remainder без registry/mandatory next prompt. |
 | Git-публикация (U1) | Existing `ris-proj-op-publish-task` принимает task/change и pre-ID document subject, включая requirements-only без будущих ID/design/implementation, через один whole-snapshot/review/authority/outgoing/preservation/reassessment/remote алгоритм. `ris-proj-flow-prepare-feature` вызывает этого owner и проверяет receipt; tracker writes/publication и closure не входят в publisher. |
@@ -65,7 +66,7 @@ Namespace этой редакции поставляется согласова�
 [карте перехода](../../skill-command-naming-migration.md) с добавлением W2 и U3;
 текущий инвентарь — в [каталоге скилов](../../skills.md).
 С парой автора основы продукта, справкой и сценарием инициализации текущий комплект содержит
-51 скил, пять flow и 21 вход (16 project + 4 portable + клиентское исключение help); это состав текущих исходников, не новая
+52 скила, пять flow и 20 входов (15 project + 4 portable + клиентское исключение help); это состав текущих исходников, не новая
 оценка runtime или перепринятие исторических поставок.
 Компактные команды `risp-`/`risb-` находятся в `commands/opencode/` с явной картой
 к сохранённым скилам; остальные операции доступны прямой загрузкой, lib/adapter

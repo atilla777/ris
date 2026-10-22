@@ -1,5 +1,5 @@
 ---
-description: Propose or save a selected RIS project's goal-level roadmap.
+description: Plan epics and preliminary features; depth epic-only, nearest (default), or all.
 ---
 
 Load `ris-proj-op-plan-roadmap` with the skill tool and follow its contract for

@@ -9,6 +9,12 @@ description: >-
 
 # Implement one claimed project task through TDD
 
+For feature/child execution apply installed specify-feature's owned
+`references/stage-prerequisites.md` before dependent implementation: inspect actual
+parent-feature required contracts/results and native blockers, not just child
+edges. Unknown evidence blocks dependent action. Kind is not inferred from
+membership; ordinary/bug contracts, TDD, claim and native refusal remain unchanged.
+
 Own the project's checked change and handoff. Load/apply `ris-proj-lib-common` and its
 applicable resources, `ris-proj-op-resolve-context` for rules/specs/adapter and shared task paths,
 and `ris-port-op-implement-change` with required `implementation_mode: tdd` for code/test

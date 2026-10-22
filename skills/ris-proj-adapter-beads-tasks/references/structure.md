@@ -3,6 +3,25 @@
 Read before structural mutations, with `concurrency.md` and main typed reads.
 The caller supplies endpoints, scope, expected structure and authorization.
 
+For optional `tasks.feature-dependencies.add|remove`, require a concrete approved
+graph delta, both exact endpoint IDs/native task types, confirmed feature kinds
+from scope/content/source associations (not membership alone), and exact epic
+memberships. Both endpoints must belong to the approved same epic, or both epics
+must be explicitly in approved cross-epic scope. No inferred neighbor authority.
+Fresh-read both endpoints, content/reason, membership/status/ownership and typed
+edges before each write; preserve started/accepted/foreign commitments. Require
+explicit implementation result/reason supplied by the caller; requirements-only
+and informational relationships cannot be converted to blocks. Check proposed
+directed graph for cycles, including relevant external paths, retaining native
+cycle checks below. Use the same bounded native blocks add/remove forms below,
+but this optional contract is distinct from intra-feature `dependencies.add`.
+For removal require exact current `blocks` type/direction and deletion authority;
+the baseline remove command has no type-scoped CAS, so refuse ambiguity with a
+different/replaced endpoint relation and disclose concurrent replacement limits.
+Independently reread both endpoints, membership and exact typed edge after add/
+remove. Scope drift is conflict with persisted effects, not success. A failure
+stops further graph writes; reconcile before retry, never remove unrelated edges.
+
 - **Composition:** `bd --sandbox create --parent <parent-id>` or `bd --sandbox update <child-id>
   --parent <parent-id>`; inspect the existing parent and child, check proposed
   ancestry for a cycle; refuse a closed parent or a child whose state makes

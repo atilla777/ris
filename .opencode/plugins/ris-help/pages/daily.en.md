@@ -19,9 +19,13 @@ review/publish inputs and verify decomposition plus tracker publication.
 
 **Or use individual stages:**
 
-- `/risp-select-feature` — choose a feature.
+- `/risp-status <epic ID>` — existing stage-ready and parallel candidates (read-only).
 - `/risp-specify-feature` — agree requirements.
 - `/risp-design-feature` — agree the design.
+
+Empty epic? `/risp-roadmap` plans epics and preliminary features (default nearest
+stage; also epic-only/all). One MVP epic is valid. All-blocked means diagnose
+prerequisites, not generate more features. Preparation retains the preliminary ID.
 
 **`/risp-decompose-feature <ID>`** — independently obtain/verify tasks from accepted
 published inputs; already included in the whole preparation flow. No implementation.

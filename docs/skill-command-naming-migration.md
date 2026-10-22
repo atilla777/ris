@@ -24,8 +24,14 @@ without config/tracker/source-checkout prerequisites. Actual work stays with
 portable wrapper pair. Help is present in the selected upstream; local integration
 of the combined help/init candidate does not transfer prior review or publication
 evidence to its new full snapshot.
-The combined current source inventory is **51 skills / five flows** and **21
-commands (16 project + 4 portable + one help exception)**. Both standalone task
+The combined current source inventory is **52 skills / five flows** and **20
+entries (15 project + 4 portable + one help exception)**. Under
+[ris-a17 S1/D1](specs/ris-a17/spec.md), `ris-proj-op-select-feature` and
+`/risp-select-feature` are retired without alias. Preliminary product planning
+belongs to the new `ris-port-op-plan-epic-features` / `ris-proj-op-plan-epic-features`
+pair and the combined `/risp-roadmap`; existing-work selection belongs to status/next
+and preparation. The legacy selector mappings below are historical, not active links.
+Both standalone task
 planners and `/risp-plan-task` are retired under accepted S1 §4 / D1 §5, without
 aliases; implementation determines its approach directly from sufficient accepted
 inputs/current code. Old plans remain optional history. Original tables/AC and acceptance remain

@@ -66,16 +66,18 @@ write, provider connection or global configuration edit.
 
 ## Bind roles and bootstrap only the agreed delta
 
-Propose these six working-cycle bindings in `ris.yaml`:
+Propose these five working-cycle bindings in `ris.yaml`:
 
 | RIS role | Agent |
 | --- | --- |
-| `feature-selection` | `standard` |
 | `task-decomposition` | `standard` |
 | `task-execution` | `standard` |
 | `feature-preparation` | `advanced` |
 | `task-implementation` | `advanced` |
 | `task-review` | `advanced` |
+
+Optional delegated preliminary feature-graph proposals reuse `task-decomposition`;
+direct planning needs no role. Existing-work navigation does not need a selector role.
 
 Models live in the OpenCode definitions, never as invented model fields in
 `execution.roles`. Preserve unrelated roles/options. For existing different

@@ -12,6 +12,13 @@ description: >-
 
 # Execute one ready task
 
+Before dependent feature/child execution apply installed specify-feature's owned
+`references/stage-prerequisites.md`: inspect actual parent-feature requirements
+prerequisites, implementation results and directed blockers as well as the child's.
+Do not infer feature kind from membership, duplicate edges or bypass native refusal.
+No-ID native ready is only candidate discovery, never a requirements/readiness oracle.
+Ordinary and native bug routes retain their contracts and strict execution guards.
+
 Own selection, transitions, one human dialogue and the sufficiency of the combined
 result. This is one project scenario, without a new portable base: component
 skills already own the portable stage methods. The tracker owns identity, status,

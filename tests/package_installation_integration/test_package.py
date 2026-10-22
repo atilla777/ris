@@ -507,11 +507,13 @@ Path(a[a.index("--output")+1]).write_bytes(data)
         self.assertEqual(w1.oracle(self.project), before)
         self.preserved()
 
-    def test_planners_retired_on_install_and_owned_update(self):
+    def test_planners_and_selector_retired_on_install_and_owned_update(self):
         retired = (
             ".opencode/skills/ris-port-op-plan-task",
             ".opencode/skills/ris-proj-op-plan-task",
             ".opencode/command/risp-plan-task.md",
+            ".opencode/skills/ris-proj-op-select-feature",
+            ".opencode/command/risp-select-feature.md",
         )
         self.exact(self.cli("install"))
         for path in retired:
@@ -528,9 +530,17 @@ Path(a[a.index("--output")+1]).write_bytes(data)
             path = os.fsdecode(raw)
             if not (
                 path.startswith(
-                    ("skills/ris-port-op-plan-task/", "skills/ris-proj-op-plan-task/")
+                    (
+                        "skills/ris-port-op-plan-task/",
+                        "skills/ris-proj-op-plan-task/",
+                        "skills/ris-proj-op-select-feature/",
+                    )
                 )
-                or path == "commands/opencode/risp-plan-task.md"
+                or path
+                in (
+                    "commands/opencode/risp-plan-task.md",
+                    "commands/opencode/risp-select-feature.md",
+                )
                 or path
                 == "skills/ris-port-op-manage-installation/references/command-ownership.txt"
             ):
@@ -541,7 +551,7 @@ Path(a[a.index("--output")+1]).write_bytes(data)
             )
             self.put(path, data.decode())
             (self.fixture / path).chmod(int(mode, 8) & 0o777)
-        old = self.commit("Exact pre-retirement planner payload")
+        old = self.commit("Exact pre-retirement planner and selector payload")
         self.exact(self.cli("update", "--ref", old), old)
         for path in retired:
             self.assertTrue((self.project / path).exists(), path)
@@ -601,7 +611,6 @@ Path(a[a.index("--output")+1]).write_bytes(data)
                 "next",
                 "roadmap",
                 "refine-epic",
-                "select-feature",
                 "prepare-feature",
                 "specify-feature",
                 "design-feature",

@@ -79,8 +79,13 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   Git/tracker effects need no new message when already covered; explicit restrictions,
   unrelated outgoing Git commits and uncovered shared Dolt history remain gates.
   A real permission gap needs one concrete question, not silent local-only completion.
-- `select-feature` chooses a small outcome within an epic; `refine-epic` clarifies
-  an unclear epic; `roadmap` proposes/records goal-level epics. None implements.
+- `roadmap` owns combined epics and preliminary features (`epic-only`, default
+  `nearest`, `all`); one MVP epic is valid. Direct `ris-proj-op-plan-epic-features`
+  plans an existing epic's graph; its portable base needs only supplied inputs.
+  `refine-epic` clarifies unclear goals/boundaries, not the graph. Status/prepare
+  use show-plan's bounded existing-feature selection for the needed stage, preserving
+  parallel candidates; empty scope recommends planning, all-blocked diagnoses.
+  Read-only status/next never executes graph planning. None implements.
 - `interview-feature` elicits requirements without saving; portable
   `formulate-feature-spec` makes a proposal from known decisions; project
   `specify-feature` owns actual acceptance/save/publication within authority.

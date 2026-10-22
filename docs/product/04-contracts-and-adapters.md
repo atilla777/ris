@@ -142,6 +142,21 @@ links позволяют найти actual content и независимые р�
 
 ### Tool-specific standalone операции
 
+Адресное совместимое расширение по [ris-a17 S1/D1](../specs/ris-a17/spec.md):
+адаптер может отдельно объявить `tasks.items.update` для bounded ordinary feature
+content и `tasks.feature-dependencies.add|remove` для графа предварительных фич.
+Последнее требует approved graph delta, exact endpoints с подтверждённым feature
+kind и epic membership; оба эпика при cross-epic связи явно входят в scope.
+Результат — точная направленная implementation `blocks` связь либо проверенное
+удаление именно её, с cycle checks, fresh reads/native guards/read-back и честными
+concurrent replacement limits. `tasks.dependencies.add` остаётся intra-feature,
+не получает скрытого cross-feature смысла. Нужны объявленные capabilities до записи.
+Requirements prerequisites хранятся читаемыми exact-ID + required accepted decision/
+contract scope ссылками, информационные связи не блокируют. Принятое/начатое/чужое/
+завершённое сохраняется; непонятный create effect сверяется, не дублируется. Это не
+универсальный CAS графа и не новая readiness-схема. Иные операции и ограничения
+таблицы выше не расширяются.
+
 Обычные standalone task/task-контейнеры и их дети — отдельная явно выбранная
 ветка, не ослабление feature-record и не расширение смысла `tasks.items.create`.
 Выбранный адаптер отдельно объявляет tool-specific create/reconcile, source

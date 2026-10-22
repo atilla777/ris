@@ -18,7 +18,7 @@ project rules and missing-input handling remain the owner's, not granted by help
 | product-author* (project product foundation) | `ris-proj-op-author-product-foundation` |
 | roadmap | `/risp-roadmap` → `ris-proj-op-plan-roadmap` |
 | refine-epic | `/risp-refine-epic` → `ris-proj-op-refine-epic` |
-| select-feature | `/risp-select-feature` → `ris-proj-op-select-feature` |
+| plan-epic-features | `ris-proj-op-plan-epic-features` (direct load) |
 | prepare-feature | `/risp-prepare-feature` → `ris-proj-flow-prepare-feature` |
 | interview-feature | `ris-proj-op-interview-feature` |
 | specify-feature | `/risp-specify-feature` → `ris-proj-op-specify-feature` |
@@ -91,25 +91,39 @@ inherited tier models; missing/refused setup limits dependent readiness.
 Example: `/risp-init <project>, preserve existing material and agree local setup`.
 
 ### ris-proj-op-plan-roadmap
-[Owner](../../ris-proj-op-plan-roadmap/SKILL.md). Purpose: goal-level roadmap.
-Choose when: turn product knowledge into epic outcomes, not feature tasks.
-Inputs: selected project, product evidence, goal, starting state, write scope.
-Result/stop: checked proposal or authorized verified tracker epics/dependencies.
+[Owner](../../ris-proj-op-plan-roadmap/SKILL.md). Purpose: combined epic/feature roadmap.
+Choose when: plan product outcomes, not implementation tasks. One MVP epic is valid.
+Inputs: project, product evidence, goal/state, write scope and depth `epic-only`,
+`nearest` (default) or `all`; nearest stage follows accepted goals/constraints.
+Result/stop: agreed epic+preliminary-feature proposal or verified tracker graph
+with separate publication; no specs/design/implementation. Proposals reconcile
+cross-epic overlaps before agreement and serial writes, preserving partial IDs.
 Example: `/risp-roadmap propose an MVP roadmap for <project>, without writes`.
 
 ### ris-proj-op-refine-epic
 [Owner](../../ris-proj-op-refine-epic/SKILL.md). Purpose: clarify one unclear epic.
-Choose when: its boundary prevents feature selection, not to specify every feature.
+Choose when: its goal/boundary is actually unclear, not to construct the feature graph.
 Inputs: project, exact epic, current evidence and optional update authority.
-Result/stop: bounded outcomes/prerequisites or verified agreed epic update.
+Result/stop: goal/boundary clarification, no-op or verified agreed epic-content update;
+no second feature-graph method.
 Example: `/risp-refine-epic <epic ID>, propose only`.
 
-### ris-proj-op-select-feature
-[Owner](../../ris-proj-op-select-feature/SKILL.md). Purpose: recommend a small feature.
-Choose when: decide what outcome to pursue in an epic, not to execute it.
-Inputs: project, epic/roadmap scope and current outcome/source facts.
-Result/stop: recommendation or precise selection gap; no write or readiness grant.
-Example: `/risp-select-feature <epic ID>`.
+### ris-proj-op-plan-epic-features
+[Owner](../../ris-proj-op-plan-epic-features/SKILL.md). Purpose: preliminary feature graph.
+Choose when: fill an empty existing epic or replan an evidenced coverage/product gap,
+not merely because existing features are blocked. Inputs: project, exact epic,
+sources, all-state work/neighbor context and write/publication scope.
+Result/stop: concrete human-agreed feature graph, verified bounded tracker effects
+and separate publication (full default); explicit proposal/local-only limits retained.
+No spec/design/AC required for preliminary registration, no claims/implementation.
+Example: `Load ris-proj-op-plan-epic-features for <epic ID>; propose only`.
+
+### ris-port-op-plan-epic-features
+[Owner](../../ris-port-op-plan-epic-features/SKILL.md). Purpose: read-only graph method.
+Choose when: supplied epic/product/work context needs coverage, dedup, cycles,
+stage prerequisites, parallel sets and neighbor-impact proposal; no RIS required.
+Result/stop: unsaved bounded graph with local labels versus actual existing IDs,
+explicit gaps and delta; no persistence, next-work selection or task splitting.
 
 ### ris-proj-flow-prepare-feature
 [Owner](../../ris-proj-flow-prepare-feature/SKILL.md). Purpose: whole preparation route.
@@ -121,7 +135,9 @@ precise acceptance of both complete requirements/design scopes (one act allowed)
 independent review, published inputs and verified one-task or child-task/edge
 coverage with separate tracker publication. Sufficient inline design needs no
 design.md. Optional drafts are not acceptance/publication. No implementation/close.
-Example: `/risp-prepare-feature <epic ID>: add authorization`.
+Example: `/risp-prepare-feature <existing feature ID>`; with an epic, choose existing
+needed-stage candidates; an empty epic first needs agreed graph planning. Parallel
+candidates remain visible; all-blocked diagnoses prerequisites, not new features.
 
 ### ris-proj-op-interview-feature
 [Owner](../../ris-proj-op-interview-feature/SKILL.md). Purpose: elicit requirements.

@@ -10,6 +10,12 @@ description: >-
 
 # Interview about feature requirements
 
+For an existing confirmed feature read/apply installed specify-feature's owned
+`references/stage-prerequisites.md` before dependent requirements interviewing.
+Use exact readable prerequisite decision references even if native blocks is empty;
+implementation-only dependencies do not by themselves prevent independent questions.
+Unknown/real requirements blockers stop the dependent action, not unrelated inquiry.
+
 Own the **project-specific coverage and final handoff**. Use the installed
 `ris-port-op-interview` when an interview is needed, for the decision-tree method in the **same conversation**;
 do not conduct a second interview or restate its question algorithm. This is
