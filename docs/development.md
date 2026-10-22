@@ -81,8 +81,11 @@ then column-zero Feature-ID/Summary/optional Keywords; design is inline or adjac
 Actual scope/version acceptance and original containing-commit provenance remain.
 Legacy links/payload hints locate real documents, without schema gates, migration
 or title-derived paths. Missing/old/malformed JSON alone is not a blocker. Ordinary,
-document-only and bug subjects keep their paths/contracts; bug snapshots and review
-YAML stay unchanged. Historical specifications/evidence are not rewritten.
+document-only and bug subjects keep their paths/contracts. Bugfix uses the
+[versioned-basis contract](product/06-artifacts-and-handoff.md#41-воспроизводимое-основание-bugfix)
+and the adapter's complete historical read/short locator reconciliation, without a
+mandatory duplicate full snapshot or new file. Legacy snapshots and review YAML
+are not migrated. Historical specifications/evidence are not rewritten.
 
 The source contract introduced by ris-b1a.4 applies accepted S1 §4 / D1 §5: execution
 uses sufficient accepted inputs/current code without a standalone planner, saved

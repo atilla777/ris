@@ -16,8 +16,11 @@ subject**, not the existence of a bug ID:
   This exception does not accept the design or approve a future fix. Keep independent
   review, applicable document checks and complete candidate-tree binding.
 - **Fix implementation review, including its publication gate:** additionally read
-  the full historical notes execution-input snapshot at project/tracker + bug ID +
-  marker and name it in the report; a number/hash alone is insufficient. Compare
+   the full used historical inputs through the adapter at project/tracker + bug ID +
+   exact record version and used immutable Git source/decision locators; name that
+   basis in the report. A number/hash or inaccessible link alone is insufficient;
+   missing used fields block approval. No full notes snapshot/text handoff is required;
+   preserve legacy snapshots as actual historical inputs without migration. Compare
   current report/criteria/decisions with that basis and bind exact candidate/check
   versions to original divergence and affected regressions. Material drift requires
   targeted change/review/evidence applicability assessment before approval,

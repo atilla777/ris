@@ -41,16 +41,16 @@ and bounded freshness checks; neither assignment nor read-back excludes all
 parallel content edits. A missing/partial pair is not fix-ready; return that exact
 gap without silently repairing the investigation or demanding a CAS provider.
 
-Check advertised ordinary native bug reads, claim, execution snapshot append/read,
+Check advertised ordinary native bug reads, claim, exact historical basis read/locator append,
 result persistence and separate fix-completion, plus tracker publication. For
 Beads these belong to `ris-proj-adapter-beads-tasks` and its conditional
 `references/bug-execution.md`; feature-record/2 and investigation disposition do
 not supply them. Apply bounded tracker operations directly or delegate to that
 owner with exact content, identity, expected state and authority; inspect actual read-back.
 
-Apply authorized admission/design/snapshot owners directly or delegate bounded
+Apply authorized admission/design/basis owners directly or delegate bounded
 work; direct work needs no unused role. Use the existing `task-execution` role for
-delegated noninteractive admission, design formulation/save and snapshot preparation,
+delegated noninteractive admission, design formulation/save and basis preservation,
 with bounded owner/inputs,
 allowed effects, accessible outputs and early-return predicates. Check configured
 agent availability and actual launch; a configured name proves neither. Keep all
@@ -59,7 +59,7 @@ decisions return here, never a nested interview. Do not create new roles or spli
 internal reads into roles. The execution flow keeps its own executors, independent
 review and role gates; do not wrap it in another full execution agent/dialogue.
 
-For prior or ambiguous effects first reconcile actual design, snapshot markers
+For prior or ambiguous effects first reconcile actual design, basis locators
 and content, execution receipts, Git, closure and tracker publication. A closed
 bug is never reopened or fixed again. Return its verified state, or hand proven
 own unfinished execution to the execution flow's existing read-only recovery to
@@ -116,26 +116,25 @@ execution flow before implementation.
 ## Preserve the basis, then use the whole execution route
 
 After necessary decisions, freshly compare report, aligned criteria and constraints
-with the admitted basis. Ask the adapter to append/reconcile **one full recoverable
-historical execution-input snapshot** in bug notes under a stable project/bug-scoped
-identifier. Include full report text, report identity/version/author/code revision
-and source locator, exact fix/check criteria, accepted decisions/constraints and
-separate design content/reference/acceptance when needed. A number/hash or link
-without recoverable text is insufficient. Inspect marker AND complete content and
-occurrences before and after; reuse exact existing effects, stop on conflicting or
-ambiguous identity, reconcile lost responses before retry. Native append preserves
-foreign notes but promises neither append-once nor report+append atomicity. The
-snapshot is historical input, never a second current report or a replacement for
-the investigation owner's bounded current report/acceptance persistence.
+with the admitted basis. Select the full used report/criteria/decisions and inspected
+code/environment, then ask the adapter to independently retrieve and compare the
+exact saved record version and append/reconcile only a short ordinary basis locator
+where not already addressed. For Beads apply `references/bug-execution.md`; the adapter
+owns historical field completeness, native CLI, targeted append and ambiguous retry.
+Missing history, omitted used fields or inaccessible Git decisions block dependent
+execution; a hash or link alone is insufficient. Unsaved material decisions must
+first be saved by their existing owner. Preserve old snapshots and foreign notes;
+no new full notes snapshot, file or mandatory text handoff is required.
 
-Pass the **same exact ID**, full snapshot text and locator (project/tracker + ID +
-marker), report source/version, accepted decisions, permissions, copy/effect receipts
+Pass the **same exact ID**, checked versioned-basis locator (project/tracker + ID +
+exact historical version and used Git commit/path/sections), accepted decisions,
+permissions, copy/effect receipts
 and limits to `ris-proj-flow-execute-task`. Apply that scenario **in full**, including
 its copy/claim, roles, code TDD or text owner, independent
 review, Git publication, separate exact completion and tracker publication. Do not
 copy or skip its substantive gates. Implementation starts from sufficient accepted
 inputs/current code, without a saved plan, omission-decision or implementation
-report. The historical bug-input snapshot remains required, not a substitute log.
+report. Consumers retrieve full needed inputs from the checked sources, not a copied log.
 When design used a prepared copy, explicitly forward its checked association and
 preparation effects to execution step 1 for fresh owner-verified reuse of that
 same copy, not another creation. A mismatch blocks the dependent handoff; never
@@ -143,11 +142,11 @@ silently replace the association. Design publication and partial effects remain
 facts to reconcile, not permission to replay preparation or publication.
 No new slash command is required.
 
-At handoff and resume compare current report/criteria/decisions with the historical
-snapshot. Material changes go to affected change/review/evidence owners for
+At handoff and resume compare current report/criteria/decisions with the versioned
+basis. Material changes go to affected change/review/evidence owners for
 targeted applicability assessment before dependent effects; compatible results may
-be retained with reasons. Preserve old snapshots; a newly needed basis gets its
-own identified full snapshot rather than rewriting history. Existing published or
+be retained with reasons. Preserve old snapshots and locators; a newly admitted basis
+gets a new short locator rather than rewriting history. Existing published or
 closed effects remain facts, not permission to reopen or replay them. After transfer,
 the execution flow owns recovery through its existing route.
 
@@ -161,11 +160,11 @@ the leading dialogue on accepted-contract/platform conflict, unavailable essenti
 guarantee/input or materially expanding verification before dependent experiments.
 
 Return `ok|blocked|conflict|error`, exact ID/type/project/config/actor/copy, report
-and snapshot locators/versions, sufficient basis and separate decisions, actual
+and versioned-basis locators, sufficient inputs and separate decisions, actual
 changes, checks/review provenance and limits. Distinguish fixed/checked content,
 verified Git commit/ref/remote, separately verified exact fix-completion and tracker
 required revision/fresh selected-remote reachability evidence, separately from
 local exact-content checks. Full `ok` requires every promised effect; admission,
-saved snapshot, disposition or Git push alone is insufficient. On a stop name the
+saved basis locator, disposition or Git push alone is insufficient. On a stop name the
 cause, preserved effects, uncertainty and exact remaining operation/recovery owner.
 Stop at this selected bug's result; never close parents or start another bug.

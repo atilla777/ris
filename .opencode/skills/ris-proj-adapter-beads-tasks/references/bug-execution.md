@@ -1,6 +1,6 @@
 # Beads-specific ordinary native bug execution
 
-Read before ordinary bug execution claim, execution-input snapshot, fix-result
+Read before ordinary bug execution claim, versioned execution-basis read/append, fix-result
 persistence or fix-completion, accepted-design source-link append, and their
 prerequisite children/blocker reads.
 Apply main typed read/reconcile; read/apply `claim.md`, `update.md` or
@@ -12,10 +12,10 @@ tasks v1 feature operations, feature-record/2, diagnosis or composition.
 ## Advertise the requested capability and inputs
 
 Support exact typed **bug read**, complete **children/blocker reads**, native
-**claim**, **accepted-design source-link append**, **snapshot append/read/reconcile**, **fix-result persistence** and
+**claim**, **accepted-design source-link append**, **historical basis read/locator append/reconcile**, **fix-result persistence** and
 separate **exact fix-completion**. Require selected workspace, exact ID/expected
 `bug`, actor for claim, authorized bounded effects and expected current state.
-Snapshot/result/completion additionally require the caller's sufficient report/
+Basis append/result/completion additionally require the caller's sufficient report/
 criteria/accepted decisions; reads do not require readiness. The caller owns
 readiness and completion assessment; this adapter verifies supplied predicates
 and stored effects. Never convert the bug, add an artificial parent/feature record,
@@ -44,66 +44,98 @@ Require exact bug type, actual design acceptance/publication evidence, approved
 content and a stable scoped marker; reconcile marker AND full content/occurrences
 before and after append and after ambiguous responses. Reuse exact prior effects;
 conflicting/repeated markers stop. No concurrent append-once guarantee. This link
-append needs no not-yet-created execution snapshot and does not assert fix readiness
+append needs no not-yet-selected execution basis and does not assert fix readiness
 or completion. Any necessary report/acceptance replacement uses investigation's
 bounded single-investigator persistence conditions, not this append capability.
 
-## Full recoverable historical execution-input snapshot
+## Reproducible historical execution basis
 
-Require an approved stable execution-input identifier scoped to project/bug and
-an unambiguous begin/end marker, retained on retry. The payload must contain:
+The admission owner selects the full used report/criteria/decisions, their authority,
+inspected code revision and material environment. This adapter owns technical
+historical retrieval, completeness comparison and locator persistence, not admission
+or acceptance. A basis is selected project/tracker + exact native bug ID + exact
+saved record version and necessary immutable Git commit/path/section locators.
+No full duplicate notes snapshot, file, JSON/schema record or text handoff is required.
+Read the full selected inputs; a hash, readiness label or inaccessible link is not enough.
 
-- Project/tracker identity, exact bug ID and snapshot identifier/author.
-- Full used report text, report identity/version/investigator, inspected code
-  revision/environment and exact current-report source (description section or
-  published repository/full commit/path).
-- Exact agreed fix criteria, original divergence/success and affected regression
-  checks, with accepted scope/constraints and their authority/source versions.
-- Full substantive accepted decisions/constraints and, when required, separate
-  design content and its pinned source/actual acceptance evidence. Preserve the
-  distinction between accepted choices, observed facts and proposals.
+### Exact historical read and comparison
 
-The caller supplies content; do not reconstruct it from a readiness label or
-hash. A locator is selected project/tracker + exact bug ID + unique snapshot
-marker, retrievable by exact `show`, without ignored primary notes or chat.
-References identify provenance but do not substitute for recoverable report,
-criteria and decision text. This is immutable historical evidence, not another
-editable current report. Do not replace description/acceptance to save it.
+For fresh admission without an existing version locator, find a saved history entry
+whose full used fields match the admitted content, select its exact `CommitHash`
+and independently reread/compare it below before saving the locator. If none matches,
+return the unsaved/unavailable-input gap, never pin a newer nonmatching HEAD.
 
-1. Fresh-read full notes and current report/acceptance/decision sources. Check
-   supplied snapshot text still matches the caller's admitted inputs; material
-   drift returns for applicability assessment before dependent execution.
-2. Inspect marker **and complete content/occurrences**. One exact existing block
-   returns verified unchanged. Same identifier with different/incomplete text,
-   repeated markers or uncertain boundaries are conflict; do not silently pick
-   a block, mint a replacement ID or append again to evade uncertainty.
-3. If absent and authorized, use native `bd --sandbox update <bug-id>
-   --append-notes <full-marked-snapshot> --json`, preserving all foreign notes.
-   Never replay a read whole notes field. Follow main safe argument handling.
-4. Independently exact-read notes and current report/criteria/decisions after
-   success, failure or ambiguous output. Verify one complete exact block, preserved
-   foreign content and report applicability. Reconcile an ambiguous response before
-   retry; absent proven effect alone permits a bounded retry under fresh gates.
-   Report repeated/conflicting blocks and partial effects without further writes.
+1. Use native `bd history <bug-id> --limit 0 --json` in the selected workspace.
+   Beads 1.3.1 returns entries with `CommitHash` and a full `Issue`. Require successful,
+   complete JSON; recover host-truncated output before inspecting it. Select the
+   **exact** requested full `CommitHash`, never newest/nearest/current HEAD. Require
+   one unambiguous matching version and `Issue.id`/`Issue.issue_type` matching the
+   exact ID and `bug`. Zero matches is unavailable history; conflicting duplicates,
+   unknown shapes, partial output or a wrong ID/type/version cannot establish a basis.
+2. Independently retrieve that entry's entire used `description`,
+   `acceptance_criteria`, `notes` and any other used decision/constraint fields.
+   Compare the actual full selected content with the admission owner's used inputs,
+   including report identity/investigator, original divergence, fix/regression criteria
+   and accepted constraints. Missing is not empty. An omitted used field is a gap,
+   even if current `show` has it; do not splice current text into a historical version.
+   A demonstrably unused field need not be invented. `show --as-of <version> --json`
+   is an alternative only after proving it returns **all** used fields at that exact
+   version; observed 1.3.1 output omitted criteria, so flag support alone is insufficient.
+3. Return the fully read inputs or their checked accessible exact locators and the
+   fields/comparison covered. The consumer reads content needed for its own assessment,
+   without repeating this CLI algorithm. Git sources/decisions are retrieved under
+   common's published-inputs method at full commit/path/section, with actual separate
+   acceptance and original decision provenance; publication is not acceptance.
+   Unavailable objects/decisions or mismatching content block dependent work, not
+   permission to substitute a fresh revision. No raw SQL, database clone, storage
+   parser or API wrapper is needed.
 
-Native append merges current notes transactionally, but is **not concurrent
-append-once**, a report+snapshot transaction or general content CAS. No strict
-guarantee is inferred from claim/status/sandbox/read-back. If expressly required
-stronger protection is unavailable, return that exact limitation before its write;
-do not install coordination, pause writers or invent flags. Investigation report/
-acceptance replacements apply `investigation.md`'s bounded single-investigator
-persistence conditions; ordinary saving requires no CAS provider. An explicitly
-required unsupported stronger content predicate still stops its dependent write.
+### Short ordinary locator append and ambiguous retry
 
-On later material report/criteria/decision changes preserve the snapshot and pass
-old/current content to the affected consumer for targeted change/review/evidence
-reassessment. New accepted basis needs a newly identified full snapshot. Compatible
-unchanged evidence may be reused with reasons; old hashes/status do not prove it.
+After a successful historical comparison, inspect current full notes for an existing
+unambiguous locator addressing the **same full used basis**. Reuse it if complete;
+otherwise append only missing addresses as a short ordinary note. Use a stable
+project/bug-scoped marker and clearly bounded note retained on retry, not a new
+runtime schema. Include exact bug/history version, used Git sources and decisions,
+inspected code revision and material environment only where not already addressed
+in the saved report. Unsaved material decisions go to their existing content owner
+for authorized saving first; this adapter cannot invent acceptance or save it as a
+locator. No description/acceptance replacement belongs to this operation.
+
+1. Fresh-read current report/criteria/decisions, ownership and relevant blockers.
+   Compare with the admitted basis; drift needs the affected owner's assessment
+   before dependent effects. Compare marker **and full content/occurrences** in notes.
+   One exact existing note returns unchanged. Conflicting/repeated markers, partial
+   content or uncertain boundaries stop without minting a new marker to evade them.
+2. Only if proven absent and authorized, use `bd --sandbox update <bug-id>
+   --append-notes <short-basis-locator> --json` under `update.md`/`concurrency.md`.
+   Never replace a read whole notes field. Preserve foreign notes and old snapshots.
+3. Independently exact-read after success, failure or ambiguous response. Verify one
+   complete exact locator, preserved prior content and current-input applicability;
+   reread the pinned historical inputs if not already verified. Reconcile before any
+   retry: exact present means no append, conflicting/unknown means stop, proven absent
+   permits only the missing append after renewed gates. Never blindly replay.
+
+Native append merges notes transactionally, not concurrent append-once, report+locator
+atomicity or general content CAS. Claim/sandbox/read-back supply no stronger promise.
+An explicitly required unsupported guarantee stops that write; do not install locks,
+pause writers or invent flags. Current report/criteria replacement remains owned by
+`investigation.md` with its bounded single-investigator persistence conditions.
+
+Retain the pinned history and include it in separately authorized ordinary Dolt
+publication; a local read is not remote availability. Do not flatten/rewrite history.
+New sessions discover the basis from project+ID ordinary notes/source links, then
+request this exact historical read without prior chat/local files. Old full snapshot
+blocks stay untouched and may be used as actual recoverable historical input, not
+migrated or demanded anew. Material report/criteria/decision drift needs targeted
+change/review/evidence assessment and a new short locator for the newly admitted
+basis, never rewriting the old version. Reuse compatible evidence with reasons;
+preserve confirmed Git/closed effects without reopening, pushing or closing again.
 
 ## Separate result persistence and exact fix-completion
 
 Persist only the authorized fix result via `update.md` native append or suitable
-independent metadata keys. Include exact bug/snapshot locator, original criteria
+independent metadata keys. Include exact bug/versioned-basis locator, original criteria
 coverage, actual integrated Git revision/publication receipt, checks and independent
 review applicability, mandatory scope/children/blockers, limits and accessible
 evidence. Preserve existing notes/decisions and reconcile marker/content on retry.
@@ -120,7 +152,7 @@ complete mandatory children/descendants, directed blockers and external evidence
 refuse unfinished children/active blockers or insufficient completion evidence.
 Use native `bd --sandbox close <bug-id> --reason <fix-result-and-evidence> --json`
 with no force, status-update shortcut, auto-next or ancestor closure. Verify status,
-reason, preserved result/snapshot, children/blockers and evidence afterward. Native
+reason, preserved result/basis locators and historical inputs, children/blockers and evidence afterward. Native
 transactional direct-child/blocker checks cover only those predicates, not exact
 membership, descendants or external-evidence freshness; no graph-wide freeze.
 
@@ -129,5 +161,5 @@ fixed bugs. Their separate investigation disposition requires its own resource.
 Already closed work is not closed again or reopened: reconcile actual reason/
 evidence and remaining publication only. Unknown effects require reads before
 retry. Return main status envelope, exact locators, provider/covered predicates/
-limits and distinct snapshot, result, Git, close and tracker-publication facts.
+limits and distinct basis, result, Git, close and tracker-publication facts.
 Stop at the requested bounded operation; publication is separately authorized.

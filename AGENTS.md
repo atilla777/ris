@@ -15,7 +15,12 @@ TDD сохраняется, но история RED/GREEN не является 
 
 Подготовка фичи отдельно следует принятой [S1 §3 / D1 §§2–4](docs/specs/sdlc-feature-lifecycle/acceptance.md): ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, same-record refs и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
 
-По принятой [поправке ris-wcv](docs/specs/ris-wcv/spec.md) прежние same-record refs/JSON и обязательное saved verification сняты: новые feature-документы — `sources.specs/<full feature ID>/spec.md`, читаемый H1 и column-zero Feature-ID/Summary/optional Keywords; фактическое независимое принятие требований/дизайна сохраняется. Старые ссылки/payload — только hints к реальным документам/решениям, без schema gate, миграции и переписывания истории. Нет нового реестра. Bug snapshot не меняется.
+По принятой [поправке ris-wcv](docs/specs/ris-wcv/spec.md) прежние same-record refs/JSON и обязательное saved verification сняты: новые feature-документы — `sources.specs/<full feature ID>/spec.md`, читаемый H1 и column-zero Feature-ID/Summary/optional Keywords; фактическое независимое принятие требований/дизайна сохраняется. Старые ссылки/payload — только hints к реальным документам/решениям, без schema gate, миграции и переписывания истории. Нет нового реестра.
+
+Bugfix использует versioned basis по [product §4.1](docs/product/06-artifacts-and-handoff.md#41-воспроизводимое-основание-bugfix):
+полные использованные поля точной версии истории трекера и immutable Git sources/decisions,
+без новой полной копии в notes/файле; historical read/locator append/retry — у адаптера.
+Старые snapshots и история не переписываются.
 
 Обычное проектное ревью сохраняется одним локальным `review.yaml` по [ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); в Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же формат. Отчёт не заменяет журнал реализации и не содержит его перенесённых полей.
 

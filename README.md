@@ -284,8 +284,11 @@ load `ris-port-op-investigate-bug`. Investigation stops before fixing.
 To fix an exact registered native bug, load `ris-proj-flow-fix-bug` with the
 selected project, ID, actor and authorized fix/publication scope. It checks the
 saved report and criteria, returns precise gaps when insufficient, obtains separate
-acceptance for material design when needed, preserves a full historical input
-snapshot in bug notes, then uses the complete existing task execution flow.
+acceptance for material design when needed, verifies the exact used tracker-history
+version and immutable Git sources/decisions, then uses the complete existing task
+execution flow. A short ordinary basis locator enables discovery by project+ID;
+no duplicate full snapshot or new file is required. Missing/incomplete history
+blocks dependent execution; old snapshots remain untouched.
 A sufficient report replaces formal spec/design files. Implementation starts from
 sufficient accepted inputs and current code, without a standalone planner, saved
 plan/omission-decision or implementation report. Code TDD, independent review,

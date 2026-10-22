@@ -141,7 +141,7 @@ ordinary source/content reads where needed, tool-specific claim/complete and sep
 verified tracker publication; `tasks` v1 alone does not promise all of these.
 Automatic selection remains task-only; never search/select bugs as queue candidates.
 An explicit native bug uses the adapter's advertised ordinary typed bug reads,
-claim, snapshot/result persistence and separate fix-completion, not task-only
+claim, historical basis read/locator and result persistence and separate fix-completion, not task-only
 feature APIs. For Beads apply its conditional `references/bug-execution.md` before
 these operations. Missing ordinary support blocks that branch without conversion.
 
@@ -199,16 +199,21 @@ because it has a parent. Confirm actual kind from explicit scope/content/source
 association, not JSON or parent-child alone; preserve historical payloads unchanged.
 
 For an exact native bug discover its full current report (description or exact
-published file), aligned criteria, accepted constraints/decisions and full historical
-execution-input snapshot in notes. Require expected behavior with authority,
+published file), aligned criteria, accepted constraints/decisions and reproducible
+versioned execution basis through the selected adapter. Require expected behavior with authority,
 confirmed divergence/applicable code/environment evidence, authorized bounded scope,
 meaningful fix/regression checks and sufficient technical constraints. Readiness
 alone is neither acceptance nor authority. The sufficient report replaces formal
 spec/design; a material technical choice still needs separately accepted design.
 Missing inputs/decisions return a precise gap, not silent investigation or feature
-preparation. Before starting fresh bug execution require the full adapter-verified
-snapshot text and project/tracker + exact ID + marker locator; if absent return
-that preparation gap to the caller rather than executing on an unsaved basis.
+preparation. Before fresh execution require adapter-verified exact historical
+report/criteria/decision content and an accessible versioned-basis locator from
+project/tracker + exact ID, with used immutable Git sources/decisions and inspected
+code/environment. The adapter owns complete historical reads and ordinary locator
+append/reconcile. Missing/incomplete history is a precise preparation gap; do not
+substitute current HEAD. No full notes snapshot, copied text handoff or new file is
+required. Preserve old full snapshots as usable historical inputs without migration.
+Unsaved material decisions go to their existing owner before dependent execution.
 At transitions/resume compare current report/criteria/decisions with this basis;
 material drift requires targeted assessment by affected change/review/evidence
 owners before dependent effects. Preserve compatible evidence with reasons and
@@ -243,7 +248,7 @@ or changed facts before deciding the next operation.
    If the caller already prepared this native bug's copy for necessary design,
    pass its exact checked ID/repository/path/branch association and actual effects
    to this same preparation owner for reuse, now with the sufficient accepted
-   execution basis and full historical snapshot. Verify the same association
+   execution basis and readable pinned historical inputs. Verify the same association
    against live state; mismatch or unavailable association evidence blocks the
    dependent step, not permission to choose a second copy. Reconcile partial
    copy/setup effects before retry without replaying creation or completed setup.
@@ -262,7 +267,7 @@ or changed facts before deciding the next operation.
    its bounded content owner without artificial RED. Check actual artifacts and
    criterion coverage; author evidence is not independent approval.
 3. Launch a fresh `task-review` subagent applying `ris-proj-op-review-task` to the exact full
-   candidate snapshot, requirements/design or sufficient bug report/snapshot and
+   candidate snapshot, requirements/design or sufficient versioned bug basis and
    separately accepted decisions, project rules and check evidence.
    Pass publication-gate purpose; require one saved local `review.yaml` and explicit round ID under the installed
    `ris-proj-op-review-task/references/report-format.md`; read/apply that owner

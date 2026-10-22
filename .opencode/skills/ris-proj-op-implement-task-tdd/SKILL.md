@@ -58,10 +58,13 @@ replace its contract with the parent's complete acceptance scope.
 
 An exact native bug uses the adapter's ordinary typed reads/claim and its full
 current report (or exact published file), aligned criteria, accepted constraints/
-decisions and full historical notes execution-input snapshot. No feature payload
+decisions and reproducible versioned execution basis. No feature payload
 or formal spec/design pair is required for a sufficient report; material technical
-choices still need separate design acceptance. Read the complete snapshot via
-project/tracker + bug ID + marker, compare current report/criteria/decisions and
+choices still need separate design acceptance. Retrieve the full used historical
+fields through the adapter via project/tracker + bug ID + exact record version and
+used immutable Git source/decision locators. Missing/incomplete history blocks
+dependent changes; no full notes snapshot or copied text handoff is required.
+Preserve legacy snapshots as usable historical inputs. Compare current report/criteria/decisions and
 code applicability before changes/resume, and identify that basis in implementation
 and check evidence. Material drift requires targeted reassessment of affected
 change/review/evidence before dependent edits. Confirm current-input sufficiency

@@ -189,14 +189,14 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Early same-ID/copy, unified requirements/design dialogue, precise acceptance, independent review/Git and verified decomposition/tracker publication |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
 | [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
-| [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, full input snapshot and complete existing execution route |
+| [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, reproducible versioned inputs and complete existing execution route |
 
 ## Shared instructions and adapters
 
 | Skill | Result |
 | --- | --- |
 | [ris-proj-lib-common](../skills/ris-proj-lib-common/SKILL.md) | Shared conditional dialogue, artifact and quality rules |
-| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, read-only all-work-type plan reads, ordinary bug registration/investigation, execution claim/full notes snapshot/separate fix-completion and separately authorized Dolt operations |
+| [ris-proj-adapter-beads-tasks](../skills/ris-proj-adapter-beads-tasks/SKILL.md) | Bounded Beads tasks, read-only all-work-type plan reads, ordinary bug registration/investigation, execution claim/historical basis read/locator append/separate fix-completion and separately authorized Dolt operations |
 | [ris-port-adapter-git-worktrees](../skills/ris-port-adapter-git-worktrees/SKILL.md) | Git worktrees/1 operations |
 | [ris-port-adapter-worktrunk-worktrees](../skills/ris-port-adapter-worktrunk-worktrees/SKILL.md) | Explicitly selected Worktrunk worktrees/1 operations |
 
@@ -302,9 +302,12 @@ nonblocking relation for duplicates. Investigation does not launch a fix.
 The fix flow takes the exact native bug ID and sufficient saved report/criteria/
 accepted constraints, not a mandatory separate spec/design pair. Material design
 uses the existing design owner and actual separate acceptance. Before execution,
-the full report, criteria and accepted decisions are preserved in an addressable
-historical notes snapshot; consumers identify it and reassess affected evidence
-on material report drift. It is not a second current report. The complete existing
+the adapter verifies full used historical report/criteria/decision fields at the
+exact tracker version and consumers read used immutable Git sources/decisions.
+A short ordinary locator enables project+ID discovery; no duplicate full snapshot,
+new file or copied text handoff is required. Missing/incomplete history blocks
+dependent work. Material drift requires targeted reassessment and a new locator,
+not rewriting old snapshots or replaying published/closed effects. The complete existing
 execute-task route retains copy/claim, roles, code TDD, independent review, Git,
 separate real fix-completion and tracker publication; disposition is different.
 Full task/bug execution starts directly from sufficient accepted inputs/current

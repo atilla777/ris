@@ -27,9 +27,11 @@ result with provenance and explicit discovery gaps:
   Parent membership and feature identity are distinct. Record ordinary adapter
   capabilities/guarantees rather than inventing feature-record evidence.
 - For native bugs: exact current-report source/version (retrieve full published
-  file when used), full historical execution-input notes snapshot locator/marker
-  and content, aligned criteria and accepted decisions/constraints. Implementation
-  and review identify that input snapshot, not just a report hash.
+   file when used), exact tracker-history basis version and used Git source/decision
+   locators, aligned criteria and accepted decisions/constraints. Through the adapter
+   retrieve the full used historical fields; implementation/review identify that
+   reproducible basis, not just a hash or copied full notes snapshot. Preserve legacy
+   snapshots without migration; missing/incomplete history blocks dependent reuse.
   Record old/current basis and targeted applicability assessment on material drift.
 - For a result relied on: actual executor/context and, when delegated, configured
   role and actual agent invocation/context ID,

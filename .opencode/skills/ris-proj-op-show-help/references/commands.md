@@ -188,7 +188,7 @@ Example: `/risp-decompose-feature <ID>`.
 [Owner](../../ris-proj-flow-execute-task/SKILL.md). Purpose: full single-task execution.
 Choose when: execute/resume ready work, not just plan/review or run a container.
 Inputs: project, optional exact ID, actor, accepted basis, execution/publication
-rights and available configured executors; explicit native bug needs saved snapshot.
+rights and available configured executors; explicit native bug needs readable versioned inputs.
 Result/stop: checked independently reviewed change, verified Git, separate exact
 completion and tracker publication, or exact preserved remainder.
 Example: `/risp-run-task <ID>, actor <actor>`.
@@ -287,7 +287,7 @@ Example: `Load ris-proj-op-investigate-bug for <bug ID> in <project>, allowed sc
 Choose when: exact-ID fix/resume has a sufficient saved basis, not fresh diagnosis.
 Inputs: project, exact bug ID, actor, current report/aligned criteria/accepted
 constraints and authorized fix/publication scope. Material design needs separate acceptance.
-Result/stop: recoverable full input snapshot, complete existing run-task route,
+Result/stop: reproducible exact tracker-history/Git basis, complete existing run-task route,
 checked fix, independent review, Git, separate exact fix-completion/tracker publication;
 no second engine, bug selection or automatic investigation.
 Example: `Load ris-proj-flow-fix-bug for <bug ID> in <project>, actor <actor>, allowed fix/publication <scope>`.

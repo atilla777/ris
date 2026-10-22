@@ -30,7 +30,7 @@ column-zero Feature-ID/Summary/optional Keywords; дизайн inline либо d
 Beads не дублирует accepted refs/готовность. Старые ссылки/readable payload hints
 ведут к фактическим документам/решениям без schema gate, миграции или переноса;
 missing/old/malformed JSON сам по себе не блокер. Ordinary/document-only/bug не
-получают искусственный feature ID/каталог. Bug snapshot и независимый review YAML
+получают искусственный feature ID/каталог. Versioned bug basis и независимый review YAML
 сохраняются. При verify-and-close фичи достаточно успешной содержательной текущей
 проверки и native exact close: обязательная предварительная запись verification/
 результата не нужна; краткий ordinary итог допустим. Остальные quality/Git/close/
@@ -51,8 +51,10 @@ review/recovery/publication и не восстанавливается задн�
 итоговый результат и применимые текущие проверки. Full flow может непосредственно
 применять владельцев и переиспользовать пригодный implementation/repair context;
 независимый reviewer фактически запускается отдельно от всех авторов/исправителей.
-Bug execution-input snapshot остаётся обязательным историческим входом, не журналом
-реализации. Claim/blockers/copy, full YAML, non-force Git и отдельные
+Bugfix использует воспроизводимый исторический basis по [единой норме product §4.1](../product/06-artifacts-and-handoff.md#41-воспроизводимое-основание-bugfix):
+точная версия трекера и immutable Git sources/decisions вместо обязательного полного
+snapshot в notes или нового файла. Полноту чтения/locator append/retry проверяет
+адаптер; старые snapshots/история сохраняются. Claim/blockers/copy, full YAML, non-force Git и отдельные
 result/exact close/Dolt gates сохранены. Исторические противоположные нормы заменены
 только в этой области.
 

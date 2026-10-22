@@ -6,10 +6,14 @@ The existence of a bug ID does not turn pre-execution documents into a fix.
 ## Fix implementation (Task/change)
 
 Use advertised typed bug/ownership/blocker reads, full current report/criteria/
-accepted decisions and the full historical notes execution-input snapshot, not
+accepted decisions and reproducible versioned execution basis, not
 task-only feature APIs or mandatory formal spec/design files. Retrieve file-backed
-reports at their exact published locator. Require the snapshot's project/tracker +
-exact bug ID + marker in implementation/review evidence and read its complete text.
+reports at their exact published locator. Require the basis's project/tracker +
+exact bug ID + historical record version and used immutable Git source/decision
+locators in implementation/review evidence. Use the adapter's verified historical
+read for full needed fields; missing/incomplete history blocks dependent push, not
+permission to substitute current HEAD. No full notes snapshot/text handoff is required;
+legacy snapshots remain usable historical inputs without migration.
 Compare current report/criteria/decisions with that basis before publication;
 material drift returns affected change/review/evidence for targeted reassessment
 before dependent push. Keep separate material-design acceptance and sufficient

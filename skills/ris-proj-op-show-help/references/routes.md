@@ -132,7 +132,7 @@ observed conflict can block persistence without blocking useful research. Saving
 does not establish fix readiness: aligned sufficient inputs are checked separately.
 Proved-correct/duplicate disposition is not fixing. Fix-bug needs an
 exact native bug and sufficient saved basis, separate acceptance of material design
-if needed, and a recoverable historical input snapshot before reusing the whole
+if needed, and reproducible exact tracker-history/Git inputs before reusing the whole
 run-task engine. It does not silently register or investigate anew. All three
 bug owners are direct-load, not invented slash commands.
 

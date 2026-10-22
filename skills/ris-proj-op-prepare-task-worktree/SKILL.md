@@ -60,7 +60,7 @@ the existence of an ID/copy never supplies sufficient accepted task inputs.
 For an explicitly selected **pre-execution bug design** action under that purpose,
 check the admitted full current report, aligned criteria, accepted behavior/
 constraints and authorized material-design scope as the copy-preparation basis.
-The pending design's acceptance and the later historical execution-input snapshot
+The pending design's acceptance and the later verified versioned execution basis
 are not prerequisites to this copy-only action; they remain required at their
 respective design-save and implementation gates. This is not implementation
 admission or the feature-preparation blocker exception: retain exact native bug
@@ -78,7 +78,7 @@ does not block copy preparation or establish ordinary kind.
 An exact native bug uses explicitly advertised ordinary bug reads, complete
 children/directed blockers and native claim (Beads `references/bug-execution.md`),
 not task-only feature APIs. Keep its native type and same ID/actor/copy association;
-do not invent an epic, feature payload or stage children. Report/snapshot inputs
+do not invent an epic, feature payload or stage children. Report/versioned-basis inputs
 may accompany the handoff but do not replace fresh claim/blocker/copy guards.
 
 An explicit ordinary standalone task/child is supported without an epic or

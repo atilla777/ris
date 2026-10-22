@@ -168,8 +168,9 @@ current report/criteria needs investigation or a precise evidence/authority gap;
 a sufficient authorized basis can support a fix-flow recommendation. Read relevant
 installed register/investigate/fix contracts as evidence, never execute them.
 Research readiness alone does not accept behavior or grant fix authority. Retrieve
-full report text from description or exact published file and inspect any snapshot/
-decisions relevant to the recommendation. Proven ongoing fix/execution follows its
+full report text from description or exact published file and inspect the versioned
+basis/decisions relevant to the recommendation through the adapter and Git sources.
+Legacy snapshots remain usable, not mandatory new artifacts. Proven ongoing fix/execution follows its
 same scenario owner (execute-task owns post-transfer recovery), not a newly selected
 internal stage. Insufficient evidence is not closure; disposition differs from
 fix-completion. Preserve exact ID/type, use ordinary bug reads, never convert it or

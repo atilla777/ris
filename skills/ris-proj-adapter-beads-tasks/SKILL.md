@@ -5,7 +5,7 @@ description: >-
   bounded Beads operations via bd: read/list epics and tasks, ordinary native bug
   read/list/create/update and protected investigation/disposition, create/update by
   confirmed ID, manage links, claim,
-  ordinary bug execution claim/snapshot/fix-completion, close exact containers from
+  ordinary bug execution claim/versioned-basis/fix-completion, close exact containers from
   closed direct children or administratively, complete verified work, and
   separately publish authorized Dolt history; also provide read-only all-work-type
   plan inventories and exact unknown-type reads. Use for
@@ -60,7 +60,7 @@ do not load other branches merely to list or exact-read a record:
 | Ordinary standalone create/source-content/child-link/result/close specifics | `references/standalone.md` plus only the action resource it selects; no standalone resource for a simple non-source field edit |
 | Native bug registration create/update (not ordinary read/list) | `references/standalone.md` and its selected resources |
 | Bug report/acceptance persistence, duplicate relation or disposition-close | `references/investigation.md` |
-| Bug execution claim/snapshot/design-link/result/fix-completion | `references/bug-execution.md` |
+| Bug execution claim/historical basis read/locator append/design-link/result/fix-completion | `references/bug-execution.md` |
 | Separately authorized `dolt.publish` or remote-gated write preflight | `references/dolt-publication.md` |
 | Explicitly authorized selected-project initialization only | `references/init.md` |
 

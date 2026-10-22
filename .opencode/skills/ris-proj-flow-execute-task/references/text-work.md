@@ -39,15 +39,17 @@ host's customization instructions as applicable and explicit synchronization
 authority; canonical source and full affected installed resources stay in parity.
 
 An exact native bug uses the adapter's ordinary bug reads/claim, not feature APIs.
-Read its full current report/criteria/accepted decisions and full historical notes
-execution-input snapshot from the exact project/tracker + bug ID + marker locator.
+Read its full current report/criteria/accepted decisions and exact used historical
+inputs through the adapter at the saved project/tracker + bug ID + record-version
+locator and immutable Git sources/decisions. No full notes snapshot/text handoff is
+required; unavailable or incomplete used fields block dependent work.
 Use these as the accepted basis without formal spec/design files when sufficient;
 material choices still need separate design acceptance. Bind changes/checks to
-that input snapshot and cover the original divergence and affected regressions.
+that versioned basis and cover the original divergence and affected regressions.
 Compare current report/criteria/decisions at handoff/resume; material drift requires
 targeted applicability assessment of change/review/evidence before dependent
 effects. No hash-only basis or rewritten expectation can establish a fix. A
-historical bug-input snapshot is an input, not an implementation journal.
+historical bug basis is an input, not an implementation journal; preserve old snapshots.
 
 Require substantive content/criterion coverage, links/resource accessibility,
 preservation of neighboring decisions, source/install parity where authorized,

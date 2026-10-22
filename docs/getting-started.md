@@ -94,14 +94,17 @@ saved report establishes expected behavior/authority, confirmed divergence,
 bounded scope, criteria and technical constraints. It returns precise gaps without
 silently investigating. Material choices use the existing design owner and separate
 acceptance; a local contract-preserving solution needs no formal spec/design pair.
-The flow verifies a full historical report/criteria/decision snapshot in bug notes,
-then reuses execute-task in full with its existing three roles. Consumers name that
-snapshot and reassess affected plan/change/review/evidence on material input drift.
-A saved plan is needed for execution/handoff sufficiency or project rules; RIS
-retains its mandatory local plan, and direct plan-task still saves a plan. Copy/
-claim, TDD for code, independent review and publication obligations are retained.
-Snapshot append is recoverable native merge, not concurrent append-once or content
-CAS; investigation's stronger report replacement gate remains unchanged.
+The adapter verifies the full used report/criteria/decisions at an exact tracker-history
+version plus immutable Git sources and acceptance decisions. A short ordinary basis
+locator in notes enables discovery from project+ID without old chat; no new full
+snapshot or file is required. Missing/incomplete history blocks dependent execution.
+The flow reuses execute-task in full with its existing roles; consumers name the basis
+and reassess affected change/review/evidence on material drift. Preserve old snapshots
+and append a new locator only for a newly admitted basis, never rewrite history.
+No saved plan or implementation report is required. Copy/claim, TDD for code,
+independent review and separate Git/result/exact close/Dolt obligations remain.
+Locator append/retry belongs to the adapter and is not concurrent append-once or
+content CAS; investigation's current report replacement conditions remain unchanged.
 
 ### A clear assigned simple request
 
