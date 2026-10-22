@@ -1,12 +1,12 @@
-# Conditional isolation through existing preparation owners
+# Worktree-first through existing preparation owners
 
-Read before preparation when project rules demand isolation, parallel changes
-overlap, the current copy is busy/foreign, or its ownership/safety is ambiguous.
-Do not move dirty foreign work to a new branch to avoid this condition.
+Read before any versioned Git-project edits. Prepare or safely reuse the same
+dedicated worktree of this work, never develop in the ordinary source folder.
+Do not move dirty foreign work to a new branch/copy.
 
 - With a real confirmed task ID, load/apply
   `ris-proj-op-prepare-task-worktree`. Pass exact project/ID/actor, current copy,
-  checked primary selection/provenance for shared paths, agreed task → repository/
+  context-checked source-folder association for shared paths, agreed task → repository/
   path/branch association, exact base or authorized established remote selection,
   selected adapter and permitted claim/copy/setup/evidence effects. Keep fresh
   ownership/blocker gates. Do not fabricate an ID to use this owner.

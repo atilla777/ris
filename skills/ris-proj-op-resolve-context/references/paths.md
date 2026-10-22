@@ -10,12 +10,12 @@ installed resource directory only when shared workspace paths are needed.
   new feature `specs/<full feature ID>/spec.md` is ordinary Markdown. Context checks path availability,
   not OKF validity or the contents/acceptance of a document. A project may
   choose different directories without changing these roles.
-- Resolve `workspace.*` against `primary_root`, the primary working-copy root
-  of the selected project. In the primary copy it equals `project_root` only
-  when that copy's primary identity is established. For a separate copy apply
-  `shared-primary.md` before using shared paths, including its verified ordinary
-  Git source-copy fallback only when explicit and applicable saved selections
-  are absent. Path resolution grants no authority to mutate that copy.
+- Resolve relative `workspace.*` against the Git-derived ordinary source folder
+  returned as `primary_root` by `shared-primary.md`. Apply that resource before
+  shared-path use, also from the source copy itself. There is no saved-primary
+  cascade or folder-existence fallback. The two workspace leaves retain their
+  package defaults unless explicitly overridden by a valid config leaf.
+  Path resolution grants no authority to mutate the source checkout.
 - Config location does not move either root. Absolute path values remain
   absolute, subject to scope and access checks. Do not interpolate `~`,
   `${ENV_VAR}` or `{{variable}}`. For `..`, symlinks or paths outside the
@@ -28,7 +28,9 @@ installed resource directory only when shared workspace paths are needed.
   common's conditional `published-inputs.md` to retrieve pinned content/decisions
   and distinguish source availability, target applicability and copy preparation.
   Context does not select/read those documents or update the checkout. A prospective **output** directory need not yet exist
-  if creation is permitted; check authorization and conflicts when the
+  if creation is permitted; do not switch defaults/overrides because it is absent.
+  The result owner creates the missing output during its authorized operation;
+  check authorization and conflicts when the
   result owner actually writes. If writing is not authorized, return a
   proposal without claiming creation. Directory presence does not validate
   a document's content, acceptance, or OKF format.

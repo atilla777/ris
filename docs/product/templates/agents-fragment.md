@@ -23,9 +23,14 @@ type: Template
 `ris-proj-op-resolve-context` по контракту выбранного скила; используй уже
 полученный подходящий актуальный контекст. Ресурсы common читай до
 соответствующих действий по указанным в нём условиям.
-Для общих каталогов задач/worktrees используй проверенный context primary:
-explicit → verified saved association → проверенная обычная Git source copy.
-Не выбирать первую строку worktree и не обходить ошибочные/противоречащие сведения.
+Все versioned Git-project edits делай в выделенном worktree своей работы через
+существующего preparer; пригодная подтверждённая копия переиспользуется.
+Установка/обновление пишет в явный target без Git; согласованный bootstrap до Git
+допускает local writes; после появления пригодного repo следующие edits требуют
+worktree без переноса dirt.
+Для общих каталогов context вычисляет обычную source folder из actual common `.git`
+в схеме один repository — один project, без saved-primary cascade. Workspace leaf
+defaults сохраняются в выбранном config, явные overrides их заменяют.
 Выбор общего root не даёт права менять его файлы/ветку.
 
 Методику и границы этапа задаёт выбранный прикладной скил.

@@ -11,10 +11,8 @@ bounded executors load their owners and full methods only when needed.
 
 Start read-only with the selected adapter and relevant stage owners. No old chat,
 local stage flag, successful exit alone or absence of a report establishes reality.
-Resolve current config/rules and current/context-checked primary paths again,
-including context's explicit → verified saved → verified ordinary Git source-copy
-selection provenance and current-copy
-association. An old receipt does not select a root without fresh applicability.
+Resolve current config/rules and current/shared paths again through context's
+Git-derived ordinary source-folder association. An old receipt does not select a root.
 Inspect all
 actual effects, including those after any available receipt, before advancing.
 Apply `evidence.md` for the affected proof, without requiring a journal:

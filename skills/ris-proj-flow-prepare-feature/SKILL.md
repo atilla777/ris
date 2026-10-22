@@ -43,8 +43,8 @@ continue” in this flow preserves its endpoint, not a new local-save boundary.
 Apply installed `ris-proj-lib-common` and its applicable dialogue/artifact/quality/
 published-input resources; apply `ris-proj-op-resolve-context` with its owned
 configuration resource for relevant sources, tasks adapter and needed shared paths.
-In a worktree, consume its checked primary selection/provenance and current-copy
-association through its owned selection procedure; never duplicate primary
+For shared paths consume its checked Git-derived source-folder/current-copy
+association; never duplicate source-folder
 discovery or invent a task directory. Resolve a new-assignment actor through the
 selected adapter's claim owner and forward it unchanged; recovery requires
 verified prior assignment/copy association, not a fresh session fallback.
@@ -287,7 +287,8 @@ recreation is allowed. Missing evidence/owner blocks that step precisely.
 
 Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
 provenance, exact feature/optional epic and document paths, separate accepted scopes and
-decision addresses, Git/primary and tracker publication evidence, review address/
+decision addresses, remote Git (local maintenance only when explicitly requested)
+and tracker publication evidence, review address/
 round, one-task justification or exact children/keys/statuses/directed edges,
 criterion coverage/integration prerequisites, actual effects and limitations.
 For partial results name each channel's confirmed state and only missing recovery.

@@ -1,48 +1,36 @@
-# Bounded primary resolution
+# Resolve the ordinary source folder
 
-This context owner resolves primary identity; consumers use its checked result
-rather than duplicating discovery. Read only when shared paths or the primary
-copy's identity for publication synchronization are needed; resolution grants no
-permission to mutate that copy:
+Context owns this read-only resolution; consumers use its checked result rather
+than implementing discovery. Read only for shared workspace paths or explicitly
+requested source-copy maintenance. Support **one repository — one project**, an
+ordinary non-bare source folder with its `.git` directory and linked worktrees.
 
-1. Validate an explicitly supplied `primary_root` first. Check existence,
-   accessibility and physical target, selected-project identity, repository
-   relationship and association with the current copy. An invalid explicit
-   selection blocks the dependent part; never substitute a saved hint/default.
-2. Without explicit selection, inspect only an **already available** saved
-   indication in applicable project instructions or a copy-preparation result.
-   Record its exact evidence address and provenance. Resolve relative indications
-   from their declared base (an instruction pointer from its file's directory);
-   an unknown base is a gap. Do not search the disk for arbitrary receipts.
-3. Verify the candidate's actual existence/physical target and unambiguous
-   selected-project/repository relationship, the witness's provenance and its
-   association to this current copy/path/branch where applicable. Check for
-   conflicting applicable saved indications. Git common-dir and worktree
-    registration corroborate an association. A stale, moved or foreign witness
-    is not usable association and must not be silently bypassed by inference.
-4. A valid explicit selection wins over an older saved hint; expose contradictory
-   facts and why the hint is inapplicable, never silently conceal them or let it
-   override the selection. If the explicit selection's own association remains
-    contradictory, return conflict. Ambiguous/conflicting evidence is conflict;
-    foreign/stale association blocks shared-path use, not fallback permission.
-5. Only when explicit and applicable saved selections are absent, inspect native
-    Git facts for the ordinary non-bare source working copy: resolve the current
-    top-level/common Git directory and worktree registrations (for example
-    `git rev-parse --show-toplevel --git-common-dir` and `git worktree list --porcelain`).
-    Verify the common directory's ordinary source copy by its actual Git mapping,
-    physical accessible path, non-bare status and registration, shared repository
-    identity and selected-project location/config/instruction association. For a
-    subproject preserve its verified repository-relative project location. Do not
-    choose the first listing, a branch named main or a directory containing `.sdlc`.
-    Bare repositories, missing source copies, ambiguous project mapping or
-    contradictory facts block this fallback; do not choose an arbitrary linked
-    worktree. No saved receipt is required for an unambiguous verified Git source
-    copy. Name the exact gap and retain independent current-copy settings.
-6. Return the selected physical root, selection source/evidence address or Git facts,
-   verification facts and limits. Make no persistent changes or new registry.
-   Consumers recheck applicability after copy/project changes and mutable facts
-   before acting. A receipt proves neither fresh permission, ownership/blockers
-    nor operation-specific write protection; these remain the acting owner's gates.
-    Resolving shared review/worktree addresses never authorizes branch switching
-    or mutation of primary files; copy ownership and local synchronization safety
-    are separate checks.
+1. From the selected current project copy obtain the physical Git top-level and
+   common directory (`git rev-parse --show-toplevel --git-common-dir`), resolving
+   relative Git output against the invocation directory. Require the project root
+   to be that copy's repository root, not a monorepo subproject.
+2. Resolve the physical common directory. It must be the ordinary source folder's
+   `.git` directory. Verify its parent exists and is accessible, is non-bare, maps
+   back to that same common directory, and is the registered ordinary source
+   working copy. Verify the current copy's registration and shared repository
+   association (native `git worktree list --porcelain` corroborates those facts).
+   The branch name and worktree listing order do not select a folder.
+3. Return that physical source folder as `primary_root` for consumer compatibility,
+   with the checked Git association and limits. It is only the base of shared
+   paths, not an integration workspace or authority to mutate its files/branch.
+   Do not read saved-primary indications, cascade through candidate folders, scan
+   the disk, persist a context result or introduce a registry. A supplied old
+   `primary_root` may only corroborate this Git-derived root, never override it;
+   a contradictory explicit assertion is a conflict, not a fallback opportunity.
+
+Bare, missing/inaccessible source folders, separate/nonordinary common-directory
+layouts, multiple-project mapping or contradictory registration are unsupported:
+diagnose the exact dependent shared-path/maintenance operation and retain useful
+independent current-copy settings. Do not pick another linked worktree. No Git is
+needed for independent installation or agreed pre-Git bootstrap settings; this
+does not fabricate a source-folder identity for shared Git operations.
+
+After a copy/project change recheck the same association, not saved selection
+evidence. Before mutation consumers still check fresh permission, own assignment,
+blockers and operation-specific preservation. Resolving shared notes/worktree
+addresses never permits branch switching or development in the source folder.

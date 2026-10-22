@@ -8,8 +8,9 @@ TDD сохраняется, но история RED/GREEN не является 
 Явно выбранный `ris-proj-flow-execute-simple-task` (`/risp-run-simple-task`)
 сохраняет [fast-исключение](docs/rules/development.md#узкое-исключение-явно-выбранный-fast)
 без обязательного файла ревью.
-Краткий Beads-учёт в RIS и собственная ветка обязательны; подходящая текущая копия
-допустима в fast, worktree — при необходимости изоляции. Полный flow сохраняет
+Краткий Beads-учёт в RIS и собственная ветка в выделенном worktree обязательны,
+включая fast и общие документы; пригодная подтверждённая копия переиспользуется.
+Исходная папка не площадка разработки. Полный flow сохраняет
 свои copy/claim, quality, publication и отдельные completion/tracker gates.
 
 Подготовка фичи отдельно следует принятой [S1 §3 / D1 §§2–4](docs/specs/sdlc-feature-lifecycle/acceptance.md): ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, same-record refs и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
@@ -18,12 +19,15 @@ TDD сохраняется, но история RED/GREEN не является 
 
 Обычное проектное ревью сохраняется одним локальным `review.yaml` по [ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); в Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же формат. Отчёт не заменяет журнал реализации и не содержит его перенесённых полей.
 
-По [ris-y8z S1/D1](docs/specs/ris-y8z/spec.md) штатные действия полного поручения
+По принятым правилам штатные действия полного поручения
 не требуют повторных технических разрешений на границах владельцев. Context
-выбирает primary: explicit → verified saved → проверенная обычная Git source copy,
-без права менять найденную копию. Actor нового назначения — explicit/configured,
+по [ris-ppw S1/D1](docs/specs/ris-ppw/spec.md) вычисляет исходную папку из фактического общего `.git` в схеме один repo — один
+проект, без saved-primary cascade и права менять checkout. Workspace leaves имеют
+defaults даже в выбранном config, явные leaf overrides их заменяют; sources — из
+текущей копии. Actor нового назначения — explicit/configured,
 иначе проверенный ID сессии; это не право забрать прежний claim/copy. Проверенный
-remote Git отделён от optional safe local update: пропуск/ошибка локального
+remote Git — обычный полный результат без local update; только явное поручение
+включает отдельный safe FF без branch switching. Пропуск/ошибка локального
 обновления не блокирует close/Dolt; явно порученное обновление остаётся отдельным
 долгом. В RIS действует постоянная shared Dolt policy из development rules,
 без автонастройки других проектов. Все substantive/review/claim/non-force gates

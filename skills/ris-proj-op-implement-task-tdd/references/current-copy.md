@@ -6,12 +6,11 @@ applicability, not working-copy preparation or tool-specific worktree operations
 
 - Verify the supplied repository/project relationship, actual revision/state and
   established task → copy/branch/path association using available current facts
-  and handoff evidence. A conventional branch name alone proves no ownership.
+  and handoff evidence. Require a registered dedicated worktree distinct from the
+  ordinary source folder. A conventional branch name alone proves no ownership.
 - Reprepare context after a copy change. Sources belong to the current project
-  root; shared notes/tracker access use context's checked primary selection and
-  provenance through context's explicit → verified saved → verified ordinary Git
-  source-copy procedure for a separate
-  worktree. Recheck association and fresh permissions/claim/blockers before
+  root; shared notes/tracker access use context's checked Git-derived ordinary
+  source-folder association. Recheck association and fresh permissions/claim/blockers before
   mutation; a saved witness or lease is not general write protection. Do not silently substitute a local task directory or a
   different tracker. Require only paths needed by the dependent action.
 - Preserve pre-existing staged/unstaged/untracked work and unfinished operations.

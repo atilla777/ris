@@ -112,15 +112,19 @@ uses the rules' fast exception: no mandatory plan, implementation/execution log 
 review files; sufficient evidence stays in the session. **Short Beads accounting
 remains mandatory in RIS**, with existing-ID/type, identity, claim, composition and
 blocker checks. The main agent applies existing implementation/publication owners;
-`task-review` must actually launch as an independent subagent. A suitable current
-copy on a verified own branch is allowed; isolation needs activate worktree
-preparation. If that own current copy is the verified primary root, the publisher
-owns its guarded return to the established primary branch and FF after remote
-confirmation; no foreign/busy/dirty copy switching or replay of a confirmed push.
+`task-review` must actually launch as an independent subagent. A dedicated
+worktree on a verified own branch is required through the same preparer
+as full/feature/bug work. Reuse it across stages/sessions; the ordinary source
+folder is never a development workspace or branch-return target. All versioned
+documents/config/AGENTS writes follow this rule. Installation/update use their
+explicit target without Git, and agreed pre-Git bootstrap permits local writes;
+once a usable Git repository exists, further edits need a worktree without
+transferring dirty files.
 Checks remain proportionate and project-mandatory checks/TDD apply.
 Full task/bug/feature execution and the TDD operation retain their substantive
 gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
-remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md).
+remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md)
+with the worktree/publication changes in [ris-ppw S1/D1](specs/ris-ppw/spec.md).
 
 Ordinary container closure trusts a nonempty complete direct-child set (all
 `closed`) and checks parent blockers, without recursive delivery/acceptance audits.
@@ -151,11 +155,16 @@ revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
-The ris-y8z source contract separates confirmed remote Git from optional safe
-local primary maintenance. Skipped/failed local updating does not block exact
+The current source contract separates confirmed remote Git from optional safe
+source-copy maintenance, activated only by an explicit request and limited to
+safe FF on an already suitable branch, never switching. Skipped/failed updating does not block exact
 close or Dolt; an explicitly requested update retains its own unfinished part.
-Context owns explicit → verified saved → verified ordinary Git source-copy
-resolution without granting mutation rights. Claim owners resolve a new actor
+Context derives the source folder from the actual shared `.git` directory in the
+supported one-repository/one-project layout, without saved-primary discovery or
+mutation rights. Workspace leaf defaults apply even with a valid selected config;
+explicit overrides win, absent output folders never select another path. Sources
+remain current-copy paths; sources/adapters/roles get no missing-field defaults
+from a selected file. Claim owners resolve a new actor
 from explicit/configured identity or verified host-session ID, never as takeover
 authority. Full requests carry ordinary constituent actions across owner seams;
 technical failures are exact blockers, not repeat permission questions. RIS's

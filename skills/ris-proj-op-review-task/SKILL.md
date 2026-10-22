@@ -58,9 +58,8 @@ Without an ID, do not load a task adapter or require task-note discovery, a task
 directory or a fabricated record. Apply project-required tracking/report policy;
 no-ID admission does not waive a mandatory project gate.
 
-For dependent shared-path actions use context's checked primary selection and
-provenance through context's explicit → verified saved → verified ordinary Git
-source-copy procedure. If unresolved,
+For dependent shared-path actions use context's checked Git-derived ordinary
+source-folder association. If unresolved,
 return available analysis unsaved with the exact dependent save gap; do not guess.
 
 Supply verified project inputs, prior rounds/dispositions where applicable and

@@ -33,8 +33,8 @@ verify ownership/state/blockers after. Do not overwrite another actor's live cla
 Recheck ownership on resumption and before new mutation batches; stop on loss or
 new blockers, preserving partial work. Verify the supplied current copy's project/
 repository, actual revision/state and suitability without altering existing work.
-Read `references/current-copy.md` from **this installed folder** for a task-specific
-or separate copy, or after a copy change, before dependent mutations/shared-path
+Read `references/current-copy.md` from **this installed folder** before any
+Git-project mutations or shared-path
 access. Missing/conflicting inputs block that part. Use the provided suitable copy;
 do not create/repair/switch/reset it or load preparation skills/worktree adapters.
 

@@ -197,7 +197,7 @@ Example: `/risp-run-task <ID>, actor <actor>`.
 [Owner](../../ris-proj-flow-execute-simple-task/SKILL.md). Purpose: clear assigned work.
 Choose when: bounded request with proportionate checks, not unassigned queue work.
 Inputs: project, attributable request/criteria, optional real ID, constraints/rights.
-Result/stop: own-branch implementation, independent review, verified direct Git;
+Result/stop: dedicated-worktree implementation, independent review, verified direct Git;
 separate tracker result/close/publication when used. Mandatory project rules/TDD
 remain; no mandatory plan/log/review files by default, short Beads required in RIS.
 Example: `/risp-run-simple-task correct the documented flag in <file>; check links`.
@@ -205,11 +205,11 @@ Example: `/risp-run-simple-task correct the documented flag in <file>; check lin
 ### ris-proj-op-prepare-task-worktree
 [Owner](../../ris-proj-op-prepare-task-worktree/SKILL.md). Purpose: claim-aware copy.
 Choose when: prepare/reuse a copy for a confirmed task, not plan or implement.
-Inputs: project, task ID, actor, explicit/verified primary, selected adapter and
+Inputs: project, task ID, actor, context-checked source-folder association, selected adapter and
 authorized claim/copy/setup scope.
 Result/stop: verified claim/blockers, copy association and separate environment
 readiness; no publication or task completion.
-Example: `Load ris-proj-op-prepare-task-worktree for <ID> in <project>, actor <actor>, primary <path>, allowed setup <scope>`.
+Example: `Load ris-proj-op-prepare-task-worktree for <ID> in <project>, actor <actor>, allowed setup <scope>`.
 
 ### ris-proj-op-implement-task-tdd
 [Owner](../../ris-proj-op-implement-task-tdd/SKILL.md). Purpose: checked task change.
@@ -240,9 +240,10 @@ Example: `/risp-review-task <ID>, full candidate <snapshot>`.
 ### ris-proj-op-publish-task
 [Owner](../../ris-proj-op-publish-task/SKILL.md). Purpose: verified primary Git publication.
 Choose when: independently reviewed task/change or pre-ID documents need integration.
-Inputs: project, confirmed own branch/copy, complete approved snapshot and check/
+Inputs: project, confirmed own branch/dedicated worktree, complete approved snapshot and check/
 independence evidence, destination and whole-outgoing direct-push authority.
-Result/stop: integrated reviewed commit and fresh remote confirmation; no PR/deploy,
+Result/stop: integrated reviewed commit and fresh remote confirmation, remote-only
+by default; explicit local maintenance permits safe FF only, no branch switching. No PR/deploy,
 content acceptance, tracker publication or leaf/container closure.
 Example: `/risp-publish-task <ID>, approved snapshot <snapshot and review locator>`.
 

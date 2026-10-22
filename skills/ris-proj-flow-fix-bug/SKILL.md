@@ -24,8 +24,7 @@ Ensure installed `ris-proj-lib-common` is available and apply it, with artifacts
 before handoffs/writes, quality before assessment and dialogue before decisions.
 Apply `ris-proj-op-resolve-context` and its owned configuration resource for rules,
 selected tasks adapter, needed sources/shared paths and actually consumed execution
-roles. Use its checked primary selection/provenance (explicit → verified saved →
-verified ordinary Git source copy) for shared paths;
+roles. Use its checked Git-derived ordinary source-folder association for shared paths;
 do not derive a primary from Git. Read the actual project rules. Missing essential
 inputs/dependencies/authority block their dependent work, never select a fallback.
 

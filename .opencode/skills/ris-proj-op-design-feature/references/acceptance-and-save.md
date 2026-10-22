@@ -203,7 +203,8 @@ remains a precise dependent gap, never invented.
     are outside this design-only handoff and cannot use that exception.
     Consume its commit/tree/ref/remote receipt and independent remote evidence;
     match accepted selected content and preserved requirements. The publisher's
-    local primary maintenance is a separate effect: skipped/failed sync never
+    default is remote-only; explicitly requested source-copy maintenance is a
+    separate safe-FF effect without branch switching: skipped/failed sync never
     invalidates confirmed remote Git or blocks record/tracker actions. An explicit
     local-update request retains its unfinished part, never a repeated push. Integration drift
     requires applicable independent reassessment. Reuse checked existing

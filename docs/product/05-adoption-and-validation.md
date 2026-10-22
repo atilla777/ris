@@ -130,10 +130,10 @@ ris-plan-roadmap
 | CFG-04 | Отсутствует обязательный вход | Нет выдуманной концепции или спецификации |
 | CFG-05 | Новый выходной каталог отсутствует | Его отсутствие не блокирует подготовку при разрешённой записи; контекст его не создаёт |
 | CFG-06 | В проекте отсутствует `ris.yaml` | Используются пакетные значения по умолчанию; глобальный пользовательский конфиг не требуется |
-| CFG-07 | Проектный `ris.yaml` задан | Его полный набор значений заменяет defaults; пропущенное обязательное поле не заполняется из пакета |
+| CFG-07 | Проектный `ris.yaml` задан | Только отсутствующие workspace leaves получают defaults; явный leaf override сохраняется. Sources/adapters/roles не дополняются; невалидное присутствующее поле — error |
 | CFG-08 | Явный update без существующего эпика roadmap | Нет молчаливого перехода к create; проверяет будущий потребитель трекера, не `ris-proj-op-resolve-context` |
 | CFG-09 | Установка RIS вне проекта или внутри Gas City Pack | Корень и пути целевого проекта определяются независимо от установки RIS |
-| CFG-10 | Смена worktree / контейнера | `sources.*` заново разрешаются от текущей копии; `workspace.*` — от context-checked primary: valid explicit имеет приоритет, иначе verified available saved indication с provenance/project/repository/copy association, затем при отсутствии указаний проверенная обычная non-bare Git source copy; invalid explicit не fallback; неразрешённые missing/ambiguous/conflicting/foreign/stale блокируют только dependent shared part |
+| CFG-10 | Смена worktree / контейнера | `sources.*` — от текущей копии; относительные `workspace.*` — от обычной source folder из actual common `.git`, с проверкой association. Нет saved-primary cascade или выбора по наличию папок. Unsupported bare/missing source/multi-project layout блокирует только зависимую часть |
 | DEP-01 | Прямой запуск без оркестратора | Обязательные зависимости обеспечены |
 | DEP-02 | `ris-proj-lib-common` или нужный ресурс отсутствует | Зависимая часть не объявляется выполненной |
 | DEP-03 | Адаптер настроен, но не нужен | Его CLI не загружается и не запускается |

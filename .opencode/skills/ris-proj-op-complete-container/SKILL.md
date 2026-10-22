@@ -16,9 +16,8 @@ conditional feature assessment reuses the portable verifier, without a new base.
 Load/apply `ris-proj-lib-common` and its applicable resources, and `ris-proj-op-resolve-context` with its
 configuration resource for selected rules and adapter; resolve specs/product only
 when assessment needs them, not as ordinary or administrative close prerequisites. A
-direct call needs no execution role. From a worktree require context's checked
-primary selection/provenance through context's explicit → verified saved →
-verified ordinary Git source-copy procedure
+direct call needs no execution role. Require context's checked Git-derived
+ordinary source-folder association
 only if shared workspace paths are needed; no local report is mandatory.
 
 ## Select the requested result before assessment loads

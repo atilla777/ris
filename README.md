@@ -117,11 +117,16 @@ own snapshot, provenance and scope.
   production operations. Source publication is not deployment or production readiness.
 - **Operation authority and delivery:** a full request includes its ordinary
   constituent actions through existing owners; narrower limits and substantive
-  acceptance/review gates remain. Context selects shared primary paths by explicit
-  input → verified saved association → verified ordinary Git source copy, never
-  the first worktree. This grants no right to change that copy. New assignments
+  acceptance/review gates remain. In the supported one-repository/one-project layout,
+  context derives the ordinary source folder from the actual common `.git`
+  directory, without saved-primary discovery. Shared workspace leaves default to
+  `.sdlc/tasks/` and `.sdlc/worktrees/` there, even with a selected config; explicit
+  valid leaf overrides win. Sources resolve in the current worktree. Unsupported
+  layouts get a bounded diagnostic, not another-copy discovery. This grants no
+  right to change the source checkout. New assignments
   can use a verified current-session actor fallback, never to take over old work.
-  Confirmed remote Git is complete independently of optional safe local updating;
+  Ordinary publication is remote-only. Confirmed remote Git is complete independently
+  of explicitly requested safe local FF, which never switches branches;
   skipped/failed maintenance does not block exact close or Dolt. An explicitly
   requested local update remains a separate unfinished part of that request.
   Shared Dolt publication follows the selected project's accepted policy (RIS
@@ -222,11 +227,15 @@ Package availability is not proof that the current client has discovered the com
 Simple-task execution uses a clear bounded request without mandatory interview,
 spec/design, decomposition, plan or report files. The main agent implements and
 publishes through existing owners; a separate independent subagent reviews, with
-high/medium repair and re-review. It requires its own branch; a suitable current
-copy is allowed, and isolation needs activate worktree preparation. When that own
-copy is also the verified primary root, the publisher may safely return it from
-the task branch to the established primary branch and fast-forward only after
-remote confirmation. Busy/foreign/dirty copies remain protected; skipped/failed
+high/medium repair and re-review. It requires its own branch and dedicated worktree
+through the same preparation owner as full task, feature and bug work; reuse that
+copy across stages/sessions. The ordinary source folder is never a development
+workspace or a branch-return target. All versioned writes, including documents,
+`AGENTS.md` and `ris.yaml`, follow this rule. Installation/update keep their explicit
+target without Git; agreed pre-Git bootstrap permits local writes, but subsequent
+edits after a usable Git repository exists need a worktree and never automatically
+transfer dirty files.
+Busy/foreign/dirty copies remain protected; skipped/failed
 local updating neither invalidates remote Git nor blocks close/Dolt, and never
 calls for repeating a confirmed push. Checks are
 proportionate and mandatory project checks/TDD still apply. A supplied ID keeps

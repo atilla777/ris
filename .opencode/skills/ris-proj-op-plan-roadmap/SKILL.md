@@ -58,8 +58,8 @@ does not silently select limited mode. Full mode publishes tracker effects,
 not a synthetic Git roadmap commit. Missing write/publication authority returns
 an honest proposal or blocked full result, not implicit limited success.
 
-Establish the selected project/root (and context-checked explicit or verified
-saved primary selection/provenance if shared paths are needed from a worktree),
+Establish the selected project/root (and context-checked Git-derived source-folder
+association only if shared paths are needed),
 chosen goal and evidence of its acceptance,
 `mode: create|update`, and precise write scope. An explicit proposal-only
 request has `write: false`; without permission default to no write. Do not

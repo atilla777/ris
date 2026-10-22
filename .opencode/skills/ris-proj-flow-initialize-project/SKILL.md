@@ -36,19 +36,20 @@ need context's checked primary selection and association; do not select primary
 from Git listing order or `.sdlc/`. Missing optional root `ris.yaml` supplies
 package defaults **for the proposal**. An invalid/inaccessible explicitly selected
 config is diagnosed, never replaced by defaults; agree its bounded repair before
-dependent preparation. Do not merge omitted required fields from defaults.
+dependent preparation. Only the two workspace leaf defaults supplement a valid
+selected config; do not supplement sources, adapters or roles.
 
-Before the first initialization file write, establish whether the requested result
-is local-only or includes intended optional Git publication. For a publishable
-result require the caller to supply an already prepared, confirmed own branch/safe
-copy and its work identity/association, repository/path/branch/base, checked state
-and permissions. Validate that input and use that copy/config for all writers;
-isolation/project rules may require a worktree. Init bootstrap and the publisher
-do not create/switch a document branch or transfer dirty primary files. Missing
-preparation limits the result to authorized local/unpublished setup, or blocks
-the dependent publishable request; do not silently narrow it. Local-only init
-still works without Git, a remote or a publication decision granting push rights.
-Do not promise that a later offer can safely publish changes saved on primary.
+Before the first initialization file write, inspect whether a usable Git repository
+exists. If it does, apply common's worktree-first preparation requirement for all
+versioned writes, local-only or publishable, then use that one confirmed dedicated
+copy/config for every writer. Reuse the tracked preparer or the portable no-ID
+document branch as applicable; no artificial ID. Init and publisher do not own a
+native branch-create/switch algorithm or transfer dirty source files. Without Git,
+agreed initial bootstrap may save locally without Git/Beads/claim/remote. Once a
+usable Git repository exists, further versioned edits need a prepared worktree first; existing dirty
+bootstrap files are not automatically transferred or committed. Missing preparation
+blocks those edits, not independent proposal work; do not silently narrow a full
+request. Local-only bootstrap does not grant later publication authority.
 
 For material interdependent setup gaps, load and actually apply installed
 `ris-port-op-interview` here, with the bounded topic, decision dependencies, known

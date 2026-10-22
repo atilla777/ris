@@ -19,7 +19,7 @@ result with provenance and explicit discovery gaps:
 
 - Run identity/time, exact ID/title, actor and task/actor/execution association;
   project/current/primary roots, config source and resolved output addresses;
-  primary selection source, exact association witness address, verification/limits.
+  context's checked Git-derived source-folder association and verification/limits.
 - Requirements/design versions and acceptance addresses; applicable rule/package
   versions and material uncommitted changes to those inputs.
 - Explicit kind and own leaf/child contract with exact accepted source selectors

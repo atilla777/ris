@@ -55,6 +55,26 @@ versions, acceptance or publication reconstruction is required. Preserve the
 caller’s actual result contract; a short answer must not hide missing evidence,
 uncertain effects or unfinished requested work.
 
+## Worktree-first writes
+
+All versioned Git-project edits (including simple tasks, shared documents,
+`AGENTS.md` and `ris.yaml`) use a dedicated worktree and own branch associated
+with this work, never the ordinary source folder. Before writes require a checked
+preparation result from `ris-proj-op-prepare-task-worktree` for confirmed tracked
+work, or from `ris-port-op-prepare-worktree` for genuinely no-ID document/work
+subjects with explicit association/path/branch/base and project constraints.
+The caller applies the preparation owner when needed; already prepared-copy
+consumers validate its result without loading/repeating the preparation algorithm.
+Reuse a suitable confirmed worktree across stages/sessions, not another copy per
+consumer. A branch name or clean status alone proves no association.
+Missing preparation blocks edits, not read-only/proposal work. Installation and
+update instead write the explicitly selected installation target without Git;
+agreed initial bootstrap without Git permits local writes. Once a usable Git
+repository exists, further versioned edits need the worktree first; never move
+foreign/dirty bootstrap files automatically. Shared tracker/local evidence writes
+stay with their owners and are not isolated by a worktree. Context owns source
+folder/shared-path resolution; it grants no source-checkout mutation authority.
+
 ## Conditional resources
 
 Read these resources **before** the corresponding action, from the directory

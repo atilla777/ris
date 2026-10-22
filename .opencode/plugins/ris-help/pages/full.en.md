@@ -190,7 +190,10 @@ unfinished work before ready-task choice. Not a whole multi-task container.
 **Direct skill: `ris-proj-op-prepare-task-worktree`**
 
 Prepare or safely reuse a copy for a confirmed task, checking claim, blockers,
-association and authorized setup. Does not plan or implement the task.
+association and authorized setup. All versioned Git-project edits, including
+simple tasks and documents, reuse a dedicated worktree, never the source folder.
+Installation and agreed pre-Git bootstrap retain their direct-target exceptions.
+Does not plan or implement the task.
 
 ---
 
@@ -231,7 +234,9 @@ Self-review does not provide independent publication approval.
 **`/risp-publish-task [ID]`**
 
 Integrate an independently reviewed whole change into the established primary
-branch and verify the authorized direct push. Local primary updating is separate:
+branch from the work's dedicated worktree and verify the authorized direct push.
+Default is remote-only. Explicit local updating permits safe FF only on an already
+suitable source copy, never branch switching. It is separate:
 an unsafe/busy copy stays untouched and skipped/failed updating does not block
 task completion or tracker publication. An explicitly requested local update
 remains its own unfinished part. Does not complete the task,

@@ -2,7 +2,7 @@
 name: ris-proj-op-publish-task
 description: >-
   Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
-  established primary Git branch, verify authorized direct push and separately attempt safe primary local synchronization. Use for
+  established primary Git branch and verify authorized direct push; source-copy maintenance is explicit-only. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
 ---
@@ -10,14 +10,16 @@ description: >-
 # Integrate and verify Git publication
 
 Own one bounded Git integration/publication result: confirmed remote publication,
-with local primary synchronization reported as a separate maintenance effect.
+with no local source-checkout maintenance by default. Only an explicitly requested
+local update is a separate maintenance effect; never switch its branch.
 An unavailable/unsafe local update never blocks remote publication, exact task
 completion or separate tracker publication. If the user explicitly requests local
 updating too, retain that unfulfilled requested part separately; do not silently
 drop it or call the whole combined request complete. One skill suffices: this is
 an operational Git result, not a distinct portable content method. Load/apply
 `ris-proj-lib-common` and applicable resources, and `ris-proj-op-resolve-context` for project rules and
-evidence paths when needed and primary identity for local maintenance. Load the selected task adapter only for necessary identity/
+evidence paths when needed and source-folder identity only for explicitly requested
+local maintenance. Load the selected task adapter only for necessary identity/
 blocker/ownership reads; this operation never writes or publishes tracker state.
 Direct invocation requires no execution role.
 Reuse already available current owner instructions. For a supplied native bug,
@@ -103,11 +105,11 @@ authorize unrelated outgoing commits, a new remote/ref, force or bypassed review
 
 ## Integrate, reassess, publish
 
-Read and apply `references/primary-sync.md` from this installed skill before local
-maintenance, including no-change/recovery calls. It owns local safety preflight,
-synchronization and their evidence; do not duplicate context's primary discovery.
-Record requested remote and local effects separately. A primary identity or
-safety gap blocks only that local action, never the independent remote result.
+Default to remote-only; do not resolve local maintenance identity or load its
+resource just for publication. Only if the person explicitly requested local
+updating, read/apply `references/primary-sync.md` before that action, including
+no-change/recovery calls. It owns safe FF and evidence; context owns source-folder
+identity. A local identity/safety gap blocks only that local action, never remote.
 
 Use native `git fetch --quiet` and `git push --quiet` for routine network
 progress, with the explicit selected remote/refspec required below. Keep stderr,
@@ -118,15 +120,13 @@ inspection, independent review or remote read-back.
 
 1. Require an already prepared, confirmed own branch and safe working copy as the
    publication workspace, with or without an ID (for pre-ID documents, its own
-   authorized document branch/copy). A suitable current copy is allowed; a separate
-   worktree is required when isolation or project rules demand it. Ambiguous
+   authorized document branch/worktree). Require a registered dedicated worktree
+   distinct from the ordinary source folder, also for simple or no-ID work. Ambiguous
    ownership, overlapping foreign changes or a busy shared copy block dependent
    publication until the caller supplies safe preparation through existing owners.
-   This operation does not prepare worktrees or create work branches. Its only
-   branch switch is the resource's guarded post-confirmation return of the same
-   verified own-current-primary copy from this subject's branch to the established
-   primary branch, followed by safe FF/read-back. Never switch a foreign/busy copy,
-   reset primary/main or use the local primary branch for integration.
+   This operation does not prepare worktrees or create work branches. All branch
+   switching is forbidden, including a post-confirmation return to primary.
+   Never reset primary/main or use the local primary branch for integration.
    One publisher owns this subject, not every project's publication. Fetch the
    latest established primary branch from the selected remote and inspect its
    new code/contracts, divergence and the full outgoing commit/file set.
@@ -139,8 +139,8 @@ inspection, independent review or remote read-back.
    own copy within the accepted scope and checked below.
 2. If there are no intended changes, verify the existing result's applicable
    checks/review, decisions and required remote visibility; return its actual
-   remote evidence without an empty commit or redundant push; separately attempt
-   safe primary synchronization when in scope. Existing unsent commits
+   remote evidence without an empty commit or redundant push; local maintenance
+   runs only when explicitly requested. Existing unsent commits
    still require the full outgoing gate. Otherwise commit intended changes using
    project history style in this own branch/copy. Merge the fetched latest
    established primary remote branch into it, resolving conflicts there; do not
@@ -183,10 +183,10 @@ inspection, independent review or remote read-back.
    evidence, not merely command exit. On failed verification return the stopping
    cause's `blocked|conflict|error`, confirmed local/remote effects and the exact
    remaining check; reconcile an uncertain push before repeating it.
-6. After confirmed remote publication, attempt the separately safe local update
-   under the resource unless excluded. Report updated/skipped/failed/unknown and
-   its cause independently from remote confirmation. Ordinary Git publication is
-   `ok` once its remote gates succeed even when local maintenance cannot finish.
+6. After confirmed remote publication, perform no source-copy writes by default.
+   Only an explicit local-update request activates the separate safe-FF resource.
+   Report its updated/skipped/failed/unknown effect and cause independently.
+   Ordinary Git publication is `ok` once its remote gates succeed.
    If local updating was explicitly requested, the combined request retains its
    causal non-`ok` status and exact local remainder; its confirmed Git result is
    still successful and consumable by completion/Dolt owners. Retry checks facts
@@ -196,9 +196,10 @@ Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,
 commits/tree/ref, input/result versions and separate decision locators,
 checks/review addresses, provenance and applicability, docs state, actual push
-and remote-read evidence, publication scope, primary selection/provenance, before/
-after local ref/HEAD/tree and safety/read-back evidence (or excluded/pending local
-sync with its cause), preserved local effects and recovery needs. Persist
+and remote-read evidence, publication scope and remote-only default. Only for an
+explicit local-update request include source-folder association, before/after local
+ref/HEAD/tree and safety/read-back evidence or its pending cause. Include preserved
+local effects and recovery needs. Persist
 authorized evidence with an exact filename and read it back. With an ID use the
 checked task evidence area only when authorized; without an ID use an explicitly
 authorized address or the response and state any discovery gap. Never invent an

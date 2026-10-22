@@ -14,8 +14,9 @@ contract; do not require access to RIS's documentation repository at runtime.
    is chosen by the caller from its task inputs and document links, not here.
 2. Determine the target `project_root` from the task, working environment and
    applicable instructions. Do not infer it from this skill's installation,
-   RIS source, a config file, or a sibling project. In a monorepo identify the
-   actual selected project. Ambiguous project roots block affected preparation.
+   RIS source, a config file, or a sibling project. The supported Git layout is
+   one repository — one project; monorepo subprojects are not supported.
+   Ambiguous project roots block affected preparation.
 3. Only after fixing the root, select the config: explicit task path first;
    otherwise the single unambiguous applicable project-instruction pointer
    (e.g. `AGENTS.md`); otherwise `ris.yaml` directly at `project_root`. Do not
@@ -41,8 +42,14 @@ workspace:
   worktrees: .sdlc/worktrees/
 ```
 
-If any project config is selected, use **only its values**. Never merge or
-patch missing operation-required fields from defaults. Require `version: 2`
+With a selected project config, use its values except for these two leaf defaults:
+an omitted `workspace.tasks` is `.sdlc/tasks/`, and an omitted
+`workspace.worktrees` is `.sdlc/worktrees/`, also when `workspace` itself is absent.
+An explicit valid leaf overrides only that leaf; directory presence never chooses
+settings. This is not general config merging: do not supplement `sources.*`,
+adapters or execution roles. Validate all present fields before applying defaults;
+null, empty or wrong-type workspace values are errors, not omissions.
+Require `version: 2`
 (an integer, not a boolean). Optional sections `sources`, `workspace`,
 `adapters`, `adapters.tasks`, `execution`, `execution.roles` and each
 `execution.roles.<role>` must be mappings when present. Allowed leaf
@@ -73,7 +80,8 @@ the intended author-owned product source, set `version: 2`, replace
 `sources.concepts` with its actual `sources.product` directory, and check
 all existing fields, links and consumers. Do not assume the old concepts
 directory contains product knowledge or rename it automatically. An absent
-root config is the only case that selects v2 package defaults.
+root config selects the full v2 package defaults; a selected valid file gets only
+the two workspace leaf defaults described above.
 
 ## Permissions, result, and stopping conditions
 
@@ -96,7 +104,8 @@ defaults`; relevant resolved `settings`; `run` operation, task parameters
 and write scope; provenance for each returned setting (including a requested
 `execution.roles.<role>.agent`); specific diagnostics,
 limitations and independent usable partial data; `changes: []`. State when a
-required field is absent instead of filling it. A missing optional `ris.yaml`
+required non-defaulted field is absent instead of filling it. Record each workspace
+leaf's explicit-config or package-default provenance. A missing optional `ris.yaml`
 is not an error. A missing goal or selected document is a caller input gap,
 not a reason to invent one. Never label a configured adapter installed or
 call a merely prepared path a completed artifact. The caller checks the

@@ -29,9 +29,8 @@ historical records, repair/remove worktrees, deploy, release or substitute a PR.
 
 ## Prepare scope and executors before effects
 
-Establish the selected project/current copy, context-checked primary selection
-and provenance for shared paths through context's explicit → verified saved →
-verified ordinary Git source-copy procedure, optional exact task ID, actor, accepted scope, applicable
+Establish the selected project/current copy and context-checked ordinary source
+folder association for shared paths, optional exact task ID, actor, accepted scope, applicable
 rules and permissions. Load/apply installed `ris-proj-lib-common` and its conditional
 resources before their actions; apply `ris-proj-op-resolve-context` with its owned configuration
 resource to prepare sources, needed workspace paths, selected tasks adapter and
@@ -74,7 +73,8 @@ forward that exact actor to participants. Existing execution recovery instead
 requires verified assignment/copy linkage and continuation/transfer authority;
 the fallback or a matching name never takes over old work. Full execution uses
 its own branch and separate working copy, never simultaneous independent writers
-in one copy; the explicitly selected fast route retains its own exception.
+in one copy; simple-task uses the same worktree-first preparer and retains only
+its scoped preparation/reporting exceptions.
 
 Apply each bounded operation's owner directly or actually launch the configured
 subagent when delegating it. Reuse suitable implementation/repair context; always
@@ -288,8 +288,9 @@ or changed facts before deciding the next operation.
    for this reassessment, not silently approve itself. Reconcile ambiguous pushes
    by remote reads. Direct-push prohibition blocks this route without PR fallback.
    Record actual integrated commit/ref and independent remote visibility evidence.
-   Consume its verified remote Git result and separately report local primary
-   maintenance. Skipped/failed local synchronization never blocks criterion
+   Consume its remote-only default result; only an explicit local-update request
+   activates separately reported source-copy safe FF, never branch switching.
+   Skipped/failed requested local synchronization never blocks criterion
    verification, exact close or Dolt publication. An explicitly requested local
    update remains an unfinished part of that request; recover only that local
    effect through the publisher, never repeat confirmed push.

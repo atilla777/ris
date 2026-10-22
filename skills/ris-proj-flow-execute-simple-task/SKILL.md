@@ -59,8 +59,8 @@ Read resources from **this installed skill folder**, only before their triggers:
   accounting, before admission/claim and later tracker effects. A configured
   adapter alone does not activate tracking. Otherwise load no task adapter,
   create no record, invent no ID or task-note directory.
-- `references/worktree.md` when rules require isolation or the current copy is
-  busy, foreign, overlapping or ambiguously owned, before copy preparation.
+- `references/worktree.md` before all versioned Git-project edits, to prepare or
+  reuse this work's dedicated worktree through the existing owner.
 - `references/recovery.md` on resume, prior/partial effects, interruption or an
   ambiguous operation response, before selecting a transition or retry.
 
@@ -78,22 +78,16 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    dependent actions: state affected criteria, available compatible results and
    the exact decision needed from the person. Agree the necessary preparation or
    full route, rather than automatically restarting the SDLC or redesigning here.
-2. **Establish a safe own branch before edits.** Inspect repository identity,
-   actual copy/branch/HEAD, staged/unstaged/untracked work, unfinished Git
-   operations/locks, registrations and concurrent use. Reuse a confirmed own
-   branch only with attributable work → repository/copy/branch association; a
-   conventional name alone is not proof. Preserve existing work. In a free,
-   suitable current copy, this flow owns the small native Git step: select a
-   valid unused own branch (e.g. `task/<real-ID>` or `fast/<name>-<suffix>`), pin
-   exact current HEAD, check ref/registration collisions and checkout side effects,
-   recheck unchanged free state, then non-force create/switch from that exact
-   commit. Independently read back branch, HEAD, index/files and operation state
-   against preflight. No implicit fetch, move of foreign dirty work, reset or stash.
-   An unexpected effect stops dependent edits for reconciliation. Busy/ambiguous
-   state or isolation policy activates the worktree resource. Never use shared
-   local primary/main for result commits or integration. After a copy change
-   re-resolve context for the actual new project root and checked primary when
-   shared paths are needed; verify rules and tracker association again.
+2. **Prepare or reuse this work's dedicated worktree before edits.** Apply the
+   worktree resource, using the same claim-aware project preparer as full task,
+   feature and bug work when tracked. For genuinely no-ID work use its portable
+   preparation branch without inventing an ID. Consume the checked association,
+   copy/branch/base and preservation result; this flow owns no native create/switch
+   algorithm. Reuse one confirmed worktree across stages and sessions, not a new
+   copy per executor. The ordinary source folder is never a development copy,
+   even if clean or on an own branch. Preserve foreign and dirty work; do not
+   transfer it to a new copy automatically. Re-resolve context in the result copy
+   and verify current rules/config and shared tracker association before writes.
 3. **Implement and check in the main agent.** Load/apply
    `ris-port-op-implement-change` with the accepted request/constraints, current
    copy/base, allowed files/effects and `implementation_mode: standard|tdd`.
@@ -148,15 +142,11 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    or add after-the-fact exclusions. Require sent commit/tree/ref/remote and fresh
    remote evidence; missing rights/checks/review or PR-only policy blocks this
    route, and ambiguous effects activate recovery before retry.
-   Consume remote confirmation separately from local primary maintenance. Pass
-   checked primary selection and exact subject/copy/branch association plus
-   authority for its guarded own-current-primary return/FF when applicable;
-   being on this own task branch alone does not require another worktree.
-   Its primary-sync resource owns safety/preflight and local read-back. A busy,
-   dirty or foreign primary stays untouched; skipped/failed local sync does not
-   block exact close or Dolt. If updating was explicitly requested, retain that
-   unfinished requested part separately and return only its local remainder to
-   the publisher without replaying remote publication.
+   The default result is remote-only: do not request source-copy maintenance or
+   branch return. Only an explicitly requested local update activates the
+   publisher's rare safe-FF resource, without branch switching. Retain its
+   unfinished local remainder separately; it never blocks exact close/Dolt or
+   requires replay of confirmed remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker
    resource for short result/Git SHA persistence, separately verified exact close

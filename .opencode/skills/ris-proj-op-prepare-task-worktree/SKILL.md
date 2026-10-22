@@ -30,9 +30,10 @@ Require selected project, exact task ID, actor, current working copy, purpose
 permissions for claim, copy creation/reuse, environment actions and optional
 evidence writes. Never choose a task or infer its ID from a title. Prepare context
 for these inputs; read the applicable project rules. For shared paths consume
-context's checked `primary_root`, selected through its explicit → verified saved
-→ verified ordinary Git source-copy procedure. Inspect its provenance and
-current-copy association; do not derive a root independently from Git. Resolve `sources.*` in
+context's checked `primary_root`, the ordinary source folder derived from the
+actual common Git directory in the one-repository/one-project layout. Inspect its
+current-copy association; do not derive a root independently or require saved-primary
+selection evidence. Resolve `sources.*` in
 the current project and `workspace.*` in the primary copy; config location is
 not a root. Missing settings block only the part needing them. Do not require
 product/specification acceptance just to prepare a copy, or change `ris.yaml`.
@@ -129,7 +130,10 @@ pass their actual paths and exclusions, including custom/external locations.
 Verify the combined result against the task association and permissions, using
 the base's actual independent Git observations. Reprepare context with
 `project_root` equal to the resulting copy's project directory and the checked
-primary root with its selection evidence; verify paths, applicable rules and selected tracker workspace again.
+source-folder association; verify paths, applicable rules and selected tracker workspace again.
+Require the resulting work copy to be a registered linked worktree, distinct from
+the source folder, on its confirmed own branch; reuse that same copy for full,
+simple, feature-preparation, bug and document stages. No per-stage copy is needed.
 Validate the **entire** selected recipient config through context, including
 present unused fields; invalid or inaccessible selected config is an error, not
 grounds for defaults. Compare operation/recipient-relevant settings: project and
@@ -139,7 +143,8 @@ unused difference (for example `sources.product`) alone does not block preparati
 A different tracker or used shared path blocks the dependent handoff even when
 the Git copy exists; identify the exact difference and retain independent results.
 A missing required setting blocks its dependent part. Do not copy/substitute a
-config, patch from defaults, or initialize another tracker. Shared tracker access
+config, supplement non-defaulted fields, or initialize another tracker. Context's
+two workspace leaf defaults apply even in a selected valid config. Shared tracker access
 must use the confirmed project workspace, not an ambient new database in the copy.
 
 ## Handoff, optional evidence and stop
@@ -155,7 +160,7 @@ claim/status/blocker observations, current and primary project roots, confirmed
 tracker workspace, config provenance and re-resolved rules/shared paths. Include
 association evidence as exact forwarded facts or an accessible locator (unknown
 association is an explicit dependent gap),
-primary selection source/verification, actual path/branch/HEAD, new-copy pinned base or n/a on
+checked Git source-folder association, actual path/branch/HEAD, new-copy pinned base or n/a on
 reuse, index/staged/unstaged/untracked/operation state, tool/version, permissions,
 checks/limits and effects. Report copy and environment verdicts separately;
 unrequested setup is not proof of environment readiness. This handoff must be

@@ -70,7 +70,7 @@ Include the following where material to that result or its continuation:
 - Full exact response-only proposal with a distinguishable version/scope, or
   exact result/evidence locator, or a checked discovery convention with all
   required keys and filename. State project/config/current-copy provenance and,
-  for shared paths, checked primary selection source and association evidence.
+  for shared paths, context's checked Git-derived source-folder association.
 - Material input and result versions, and separate acceptance decisions with
   their actual scope/version/address. A later copy of a decision does not renew
   acceptance; unchanged decisions remain bound to their original versions.
