@@ -1,6 +1,6 @@
 # Conditional `ris.review/1` history
 
-Part of `report-format.md`, not a separate format or assessment method. Read before
+Part of conditional `report-format-v1.md`, not a separate format or assessment method. Read only for /1 before
 appending/consuming multiple rounds, prior-finding dispositions or conflicting
 historical evidence. First-round review with no prior findings does not load it.
 
@@ -17,5 +17,5 @@ Read the whole report, not just the selected approval. A later applicable unreso
 high/medium or blocked result forbids fallback to an old approval until independently
 resolved. Later invalid/unknown rounds require reconciliation, never fallback.
 Preserve prior rounds and compare before append/read-back under the storage rules
-in `report-format.md`. Its mechanical validator checks intrinsic history; actual
+in `report-format-v1.md`. Its mechanical validator checks intrinsic history; actual
 evidence, independence and applicability remain external consumer predicates.

@@ -113,7 +113,7 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    this fast no-file exception: a sufficient independent result may remain in
    session; absence of review.yaml alone does not block. If saving is requested,
    use the installed review owner's references/report-format.md and the same
-   ris.review/1 format, never a Markdown twin. Ask for a checkable report,
+   supported format (/2 new file; /1 only for an existing /1 file), never a Markdown twin. Ask for a checkable report,
    early return on missing essential evidence or material conflict, not a live
    agent test. Verify actual launch/context identity and returned subject/version,
    coverage, stable findings with exactly one high/medium/low severity, verdict
@@ -131,6 +131,10 @@ Loading an owner is not applying it; inspect its actual output before advancing.
    low alone requires no fix, task or extra round. Reassess evidence whenever
    bytes/inputs change. If progress needs a material decision, return it to the
    human dialogue with preserved results.
+   Apply the machine outcome explicitly: valid applicable independent `approved`
+   proceeds without another loop; `changes_required` repairs and re-reviews;
+   `blocked` or missing/invalid/unsupported/inapplicable evidence stops dependent
+   progression for the missing input/evidence, not an automatic repair loop.
 6. **Publish through the existing owner.** Main agent loads/applies
    `ris-proj-op-publish-task`, Task/change branch, with exact independently
    approved **whole** snapshot, check/review provenance, prepared own branch/copy,

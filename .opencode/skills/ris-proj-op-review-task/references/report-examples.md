@@ -1,6 +1,6 @@
 # Negative reading examples (not live tests or real evidence)
 
-Read only when an illustration of `report-format.md` is needed, not for routine
+Read only when a /1 illustration of `report-format-v1.md` is needed, not for routine /2
 production or consumption. Apply these independent mutations to its synthetic
 serialization example; these oracles do not add format rules.
 

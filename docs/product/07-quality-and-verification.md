@@ -104,10 +104,11 @@ type: Specification
 
 Независимое ревью имеет отдельную цель. Оно может использовать актуальные подтверждения исполнителя, проверяя их область и достаточность, а не механически повторять все команды. Независимый запуск нужен по риску, сомнению в данных или требованиям проекта.
 
-В обычном проектном review-контракте принятого [D1 §6](../specs/sdlc-feature-lifecycle/design.md#6-review-yaml-предлагаемый-контракт-risreview1)
-полный YAML имеет одного [форматного владельца](../../skills/ris-proj-op-review-task/references/report-format.md).
+В обычном проектном review-контракте принятого [ris-ppw D1 §5](../specs/ris-ppw/spec.md#5-компактный-review-и-машинный-итог)
+компактный YAML имеет одного [форматного владельца](../../skills/ris-proj-op-review-task/references/report-format.md):
+новый файл `/2`, существующий `/1` продолжается условно без миграции.
 Синтаксис/структурная валидность не равны approval: потребитель отдельно сверяет
-work/purpose, полный текущий tree/base/exclusions, входы, обязательные coverage/checks
+work/purpose, полный текущий tree/base/exclusions, входы, содержательную assessment/checks
 и реальные invocation/all-author provenance. Поздний опровергающий или неизвестный/
 невалидный раунд не обходится старым approved; missing/stale report не даёт pass.
 Approved допускает low, но не открытые high/medium, обязательные failed/unverified
@@ -116,7 +117,10 @@ Approved допускает low, но не открытые high/medium, обя�
 итоговые код/тесты/документы и достаточность проверок, не авторская история RED/GREEN
 или implementation-report. Обязанности исполнителя по тестам/TDD не отменяются.
 Fast-only исключение без файла сохраняет содержательные gates. Это адресная
-review-поправка; S1 §4 / D1 §5 отдельно убирают обязательные план/implementation-report
+review-норма: valid applicable independent approved завершает цикл,
+changes_required требует исправления/нового ревью, blocked или missing/invalid/
+unsupported evidence останавливает dependent progression, не бесконечный repair loop.
+S1 §4 / D1 §5 отдельно убирают обязательные план/implementation-report
 без заменяющего журнала. TDD остаётся у исполнителя, его историческая хронология
 не гейт review/recovery/publication; неизвестное не доказано, известное нарушение
 не скрывается.

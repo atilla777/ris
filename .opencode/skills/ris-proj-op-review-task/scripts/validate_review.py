@@ -1,4 +1,4 @@
-"""Read-only mechanical validation of ris.review/1; see report-format.md."""
+"""Read-only mechanical validation of ris.review/1 and /2; see report-format.md."""
 
 from datetime import datetime, timezone
 from decimal import Decimal
@@ -90,6 +90,27 @@ REPORT = dict(
     work=dict(project="text", id="nullable", scope="text"),
     rounds=[ROUND],
 )
+
+# /1 is intentionally unchanged: an existing file continues its original contract.
+ROUND_V2 = dict(
+    id="text",
+    created_at="text",
+    purpose=ROUND["purpose"],
+    snapshot={k: v for k, v in ROUND["snapshot"].items() if k != "repository"},
+    inputs=ROUND["inputs"],
+    provenance={k: v for k, v in ROUND["provenance"].items() if k != "basis"},
+    assessment="text",
+    checks=[{k: CHECK[k] for k in ("description", "required", "outcome", "evidence")}],
+    findings=[
+        dict(
+            id="text", severity=FINDING["severity"], location="text", description="text"
+        )
+    ],
+    dispositions=ROUND["dispositions"],
+    verdict=ROUND["verdict"],
+    limitations=ROUND["limitations"],
+)
+REPORT_V2 = dict(schema="text", work=REPORT["work"], rounds=[ROUND_V2])
 
 
 def require(condition, path, reason):
@@ -306,6 +327,126 @@ def invariants(data):
             )
 
 
+def invariants_v2(data):
+    rounds = data["rounds"]
+    require(bool(rounds), "$.rounds", "expected nonempty array")
+    unique([r["id"] for r in rounds], "$.rounds")
+    previous_time = None
+    findings, open_ids = {}, set()
+    for index, item in enumerate(rounds):
+        path = f"$.rounds[{index}]"
+        created = timestamp(item["created_at"], path + ".created_at")
+        require(
+            previous_time is None or created >= previous_time,
+            path + ".created_at",
+            "rounds must be chronological",
+        )
+        previous_time = created
+        snapshot = item["snapshot"]
+        length = 40 if snapshot["object_format"] == "sha1" else 64
+        for key in ("tree", "base"):
+            value = snapshot[key]
+            if key == "base" and value is None:
+                require(
+                    item["purpose"] == "analysis",
+                    path + ".snapshot.base",
+                    "publication requires a full base commit",
+                )
+                continue
+            require(
+                re.fullmatch(r"[0-9a-f]{" + str(length) + "}", value) is not None,
+                path + ".snapshot." + key,
+                "expected full lowercase Git OID",
+            )
+        for n, exclusion in enumerate(snapshot["exclusions"]):
+            require(
+                all(
+                    part not in ("", ".", "..") for part in exclusion["path"].split("/")
+                ),
+                f"{path}.snapshot.exclusions[{n}].path",
+                "expected exact repository-relative path",
+            )
+        provenance = item["provenance"]
+        unique(provenance["authors"], path + ".provenance.authors")
+        if provenance["independence"] != "self":
+            require(
+                provenance["reviewer_context"] not in provenance["authors"],
+                path + ".provenance.reviewer_context",
+                "author/reviewer overlap requires independence: self",
+            )
+        if provenance["independence"] == "confirmed":
+            require(
+                provenance["invocation_evidence"] is not None,
+                path + ".provenance.invocation_evidence",
+                "confirmed independence requires an evidence address",
+            )
+        for n, check in enumerate(item["checks"]):
+            if check["outcome"] == "pass":
+                require(
+                    bool(check["evidence"]),
+                    f"{path}.checks[{n}].evidence",
+                    "pass requires evidence",
+                )
+        unique([d["finding_id"] for d in item["dispositions"]], path + ".dispositions")
+        # Resolve only previously open findings. New findings cannot be silently
+        # closed in their introducing round, and closed IDs cannot be reused.
+        for n, disposition in enumerate(item["dispositions"]):
+            at = f"{path}.dispositions[{n}]"
+            ident, decision = disposition["finding_id"], disposition["decision"]
+            require(
+                ident in open_ids,
+                at + ".finding_id",
+                "must reference an open finding from a prior round",
+            )
+            severity = findings[ident]["severity"]
+            require(
+                decision != "accepted_recommendation" or severity == "low",
+                at + ".decision",
+                "accepted_recommendation is only for low findings",
+            )
+            if decision != "deferred" or severity == "low":
+                open_ids.remove(ident)
+        for n, finding in enumerate(item["findings"]):
+            ident = finding["id"]
+            require(
+                ident not in findings,
+                f"{path}.findings[{n}].id",
+                "finding IDs are globally unique; do not repeat or reopen findings",
+            )
+            findings[ident] = finding
+            open_ids.add(ident)
+        actionable = any(
+            findings[ident]["severity"] in ("high", "medium") for ident in open_ids
+        ) or any(c["required"] and c["outcome"] == "fail" for c in item["checks"])
+        if item["verdict"] == "changes_required":
+            require(
+                actionable,
+                path + ".verdict",
+                "changes_required needs an established high/medium or mandatory violation",
+            )
+        elif item["verdict"] == "blocked":
+            require(
+                not actionable,
+                path + ".verdict",
+                "established actionable violations require changes_required",
+            )
+        else:
+            sufficient = (
+                not actionable
+                and all(
+                    not c["required"] or c["outcome"] not in ("fail", "unverified")
+                    for c in item["checks"]
+                )
+                and not any(lim["blocks_approval"] for lim in item["limitations"])
+                and provenance["independence"] == "confirmed"
+            )
+            require(
+                sufficient,
+                path + ".verdict",
+                "approved contradicts checks/findings/limitations/independence",
+            )
+
+
 def parse(text):
     from ruamel.yaml import YAML
     from ruamel.yaml.error import YAMLError
@@ -371,10 +512,14 @@ def validate_text(text):
         raise Invalid("$: expected mapping")
     if type(data.get("schema")) is not str or not data["schema"].strip():
         raise Invalid("$.schema: expected nonempty schema string")
-    if data["schema"] != "ris.review/1":
+    if data["schema"] not in ("ris.review/1", "ris.review/2"):
         raise Unsupported(f"$.schema: unsupported schema {data['schema']!r}")
-    shape(data, REPORT, "$")
-    invariants(data)
+    if data["schema"] == "ris.review/1":
+        shape(data, REPORT, "$")
+        invariants(data)
+    else:
+        shape(data, REPORT_V2, "$")
+        invariants_v2(data)
 
 
 def main(argv=None):

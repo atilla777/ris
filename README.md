@@ -340,9 +340,13 @@ consumer/config changes, see the [namespace transition guide](docs/skill-command
 ## Documentation and development
 
 Ordinary project review saves one local `review.yaml` using
-[ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); Beads
+[ris.review/2](skills/ris-proj-op-review-task/references/report-format.md); Beads
 keeps only its address/round. Fast retains independent session-only review, with
-the same format for optional saves. Format validity alone is not current-snapshot
+the same schema selection for optional saves. Existing /1 files continue under
+conditional compatibility without migration. Compact rounds keep new findings
+and dispositions instead of repeating prior findings or six coverage mappings.
+The explicit verdict selects proceed/repair/stop; blocked or invalid/unsupported
+evidence never means approval or an automatic repair loop. Format validity alone is not current-snapshot
 approval; local reports are not automatically available on another machine.
 The source contract introduced by ris-b1a.4 removes both standalone task planners
 and `/risp-plan-task`, without aliases,

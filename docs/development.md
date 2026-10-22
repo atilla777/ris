@@ -37,7 +37,11 @@ historical archive. Git push does not synchronize Beads. Follow the rules for
 review and separate Git/tracker publication and completion.
 
 Ordinary project review uses one local `review.yaml` under the
-[ris.review/1 owner](../skills/ris-proj-op-review-task/references/report-format.md).
+[ris.review/2 owner](../skills/ris-proj-op-review-task/references/report-format.md).
+Existing /1 files continue conditionally without migration. New compact rounds
+use assessment, new findings and dispositions; no six fixed coverage mappings or
+repeated per-check tree. Machine approved/changes_required/blocked distinguishes
+proceed/repair/stop; invalid/unsupported/missing evidence is never a repair loop.
 Beads stores only address/round, not verdict/findings. Fast retains session-only
 independent review; optional save uses the same format. YAML parsing checks syntax,
 not schema/approval: assess final subject, inputs, checks and actual independence
@@ -53,7 +57,7 @@ skill's `requirements.txt` into the selected venv):
 /path/to/venv/bin/python -B -m unittest discover -s tests/review_validation -p 'test_*.py' -v
 ```
 
-These exercise synthetic reports and the CLI, including an isolated skill copy
+These exercise both /1 and /2 synthetic reports and the same CLI, including an isolated skill copy
 without Git/Beads executables, not live agents or actual evidence/approval.
 
 For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),

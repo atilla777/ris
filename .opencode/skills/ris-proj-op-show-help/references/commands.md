@@ -231,7 +231,8 @@ Example: `Load ris-proj-op-update-documentation for <project/copy>, snapshot <ba
 [Owner](../../ris-proj-op-review-task/SKILL.md). Purpose: assess a project change.
 Choose when: independent review/re-review, not repair or acceptance of design.
 Inputs: project, optional ID, full concrete snapshot, criteria and review purpose.
-Result/stop: one local review.yaml with complete ris.review/1 rounds; no-ID save
+Result/stop: one local review.yaml with compact ris.review/2 rounds (existing /1
+continues under conditional compatibility without migration); no-ID save
 needs an explicit path. Fast alone permits sufficient session-only review; optional
 save uses the same format. Format validity is not approval applicability.
 Self-review does not supply independent publication approval.

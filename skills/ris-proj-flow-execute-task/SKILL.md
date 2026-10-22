@@ -285,6 +285,11 @@ or changed facts before deciding the next operation.
    justified new approach needs cause diagnosis; if no viable progress, preserve
    actual effects, stopping cause and exact remainder with the cause's
    `blocked|conflict|error`, or ask the necessary question. There is no fixed round cap.
+   Use the explicit machine verdict: valid applicable independent `approved`
+   ends the loop; `changes_required` repairs/re-reviews; `blocked`, missing,
+   invalid/unsupported or inapplicable evidence stops dependent progression for
+   the exact missing fact, never an endless implementation loop. No fallback
+   past later adverse/unknown evidence to old approval.
 5. Apply `ris-proj-op-publish-task` with exact approved full snapshot, independence
    evidence and authorized primary branch/remote. Never stage foreign paths,
    reset/stash their work, bypass hooks or force push. If integration/hook changes

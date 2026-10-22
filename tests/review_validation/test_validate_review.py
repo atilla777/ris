@@ -11,7 +11,7 @@ spec = importlib.util.spec_from_file_location("validate_review", SCRIPT)
 validator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(validator)
 EXAMPLE = (
-    (SKILL / "references/report-format.md")
+    (SKILL / "references/report-format-v1.md")
     .read_text()
     .split("```yaml\n", 1)[1]
     .split("```", 1)[0]

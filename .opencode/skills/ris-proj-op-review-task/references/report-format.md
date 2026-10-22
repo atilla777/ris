@@ -1,19 +1,19 @@
-# Project review report — `ris.review/1`
+# Project review report — `ris.review/2`
 
-Read before producing, saving or consuming a project review file, including an
-optional fast-route save. This resource alone owns serialization, types and gate
-semantics; portable review owns assessment. The bundled Python validator implements
-only mechanical checks under this resource; it is not another norm owner, an
-approval engine, schema registry or Gas City metadata.
+Read before producing, saving or consuming a project review **file**, including
+an optional fast save. This resource alone owns serialization, history and gate
+semantics; portable review owns assessment. New files use /2. Only when an
+existing file declares `ris.review/1`, read `report-format-v1.md` beside this file
+and continue its original contract without rewriting/migrating it. One file has
+one schema; unknown versions are unsupported, never approval. Ordinary /2 does
+not load the conditional /1 resources.
 
-## Mechanical validator: setup and CLI
+## Read-only mechanical validator
 
-Use Python **>=3.10** and **ruamel.yaml==0.18.16** (YAML 1.2, pure-Python safe
-loader). `requirements.txt` and `scripts/validate_review.py` live inside this
-skill, so the same command works from a source or installed skill folder.
-Dependency installation is a separate, explicitly authorized action, never a
-validator side effect. For example, choose an authorized venv location and set
-`skill` to the actual installed folder (not the caller's project root):
+Use Python **>=3.10** and **ruamel.yaml==0.18.16**, the pure-Python safe YAML 1.2
+loader pinned in this skill's `requirements.txt`. Dependency installation needs
+separate explicit authority, never a validator side effect. Choose an authorized
+venv location and the actual source or installed skill folder:
 
 ```sh
 skill='/absolute/path/to/.opencode/skills/ris-proj-op-review-task'
@@ -22,178 +22,158 @@ python3 -m venv /authorized/path/review-venv
 /authorized/path/review-venv/bin/python -B "$skill/scripts/validate_review.py" /absolute/path/review.yaml
 ```
 
-CLI: `python -B <skill>/scripts/validate_review.py <review.yaml>`. Exit **0** means
-`valid` format only; **1** means `invalid` (including non-UTF-8); **2** means
-`unsupported` schema; **3** is a separate operational/setup error (usage, I/O,
-unsupported Python or missing/incompatible dependency), not an invalid report.
-Diagnostics identify a YAML line/column or field path and reason. Nothing is
-repaired, written or published. Git, Beads, network and agents are not needed.
-The validator never installs dependencies or fetches evidence. Missing dependency
-returns the setup error with explicit-install guidance; do not treat it as a pass
-or auto-install. If unavailable, substantive manual inspection remains possible,
-but must not be described as machine validation.
+CLI: `python -B <skill>/scripts/validate_review.py <review.yaml>`.
+Exit **0**: valid format only; **1**: invalid (including non-UTF-8);
+**2**: unsupported schema; **3**: operational/setup error (usage, I/O, unsupported
+Python or unavailable/incompatible dependency). Diagnostics identify a YAML
+line/column or field path and reason. Both /1 and /2 use this same CLI. Nothing is
+written, repaired, installed, fetched or published; Git, Beads, network and agents
+are not needed. Missing setup is not invalidity or pass. Manual substantive
+inspection remains possible but is not machine validation.
 
-The program checks the document profile, exact schema, intrinsic round/finding
-history and formally represented verdict contradictions below. It cannot compare
-past file bytes for append-only saving, determine whether prose is truthful or a
-reason is substantively adequate, resolve objects/addresses, establish actual
-independence, detect external mandatory violations or approve publication.
-Consumers still own all external predicates and concurrent save/read-back checks.
-
-Implementation basis for **ris-7qq / T3**: requirements and V1 decision at
-`ff79c496b733756a86003b44e70eb72c60efa532`,
-`docs/specs/sdlc-audit-remediation/spec.md`, T3. The user separately accepted the
-bounded implementation design (execution-request version) in the dialogue: Python >=3.10, pinned
-ruamel.yaml, these skill-local files/CLI, distinct validity/unsupported/setup
-results, explicit venv installation, mechanical read-only scope and no external
-approval claims. This records that design scope, not a renewal of the historical
-V1 decision or an independent review/acceptance of implementation.
+The program checks exact types, intrinsic history and declared contradictions.
+It cannot compare old file bytes for append-only saving, establish truthful prose,
+adequate checks, real independence, Git/source accessibility or external approval.
 
 ## Storage and authority
 
-The ordinary project route saves one complete `review.yaml`, by default at
-context-checked primary `workspace.tasks/<ID>/review.yaml`. Without an ID, saving
-requires an explicit authorized local address; never invent a task. The YAML is
-the sole authority for review content and verdict, not a Markdown twin or Beads
-metadata. Beads stores only its address and selected round ID, through a separately
-authorized tracker owner. The short work result, published Git SHA and completion
-facts remain in Beads; they are not a second review. Another local session can
-read this file; remote archival, publication with code and access from another
-machine are not promised. Missing local reports never imply approval.
+Ordinary review saves one local `review.yaml`, by default at context-checked
+`workspace.tasks/<confirmed-ID>/review.yaml` in the source folder. Without an ID,
+require an explicit authorized local address; never invent a task. Beads holds
+only address/round, not verdict/findings. No Markdown twin, second review registry,
+implementation log or automatically published evidence. Availability on another
+machine is not promised. Fast retains independent session-only review; optional
+save follows this same schema-selection rule.
 
-Fast execution retains independent review without a mandatory file; its sufficient
-session result is not a second serialization format. If saving is separately
-requested, use this same contract. Preserve historical Markdown reports unchanged;
-do not automatically migrate them or treat them as a current-format gate.
+Before appending, freshly read/compare the existing complete file and preserve
+work identity and all prior round bytes. Append one complete round; independently
+read back the whole result. Conflict, partial/unparseable save or changed prior
+bytes blocks the gate: reconcile, never overwrite another writer. Fresh comparison
+and read-back are not filesystem CAS. Never rewrite old approval after a repair.
 
-One file holds work identity and append-only rounds. Before saving, read and compare
-the existing file/history with the inspected version. Append the new complete
-round without rewriting prior rounds or unrelated data; independently read back
-the complete result. A conflict or partial/unparseable write blocks the save/gate;
-reconcile before retry, never overwrite another writer. Fresh comparison/read-back
-is not filesystem CAS or a transaction. No separate latest verdict/passed flag.
+If the local report is lost, recover the exact accessible evidence unchanged or
+conduct new independent review of the exact available subject with current time
+and actual provenance. Do not invent historical approval before an earlier push.
+If the old tree is unavailable, identify the current reviewed tree honestly.
+Lost reproducible checks are rerun as needed; already published/closed effects
+remain facts, not reasons to replay push/close. Broader recovery stays with its owner.
 
-## YAML and exact mappings
+## Exact YAML mappings
 
-One UTF-8 YAML 1.2 document. Mapping keys are strings. Reject duplicate and merge
-keys, anchors/aliases, custom tags and scalar types other than string, boolean,
-integer and null. Do not coerce values (including timestamps/OIDs) into expected
-types or silently discard unknown fields. Fixed mappings have **exactly** the
-keys below. Every field is required; null is allowed only where stated. Strings
-must be nonempty/non-whitespace unless explicitly allowed otherwise (none here).
-Arrays may be empty except where a nonempty/complete set is required. Use block
-strings for substantial explanations. Unknown schema is `unsupported`, not pass.
+One UTF-8 YAML 1.2 document. Reject duplicate/merge keys, anchors/aliases, custom
+tags and scalar types other than string, boolean, integer and null. Mapping keys
+are strings. No coercion or discarded unknown fields. Each mapping has **exactly**
+the keys below; every field is required. Strings are nonempty/non-whitespace;
+null is allowed only where stated. Arrays can be empty except `rounds`.
 
 | Mapping | Required fields and types |
-|---|---|
-| root | `schema`: literal string `ris.review/1`; `work`: Work; `rounds`: nonempty array of Round |
+| --- | --- |
+| root | `schema`: literal `ris.review/2`; `work`: Work; `rounds`: nonempty chronological array of Round |
 | Work | `project`: repository/project locator string; `id`: string or null for no-ID; `scope`: string |
-| Round | `id`: unique string; `previous`: immediately preceding round ID string or null; `created_at`: RFC3339 string with timezone; `purpose`: `analysis` or `publication`; `snapshot`: Snapshot; `inputs`: array of Input; `provenance`: Provenance; `coverage`: nonempty array of Coverage; `checks`: array of Check; `findings`: array of Finding; `dispositions`: array of Disposition; `summary`: string; `verdict`: `approved`, `changes_required` or `blocked`; `limitations`: array of Limitation |
-| Snapshot | `repository`: repository locator string; `object_format`: `sha1` or `sha256`; `tree`: full Git tree OID string; `base`: full commit OID string or null; `exclusions`: array of Exclusion |
+| Round | `id`: unique string; `created_at`: RFC3339 string with timezone; `purpose`: `analysis` or `publication`; `snapshot`: Snapshot; `inputs`: array of Input; `provenance`: Provenance; `assessment`: string; `checks`: array of Check; `findings`: array of new Finding; `dispositions`: array of Disposition; `verdict`: `approved`, `changes_required` or `blocked`; `limitations`: array of Limitation |
+| Snapshot | `object_format`: `sha1` or `sha256`; `base`: full commit OID string or null only for analysis; `tree`: full tree OID string; `exclusions`: array of Exclusion |
 | Exclusion | `path`: exact repository-relative path string; `reason`: string |
-| Input | `role`: string; `address`: string; `version`: string; `status`: `accepted`, `observed` or `proposed` |
-| Provenance | `reviewer_context`: string; `authors`: array of unique context/actor ID strings; `invocation_evidence`: address string or null; `independence`: `confirmed`, `unverified` or `self`; `basis`: string |
-| Coverage | `area`: `requirements`, `architecture`, `rules`, `correctness`, `tests` or `docs`; `basis`: string; `outcome`: `pass`, `fail`, `unverified` or `not_applicable`; `evidence`: array of address strings; `reason`: string |
-| Check | `id`: unique string within round; `description`: string; `required`: boolean; `outcome`: same four enums as Coverage; `snapshot_tree`: full OID string; `evidence`: array of address strings; `reason`: string |
-| Finding | `id`: stable string, unique within round; `severity`: `high`, `medium` or `low`; `status`: `open` or `resolved`; `location`: file/symbol/artifact scope string; `summary`, `basis`, `required_change`: strings |
-| Disposition | `finding_id`: existing finding ID string; `decision`: `fixed`, `not_a_defect`, `deferred` or `accepted_recommendation`; `basis`: string |
+| Input | `role`, `address`, `version`: strings; `status`: `accepted`, `observed` or `proposed` |
+| Provenance | `reviewer_context`: string; `authors`: array of unique context/actor strings; `invocation_evidence`: address string or null; `independence`: `confirmed`, `unverified` or `self` |
+| Check | `description`: string; `required`: boolean; `outcome`: `pass`, `fail`, `unverified` or `not_applicable`; `evidence`: array of address strings |
+| Finding | `id`: globally unique stable string; `severity`: `high`, `medium` or `low`; `location`: file/symbol/artifact scope string; `description`: string including cause and necessary correction |
+| Disposition | `finding_id`: prior open finding ID string; `decision`: `fixed`, `not_a_defect`, `deferred` or `accepted_recommendation`; `basis`: substantive string |
 | Limitation | `description`: string; `blocks_approval`: boolean |
 
-## Subject, history and verdict invariants
+`assessment` covers applicable requirements, architecture, rules, correctness,
+tests and documents in one coherent evaluation, explaining gaps/inapplicability.
+There are no six fixed coverage mappings, per-check `snapshot_tree`, `previous`,
+duplicated finding prose fields or repeated prior findings. Requirements and
+rules/quality remain substantively distinguishable. Inputs identify used versions
+and actual acceptance decisions where required; a missing mandatory input cannot
+be concealed as inapplicable. Empty inputs/checks require sufficient substantive
+grounds in the assessment, not invented results. A pass check requires nonempty
+evidence; description/assessment explains failure, unverified or inapplicability.
+An unavailable mandatory tool is not `not_applicable`. Checks inherit the round
+tree and describe assessed reviewer/current results, not author RED/GREEN history.
 
-- Git OIDs are lowercase hex strings of exactly 40/64 characters according to
-  `object_format`, never branch/tag/short SHA. `tree` identifies the **complete**
-  checked tree: unchanged base plus additions/deletions/content/modes. The locator
-  must resolve the repository/object store; an absolute path is not a remote
-  availability guarantee. A null base permits current-content analysis, not
-  invented delta evidence or an ambiguous publication basis.
-- WIP is not HEAD. Obtain its exact prospective tree from the existing snapshot
-  owner without changing the user's index/worktree or creating a snapshot commit
-  solely for review. A loose Git object is not a backup: after object loss recover
-  the exact subject or review anew. Declare exclusions before assessment. For dirty
-  tracked exclusions the tree retains base bytes/modes, not missing tracked files.
-  Compare the actual complete publication tree/base/exclusions with this subject.
-  Saving ignored local review evidence does not change that tree.
-- First round has `previous: null`; a resolved finding needs a reasoned reviewer
-  disposition, never `deferred` for high/medium. Read `review-history.md` beside
-  this resource before appending/consuming multiple rounds, prior-finding
-  dispositions or conflicting historical evidence. It owns the detailed history
-  branch of this same format, not another report contract. No new round for low
-  alone; collective reasoned prose disposition remains sufficient.
-- Coverage has exactly one result for each of the six areas. Keep requirements
-  and rules/quality distinguishable. `fail`/`unverified` coverage forbids approved;
-  `not_applicable` needs a specific checked reason. Publication inputs identify
-  applicable requirements/rules and design where required; missing mandatory
-  inputs cannot be hidden with `not_applicable`.
-- Required checks with `fail`/`unverified` forbid approval. `not_applicable` needs
-  a checked reason, not a missing tool. Claimed pass requires evidence (also for
-  coverage); every Check's `snapshot_tree` equals its Round's tree. Consumers
-  independently assess whether evidence actually applies to that tree. Checks
-  describe reviewer checks or applicable results assessed by the reviewer, not
-  the history of the author's test development or copied implementation log.
-- `changes_required`: established unresolved high/medium or mandatory violation.
-  If evidence is also insufficient, retain those limitations. `blocked`: no
-  established actionable blocker, but missing required access/evidence/independence
-  or applicability. `approved`: sufficient coverage/checks, no open high/medium,
-  mandatory violations, failed/unverified gates or blocking limitations, and
-  confirmed independence. Open low is allowed. Contradictory verdict is invalid;
-  a repaired finding alone is not approval.
-- `reviewer_context` may be in `authors` when `independence: self`; otherwise it
-  must not be. Self-review may be a valid `blocked` or `changes_required` analysis
-  (according to findings), never `approved`, and never replaces required separate
-  independent review. Confirmed independence requires a non-null invocation
-  evidence address and real inspectable invocation/context evidence, compared by
-  the caller with the actual
-  launch and **all** authors/repairers. A name, configured role or self-declared
-  `confirmed` does not prove this. Null/missing-access evidence cannot establish
-  an independent gate. No cryptographic attestation or trusted registry is implied.
+## Subject, history and fold
 
-## Two separate consumer results
+- OIDs are lowercase hex of exactly 40/64 characters for sha1/sha256. Repository
+  comes from `work.project`. `tree` identifies the complete subject (unchanged
+  base plus additions/deletions/content/modes), not HEAD-only or a dirty fingerprint.
+  Publication needs a non-null base. Null permits analysis, not invented delta.
+  The CLI checks shape only; the caller resolves the actual objects/repository.
+- WIP is not HEAD. Use the existing snapshot owner for an exact prospective tree
+  without altering foreign index/worktree or making a commit solely for review.
+  Declare exact exclusions before assessment: no absolute/empty/`.`/`..` path
+  components. Excluded dirty tracked files retain base bytes/modes in the tree.
+  Compare the actual complete publishing tree/base/exclusions. Saving ignored
+  evidence does not alter it; loose objects are not a durable backup.
+- Read **all rounds**, in array order, with unique round IDs and nondecreasing
+  RFC3339 instants (timezone/fraction aware). No forks, renumbering or fallback.
+  The array replaces `previous`. Save-time preservation of earlier bytes is an
+  external obligation; a standalone validator cannot prove it.
+- Fold findings/dispositions in order. A new finding opens a never-before-used ID;
+  it cannot repeat/redefine a prior finding or be disposed in its introducing
+  round. A disposition references an open finding from a prior round, at most
+  once per round. `fixed` and `not_a_defect` close it after reasoned reviewer
+  assessment; `deferred` closes low only and leaves high/medium open.
+  `accepted_recommendation` is low-only and closes that recommendation. Closed IDs
+  cannot be disposed again/reopened; rediscovery gets a new ID with the prior
+  reference in its description. Neither findings nor dispositions are recopied
+  into later rounds. An unresolved high/medium persists even when omitted.
+- Low can receive a collective reasoned session decision without creating a new
+  round for low alone; reflect it in the next assessment when another round is
+  otherwise needed. Open low does not prevent approval.
+- Reviewer/context in `authors` requires `independence: self`; otherwise overlap
+  is invalid. `confirmed` requires non-null invocation evidence. The caller checks
+  actual launch and **all** authors/repairers: names/roles/declarations are not
+  proof. Self-review can be blocked/adverse analysis, never independent approval.
 
-1. Establish format validity: syntax, supported schema, exact keys/types/enums,
-   OIDs/round/finding references and verdict consistency → `valid`, `invalid` or
-   `unsupported`. Ordinary YAML parsing establishes syntax only, not full schema
-   validity. Use the bundled CLI above for mechanical validation when available;
-   retain its operational error separately from the three format results. Manual
-   inspection must not claim machine validation that did not occur.
-2. For an approval gate receive expected project/work identity and scope, purpose,
-   complete current tree/base/exclusions, applicable input versions, necessary
-   coverage/checks and trusted caller provenance observations. Read the **whole**
-   report, selecting an explicit round ID. Verify structural validity and every
-   external predicate; `passed` is a consumer outcome, never a saved report flag.
-   It requires a supported valid approved round, exact subject/inputs, actual
-   independence, sufficient applicable checks and no later refuting round. Multiple
-   rounds/conflicting history activate `review-history.md` before deciding the gate;
-   never fall back past later adverse/invalid/unknown evidence. Missing/invalid/unsupported/stale/contradictory
-   reports or inaccessible required evidence give **no gate**, not an invented
-   defect or pass. Report the exact unmet predicate separately from format validity.
+## Machine verdict and external gate
 
-The publisher still owns whole-tree integration/reassessment and remote/primary
-sync; this format grants neither publication authority nor feature acceptance.
+| `verdict` | Mechanical consistency and consumer action |
+| --- | --- |
+| `approved` | No folded open high/medium, required failed/unverified checks or blocking limitations; confirmed independence. Do not repeat implementation/review when this is valid, applicable and actually independent for the exact subject. |
+| `changes_required` | Established actionable violation: folded open high/medium or required failed check. Send corrections to the implementation owner, then new independent review. Retain additional evidence gaps as limitations. |
+| `blocked` | No established actionable violation, but insufficient required input/access/evidence/independence/applicability. Stop dependent progression to obtain the missing fact, not an endless implementation loop. |
+
+Mandatory violations not expressed by a failed check need an actionable high/medium
+finding. A sufficient-looking blocked report does not grant approval: adequacy of
+its explanation is assessed externally. Do not infer a branch from prose, or add
+duplicate `repeat`/`passed`/`latest` flags. GAS City is a future consumer, not a
+loop script or business-metadata owner in this package change.
+
+Two separate results are required:
+
+1. **Format:** the whole file's syntax/schema/types/OIDs/history/declared verdict
+   consistency, via the CLI when available. Exit 0 includes valid adverse/blocked
+   files and is never approval. Invalid/unsupported/setup errors stop dependent
+   progression; never ignore a malformed tail or silently select another schema.
+2. **Approval applicability:** caller supplies expected project/work/scope,
+   publication purpose, complete current tree/base/exclusions, applicable input
+   versions, sufficient assessment/checks and trusted invocation/all-author
+   observations. Select an explicit round, resolve actual evidence and compare
+   every predicate. A later refuting, adverse/blocked, invalid or unknown round
+   forbids falling back to old approved; reconcile or obtain fresh independent
+   assessment of the exact subject. Missing/stale/inaccessible/unverified evidence
+   means **no gate**, not an invented defect/pass or automatic repair loop.
+
+The publisher retains whole-tree integration/reassessment and publication authority.
+This report is neither feature acceptance nor proof of historical operations.
 
 ## Synthetic serialization example
 
-Locators and OIDs below are illustrative, not real evidence. Syntax/shape alone
-cannot establish approval. Positive applicability assumes the caller independently
-resolves these exact objects, inputs, evidence and distinct invocation/authors.
-The validator's existing program-test fixture reads this example here.
+Illustrative locators/OIDs, not real evidence or approval. External applicability
+would require independently resolving the exact subject, inputs and invocation.
 
 ```yaml
-schema: ris.review/1
-work:
-  project: example-repository
-  id: example-1
-  scope: Review documentation wording
+schema: ris.review/2
+work: {project: example-repository, id: example-1, scope: Review documentation wording}
 rounds:
   - id: r1
-    previous: null
-    created_at: "2026-10-20T15:00:00Z"
+    created_at: "2026-10-22T10:00:00Z"
     purpose: publication
     snapshot:
-      repository: example-repository
       object_format: sha1
-      tree: "1111111111111111111111111111111111111111"
       base: "2222222222222222222222222222222222222222"
+      tree: "1111111111111111111111111111111111111111"
       exclusions: []
     inputs:
       - {role: requirements, address: "example:request", version: S1, status: accepted}
@@ -203,38 +183,14 @@ rounds:
       authors: [author-session]
       invocation_evidence: "example:invocation"
       independence: confirmed
-      basis: Caller compared actual invocation and all authors
-    coverage:
-      - {area: requirements, basis: S1, outcome: pass, evidence: ["example:reading"], reason: Required wording is present}
-      - {area: architecture, basis: Documentation-only scope, outcome: not_applicable, evidence: [], reason: No architecture contract changes}
-      - {area: rules, basis: R1, outcome: pass, evidence: ["example:reading"], reason: Applicable rules checked}
-      - {area: correctness, basis: Exact tree inspection, outcome: pass, evidence: ["example:reading"], reason: Links and meaning checked}
-      - {area: tests, basis: Documentation-only scope, outcome: not_applicable, evidence: [], reason: No executable behavior changed}
-      - {area: docs, basis: S1, outcome: pass, evidence: ["example:reading"], reason: Documentation matches subject}
+    assessment: >-
+      Requirements and rules checked; final wording and links are correct.
+      No architecture or executable changes; program tests are inapplicable.
+      Documentation matches the requested scope.
     checks:
-      - id: reading
-        description: Inspect exact candidate and links
-        required: true
-        outcome: pass
-        snapshot_tree: "1111111111111111111111111111111111111111"
-        evidence: ["example:reading"]
-        reason: Applicable final-tree reading
-    findings:
-      - id: F1
-        severity: low
-        status: open
-        location: README.md wording
-        summary: Optional shorter sentence
-        basis: Readability recommendation only
-        required_change: Consider shortening in a later edit
+      - {description: Inspect exact candidate and links, required: true, outcome: pass, evidence: ["example:reading"]}
+    findings: []
     dispositions: []
-    summary: Requirements and rules checked; optional recommendation does not block
     verdict: approved
     limitations: []
 ```
-
-## Optional negative reading examples
-
-Read `report-examples.md` beside this resource only when a synthetic serialization
-or negative-history illustration is needed. Routine production/consumption uses
-the rules above and conditional history resource, not illustrative evidence.

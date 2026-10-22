@@ -176,7 +176,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-decompose-feature](../skills/ris-proj-op-decompose-feature/SKILL.md) | ID-based feature/standalone one-task check or sufficient children and tracker publication |
 | [ris-proj-op-prepare-task-worktree](../skills/ris-proj-op-prepare-task-worktree/SKILL.md) | Claim-aware feature-preparation/execution copy/environment handoff |
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
-| [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one local ris.review/1 YAML, with explicit fast no-file exception |
+| [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one compact local ris.review/2 YAML (existing /1 continued conditionally), with explicit fast no-file exception |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
 | [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed change or pre-ID document integration/push from an own branch; confirmed remote Git and optional safe primary-copy maintenance are separate results |
 | [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Ordinary close/eligibility from closed direct children, explicit substantive verification, or administrative close |

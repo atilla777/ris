@@ -216,6 +216,10 @@ explicit round, separate validity and external snapshot/input/check/provenance
 applicability, no fallback past later adverse/unknown rounds. Review is not human
 acceptance. Return high/medium findings to content owners, repair/check, obtain
 targeted acceptance only for changed meaning and fresh independent review.
+Use the machine verdict under that owner: applicable independent `approved`
+proceeds, `changes_required` repairs/re-reviews, `blocked` or missing/invalid/
+unsupported/inapplicable evidence stops dependent progression without a repair
+loop or fallback to old approval. New YAML uses /2; existing /1 is conditional.
 
 Apply `ris-proj-op-publish-task` for accepted documents from the **same prepared
 ID-associated copy/branch**. Pass checked association/current state/base, exact paths,

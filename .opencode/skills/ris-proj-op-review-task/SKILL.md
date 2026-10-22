@@ -17,7 +17,8 @@ needs no execution role or scenario skill.
 
 Before producing/saving a project review **file** or consuming saved rounds, read
 `references/report-format.md` from this installed skill. It is the sole owner of
-`ris.review/1` serialization, types, history and approval applicability. Ordinary
+supported serialization, types, history and approval applicability. New files use
+`ris.review/2`; existing /1 files continue under its conditional compatibility resource. Ordinary
 project review requires that complete YAML; explicit fast execution alone permits
 a sufficient session result without a file. An optional fast save uses the same
 format. No duplicate Markdown report or Beads verdict/findings copy.
@@ -81,10 +82,11 @@ bound separately from context. A missing/ambiguous mapping or changed subject
 during review leaves approval unverified; saving a local report must not alter
 its subject. Ordinary review need not invent a publication manifest.
 
-Save the ordinary project result as one `ris.review/1` file, using checked primary
+Save the ordinary project result as one compact `ris.review/2` file (or continue
+an existing /1 unchanged under the format owner's conditional contract), using checked primary
 `workspace.tasks/<confirmed-ID>/review.yaml` by default or an explicit authorized
 local override. No-ID save requires an explicit authorized address, not an invented
-ID/directory. Translate the portable semantic assessment into complete coverage,
+ID/directory. Translate the portable semantic assessment into a substantive assessment,
 checks, findings, provenance and verdict per the format resource; do not impose
 RIS serialization on the portable base. Preserve previous rounds, append the new
 round with semantic mapping `pass` → `approved`, `changes-required` →

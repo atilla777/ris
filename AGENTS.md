@@ -22,7 +22,7 @@ Bugfix использует versioned basis по [product §4.1](docs/product/06
 без новой полной копии в notes/файле; historical read/locator append/retry — у адаптера.
 Старые snapshots и история не переписываются.
 
-Обычное проектное ревью сохраняется одним локальным `review.yaml` по [ris.review/1](skills/ris-proj-op-review-task/references/report-format.md); в Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же формат. Отчёт не заменяет журнал реализации и не содержит его перенесённых полей.
+Обычное проектное ревью сохраняется одним компактным локальным `review.yaml` по [единственному владельцу формата](skills/ris-proj-op-review-task/references/report-format.md): новый файл `ris.review/2`, существующий `/1` продолжается по условному прежнему контракту без миграции. В Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же выбор схемы. Машинный verdict не заменяет actual independent approval точного snapshot; blocked/invalid/unsupported не запускает бесконечный repair loop. Отчёт не заменяет журнал реализации.
 
 По принятым правилам штатные действия полного поручения
 не требуют повторных технических разрешений на границах владельцев. Context

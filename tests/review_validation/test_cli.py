@@ -11,6 +11,8 @@ from unittest.mock import patch
 from contextlib import redirect_stderr
 from io import StringIO
 from test_validate_review import EXAMPLE, SKILL, validator
+from test_contract import dump
+from test_v2 import example as compact_example
 
 
 class CLITests(unittest.TestCase):
@@ -39,8 +41,37 @@ class CLITests(unittest.TestCase):
             script = installed / "scripts/validate_review.py"
             report = root / "report.yaml"
             env = dict(os.environ, PATH="", PYTHONDONTWRITEBYTECODE="1")
+            blocked = compact_example()
+            blocked["rounds"][0].update(
+                verdict="blocked",
+                limitations=[
+                    {
+                        "description": "Required access missing",
+                        "blocks_approval": True,
+                    }
+                ],
+            )
+            adverse = compact_example()
+            adverse["rounds"][0]["verdict"] = "changes_required"
+            adverse["rounds"][0]["checks"][0]["outcome"] = "fail"
             for text, code, message in (
                 (EXAMPLE, 0, "valid"),
+                (dump(compact_example()), 0, "valid"),
+                (dump(blocked), 0, "format only"),
+                (dump(adverse), 0, "format only"),
+                (
+                    dump(compact_example()).replace(
+                        "verdict: approved", "verdict: pass"
+                    ),
+                    1,
+                    "verdict",
+                ),
+                (
+                    dump(compact_example()).replace("ris.review/2", "ris.review/99"),
+                    2,
+                    "unsupported",
+                ),
+                (dump(compact_example()) + "schema: ris.review/2\n", 1, "duplicate"),
                 (EXAMPLE + "passed: true\n", 1, "invalid"),
                 (EXAMPLE.replace("ris.review/1", "ris.review/99"), 2, "unsupported"),
                 (EXAMPLE.replace("required: true", 'required: "true"'), 1, "required"),

@@ -99,7 +99,8 @@ context. Verdict: `changes-required` for unresolved confirmed high/medium;
 When both blockers and missing evidence exist, report `changes-required` **and**
 the unverified scope. Low does not block pass. Changed bytes never inherit approval
 automatically. Distinguish requirements, architecture, rules, correctness, tests
-and docs coverage with basis/outcome/evidence/reason (or justified inapplicability).
+and docs in a coherent assessment with grounds, outcomes/evidence and explained
+gaps/inapplicability, not six mandatory same-shaped records.
 For each check state identity, necessity, result and exact exercised snapshot;
 identify blocking limitations. Retain finding statuses and reasoned re-review
 dispositions; never rewrite a previous result as approval after an author's fix.

@@ -66,17 +66,24 @@ use Task/change and retain all implementation/snapshot guards below.
 When consuming saved project review evidence, read/apply the installed
 `ris-proj-op-review-task/references/report-format.md` before the gate. Ordinary
 project review requires one
-accessible local `ris.review/1` YAML and explicit round selector, including no-ID
+accessible local supported YAML (/2 for new files; conditional /1 compatibility)
+and explicit round selector, including no-ID
 document subjects at their authorized path. Portable assessment contributes content
 but does not bypass the ordinary project save contract. Explicit fast execution
 may instead supply its sufficient independent session result; no mandatory file
 is introduced there, and an optional save uses the same format. Keep format
 validity separate from approval applicability: apply that owner's two consumer
 results with expected work/scope, publication purpose, full tree/base/exclusions,
-input versions, required coverage/checks and actual invocation/all-author evidence.
+input versions, sufficient assessment/checks and actual invocation/all-author evidence.
 Require its external approval gate before push. For fast session-only evidence
 check these substantive predicates and repair/history applicability without YAML;
 do not load serialization resources unless a saved review file is used.
+
+Valid applicable independent `approved` proceeds without another repair/review
+loop. `changes_required` needs correction and new independent assessment;
+`blocked`, missing/invalid/unsupported/inapplicable evidence or setup failure
+stops the dependent gate, not an automatic implementation loop. Do not fall back
+to an old approval past later adverse or unknown evidence.
 
 Both branches converge here into the **one** Git algorithm below. Require exact
 checked/reviewed base and complete final publication snapshot: base plus overlays,
