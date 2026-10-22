@@ -18,7 +18,7 @@ Do not use format editing to approve new normative content or convert ordinary
 Markdown into OKF. Do not invoke product/architecture authors to make unaccepted
 requirements/design decisions. A blocker returns to the single leading dialogue.
 
-Pass actual current/primary roots, confirmed actor/task, sufficient accepted inputs
+Pass only missing current-copy facts, confirmed actor/task, sufficient accepted inputs
 and current-code context, allowed files and exact candidate. Before any change the recipient freshly
 checks task ownership, blockers, current-copy association and foreign changes using
 the selected adapter/current-copy contracts. If no owner supplies those guards for

@@ -21,7 +21,7 @@ adapter owns bounded tracker operations and their guarantees, not Git publicatio
    decisions; missing/malformed feature data never selects ordinary admission.
    A feature/container is not silently executed or accepted as an ordinary leaf.
    A registered bug keeps its investigation/report, design, execution-input
-   snapshot and fix-flow prerequisites; return missing prerequisites or the
+   versioned basis and fix-flow prerequisites; return missing prerequisites or the
    appropriate existing route to the caller, never downgrade it to fast ordinary
    work. This flow does not replace feature acceptance or bug execution contracts.
 3. Without an ID but with mandatory project accounting, reconcile identity across

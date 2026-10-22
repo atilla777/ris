@@ -103,8 +103,13 @@ own snapshot, provenance and scope.
   [ris-wcv amendment](docs/specs/ris-wcv/spec.md) supersedes old JSON refusal/pin/
   verification norms, not substantive acceptance or review/Git/close/Dolt gates.
 - **Recovery:** task notes are local, not automatically synchronized or mandatory
-  remote inputs. Resume reconciles accessible exact evidence and actual effects;
-  missing notes do not justify invented acceptance, review or publication. See the
+  remote inputs. Resume discovers saved sources by project+ID and asks existing
+  owners to reconcile actual effects, then continues only the missing operation.
+  Lost review is restored exactly or replaced by honest new independent current
+  review; lost reproducible affected checks are rerun, and only lost acceptance
+  scope needs a new human decision if the original cannot be found. None proves
+  historical pass or requires replaying confirmed push/close. No handoff file,
+  registry or transition log is required. See the
   [execution contract](skills/ris-proj-flow-execute-task/SKILL.md).
 - **Evidence:** source/static checks establish instruction structure and consistency;
   actually executed program checks establish only their tested mechanisms/versions.

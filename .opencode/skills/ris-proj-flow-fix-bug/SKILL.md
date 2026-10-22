@@ -24,8 +24,8 @@ Ensure installed `ris-proj-lib-common` is available and apply it, with artifacts
 before handoffs/writes, quality before assessment and dialogue before decisions.
 Apply `ris-proj-op-resolve-context` and its owned configuration resource for rules,
 selected tasks adapter, needed sources/shared paths and actually consumed execution
-roles. Use its checked Git-derived ordinary source-folder association for shared paths;
-do not derive a primary from Git. Read the actual project rules. Missing essential
+roles. Consume its checked association for needed shared paths; do not duplicate
+context's source-folder resolution. Read the actual project rules. Missing essential
 inputs/dependencies/authority block their dependent work, never select a fallback.
 
 Through the selected available adapter exact-read expected type `bug`, current
@@ -126,7 +126,10 @@ execution; a hash or link alone is insufficient. Unsaved material decisions must
 first be saved by their existing owner. Preserve old snapshots and foreign notes;
 no new full notes snapshot, file or mandatory text handoff is required.
 
-Pass the **same exact ID**, checked versioned-basis locator (project/tracker + ID +
+Within the same session reuse available admission facts. For delegation pass only
+the missing exact inputs under common's artifacts contract; do not assume inherited
+instructions or send the whole history. Pass the **same exact ID**, checked
+versioned-basis locator (project/tracker + ID +
 exact historical version and used Git commit/path/sections), accepted decisions,
 permissions, copy/effect receipts
 and limits to `ris-proj-flow-execute-task`. Apply that scenario **in full**, including
@@ -149,6 +152,10 @@ be retained with reasons. Preserve old snapshots and locators; a newly admitted 
 gets a new short locator rather than rewriting history. Existing published or
 closed effects remain facts, not permission to reopen or replay them. After transfer,
 the execution flow owns recovery through its existing route.
+For lost review/check/acceptance apply common's artifacts recovery through the
+corresponding owner, never inventing historical pass or repeating confirmed push/
+close. The adapter retains history/locator/guard/sandbox/Dolt procedures; this
+wrapper checks their results without a second recovery algorithm.
 
 ## Verify the combined result and stop
 

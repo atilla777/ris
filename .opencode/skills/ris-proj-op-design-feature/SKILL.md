@@ -208,16 +208,11 @@ checks; do not claim the combined result from a document write alone.
 
 ## Hand off and stop
 
-Return `ok|blocked|conflict|error`, project/config provenance, confirmed feature
-ID/epic only when confirmed, mode and spec/design paths, separate requirements
-and design path/section/revision and acceptance addresses/status, verified
-candidate text/version for an unsaved proposal or verified candidate address/version,
-saved result addresses after saving and pending immutable refs, observed code/contracts versions,
-AC/test seams, relevant source currency and impact decisions, ADR/review evidence
-where needed, independent work and unresolved blockers. Report actual saved
-effects and fresh file/adapter read evidence, preservation of prior decisions,
-write guarantees and limitations. Provide sufficient input for a recipient
-without this dialogue; do not rely on an ignored local note as remote evidence.
+Return the requested scope/mode's checked outcome under common's artifacts
+contract: exact design/requirements/decision sources, material changes and impact
+on contracts/AC/test seams, limits and separate local/Git/tracker effects. Include
+only missing continuation facts, not repeated context or ignored notes as mandatory
+remote inputs. Preserve prior decisions and name unresolved applicability/authority.
 Full document-only `ok` requires accepted saved/read-back content and verified
 Git publication; combined `ok` also requires matching record and tracker
 publication. Explicit limited local/record contributions can be `ok` only for
@@ -228,10 +223,12 @@ channels and exact remainder. No decomposition/implementation readiness follows 
 Do not close/claim work, create children or start implementation. Stop at the
 requested result; the caller owns transitions after limited contributions.
 
-For a noninteractive component return a short handoff: status, scope/mode,
-full unsaved proposal with version/scope or verified saved result address and
-candidate revision or confirmed ID, decision/evidence, limitations, actual effects
-and decision needed. The caller forwards complete text/version or an accessible
-file address/version with the separate decision to the next recipient; the
-consumer reads and checks it without foreign chat. Never substitute an unverified
-"done" for this result or require a file for a response-only proposal.
+For a noninteractive component apply common's artifacts handoff/recovery contract:
+return only missing exact candidate/result/decision locators, material effects,
+limits and remainder. Unsaved content still needs full distinguishable text or an
+accessible exact version, never an unverified "done" or mandatory new file.
+Saved stages are rediscovered by project+ID, not receipt forwarding. Infrastructure
+owners reconcile uncertain copy/Git/tracker effects; this wrapper checks their
+returned applicability without duplicating algorithms. Lost review/check/acceptance
+is recovered under common's rules, never fabricated historical pass or replay of
+confirmed publication/closure. This operation gains no claim/close authority.

@@ -132,7 +132,7 @@ Return its local record result and remainder.
    commit/push. A limited record-only call instead consumes an applicable existing
    Git receipt; a limited local save stops before review/publication.
 5. For combined mode require actual published content/decision before tracker
-   create/update. Check both via fetched selected-remote evidence and read actual
+   create/update. Consume the Git owner's checked remote result and read actual
    content at full Git revision, semantic section and separate pinned decision.
    Resolve containing-commit at its original decision and match actual content
    path/section/revision. Do not copy accepted refs into the tracker. The wrapper

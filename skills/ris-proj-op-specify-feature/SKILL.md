@@ -257,16 +257,11 @@ verifies required existing publication or remaining debt without empty push.
 Missing authority or failed/ambiguous publication leaves the full result blocked,
 preserving known Git commits/IDs for only the missing operation.
 
-Return `ok|blocked|conflict|error`, selected project/config provenance,
-mode/kind, exact ID and parent only if confirmed, actual spec address,
-requirements path/section and checked candidate or published revision,
-source of its acceptance, verified task ID and parent (only when confirmed),
-status of decisions (including design absent or applicability unconfirmed),
-actual changes and read-back evidence, plus limitations
-and next needed substantive result. Include the full unsaved proposal/version
-or verified candidate address/version as applicable, and saved result addresses after saving,
-acceptance decision address/status, pending immutable refs, and separate local,
-Git and tracker publication facts. Full document-only `ok` requires accepted
+Return the requested scope/mode's checked outcome under common's artifacts
+contract: exact content/decision sources, material changes and limits, separate
+local/Git/tracker effects and the missing remainder. Include absent/unconfirmed
+design applicability where material; do not repeat already available context.
+Full document-only `ok` requires accepted
 checked content/decision and verified Git receipt. Explicit limited local save
 can be `ok` for that contribution with pending immutable refs and remainder.
 `ok` for the full combined result requires
@@ -285,10 +280,12 @@ owners and consumed here; limited transitions belong to the caller.
 Do not initiate
 decomposition, technical planning or implementation.
 
-For a noninteractive component return a short handoff: status, scope/mode,
-full unsaved proposal with version/scope or verified saved result address and
-candidate revision or confirmed ID, decision/evidence, limitations, actual effects
-and decision needed. The caller forwards complete text/version or an accessible
-file address/version with the separate decision to the next recipient; the
-consumer reads and checks it without foreign chat. Never substitute an unverified
-"done" for this result or require a file for a response-only proposal.
+For a noninteractive component apply common's artifacts handoff/recovery contract:
+return only missing exact candidate/result/decision locators, material effects,
+limits and remainder. Unsaved content still needs full distinguishable text or an
+accessible exact version, never an unverified "done" or mandatory new file.
+Saved stages are rediscovered by project+ID, not receipt forwarding. Infrastructure
+owners reconcile uncertain copy/Git/tracker effects; this wrapper checks their
+returned applicability without duplicating algorithms. Lost review/check/acceptance
+is recovered under common's rules, never fabricated historical pass or replay of
+confirmed publication/closure. This operation gains no claim/close authority.

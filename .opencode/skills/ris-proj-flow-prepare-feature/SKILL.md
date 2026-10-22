@@ -61,8 +61,9 @@ not a configured name or assumed model tier.
 Unavailable required review blocks publication, not independent useful analysis.
 
 Each acting context loads/applies its selected owner and required resources before
-that operation; do not load every child method merely to route work. Pass goal,
-project/config/copy provenance, exact scope/permissions, known decisions and full
+that operation; do not load every child method merely to route work. In the same
+session reuse available facts rather than restating them. For delegation apply
+common's artifacts handoff: goal, project+ID/checked copy, scope/permissions and full
 candidate text with distinguishable version/selectors or an accessible exact
 file/version, and attributable acceptance when saving. The recipient reads/checks
 complete inputs without assumed foreign-chat access; noninteractive work returns
@@ -122,9 +123,10 @@ clarification, but actual/unknown preparation blockers and native refusal are no
 bypassed. Keep execution gates unchanged. Recheck ownership/status/blockers before
 each mutation batch through the selected adapter.
 
-Consume exact ID/repository/path/branch/HEAD, pinned new-copy base or verified reuse,
-association, index/files/operation state, copy/environment verdicts, setup effects
-and limits. Setup not requested is not environment readiness. Use that same
+Consume the preparer's checked work/copy association and current-copy result,
+separate copy/environment readiness, setup effects and limits; do not reconstruct
+its infrastructure observations as another handoff checklist.
+Setup not requested is not environment readiness. Use that same
 prepared copy as the document root; reapply context there and verify project/
 tracker/settings association before writers, review and publication. Never write
 on shared main first or ask the publisher to branch later. Preserve user/foreign
@@ -288,6 +290,11 @@ first; confirmed publication is not repeated for pending read-back, primary sync
 record update, decomposition or tracker debt. Revalidate only affected inputs/
 checks/review; unchanged acceptance stays. No rollback of foreign work or blind
 recreation is allowed. Missing evidence/owner blocks that step precisely.
+Apply common's artifacts lost-review/check/acceptance recovery, without invented
+historical pass or replay of confirmed push/close. Closed records stay closed;
+this flow grants no closure or implementation authority. Unknown ownership/setup/
+remaining process blocks dependent mutation. Infrastructure algorithms stay with
+their owners; inspect returned results and applicability.
 
 Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
 provenance, exact feature/optional epic and document paths, separate accepted scopes and

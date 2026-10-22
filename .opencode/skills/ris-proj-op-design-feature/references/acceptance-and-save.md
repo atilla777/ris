@@ -86,8 +86,8 @@ actual separate acceptance decision. No tracker reference object is required.
 The immutable decision address pins repository, full
 decision commit, path and any unique decision section. Read actual content and
 decision at those revisions, check semantic selection, match path/section and
-resolved revision, and establish publication of both commits from fetched
-selected-remote evidence. Branch URLs, local notes and file/commit presence do
+resolved revision, and consume the Git owner's checked publication of both
+commits. Branch URLs, local notes and file/commit presence do
 not establish published acceptance. A decision may name content revision
 `containing-commit` only for content in that same commit; resolve it from the
 immutable decision address. Never invent a future commit/address or copy accepted
@@ -156,7 +156,8 @@ remains a precise dependent gap, never invented.
     standalone uses supported tool-specific source updates without feature JSON.
     Native bug source links use explicitly advertised ordinary bug updates; a
     native notes append may record the pinned design/decision refs without replacing
-    the current report. Reconcile marker AND content before append/retry. Any
+    the current report. Ask the adapter to reconcile existing source links before
+    append/retry; do not reproduce its native procedure. Any
     necessary investigation report/acceptance replacement applies its owner's
     bounded single-investigator persistence conditions; source-link append alone
     cannot establish a saved aligned report/criteria pair.

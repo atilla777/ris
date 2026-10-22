@@ -66,6 +66,11 @@ Read resources from **this installed skill folder**, only before their triggers:
 
 Unavailable required dependencies/resources block only their dependent work.
 Loading an owner is not applying it; inspect its actual output before advancing.
+Reuse already available facts within this session. For bounded delegation use
+common's artifacts contract with only missing exact inputs, permissions and
+expected result; recipients load their owners without assumed chat inheritance.
+On recovery discover saved sources by project+ID (or the explicit no-ID subject),
+not a required prior final answer or handoff file.
 
 ## Execute the fresh route or reconciled remainder
 

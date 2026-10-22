@@ -4,7 +4,7 @@ description: >-
   Execute one ready RIS task through preparation, implementation, independent
   review, verified Git publication, separate completion and tracker publication.
   Use for a full task run or safe resume with an explicit ID or automatic
-  ready-task choice, or an exact native bug with sufficient snapshotted inputs;
+  ready-task choice, or an exact native bug with sufficient versioned inputs;
   not for selection alone, planning, review, publication alone, feature preparation
   or executing a whole container. Resume reconciles actual effects and reuses
   applicable results through the same stage owners.
@@ -79,9 +79,11 @@ its scoped preparation/reporting exceptions.
 Apply each bounded operation's owner directly or actually launch the configured
 subagent when delegating it. Reuse suitable implementation/repair context; always
 launch independent review separately from all authors/repairers. Do not split internal
-reads into agents or load all child methods merely to route them. Pass project/config/rule
-provenance, current/primary roots, actor, exact IDs, accepted input versions and
-decisions, allowed files/effects, output/evidence addresses and expected result.
+reads into agents or load all child methods merely to route them. Within this
+session pass only missing facts. For delegation apply common's artifacts handoff:
+bounded goal/scope, project+ID and checked copy/actor, exact accessible inputs/
+decisions, permissions and expected result. Context owns shared-path resolution;
+do not repeat primary-root provenance in every transfer.
 The recipient loads/applies its owner and dependencies and returns choices here
 instead of interviewing the user or accepting unseen content.
 
@@ -101,21 +103,17 @@ loop. Continue only independently useful authorized work. Give concise accepted
 input/version references and relevant prior evidence, not the entire accumulated
 history; recipients still read their applicable rules and owner resources.
 
-Require:
-
-```text
-status; operation; exact ID and scope; input versions;
-exact result or evidence locator; copy and snapshot; executor provenance;
-actual effects; limitations; necessary decision; remaining operations
-```
+Consume the owner's exact result/locator and material effects, limits and
+remainder, not a mandatory handoff field set. Common's artifacts resource owns
+fact sources and recovery; no envelope, file or registry is introduced.
 
 Before each transition verify actual executor/provenance (including launch when delegated), accessible exact results
 and current prerequisites from live Git/adapter facts and published input versions;
 unsupported “done” is insufficient. Bind checks/review to the complete candidate
 (base plus all additions/deletions/modes), inputs and independent reviewer; unknown
 snapshot, review independence or task/copy association blocks only its dependent
-step. Forward just the verified context needed by the recipient, including fresh
-rights, claim/blocker gates and checked primary provenance for shared-path actions.
+step. Forward only missing verified inputs; mutable rights/claim/blocker/copy
+facts are checked by their receiving owners, not inherited from an old handoff.
 
 Do not require `worktree.md`, `execution.md` or an equivalent file/Beads transition
 journal, or a persisted entry for each handoff. No saved plan, implementation
@@ -238,12 +236,12 @@ owners retain their full methods. Reconcile again after partial/uncertain effect
 or changed facts before deciding the next operation.
 
 1. Apply `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
-   copy/environment actions and checked primary root with selection evidence. Check its verified claim,
+   copy/environment actions and applicable context. Check its verified claim,
    blockers, copy association, proportionate preservation observations/limits
    (ordinary new create versus reuse or hooks/setup) and separate copy/environment
    readiness. Use its actual handoff, not
    a guessed branch/path. Refresh context after a copy change. Retain the
-   verified copy/primary association facts in the handoff; neither replaces
+   verified work/copy association when needed by the recipient; it never replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
    If the caller already prepared this native bug's copy for necessary design,
    pass its exact checked ID/repository/path/branch association and actual effects
@@ -292,11 +290,11 @@ or changed facts before deciding the next operation.
    past later adverse/unknown evidence to old approval.
 5. Apply `ris-proj-op-publish-task` with exact approved full snapshot, independence
    evidence and authorized primary branch/remote. Never stage foreign paths,
-   reset/stash their work, bypass hooks or force push. If integration/hook changes
-   the snapshot, obtain affected checks and fresh independent reassessment through
-   `task-review` **before push**; the publication owner must return the candidate
-   for this reassessment, not silently approve itself. Reconcile ambiguous pushes
-   by remote reads. Direct-push prohibition blocks this route without PR fallback.
+   reset/stash their work, bypass hooks or force push. Consume the publisher's
+   integration/reconciliation result; a changed candidate returns for affected
+   checks and fresh independent `task-review` reassessment **before push**, never
+   self-approval. The publisher owns ambiguous remote-effect recovery.
+   Direct-push prohibition blocks this route without PR fallback.
    Record actual integrated commit/ref and independent remote visibility evidence.
    Consume its remote-only default result; only an explicit local-update request
    activates separately reported source-copy safe FF, never branch switching.
@@ -323,8 +321,8 @@ or changed facts before deciding the next operation.
    children cannot substitute for feature acceptance. Never close parents.
 7. Apply **separate** selected-adapter tracker publication with authorized shared-
    history scope, selected destination and local result/records/typed-link evidence;
-   for prior/ambiguous effects pass the exact requested/recovered revision and
-   inspectable evidence. The adapter owns remote reconciliation, non-force
+   for prior/ambiguous effects pass the exact requested/recoverable revision and
+   available evidence. The adapter owns historical recovery, remote reconciliation, non-force
    publication and reachability verification (Beads: its conditional
    `references/dolt-publication.md`). Require its fresh remote confirmation of
    that revision; unknown revision/read failure remains unverified. A newer remote

@@ -62,15 +62,39 @@ outcome and material limits under common's baseline; no universal handoff is
 required. Do not reconstruct versions, acceptance or channels unrelated to the
 conclusion. A caller's more specific result obligations still apply.
 
-For saved artifacts, substantive response-only candidates, execution transfer,
-and partial/interrupted or uncertain effects (including read-only work when
-being transferred), provide enough inspectable information to recover what exists.
-Include the following where material to that result or its continuation:
+For saved artifacts, substantive response-only candidates, execution transfer
+and partial/uncertain effects, provide only information missing to the recipient
+and material to continuation. Already accessible instructions/facts in the same
+session need no repeated handoff. Delegates do not inherit that context: give a
+bounded goal/scope, project and exact ID/copy when applicable, accessible exact
+inputs/decisions, permissions, expected result and early-return conditions. They
+load their own owners; do not forward the accumulated history.
+
+The following identifies sources and responsibilities, not a runtime envelope,
+required field list or new persistence requirement. Read full necessary inputs,
+not copied summaries. Infrastructure owners perform their own algorithms; callers
+check returned facts and applicability, not CLI/retry/guard procedures.
+
+| Fact: producer → consumer | Source / mutability | Recovery |
+| --- | --- | --- |
+| Goal/scope/criteria: setter → change owner/reviewer | Ordinary tracker content is mutable; accepted feature scopes/decisions have immutable Git addresses | Discover by project+ID and published-input convention; recover the original decision or obtain only the lost scope's new human acceptance. |
+| Paths: context → writers/copy/review | Current config and Git association are mutable | Re-resolve for the current copy; no saved context registry or forwarded primary address is required. |
+| Claim/continuation rights: adapter → acting owner | Live assignment and attributable authority | Fresh owner checks before mutation; an old actor/lease never grants takeover. |
+| Copy: preparer → writer/publisher | Live registration/path/branch/HEAD/files | Verify the existing work association through the preparer; a name alone is insufficient. Pass a nonstandard association addressably in an existing authorized channel. |
+| Bug basis: admission+adapter → execution/review/completion | Exact tracker-history version and immutable Git sources/decisions | Adapter retrieves complete used fields and reconciles the short basis locator; no duplicate snapshot. |
+| Checks: change owner → reviewer/publisher | Observation tied to exact content and inputs | Reuse accessible applicable results/limits; rerun lost reproducible affected checks, never invent their history. |
+| Review: independent reviewer → loop/publisher | Local append-only review.yaml and round; fast may use session evidence | Apply the review owner's exact-evidence/new-current-review rule. Beads stores only file/round, not copied verdict/findings. |
+| Git publication: publisher → completion/caller | Exact commit/tree and observed remote reachability | Publisher reconciles the exact sent revision; no repeated push for lost notes/read-back or local maintenance. |
+| Completion: adapter → caller | Native status/reason and ordinary result are mutable facts | Read actual result/status; reuse closed, never reopen/reclose to recover evidence. |
+| Tracker publication: adapter → caller | Required exact revision and fresh remote reachability | Adapter recovers/validates that revision through its publication owner; unknown is not success or permission to replay. |
+
+For the affected result include only material gaps or unavailable facts from:
 
 - Full exact response-only proposal with a distinguishable version/scope, or
   exact result/evidence locator, or a checked discovery convention with all
   required keys and filename. State project/config/current-copy provenance and,
-  for shared paths, context's checked Git-derived source-folder association.
+  for shared-path actions, consume context's checked association; do not carry a
+  primary-root address through every handoff.
 - Material input and result versions, and separate acceptance decisions with
   their actual scope/version/address. A later copy of a decision does not renew
   acceptance; unchanged decisions remain bound to their original versions.
@@ -114,9 +138,9 @@ copy. A receiver re-resolves paths and checks actual content/version, fresh
 permissions and, where required, ownership, blockers and write guarantees.
 Neither a handoff, old lease/window nor existing worktree supplies those gates.
 
-For execution handoff, convey the goal, scope, selected skill, project and configuration,
-input artifacts and their acceptance state, material decisions and assumptions,
-open questions, write permissions, actual changes, evidence, and expected next
-result. Use the project's existing channel; do not rely on the recipient having
-the chat history or automatically inheriting instructions. Report what was
-prepared, saved, checked, and accepted without conflating these states.
+For partial results report the existing effect separately from the evidence
+available now, its limits and the first missing/inapplicable operation. Let the
+same owner reconcile an uncertain effect before retry. Lost checks/review or
+acceptance cannot erase a confirmed push/closed status or manufacture historical
+pass. Unknown ownership, setup or a remaining process blocks dependent mutation
+with that precise gap, not a demand for a replacement journal.

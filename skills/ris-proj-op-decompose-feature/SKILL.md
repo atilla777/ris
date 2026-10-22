@@ -237,8 +237,9 @@ their existing typed `blocks` edges; verify no cycles and exact direction on
 fresh reads. Preserve an already matching edge without a fake change.
 
 On a failed, ambiguous or partial adapter response, **stop further writes**.
-Reread all affected IDs, full direct-child set and relevant edges before any
-retry, report verified existing children, keys, links, actual added edges and
+Ask that adapter to reconcile affected IDs, child set and edges before retry;
+consume its checked result, not a copied native retry algorithm. Report verified
+existing children, keys, links, actual added edges and
 unwritten work. A subsequent invocation reconciles these facts and the current
 accepted specification before attempting only genuinely missing operations;
 do not blindly recreate children or overwrite a changed requirement. For a
@@ -288,3 +289,11 @@ changes from unmade ones; include sufficient published references, bounded scope
 permissions and open questions for continuation without this chat. Do not
 plan technical steps, claim or close tasks, approve the specification, or
 launch implementation.
+
+Use common's artifacts contract for only missing handoff facts and lost evidence.
+Discover saved inputs from project+ID, preserve original acceptance and known
+children/edges/publication. Missing acceptance returns only the lost scope's
+decision; lost checks/review are rerun or recovered by their owners with honest
+time/version, never historical pass. Confirmed push/closed status is not replayed
+or undone for missing notes. Context/history/guards/sandbox/Dolt recovery remains
+with infrastructure owners; this wrapper selects only the missing semantic result.

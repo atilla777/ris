@@ -56,6 +56,17 @@ and decisions at completion. Explicit candidate text/decision transfers remain
 necessary between components for unsaved or not-yet-discoverable intermediate
 results; that rule must not become a manual handoff requirement after completion.
 
+Consumers reuse already read exact content in the same context; they do not
+repeat source discovery merely for an internal boundary. After context loss,
+recover only missing facts through these sources and their owners. A lost
+acceptance decision is sought at its original address; if unavailable, return
+only that missing material scope for a new human decision with actual provenance,
+not a fabricated historical acceptance or reacceptance of unchanged known scopes.
+For versioned bug inputs the adapter owns complete historical retrieval and
+short-locator reconciliation; this reading method does not copy that algorithm.
+For lost checks/review and confirmed publication/closure use artifacts' recovery
+rules and the affected owner. Reading a source does not prove any of those effects.
+
 ## Feature documents, not a tracker registry
 
 For a confirmed feature, new documents live at

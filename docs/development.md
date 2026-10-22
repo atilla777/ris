@@ -63,6 +63,19 @@ without Git/Beads executables, not live agents or actual evidence/approval.
 For current readiness and limitations use the [README entrypoint](../README.md#current-readiness-and-limits),
 not this guide or historical delivery reports as a second readiness register.
 
+Handoff/recovery uses the [common artifact contract](../skills/ris-proj-lib-common/references/artifacts.md)
+for fact producers/consumers, mutable sources and lost evidence. In-session owners
+reuse available inputs; delegates get only missing exact sources, permissions and
+a bounded expected result, without inherited-chat assumptions. New sessions start
+from project+ID and Git/config/tracker sources. Flows select the first missing or
+inapplicable result; context/copy/Git/history/guards/sandbox/Dolt algorithms and
+uncertain-effect reconciliation stay with their infrastructure owners. There is
+no receipt envelope, registry or transition journal. Missing review/check/acceptance
+never creates historical pass: restore exact evidence or obtain honest current
+review/affected checks/only the lost human scope. Confirmed pushes and closed
+statuses are reused, not replayed. These are instruction contracts; static
+inspection does not establish live recovery behavior.
+
 Feature preparation has its own bounded [S1 §3 / D1 §§2–4 amendment](specs/sdlc-feature-lifecycle/acceptance.md):
 early same-ID registration/copy, one requirements/design dialogue and precise
 acceptance of both scopes (one act allowed), independent review/Git, same-ID

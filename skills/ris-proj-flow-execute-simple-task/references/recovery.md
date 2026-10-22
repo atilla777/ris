@@ -17,9 +17,14 @@ old lease or “done” message alone does not prove ownership, result or permis
 Recover full request/constraints, separate material decisions, exact candidate,
 check results/limits and independent review subject/launch provenance from
 accessible session content or authorized saved evidence. No history is assumed
-available to a new session; ask only for the missing essential input. Do not
-invent acceptance, passing checks or review because no report file was required.
-Missing/inapplicable independent review requires a fresh independent invocation.
+available to a new session. Apply common's artifacts source/recovery contract:
+find the original acceptance or request a new human decision only for the lost
+material scope, not every known decision. Rerun lost reproducible affected checks.
+Do not invent acceptance, passing checks or review because no report was required.
+Lost independent review is restored from exact accessible evidence or obtained
+by a fresh independent invocation of the exact available subject with current
+time/provenance, never an invented historical approval. If the old subject is
+unavailable, identify the current subject honestly.
 When an optional file was saved, read/apply the installed review owner's
 `references/report-format.md`: exact local YAML/round, validity separate from
 external applicability, actual provenance, and no old-approval fallback past later
@@ -35,8 +40,8 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
 
 - Preparation: inspect existing association/copy/claim/setup; reuse verified
   effects, never recreate a branch/worktree or rerun non-idempotent setup blindly.
-- Git: the publication owner freshly checks the actual selected remote for the
-  sent commit/tree and reachability. A local commit or timeout is not push proof.
+- Git: ask the publication owner to reconcile the exact sent revision/remote
+  effect and consume its checked result. A local commit or timeout is not push proof.
   Confirmed publication is reused without recommit/redundant push; missing
   read-back gets that check, and unsent work keeps outgoing/review gates.
   Reconcile primary-copy maintenance separately through the same publisher;
@@ -49,6 +54,13 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
   the remaining publication/read-back, without reopen or another close. Pass the
   known required/recovered revision and evidence to the adapter rather than
   replacing it with a newer local tip. Current project publication policy governs.
+
+After implementation or review, inspect changes and applicable evidence rather
+than reimplementing/reviewing automatically. Keep confirmed push/close facts even
+when checks/review/acceptance are lost; new evidence cannot prove a past gate.
+The selected infrastructure owners retain context/copy/Git/history/guards/sandbox/
+Dolt algorithms and uncertain-effect recovery. This flow selects only the missing
+semantic result, never a second CLI/retry procedure.
 
 Return the first missing/inapplicable operation within the main route, proven
 prerequisites, reusable evidence, unknown effects and exact remainder. Check

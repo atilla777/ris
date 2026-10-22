@@ -1,147 +1,76 @@
 # Safe resume through the existing route
 
-Read only for confirmed own unfinished work, previous/partial effects, an interrupted
-operation or closed pending-publication work. This resource owns reconciliation and
-transition selection within `ris-proj-flow-execute-task`, not a second execution engine.
-Return to the SKILL's numbered route with one exact target and the first missing or
-inapplicable **operation**. The leading scenario keeps dialogue and transitions;
-bounded executors load their owners and full methods only when needed.
+Read for own unfinished work, prior/partial effects, interruption or closed work
+pending publication. Own only selection of the first missing/inapplicable
+operation in the SKILL's existing sequence, not technical recovery or a second
+execution engine. Apply `evidence.md` for missing/conflicting proof.
 
-## Establish facts before selecting a remainder
+## Reconcile read-only first
 
-Start read-only with the selected adapter and relevant stage owners. No old chat,
-local stage flag, successful exit alone or absence of a report establishes reality.
-Resolve current config/rules and current/shared paths again through context's
-Git-derived ordinary source-folder association. An old receipt does not select a root.
-Inspect all
-actual effects, including those after any available receipt, before advancing.
-Apply `evidence.md` for the affected proof, without requiring a journal:
+Start from project+exact ID, current Git/config and accessible sources, not an old
+chat, stage flag, journal or success token. Ask the relevant owners for current
+facts, including effects later than the apparent interrupted stage. Context
+resolves current/shared paths; the adapter checks real kind, result/status,
+assignment/continuation rights, mandatory composition and directed blockers;
+the preparer verifies copy association, current state and uncertain setup/process.
+Preserve foreign files/index/claims/history and all known IDs/commits/statuses.
+Never create another copy, reset/stash or reclaim merely because notes are lost.
+An expired lease, familiar path or assignee alone does not prove continuation.
+Foreign/ambiguous ownership or possibly active writers block dependent mutation;
+do not launch another writer while the old one may still act. Native refusal is
+binding; no force, alternate target or global lock circumvents it.
 
-- Exact ID/type/status/result, actor, current assignee, execution/copy association,
-  live execution evidence, complete mandatory children and typed directed blockers;
-  relevant parent restrictions remain separate from membership. Automatic selection
-  retains the SKILL's own-work priority/age/ID ordering and blocked-own stop rule.
-- Actual registered copy/branch/base/HEAD, index, staged/unstaged/untracked changes,
-  in-flight Git operations and known foreign files. A familiar branch or path alone
-  is not proof of association. Preserve foreign bytes, modes and index entries;
-  missing reports are not permission to create another copy or reset/stash this one.
-- Current accepted requirements/design and independent decisions, essential contracts,
-  applicable rules and installed package/resource versions, including material local
-  overlays. Compare them with each receipt's inputs rather than silently repinning.
-- Available copy results, actual changes/current checks and independent review, their
-  executor/authorship provenance and full tested snapshots. Inspect actual candidate
-  and integrated trees, including additions/deletions/modes and foreign exclusions.
-- Git destination/ref, existing task/integration commits, actual remote visibility;
-  separate criterion verification, persisted result, closure; tracker remote,
-  shared-history authority, required revision S and fresh remote reachability
-  evidence. A cached tracking ref or local closed status cannot prove publication.
+Read the actual sufficient accepted own contract, separate decisions and current
+prerequisites. Ordinary children do not become features by membership. Feature
+inputs use common's document convention, without JSON gates. Native bugs use
+the adapter's full historical basis reader/locator reconciliation and immutable
+Git inputs; unavailable/incomplete used fields block dependent reuse, not a
+substitution with HEAD. Material drift goes to affected change/review/evidence
+owners; retain compatible results with reasons and unchanged acceptance.
 
-Use each ordinary standalone leaf/child's own source links and accepted sufficient
-constraints without requiring feature JSON or a design file for a simple task.
-Confirm kind from actual accepted scope; parent membership alone is not feature
-identity. Retain stricter feature refs and unsupported-payload diagnostics. This
-same distinction applies to route 6 result persistence/exact closure; an ordinary
-leaf never silently enters container acceptance or closes its structural parent.
+## Select only the remainder
 
-An exact native bug uses ordinary bug capabilities, its full current report/criteria/
-decisions and addressable versioned execution basis, never feature validation or
-investigation disposition. Discover it from project+ID notes/source links and ask
-the adapter for the exact historical used fields; read immutable Git sources and
-actual decisions. No old chat, full snapshot handoff or new file is required.
-Unavailable/incomplete history is a precise gap, not permission to use current HEAD
-or append again. The adapter owns locator reconciliation after ambiguous effects.
-Compare current inputs with the historical basis and
-route material drift to affected change/review/evidence owners. Preserve old
-snapshots and confirmed sent/closed effects; changed basis does not reopen a bug.
+Distinguish an **effect that exists** from **evidence applicable now**. Missing
+proof does not mean an effect never happened. Each owner reconciles ambiguity
+before retry and returns inspected effects/limits, not just `ok`.
 
-If actor/assignee/linkage disagree, a foreign execution is active or several copies
-cannot be disambiguated, stop `conflict` and request only the missing decision.
-An expired lease is not proof execution stopped. Ownership loss blocks further
-task mutations; read-only reconciliation still preserves known effects. Do not
-reclaim, substitute another target, repair/remove copies or reopen closed records.
-Active blockers or changed mandatory scope stop dependent operations after fresh
-readiness assessment; retain independently useful observations.
+| Partial effect / existing owner | Flow's next decision |
+| --- | --- |
+| Create/claim/copy — `ris-proj-op-prepare-task-worktree` (record creation, if relevant, stays with the adapter) | Consume verified existing ID/copy/claim and separate environment readiness. Finish only missing authorized preparation; unknown association/setup/process blocks dependent writes. No duplicate create or blind setup replay. |
+| Implementation — change owner from step 2 | Inspect actual scoped changes/criterion coverage and current inputs. Reuse compatible changes; implement/check only the missing portion in the same copy. Lost reproducible checks are rerun. No plan/report or invented RED/GREEN history is required; executor TDD duties and known violations remain. |
+| Review — `ris-proj-op-review-task` | Apply that owner's exact-subject/independence/history gate and machine verdict. Restore exact lost evidence or obtain a new independent current review; never invent historical approval. Changed tree/basis requires affected checks and independent reassessment. Missing/blocked/invalid/unsupported evidence stops progression, not an automatic implementation loop. |
+| Git push — `ris-proj-op-publish-task` | Ask the publisher to reconcile the exact sent commit and remote effect. Confirmed publication is reused; unknown is not permission to replay. Unsent changed integration returns only affected checks and independent whole-snapshot reassessment before push. Dirty/divergent source checkout is not a remote-success condition. Explicit local maintenance is a separate remainder under this owner, never another push. |
+| Result/exact close — adapter; one-task feature assessment via `ris-proj-op-complete-container` with explicit verify-and-close | Reuse a verified saved result; request only missing result/assessment/closure under fresh gates. Already closed is never reopened/reclosed, even if review/check/acceptance evidence is missing. Retain status and report the evidence debt. Diff review does not replace whole-feature assessment; no parent closure. |
+| Dolt push — selected adapter's tracker-publication owner | Pass exact required/recoverable revision and available evidence; consume its confirmation-first recovery result. Confirmed publication needs no push or repeated result/close. Unknown revision or failed remote verification stays unverified. The adapter owns history/remote reads, guards, sandbox, direction and non-force retry, not this flow. |
 
-Missing plan/implementation/transition files is not a gap. If notes are absent,
-reconstruct the needed facts from tracker, Git and accessible exact results.
-Label reconstructed facts with their sources and uncertainties; update only
-authorized required results/notes or return the compact evidence unsaved. Do not
-create a replacement per-transition ledger. Do not fabricate
-RED-before-edit, GREEN, check results, reviewer identity/independence or acceptance.
-If proven facts cannot distinguish an absent effect from an unobserved effect, stop
-before replay. Missing proof stays unverified: obtain the owner's missing assessment
-or a necessary user decision, not an invented past successful stage.
+For open work enter the first missing/inapplicable **operation**, not its entire
+step. Check only remaining roles/capabilities/permissions, plus fresh claim/blocker/
+copy gates before new mutation. Completed stages need no new executor merely to
+reuse applicable evidence. Reassessment that introduces repair/review gates those
+roles before dependent effects. Owner methods and protection limits remain intact;
+shared refs/tracker are not isolated by parallel worktrees.
 
-## Assess applicability, then enter the same sequence
+For closed work perform only missing verification/evidence recovery/publication,
+never preparation, reimplementation or closure. Missing acceptance means locate
+the original decision or obtain new acceptance for only the lost scope with actual
+provenance. New review/check/acceptance cannot prove a past gate happened. If the
+old subject is unavailable, name the current assessed subject, not an invented old
+pass. Confirmed push/close remains confirmed even when full success is unproved.
 
-For every result distinguish an existing effect from evidence applicable **now**.
-Read later facts even when an earlier stage is incomplete: Git may already be sent
-or the task already closed. Preserve those effects while identifying the earliest
-necessary prerequisite assessment. A version difference alone neither invalidates
-everything nor permits blind reuse. Have the affected owner assess material changes
-to accepted inputs, rules or package contracts; record old/current versions, affected
-criteria/paths, retained evidence and the reason for each decision. Unaccepted material
-scope/design changes return to the leading dialogue, not autonomous redesign.
+## Interrupted or ambiguous effects
 
-| Existing-route operation / owner | Reuse guard and first necessary remainder |
-|---|---|
-| 1 — `ris-proj-op-prepare-task-worktree` | Reuse proven own claim and associated suitable copy with preservation and separate environment readiness. Freshly inspect ownership/blockers/copy; do not claim/add again. If only claim or branch/copy creation succeeded, pass those exact effects to the preparation owner to finish only missing authorized preparation. Ambiguous association or forbidden repair stops. |
-| 2 — implementation owner | Inspect sufficient accepted inputs (reproducible versioned bug basis where applicable), actual scoped changes and criterion coverage; assess applicable current checks and choose a viable approach for missing work in the proven copy. Old plans are optional context, not readiness/approval or omission gates. Reuse valid changes, continue missing implementation/checks, never automatically rewrite them. New behavioral slices retain executor test-first obligations; refactors/text need no artificial RED. Missing historical RED/GREEN chronology neither blocks result reuse nor proves past TDD; never reconstruct it or conceal a known violation. No implementation report or substitute log is required. |
-| 3–4 — `ris-proj-op-review-task` and implementation owner | Apply the installed references/report-format.md to the accessible review.yaml and selected round: /2 for new files, conditional /1 continuation without migration. Check validity separately from current whole-tree/base/exclusions, inputs/checks and actual invocation/all-author independence. Read all later evidence; no fallback to old approval. Applicable independent approved proceeds without another loop; changes_required repairs/checks/re-reviews; blocked/missing/invalid/unsupported/stale evidence stops dependent progression, not an automatic implementation loop. Recover lost review under that owner's exact-evidence/new-current-review rule without inventing old approval or replaying confirmed push/close. Changed subject needs affected checks and fresh reassessment. Preserve IDs/rounds/dispositions; low alone creates no round. Assess final results, not author logs/RED/GREEN history. |
-| 5 — `ris-proj-op-publish-task` | Reuse proven task/integration commits and applicable approved full tree; never duplicate commits or reintegrate a confirmed result. Integrate remote advancement in the subject's own branch/copy, never shared local main. Changed approved snapshots return only affected checks and independent whole-snapshot reassessment through steps 2–4 before an unsent push, retaining applicable evidence and unchanged acceptance. If confirmation is missing, independently read the selected remote/ref first. Confirmed remote Git survives result/closure/Dolt failure and skipped/failed local synchronization. Local maintenance is separate and never blocks close/Dolt; an explicitly requested update retains its own unfinished remainder through the publisher, without duplicate push or shared-main integration. Scope conflict or forbidden direct push stops dependent publication without force/PR fallback; ordinary conflicts/rejection return to the Git owner for bounded reconciliation. |
-| 6 — selected adapter / `ris-proj-op-complete-container` with explicit **verify-and-close** for selected one-task feature | Separately assess current published criteria/composition evidence and exact closure. Ordinary leaf result persistence retains its contract; features need no saved verification/duplicate refs. If only an ordinary result write succeeded, reuse it and perform only missing closure with fresh operation-specific protection. Missing substantive all-AC assessment goes to the container owner; diff review cannot replace it. Administrative closure is not an acceptance shortcut. If already closed never reopen/reclose: request only missing assessment or publication, report gaps and retain status. Parents stay unchanged. |
-| 7 — selected adapter tracker publication | Reuse proven local result/closure independently. Pass exact requested/recovered S, inspectable receipt/history and separate local record/link evidence. The adapter freshly confirms S reachability from selected remote R before incoming-only/divergence or new-write gates. Newer remote/local history does not block confirmation and is outside this receipt's acceptance. Confirmed S leaves only report/recommendation; missing confirmation needs fresh remote verification only, without push, create/close, merge, branch update, manual window or human confirmation. Unknown S/ancestry or failed remote reads stays unverified, never permission to replay. Proven unsent work needs fresh shared-main scope/destination/direction checks and ordinary non-force publication; divergence stops that push. S/L/R observations do not prove exact sent bytes or remote field equivalence; no private-ref/AS OF audit is required. |
+Timeout/lost response proves neither success nor absence. Return the exact ID,
+known revision/copy, allowed remainder and uncertainty to the same owner for
+read-only reconciliation, including whether its prior executor is still live.
+Do not copy its CLI/history/Git/guard/retry algorithm. A failed read is no replay
+authority. If absence cannot be distinguished from an unobserved effect, stop
+that dependent action with the precise gap. Nonstandard association, non-idempotent
+setup or a remaining process needs an addressable result in an existing authorized
+channel, never a new mandatory file/registry.
 
-For an open task identify the first missing/inapplicable operation in route order.
-Proceed only with proven prerequisites; otherwise stop on that gap, without skipping
-to a later effect. Gate the **remaining route** through the SKILL. A completed stage's
-role need not be available merely to reuse its applicable evidence. Before the first
-new mutation check independent-review and actually delegated roles/capabilities/permissions needed by that remainder;
-if reassessment adds repair/review, re-gate those roles before dependent effects.
-Reconciliation and read-back use the required available executor/read capabilities;
-direct application of bounded owners remains available except for independent
-review, never as a silent fallback for a failed delegated operation. Fresh claim/blocker/copy guards precede every implementation/repair batch.
-Each new tracker write uses fresh expected values and the adapter's bounded native
-operations/read-back, without a manual window or mandatory graph-wide protection.
-An old receipt or claim is not authority. Read-back-only recovery needs no write.
-
-Closed pending work enters only remaining verification/publication, never steps
-1–2 or another closure. A fully verified closed ID receives its state/result report.
-If evidence gaps or changed acceptance basis prevent a promised full success, report
-that limit without pretending closure proves acceptance or undoing confirmed effects.
-
-## Interrupted or ambiguous operation
-
-Timeout, failure or lost response is not proof that nothing happened. Before retry,
-ask the same owner to read actual affected state and determine whether its executor
-is still live. Do not start a duplicate executor while an earlier one may still act.
-Independently read remotes **before** retrying ambiguous Git or tracker push; when
-the sent snapshot is unknown recover it from actual commits/history/receipts or stop
-with uncertainty. For tracker publication pass exact S and expected result to
-the adapter's confirmation-first route, before incoming-only/divergence and
-new-write gates; freshly confirm S reachability from selected remote R, keeping
-local expected-content evidence separate from remote revision assurance.
-A remote read failure does not authorize push. If confirmed sent,
-verify applicability and advance; if confirmed absent, resume only the unsent
-operation under renewed guards. Conflicting/indeterminate facts stop that effect.
-Never repeat preparation, implementation, integration, result write or closure from
-a stale stage marker. Retry only a proven missing/invalidated operation with a viable
-approach. Apply the existing cause/progress rule to repairs and failed retries;
-no progress preserves effects, cause and exact remainder with `blocked|conflict|error`
-according to that cause, without a fixed round cap. Never choose recovery from a
-status token alone; a bounded component's `ok` proves only its own checked boundary.
-
-Use the affected proof from `evidence.md`; hand the existing-route owner accessible
-exact results/addresses, current inputs/snapshot, verified reusable effects,
-uncertainties, exact allowed remaining effects and stop boundary. Inspect the returned
-artifacts and actual state before the leading scenario decides the next transition.
-Report reused/reconstructed/new results, three separate channel facts, limitations,
-first remaining operation and fresh no-claim recommendation. `ok` still requires
-all promised results proven, not merely a reconciled stage label.
-
-Before a dependent irreversible action, nonstandard association, non-idempotent
-setup, a remaining process or ambiguous partial effect requires a compact
-addressable result in an already authorized channel. If it cannot be saved or
-recovered, block only that action with the precise gap. No-ID recovery cannot
-infer belonging from claim/assignee alone; unresolved exact ID/association stops
-dependent resume, without choosing foreign work or guessing primary from Git.
+Return reused/reconstructed/new observations, separate Git/result/close/tracker
+publication facts, limitations and the first remaining operation/owner/decision.
+`ok` requires the promised combined result, not merely a reconciled stage label.
+Continue through the main route only with proven prerequisites; no-progress
+retries preserve effects and return the cause's `blocked|conflict|error`, without
+a fixed round cap or automatic restart.
