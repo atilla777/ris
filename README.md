@@ -99,9 +99,10 @@ own snapshot, provenance and scope.
   spec/design/epic; the same ID can obtain a safe preparation copy. ID/copy is not
   readiness. Existing explicit links/readable legacy hints lead to actual documents
   and decisions without migration; missing/old/malformed JSON alone never blocks
-  this route. Historical data/specifications remain untouched. This scoped
-  [ris-wcv amendment](docs/specs/ris-wcv/spec.md) supersedes old JSON refusal/pin/
-  verification norms, not substantive acceptance or review/Git/close/Dolt gates.
+  this route. Historical data/specifications remain untouched. Substantive
+  acceptance and review/Git/close/Dolt remain separate gates. The current
+  [artifact contract](docs/product/06-artifacts-and-handoff.md) owns these norms;
+  the historical [ris-wcv decisions](docs/specs/ris-wcv/spec.md) retain their versions.
 - **Recovery:** task notes are local, not automatically synchronized or mandatory
   remote inputs. Resume discovers saved sources by project+ID and asks existing
   owners to reconcile actual effects, then continues only the missing operation.
@@ -353,12 +354,14 @@ and dispositions instead of repeating prior findings or six coverage mappings.
 The explicit verdict selects proceed/repair/stop; blocked or invalid/unsupported
 evidence never means approval or an automatic repair loop. Format validity alone is not current-snapshot
 approval; local reports are not automatically available on another machine.
-The source contract introduced by ris-b1a.4 removes both standalone task planners
-and `/risp-plan-task`, without aliases,
-and removes plan/implementation-report producers and consumers under accepted
-[S1 §4 / D1 §5](docs/specs/sdlc-feature-lifecycle/acceptance.md). Source availability
-does not establish Git publication, independent approval, live behavior or whole-S1
-acceptance; those require their own applicable evidence. Execution checks current-input sufficiency and a viable approach;
+Execution uses sufficient accepted inputs and current code, without standalone
+task planners, `/risp-plan-task`, saved plans or implementation reports. There are
+no aliases or replacement journals. The current [SDLC methodology](docs/product/08-sdlc-methodology.md)
+and [development rules](docs/rules/development.md) state the direct norms; historical
+[lifecycle decisions](docs/specs/sdlc-feature-lifecycle/acceptance.md) and
+[ris-ppw decisions](docs/specs/ris-ppw/spec.md) retain their original scope/evidence.
+Source availability does not establish independent approval, Git publication or
+live behavior. Execution checks current-input sufficiency and a viable approach;
 review/recovery assess final results, not author RED/GREEN history. TDD remains
 the executor's duty; missing history is not proof and known violations stay visible.
 Historical plans and delivery records remain unchanged optional context.

@@ -1,6 +1,6 @@
 # RIS — инструкции агенту
 
-Выполнение задачи следует принятой [S1 §4 / D1 §5](docs/specs/sdlc-feature-lifecycle/acceptance.md):
+Выполнение задачи:
 без отдельного planner, обязательного плана и журнала реализации; исполнитель
 проверяет достаточность принятых входов, актуальный код и выбирает подход.
 TDD сохраняется, но история RED/GREEN не является отчётом или гейтом ревью/recovery.
@@ -13,9 +13,9 @@ TDD сохраняется, но история RED/GREEN не является 
 Исходная папка не площадка разработки. Полный flow сохраняет
 свои copy/claim, quality, publication и отдельные completion/tracker gates.
 
-Подготовка фичи отдельно следует принятой [S1 §3 / D1 §§2–4](docs/specs/sdlc-feature-lifecycle/acceptance.md): ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, same-record refs и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
+Подготовка фичи: ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, та же ordinary запись и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
 
-По принятой [поправке ris-wcv](docs/specs/ris-wcv/spec.md) прежние same-record refs/JSON и обязательное saved verification сняты: новые feature-документы — `sources.specs/<full feature ID>/spec.md`, читаемый H1 и column-zero Feature-ID/Summary/optional Keywords; фактическое независимое принятие требований/дизайна сохраняется. Старые ссылки/payload — только hints к реальным документам/решениям, без schema gate, миграции и переписывания истории. Нет нового реестра.
+Новые feature-документы — `sources.specs/<full feature ID>/spec.md`, читаемый H1 и column-zero Feature-ID/Summary/optional Keywords; фактическое независимое принятие требований/дизайна сохраняется. Beads не дублирует accepted refs/readiness/verification. Старые ссылки/payload — только hints к реальным документам/решениям, без schema gate, миграции и переписывания истории. Нет нового реестра. Содержательная verify по умолчанию read-only, без обязательного saved verification.
 
 Bugfix использует versioned basis по [product §4.1](docs/product/06-artifacts-and-handoff.md#41-воспроизводимое-основание-bugfix):
 полные использованные поля точной версии истории трекера и immutable Git sources/decisions,
@@ -24,9 +24,9 @@ Bugfix использует versioned basis по [product §4.1](docs/product/06
 
 Обычное проектное ревью сохраняется одним компактным локальным `review.yaml` по [единственному владельцу формата](skills/ris-proj-op-review-task/references/report-format.md): новый файл `ris.review/2`, существующий `/1` продолжается по условному прежнему контракту без миграции. В Beads — адрес/раунд, не копия verdict/findings. Fast остаётся без обязательного файла; optional save использует тот же выбор схемы. Машинный verdict не заменяет actual independent approval точного snapshot; blocked/invalid/unsupported не запускает бесконечный repair loop. Отчёт не заменяет журнал реализации.
 
-По принятым правилам штатные действия полного поручения
+Штатные действия полного поручения
 не требуют повторных технических разрешений на границах владельцев. Context
-по [ris-ppw S1/D1](docs/specs/ris-ppw/spec.md) вычисляет исходную папку из фактического общего `.git` в схеме один repo — один
+вычисляет исходную папку из фактического общего `.git` в схеме один repo — один
 проект, без saved-primary cascade и права менять checkout. Workspace leaves имеют
 defaults даже в выбранном config, явные leaf overrides их заменяют; sources — из
 текущей копии. Actor нового назначения — explicit/configured,
@@ -36,16 +36,20 @@ remote Git — обычный полный результат без local updat
 обновления не блокирует close/Dolt; явно порученное обновление остаётся отдельным
 долгом. В RIS действует постоянная shared Dolt policy из development rules,
 без автонастройки других проектов. Все substantive/review/claim/non-force gates
-сохранены; противоположные прежние primary-sync нормы заменены в этой области.
+сохранены.
 
-По поправке ris-oub обычное закрытие родительского контейнера доверяет закрытым
+Обычное закрытие родительского контейнера доверяет закрытым
 прямым детям: полный непустой all-status список, все `closed`, нет активных
 блокировок родителя, native exact close/read-back и отдельная Dolt-публикация.
 Не повторять приёмку, Git/review или аудит декомпозиции и потомков. Проверка
 возможности закрытия — те же чтения без записи; содержательная verify/verify-and-close
 только по явному запросу. Фича без детей сохраняет проверку собственного результата.
-Это заменяет прежние обязательные whole-container gates только для обычного
-закрытия родителя, не для leaf/one-task execution или явной содержательной проверки.
+Leaf/one-task execution и явная содержательная проверка сохраняют собственные gates.
+
+Текущая методика — [product 08](docs/product/08-sdlc-methodology.md), repo policy —
+[development rules](docs/rules/development.md), operational contracts — у владельцев.
+Исторические основания — [S1/D1 lifecycle](docs/specs/sdlc-feature-lifecycle/acceptance.md)
+и [ris-ppw S1/D1](docs/specs/ris-ppw/spec.md); их решения и evidence не переоцениваются.
 
 Для автономной работы с явно выбранным OKF-бандлом используй `ris-port-op-manage-okf-bundle`; для OKF-операции в выбранном RIS-проекте — `ris-proj-op-manage-okf-bundle` с явными project/root/operation/scope. Обычные Markdown-спецификации не обрабатываются как OKF автоматически.
 

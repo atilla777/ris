@@ -76,7 +76,7 @@ review/affected checks/only the lost human scope. Confirmed pushes and closed
 statuses are reused, not replayed. These are instruction contracts; static
 inspection does not establish live recovery behavior.
 
-Feature preparation has its own bounded [S1 §3 / D1 §§2–4 amendment](specs/sdlc-feature-lifecycle/acceptance.md):
+Feature preparation follows the current [SDLC methodology](product/08-sdlc-methodology.md):
 early same-ID registration/copy, one requirements/design dialogue and precise
 acceptance of both scopes (one act allowed), independent review/Git, same-ID
 ordinary record and existing full decomposition with separate tracker publication. Internal
@@ -91,8 +91,8 @@ they never silently reduce the request. A missing permission needs one concrete
 question, a technical failure an exact blocker. Shared Dolt policy is agreed once
 per project, not inferred from one feature's authorization or installed settings.
 
-The accepted [ris-wcv amendment](specs/ris-wcv/spec.md) removes feature JSON,
-duplicate accepted refs/readiness and mandatory saved verification. New feature
+There is no feature JSON, duplicate accepted refs/readiness or mandatory saved
+verification. New feature
 documents use configured `sources.specs/<full feature ID>/spec.md`, readable H1
 then column-zero Feature-ID/Summary/optional Keywords; design is inline or adjacent.
 Actual scope/version acceptance and original containing-commit provenance remain.
@@ -104,8 +104,7 @@ and the adapter's complete historical read/short locator reconciliation, without
 mandatory duplicate full snapshot or new file. Legacy snapshots and review YAML
 are not migrated. Historical specifications/evidence are not rewritten.
 
-The source contract introduced by ris-b1a.4 applies accepted S1 §4 / D1 §5: execution
-uses sufficient accepted inputs/current code without a standalone planner, saved
+Execution uses sufficient accepted inputs/current code without a standalone planner, saved
 plan/omission-decision or implementation report. Do not replace/distribute the
 removed journal in other artifacts. TDD stays with the executor; final-result
 review/recovery do not require saved author RED/GREEN chronology. Current checks,
@@ -113,8 +112,8 @@ independent review, safe publication and separate tracker gates remain.
 This contract description is not evidence of publication, independent approval
 or complete lifecycle acceptance; each requires its own applicable observations.
 
-The integrated ris-17f change removes default `worktree.md`/`execution.md` and equivalent
-transition-ledger requirements. Keep the independent review report and sufficient
+No default `worktree.md`/`execution.md` or equivalent transition ledger is required.
+Keep the independent review report and sufficient
 Beads result required by the rules, not a substitute implementation log.
 Use live Git/Beads and accessible exact owner results at transitions; missing
 association, reviewed-snapshot identity or independence blocks only the dependent
@@ -124,8 +123,8 @@ Reuse and hooks/setup activate scoped preservation. Recipient context validates
 the entire selected config but compares only settings used by the operation and
 recipient; a valid unused product-source difference is not a handoff blocker.
 See [the read/action comparison and check limits](specs/worktree-preparation-simplification/delivery-checks.md).
-The source change is integrated in `d8c5bac6164eeb559d07e987f42c12467141477a`;
-that fact does not establish new live-behavior evidence or regrade the historical report.
+Those historical checks remain tied to `d8c5bac6164eeb559d07e987f42c12467141477a`;
+this guide does not establish new live behavior or regrade the historical report.
 
 Only explicitly selected [simple-task execution](../skills/ris-proj-flow-execute-simple-task/SKILL.md)
 uses the rules' fast exception: no mandatory plan, implementation/execution log or
@@ -143,8 +142,8 @@ transferring dirty files.
 Checks remain proportionate and project-mandatory checks/TDD apply.
 Full task/bug/feature execution and the TDD operation retain their substantive
 gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
-remain separate checked effects. Basis: [accepted D2](specs/fast-task-execution/design.md)
-with the worktree/publication changes in [ris-ppw S1/D1](specs/ris-ppw/spec.md).
+remain separate checked effects. Historical bases: [accepted D2](specs/fast-task-execution/design.md)
+and [ris-ppw S1/D1](specs/ris-ppw/spec.md), not alternate current algorithms.
 
 Ordinary container closure trusts a nonempty complete direct-child set (all
 `closed`) and checks parent blockers, without recursive delivery/acceptance audits.

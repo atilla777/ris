@@ -14,15 +14,16 @@ type: Specification
 
 ## 2. Уровни документов
 
-По принятому [ris-wcv](../specs/ris-wcv/spec.md) новые feature-документы используют
+Новые feature-документы используют
 `sources.specs/<full feature ID>/spec.md`, H1 readable name и column-zero
 Feature-ID/Summary/optional Keywords; sufficient design inline либо design.md.
 Обычная independent scope/version acceptance notation сохраняется с исходной
 provenance, без duplicate refs/readiness/verification registry в Beads. Legacy
 explicit links/readable payload hints ведут к actual documents/decisions без schema
 gate/миграции; old data/history не переписываются. Missing/old/malformed JSON сам
-по себе не блокер. Feature close требует substantive current assessment, не её
-обязательного сохранения. Ordinary/document-only/bug не получают искусственный ID
+по себе не блокер. Явная substantive verify-and-close требует current assessment,
+не её обязательного сохранения; ordinary parent close доверяет закрытым прямым детям
+по [08](08-sdlc-methodology.md#4-переходы-и-владельцы). Ordinary/document-only/bug не получают искусственный ID
 или feature-каталог; versioned bug basis (§4.1) и review YAML остаются отдельными входами.
 
 | Артефакт | Что содержит | Что не заменяет |
@@ -179,27 +180,29 @@ ID не является snapshot или разрешением на докум�
 отсутствующий путь/право остаётся явным gap. Session history и OKF root сохраняют
 свои самостоятельные locator, ID задачи их не подменяет.
 
-Каждый итог восстанавливаем: фактический result/identity, точный locator либо
-проверенное соглашение обнаружения с ключами/именем файла, input/result versions
-и отдельные decisions, честные saved/accepted/published факты каждого применимого
-канала, limits и точный unfinished remainder. Git, tracker write, completion и
-tracker publication/read-back не доказывают друг друга. Вложенный результат
-возвращается вызывающему без обязательного next-skill prompt; нового registry,
-handoff schema или draft store нет. До ID не выдумывать ID/path/ref. При отсутствии
-inspectable authorized source response-only итог содержит discovery gap, а не
-обещание доступности новой сессии. Локальные заметки не remote input другой copy.
-Primary provenance передаётся как evidence, но получатель заново проверяет
-применимость, права и требуемые claim/blockers/защиту; старое окно/lease/worktree
-не допуск. После прерывания сначала сверяются actual effects и версии, затем
-выполняется лишь недостающее; unchanged decisions сохраняются. Recovery не
-ветвится только по статусу: известный ID не создаётся заново, подтверждённое
-закрытие не повторяется, неизвестный push сначала сверяется с remote, а при
-pending Git read-back проверяется уже отправленный commit; для Dolt свежо
-подтверждается достижимость точной требуемой ревизии S из выбранного remote R.
-Более новая R не отменяет S; неизвестная S или failed remote/ancestry read не
-разрешают повторный push/close. Локальный результат/записи проверяются отдельно:
-Dolt receipt не обещает полного равенства полей или точного snapshot отправки
-общей moving branch (контракт публикации — [04](04-contracts-and-adapters.md#4-адаптеры)).
+Внутри сессии доступные факты не передаются повторно; делегат получает лишь
+недостающие exact inputs/decisions, полномочия, bounded result и early-return
+conditions, без предположения наследования. В новой сессии project+ID и сохранённые
+Git/config/tracker associations позволяют обнаружить источники. Для обязательных
+сведений producer/consumer, source/mutability и recovery определены в рабочем
+[common artifacts](../../skills/ris-proj-lib-common/references/artifacts.md), не в новом envelope.
+Материальные версии, отдельные решения, доступное evidence, фактические эффекты,
+ограничения и первый missing/inapplicable результат остаются различимыми.
+Git, ordinary result, exact completion и Dolt не доказывают друг друга.
+
+Flow выбирает необходимый остаток, а context/copy/Git publisher/adapter выполняют
+свои инфраструктурные алгоритмы и сверяют uncertain effects до retry. Caller
+проверяет returned result/applicability, не копирует CLI/history/guards/remote
+процедуры. Known IDs/commits/closed переиспользуются. Потерянный review восстанавливается
+точно либо заменяется честным новым independent review точной доступной версии;
+lost reproducible checks повторяются затронуто, lost acceptance требует лишь
+невосстановимого scope. Ни одно новое evidence не выдумывает прошлый pass или
+не требует replay confirmed push/close. Unknown association/setup/process/ownership
+блокирует dependent mutation с точной причиной, не отсутствием журнала.
+Локальные notes не обязательный remote input; receiver заново проверяет context
+association, права/claim/blockers и сохранность. Вложенный итог возвращается caller
+без обязательного next prompt, registry или нового файла. Нет источника — exact
+discovery gap, не обещание доступности новой сессии.
 
 Отдельно запрошенная read-only навигация может вернуть короткий prompt с реальным
 установленным владельцем и подтверждённым ID либо exact no-ID locator. Она проверяет
