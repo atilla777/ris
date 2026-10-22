@@ -106,6 +106,10 @@ own snapshot, provenance and scope.
 - **Recovery:** task notes are local, not automatically synchronized or mandatory
   remote inputs. Resume discovers saved sources by project+ID and asks existing
   owners to reconcile actual effects, then continues only the missing operation.
+  An explicit human request to continue/execute that task already authorizes
+  guarded session reassignment without another takeover question or proof the
+  previous session ended. Reuse its verified worktree/branch and preserve changes;
+  old actor/lease alone neither blocks that request nor authorizes unrequested work.
   Lost review is restored exactly or replaced by honest new independent current
   review; lost reproducible affected checks are rerun, and only lost acceptance
   scope needs a new human decision if the original cannot be found. None proves
@@ -130,7 +134,8 @@ own snapshot, provenance and scope.
   valid leaf overrides win. Sources resolve in the current worktree. Unsupported
   layouts get a bounded diagnostic, not another-copy discovery. This grants no
   right to change the source checkout. New assignments
-  can use a verified current-session actor fallback, never to take over old work.
+   can use a verified current-session actor fallback, not as reassignment authority
+   by itself; explicit human continuation follows the recovery rule above.
   Ordinary publication is remote-only. Confirmed remote Git is complete independently
   of explicitly requested safe local FF, which never switches branches;
   skipped/failed maintenance does not block exact close or Dolt. An explicitly

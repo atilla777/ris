@@ -41,19 +41,23 @@ product/specification acceptance just to prepare a copy, or change `ris.yaml`.
 Through the selected available tasks adapter freshly verify exactly this task's
 identity/type/content, membership, status, blockers and assignee. Check supported
 read and claim operations and their actual guarantees; `tasks` v1 alone does not
-promise claim. Closed/invalid tasks stop dependent filesystem mutation;
-a foreign live claim is a conflict, never overwritten. Read-only inspection may
-return observations without claiming or creating anything.
+promise claim. Closed/invalid tasks stop dependent filesystem mutation. For an
+explicit human continuation, pass reassignment authority to the adapter's claim
+owner; a previous session's claim alone is not a conflict or a reason to ask again.
+Otherwise preserve foreign claims. Read-only inspection may return observations
+without claiming or creating anything.
 
 For a new assignment resolve actor through the selected task adapter's claim
 owner: explicit identity, then applicable configured identity, otherwise a
 verified current host-session ID. Forward the exact chosen actor and provenance
 to all participants; a delegated recipient uses the caller's assigned actor,
 not its own session fallback. No reliable identity means an exact dependent gap,
-not an invented OS-user/model/branch identity. This fallback never grants old
-claim/copy ownership: on resume verify assignment, association and permission to
-continue or transfer. A matching actor string or lost chat history alone does
-not authorize reclaiming another execution or creating a replacement copy.
+not an invented OS-user/model/branch identity. On resume, common's explicit-human
+continuation rule supplies reassignment authority; fallback/name/lease alone does
+not. Verify the existing association and reuse that worktree/branch with changes
+and evidence preserved, without requiring proof the old session ended or a new
+handoff record. A concrete conflicting writer or unknown association blocks only
+the dependent mutation, never authorizes a replacement copy.
 
 For `execution`, retain all existing execution-readiness and active-blocker gates;
 the existence of an ID/copy never supplies sufficient accepted task inputs.

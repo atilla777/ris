@@ -184,8 +184,12 @@ mutation rights. Workspace leaf defaults apply even with a valid selected config
 explicit overrides win, absent output folders never select another path. Sources
 remain current-copy paths; sources/adapters/roles get no missing-field defaults
 from a selected file. Claim owners resolve a new actor
-from explicit/configured identity or verified host-session ID, never as takeover
-authority. Full requests carry ordinary constituent actions across owner seams;
+from explicit/configured identity or verified host-session ID, not as takeover
+authority by itself. An explicit human continuation/execution request for that
+task supplies guarded reassignment authority without a second takeover question,
+lease wait or proof the old session ended. The associated copy/branch and changes
+are preserved; concrete conflicts and native guards remain binding. Full requests
+carry ordinary constituent actions across owner seams;
 technical failures are exact blockers, not repeat permission questions. RIS's
 standing shared Dolt policy is repository-local; other projects keep theirs.
 This describes the source contract, not evidence of remote publication or

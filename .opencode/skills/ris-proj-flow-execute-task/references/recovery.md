@@ -16,9 +16,13 @@ the preparer verifies copy association, current state and uncertain setup/proces
 Preserve foreign files/index/claims/history and all known IDs/commits/statuses.
 Never create another copy, reset/stash or reclaim merely because notes are lost.
 An expired lease, familiar path or assignee alone does not prove continuation.
-Foreign/ambiguous ownership or possibly active writers block dependent mutation;
-do not launch another writer while the old one may still act. Native refusal is
-binding; no force, alternate target or global lock circumvents it.
+Apply common's explicit-human continuation rule through the adapter to reassign
+the existing task without another takeover question. Do not require evidence that
+the previous session ended; an old actor/lease alone does not prove live writing.
+Reuse the verified associated copy, including unfinished changes. Unknown
+association, an actually observed conflicting writer or changed ownership during
+the operation blocks dependent mutation. Native refusal is binding; no force,
+alternate target or global lock circumvents it.
 
 Read the actual sufficient accepted own contract, separate decisions and current
 prerequisites. Ordinary children do not become features by membership. Feature
@@ -61,7 +65,7 @@ pass. Confirmed push/close remains confirmed even when full success is unproved.
 
 Timeout/lost response proves neither success nor absence. Return the exact ID,
 known revision/copy, allowed remainder and uncertainty to the same owner for
-read-only reconciliation, including whether its prior executor is still live.
+read-only reconciliation, including any concrete conflicting executor/process.
 Do not copy its CLI/history/Git/guard/retry algorithm. A failed read is no replay
 authority. If absence cannot be distinguished from an unobserved effect, stop
 that dependent action with the precise gap. Nonstandard association, non-idempotent

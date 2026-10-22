@@ -38,10 +38,11 @@ adapter owns bounded tracker operations and their guarantees, not Git publicatio
    adapter, with exact actor and confirmed task/copy association. Resolve a new
    assignment's missing actor through that adapter's claim owner (explicit →
    applicable configured → verified current session ID) and forward it unchanged.
-   Existing claim/copy continuation requires verified linkage and authority;
-   fallback or name equality never grants takeover. Independently
+   Existing claim/copy continuation uses common's explicit-human authority and
+   verified linkage through the adapter, without another takeover confirmation;
+   fallback, name equality or lease alone never grants takeover. Independently
    check in-progress ownership, blockers and mandatory composition before each new
-   mutation batch and dependent publication. Never overwrite a foreign live claim.
+   mutation batch and dependent publication. Without that authority preserve foreign claims.
    Active blockers, unfinished mandatory children or lost ownership stop dependent
    effects. Closed targets use recovery/state reporting, never automatic reopen.
    A claim/lease/worktree is not general graph/content CAS. Apply current project

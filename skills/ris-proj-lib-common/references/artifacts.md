@@ -79,7 +79,7 @@ check returned facts and applicability, not CLI/retry/guard procedures.
 | --- | --- | --- |
 | Goal/scope/criteria: setter → change owner/reviewer | Ordinary tracker content is mutable; accepted feature scopes/decisions have immutable Git addresses | Discover by project+ID and published-input convention; recover the original decision or obtain only the lost scope's new human acceptance. |
 | Paths: context → writers/copy/review | Current config and Git association are mutable | Re-resolve for the current copy; no saved context registry or forwarded primary address is required. |
-| Claim/continuation rights: adapter → acting owner | Live assignment and attributable authority | Fresh owner checks before mutation; an old actor/lease never grants takeover. |
+| Claim/continuation rights: adapter → acting owner | Live assignment and attributable authority | Apply common's explicit-human continuation rule through the adapter without asking again; old actor/lease alone grants nothing. Fresh owner checks before mutation. |
 | Copy: preparer → writer/publisher | Live registration/path/branch/HEAD/files | Verify the existing work association through the preparer; a name alone is insufficient. Pass a nonstandard association addressably in an existing authorized channel. |
 | Bug basis: admission+adapter → execution/review/completion | Exact tracker-history version and immutable Git sources/decisions | Adapter retrieves complete used fields and reconciles the short basis locator; no duplicate snapshot. |
 | Checks: change owner → reviewer/publisher | Observation tied to exact content and inputs | Reuse accessible applicable results/limits; rerun lost reproducible affected checks, never invent their history. |

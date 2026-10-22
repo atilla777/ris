@@ -182,6 +182,10 @@ Execute or resume one prepared task: copy/claim, implementation from sufficient 
 checks, independent review, Git publication, separate task completion and tracker
 publication. An explicit ID selects only that work; without one, reconcile own
 unfinished work before ready-task choice. Not a whole multi-task container.
+An explicit human request to continue/execute that task already authorizes session
+reassignment without another takeover question. Preserve its verified worktree,
+branch and changes; old actor/lease alone is not a blocker. Real conflicts and
+task blockers remain binding.
 
 ---
 

@@ -55,7 +55,7 @@ do not load other branches merely to list or exact-read a record:
 | Authorized bounded field update | `references/update.md` and `references/concurrency.md` |
 | Create/reconcile epic or task; `tasks.items.create` | `references/create.md` and `references/concurrency.md` |
 | Membership or blocking-edge mutation | `references/structure.md` and `references/concurrency.md` |
-| Claim/heartbeat | `references/claim.md` and `references/concurrency.md` |
+| Claim, explicitly authorized session reassignment or heartbeat | `references/claim.md` and `references/concurrency.md` |
 | Ordinary child-based container close, administrative exact-container close or verified completion | `references/completion.md` and `references/concurrency.md` |
 | Ordinary standalone create/source-content/child-link/result/close specifics | `references/standalone.md` plus only the action resource it selects; no standalone resource for a simple non-source field edit |
 | Native bug registration create/update (not ordinary read/list) | `references/standalone.md` and its selected resources |

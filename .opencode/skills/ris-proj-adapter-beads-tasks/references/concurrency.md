@@ -20,6 +20,7 @@ equivalence across engines, remote replicas or future versions.
 | Requested effect | Preferred protection and limit |
 |---|---|
 | Claim one ID | Native `--claim`; ownership CAS, not readiness/composition CAS. |
+| Reassign a session on explicit human continuation | `claim.md` guarded assignee/status update, preserving the associated copy; no second takeover confirmation, release/reclaim or force. Changed holder/status stops reconciliation-dependent writes. |
 | Update conditioned only on status/assignee | `--if-status`/`--if-assignee` with only approved fields. A stale guard writes nothing; exit 13 requires reconciliation, not removal of the guard. |
 | Append notes or change independent metadata keys | Native `--append-notes` or `--set-metadata`/`--unset-metadata`; merge against the current row inside the transaction. Do not emulate by reading and replacing the whole field. Same-key conflicting decisions still require reconciliation. Reconcile an ambiguous append before retry so it is not duplicated. |
 | Close one ID using native child/blocker policy | Native `bd --sandbox close <id> --reason ... --json`, without force/auto-next. The checked close enforces open direct-child and live direct-blocker policy in the transaction, including dependency coordination. No separate manual pause for these native predicates. It does not verify accepted requirements, exact expected membership, descendant completeness or the freshness of external evidence. |

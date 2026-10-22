@@ -28,8 +28,10 @@ review findings from the request, project and available evidence; ask only for
 missing material decisions. Through the selected available adapter freshly read
 task identity/content, membership, blockers and claim. Check its explicitly
 supported claim operation: `tasks` v1 alone does not promise it. Confirm own
-claim or atomically claim an authorized open/unblocked task before file changes;
-verify ownership/state/blockers after. Do not overwrite another actor's live claim.
+claim or obtain an authorized open/unblocked assignment before file changes;
+explicit human continuation uses common's rule and the adapter's guarded
+reassignment without another takeover question. Otherwise preserve foreign claims.
+Verify ownership/state/blockers after.
 Recheck ownership on resumption and before new mutation batches; stop on loss or
 new blockers, preserving partial work. Verify the supplied current copy's project/
 repository, actual revision/state and suitability without altering existing work.

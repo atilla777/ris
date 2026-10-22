@@ -64,8 +64,11 @@ and content, execution receipts, Git, closure and tracker publication. A closed
 bug is never reopened or fixed again. Return its verified state, or hand proven
 own unfinished execution to the execution flow's existing read-only recovery to
 finish only remaining verification/publication. A worktree/assignee alone does
-not establish that execution. Foreign claims, active blockers or unfinished
-mandatory children stop dependent work with their exact boundary.
+not establish that execution. Explicit human continuation uses common's rule and
+the adapter's guarded reassignment without another takeover question. Unauthorized
+foreign claims, changed ownership during the operation, concrete conflicting
+writers, active blockers or unfinished mandatory children stop dependent work
+with their exact boundary.
 
 ## Admit sufficient inputs and resolve only necessary design
 
@@ -106,7 +109,9 @@ claim/copy/environment effects and context-checked primary selection/provenance.
 Inspect its checked handoff before invoking the design writer; forward the same
 verified ID/repository/path/branch association and refreshed context. Reuse a
 suitable existing associated copy through that owner; otherwise let it prepare
-one. Missing association, foreign ownership, active/unresolved blockers or partial
+one. Apply common's explicit-human continuation rule through the adapter for a
+previous session's assignment, without asking again. Missing association,
+conflicting ownership during the operation, active/unresolved blockers or partial
 setup stop dependent writes. Reconcile actual effects through the preparation
 owner before retry; do not create a second copy or repeat completed setup. This prepares
 only the copy, not design acceptance or implementation readiness. No preparation

@@ -13,6 +13,9 @@ tracking applies, use the selected adapter for exact identity/kind/content,
 status/ownership, composition/blockers and result/close/publication facts. Load
 the tracker resource only under its own trigger. An assignee, path, branch name,
 old lease or “done” message alone does not prove ownership, result or permission.
+Apply common's explicit-human continuation rule through the adapter: the request
+itself authorizes session reassignment, not another question or proof the previous
+session ended. Reuse the associated copy and preserve unfinished changes/evidence.
 
 Recover full request/constraints, separate material decisions, exact candidate,
 check results/limits and independent review subject/launch provenance from
@@ -66,5 +69,5 @@ Return the first missing/inapplicable operation within the main route, proven
 prerequisites, reusable evidence, unknown effects and exact remainder. Check
 current rights, own claim/blockers and reviewer availability only for remaining
 operations; completed implementation needs no implementation role. Conflicting
-ownership, unresolved live execution or missing essential evidence stops dependent
+ownership during the operation, observed conflicting live execution or missing essential evidence stops dependent
 effects with preserved work and a concrete cause, never a blind replay or rollback.

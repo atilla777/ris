@@ -35,6 +35,17 @@ concrete blocker. If permission or scope resolution is genuinely needed, ask one
 specific decision question rather than merely ending with an intermediate result.
 Continue independent useful work without bypassing the blocked action.
 
+An explicit human request to continue or execute an identified task authorizes
+reassignment to the current session through the selected adapter, including from
+preparation to execution. Do not ask again for takeover permission or proof that
+the previous session ended merely because its actor/claim remains. This grants
+only the requested scope, not readiness or permission to overwrite files. Reuse
+the verified associated worktree/branch and preserve existing changes/evidence.
+Actor fallback, lease expiry, an ID mention or a navigation recommendation alone
+grants no reassignment. Concrete conflicting writers, unknown copy association
+or native guard refusal still stop the dependent mutation; do not invent a
+release, lease-wait or handoff-record prerequisite.
+
 Separate effects require separate execution and verification, not necessarily
 separate human messages. Authority may come from the full parent request or an
 accepted project policy; forward its attributable source and boundaries. Ordinary

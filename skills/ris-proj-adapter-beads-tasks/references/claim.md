@@ -13,16 +13,33 @@ reliable host identity blocks only the dependent assignment with that exact gap;
 no new config field or session registry is required. Pass actor and provenance
 to participating owners; delegated work retains the caller's assigned actor.
 An invalid explicit identity or conflicting configured facts is not fallback
-permission. This selects a technical identity, not continuation rights: an
-existing assignee/lease, even with the same string, requires verified execution/
-copy association and current authority. Never use fallback to steal an old
-claim, silently release/reclaim it or treat expired lease as transfer permission.
+permission. This selects a technical identity, not continuation rights. An
+explicit human request to continue/execute this exact task supplies reassignment
+authority, including preparation → execution; no second takeover confirmation,
+proof of previous-session termination, lease expiry or release is required.
+Verify the existing task/copy association and preserve its branch, changes and
+evidence. Actor fallback, a matching string or expired lease alone is not authority.
 
 `bd --sandbox --actor <actor> update <id> --claim --json` atomically guards
 claim ownership. Require an open issue, exact actor and permitted claim; a claim
 already owned by that actor may be verified unchanged. Purpose defaults to
 `execution`: active or unresolved blockers prevent new claim admission and
 dependent execution, including when an own claim already exists.
+
+For an already assigned task explicitly continued by the human, fresh-read its
+exact type/status/assignee and action-specific blockers. If the assignee differs,
+use the supported guarded reassignment, not a losing `--claim` or release/reclaim:
+`bd --sandbox --actor <actor> update <id> --if-assignee <previous-actor>
+--if-status <observed-open-status> --assignee <actor> --status in_progress --json`.
+Baseline 1.3.1 `update --help` exposes both guards; its pinned
+[update source](https://github.com/steveyegge/beads/blob/v1.3.1/cmd/bd/update.go)
+allows sanctioned guarded assignee transfers without `--force`. Check actual
+installed support. Change only assignee/status, independently read back both,
+preserved content and blockers, then continue in the same verified copy. This is
+row ownership protection, not graph/content CAS or cross-session exclusion. A
+stale guard/changed holder stops for reconciliation; never drop the guard, switch
+to the newly observed holder as an automatic retry, or ask a routine permission
+question merely because the previous actor differs. Closed work is not reopened.
 
 For feature/child execution the caller must also provide its stage-prerequisite
 assessment from installed `ris-proj-op-specify-feature`'s owned
@@ -37,15 +54,17 @@ admission or own-claim reuse; ordinary execution never uses that exception.
 
 `bd` allows `--claim` on a blocked issue: blocker admission is not atomic with
 the claim. Independently verify `in_progress`, exact `assignee`, current directed
-blockers and the purpose/action's evidence after claim (or own-claim reuse).
+blockers and the purpose/action's evidence after claim, reassignment or own-claim reuse.
 If blockers/content changed during the attempt, reconcile the fresh facts before
 dependent progress: execution remains blocked by any active/unresolved blocker;
 preparation proceeds only if every remaining active blocker is freshly proved
 execution-only for that exact action. Otherwise report the persisted partial
 claim and exact blocker/evidence gap and stop; claim success is not readiness.
 Ownership loss or native refusal stops the dependent action regardless of purpose;
-reconcile ambiguous effects before retry. A second actor receives conflict. Never
-use `--force`, remove edges, silently release/reclaim or bypass native refusal.
+reconcile ambiguous effects before retry. Without explicit continuation authority,
+a second actor receives conflict. Never use `--force`, remove edges, silently
+release/reclaim or bypass native refusal. Old session metadata alone is not
+evidence of a competing live writer; an actually observed conflicting writer is.
 
 For continuing work, `bd --sandbox --actor <actor> heartbeat <id>` refreshes the current
 owner's lease. Baseline 1.3.1 `heartbeat --help` documents `lease_expires_at` and

@@ -32,10 +32,11 @@ conditional resources; investigation disposition is not execution completion.
 - `bd dep list <bug-id> --type blocks --direction=down --json` supplies blockers;
   normalize blocked → blocker under main rules. Failed/truncated/unknown-shaped
   results cannot establish an empty set. Membership is not a blocking edge.
-- Apply `claim.md` to this bug with `bd --sandbox --actor <actor> update
-  <bug-id> --claim --json`. Freshly check unblocked open/same-own state and reread
+- Apply `claim.md` to this bug, including its guarded reassignment for explicit
+  human continuation; otherwise use its native claim. Freshly check unblocked open/same-own state and reread
   status/assignee/children/blockers afterward and before new batches. Ownership
-  CAS does not make readiness or report content atomic. Preserve foreign claims.
+  CAS does not make readiness or report content atomic. Without explicit continuation
+  authority preserve foreign claims; no new bug claim engine is introduced.
 
 For an authorized design-only source update, append pinned published design and
 separate decision locators with their substantive scope to notes using

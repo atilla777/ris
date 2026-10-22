@@ -69,9 +69,10 @@ Missing guarantees block only dependent effects; preserve usable results.
 
 Resolve a missing actor for a new assignment through the selected adapter's claim
 owner (explicit → applicable configured → verified current session ID), then
-forward that exact actor to participants. Existing execution recovery instead
-requires verified assignment/copy linkage and continuation/transfer authority;
-the fallback or a matching name never takes over old work. Full execution uses
+forward that exact actor to participants. Existing execution recovery verifies
+assignment/copy linkage and uses common's explicit-human continuation authority
+through the adapter; do not ask again solely for a different previous actor or
+preparation claim. Actor fallback/name/lease alone is not authority. Full execution uses
 its own branch and separate working copy, never simultaneous independent writers
 in one copy; simple-task uses the same worktree-first preparer and retains only
 its scoped preparation/reporting exceptions.
@@ -148,8 +149,10 @@ for execution; no global list is required merely to resolve a known ID. Queue
 reads need an actual diagnosis/recommendation or absence/dedup purpose. Never
 replace the target. A closed ID gets a verified
 state/result report, never reopening or a new implementation; proven own pending
-publication resumes only its remaining verification/publication. A foreign active
-claim blocks it. Unknown IDs/types return a concrete diagnostic.
+publication resumes only its remaining verification/publication. An explicit
+human execution/continuation request authorizes the adapter's guarded reassignment
+of a previous session's claim under common; without that authority preserve it.
+Unknown IDs/types return a concrete diagnostic.
 
 Without an ID, obtain the complete relevant all-state task inventory through the
 adapter's compact read policy, disclosing content needed for selection/readiness.
