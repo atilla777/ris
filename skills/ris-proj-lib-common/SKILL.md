@@ -1,7 +1,8 @@
 ---
 name: ris-proj-lib-common
 description: >-
-  Shared scope, permission, dialogue, artifact, and verification rules for RIS
+  Shared scope, permission, dialogue, artifact, user-facing result presentation,
+  and verification rules for RIS
   skills. Use as a dependency while carrying out RIS work, not as a standalone
   planning, interview, implementation, or project-configuration workflow.
 ---
@@ -65,6 +66,56 @@ facts or recommendation and material limits. No formal result block, unrelated
 versions, acceptance or publication reconstruction is required. Preserve the
 caller’s actual result contract; a short answer must not hide missing evidence,
 uncertain effects or unfinished requested work.
+
+## User-facing operation results
+
+For a completed or stopped substantive operation, present its existing result
+contract in a predictable, concise order; this is a response convention, not a
+new artifact, handoff schema, status, acceptance gate or lifecycle operation.
+Use the conversation's language. Lead with a text status and the bounded result
+(`✅` completed, `⛔` blocked, `⚠️` conflict, `❌` error); never let an icon alone
+imply success. Status describes only the requested operation or scenario.
+Preserve its actual `ok|blocked|conflict|error` semantics and describe partial
+effects separately. Keep any domain verdict (for example review or verification)
+distinct from operation status; a completed assessment is not a passing assessment.
+
+When applicable and known, identify the subject compactly as project → epic →
+feature → task, using confirmed IDs and readable titles. Include only relevant,
+verified levels: do not invent a tracker identity, epic, feature, or relationship;
+for document-only/no-ID work identify the actual document or bounded subject.
+An ordinary structural parent is not automatically an epic or feature. State a
+materially unknown relationship as unknown rather than implying it was checked.
+Use existing result context and bounded relevant reads, not a global tracker
+scan or reconstruction of unrelated ancestors merely to fill the header.
+
+Then use short, localized labels in this order:
+
+- **🛠 What was done:** one to three result-oriented points, not tool-call history.
+- **🎯 What changed:** the practical user effect, or explicitly internal-only,
+  unchanged behaviour, or no changes made. Preparation/decomposition describes
+  what is now defined or organized, never implies functionality was implemented.
+- **🔎 Checks**, **📦 Delivery**, **⚠️ Limits:** include only applicable material
+  facts. Keep saved, accepted, Git-published, tracker-written, closed and
+  tracker-published facts separate. Put a blocking cause near the leading status,
+  not only in details; identify preserved effects and the exact missing part.
+- **➡️ Next:** one useful next result or necessary decision within the owner's
+  recommendation scope, or explicitly no further action for this request.
+  This grants no permission to select/name a next skill, launch another stage,
+  accept, close or publish anything beyond the calling operation's contract.
+
+Keep the practical outcome before technical detail and avoid repeating the same
+sentence under different labels. Retain exact locators, revisions and channel
+facts required by the owning skill; do not omit evidence to fit a length target
+or repeat irrelevant provenance. Use icons with text labels, not as sole meaning.
+
+This presentation does not override the calling skill's content, evidence,
+detail or stop contract. Ordinary lists/reads/recommendations stay lightweight;
+do not force this result block onto them. Specialized review/spec/retrospective
+content keeps its own format and is not replaced or duplicated by a summary.
+A workflow lead owns one combined user-facing result; nested components return
+their scoped result to that caller, not repeated user-facing reports. No universal
+next-skill prompt, fixed evidence checklist, persisted report or process journal
+is introduced. Portable methods remain independent of this project library.
 
 ## Worktree-first writes
 

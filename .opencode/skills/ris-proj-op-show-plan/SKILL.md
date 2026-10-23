@@ -81,30 +81,72 @@ recommendation. Unknown values stay unknown.
 
 Use the person's language. Show every unclosed working record in scope exactly
 once as a primary short line; no hidden cap, collapsed branch or copied description.
-Use indentation for actual parents, with separate standalone branches (no artificial
-epic) and an explicit diagnostic group for cyclic, missing-parent or contradictory
-hierarchies. Preserve all affected records there once rather than dropping them or
-inventing reparenting. Display closed ancestors of unclosed work, and a closed selected
-root, marked **closed, context**. Closed descendants otherwise need no primary lines.
-External blockers of an ID scope get separate short contextual rows with ID, title
-and raw status, not independent trees; reuse references for endpoints already shown.
+Use visibly separated epic sections, indentation for actual parents, and separate
+standalone branches (no artificial epic). Assign each epic a distinct colored emoji
+marker from a small fixed palette for this overview (for example 🔵 🟢 🟠 🟣 🟡 🔴);
+assign markers deterministically in stable epic-ID order, reusing a color only after
+the palette is exhausted. The marker distinguishes epic sections only, never status,
+priority or readiness. Use emoji rather than ANSI/color-only styling so the distinction
+survives ordinary Markdown clients. Give each confirmed feature its own `🧩 ФИЧА`
+heading inside its actual parent. Do not group task records as a feature unless actual
+feature kind and membership are established under the adapter's feature-reading
+contract. Other children retain their actual hierarchy/type; never invent a feature
+heading to improve the layout.
 
-Line form (localize labels):
+For each record put a copyable exact `ID — title` in inline code and make its native
+type and raw Beads status visually prominent. Localize type labels and explanatory
+text, but do not translate IDs, titles or raw status values. Preserve priority (P0 is
+highest), assignee, due date and other material fields under the rules below. Keep
+closed task records out of the work list: show only unclosed work, including `open`,
+`in_progress`, native `blocked`, and any other observed non-closed status with its raw
+value/diagnostic. A closed ancestor required to explain real hierarchy may appear only
+as compact `closed, context`; closed descendants otherwise are not primary rows.
+
+Use a compact localized form such as:
 
 ```text
-<ID> <title> [native type/RIS role; raw status; Pn; assignee; waits ID; due; progress; stage]
+🔵 ЭПИК · `<ID> — <title>` · **open** · Pn · дети: closed/all
+   🧩 ФИЧА · `<ID> — <title>` · **open**
+      Незакрытых прямых задач: N · ▶ in_progress: N · 🔒 с активным blocker: N
+      ○ ЗАДАЧА · `<ID> — <title>` · **open** · Pn
+         🔒 waits `<blocker ID> — <title>` [raw blocker status]
+      ▶ ЗАДАЧА · `<ID> — <title>` · **in_progress** · Pn
 ```
 
-- Always ID, title, native type/role, **raw** Beads status and priority (P0 is highest).
-  Mark unknown required fields explicitly. Add assignee, due and active blocker IDs
-  when present; disclose material unknowns instead of implying none. `waits X` means
-  this row depends on X, including cross-branch prerequisites. Checked closed blockers
-  are inactive; unknown endpoint status must not establish readiness.
-- Containers show **closed/all direct children**, including administrative closures.
-  State that denominator in a short legend: status counter, not acceptance or criteria
-  completion. Never use recursive totals; if direct composition is incomplete, label
-  the counter unknown/incomplete rather than exact. Zero children is not proof that
-  the container's mandatory work is fully specified or accepted.
+- Localize the sample labels. Use a distinct, consistent icon for raw statuses where
+  useful (for example `○ open`, `▶ in_progress`, `🔒 blocked`), but always print the
+  raw value. Status/type/priority are separate facts; icons and colors never replace
+  them. A copyable inline-code identity is the exact native ID and title, not a
+  fabricated shortened title.
+- For each confirmed feature show a count of its unclosed direct native `task`
+  children, plus known `in_progress` and active/unresolved-blocker subtotals; closed
+  task rows remain hidden. These subtotals may overlap (a task may be in progress and
+  blocked), so label them rather than implying they add up. Validate the complete
+  direct-child set and each task's typed blocker edges before giving exact counts; if
+  incomplete, say `unknown/incomplete`. Do not turn an empty child list into proof of
+  a one-task feature or accepted composition. For a separately confirmed one-task
+  feature, count its open feature task as `1 (сама задача-фича)` rather than reporting
+  misleadingly that the feature has no work. Epic/container `closed/all` counters
+  continue to count complete direct children (including hidden closed children);
+  state that these are status counts, not acceptance or criteria completion. Never
+  use recursive totals.
+- Show each active directed blocker on its blocked epic, feature or task as
+  `waits <ID> [raw status]`; include the endpoint's short title when it is not already
+  visible. Checked `closed` prerequisites are inactive and may be noted compactly as
+  such, not shown as open work. An unknown endpoint or blocker read is a visible
+  unresolved blocker, not an empty edge set. Add a compact legend that `open` with no
+  active Beads blocker means only “no active blocker recorded in Beads”; it does not
+  establish that work is ready to start. Never label an item ready/available from
+  status, priority, membership or absence of blockers alone.
+- Always retain native type/RIS role, raw status and priority (P0 is highest); mark
+  unknown required fields explicitly. Add assignee and due date when present and
+  disclose material unknowns instead of implying none. `waits X` means this row
+  depends on X, including cross-branch prerequisites.
+- Cyclic, missing-parent or contradictory hierarchies get an explicit diagnostic
+  group. Preserve all affected records there once rather than dropping them or
+  inventing reparenting. For an exact-ID scope, external blockers get short contextual
+  rows with ID, title and raw status, not independent trees; reuse endpoints already
+  shown.
 - Features show compact requirements/design evidence: reference present, acceptance
   unverified; acceptance checked against exact version and separate decision; checked
   absent; or unknown. Include explicitly confirmed early root features without
