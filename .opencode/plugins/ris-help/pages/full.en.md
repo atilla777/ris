@@ -242,11 +242,14 @@ Self-review does not provide independent publication approval.
 
 Integrate an independently reviewed whole change into the established primary
 branch from the work's dedicated worktree and verify the authorized direct push.
-Default is remote-only. Explicit local updating permits safe FF only on an already
+Default is remote-only. An explicit request or applicable accepted project policy
+permits separate safe FF only on an already
 suitable source copy, never branch switching. It is separate:
 an unsafe/busy copy stays untouched and skipped/failed updating does not block
-task completion or tracker publication. An explicitly requested local update
-remains its own unfinished part. Does not complete the task,
+task completion or tracker publication. Caller checks/forwards the policy's actual
+source/version/acceptance and boundaries; dependencies need their own bounded
+authorization. Policy-required or explicitly requested local updating remains an
+unfinished combined-result part, never complete while pending. Does not complete the task,
 publish tracker history, deploy or create a PR.
 
 ---

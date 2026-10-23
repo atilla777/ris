@@ -151,10 +151,13 @@ not a required prior final answer or handoff file.
    or add after-the-fact exclusions. Require sent commit/tree/ref/remote and fresh
    remote evidence; missing rights/checks/review or PR-only policy blocks this
    route, and ambiguous effects activate recovery before retry.
-   The default result is remote-only: do not request source-copy maintenance or
-   branch return. Only an explicitly requested local update activates the
-   publisher's rare safe-FF resource, without branch switching. Retain its
-   unfinished local remainder separately; it never blocks exact close/Dolt or
+   Check applicable accepted project policy and pass its actual source/version/
+   acceptance and boundaries, or an explicit local-update request, to the
+   publisher. Without either, retain the remote-only default and request no
+   source-copy maintenance. Either activates its conditional safe-FF resource,
+   without branch switching/return; dependency refresh requires its own bounded
+   authorization. Retain any required unfinished local/dependency remainder in
+   the combined result, never call it complete; it does not block exact close/Dolt or
    requires replay of confirmed remote publication.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker

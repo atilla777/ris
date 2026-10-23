@@ -175,9 +175,15 @@ See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and
 [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md).
 
 The current source contract separates confirmed remote Git from optional safe
-source-copy maintenance, activated only by an explicit request and limited to
+source-copy maintenance, activated by an explicit request or applicable accepted
+project policy and limited to
 safe FF on an already suitable branch, never switching. Skipped/failed updating does not block exact
-close or Dolt; an explicitly requested update retains its own unfinished part.
+close or Dolt; policy-required or explicitly requested updating retains its own
+unfinished combined-result part. Caller checks/forwards actual policy provenance
+and boundaries; publisher verifies them, never infers dependency-refresh rights
+from FF permission. RIS's bounded `main`/`origin/main` policy is in the development
+rules; projects without a policy retain remote-only. See the
+[amendment](specs/policy-primary-sync/amendment.md).
 Context derives the source folder from the actual shared `.git` directory in the
 supported one-repository/one-project layout, without saved-primary discovery or
 mutation rights. Workspace leaf defaults apply even with a valid selected config;

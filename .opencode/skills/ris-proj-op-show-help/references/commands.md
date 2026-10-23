@@ -244,7 +244,10 @@ Choose when: independently reviewed task/change or pre-ID documents need integra
 Inputs: project, confirmed own branch/dedicated worktree, complete approved snapshot and check/
 independence evidence, destination and whole-outgoing direct-push authority.
 Result/stop: integrated reviewed commit and fresh remote confirmation, remote-only
-by default; explicit local maintenance permits safe FF only, no branch switching. No PR/deploy,
+without local authority; an explicit request or applicable accepted project policy
+permits separate safe FF, no branch switching. Caller checks/forwards actual policy
+provenance and boundaries; dependency effects need their own authorization. Required
+unfinished maintenance prevents combined completion, not confirmed Git/close/Dolt. No PR/deploy,
 content acceptance, tracker publication or leaf/container closure.
 Example: `/risp-publish-task <ID>, approved snapshot <snapshot and review locator>`.
 

@@ -299,11 +299,14 @@ or changed facts before deciding the next operation.
    self-approval. The publisher owns ambiguous remote-effect recovery.
    Direct-push prohibition blocks this route without PR fallback.
    Record actual integrated commit/ref and independent remote visibility evidence.
-   Consume its remote-only default result; only an explicit local-update request
-   activates separately reported source-copy safe FF, never branch switching.
-   Skipped/failed requested local synchronization never blocks criterion
-   verification, exact close or Dolt publication. An explicitly requested local
-   update remains an unfinished part of that request; recover only that local
+   Check applicable accepted project policy for local maintenance and pass its
+   actual source/version/acceptance and boundaries, or the explicit request, to
+   the publisher. Without either, consume its remote-only default. Either source
+   can activate separately reported source-copy safe FF, never branch switching;
+   dependency refresh needs its own bounded authorization. Skipped/failed local
+   synchronization never blocks independent criterion verification, exact close
+   or Dolt publication. A policy-required or explicitly requested local update
+   remains unfinished in the combined result; recover only that local
    effect through the publisher, never repeat confirmed push.
 6. Only after confirmed Git publication, verify criteria and mandatory scope on
    the published version. For a leaf task, apply selected-adapter bounded

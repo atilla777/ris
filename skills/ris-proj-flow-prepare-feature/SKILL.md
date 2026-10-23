@@ -228,9 +228,12 @@ ID-associated copy/branch**. Pass checked association/current state/base, exact 
 accepted content/decision selectors, checks, independent review/provenance and
 full prospective tree, target evidence and permissions. Consume its existing
 whole-outgoing-history/integration/reassessment/non-force/remote-read-back result;
-do not repeat its algorithm. Primary maintenance is reported separately: skipped
+do not repeat its algorithm. Check applicable accepted project policy and pass
+its actual source/version/acceptance and boundaries, or an explicit local request,
+to the publisher; without either keep remote-only. Primary maintenance is reported separately: skipped
 or failed local sync does not block same-ID reconciliation, decomposition or Dolt.
-An explicitly requested local update remains an unfinished requested part, not
+Any policy-required or explicitly requested local/dependency update remains an
+unfinished part of the combined result, not
 permission to replay a confirmed push or mutate a busy copy.
 
 Match published content and decisions to both accepted scopes. Resolve
@@ -298,7 +301,7 @@ their owners; inspect returned results and applicability.
 
 Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
 provenance, exact feature/optional epic and document paths, separate accepted scopes and
-decision addresses, remote Git (local maintenance only when explicitly requested)
+decision addresses, remote Git (local maintenance only under an explicit request or accepted project policy)
 and tracker publication evidence, review address/
 round, one-task justification or exact children/keys/statuses/directed edges,
 criterion coverage/integration prerequisites, actual effects and limitations.

@@ -35,10 +35,13 @@ defaults даже в выбранном config, явные leaf overrides их �
 доказательства завершения прежней сессии; fallback/lease сами по себе — нет.
 Проверенная связанная copy/ветка и существующие изменения сохраняются; реальные
 конфликты и native guards не обходятся. Проверенный
-remote Git — обычный полный результат без local update; только явное поручение
-включает отдельный safe FF без branch switching. Пропуск/ошибка локального
-обновления не блокирует close/Dolt; явно порученное обновление остаётся отдельным
-долгом. В RIS действует постоянная shared Dolt policy из development rules,
+remote Git завершён независимо от local update; явное поручение или применимая
+принятая политика проекта включает отдельный safe FF без branch switching.
+Без обоих оснований default remote-only. В RIS действует постоянное разрешение
+после remote confirmation безопасно FF исходную `main` к `origin/main` по
+development rules, без установки зависимостей. Пропуск/ошибка локального
+обновления не блокирует close/Dolt; обязательное по политике или поручению
+обновление остаётся отдельным долгом combined result. В RIS действует постоянная shared Dolt policy из development rules,
 без автонастройки других проектов. Все substantive/review/claim/non-force gates
 сохранены.
 

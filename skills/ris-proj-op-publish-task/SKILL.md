@@ -2,7 +2,7 @@
 name: ris-proj-op-publish-task
 description: >-
   Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
-  established primary Git branch and verify authorized direct push; source-copy maintenance is explicit-only. Use for
+  established primary Git branch and verify authorized direct push; source-copy maintenance needs an explicit request or accepted project policy. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
 ---
@@ -10,15 +10,15 @@ description: >-
 # Integrate and verify Git publication
 
 Own one bounded Git integration/publication result: confirmed remote publication,
-with no local source-checkout maintenance by default. Only an explicitly requested
-local update is a separate maintenance effect; never switch its branch.
+with no local source-checkout maintenance by default. An explicit request or
+accepted project policy can authorize a separate local maintenance effect; never switch its branch.
 An unavailable/unsafe local update never blocks remote publication, exact task
-completion or separate tracker publication. If the user explicitly requests local
-updating too, retain that unfulfilled requested part separately; do not silently
+completion or separate tracker publication. If local updating is authorized by
+the request or applicable policy, retain that unfulfilled part separately; do not silently
 drop it or call the whole combined request complete. One skill suffices: this is
 an operational Git result, not a distinct portable content method. Load/apply
 `ris-proj-lib-common` and applicable resources, and `ris-proj-op-resolve-context` for project rules and
-evidence paths when needed and source-folder identity only for explicitly requested
+evidence paths when needed and source-folder identity only for authorized
 local maintenance. Load the selected task adapter only for necessary identity/
 blocker/ownership reads; this operation never writes or publishes tracker state.
 Direct invocation requires no execution role.
@@ -112,9 +112,13 @@ authorize unrelated outgoing commits, a new remote/ref, force or bypassed review
 
 ## Integrate, reassess, publish
 
-Default to remote-only; do not resolve local maintenance identity or load its
-resource just for publication. Only if the person explicitly requested local
-updating, read/apply `references/primary-sync.md` before that action, including
+Check applicable project instructions/rules for accepted local-maintenance policy
+on every invocation, including direct, no-change and recovery calls; verify any
+policy forwarded by the caller against its actual source and acceptance. Do not
+infer it from push rights, installed settings or an example. Without an explicit
+request or applicable accepted policy, keep the remote-only default: no local
+maintenance identity resolution or writes. With either authority source,
+read/apply `references/primary-sync.md` before that action, including
 no-change/recovery calls. It owns safe FF and evidence; context owns source-folder
 identity. A local identity/safety gap blocks only that local action, never remote.
 
@@ -147,7 +151,7 @@ inspection, independent review or remote read-back.
 2. If there are no intended changes, verify the existing result's applicable
    checks/review, decisions and required remote visibility; return its actual
    remote evidence without an empty commit or redundant push; local maintenance
-   runs only when explicitly requested. Existing unsent commits
+   runs only under an explicit request or applicable accepted project policy. Existing unsent commits
    still require the full outgoing gate. Otherwise commit intended changes using
    project history style in this own branch/copy. Merge the fetched latest
    established primary remote branch into it, resolving conflicts there; do not
@@ -191,10 +195,13 @@ inspection, independent review or remote read-back.
    cause's `blocked|conflict|error`, confirmed local/remote effects and the exact
    remaining check; reconcile an uncertain push before repeating it.
 6. After confirmed remote publication, perform no source-copy writes by default.
-   Only an explicit local-update request activates the separate safe-FF resource.
-   Report its updated/skipped/failed/unknown effect and cause independently.
+   An explicit request or applicable accepted project policy activates the separate
+   safe-FF resource; verify its authority and boundaries, never weaken its guards.
+   Dependency refresh is not implied by FF authority: apply only its separately
+   authorized conditional branch. Report local FF and dependency effects separately
+   as updated/skipped/failed/unknown, with exact causes and remaining work.
    Ordinary Git publication is `ok` once its remote gates succeed.
-   If local updating was explicitly requested, the combined request retains its
+   If local updating is required by the request or applicable policy, the combined result retains its
    causal non-`ok` status and exact local remainder; its confirmed Git result is
    still successful and consumable by completion/Dolt owners. Retry checks facts
    first and never republishes S just to repair local maintenance.
@@ -203,9 +210,13 @@ Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,
 commits/tree/ref, input/result versions and separate decision locators,
 checks/review addresses, provenance and applicability, docs state, actual push
-and remote-read evidence, publication scope and remote-only default. Only for an
-explicit local-update request include source-folder association, before/after local
-ref/HEAD/tree and safety/read-back evidence or its pending cause. Include preserved
+and remote-read evidence, publication scope and remote-only default when no local
+authority applies. State the checked authority source (request or policy locator/
+version/acceptance), exact copy/remote/ref/effects and exclusions, or its absence/
+conflict. For authorized maintenance include source-folder association, before/after
+local ref/HEAD/tree, dependency outcome when applicable, and safety/read-back evidence
+or its pending cause. Never claim the combined result complete with an unmet
+policy-required or explicitly requested effect. Include preserved
 local effects and recovery needs. Persist
 authorized evidence with an exact filename and read it back. With an ID use the
 checked task evidence area only when authorized; without an ID use an explicitly

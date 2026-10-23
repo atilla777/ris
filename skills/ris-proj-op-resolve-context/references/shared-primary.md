@@ -1,8 +1,9 @@
 # Resolve the ordinary source folder
 
 Context owns this read-only resolution; consumers use its checked result rather
-than implementing discovery. Read only for shared workspace paths or explicitly
-requested source-copy maintenance. Support **one repository — one project**, an
+than implementing discovery. Read only for shared workspace paths or source-copy
+maintenance authorized by an explicit request or accepted project policy.
+Support **one repository — one project**, an
 ordinary non-bare source folder with its `.git` directory and linked worktrees.
 
 1. From the selected current project copy obtain the physical Git top-level and

@@ -203,11 +203,14 @@ remains a precise dependent gap, never invented.
     review scope without importing future execution prerequisites. Mixed fix changes
     are outside this design-only handoff and cannot use that exception.
     Consume its commit/tree/ref/remote receipt and independent remote evidence;
-    match accepted selected content and preserved requirements. The publisher's
-    default is remote-only; explicitly requested source-copy maintenance is a
+    match accepted selected content and preserved requirements. Check applicable
+    accepted project policy and pass its actual source/version/acceptance and
+    boundaries, or an explicit local request, to the publisher. Without either its
+    default is remote-only; authorized source-copy/dependency maintenance is a
     separate safe-FF effect without branch switching: skipped/failed sync never
-    invalidates confirmed remote Git or blocks record/tracker actions. An explicit
-    local-update request retains its unfinished part, never a repeated push. Integration drift
+    invalidates confirmed remote Git or blocks record/tracker actions. A policy-required
+    or explicitly requested update retains its unfinished combined-result part;
+    never call the whole result complete or repeat push for it. Integration drift
     requires applicable independent reassessment. Reuse checked existing
     publication without empty commit/push. A limited record-only contribution
     consumes the existing applicable receipt; limited local save stops earlier.

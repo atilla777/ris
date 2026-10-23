@@ -136,10 +136,16 @@ own snapshot, provenance and scope.
   right to change the source checkout. New assignments
    can use a verified current-session actor fallback, not as reassignment authority
    by itself; explicit human continuation follows the recovery rule above.
-  Ordinary publication is remote-only. Confirmed remote Git is complete independently
-  of explicitly requested safe local FF, which never switches branches;
-  skipped/failed maintenance does not block exact close or Dolt. An explicitly
-  requested local update remains a separate unfinished part of that request.
+   Publication is remote-only without local authority. An explicit request or
+   applicable accepted project policy can authorize separate safe local FF, never
+   branch switching. Callers check/forward actual policy provenance, targets and
+   boundaries; the publisher verifies it and all existing guards. Dependency
+   refresh needs its own bounded authorization, not merely FF permission.
+   Confirmed remote Git remains complete independently; skipped/failed maintenance
+   does not block exact close or Dolt. Any policy-required or explicitly requested
+   update remains unfinished in the combined result. RIS itself permits guarded
+   post-confirmation source `main` FF from `origin/main`, with no dependency setup;
+   this is not a global policy. See the [policy amendment](docs/specs/policy-primary-sync/amendment.md).
   Shared Dolt publication follows the selected project's accepted policy (RIS
   permits accumulated shared history), not an automatic policy change elsewhere.
 

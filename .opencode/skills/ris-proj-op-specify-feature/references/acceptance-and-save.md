@@ -121,11 +121,14 @@ Return its local record result and remainder.
    decisions, checks, review/provenance, destination evidence and allowed effects.
    Inspect its commit/tree/ref/remote receipt and independent remote evidence;
    match published selected content to the accepted candidate and decisions.
-   Publication is remote-only by default. Report only explicitly requested local
-   source-copy maintenance separately, without branch switching. Skipped/failed
+   Check applicable accepted project policy and pass its actual source/version/
+   acceptance and boundaries, or an explicit local request, to the publisher.
+   Without either publication is remote-only. Report authorized local
+   source-copy/dependency maintenance separately, without branch switching. Skipped/failed
    synchronization never invalidates confirmed remote Git or blocks authorized
-   record reconciliation/tracker publication. An explicitly requested update
-   remains unfinished in that request; never replay confirmed push to repair it.
+   record reconciliation/tracker publication. A policy-required or explicitly
+   requested update remains unfinished in the combined result; never call that
+   whole result complete or replay confirmed push to repair it.
    Integration drift requires applicable independent reassessment, not self-approval.
    Requirements-only needs no future design, implementation evidence or task ID.
    Already published matching content reuses verified publication without empty

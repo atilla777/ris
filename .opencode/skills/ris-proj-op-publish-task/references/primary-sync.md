@@ -1,16 +1,27 @@
-# Explicit-only safe source-copy fast-forward
+# Authorized safe source-copy fast-forward
 
-Read only when the person explicitly requested source-copy updating, including
-its no-change/recovery calls. Ordinary publication is remote-only and does not
-activate this resource. The publisher owns this separate maintenance effect;
+Read only when an explicit request or applicable accepted project policy authorizes
+source-copy updating, including no-change/recovery calls. Without either source,
+publication remains remote-only. The publisher owns this separate maintenance effect;
 context owns the ordinary source folder's Git association. Integration, commits
 and conflicts stay in the dedicated worktree. There is **no branch-return path**.
 
 ## Local preflight (never a remote-push/completion/Dolt gate)
 
 Use context's Git-derived source folder, not saved-primary discovery. Require
-explicit authority for this copy/ref update; remote push authority and shared-path
+authority from an explicit request or accepted project policy for this copy/ref update; remote push authority and shared-path
 resolution do not grant it. Unknown identity/authority blocks only this action.
+
+Verify the attributable policy source/version and acceptance in applicable project
+instructions/rules (for example AGENTS.md), not a proposed spec, quoted log or
+package default. It must explicitly authorize post-confirmation local primary FF,
+identify the selected project/source copy and local branch/remote ref (literal
+names or unambiguous bindings to established project targets), and bound effects,
+conditions and exclusions. A bare “synchronize”, push permission or ambiguous target
+is insufficient. Forwarded policy text alone is not proof; read the actual source.
+Explicit narrower user/project restrictions win; conflicting policies block only
+dependent maintenance, without silently choosing permissive text. Recheck currency
+before mutation. Policy is authority, never evidence that safety guards passed.
 
 Inspect physical copy/registration, symbolic HEAD and exact established local
 primary ref, index/tracked work, full untracked paths including ignored paths
@@ -33,7 +44,7 @@ unsupported copies untouched and report the precise local remainder.
 
 Retain published subject S and freshly observed remote tip R; establish S is
 reachable from that selected remote branch. Pin full R as the target, respecting
-the explicit maintenance scope. R beyond S mirrors published history, not new
+the authorized maintenance scope. R beyond S mirrors published history, not new
 acceptance or expanded review evidence. If scope excludes R, report that gap.
 
 Immediately before mutation recheck local ownership, symbolic HEAD/ref, clean
@@ -52,9 +63,33 @@ one bounded retry, then return conflict with actual facts. An already matching
 safe source copy needs no merge, only read-back. Unexpected/ambiguous effects
 stop mutation for reconciliation, not a blind retry.
 
-Report requested local updating separately as updated/skipped/failed/unknown,
+Report authorized local updating separately as updated/skipped/failed/unknown,
 with S/R, actual local branch/tip and exact cause/remainder. Confirmed remote Git
-remains successful and consumable by completion/Dolt even if this requested part
+remains successful and consumable by completion/Dolt even if this authorized part
 is `blocked|conflict|error`. Never replay a confirmed push or recreate commits to
 repair local maintenance. Retry only the missing authorized FF/read-back after
 checking facts; no branch-return action exists.
+
+## Conditional dependency refresh (separate effect, never implied by FF)
+
+Only an explicit request or accepted policy naming the command, working directory,
+trigger (for example a changed package-lock.json), authorized output paths and
+side-effect boundaries permits this action. A mere FF grant is insufficient.
+Before execution inspect the exact command/tool, current project scripts/hooks,
+network needs, output ownership and active users; `npm ci` replaces node_modules
+and may execute lifecycle scripts. Missing authority for those actual effects,
+foreign outputs, unsafe hooks or ambiguous writing blocks dependency refresh;
+do not hide it inside FF or weaken any FF collision guard above.
+
+After successful FF/read-back, compare the relevant lockfile between the recorded
+before/after commits, not the task diff or only the last commit. If already at R
+on recovery, recover the previous range/refresh evidence; unchanged HEAD alone
+cannot prove dependencies current. Run only the approved command in the checked
+source copy with its approved outputs; never invent install/cleanup commands.
+Read back exit/result, branch/HEAD, tracked/index state and protected paths;
+unexpected mutations stop reconciliation-dependent work without rollback. Report
+dependency success, not-needed (verified trigger absent), skipped/failed/unknown
+and exact cause separately from FF and remote publication. Lost/ambiguous install
+effects need reconciliation before retry, not an automatic destructive rerun.
+The combined request remains unfinished while a required local/dependency effect
+is unmet; this never invalidates confirmed Git or blocks separate exact close/Dolt.

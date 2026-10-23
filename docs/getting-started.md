@@ -145,9 +145,9 @@ where project rules allow; required tracking or report saving remains a gate.
 An ordinary Beads task can preserve that self-contained accepted request and authority
 without invented specification links; existing feature/bug contracts still apply.
 
-For publication, supply an already prepared own branch and safe working copy,
-preserving foreign changes. A suitable current copy is allowed; use a separate
-worktree when isolation or project rules require it. Preparation belongs to the
+For publication, supply an already prepared own branch and dedicated worktree,
+preserving foreign changes. Reuse a suitable associated worktree; the ordinary
+source folder is never a development/publication workspace. Preparation belongs to the
 caller and existing preparation owners; shared local `main` is not a publication workspace.
 
 The [Git publication owner](../skills/ris-proj-op-publish-task/SKILL.md) integrates
@@ -157,11 +157,15 @@ reassessment of the complete new snapshot before a normal non-force push. Remote
 advancement triggers only the affected reconciliation/check/reassessment work;
 compatible evidence and unchanged acceptance remain applicable. No global
 publisher queue or manual writer pause is required for ordinary own-branch work.
-After remote confirmation the publisher separately attempts safe local primary
-maintenance, with guarded own-copy return/FF only where authorized. An unsafe/busy
+After remote confirmation an explicit request or applicable accepted project policy
+can activate separate safe local primary FF, never branch switching/return.
+Callers check and forward actual policy source/version/acceptance and bounded
+targets/effects; without either authority source keep remote-only. Dependency
+refresh needs its own bounded authorization. An unsafe/busy
 copy remains untouched. Skipped/failed local updating does not invalidate remote
 Git or block exact completion/Dolt; report it separately, never push again for it.
-An explicitly requested local update remains an unfinished part of that request.
+A policy-required or explicitly requested local update remains unfinished in the
+combined result; do not call that whole result complete while it is pending.
 Full requests include ordinary constituent actions across existing owners, without
 repeated technical permissions; narrower authority and substantive gates remain.
 For a new assignment actor may fall back to a verified current host-session ID,

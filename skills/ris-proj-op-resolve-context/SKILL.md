@@ -36,10 +36,15 @@ do not block independent preparation. From this installed folder read:
 
 - `references/paths.md` before resolving/checking document or workspace paths;
 - `references/shared-primary.md` only before using shared workspace paths or
-  resolving the source folder for explicitly requested local maintenance;
+  resolving the source folder for local maintenance authorized by an explicit
+  request or accepted project policy;
 - `references/execution-roles.md` only when the caller requires a role.
 
-An explicit tracker workspace read need not invoke context at all. Never require
+For publication callers return applicable project instruction/rule locators and
+any available policy provenance for their authority check. Context does not accept
+policy content or grant maintenance rights; the caller/publisher reads and checks
+actual acceptance, target and boundaries. Do not add a config key or infer auto-sync
+from paths. An explicit tracker workspace read need not invoke context at all. Never require
 unused shared roots or execution settings. Return applicable resolved settings,
 source/provenance, run scope, status, and actionable diagnostics. Confirm that
 the result pertains to the current project and operation; `ok` is only
