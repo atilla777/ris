@@ -81,46 +81,70 @@ recommendation. Unknown values stay unknown.
 
 Use the person's language. Show every unclosed working record in scope exactly
 once as a primary short line; no hidden cap, collapsed branch or copied description.
-Use visibly separated epic sections, indentation for actual parents, and separate
-standalone branches (no artificial epic). Assign each epic a distinct colored emoji
+Render one **continuous nested outline**: each epic is a section, its confirmed
+features and other children sit directly under it, and each feature's tasks sit under
+that feature. Use nested Markdown list items (`-`, then two more spaces per level)
+instead of a flat list or raw whitespace indentation: a line indented four or more
+spaces without a list marker renders as a code block, and a separate flat block of
+features or tasks loses the real parent. Keep the whole epic block contiguous: every
+child line immediately follows its parent item, with no intervening paragraph,
+preamble sentence or second list elsewhere. Put shared notes and the legend after the
+tree, never between a parent and its children. Standalone branches stay separate (no
+artificial epic). Assign each epic a distinct colored emoji
 marker from a small fixed palette for this overview (for example 🔵 🟢 🟠 🟣 🟡 🔴);
 assign markers deterministically in stable epic-ID order, reusing a color only after
 the palette is exhausted. The marker distinguishes epic sections only, never status,
 priority or readiness. Use emoji rather than ANSI/color-only styling so the distinction
 survives ordinary Markdown clients. Give each confirmed feature its own `🧩 ФИЧА`
-heading inside its actual parent. Do not group task records as a feature unless actual
+list item nested inside its actual parent. Do not group task records as a feature
+unless actual
 feature kind and membership are established under the adapter's feature-reading
 contract. Other children retain their actual hierarchy/type; never invent a feature
-heading to improve the layout.
+item to improve the layout.
 
 For each record put a copyable exact `ID — title` in inline code and make its native
 type and raw Beads status visually prominent. Localize type labels and explanatory
 text, but do not translate IDs, titles or raw status values. Preserve priority (P0 is
-highest), assignee, due date and other material fields under the rules below. Keep
-closed task records out of the work list: show only unclosed work, including `open`,
-`in_progress`, native `blocked`, and any other observed non-closed status with its raw
-value/diagnostic. A closed ancestor required to explain real hierarchy may appear only
-as compact `closed, context`; closed descendants otherwise are not primary rows.
+highest), assignee, due date and other material fields under the rules below on the
+record's own line. Put a shared native type on each affected row in compact form
+(for example `· task ·`) instead of in an epic-wide preamble sentence. Keep closed records out of the tree: only unclosed work gets a list
+item, including `open`, `in_progress`, native `blocked`, and any other observed
+non-closed status with its raw value/diagnostic. Closed tasks and closed features get
+no row at all, not even a prerequisite line; a closed ancestor required to explain real
+hierarchy may appear only as compact `closed, context`. A closed prerequisite is not a
+separate line: mention one inline on the dependent row only when it explains an
+inactive edge, otherwise leave it to the container counter.
 
 Use a compact localized form such as:
 
 ```text
-🔵 ЭПИК · `<ID> — <title>` · **open** · Pn · дети: closed/all
-   🧩 ФИЧА · `<ID> — <title>` · **open**
-      Незакрытых прямых задач: N · ▶ in_progress: N · 🔒 с активным blocker: N
-      ○ ЗАДАЧА · `<ID> — <title>` · **open** · Pn
-         🔒 waits `<blocker ID> — <title>` [raw blocker status]
-      ▶ ЗАДАЧА · `<ID> — <title>` · **in_progress** · Pn
+- 🔵 **ЭПИК** · `ID — title` · **open** · P2 · дети: 1/24 closed
+  - 🧩 **ФИЧА** · `ID — title` · **open** · P2 · задач: 2 · ▶ 1 · 🔒 1
+    - ○ **ЗАДАЧА** · `ID — title` · **open** · P2
+    - ▶ **ЗАДАЧА** · `ID — title` · **in_progress** · P2 · 🔒 waits `ID — title` [open]
+  - ○ **ЗАДАЧА** · `ID — title` · **open** · P2
+
+- 🟢 **ЭПИК** · `ID — title` · **open** · P2 · дети: 0/0 closed
 ```
 
+- The list level is the only hierarchy signal: a feature is a child item of its epic,
+  and each task is a child item of its feature or confirmed container. Never collect
+  features or tasks into their own flat block, even when a parent has many children or
+  all its children are closed; a parent with no unclosed children keeps only its own
+  counters. Do not put a per-epic summary paragraph between the epic item and its
+  children; keep its counters on its own line. Separate epic sections with a blank line
+  between top-level items so each epic reads as one block. An unclosed task never
+  appears in a separate global task list outside its parent branch; a missing or
+  contradictory parent belongs to the diagnostic group below.
 - Localize the sample labels. Use a distinct, consistent icon for raw statuses where
   useful (for example `○ open`, `▶ in_progress`, `🔒 blocked`), but always print the
   raw value. Status/type/priority are separate facts; icons and colors never replace
   them. A copyable inline-code identity is the exact native ID and title, not a
   fabricated shortened title.
 - For each confirmed feature show a count of its unclosed direct native `task`
-  children, plus known `in_progress` and active/unresolved-blocker subtotals; closed
-  task rows remain hidden. These subtotals may overlap (a task may be in progress and
+  children on the feature's own line, plus known `in_progress` and
+  active/unresolved-blocker subtotals; closed task rows remain hidden. These
+  subtotals may overlap (a task may be in progress and
   blocked), so label them rather than implying they add up. Validate the complete
   direct-child set and each task's typed blocker edges before giving exact counts; if
   incomplete, say `unknown/incomplete`. Do not turn an empty child list into proof of
@@ -132,9 +156,10 @@ Use a compact localized form such as:
   use recursive totals.
 - Show each active directed blocker on its blocked epic, feature or task as
   `waits <ID> [raw status]`; include the endpoint's short title when it is not already
-  visible. Checked `closed` prerequisites are inactive and may be noted compactly as
-  such, not shown as open work. An unknown endpoint or blocker read is a visible
-  unresolved blocker, not an empty edge set. Add a compact legend that `open` with no
+  visible. Checked `closed` prerequisites are inactive and may be noted inline on the
+  dependent row as inactive, never as a separate row. An unknown endpoint or blocker
+  read is a visible unresolved blocker, not an empty edge set. Add a compact legend
+  that `open` with no
   active Beads blocker means only “no active blocker recorded in Beads”; it does not
   establish that work is ready to start. Never label an item ready/available from
   status, priority, membership or absence of blockers alone.
@@ -147,8 +172,9 @@ Use a compact localized form such as:
   inventing reparenting. For an exact-ID scope, external blockers get short contextual
   rows with ID, title and raw status, not independent trees; reuse endpoints already
   shown.
-- Features show compact requirements/design evidence: reference present, acceptance
-  unverified; acceptance checked against exact version and separate decision; checked
+- Features show compact requirements/design evidence on their own line: reference
+  present, acceptance unverified; acceptance checked against exact version and
+  separate decision; checked
   absent; or unknown. Include explicitly confirmed early root features without
   inventing an epic or JSON: show actual missing documents/decisions as unfinished
   preparation, not ordinary fallback. Apply common's document convention/bounded
