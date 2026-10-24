@@ -131,6 +131,10 @@ Technical read failure is `error`, missing access/capability/identity is `blocke
 contradictory scope/history is `conflict`. Return `ok` only with fresh remote
 revision assurance; a preflight `ok` covers only its explicitly bounded checks.
 
+Return the receipt to the caller. A persisted receipt file is not required and
+is not created by default; recovery reads native local history and the selected
+remote, not a saved receipt.
+
 The accepted guarantee is reachability of S from fresh selected remote R, not
 independent authorization proof for every historic action or exact field-by-field
 snapshot equivalence. S is a required observed revision, not proof of exact sent

@@ -217,13 +217,13 @@ conflict. For authorized maintenance include source-folder association, before/a
 local ref/HEAD/tree, dependency outcome when applicable, and safety/read-back evidence
 or its pending cause. Never claim the combined result complete with an unmet
 policy-required or explicitly requested effect. Include preserved
-local effects and recovery needs. Persist
-authorized evidence with an exact filename and read it back. With an ID use the
-checked task evidence area only when authorized; without an ID use an explicitly
-authorized address or the response and state any discovery gap. Never invent an
-ID folder. For partial/unknown push reconcile actual local and remote effects
-before retrying; preserve confirmed commits and unchanged decisions and give the
-exact remainder. The caller checks the semantic whole and receipt; local notes
-are not remote inputs. Stop at
+local effects and recovery needs. Return the result and receipt to the caller;
+do not create a publication receipt or log file by default. If the request
+explicitly requires a saved artifact, use the checked task evidence area for an
+ID or another explicitly authorized address, read it back, and never invent an
+ID folder. Otherwise the response is the record. For partial/unknown push
+reconcile actual local and remote effects before retrying; preserve confirmed
+commits and unchanged decisions and give the exact remainder. The caller checks
+the semantic whole and receipt; local notes are not remote inputs. Stop at
 Git publication: never declare the feature accepted, close tasks/parents, push
 Dolt, deploy, create a PR or choose a subsequent operation.

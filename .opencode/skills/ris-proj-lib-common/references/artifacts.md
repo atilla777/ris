@@ -115,6 +115,10 @@ introduced. A nested operation returns its result to its caller; transitions
 belong to the caller/workflow. Do not invent IDs, commands, refs or
 `workspace.tasks/<ID>` for no-ID work. Use an authorized existing source/address
 when available; otherwise return the unsaved result and exact discovery gap.
+An operation result or receipt is returned to the caller; it is not a required
+file. Create a receipt/log artifact only when the caller or an accepted project
+contract explicitly names one at an authorized address. Local notes are optional
+hints, never authority or a mandatory handoff input.
 For a requirements/design candidate, the caller (the lead in a flow) conveys
 the full exact text with its distinguishable version/scope, or a file accessible
 to the recipient at an exact address/version, together with the separate
