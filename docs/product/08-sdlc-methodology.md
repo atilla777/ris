@@ -110,7 +110,25 @@ contracts/seams/exclusions; parent не подменяет контракт. One
 publication. Это статус завершения учтённых детей, не новая independent acceptance.
 Ноль детей не успех этой ветки: one-task feature сохраняет own-result execution
 gates, пустой epic/ordinary container требует явного substantive или administrative
-intent, без автоматической подмены. Дети/предки не закрываются автоматически.
+intent, без автоматической подмены. Прямой вызов контейнерной операции не закрывает
+детей и сам не запускает каскад предков.
+
+После подтверждённых exact task close и tracker publication full/fast execution
+(bugfix через full) по умолчанию передаёт реальную parent-цепочку одному свежему
+субагенту роли `container-completion`; рекомендуемый исполнитель — `standard`,
+не отдельный модельный уровень. Нет родителя — нет роли/запуска. Явные ограничения
+пользователя/проекта сохраняются. Субагент применяет существующий complete-container
+по одному exact ID с обычными child-based gates и отдельной подтверждённой
+публикацией до подъёма выше; уже закрытые статусы не повторяет. Не повторяет
+приёмку и не выполняет соседние задачи. Корень, граница scope или первый родитель
+с незакрытыми детьми/активными блокерами — нормальная остановка. Неизвестные связи,
+цикл, несколько родителей, native refusal или недоступный исполнитель останавливают
+зависимые эффекты с точной причиной. Сбой не отменяет leaf completion, но
+незавершённый обязательный каскад/публикация остаётся в combined result. Явный resume
+может закончить только этот остаток после closed leaf; closed-ID status не
+разрешает новый каскад. Никаких reopen/reclose, повторных confirmed push, нового
+журнала или обязательной записи verification. Общий операционный ресурс —
+[ancestor-completion](../../skills/ris-proj-flow-execute-task/references/ancestor-completion.md).
 
 При явно запрошенном verify/verify-and-close standalone task-контейнера проверяют его
 mandatory outcomes/полный состав/cancellation disposition/blockers и integrated
@@ -123,7 +141,7 @@ close только при успехе; обязательной saved verificat
 запись результата — отдельный разрешённый эффект, не скрытая предпосылка close.
 Native child/blocker guards не защищают
 полноту ожидаемого состава или external evidence. Closed дети не acceptance;
-предки/дети не закрываются рекурсивно. Closed-pending publication продолжается
+этот прямой intent не закрывает предков/детей рекурсивно. Closed-pending publication продолжается
 только проверкой/публикацией, без reopen/reclose. Нормы не являются заявлением
 живой проверки или общей приёмки [поставки связности](../specs/sdlc-continuity/delivery-plan.md).
 

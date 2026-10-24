@@ -229,6 +229,15 @@ push не выполнен. Итоговое полное дерево ожид�
 
 ## 2. Роли и зависимости
 
+Текущий execution full/fast после task close/publication применяет общий
+`ris-proj-flow-execute-task/references/ancestor-completion.md`: один свежий
+`container-completion` субагент (init рекомендует `standard`) закрывает подходящих
+реальных предков через existing exact-container owner и отдельно подтверждает
+публикацию. Остановка на первом незавершённом/заблокированном родителе; explicit
+limits и leaf completion сохраняются. Bugfix наследует этот tail, direct
+status/verify/container close его не запускают. Это текущая поправка к историческим
+таблицам ниже, не новый model tier/skill и не доказательство live-поведения.
+
 Адресная [поправка ris-a17 S1/D1](../specs/ris-a17/spec.md) заменяет старый selector
 в историческом каталоге ниже: единый roadmap планирует эпики и предварительные
 фичи с epic-only/nearest/all глубиной; пара `ris-port-op-plan-epic-features` /

@@ -93,7 +93,13 @@ own snapshot, provenance and scope.
   Ordinary parent closure instead trusts a nonempty complete set of closed direct
   children and checks parent blockers, without recursive acceptance/Git/review
   reconstruction. Closure-eligibility questions use those same reads without writes;
-  zero-child features retain own-result verification. See the
+   zero-child features retain own-result verification. After confirmed task close
+   and tracker publication, full/simple execution (including bugfix via full)
+   delegates the actual ancestor chain to one fresh `container-completion` subagent
+   (`standard` recommendation), closing eligible parents with separate publication.
+   It stops at the first unfinished/blocked parent; explicit limits win. Leaf
+   completion and failed/unverified cascade effects are reported separately.
+   Direct status/verification/container-close calls do not cascade. See the
   [container rules](docs/rules/development.md#отдельные-намерения-для-контейнера).
   Early registration needs a chosen feature, title/goal and stable key, not
   spec/design/epic; the same ID can obtain a safe preparation copy. ID/copy is not

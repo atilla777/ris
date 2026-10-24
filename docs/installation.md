@@ -81,7 +81,7 @@ The proposed `ris.yaml` bindings are:
 
 | Agent | RIS roles |
 | --- | --- |
-| `standard` | `task-decomposition`, `task-execution` |
+| `standard` | `task-decomposition`, `task-execution`, `container-completion` |
 | `advanced` | `feature-preparation`, `task-implementation`, `task-review` |
 
 `project-initialization` is agreed separately, normally proposed as `advanced`
@@ -94,7 +94,10 @@ mandatory roles for every direct RIS operation. An independent reviewer is a
 fresh invocation separate from all authors/fixers, not necessarily another model.
 Roles select executors when delegating; they do not mandate a separate agent for
 every internal step. The lead may apply authorized owners directly, except for
-required independent review. Delegation uses its configured role and verifies
+required independent review and execution's eligible-ancestor tail. The latter
+uses one fresh `container-completion` invocation, not another model tier; existing
+projects agree the added binding without silently migrating their agents/models.
+Delegation uses its configured role and verifies
 actual launch; an unavailable role blocks that delegated route without a silent
 fallback or model switch. A binding alone proves neither model, invocation,
 independence nor use of Advanced for implementation.

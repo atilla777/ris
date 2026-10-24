@@ -68,7 +68,8 @@ concurrency, identity reconciliation and write/read-back algorithms.
 - Separately request **verified-work exact close** of this confirmed task, only
   after all required work/evidence and fresh native predicates pass. Use the
   adapter's normal close and independent read-back, never administrative close,
-  force or status-update shortcuts. Do not close children, parents or ancestors.
+  force or status-update shortcuts. This operation closes only the selected task,
+  not children/parents; the flow's separate ancestor tail follows publication.
 - Separately apply the adapter's authorized tracker publication operation (Beads
   `dolt.publish` and its conditional resource). Follow the current project's
   shared-history scope/remote/direction and read-back policy, including permitted

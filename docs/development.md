@@ -151,6 +151,15 @@ Closure-feasibility questions use the same reads without writing. Explicit
 verify/verify-and-close remains substantive; zero-child features retain own-result
 verification. See the [current container rules](rules/development.md#отдельные-намерения-для-контейнера).
 
+After verified task close and tracker publication, full/simple execution delegates
+the eligible ancestor chain to one fresh `container-completion` subagent (RIS:
+`standard`). The shared [flow tail](../skills/ris-proj-flow-execute-task/references/ancestor-completion.md)
+uses the existing exact-container owner at each level, confirms tracker publication,
+and stops at the first unfinished/blocked parent. Explicit restrictions win;
+no-parent is a no-op. Leaf completion survives cascade failure, whose remaining
+effects stay explicit in the combined result. Direct status/verify/container close
+does not cascade; recovery never replays confirmed close/push. No new model tier.
+
 For routine Beads inventories use the adapter's native compact forms, for example
 `bd list --all --limit 0 --type task --brief --json` (or `--type epic`). For a
 known ID use `bd list --id <id> --all --limit 0 --brief --json`, checking exact

@@ -131,6 +131,11 @@ High/medium findings need repair/checks/fresh independent review. PR-only, forbi
 direct push or missing mandatory review/checks block publication; tracker result,
 exact close and publication remain separate from Git. Material decisions trigger
 targeted clarification/preparation; resume checks actual effects and available evidence.
+After confirmed task close and tracker publication, tracked full/simple execution
+uses one fresh configured `container-completion` subagent for eligible ancestors
+(init recommends `standard`). No parent means no launch. The chain stops at the
+first unfinished/blocked parent, without repeated child acceptance; explicit limits
+win. Cascade failure preserves leaf completion and remains explicit in the result.
 
 ## 3. Authorize work and publish from the task's own copy
 

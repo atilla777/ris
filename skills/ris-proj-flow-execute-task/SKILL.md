@@ -41,6 +41,7 @@ roles only for operations actually delegated:
 | `task-execution` | Queue/readiness investigation, copy/claim preparation, Git publication, completion, tracker publication and fresh next recommendation |
 | `task-implementation` | Code/text implementation and repairs |
 | `task-review` | Independent review and integrated-snapshot reassessment |
+| `container-completion` | Fresh-context child-based ancestor closure after confirmed task completion/publication |
 
 Check the independent review role and any actually delegated role's mapping and
 host availability/permissions before dependent effects. For recovery first reconcile read-only, then gate only
@@ -49,7 +50,8 @@ review does not require launching its role again. Reassess the gate if the remai
 changes. One agent name may serve all roles, but review uses a **fresh invocation**
 independent of every implementation/repair author. Missing/unavailable roles block
 the dependent delegated route; no silent fallback or model switch. The leading
-agent may directly apply bounded operation owners, except independent review.
+agent may directly apply bounded operation owners, except independent review and
+the eligible-ancestor tail, which require separate invocations.
 Role configuration alone proves neither model, invocation, independence nor
 Advanced implementation; verify actual executor/model evidence for such claims.
 Do not require feature-preparation/decomposition roles for this task route.
@@ -149,7 +151,8 @@ for execution; no global list is required merely to resolve a known ID. Queue
 reads need an actual diagnosis/recommendation or absence/dedup purpose. Never
 replace the target. A closed ID gets a verified
 state/result report, never reopening or a new implementation; proven own pending
-publication resumes only its remaining verification/publication. An explicit
+publication or authorized ancestor tail resumes only that remainder under recovery
+and `references/ancestor-completion.md`, not an arbitrary new cascade. An explicit
 human execution/continuation request authorizes the adapter's guarded reassignment
 of a previous session's claim under common; without that authority preserve it.
 Unknown IDs/types return a concrete diagnostic.
@@ -324,7 +327,8 @@ or changed facts before deciding the next operation.
    intent for **all** feature AC, integrated revision,
    current substantive assessment and exact closure without mandatory saved
    feature verification or duplicate refs. Diff review or closed
-   children cannot substitute for feature acceptance. Never close parents.
+    children cannot substitute for feature acceptance. This operation closes only
+    the selected task/feature; ancestor closure belongs to step 8.
 7. Apply **separate** selected-adapter tracker publication with authorized shared-
    history scope, selected destination and local result/records/typed-link evidence;
    for prior/ambiguous effects pass the exact requested/recoverable revision and
@@ -333,7 +337,14 @@ or changed facts before deciding the next operation.
    `references/dolt-publication.md`). Require its fresh remote confirmation of
    that revision; unknown revision/read failure remains unverified. A newer remote
    never justifies replaying confirmed effects. Git push, local result/closure
-   and tracker publication remain three separate facts.
+    and tracker publication remain three separate facts.
+8. After confirmed exact close and tracker publication, apply the shared
+   `references/ancestor-completion.md` tail unless explicitly prohibited. Discover
+   actual parent membership; no parent needs no role/launch. Otherwise resolve and
+   actually launch one fresh `container-completion` subagent for the whole eligible
+   chain through existing complete-container/adapter owners, not new acceptance.
+   Check returned closures/publications and normal stop or unfinished remainder.
+   Preserve the task's completion independently of cascade failure.
 
 Stop dependent effects on an ambiguous or failed operation, including timeout or
 lost executor response. Apply the recovery resource with the corresponding owner
@@ -360,7 +371,8 @@ to it when the current target is blocked.
 Return `ok|blocked|conflict|error`, ID/title, what was done and the user-visible
 change (or explicitly internal-only), checks/review and their applicability,
 project/config/actor/copy, component/evidence addresses, published Git commit/ref,
-separate closure and tracker snapshot/read-back facts, limitations and next
+separate closure and tracker snapshot/read-back facts, ancestor cascade result
+(newly closed/reused IDs, publication evidence and stopping point/remainder), limitations and next
 recommendation. On a stop include the cause, preserved actual effects, first
 remaining operation and required recovery/decision. `ok` requires all promised
 effects verified for the selected task; never infer it from one channel or an

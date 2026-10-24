@@ -91,7 +91,8 @@ binding to an actually available, suitable executor; the identifier is not a uni
 operation. Agree this binding separately; `advanced` is a suitable proposal for
 the complex document work, not an automatic assignment. For the working-cycle
 setup propose `standard` for `task-decomposition` (also optional feature-graph proposals) and
-`task-execution`; `advanced` for `feature-preparation`, `task-implementation` and
+`task-execution` and `container-completion` (the bounded fresh-context ancestor tail);
+`advanced` for `feature-preparation`, `task-implementation` and
 `task-review`. This is init's proposed setup, not new context-schema defaults or
 a universal role requirement for unrelated direct operations. Preserve existing
 bindings until their change is agreed. Read the agents resource to inspect project

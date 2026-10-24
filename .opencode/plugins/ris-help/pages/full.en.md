@@ -260,7 +260,11 @@ publish tracker history, deploy or create a PR.
 
 After verified Git publication, persist the result, verify exact task completion,
 then separately publish tracker history through the selected adapter under its
-gates. Git push alone proves none of these effects. Never close parents implicitly.
+gates. Git push alone proves none of these effects. After confirmed close and
+publication, one fresh `container-completion` subagent ascends actual parent links:
+child-based closure with separate publication, stopping at the first unfinished/
+blocked parent. Explicit limits win; report task completion separately from any
+cascade failure or unfinished effects.
 Full requests include ordinary actions across skill boundaries; narrower limits
 and substantive gates remain. Tracker publication uses the selected project's
 standing shared-history policy or explicit authority, without automatic policy changes.
@@ -272,7 +276,9 @@ standing shared-history policy or explicit authority, without automatic policy c
 **`/risp-run-simple-task <request>`**
 
 Execute clear bounded assigned work: own branch, proportionate checks, independent
-review and Git; separate tracker result/completion/publication when used. No
+review and Git; separate tracker result/completion/publication when used. Then the
+same permitted ancestor tail runs in fresh `container-completion` context; no
+parent means no launch. No repeated child acceptance. No
 mandatory plan/log/review files by default; mandatory project rules and TDD remain.
 Not queue selection or a bypass for an unprepared feature/bug.
 
@@ -324,7 +330,7 @@ whether it can be closed uses those reads only. Zero-child features retain
 own-result verification. Explicit read-only fulfillment verification,
 verify-and-close and administrative close remain available. Child-based or
 administrative closure is NOT fresh whole-result acceptance. Not ordinary leaf
-completion; children/ancestors are never closed automatically.
+completion; this direct call neither closes children/ancestors nor starts execution's cascade.
 
 ---
 

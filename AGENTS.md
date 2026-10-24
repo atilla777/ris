@@ -53,6 +53,15 @@ development rules, без установки зависимостей. Проп�
 только по явному запросу. Фича без детей сохраняет проверку собственного результата.
 Leaf/one-task execution и явная содержательная проверка сохраняют собственные gates.
 
+После подтверждённых task close и tracker publication full/fast execution (bugfix
+через full) запускает одного свежего `container-completion` субагента на реальную
+цепочку предков, в RIS роль назначена `standard`. Каждый родитель закрывается
+существующим owner по закрытым прямым детям с read-back/отдельной публикацией,
+без повторной приёмки. Остановка на первом незавершённом/заблокированном родителе;
+ошибка каскада не отменяет leaf completion и явно остаётся в общем итоге.
+Явные ограничения приоритетны; direct status/verify/container close каскад не
+запускают. Нет родителя — нет роли/запуска; recovery не повторяет close/push.
+
 Текущая методика — [product 08](docs/product/08-sdlc-methodology.md), repo policy —
 [development rules](docs/rules/development.md), operational contracts — у владельцев.
 Исторические основания — [S1/D1 lifecycle](docs/specs/sdlc-feature-lifecycle/acceptance.md)

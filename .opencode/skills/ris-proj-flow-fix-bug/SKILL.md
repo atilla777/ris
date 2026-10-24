@@ -179,4 +179,7 @@ required revision/fresh selected-remote reachability evidence, separately from
 local exact-content checks. Full `ok` requires every promised effect; admission,
 saved basis locator, disposition or Git push alone is insufficient. On a stop name the
 cause, preserved effects, uncertainty and exact remaining operation/recovery owner.
-Stop at this selected bug's result; never close parents or start another bug.
+Include the reused full execution flow's separate ancestor-tail result: confirmed
+parent closures/publications and normal stopping point or unfinished effects.
+Do not implement another cascade here or start another bug. Explicit scope limits
+win; a cascade failure preserves the selected bug's verified fix-completion.

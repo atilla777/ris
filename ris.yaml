@@ -19,6 +19,8 @@ execution:
       agent: standard
     task-execution:
       agent: standard
+    container-completion:
+      agent: standard
     task-implementation:
       agent: advanced
     task-review:

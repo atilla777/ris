@@ -14,9 +14,10 @@ description: >-
 Own sufficiency, transitions, one human dialogue and the combined result. One
 project flow suffices: existing owners supply portable stage methods. The main
 agent loads and **applies** those owners directly for implementation, repairs,
-copy preparation, publication and tracker operations; only independent review
-requires a separate subagent. Do not copy their algorithms or load the full task
-flow's resources. No new implementation wrapper, role, registry or state format.
+copy preparation, publication and tracker operations; independent review and the
+eligible-ancestor tail require separate subagents. Do not copy their algorithms
+or load the full task flow except its explicitly shared ancestor resource below.
+No new implementation wrapper, registry or state format.
 
 ## Establish scope and permissions
 
@@ -63,6 +64,9 @@ Read resources from **this installed skill folder**, only before their triggers:
   reuse this work's dedicated worktree through the existing owner.
 - `references/recovery.md` on resume, prior/partial effects, interruption or an
   ambiguous operation response, before selecting a transition or retry.
+- The installed `ris-proj-flow-execute-task/references/ancestor-completion.md`
+  shared tail after tracked task close/publication, or when recovering that tail;
+  no full-flow SKILL/evidence resources are required for this contribution.
 
 Unavailable required dependencies/resources block only their dependent work.
 Loading an owner is not applying it; inspect its actual output before advancing.
@@ -162,8 +166,13 @@ not a required prior final answer or handoff file.
 7. **Finish distinct effects.** Without tracking, verified Git plus the session
    result ends the cycle. With tracking, use the already-triggered tracker
    resource for short result/Git SHA persistence, separately verified exact close
-   and separately authorized tracker publication. No parent closure or feature
-   acceptance inferred from a push or review.
+   and separately authorized tracker publication. No feature acceptance inferred
+   from a push or review. Then apply the installed full flow's shared
+   `references/ancestor-completion.md`: unless prohibited, confirmed parent
+   membership triggers one fresh configured `container-completion` subagent for
+   the entire eligible ancestor chain. No parent means no role/launch. Read only
+   that resource, not the full task engine. Preserve leaf completion and report
+   cascade closures/publications and normal stopping point or unfinished effects.
 
 ## Assess the combined result and stop
 
@@ -172,7 +181,8 @@ actor when applicable, actual copy/branch/base and final snapshot; attributable
 inputs/decisions, checks/results/limits, independent reviewer/version/verdict,
 repair/low dispositions, evidence content or exact accessible locators, and Git
 commit/tree/ref/remote confirmation. Give separate local tracker result, exact
-closure and tracker publication/read-back facts when used. No artificial status
+closure and tracker publication/read-back facts when used, plus the separate
+ancestor-chain closures/publications and stopping point or unfinished remainder. No artificial status
 store is needed. `ok` requires all effects promised by the actual scope verified;
 one channel cannot establish another. On partial/failed work preserve accessible
 changes/evidence, state the causal blocker, unknown effects and exact remaining

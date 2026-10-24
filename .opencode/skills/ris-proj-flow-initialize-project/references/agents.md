@@ -66,18 +66,23 @@ write, provider connection or global configuration edit.
 
 ## Bind roles and bootstrap only the agreed delta
 
-Propose these five working-cycle bindings in `ris.yaml`:
+Propose these six working-cycle bindings in `ris.yaml`:
 
 | RIS role | Agent |
 | --- | --- |
 | `task-decomposition` | `standard` |
 | `task-execution` | `standard` |
+| `container-completion` | `standard` |
 | `feature-preparation` | `advanced` |
 | `task-implementation` | `advanced` |
 | `task-review` | `advanced` |
 
 Optional delegated preliminary feature-graph proposals reuse `task-decomposition`;
 direct planning needs no role. Existing-work navigation does not need a selector role.
+`container-completion` runs the execution flows' bounded ancestor-closure tail
+in fresh context; it is not substantive feature verification or a third model tier.
+Existing projects agree this added binding before using the delegated tail;
+missing roles have no silent fallback. No `simple` agent or model change is implied.
 
 Models live in the OpenCode definitions, never as invented model fields in
 `execution.roles`. Preserve unrelated roles/options. For existing different

@@ -59,6 +59,14 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
   the remaining publication/read-back, without reopen or another close. Pass the
   known required/recovered revision and evidence to the adapter rather than
   replacing it with a newer local tip. Current project publication policy governs.
+- Ancestor cascade: for an explicitly continued unfinished execution apply the
+  installed full flow's shared `references/ancestor-completion.md`. Reconcile
+  current parent links, already closed IDs and exact publication debt before
+  finishing only that tail in a fresh `container-completion` recipient. A lost
+  response requires actual-effect/live-writer reconciliation before relaunch.
+  Do not reclose/reopen the leaf or parents, repeat confirmed pushes, or infer a
+  new cascade from a closed-ID status query. Leaf success remains separate from
+  failed/unverified cascade effects and normal ineligible stopping points.
 
 After implementation or review, inspect changes and applicable evidence rather
 than reimplementing/reviewing automatically. Keep confirmed push/close facts even

@@ -44,8 +44,9 @@ before retry and returns inspected effects/limits, not just `ok`.
 | Implementation — change owner from step 2 | Inspect actual scoped changes/criterion coverage and current inputs. Reuse compatible changes; implement/check only the missing portion in the same copy. Lost reproducible checks are rerun. No plan/report or invented RED/GREEN history is required; executor TDD duties and known violations remain. |
 | Review — `ris-proj-op-review-task` | Apply that owner's exact-subject/independence/history gate and machine verdict. Restore exact lost evidence or obtain a new independent current review; never invent historical approval. Changed tree/basis requires affected checks and independent reassessment. Missing/blocked/invalid/unsupported evidence stops progression, not an automatic implementation loop. |
 | Git push — `ris-proj-op-publish-task` | Ask the publisher to reconcile the exact sent commit and remote effect. Confirmed publication is reused; unknown is not permission to replay. Unsent changed integration returns only affected checks and independent whole-snapshot reassessment before push. Dirty/divergent source checkout is not a remote-success condition. Recheck and pass the explicit local request or actual accepted project policy source/version/acceptance and boundaries; required local/dependency maintenance remains a separate unfinished part of the combined result under this owner, never another push. |
-| Result/exact close — adapter; one-task feature assessment via `ris-proj-op-complete-container` with explicit verify-and-close | Reuse a verified saved result; request only missing result/assessment/closure under fresh gates. Already closed is never reopened/reclosed, even if review/check/acceptance evidence is missing. Retain status and report the evidence debt. Diff review does not replace whole-feature assessment; no parent closure. |
+| Result/exact close — adapter; one-task feature assessment via `ris-proj-op-complete-container` with explicit verify-and-close | Reuse a verified saved result; request only missing result/assessment/closure under fresh gates. Already closed is never reopened/reclosed, even if review/check/acceptance evidence is missing. Retain status and report the evidence debt. Diff review does not replace whole-feature assessment; ancestor closure is a separate tail. |
 | Dolt push — selected adapter's tracker-publication owner | Pass exact required/recoverable revision and available evidence; consume its confirmation-first recovery result. Confirmed publication needs no push or repeated result/close. Unknown revision or failed remote verification stays unverified. The adapter owns history/remote reads, guards, sandbox, direction and non-force retry, not this flow. |
+| Ancestor tail — fresh `container-completion` recipient applying `ancestor-completion.md` | For an explicitly continued unfinished execution, reconcile current parent links, already closed parents and known publication debt. Reuse closures/confirmed revisions; finish only the authorized missing tail after leaf publication, never repeat implementation or close. Reconcile a lost recipient response/live writer before another launch. A closed-ID status query alone grants no cascade authority. |
 
 For open work enter the first missing/inapplicable **operation**, not its entire
 step. Check only remaining roles/capabilities/permissions, plus fresh claim/blocker/
@@ -54,7 +55,8 @@ reuse applicable evidence. Reassessment that introduces repair/review gates thos
 roles before dependent effects. Owner methods and protection limits remain intact;
 shared refs/tracker are not isolated by parallel worktrees.
 
-For closed work perform only missing verification/evidence recovery/publication,
+For closed work perform only missing verification/evidence recovery/publication
+or the explicitly authorized unfinished ancestor tail,
 never preparation, reimplementation or closure. Missing acceptance means locate
 the original decision or obtain new acceptance for only the lost scope with actual
 provenance. New review/check/acceptance cannot prove a past gate happened. If the

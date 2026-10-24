@@ -9,9 +9,11 @@ description: >-
 
 # Close or verify one selected container
 
-Own the requested container result. Keep child-based closure, administrative status, substantive
-verification, evidence persistence and tracker publication distinct. This single
-project owner combines project identity/authority and adapter effects; its
+Own the requested container result. Keep child-based closure, administrative status,
+substantive verification, evidence persistence and tracker publication distinct.
+This owner can be called once per exact ancestor by execution's authorized cascade
+recipient; it never discovers or starts that cascade itself. Direct calls remain scoped.
+This single project owner combines project identity/authority and adapter effects; its
 conditional feature assessment reuses the portable verifier, without a new base.
 Load/apply `ris-proj-lib-common` and its applicable resources, and `ris-proj-op-resolve-context` with its
 configuration resource for selected rules and adapter; resolve specs/product only
