@@ -61,8 +61,10 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
 - "I want to add authorization": if this is a new feature needing decisions,
   explain `/risp-prepare-feature <ID or epic/context>`: early-register the chosen
   result, prepare its one safe ID-associated copy, work out requirements/design
-  in one author context/dialogue, check both scopes' direct/inherited/mixed basis,
-  decide only new material (one act may cover both), independently review/publish
+  in one author context/dialogue, check both scopes' direct/inherited/mixed or
+  valid scoped policy basis. Resolve substantive choices with the human; full
+  prepare may accept the resolved candidate under its effective policy mode,
+  while direct calls never originate auto from config. Independently review/publish
   inputs, update the same ID and verify full decomposition/final tracker publication.
   Stable preflight is reused while live guards stay fresh; native preparation
   assignment is not another execution claim. Related ordered questions are valid,

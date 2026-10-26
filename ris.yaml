@@ -1,4 +1,7 @@
 version: 2
+workflows:
+  prepare_feature:
+    auto_accept: true
 sources:
   rules: docs/rules/
   product: docs/product/

@@ -126,6 +126,15 @@ Result/stop: unsaved bounded graph with local labels versus actual existing IDs,
 explicit gaps and delta; no persistence, next-work selection or task splitting.
 
 ### ris-proj-flow-prepare-feature
+
+Only this flow uses strict boolean `workflows.prepare_feature.auto_accept`,
+default `true` for omitted leaf/parents or absent optional root; invalid config
+never falls back. `false` retains ordinary manual acceptance. Explicit requests
+to approve requirements/design override only named scopes. Substantive questions
+remain; automatic scopes save full documents without formal confirmation or chat
+dump, with a short linked result and recoverable policy basis distinct from human
+approval/inheritance. Direct specify/design do not gain auto from config. Repairs/
+resume preserve actual scope provenance; independent review/publication gates stay.
 [Owner](../../ris-proj-flow-prepare-feature/SKILL.md). Purpose: whole preparation route.
 Choose when: prepare or resume one feature through verified decomposition.
 Inputs: project, feature ID or epic/context, actor, known decisions and permitted

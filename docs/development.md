@@ -250,6 +250,19 @@ auto-push. Initialization keeps its separate authorization and side-effect check
 sandbox is neither content CAS nor suppression of foreign hooks. Tracker
 publication still uses the separate native Dolt route and its remote gates.
 
+Feature preparation uses strict boolean `workflows.prepare_feature.auto_accept`
+(default `true` even in existing configs with an omitted leaf or absent optional
+root). Context owns validation/provenance; prepare alone applies separate scope
+modes and explicit approval overrides. Direct specify/design never enable auto
+from config. Read/check policy basis under common published-inputs, including
+historical setting/default, exact scopes/versions and prepare request/limits;
+do not relabel it human approval or inheritance. Interview for material gaps,
+independent review and separate publications remain. Auto saves complete documents
+without formal confirmation/full-text chat duplication; repairs/resume preserve
+actual decisions. Invalid config never falls back. This is an instruction contract,
+not observed agent behavior; inspect routes/config clauses, links and source/install
+parity, not live/scenario agent tests. No executable config parser is introduced.
+
 ## Package-installation checks
 
 These are deterministic filesystem/CLI tests, not agent sessions:

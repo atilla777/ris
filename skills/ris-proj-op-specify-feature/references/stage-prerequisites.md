@@ -27,6 +27,10 @@ is not such evidence. Actual/unknown requirements blockers stop only the depende
 action. Preserve edges and native refusal.
 
 For design/decomposition verify required accepted contracts for that action too.
+Common's valid saved prepare policy basis is permitted acceptance evidence too;
+check its exact historical scope/config/default/overrides, never infer it merely
+from today's config or demand fictional human approval. It does not satisfy an
+unresolved substantive prerequisite or grant execution authority.
 A sufficiently defined accepted future result may remain unfinished while
 decomposition describes dependent tasks with necessary implementation blocks;
 unknown/disputed necessary contracts block only the dependent portion. Do not

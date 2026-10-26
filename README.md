@@ -231,12 +231,35 @@ ordered block; ask a blocking fork before drafting. Draft review is optional, no
 a mandatory duplicate of final independent publication review/reassessment.
 Short sufficient spec/design includes AC/how-to-check, no quotas, task backlog,
 execution checklist or architecture recap. Obvious splitting needs no new approval;
-material scope/delivery/obligation changes do. Full decomposition assigns a combined
+material scope/delivery/obligation changes need human resolution, with candidate
+acceptance following the effective manual/policy mode. Full decomposition assigns a combined
 check and verifies the whole composition, not a child count. Ordinary final order
 is Git → same-ID record → complete composition/edges → separate final Dolt
 publication, not push per internal step or an atomic-history promise. Resume
 reconstructs only the missing effects from existing sources; no readiness marker,
 matrix/report or migration is required. See [the owner](skills/ris-proj-flow-prepare-feature/SKILL.md).
+
+**Automatic acceptance is the prepare default**, including existing valid v2
+configs without the setting and an absent optional root config:
+
+```yaml
+workflows:
+  prepare_feature:
+    auto_accept: true # false keeps the ordinary manual acceptance protocol
+```
+
+Only this whole preparation flow uses the setting; direct specify/design calls
+do not. It still asks substantive questions, but once answers suffice it saves
+the complete requirements/design without another formal confirmation or full-text
+chat dump, and returns a short linked result. Ask explicitly to approve requirements,
+design or both to make only those scopes manual. Invalid types (including `"true"`
+and null) or invalid selected config stop automatic continuation, never fall back.
+Saved policy acceptance has exact scope/version, config/default and request/override
+provenance; it is neither human approval nor inheritance. Repairs and resume retain
+that distinction. Independent review/checks, safe copy and separate Git/decomposition/
+tracker publication remain mandatory; no implementation or closure follows.
+See [configuration](docs/product/02-configuration.md) and
+[acceptance basis](docs/product/06-artifacts-and-handoff.md#4-сохранение-согласованных-решений).
 
 An authorized full preparation includes its normal Git and tracker publication
 without approval at every internal step. “Continue” retains that scope; a local-save

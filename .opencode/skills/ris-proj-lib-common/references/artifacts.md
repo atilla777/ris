@@ -21,6 +21,8 @@ in the substantive artifact; no separate basis file or assertion table. In mixed
 results match the new decision to only its material scope in the full candidate
 context. On change/loss recover source derivation and original decisions first;
 only unresolved material needs a new human decision, never a fictional acceptor.
+For the flow-only policy case use the contract below instead of requiring a new
+human decision for a resolved candidate; explicit requested confirmation still wins.
 
 When writing is permitted, capture material accepted decisions in the
 designated artifact as work progresses, then compare the result with those
@@ -31,6 +33,14 @@ when needed and authorized.
 
 For unpublished documents, retain the current accepted content and its separate
 actual decision, with an exact version and accessible input for the next stage.
+For policy acceptance in feature preparation apply `published-inputs.md`'s
+flow-only policy-basis contract before saving/transferring/recovering: retain
+exact scopes/versions, checked config/default provenance and attributable prepare
+request/limits in the existing document/decision section. This is not human
+approval or inheritance. A receiver verifies that basis, not a fictional acceptor.
+Do not add a basis file, state registry or mandatory journal. Changed scopes need
+their own current-mode decision; unchanged provenance remains original. Recovery
+uses the actual saved basis, never retroactive acceptance from today's config.
 Briefly record a material replacement: the superseded version/decision, what
 changed and the new actual acceptance. Do not infer or manufacture acceptance.
 No full archive of intermediate accepted snapshots, draft log, intermediate

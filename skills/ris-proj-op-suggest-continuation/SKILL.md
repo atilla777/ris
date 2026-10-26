@@ -59,7 +59,10 @@ publication does not establish acceptance. For requirements/design use common's
 sources plus derivation can satisfy a scope without new human approval. Missing
 actual derivation or new-material decisions, not an absent synthetic acceptor,
 determines the necessary continuation. Keep requirements/design independently
-identifiable and original provenance unchanged.
+identifiable and original provenance unchanged. Common's valid saved prepare
+policy basis also satisfies acceptance, not human approval or inheritance. Check
+its exact historical scope/config/default/overrides before recommending missing
+acceptance; navigation neither originates it nor gains execution authority.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 

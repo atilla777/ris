@@ -56,6 +56,10 @@ in the full candidate context. Preserve original provenance and distinguishable
 requirements/design scopes/versions. Missing/stale/ambiguous sources limit only
 dependent conclusions. Return traceable basis, not project acceptance or a new
 required schema/table; no project discovery or persistence method is imported.
+Where supplied inputs use policy acceptance, keep their exact scope/version,
+actual policy authority/context, effective setting/default and limits distinct
+from human decisions and inheritance. Return material unresolved choices; this
+read-only base neither originates automatic acceptance nor reads project config.
 
 1. Relate the feature to the supplied goal and scope. State what is included,
    what is explicitly excluded, and what is still undecided. Keep actors,

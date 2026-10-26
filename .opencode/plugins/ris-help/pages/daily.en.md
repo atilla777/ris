@@ -15,11 +15,16 @@ assignee's; a recommendation does not authorize takeover.
 
 **`/risp-prepare-feature <ID or context>`** — early-register the chosen feature,
 use one safe copy and requirements/design dialogue, establish each scope's
-direct/inherited/mixed basis (new approval only for new material),
+direct/inherited/mixed or scoped policy basis,
 review/publish inputs and verify decomposition plus tracker publication.
 One author context, only new material questions (a related block is valid), short
 sufficient spec/design. Draft review is optional; final independent review remains.
 Resume finishes missing effects, not a new readiness checklist or repeated pushes.
+
+Prepare defaults to automatic requirements/design acceptance after substantive
+answers (`workflows.prepare_feature.auto_accept: false` keeps manual acceptance).
+Explicit approval requests make only named scopes manual; direct stages do not
+inherit auto from config. Full automatic texts stay in documents, with a short linked result.
 
 **Or use individual stages:**
 

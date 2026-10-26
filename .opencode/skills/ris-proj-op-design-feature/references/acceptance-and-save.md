@@ -15,6 +15,18 @@ only for new material in the context of the complete exact candidate. All decisi
 recording instructions below apply to actual direct/new decisions, not synthetic
 approval for inherited content. Drafts with unresolved material stay drafts.
 
+For an explicitly identified internal `ris-proj-flow-prepare-feature` save, also
+apply common's **Policy acceptance inside feature preparation**. Read complete
+requirements/design scopes and their independently sufficient bases, including
+the exact flow request, each effective scope mode, checked config/default and
+explicit overrides. Resolved substantive answers are still necessary. Save the
+distinct policy decision in the existing authorized document/decision section,
+not a fictional human approval or inheritance claim. This branch skips the
+manual full-text chat/confirmation steps below, including policy-mode corrections;
+it keeps independent review, content/copy and separate publication gates. Direct
+calls cannot originate it merely from config; consuming a previously saved valid
+policy basis does not enable auto acceptance of new standalone design changes.
+
 ## Candidate and decision inputs
 
 Use project-relative `path`, full published Git `revision` and `section: null`

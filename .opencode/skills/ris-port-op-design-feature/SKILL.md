@@ -43,6 +43,11 @@ the full candidate context. Keep requirements/design scopes and original provena
 independently traceable. Missing/stale/ambiguous source evidence blocks dependent
 claims, not useful analysis. Return that basis without approving or persisting
 the proposal and without a required schema or assertion table.
+Supplied requirements may instead have checked policy acceptance: retain its
+actual authority/context, exact scope/version, effective setting/default and
+limits without relabeling it human approval or inheritance. Report unresolved
+material choices to the caller. Do not originate policy or discover project config;
+the design proposal remains read-only and unaccepted by this base.
 
 1. Map the bounded behavior and AC to current flows and existing interfaces or
    analogues; inspect relevant code and tests, not the entire codebase. Prefer

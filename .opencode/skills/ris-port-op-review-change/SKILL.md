@@ -35,6 +35,11 @@ in the context of the complete identified candidate, with independently traceabl
 requirements/design scopes and unchanged original provenance. Missing, stale or
 ambiguous source authority leaves dependent claims unverified. Review never
 accepts new behavior for the person and imposes no project registry/schema.
+If supplied acceptance uses an authorized automatic policy, inspect its actual
+authority, permitted context, exact scopes/versions, effective setting/default
+and explicit overrides. Distinguish policy acceptance from human approval and
+inherited derivation; unresolved substantive choices still need human answers.
+This base checks supplied evidence, never originates policy or loads project config.
 
 ## Conditional snapshot resource
 

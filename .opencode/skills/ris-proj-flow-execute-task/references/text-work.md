@@ -30,8 +30,9 @@ owned `references/stage-prerequisites.md`, reading actual parent-feature require
 decisions/results/native blockers. Empty child edges are not sufficient; do not
 infer feature kind from membership or weaken ordinary/bug/native refusal gates.
 
-Discover the task's own sufficient direct/inherited/mixed requirements/design
-basis through common's `published-inputs.md`, including original source decisions
+Discover the task's own sufficient requirements/design basis (direct/inherited/
+mixed or valid saved scoped prepare policy) through common's `published-inputs.md`,
+including original source decisions
 and derivation, without a new approval for wholly inherited content. Discover constraints by
 exact ID reads and links. Confirm sufficiency and a viable approach within accepted
 constraints; no saved plan or omission-decision is required. Structural parent is

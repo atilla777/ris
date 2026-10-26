@@ -7,6 +7,8 @@ for the request below, including early same-ID registration/copy, permissions,
 independent review and stopping point. Without arguments establish the feature or
 epic/context scope as needed. Keep human decisions in one dialogue; complete the
 existing decomposition method and separate tracker publication, not implementation.
+Apply the owner's checked auto_accept default and scope-specific explicit approval
+overrides; keep substantive questions, not formal confirmations for automatic scopes.
 Use sufficient direct/inherited/mixed requirements/design basis: check actual
 derivation, ask only about new material, and preserve original provenance.
 Reuse stable context/preflight for internal contributions, keeping live write
