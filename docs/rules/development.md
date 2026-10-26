@@ -90,6 +90,26 @@ Dolt gates не ослабляются. Исторические специфи�
 
 `ris-proj-flow-prepare-feature` рано регистрирует выбранную фичу, использует одну ID-associated safe copy до документов и один requirements/design dialogue. Один явный акт может точно принять две полные различимые области/версии; каждый owner проверяет своё принятие, неизменённое не перепринимается. Достаточный inline design не требует design.md/ADR. После independent review и подтверждённой remote Git-публикации обновляется та же ordinary запись и применяется полная existing decomposition, в своей сессии либо исполнителе, до one-task или verified children/необходимых directed blocks и отдельной tracker publication. Для внутренних действий этого flow не обязателен отдельный executor; reviewer фактически независим от всех авторов/исправителей. Direct specify/design/decompose сохраняют scoped контракты, не запускают друг друга; prepare не запускает реализацию.
 
+По [ris-fmh S1/D1](../specs/ris-fmh/spec.md) глубина подготовки — аргумент поручения
+`auto` (default), `compact` или `full`, не config/tracker metadata и не boolean
+`auto_accept`. Входы — Feature ID, подтверждённый Epic ID + выбранная идея либо
+самостоятельная идея без обязательного эпика/Roadmap; all-status dedup охватывает
+совпадения вне эпика, без автоматического reopen/move/overwrite closed/started/foreign.
+Auto выбирает достаточный Compact для разумно одной работы с reuse product/rules/
+кода/проверенных механизмов; Full — по конкретной необходимости дизайна/риска/
+координации, не пакету/файлам/продуктовой логике сами по себе. Explicit Full не
+понижается; существенный пробел Compact требует причины/последствий и согласования
+только нужного расширения с сохранением сделанного, без скрытой эскалации/рестарта.
+Compact не Fast: sufficient spec/AC/how-to-check и различимый inline approach,
+те же acceptance/review/copy/ownership/check/Git/same-ID/Dolt gates. Full не требует
+длинной анкеты/design.md/ADR/детей ради формы. Decomposition в обеих глубинах/direct
+начинает с one-task самой фичей: ребёнок — самостоятельный проверяемый результат,
+не пакет/config/API/tests шаг. Split содержательно обоснован, без квот детей/файлов;
+сохраняются coverage/contracts/seams/combined check/необходимые blocks и существующие
+дети. Resume предпочитает новое явное указание глубины, иначе доступное прежнее либо
+Auto по текущим фактам, не отменяя принятого/состава и не повторяя confirmed effects.
+Операционные алгоритмы — у existing owners, без нового workflow/skills/markers.
+
 По ris-ci3.2 один авторский контекст переиспользует stable context/preflight до
 существенного drift, смены copy или потери данных; внутренние contributions не
 перезапускают standalone-церемонии. Native assignment той же записи с purpose

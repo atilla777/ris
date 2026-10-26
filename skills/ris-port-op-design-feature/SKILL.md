@@ -51,7 +51,10 @@ the design proposal remains read-only and unaccepted by this base.
 
 1. Map the bounded behavior and AC to current flows and existing interfaces or
    analogues; inspect relevant code and tests, not the entire codebase. Prefer
-   reuse before introducing abstractions. Identify facts with paths/symbols and
+   reuse before introducing abstractions, including verified ready mechanisms of
+   the actual framework/libraries. A new package alone is not architectural risk;
+   check the relevant capabilities/version evidence rather than redesigning what
+   already exists or claiming untested compatibility. Identify facts with paths/symbols and
    revisions so the proposal does not pretend that future components exist.
 2. Allocate component responsibility and state ownership; show public contracts,
    allowed dependency direction, callers, compatibility and errors. Choose the

@@ -150,6 +150,13 @@ is prerequisite. Do not create JSON, refs or readiness fields. A known ID means
 exact read/reuse, never another create. All-status relevant stable-identity checks
 precede/follow create; reconcile ambiguous effects before retry and return every
 conflicting ID. Preserve legacy data; missing/old/malformed JSON alone is no gate.
+Search relevant matches across parents, including outside a supplied epic; an
+epic-scoped list cannot prove absence. A chosen standalone feature needs no epic
+or roadmap first. Reuse exact matches without automatically reopening closed work,
+moving parentage, or overwriting started/foreign records; ambiguity is a conflict,
+not permission for another create. An Epic ID plus chosen idea needs a verified
+actual epic/scope before registration there. Title/brief goal and stable retry
+identity suffice at this early boundary; do not demand spec/design/AC first.
 
 Read back actual ID/type/key, optional parent and preserved ordinary content.
 Stop with this limited local result and separate tracker-publication facts/debt;

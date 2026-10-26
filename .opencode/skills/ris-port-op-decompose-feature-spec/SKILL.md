@@ -73,6 +73,18 @@ effect and boundary are explicit; do not pre-plan it as accepted scope.
 
 ## Derive the smallest useful work set
 
+Start with one task for the feature itself. A child is an **independent verifiable
+result**, not a technical step. Split only for independent outcomes, meaningful
+dependencies between them, necessary parallel work, or scope excessive for one
+executor context; explain the necessity in the existing result, without a new
+report, child-count cap or line/file threshold. Package installation, configuration,
+API wiring and tests performed sequentially for one result are not separate tasks
+merely because they are technical activities. A genuine infrastructure, migration
+or research unit needs its own observable result and explained necessity, not a
+renamed phase. Tests and combined checks belong to their result and do not alone
+justify another task. This rule applies directly and through any caller, regardless
+of preparation depth; it does not remove existing work or waive coverage.
+
 1. Map the specification's required outcomes, scenarios, failures, numerical
    and negative constraints, interfaces and material quality properties to
    work that can be verified. Separate accepted scope from unaccepted proposals

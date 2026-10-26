@@ -186,7 +186,7 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | See daily SDLC help, detailed pages or explain a route without execution | `/ris-help`, `/ris-help full` or `/ris-help <question>` |
 | Explore a topic through an interview | `/risb-interview <topic>` |
 | Review a concrete change | `/risb-review-change <change and scope>` |
-| Prepare a feature through one requirements/design dialogue and verified decomposition | `/risp-prepare-feature <ID, epic or context>` |
+| Prepare a feature at sufficient depth through published decomposition | `/risp-prepare-feature <ID, epic + chosen idea, or standalone idea> [auto\|compact\|full]` |
 | Independently decompose or resume decomposition of accepted published inputs | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
 | Execute or resume one bounded request or idea (also selectable naturally) | `/risp-run-simple-task <request and optional ID>` |
@@ -227,6 +227,27 @@ publication; the same record then reaches verified decomposition and separate
 tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
 not mandatory extra steps. Preparation does not start implementation.
 
+Preparation accepts an existing Feature ID, confirmed Epic ID plus chosen idea,
+or a chosen standalone idea without an epic/Roadmap prerequisite. Registration
+checks all-status matches across parents and reuses the ID without automatically
+reopening, moving or overwriting closed/started/foreign work.
+Request depth is `auto` (default), `compact` or `full`, not a config/tracker field.
+Auto prefers Compact for a sufficiently defined, reasonably single-work outcome,
+reusing product/rules/code and verified ready framework/library mechanisms; concrete
+design, risk or coordination needs justify Full. New packages, file count or
+product-logic changes alone do not. Explicit Full stays Full; explicit Compact
+with a material gap gets an explanation and agreement on only the necessary
+expansion, preserving prior work. Small clarification does not require Full.
+Compact is feature preparation, not Fast: a short sufficient spec with AC/how-to-check
+and independently selectable inline approach, normally one feature unit, with all
+review/publication gates. Full uses the same owners with necessary depth, not
+mandatory long documents or children. Decomposition, also direct, starts one-task-first:
+children are independent verifiable results with an explained need, not installation,
+config, API wiring and tests as separate technical steps. Necessary coverage,
+combined check, existing children and directed blockers remain checked without quotas.
+Resume honors a new explicit depth, otherwise the accessible earlier request or
+Auto on current facts; no mode marker/migration or replay of confirmed effects.
+
 Preparation keeps one author context: internal contributions reuse checked stable
 context/preflight until material drift, copy change or loss; live rights, ownership,
 status/action blockers and publication conditions stay fresh. The same native
@@ -253,7 +274,8 @@ workflows:
     auto_accept: true # false keeps the ordinary manual acceptance protocol
 ```
 
-Only this whole preparation flow uses the setting; direct specify/design calls
+Only this whole preparation flow uses the setting, in both Compact and Full;
+depth `auto` and boolean `auto_accept` are independent. Direct specify/design calls
 do not. It still asks substantive questions, but once answers suffice it saves
 the complete requirements/design without another formal confirmation or full-text
 chat dump, and returns a short linked result. Ask explicitly to approve requirements,

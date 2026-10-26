@@ -104,7 +104,24 @@ feature graph or specify every future feature.
 
 ### 🧩 PREPARE A FEATURE END TO END
 
-**`/risp-prepare-feature <epic or context>`**
+**`/risp-prepare-feature <Feature ID, Epic ID + chosen idea, or standalone idea> [auto|compact|full]`**
+
+No epic/Roadmap is required for a chosen standalone idea. Registration checks
+all-status matches across parents and reuses IDs, without automatic reopening,
+moving or overwriting closed/started/foreign work. Depth is a request argument:
+Auto (default) chooses Compact for a sufficiently defined reasonably one-work
+outcome, reusing product/rules/code and verified ready framework/library mechanisms.
+Concrete design/risk/coordination needs justify Full, not a new package, file count
+or changed product logic alone. Explicit Full stays Full; a material gap in explicit
+Compact needs an explanation and agreement only on necessary expansion, not silent
+escalation or restart. Small clarification does not require Full. Neither depth
+requires long documents/design.md/ADR/children for form. Compact is not Fast.
+Depth Auto is independent of boolean auto_accept; both retain all gates below.
+Decomposition starts with the feature itself as one executable unit; children need
+independent verifiable results and an explained necessity, not package → config →
+API → tests steps. Preserve coverage/combined checks/actual children/necessary
+directed blockers, without quotas. Resume uses new explicit depth, otherwise the
+accessible prior request or Auto from current facts; no mode marker or migration.
 
 Early-register the chosen feature, prepare one safe ID-associated copy and work
 out requirements/design in one dialogue. Each distinct scope/version has sufficient

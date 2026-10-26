@@ -175,7 +175,9 @@ to the checked requirements/AC, observed code, applicable architecture/contracts
 related designs and prior design/delta. Inspect its actual proposal and coverage,
 not just its name. Keep one dialogue, using known decisions and evidence without
 reinterviewing unchanged requirements. Resolve missing technical facts from code
-first. For interdependent unresolved technical decisions apply installed
+first, including verified ready framework/library mechanisms rather than designing
+them again. Do not infer compatibility from a package name. For interdependent
+unresolved technical decisions apply installed
 `ris-port-op-interview` in the same dialogue with a bounded architectural topic and
 known answers; a single clarification does not need a full interview. Do not
 turn that interview into a second functional requirements process.

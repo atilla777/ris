@@ -34,6 +34,19 @@ TDD сохраняется, но история RED/GREEN не является 
 
 Подготовка фичи: ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, та же ordinary запись и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
 
+По [ris-fmh S1/D1](docs/specs/ris-fmh/spec.md) prepare принимает Feature ID,
+Epic ID + выбранную идею либо standalone идею без обязательного эпика/Roadmap.
+Глубина поручения `auto` (default), `compact`, `full` независима от boolean
+`auto_accept`, без нового config/tracker field. Auto выбирает достаточный Compact
+по известным входам/готовым механизмам; Full — по конкретному дизайну/риску/координации.
+Explicit Full не понижается; material gap Compact требует объяснить последствия
+и согласовать только нужное расширение, сохраняя сделанное. Compact не Fast,
+оба сохраняют все gates и конец без реализации/close. Decomposition также direct —
+one-task-first: ребёнок — самостоятельный проверяемый результат с обоснованием,
+не пакет/config/API/tests шаг; actual children/blocks/coverage/combined check
+сохраняются без квот. Resume: новое explicit depth, иначе прежнее доступное либо
+Auto по текущим фактам, без migration/marker и повторения confirmed effects.
+
 По [ris-ci3.2](docs/specs/ris-ci3.2/spec.md) внутренние contributions не повторяют
 standalone-церемонии; stable context/preflight переиспользуется до drift/copy
 change/loss, live права/ownership/status/action-blockers свежие. Purpose

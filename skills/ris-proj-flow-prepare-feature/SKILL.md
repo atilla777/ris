@@ -4,7 +4,8 @@ description: >-
   Prepare one RIS feature from early registration and its safe copy through one
   requirements/design dialogue, precise acceptance, independent review and Git
   publication to verified one-task or multi-task decomposition and tracker
-  publication. Use for interactive preparation or its resume; not selection alone,
+  publication, at auto (default), compact or full depth. Use with an existing ID,
+  epic plus chosen idea, or standalone idea, including resume; not selection alone,
   a single document operation, technical task planning or implementation.
 ---
 
@@ -88,6 +89,13 @@ transaction over graph and external evidence; return unsupported required guaran
 
 ## Register the selected feature and prepare its one copy
 
+Accept three inputs: an existing Feature ID (including a preliminary roadmap
+feature), a confirmed Epic ID plus a chosen new idea, or a chosen standalone
+idea. The last needs neither an epic nor prior roadmap planning. Keep known IDs;
+verify an epic's actual identity/scope before assigning a new feature to it.
+For a chosen idea go directly to limited registration below, not mandatory epic
+planning. Only an unselected outcome uses the selection branch that follows.
+
 If the outcome is not yet selected, apply installed `ris-proj-op-show-plan`'s owned
 `references/feature-candidates.md` as a bounded read-only selection contribution
 for the needed preparation action. Honor existing preliminary feature IDs and
@@ -105,7 +113,11 @@ Once chosen, apply `ris-proj-op-specify-feature` in **explicitly limited early
 registration** mode: approved title/brief goal, stable project-scoped retry key,
 known exact ID and optional confirmed epic, with tracker-write authority. Consume
 the adapter's all-status collision/reuse/read-back result. No spec/design,
-acceptance or document copy is required for that contribution.
+acceptance or document copy is required for that contribution. Require relevant
+all-status dedup across parents too, including possible matches outside the named
+epic. Reuse a matching ID; ambiguous/conflicting matches are not absence. Do not
+automatically reopen closed records, move matches to the requested epic, or
+overwrite started/foreign work. Resolve the actual conflict before dependent writes.
 Require one confirmed task ID with approved goal and available scope/criteria, never a
 replacement “ready” record. Preserve legacy payloads; missing/old/malformed JSON
 alone never blocks the new document route or proves ordinary kind.
@@ -157,6 +169,43 @@ owner reconciles actual refs/registration/files/setup before only missing action
 No mandatory transition journal, intermediate commit or draft file is introduced.
 
 ## One requirements and design dialogue
+
+### Choose sufficient depth within the dialogue
+
+Depth is a request argument: `auto` (default, also for old calls without a mode),
+`compact` or `full`; an explicit human choice wins. Clarify unknown or contradictory
+mode requests, never silently replace them. This adds no config key, tracker
+field/state, role, classifier, assessment stage or intermediate artifact.
+
+During ordinary input reading/dialogue, Auto chooses Compact when the outcome is
+sufficiently defined and reasonably executable as one work unit. Consider known
+requirements, applicable product/rules/architecture, ready framework/library
+mechanisms, independent outcomes, scale/architectural risk and executor coordination.
+Choose Full for concrete additional design, splitting or coordination needs, not
+merely a new dependency, file count or changed product logic. Briefly explain the
+reason; it is not a readiness gate. Explicit Full is never downgraded.
+
+Explicit Compact cannot hide material uncertainty/risk: name the exact gap and
+consequences, agree only the necessary expansion before dependent work, and retain
+the usable ID/copy/answers/documents/decisions. Do not silently switch to Full or
+restart preparation; a small clarification alone does not require Full.
+
+Compact reuses applicable product/rules, accepted decisions, current code and
+verified framework/library capabilities; ask only material gaps and do not redesign
+ready mechanisms. Prefer the sufficient `spec.md` below with a separately selectable
+inline technical approach and the feature itself as the default executable unit.
+Apply the decomposition owner's one-task-first rule, not a ban on justified children
+or a hidden depth switch. Full uses the same owners with deeper dialogue/design and
+coordination only as needed; it mandates neither a long questionnaire, design.md/ADR
+nor children. Both preserve all acceptance, independent review, copy/ownership,
+checks, Git/same-ID/composition/Dolt and recovery gates and supply the existing
+execute-task inputs unchanged. Compact prepares product features, not the limited
+Fast execution exception; neither branch implements or closes work.
+
+Depth `auto` is **not** boolean `workflows.prepare_feature.auto_accept`. Acceptance
+mode below is determined independently for both depths and each content scope.
+References to the full/whole preparation flow mean this complete route in either
+depth, not only depth `full`.
 
 Determine effective acceptance **separately for requirements and design** from
 context's validated boolean: `true` (including omitted leaf/parents or absent
@@ -221,7 +270,8 @@ Keep the spec sufficient, not long: result/bounds/exclusions, observable AC with
 practical how-to-check, independently selectable sufficient design and material
 open questions. Do not maintain a task backlog, execution status or checklist in
 it. There are no section/length quotas. Design fills material gaps and cites
-applicable architecture/contracts instead of reciting them; domain-specific
+applicable architecture/contracts instead of reciting them; use verified ready
+framework/library mechanisms instead of redesigning them. Domain-specific
 prompts and deferred parameters apply only when relevant.
 
 For manual scopes, before deciding new material show the **complete, distinguishable versions/scopes**, accessible
@@ -326,15 +376,19 @@ Inspect actual ID/type/optional parent and preserved content. No JSON/verificati
 update, replacement ID, renewed acceptance or second push. Actual identity/content
 conflicts stop dependent writes; legacy JSON schema alone does not.
 
-## Apply full decomposition, then publish the tracker
+## Verify sufficient decomposition, then publish the tracker
 
 Apply `ris-proj-op-decompose-feature` with the same ID, current published accepted
 requirements and sufficient design, constraints/contracts/test seams, existing
 task IDs and permitted child/edge effects. Explicitly request its **limited local
 write/verification contribution**; this flow owns the final tracker publication.
-Use its entire portable/project method and coverage/reconciliation checks,
+Use its entire applicable portable/project method and coverage/reconciliation checks,
 reusing the checked published inputs under common, in this session or a suitable executor without formal complexity
-thresholds. Do not substitute a short split algorithm or Markdown backlog.
+thresholds. Start with its sufficient one-task outcome in either depth; the full
+multi-unit method is conditional on justified independent results or existing
+children requiring reconciliation. No multi-task analysis is mandatory without
+such grounds. Never skip coverage, actual complete all-status child/blocker reads
+or native guards. Do not substitute a new split algorithm or Markdown backlog.
 
 Do not ask the human to reapprove an obvious contract-preserving split. Return
 material changes to scope, delivery or obligations for a targeted decision.
@@ -369,7 +423,11 @@ On ambiguous/failed writes stop dependent mutations and use the corresponding
 owner to reconcile actual local/remote effects before retry. Keep the same ID,
 copy/path/branch, published commits/decision pins and known child IDs/keys/edges.
 Resume from current Git/Beads/accessible accepted inputs and applicable review,
-not a state file or stale success token. Recover each exact policy/manual basis,
+using a new explicit depth request first, otherwise the accessible earlier request,
+otherwise Auto on current facts. Reassessment cannot cancel accepted content,
+shrink required composition or repeat confirmed effects. No saved mode marker is
+needed to resume an old sufficient feature. Use evidence, not a state file or stale
+success token. Recover each exact policy/manual basis,
 historical setting/default and explicit overrides from saved decisions before
 dependent work; today's config cannot manufacture prior acceptance.
 Unknown create/setup/push is inspected

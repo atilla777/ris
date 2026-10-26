@@ -132,6 +132,24 @@ need human resolution, with candidate acceptance under the effective manual/poli
 mode. Git → same record → full composition → separate final tracker publication;
 partial results resume from facts without a required marker/count/matrix/report.
 
+`/risp-prepare-feature <Feature ID, Epic ID + chosen idea, or standalone idea>
+[auto|compact|full]` uses request depth `auto` by default, independently of boolean
+`auto_accept`. A chosen standalone feature needs no epic/Roadmap. Registration
+deduplicates across parents/all statuses, preserves known IDs and never automatically
+reopens, moves or overwrites closed/started/foreign work. Auto chooses Compact for
+sufficiently defined reasonably one-work outcomes; concrete design/risk/coordination
+needs justify Full, not new packages/file count/product logic alone. Explicit Full
+is retained; a material gap in explicit Compact needs its explanation and agreement
+only on necessary expansion, not silent escalation/restart. Reuse ready mechanisms
+and sufficient spec/AC/how-to-check with distinct inline approach. Full adds necessary
+depth, not obligatory long documents/children. Both retain every existing gate and
+stop before execution/closure; Compact is not Fast. Decomposition in either depth
+or direct calls starts one-task-first: children need independent verifiable results
+and a substantive split reason, not package/config/API/tests steps or child quotas.
+Coverage/combined check/necessary directed blocks and existing children stay checked.
+Resume uses new explicit depth, otherwise the accessible prior request or Auto from
+current facts; accepted content/composition and confirmed effects are preserved.
+
 ### Explicit calls without a slash command
 
 Ask the agent to load the exact skill with its skill tool and supply the inputs:
@@ -209,7 +227,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-author-development-rules](../skills/ris-proj-op-author-development-rules/SKILL.md) | Accepted scoped engineering rules in project OKF |
 | [ris-proj-op-author-product-foundation](../skills/ris-proj-op-author-product-foundation/SKILL.md) | Separately accepted, saved and checked initial product knowledge in sources.product |
 | [ris-proj-flow-initialize-project](../skills/ris-proj-flow-initialize-project/SKILL.md) | Agreed checked local RIS setup, one dialogue, delegated document owners and separately offered publication |
-| [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Early same-ID/copy, unified requirements/design dialogue, precise acceptance, independent review/Git and verified decomposition/tracker publication |
+| [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Existing ID, epic + idea or standalone idea; auto/compact/full depth through same-ID/copy, sufficient requirements/design, independent review/Git and verified decomposition/tracker publication |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
 | [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One bounded request/idea, explicit or natural selection, one main agent/default zero subagents, conditional review, verified Git/local/mixed results and separate tracked completion |
 | [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, reproducible versioned inputs and complete existing execution route |

@@ -180,6 +180,15 @@ This wrapper neither accepts/revises design nor starts another skill.
 
 ## Apply the method and reconcile actual work
 
+In direct calls and either preparation depth, start with the base's sufficient
+one-task outcome using the existing Feature ID, never a duplicate child. Use the
+full multi-unit proposal when independent-result splitting is justified under the
+base or existing children require reconciliation; no separate multi-task analysis
+is needed without those grounds. Retain the complete accepted coverage, all-status
+actual child set and directed blockers in either case. Return any split's substantive
+reason in the ordinary result, not a mandatory report or child-count quota. Existing
+children cannot be deleted or native refusal bypassed to obtain compactness.
+
 For an ordinary simple task supply its accepted contract-preserving technical
 constraints as the base's sufficient short design input, with their actual
 acceptance scope/provenance; no separate file is required. If they do not settle

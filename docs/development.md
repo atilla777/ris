@@ -86,6 +86,14 @@ executors are optional; independent review is actually separate. Sufficient inli
 design needs no design.md. Direct component operations remain available. This does
 not start implementation after prepare.
 
+Preparation depth `auto` (default), `compact` or `full` belongs to the request,
+not config or tracker metadata, and is independent of boolean `auto_accept`.
+The existing flow accepts Feature ID, Epic ID + chosen idea or standalone idea
+without mandatory roadmap/epic. It applies sufficient reuse-first inline design
+and one-task-first independent-result decomposition in either depth; explicit
+Compact expansion requires only the necessary agreed scope, Full is not downgraded.
+Source owners define the method; see the [flow](../skills/ris-proj-flow-prepare-feature/SKILL.md).
+
 One author context reuses stable context/preflight until material drift/copy change/
 loss; internal contributions validate supplied results instead of restarting
 standalone ceremonies. Live write guards remain fresh. Native same-record

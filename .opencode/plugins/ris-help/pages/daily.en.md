@@ -13,13 +13,20 @@ assignee's; a recommendation does not authorize takeover.
 
 ### 🧩 WORK OUT A FEATURE (PREPARE TASKS)
 
-**`/risp-prepare-feature <ID or context>`** — early-register the chosen feature,
+**`/risp-prepare-feature <ID, epic + chosen idea, or standalone idea> [auto|compact|full]`** — early-register the chosen feature,
 use one safe copy and requirements/design dialogue, establish each scope's
 direct/inherited/mixed or scoped policy basis,
 review/publish inputs and verify decomposition plus tracker publication.
 One author context, only new material questions (a related block is valid), short
 sufficient spec/design. Draft review is optional; final independent review remains.
 Resume finishes missing effects, not a new readiness checklist or repeated pushes.
+
+No mandatory epic/Roadmap for a chosen idea. Auto depth defaults to sufficient
+Compact work with reused mechanisms and one-task-first decomposition; concrete
+design/risk/coordination needs justify Full. Explicit Full stays Full; material
+Compact gaps need only the necessary agreed expansion. Children are independent
+results, not package/config/API/test steps. Compact is not Fast; all gates remain.
+Depth Auto is distinct from the acceptance setting below.
 
 Prepare defaults to automatic requirements/design acceptance after substantive
 answers (`workflows.prepare_feature.auto_accept: false` keeps manual acceptance).
