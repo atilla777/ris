@@ -124,7 +124,10 @@ publication/result section; skip all assessment/persistence sections below.
 
 ## Verification inputs and conditional method
 
-Only for explicit verify/verify-and-close or own-result closure of a zero-child feature require the accepted
+Only for explicit verify/verify-and-close or own-result closure of a zero-child feature
+apply common's `published-inputs.md` sufficient direct/inherited/mixed basis to
+requirements/design, preserving original source decisions and checking derivation
+instead of demanding a new human approval for wholly inherited content. Require the accepted
 mandatory outcomes/member set (including any one-task feature), applicable
 criteria/decisions, integrated revision evidence and allowed tracker fields.
 Discover them from exact reads and linked versions before asking for missing

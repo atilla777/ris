@@ -52,6 +52,14 @@ Verify actual candidate bytes rather than approving HEAD alone or assuming an
 absent change from missing local evidence. A stale handoff is not a current input.
 Analysis requires neither claim mutation nor report-write permission.
 
+For requirements/design apply common's `published-inputs.md` sufficient-basis
+contract to each independently selectable scope/version, including document-only
+review. Verify inherited derivation and original source authority/applicability;
+mere compatibility cannot decide materially different allowed choices. New
+material needs actual bounded human decisions in the full candidate context;
+wholly inherited content needs no new approval/acceptor. Review cannot supply
+that human choice. Keep the existing report format and independent whole-tree gate.
+
 For an active Fast local-only review, inspect exact actual authorized targets and
 useful effects, before/after state or accessible equivalent and current checks,
 not an inert worktree replica or fictitious Git baseline/SHA. Mixed subjects bind

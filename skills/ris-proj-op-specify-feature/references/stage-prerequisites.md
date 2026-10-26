@@ -12,7 +12,9 @@ typed directed blockers. Requirements prerequisites are independent readable
 exact-ID references naming a needed accepted decision/contract and scope, not
 necessarily native edges. Inspect them even when native blocks is empty. Read
 actual required content and attributable scope/version acceptance using common's
-published-input convention; a file, link, raw closed, no blockers or saved plan
+published-input sufficient-basis convention (direct/inherited/mixed); inherited
+material uses original accepted sources and checked derivation, not a new approval.
+A file, link, raw closed, no blockers or saved plan
 is not acceptance. A requirements prerequisite waits for the specified accepted
 contract, not completion of that entire feature.
 

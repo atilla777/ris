@@ -3,7 +3,14 @@
 Read before selecting accepted content, acceptance or persistence. This wrapper
 owns the requirements result; the adapter owns tracker encoding and operations.
 
-## Identify content and its separate decision
+Apply common's `published-inputs.md` **Sufficient requirements/design basis**
+before selecting or saving content. Throughout this resource, accepted candidate,
+decision evidence and matching mean that sufficient direct/inherited/mixed basis:
+actual candidate decisions are required only for new material or existing direct
+acceptance; inherited parts use original accepted source decisions and derivation.
+Do not require a new requirements decision/acceptor for wholly inherited content.
+
+## Identify content and its sufficient basis
 
 Use project-relative `path` and `section: null` for a whole file or an unambiguous
 semantic section, such as `Requirements / Failure behavior`. Requirements and
@@ -17,10 +24,11 @@ file instead. No mandatory Markdown heading/EOF digest protocol is introduced.
 Before noninteractive save, the caller supplies either the full exact candidate
 text with a distinguishable version and scope, or a recipient-accessible file at
 an exact address/version (published Git commit/path/section or explicitly agreed
-local address/version). Both forms require destination path/section, real separate
-requirements acceptance decision, authorized acceptor/provenance and exact permitted
-writes. Read the complete candidate and decision yourself; validate version/scope
-and that the actual decision approves this content, without assuming foreign-chat
+local address/version). Both forms require destination path/section, independently sufficient
+requirements basis (original source locators/derivation and any actual new decision),
+authorized decision provenance where applicable and exact permitted
+writes. Read the complete candidate, sources and applicable decisions yourself; validate version/scope
+and that the basis covers this content, without assuming foreign-chat
 access. Return incomplete, inaccessible, ambiguous or changed candidates to the
 caller before dependent writes; do not invent answers or reformulate accepted meaning.
 Full text needs no intermediate file, mandatory hash, registry or intermediate publication.
@@ -30,16 +38,19 @@ Optional local fingerprints can detect candidate changes; they are not tracker
 refs or a required scoped hashing scheme. An absent or changed candidate is
 blocked/conflict, not permission to invent its acceptance or revision.
 
-Record the actual authorized requirements decision in a permitted Git document
+For new material, record the actual authorized requirements decision in a permitted Git document
 or decision section; no mandatory acceptance file/manifest. It names accepted
 content path, section (including null), revision and `decision: accepted`, with
-acceptor provenance. Each result has its own identifiable acceptance scope. One
+acceptor provenance. In mixed content identify only the new material decided in
+the context of the full exact candidate, preserving inherited source provenance
+and explanation in the substantive scope. Each result has its own identifiable
+basis scope/version. One
 attributable human act/decision section may accept requirements and design together
 only if it explicitly names both complete content selectors and versions. Its
 address may be shared by the two refs; check the requirements entry yourself,
 not merely a generic approval or a design entry. This does not make requirements
 acceptance imply design acceptance or require a second answer on a bounded save.
-A published decision
+For directly accepted material, a published decision
 address pins repository, full decision commit, path and any unique decision
 section. A branch URL, local note, file presence or commit alone is insufficient.
 If content and decision will share a commit, the decision may name content
@@ -50,16 +61,16 @@ before publication with immutable refs explicitly pending; record the checked
 local candidate identity so publication can match it to the accepted result.
 Never rebind a copied `containing-commit` decision to a later changed document:
 retain its original immutable decision/content reference. For unpublished
-revisions, keep the current accepted content and its separate actual decision
+revisions, keep current content and its sufficient basis
 accessible to the next stage. For a material replacement, briefly identify the
-superseded version/decision, what changed and the new actual acceptance; do not
+superseded version/basis, what changed and the new sufficient basis; do not
 invent a decision while saving. A full archive of intermediate accepted
 snapshots, draft log, intermediate publication or commit per acceptance is not
 required; voluntary local drafts/commits are allowed. Preserve already published
 versions, decisions and their pinned references in Git history.
 When requirements change, require a design-owner applicability check for any
 dependent design. Compatible unchanged design retains its original acceptance;
-materially changed design needs its own separate acceptance. Uncertainty blocks
+materially changed design needs its own sufficient basis. Uncertainty blocks
 the dependent action, not independently authorized work.
 
 ## Save, check and gate tracker effects
@@ -93,10 +104,11 @@ Return its local record result and remainder.
    unrelated content and decisions, and return conflict on unexpected change or
    missing required concurrency protection. Ordinary Markdown uses project rules;
    only an actual selected OKF bundle requires the suitable installed OKF skill.
-2. Save only the accepted content and actual authorized decision evidence. A
+2. Save only sufficiently grounded content, its source derivation and any actual
+   authorized decision evidence. A
    bounded save does not rerun interview/formulation or ask the user. Read back
-   and compare selected content with the exact accepted candidate and separate
-   requirements decision, for either supplied form; check
+   and compare selected content with the exact candidate and its sufficient
+   requirements basis, for either supplied form; check
    substantive coverage, format, links and preserved sections. Never put an
    unaccepted intermediate candidate at the accepted path.
 3. For an explicitly limited local save this is its complete contribution: return checked addresses,

@@ -14,7 +14,8 @@ assignee's; a recommendation does not authorize takeover.
 ### 🧩 WORK OUT A FEATURE (PREPARE TASKS)
 
 **`/risp-prepare-feature <ID or context>`** — early-register the chosen feature,
-use one safe copy and requirements/design dialogue, precisely accept both scopes,
+use one safe copy and requirements/design dialogue, establish each scope's
+direct/inherited/mixed basis (new approval only for new material),
 review/publish inputs and verify decomposition plus tracker publication.
 
 **Or use individual stages:**

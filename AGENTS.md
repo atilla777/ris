@@ -71,6 +71,15 @@ Leaf/one-task execution и явная содержательная провер�
 Явные ограничения приоритетны; direct status/verify/container close каскад не
 запускают. Нет родителя — нет роли/запуска; recovery не повторяет close/push.
 
+Требования/дизайн имеют независимо достаточное прямое/унаследованное/смешанное
+основание по [product 06 §4](docs/product/06-artifacts-and-handoff.md#4-сохранение-согласованных-решений):
+common published-inputs проверяет исходные решения/версии/применимость и реальное
+следование, не только совместимость. Wholly inherited не требует нового approval/
+acceptor; mixed — решение только по новому существенному в контексте полного
+кандидата. Ссылки на отдельные acceptance scopes выше читаются в этом смысле;
+исходная immutable provenance сохраняется, новой schema/sidecar/registry нет.
+Fast admission, bug historical basis и review serialization не переопределяются.
+
 Текущая методика — [product 08](docs/product/08-sdlc-methodology.md), repo policy —
 [development rules](docs/rules/development.md), operational contracts — у владельцев.
 Исторические основания — [S1/D1 lifecycle](docs/specs/sdlc-feature-lifecycle/acceptance.md)

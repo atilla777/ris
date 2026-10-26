@@ -5,6 +5,16 @@ or saving a draft or accepted result. The
 wrapper owns design/applicability decisions; the adapter owns tracker encoding
 and protected writes. No second feature registry or per-step skill is needed.
 
+Apply common's `published-inputs.md` **Sufficient requirements/design basis**
+before selecting or saving content. Throughout this resource, accepted candidate,
+separate acceptance and decision matching mean independently sufficient direct,
+inherited or mixed basis for requirements and design. A wholly inherited design
+needs no new human approval/acceptor; preserve original accepted sources and explain
+derivation in its substantive scope. In mixed content obtain an actual decision
+only for new material in the context of the complete exact candidate. All decision
+recording instructions below apply to actual direct/new decisions, not synthetic
+approval for inherited content. Drafts with unresolved material stay drafts.
+
 ## Candidate and decision inputs
 
 Use project-relative `path`, full published Git `revision` and `section: null`
@@ -19,9 +29,10 @@ For bounded noninteractive save, the caller supplies either the full exact desig
 text with a distinguishable version and scope, or a recipient-accessible file at
 an exact address/version (published Git version or explicitly agreed local
 address/version). Both forms require destination path/section, separately accepted
-requirements and their decision, the actual separate design acceptance decision/
-acceptor provenance and permitted writes. Read the complete candidate and decisions
-yourself; validate version/scope and that the actual design decision approves this
+requirements and their sufficient basis, the independently sufficient design basis
+(source locators/derivation and any actual decision/provenance) and permitted writes.
+Read the complete candidate, sources and applicable decisions
+yourself; validate version/scope and that the design basis covers this
 content, without assuming foreign-chat access. Return incomplete, inaccessible,
 ambiguous or changed candidates and missing decisions to the caller before
 dependent writes; do not ask the user, invent acceptance or reformulate accepted
@@ -47,7 +58,7 @@ Draft storage requires no design acceptance and cannot replace it. It is separat
 from the accepted-content save protocol below; do not enter that protocol with
 an unaccepted draft. No mandatory draft directory, registry, file or intermediate
 publication is introduced. Before later acceptance, verify the actual full draft
-still matches the presented candidate; a changed candidate needs its own decision.
+still matches the presented candidate; a changed candidate needs its own basis assessment.
 
 For an ordinary native bug, accepted requirements may be the full current report,
 aligned fix criteria and sufficient accepted constraints/decisions, with exact
@@ -59,7 +70,7 @@ content selector, actual separate acceptance and the save/review/Git/record/trac
 gates below. A material report/criteria change needs targeted applicability review;
 preserve unchanged authority/refs. No execution snapshot is required before design.
 
-Before asking for separate acceptance of a new or materially changed design in
+Before asking for acceptance of new material not demonstrably inherited in
 the leading dialogue, give a plain-language explanation of its essence, main flow,
 reused/new technologies and why, tradeoffs, material risks and irreversible or
 hard-to-reverse choices. Roughly one screen is a readability guideline, not a
@@ -68,9 +79,9 @@ design can itself provide that explanation without a duplicate summary. Identify
 the exact COMPLETE candidate version/scope to be approved, make its full text
 accessible inline or at a checked exact address/version, and show material impact.
 The summary does not replace the full candidate or accept unseen/changed content.
-For bounded supplied acceptance, verify the actual separate decision for this
-complete candidate instead of requesting approval again.
-Record its real decision in a permitted Git document/section, without imposing
+For bounded supplied content, verify its sufficient basis instead of requesting
+approval again; actual decisions cover only their direct/new material scope.
+For that new material record its real decision in a permitted Git document/section, without imposing
 a mandatory decision file. It names content path, section (including null),
 revision, `decision: accepted` and attributable acceptor. Requirements approval
 does not approve design; each result has its own identifiable accepted scope even
@@ -82,7 +93,8 @@ This permission does not accept an unseen design or merge overlapping selectors.
 Unchanged content retains its checked acceptance on retry.
 
 Identify published content by path, full revision and semantic section, with its
-actual separate acceptance decision. No tracker reference object is required.
+sufficient basis. The decision-address protocol below applies to direct/new
+decisions and original decisions for inherited sources. No tracker reference object is required.
 The immutable decision address pins repository, full
 decision commit, path and any unique decision section. Read actual content and
 decision at those revisions, check semantic selection, match path/section and
@@ -168,8 +180,8 @@ remains a precise dependent gap, never invented.
     require a manual window or atomic freeze of record, graph and external
     evidence. Unsupported explicitly required stronger guarantees block only
     dependent record writes; authorized independent file saving may proceed.
-3. Reread expected files immediately before saving accepted content. Save only
-   accepted content and actual decision evidence, no unaccepted intermediate draft
+3. Reread expected files immediately before saving sufficiently grounded content.
+   Save only that content, source derivation and any actual decision evidence, no unresolved intermediate draft
    in this accepted-save branch. The optional pre-approval draft branch above is
    separate and grants no acceptance or publication. Read back,
    compare selected content with the exact accepted candidate and separate design

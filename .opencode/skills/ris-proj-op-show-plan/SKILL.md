@@ -174,8 +174,11 @@ Use a compact localized form such as:
   shown.
 - Features show compact requirements/design evidence on their own line: reference
   present, acceptance unverified; acceptance checked against exact version and
-  separate decision; checked
-  absent; or unknown. Include explicitly confirmed early root features without
+  sufficient direct/inherited/mixed basis under common's `published-inputs.md`;
+  original sources/derivation may establish inherited content without new human
+  approval. Do not recommend reacceptance merely for an absent synthetic decision;
+  missing/stale/ambiguous authority or a new material choice remains a gap.
+  Other evidence states are checked absent or unknown. Include explicitly confirmed early root features without
   inventing an epic or JSON: show actual missing documents/decisions as unfinished
   preparation, not ordinary fallback. Apply common's document convention/bounded
   legacy discovery; missing/old/malformed JSON alone is no blocker. Known copy/identity/accepted-input gaps inform the

@@ -86,8 +86,13 @@ own snapshot, provenance and scope.
 - **Feature documents, not JSON readiness cards:** new features use
   `sources.specs/<full feature ID>/spec.md` (default specs root `docs/specs/`),
   readable H1 and column-zero `Feature-ID:`, `Summary:`, optional `Keywords:`.
-  Requirements and sufficient inline/adjacent design retain actual independent
-  scope/version acceptance. Beads holds ordinary goal/scope/criteria/state/edges,
+  Requirements and sufficient inline/adjacent design retain independently
+  selectable scopes/versions and sufficient direct, inherited or mixed basis.
+  Check original accepted sources, versions, applicability and actual derivation,
+  not compatibility alone. Wholly inherited content needs no new approval/acceptor;
+  mixed content needs human decisions only on new material in the full candidate
+  context. Preserve original immutable provenance without migration. Beads holds
+  ordinary goal/scope/criteria/state/edges,
   not duplicate accepted refs, identity pins or saved verification. Explicit
   verify-and-close still checks the whole feature but needs no persisted assessment.
   Ordinary parent closure instead trusts a nonempty complete set of closed direct
@@ -210,8 +215,9 @@ Bindings alone prove neither model, invocation, independence nor Advanced
 implementation. Direct authorized work does not require unused roles.
 
 Feature preparation uses early registration and one safe ID-associated copy before
-document writes. One dialogue yields two precisely accepted scopes (one explicit
-act may accept both), sufficient inline design, independent review and Git
+document writes. One dialogue yields two independently grounded scopes (direct,
+inherited or mixed; one explicit act may decide new material in both), sufficient
+inline design, independent review and Git
 publication; the same record then reaches verified decomposition and separate
 tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
 not mandatory extra steps. Preparation does not start implementation.

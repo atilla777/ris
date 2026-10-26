@@ -74,6 +74,14 @@ confirmed choice, or turn this evidence gathering into implementation design.
 
 ## Map the material requirements
 
+Use common's `published-inputs.md` sufficient-basis contract when classifying
+coverage: proven inheritance can settle a material area without a new human
+answer. Trace original accepted sources/version/applicability and actual derivation,
+not just compatibility. Ask only about remaining new/disputed material; preserve
+direct decisions and mark missing/stale/ambiguous source evidence as a dependent
+gap. A mixed handoff distinguishes inherited material from actual new decisions
+in the context of complete candidate scopes; no new acceptance registry is needed.
+
 This map and **Check and hand off** below are the single reusable project
 coverage method for direct specification and feature preparation. Consumers load
 and apply these sections to available scope, answers and evidence **before**

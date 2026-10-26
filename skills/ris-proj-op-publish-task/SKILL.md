@@ -49,8 +49,11 @@ use Task/change and retain all implementation/snapshot guards below.
   Without an ID do not require an adapter or fabricate a record/task directory.
   Supplied feature/ordinary/bug identities retain their real contracts; absent or
   malformed feature data cannot select ordinary admission.
-- **Documents (including pre-ID):** exact project-relative paths and subject/scope, separate
-  acceptance decisions for applicable accepted results, substantive checks and
+- **Documents (including pre-ID):** exact project-relative paths and subject/scope,
+  independently sufficient direct/inherited/mixed requirements/design basis under
+  common's `published-inputs.md`: original accepted sources/derivation for inherited
+  parts and actual decisions for new/direct material, not synthetic approval for
+  wholly inherited results. Require substantive checks and
   independent review of the full intended snapshot. Requirements-only publication
   requires no task ID, implementation evidence or not-yet-existing design. An
   explicitly authorized proposed document stays proposed after publication.

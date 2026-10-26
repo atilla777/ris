@@ -5,6 +5,48 @@ or other linked project evidence. The calling owner selects the material sources
 checks their substantive sufficiency/applicability and owns its result. This is
 source discovery/reading, not copy preparation, publication or content acceptance.
 
+## Sufficient requirements/design basis
+
+For requirements and design, **accepted inputs/results** mean a sufficient
+direct, inherited or mixed basis, not necessarily a new human decision for each
+result. Keep the two complete content scopes and versions independently selectable.
+For each material part distinguish:
+
+- **Directly accepted:** read the actual attributable decision for its exact
+  content scope/version under the owning acceptance protocol.
+- **Inherited:** read the exact applicable accepted sources and their original
+  decisions, then check that the material content actually follows from them.
+  Explain that derivation and applicability in the substantive requirements/design
+  scope using precise source/decision locators. Compatibility or absence of conflict
+  is insufficient: materially different allowed choices require a human decision.
+- **New/disputed:** obtain an authorized attributable decision only for those
+  material choices, in the context of the complete identified candidate. A mixed
+  result preserves inherited provenance alongside that bounded decision. One act
+  can decide new parts of both independently identified requirements/design scopes.
+
+A wholly inherited result needs no new approval, fictional acceptor or synthetic
+`decision: accepted`. Sources must themselves have a checked accepted basis; follow
+their derivation to actual original decisions as needed, without treating circular
+references, publication or an author's assertion as authority. Check content,
+source version, original acceptance and applicability to the intended target.
+Missing, stale-inapplicable, conflicting or ambiguous evidence blocks only the
+dependent scope; a stale checkout alone is not stale source authority (step 4).
+Reviewer verifies derivation, never chooses new behavior for the human. Publisher,
+execution, verification and navigation consume the same basis and retain their
+own action/check/review gates.
+
+Preserve existing direct decisions and original immutable addresses, including
+`containing-commit`; unchanged applicable content is neither reaccepted nor
+repinned. A changed result needs a fresh basis assessment, not automatically a
+new approval if its changed material is demonstrably inherited. No new schema,
+sidecar, registry or full assertion table is required; use substantive text and
+existing links. Old sufficient inputs need no marker or migration. This does not
+change Fast admission, versioned bug-history retrieval or review serialization.
+Below, separate decisions are checked **where direct acceptance is used**; for
+inherited parts check the original source decisions and derivation instead.
+
+## Discover exact sources and assess applicability
+
 1. Start from the selected project and exact tracker ID through its selected
    adapter, or an explicit document-only locator. Follow saved source/decision
    links and the checked document convention below. A mutable title is not an
@@ -128,10 +170,11 @@ Keywords: <optional comma-separated terms>
 ```
 
 Omit Keywords when unnecessary. Requirements are in spec.md; sufficient design is
-an independently selectable section there or adjacent design.md. Retain the
-existing attributable acceptance convention: each complete requirements/design
-scope has its actual content path/semantic section/version and separate decision;
-one act may explicitly accept both. No new acceptance notation is imposed.
+an independently selectable section there or adjacent design.md. Each complete
+requirements/design scope has its actual path/semantic section/version and the
+sufficient basis above. Retain actual separate decisions for direct acceptance;
+one act may explicitly decide new material in both scopes. No new acceptance
+notation is imposed.
 Resolve `containing-commit` from the original decision commit, using its immutable
 link or bounded Git history inspection if needed; copied text never renews it.
 Preserve original provenance and unchanged acceptance, not a latest-HEAD rebind.

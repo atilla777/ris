@@ -2,7 +2,7 @@
 name: ris-proj-op-design-feature
 description: >-
   Create, accept and publish a RIS feature or explicit standalone work's design from accepted
-  requirements and current architecture, obtain independent design acceptance,
+  requirements and current architecture, verify independently sufficient design basis,
   save its version and reconcile record links, or complete an explicitly
   requested document-only design without a tracker ID. Use for project feature
   design, focused redesign or bounded noninteractive save; not for choosing a
@@ -11,6 +11,9 @@ description: >-
 ---
 
 # Accept and save a feature design in a RIS project
+
+Here, accepted requirements/design means sufficient direct/inherited/mixed basis
+under common's `published-inputs.md`, not unconditional new human approval.
 
 For a confirmed feature read/apply installed `ris-proj-op-specify-feature`'s owned
 `references/stage-prerequisites.md` before dependent design work or saving.
@@ -35,7 +38,8 @@ Bounded formulation/accepted-content save may execute noninteractively in a
 subagent; require
 full exact candidate text with distinguishable version/scope, or a recipient-accessible
 file at an exact address/version, accepted requirements inputs, destination
-path/section, separate attributable design acceptance decision and permitted writes for save.
+path/section, sufficient design basis under common's `published-inputs.md`
+(sources/derivation and applicable actual decisions) and permitted writes for save.
 The caller owns that transfer. Read and validate complete content, version/scope
 and decision/provenance without foreign-chat assumptions; return incomplete,
 inaccessible, ambiguous or changed candidates before save. Do not reformulate
@@ -134,6 +138,13 @@ new approved work scope; do not mutate it as open work.
 
 ## Compose design and focused decisions
 
+Apply common's `published-inputs.md` sufficient-basis contract to requirements
+and design independently, including direct/noninteractive acceptance-and-save.
+Accepted design and separate decisions below mean direct/inherited/mixed basis:
+new human acceptance is required only for new material, not a wholly inherited
+result. Transfer/check complete candidate scopes/versions, original sources and
+derivation plus applicable actual decisions; preserve unchanged provenance.
+
 Read `references/acceptance-and-save.md` relative to this installed skill before
 presenting a candidate, selecting accepted content, acceptance or any draft/accepted
 save. If unavailable block that part.
@@ -188,7 +199,7 @@ Read `references/acceptance-and-save.md` relative to this installed skill before
 choosing the exact scope, obtaining acceptance or writing either document or
 record. It owns the version/persistence protocol, including revisions and partial
 effects; if unavailable, block that part. Prepare independent content selectors.
-Before requesting separate acceptance of a new or materially changed design,
+Before requesting acceptance of new design material not demonstrably inherited,
 explain it in plain language: essence, main flow, reused/new technologies and why,
 tradeoffs, material risks and irreversible/hard-to-reverse choices. Aim for roughly
 one screen, not a measured limit; never hide material decisions to fit it. Identify

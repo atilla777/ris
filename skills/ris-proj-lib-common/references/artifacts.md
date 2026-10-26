@@ -12,6 +12,16 @@ inspect the existing artifact, its purpose, and the authorized scope. Preserve
 valid identifiers, links, agreed constraints, and unfinished work belonging to
 another task. Do not silently replace a project document or storage protocol.
 
+For requirements/design apply common's `published-inputs.md` sufficient-basis
+contract before saving, transferring or recovering content. In this resource,
+accepted content/decision matching includes checked inherited sources/derivation;
+an actual new decision is required only for new material, not wholly inherited
+content. Preserve exact complete scopes/versions, original decisions and sources
+in the substantive artifact; no separate basis file or assertion table. In mixed
+results match the new decision to only its material scope in the full candidate
+context. On change/loss recover source derivation and original decisions first;
+only unresolved material needs a new human decision, never a fictional acceptor.
+
 When writing is permitted, capture material accepted decisions in the
 designated artifact as work progresses, then compare the result with those
 decisions before handoff. Preserve quantities, order, exclusions, and negative
@@ -37,7 +47,7 @@ optional. Preserve published versions/decisions in Git history and their origina
 immutable references; copying a decision does not renew it or rebind
 `containing-commit`. Recheck applicability of dependent accepted results when
 inputs change; unchanged compatible content retains its original acceptance,
-while materially changed content needs its own separate decision. Uncertainty
+while materially changed content needs its own sufficient basis. Uncertainty
 blocks only dependent work.
 
 If writing is not allowed, provide the draft in the response and state that it
@@ -130,15 +140,15 @@ contract explicitly names one at an authorized address. Local notes are optional
 hints, never authority or a mandatory handoff input.
 For a requirements/design candidate, the caller (the lead in a flow) conveys
 the full exact text with its distinguishable version/scope, or a file accessible
-to the recipient at an exact address/version, together with the separate
-attributable acceptance decision when saving accepted content. Requirements and
-design need independently identifiable accepted scopes. One attributable act and
+to the recipient at an exact address/version, together with its sufficient basis
+(original sources/derivation and applicable actual decisions). Requirements and
+design need independently identifiable sufficiently grounded scopes. One attributable act and
 decision address may cover both only when it explicitly identifies both complete
 content selectors/versions and acceptance of each; generic approval of one never
 accepts the other. Each receiving owner checks its own scope without re-asking
 unchanged acceptance. The recipient reads and validates complete
-content, version/scope and actual decision/provenance before dependent writes,
-then compares saved content with that accepted candidate and decision. Incomplete,
+content, version/scope and basis/provenance before dependent writes,
+then compares saved content with that candidate and its sufficient basis. Incomplete,
 inaccessible, ambiguous or changed candidates return to the caller; never infer
 foreign-chat content or reformulate accepted meaning. Optional candidate files
 need an authorized destination; no intermediate file or intermediate publication is required.

@@ -24,7 +24,9 @@ association, an actually observed conflicting writer or changed ownership during
 the operation blocks dependent mutation. Native refusal is binding; no force,
 alternate target or global lock circumvents it.
 
-Read the actual sufficient accepted own contract, separate decisions and current
+Read the actual sufficient accepted own contract, its direct/inherited/mixed basis
+under common's `published-inputs.md` (original sources/derivation and applicable
+actual decisions, no new approval for wholly inherited content) and current
 prerequisites. Ordinary children do not become features by membership. Feature
 inputs use common's document convention, without JSON gates. Native bugs use
 the adapter's full historical basis reader/locator reconciliation and immutable
