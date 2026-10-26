@@ -107,8 +107,12 @@ feature graph or specify every future feature.
 **`/risp-prepare-feature <epic or context>`**
 
 Early-register the chosen feature, prepare one safe ID-associated copy and work
-out requirements/design in one dialogue. One precise act may accept both complete
-scopes. Independently review/publish inputs, update the same ID and apply existing
+out requirements/design in one dialogue. Each distinct scope/version has sufficient
+direct/inherited/mixed basis: check original accepted sources and actual derivation,
+not mere compatibility. Wholly inherited content needs no new approval/acceptor;
+mixed content decides only new material in the full candidate context. One act
+may decide new parts of both scopes; preserve original provenance.
+Independently review/publish inputs, update the same ID and apply existing
 decomposition through verified one-task or child-task/edge coverage and separate
 tracker publication. Sufficient inline design needs no design.md. No implementation.
 The full request includes ordinary Git/tracker publication within its authority;
@@ -157,8 +161,9 @@ Does not replace technical design.
 **`/risp-design-feature <ID>`**
 
 Prepare a sufficient technical solution from accepted requirements, explain it
-in plain language and separately accept the complete candidate before accepted
-save/publication. Does not decompose or implement tasks.
+in plain language and check its independently sufficient direct/inherited/mixed
+basis before save/publication, obtaining approval only for new material in the
+complete candidate context. Does not decompose or implement tasks.
 
 ---
 

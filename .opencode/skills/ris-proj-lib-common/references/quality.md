@@ -6,6 +6,12 @@ criteria, and applicable project requirements together; no one replaces the
 others. Determine which checks fit the actual result, rather than imposing
 tests meant for another kind of change.
 
+Assess requirements/design basis under common's `published-inputs.md`: direct
+acceptance, proven inheritance or a mixture. Check actual derivation and original
+source applicability, not merely noncontradiction. Missing a new human decision
+is not a defect for wholly inherited content; unsupported material choices are.
+This assessment does not let a reviewer accept new behavior for the person.
+
 Use the least costly method that supplies sufficient evidence for the specific
 claim. Distinguish mandatory, conditionally activated and exploratory checks;
 possible experiments are not automatically a required matrix. For ordinary

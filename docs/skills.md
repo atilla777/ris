@@ -328,7 +328,12 @@ is required. Old plans remain optional history; author TDD remains required with
 a saved cycle-history audit. Review assesses the final result and current checks.
 See [integrated delivery checks](specs/local-bugfix/delivery-checks.md) for coverage
 and revision/evidence limits, rather than inferring live reliability from contracts.
-Requirements and design have separate acceptance. Task execution preserves an
+Requirements and design have independently sufficient direct/inherited/mixed
+basis under common's published-inputs owner: checked original source decisions,
+versions, applicability and actual derivation, not compatibility alone. Wholly
+inherited content needs no new approval/acceptor; mixed content needs decisions
+only on new material in the full candidate context. Preserve original provenance
+and existing inputs without schema/sidecar/registry or migration. Task execution preserves an
 explicit target; without an ID it reconciles confirmed own unfinished work before
 ready-task selection. The continuation operation recommends a next step read-only.
 

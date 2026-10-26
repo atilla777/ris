@@ -188,8 +188,10 @@ stop dependent execution, even with an existing own claim. Preserve necessary
 directed blocks and native refusal; permission to plan/decompose is not permission
 to implement.
 For feature-linked work apply common's published-inputs document convention and
-bounded legacy discovery to actual published requirements/design and separate
-attributable decisions. Missing actual accepted inputs is a preparation gap;
+bounded legacy discovery to actual published requirements/design and their
+sufficient direct/inherited/mixed basis under that resource. Check original source
+decisions/derivation for inherited parts, actual decisions for new/direct material;
+no new approval is owed for wholly inherited content. Missing sufficient basis is a preparation gap;
 missing/old/malformed JSON alone is not. No epic is fabricated for a root feature.
 Check exact versions and current applicability without repinning unchanged
 acceptance, registry writes or migration. Membership is not a `blocks` edge; evaluate parent restrictions

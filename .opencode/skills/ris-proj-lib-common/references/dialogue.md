@@ -51,8 +51,12 @@ Mark the first menu choice as recommended, with its short reason (for example,
 answer as confirmed. Use labels in the conversation's language and keep the
 format lightweight; do not restate the entire history before every question.
 
-Separate recommendations from accepted decisions. Agreement with one proposal
-does not approve other proposals. Record material decisions, open questions,
+Separate recommendations from accepted decisions. For requirements/design apply `published-inputs.md`:
+ask only about new material not demonstrably inherited from checked accepted
+sources; wholly inherited content needs no new human approval or fictional acceptor.
+In mixed content decide new material in the context of the complete candidate,
+preserving independently identifiable requirements/design scopes and provenance.
+Agreement with one proposal does not approve other proposals. Record material decisions, open questions,
 and assumptions in the calling skill's designated result when writing is
 permitted; do not invent a separate dialogue log or write outside the allowed
 area. Finish the discussion when the current task's criteria are met, rather

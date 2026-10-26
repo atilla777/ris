@@ -17,6 +17,16 @@ publish or close anything. The caller owns persistence and completion.
 
 ## Establish the subject
 
+For requirements/design accept independently sufficient direct, inherited or mixed
+basis from supplied evidence. Inherited parts need exact applicable accepted
+sources, original decisions and a checked explanation showing actual derivation;
+mere compatibility cannot choose among materially different allowed variants.
+Wholly inherited content needs no new approval/acceptor; mixed content needs
+actual decisions only on new material in its full candidate context. Preserve
+original immutable provenance and independent scopes/versions. Below, separate
+decision checks apply to direct parts or original source decisions for inherited
+parts. Missing/stale/ambiguous evidence leaves only dependent claims unverified.
+
 Require the bounded feature identity, complete current accepted criteria and
 exclusions, independently accepted requirements/design references and their separate
 decision addresses, applicable contracts/rules, the concrete integrated revision and evidence
@@ -24,13 +34,14 @@ of its integration, related source baselines/current sources, and available chec
 Use explicit paths/addresses; do not infer acceptance from file presence or a
 task's status. A minimal accepted design may simply preserve existing contracts.
 No new design file or criterion numbering scheme is required by this method.
-For Git inputs each accepted reference identifies its repository/project-relative
+For Git inputs each content/source reference identifies its repository/project-relative
 path, full immutable published revision, whole file or an unambiguous semantic
-section, and its own immutable published acceptance address. Read that decision
+section. For direct/new decisions and original inherited-source decisions require
+the original immutable published acceptance address. Read that decision
 and confirm it names this accepted path/section/revision and an authorized
 acceptor. If its content revision is `containing-commit`, resolve it to the full
 decision commit only when the content is in that same commit. Requirements and
-design need separate identifiable decisions even if sharing a file/commit.
+design need independently identifiable basis even if sharing a file/commit.
 Equivalent explicit immutable references are usable outside Git; no RIS payload,
 scope digest, heading/EOF byte protocol or tracker history is required. Former
 digest-only payloads presented as current references are historical/unsupported:
@@ -44,7 +55,7 @@ the integrated tree using diff plus semantic section review, and check its
 separate decision. Identical paths/section labels or stored references alone do
 not establish content applicability. Unrelated changes elsewhere in a shared
 file do not invalidate an unchanged accepted result; material requirements or
-design changes require their owner's decision, not repinning the old acceptance.
+design changes require their own sufficient basis, not repinning the old acceptance.
 Confirm publication of Git content/decisions and integrated SHA from remote-backed
 evidence when assessing a published result. Preserve the exact accepted refs in
 the assessment. If using a

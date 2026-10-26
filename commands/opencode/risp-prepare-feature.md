@@ -7,5 +7,7 @@ for the request below, including early same-ID registration/copy, permissions,
 independent review and stopping point. Without arguments establish the feature or
 epic/context scope as needed. Keep human decisions in one dialogue; complete the
 existing decomposition method and separate tracker publication, not implementation.
+Use sufficient direct/inherited/mixed requirements/design basis: check actual
+derivation, ask only about new material, and preserve original provenance.
 
 $ARGUMENTS

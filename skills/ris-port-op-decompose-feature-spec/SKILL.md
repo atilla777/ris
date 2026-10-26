@@ -21,6 +21,17 @@ links. Do not turn a proposed task into a saved or accepted one.
 
 ## Establish the inputs
 
+Requirements and design may each have a sufficient direct, inherited or mixed
+basis. Direct parts need actual exact-scope/version decisions; inherited parts
+need supplied exact accepted sources, original decisions, applicability and an
+explanation showing that they follow. Compatibility alone cannot choose among
+materially different allowed variants. Wholly inherited content needs no new
+approval/acceptor; mixed content needs decisions only for new material in its
+complete candidate context. Preserve independently selectable requirements/design
+scopes and original provenance; missing/stale/ambiguous evidence blocks dependent
+units only. The acceptance evidence below means this sufficient basis, not an
+unconditional new decision. No project discovery, registry or schema is required.
+
 Identify the feature goal, boundary, specification/version and its known
 acceptance status, observable criteria, constraints and exclusions, existing
 verified work if supplied, and the requested level of decomposition. Retain

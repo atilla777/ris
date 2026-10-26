@@ -26,6 +26,16 @@ from the implementation itself or turn missing mandatory evidence into a pass.
 Record actual reviewer/context provenance: self-review provides findings but
 cannot satisfy a required independent gate. The caller owns that gate and launch.
 
+For requirements/design distinguish direct, inherited and mixed basis. Read exact
+source content, original acceptance, versions and applicability; verify the claimed
+derivation. Noncontradiction alone cannot justify choosing among materially
+different allowed variants. Wholly inherited content needs no new human approval
+or fictional acceptor. Mixed content needs actual decisions only for new material
+in the context of the complete identified candidate, with independently traceable
+requirements/design scopes and unchanged original provenance. Missing, stale or
+ambiguous source authority leaves dependent claims unverified. Review never
+accepts new behavior for the person and imposes no project registry/schema.
+
 ## Conditional snapshot resource
 
 Read `references/publication-snapshot.md` from **this installed folder** before

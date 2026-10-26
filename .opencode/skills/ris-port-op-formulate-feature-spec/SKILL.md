@@ -46,6 +46,17 @@ or invent requirements to fill empty sections.
 
 ## Formulate and check
 
+Track material content as directly accepted, demonstrably inherited from supplied
+accepted sources, or new/disputed. For inheritance check source content, original
+acceptance, exact version and applicability, and explain why the result follows.
+Mere compatibility is not derivation: materially different allowed choices remain
+proposals for an authorized decision. Wholly inherited content needs no new human
+approval or invented acceptor; mixed content needs a decision only on new material
+in the full candidate context. Preserve original provenance and distinguishable
+requirements/design scopes/versions. Missing/stale/ambiguous sources limit only
+dependent conclusions. Return traceable basis, not project acceptance or a new
+required schema/table; no project discovery or persistence method is imported.
+
 1. Relate the feature to the supplied goal and scope. State what is included,
    what is explicitly excluded, and what is still undecided. Keep actors,
    preconditions and important existing behavior traceable to the inputs.

@@ -115,13 +115,15 @@ Use native exact task/optional epic/children/blocker reads and supported child/e
 operations without feature JSON capabilities. Apply common's published-inputs
 feature convention and bounded legacy discovery. New documents use
 `sources.specs/<full feature ID>/spec.md` with sufficient inline or adjacent design;
-no slug pin or accepted-ref registry. Read both actual accepted content scopes and
-their separate attributable decisions at exact published versions. Match path,
-section, revision and acceptor; resolve `containing-commit` at its original decision,
-not a later copy. Confirm content and decisions are published in the selected remote.
-One decision may explicitly accept both independently selectable complete scopes;
-a file/commit alone cannot. Missing actual requirements or sufficient independently
-accepted design blocks dependent decomposition. Missing/old/malformed JSON alone
+no slug pin or accepted-ref registry. Apply common's `published-inputs.md`
+sufficient direct/inherited/mixed basis to both independently selectable content
+scopes at exact published versions. Check original source decisions and actual
+derivation for inherited parts, and actual decisions only for new/direct parts;
+do not invent a new approval for wholly inherited results. Match path/section/
+version and applicable decision provenance; resolve `containing-commit` at the
+original decision, not a later copy. Confirm required content, sources and decisions
+are published in the selected remote. Missing sufficient requirements/design basis
+blocks dependent decomposition. Missing/old/malformed JSON alone
 never does. Preserve legacy data/links; no schema gate, replacement block, migration
 or invented epic. Identity conflicts trigger bounded wider discovery, not global
 registry scans on every invocation.

@@ -54,7 +54,12 @@ Omitted brief fields are unknown, not empty. Inspect composition and typed direc
 edges (including closed records) when they can change the recommendation;
 membership is not a blocker. When the inference depends on accepted inputs,
 read their content/decisions and compare applicability. Status, a file or
-publication does not establish acceptance.
+publication does not establish acceptance. For requirements/design use common's
+`published-inputs.md` sufficient direct/inherited/mixed basis: original accepted
+sources plus derivation can satisfy a scope without new human approval. Missing
+actual derivation or new-material decisions, not an absent synthetic acceptor,
+determines the necessary continuation. Keep requirements/design independently
+identifiable and original provenance unchanged.
 Preserve feature vs explicit ordinary standalone kind; unsupported/historical/
 malformed input is a diagnostic, never an implicit migration or invented epic.
 
@@ -127,7 +132,7 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    clarification. Unknown copy facts remain an exact evidence gap, not a claim
    that no copy exists. Read only the fitting preparation/spec/design owner's
    actual contract; recommend an explicitly limited result, not run-task readiness
-   from ID existence. Missing actual design acceptance is a gap, not merely
+   from ID existence. Missing sufficient design basis is a gap, not merely
    missing design.md; an accepted nonoverlapping inline section is valid.
    Missing/old/malformed JSON alone is no blocker; preserve old data without migration.
    For an existing feature distinguish, where material: accepted requirements

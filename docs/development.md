@@ -78,8 +78,9 @@ inspection does not establish live recovery behavior. Eligible Fast owes no abse
 inapplicable review, but known adverse findings and changed risks remain material.
 
 Feature preparation follows the current [SDLC methodology](product/08-sdlc-methodology.md):
-early same-ID registration/copy, one requirements/design dialogue and precise
-acceptance of both scopes (one act allowed), independent review/Git, same-ID
+early same-ID registration/copy, one requirements/design dialogue and
+sufficient direct/inherited/mixed basis of both scopes (new decisions only on new
+material; one act allowed), independent review/Git, same-ID
 ordinary record and existing full decomposition with separate tracker publication. Internal
 executors are optional; independent review is actually separate. Sufficient inline
 design needs no design.md. Direct component operations remain available. This does
@@ -96,7 +97,11 @@ There is no feature JSON, duplicate accepted refs/readiness or mandatory saved
 verification. New feature
 documents use configured `sources.specs/<full feature ID>/spec.md`, readable H1
 then column-zero Feature-ID/Summary/optional Keywords; design is inline or adjacent.
-Actual scope/version acceptance and original containing-commit provenance remain.
+Independent scope/version basis and original containing-commit provenance remain.
+The common published-inputs owner checks original accepted sources, applicability
+and actual derivation, not mere compatibility; wholly inherited results need no
+new approval/acceptor. Mixed results retain source provenance and decide only new
+material in the full candidate context. No schema/sidecar/assertion registry is added.
 Legacy links/payload hints locate real documents, without schema gates, migration
 or title-derived paths. Missing/old/malformed JSON alone is not a blocker. Ordinary,
 document-only and bug subjects keep their paths/contracts. Bugfix uses the

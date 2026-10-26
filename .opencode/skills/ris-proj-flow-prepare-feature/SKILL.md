@@ -144,6 +144,13 @@ No mandatory transition journal, intermediate commit or draft file is introduced
 
 ## One requirements and design dialogue
 
+Apply common's `published-inputs.md` sufficient direct/inherited/mixed basis to
+requirements and design independently. This flow consumes that owner's discovery,
+version, original-decision, derivation and applicability checks; it does not
+redefine them. Inherited content needs no new human approval or invented acceptor.
+Only remaining new material choices need actual decisions in the full candidate
+context. Preserve original immutable provenance in direct and nested calls.
+
 Apply `ris-proj-op-interview-feature`'s **Map the material requirements** and
 **Check and hand off** to known answers, relevant product/rules and actual sources.
 This is coverage, not a mandatory interview or separate report. Use its conditional
@@ -152,7 +159,7 @@ to formulate/check the full requirements candidate, including observable `AC-nnn
 and `ris-port-op-design-feature` to develop/check sufficient design against those
 requirements, actual code/architecture and related contracts. Design may be proposed
 against explicitly proposed requirements while exploring; it cannot be saved as
-accepted until those requirements and the design are both actually accepted.
+accepted until requirements and design each have that sufficient basis.
 Resolve interdependent functional/technical choices in **this one dialogue**;
 reuse known answers, investigate factual questions and ask only material gaps.
 Use the existing focused technical interview method if genuinely needed, not a
@@ -166,32 +173,34 @@ not ceremony. Prefer a sufficient design as its own unambiguous section in
 `spec.md`, with nonoverlapping requirements/design selectors. Use `design.md` when
 separation is useful or appending to already accepted whole-file requirements
 would change their scope. Absence of design.md is not a gap; insufficient design
-or missing actual design acceptance is. Ordinary specs are not OKF bundles.
+or missing sufficient design basis is. Ordinary specs are not OKF bundles.
 
-Before acceptance show both **complete, distinguishable versions/scopes**, accessible
+Before deciding new material show both **complete, distinguishable versions/scopes**, accessible
 inline or at checked exact addresses. Explain design essence/flow, reused/new
 technologies and why, tradeoffs, material risks and hard-to-reverse choices in
 plain language; a short complete design can itself suffice. A summary never
 accepts unseen content. Optional full draft storage needs explicit path/write
 authority and the design owner's draft branch; it is not accepted save/publication.
 
-One explicit human act may accept **both** requirements and design only when it
-identifies both exact content selectors/versions and the authorized acceptor's
-decision/provenance. Keep two independently identifiable accepted results even
-if their immutable decision address is shared. Requirements acceptance alone
+One explicit human act may decide new material in **both** requirements and design
+when it identifies both exact complete content selectors/versions and the new
+material accepted, with authorized acceptor provenance. Keep two independently
+identifiable sufficiently grounded results even if a decision address is shared.
+Wholly inherited scopes skip new human approval. Requirements acceptance alone
 does not accept design. Apply the specify/design owners' installed
 `references/acceptance-and-save.md` for their respective scope; each verifies its
-own complete candidate and actual decision, without demanding a second answer
+own complete candidate and sufficient basis, without demanding a second answer
 merely because it is called separately. No new acceptance schema/file is required.
 
 Apply `ris-proj-op-specify-feature` and `ris-proj-op-design-feature` as **explicitly
 limited accepted-local-save contributions** for their document scopes, no record
 refs or duplicate Git/tracker publication. For design use its document-only local
-accepted-input branch with the verified local accepted requirements/decision;
+accepted-input branch with the verified local requirements basis;
 the known ID remains the copy/review association, not a demand for already
 published requirements. Pass the same checked copy, exact destinations, complete
-accepted text/version/selectors, both attributable decisions and write authority.
-Check content/decision read-back and preserved sections. Missing/changed/ambiguous
+sufficiently grounded text/version/selectors, original sources/derivation and
+applicable actual decisions plus write authority. Check basis/content read-back
+and preserved sections. Missing/changed/ambiguous
 inputs return here, never guessed acceptance or reformulation during save.
 These local-only limits are internal contributions, not limits on the full
 request. After checking both saves, the lead continues immediately to independent
@@ -200,7 +209,7 @@ or preserved documents into whole-flow completion; missing authority requires
 the concrete decision question, and technical failure the exact blocker.
 
 On revision preserve published pins and original decision addresses. Briefly
-identify material replacement and obtain acceptance only for changed scope.
+identify material replacement and assess its basis; obtain decisions only for new material.
 Requirements changes require design-owner applicability review; compatible
 unchanged design keeps its acceptance. Uncertain applicability blocks dependent
 work, not independent analysis; unchanged compatible content is not reaccepted
@@ -217,7 +226,7 @@ applies. Apply its installed `references/report-format.md`: one full local YAML,
 explicit round, separate validity and external snapshot/input/check/provenance
 applicability, no fallback past later adverse/unknown rounds. Review is not human
 acceptance. Return high/medium findings to content owners, repair/check, obtain
-targeted acceptance only for changed meaning and fresh independent review.
+targeted decisions only for new material and fresh independent review.
 Use the machine verdict under that owner: applicable independent `approved`
 proceeds, `changes_required` repairs/re-reviews, `blocked` or missing/invalid/
 unsupported/inapplicable evidence stops dependent progression without a repair

@@ -33,6 +33,17 @@ independent analysis and identify the exact evidence/decision needed.
 
 ## Develop and check sufficient design
 
+For each material choice distinguish direct acceptance, inheritance from supplied
+accepted requirements/architecture/contracts, and new/disputed decisions. Check
+source content, original acceptance, version and applicability; explain actual
+derivation, not just compatibility. If materially different allowed designs remain,
+the choice is new, not inherited. Wholly inherited design needs no new approval
+or fictional acceptor; a mixed design needs a decision only on new material in
+the full candidate context. Keep requirements/design scopes and original provenance
+independently traceable. Missing/stale/ambiguous source evidence blocks dependent
+claims, not useful analysis. Return that basis without approving or persisting
+the proposal and without a required schema or assertion table.
+
 1. Map the bounded behavior and AC to current flows and existing interfaces or
    analogues; inspect relevant code and tests, not the entire codebase. Prefer
    reuse before introducing abstractions. Identify facts with paths/symbols and
@@ -84,7 +95,7 @@ reused and new technologies and why, tradeoffs, material risks and irreversible
 or hard-to-reverse choices. Aim for roughly one screen as a readability guideline,
 not a measured limit; never omit material decisions to fit it. Identify the exact
 complete candidate version/scope and provide its full text for the caller's
-separate acceptance discussion. The explanation supplements, not replaces, the
+basis verification and any necessary new-material decisions. The explanation supplements, not replaces, the
 full technical proposal below. A short full design can itself supply this readable
 explanation without a duplicate summary. For a long design, optional Markdown
 draft storage belongs to an authorized caller/writer at an explicitly agreed

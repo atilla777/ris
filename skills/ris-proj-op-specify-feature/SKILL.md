@@ -12,6 +12,9 @@ description: >-
 
 # Specify a selected feature in a RIS project
 
+Here, accepted requirements means sufficient direct/inherited/mixed basis under
+common's `published-inputs.md`, not unconditional new human approval.
+
 For requirements work on a confirmed feature, read/apply this skill's owned
 `references/stage-prerequisites.md` before the dependent action, independently
 of native blocks. Early registration still needs no spec/design/AC and reuses
@@ -36,8 +39,9 @@ In a scenario, interview, discussion and separate acceptance stay in the leading
 dialogue; bounded formulation and save may run noninteractively in a subagent.
 For save, the caller supplies the full exact candidate text and distinguishable
 version/scope, or a recipient-accessible file at an exact address/version, its
-exact destination path/section, separate attributable requirements acceptance
-decision and write scope as inputs.
+exact destination path/section, sufficient requirements basis under common's
+`published-inputs.md` (sources/derivation and applicable actual decisions) and
+write scope as inputs.
 Read and validate complete content, version/scope and decision/provenance yourself;
 never infer acceptance from a caller's "done" or access to foreign chat. Return
 incomplete, inaccessible, ambiguous or changed candidates to the caller before save.
@@ -146,6 +150,13 @@ published-reference gates below. No second "ready" feature or second copy.
 
 ## Compose one content and acceptance dialogue
 
+Apply common's `published-inputs.md` sufficient-basis contract to this result,
+including direct and bounded noninteractive saves. Accepted requirements below
+may be directly accepted, inherited or mixed. Transfer/check exact complete
+candidate scopes/versions plus original sources/derivation and only applicable
+actual decisions, not an unconditional new approval. Persist that basis in the
+substantive scope; this wrapper does not create a basis registry.
+
 Read `references/acceptance-and-save.md` relative to this installed skill before
 selecting the accepted section, accepting or saving. If unavailable block that
 part. It defines candidate identity, independently accepted scopes (including a
@@ -186,19 +197,14 @@ full feature ID qualifier `<ID>#AC-nnn` for new features. Reused decisions with 
 have unconfirmed applicability; changed linked behavior needs focused impact
 resolution, not a silent edit of product or all existing feature documents.
 
-Show the **specific proposed content** and material open questions to the
-person or the acceptance authority defined by this project's rules. Obtain and
-verify acceptance of **this version and scope** by that mechanism *before*
-writing to the agreed accepted-spec path; a generic request, approval of an
-earlier version or a successful format check is insufficient. If acceptance
-occurs in the current dialogue, establish how the decision and version will be
-recoverable to a later recipient, with a precise accessible address under the
-project's rules. If no project mechanism or durable verifiable address for the
-decision is available, do not record accepted requirements refs. This does not
-prohibit the explicitly limited early registration above. Never manufacture
-an acceptance record or treat an unaccepted candidate as the accepted file.
-After a material change to accepted content, obtain acceptance of the changed
-version again; do not silently append requirements during formatting.
+Before saving, check the sufficient basis for the **complete exact candidate**.
+Wholly inherited requirements require no new human approval or acceptor. For
+mixed/new content show the full candidate and ask the authorized person only
+about new material choices; record their actual bounded decision with recoverable
+scope/version/provenance. Generic action authority or formatting success is not
+that decision. Missing derivation/source authority or necessary new decisions
+blocks only dependent saving; early registration remains available. On material
+change assess the basis again; do not silently add a choice while formatting.
 
 Apply the resource's content/decision matching checks. A later design decision never substitutes for
 the requirements decision. Reuse acceptance of unchanged content after checking
