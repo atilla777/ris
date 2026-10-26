@@ -40,24 +40,34 @@ sources:
 workspace:
   tasks: .sdlc/tasks/
   worktrees: .sdlc/worktrees/
+workflows:
+  prepare_feature:
+    auto_accept: true
 ```
 
-With a selected project config, use its values except for these two leaf defaults:
+With a selected project config, use its values except for these leaf defaults:
 an omitted `workspace.tasks` is `.sdlc/tasks/`, and an omitted
 `workspace.worktrees` is `.sdlc/worktrees/`, also when `workspace` itself is absent.
 An explicit valid leaf overrides only that leaf; directory presence never chooses
-settings. This is not general config merging: do not supplement `sources.*`,
+settings. An omitted `workflows.prepare_feature.auto_accept` defaults to boolean
+`true`, including when `workflows` or `prepare_feature` is absent. This applies
+to existing v2 configs without migration. This is not general config merging: do not supplement `sources.*`,
 adapters or execution roles. Validate all present fields before applying defaults;
 null, empty or wrong-type workspace values are errors, not omissions.
 Require `version: 2`
 (an integer, not a boolean). Optional sections `sources`, `workspace`,
-`adapters`, `adapters.tasks`, `execution`, `execution.roles` and each
+`adapters`, `adapters.tasks`, `workflows`, `workflows.prepare_feature`, `execution`, `execution.roles` and each
 `execution.roles.<role>` must be mappings when present. Allowed leaf
 settings: `sources.rules`, `sources.product`, `sources.specs`,
 `workspace.tasks`, `workspace.worktrees` (each a nonempty path string), and
 `adapters.tasks.skill` (a nonempty skill-name string) plus optional
 `adapters.tasks.options` (a mapping of adapter-owned data). The only other
-top-level key is optional `execution`; within it only `roles` is allowed.
+top-level keys are optional `workflows` and `execution`. Within `workflows` allow
+only `prepare_feature`, and within it only `auto_accept`: strictly a YAML boolean
+`true` or `false`, never strings (including `"true"`), null, numbers, lists or
+mappings. Empty mappings at either parent mean omission; null/wrong-type parents
+are errors. Unknown workflow keys are errors even for callers not using them.
+Within `execution` only `roles` is allowed.
 Within `roles`, each nonempty, non-whitespace role identifier maps to a
 record with exactly one allowed key, `agent`, whose value is a nonempty,
 non-whitespace string naming a project-provided OpenCode subagent. The caller
@@ -81,7 +91,16 @@ the intended author-owned product source, set `version: 2`, replace
 all existing fields, links and consumers. Do not assume the old concepts
 directory contains product knowledge or rename it automatically. An absent
 root config selects the full v2 package defaults; a selected valid file gets only
-the two workspace leaf defaults described above.
+the workspace leaves and auto_accept default described above.
+
+Return the requested workflow value with explicit-config path/key/version or
+package-default provenance (distinguish absent optional root from omitted leaf
+in a selected valid config). Validate the whole selected config first: any invalid
+present field prevents automatic continuation, never a fallback to `true`.
+Context prepares this setting only; only `ris-proj-flow-prepare-feature` may use
+it to determine separate requirements/design acceptance modes. It grants no
+auto acceptance to direct specify/design calls or other workflows and no action
+authority, substantive answers, review approval, implementation or closure.
 
 ## Permissions, result, and stopping conditions
 

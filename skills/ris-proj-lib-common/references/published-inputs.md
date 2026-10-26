@@ -24,8 +24,9 @@ source discovery/reading, not copy preparation, publication or content acceptanc
    fetching missing objects or creating a copy requires the applicable permission.
    Do not silently fetch in a zero-persistent-change navigation operation. Report
    the missing object/access permission precisely if no permitted read route works.
-3. Check the actual decision's content selector/version, acceptor and scope using
-   the owner's acceptance protocol. Resolve decision-only `containing-commit`
+3. Check the actual decision's content selector/version, acceptance basis and scope using
+    the owner's acceptance protocol (actual acceptor for human decisions; checked
+    policy provenance below for policy acceptance). Resolve decision-only `containing-commit`
     from its original immutable address, never from a later copy. Requirements and
     design may share a decision address only when that act explicitly accepts both
     independently identifiable content selectors/versions; check each entry rather
@@ -59,8 +60,8 @@ results; that rule must not become a manual handoff requirement after completion
 Consumers reuse already read exact content in the same context; they do not
 repeat source discovery merely for an internal boundary. After context loss,
 recover only missing facts through these sources and their owners. A lost
-acceptance decision is sought at its original address; if unavailable, return
-only that missing material scope for a new human decision with actual provenance,
+acceptance decision is sought at its original address; if unavailable, recover
+the actual basis below or return only that missing material scope for a new decision with actual provenance,
 not a fabricated historical acceptance or reacceptance of unchanged known scopes.
 For versioned bug inputs the adapter owns complete historical retrieval and
 short-locator reconciliation; this reading method does not copy that algorithm.
@@ -68,6 +69,47 @@ For lost checks/review and confirmed publication/closure use artifacts' recovery
 rules and the affected owner. Reading a source does not prove any of those effects.
 
 ## Feature documents, not a tracker registry
+
+### Policy acceptance inside feature preparation
+
+Only an authorized `ris-proj-flow-prepare-feature` contribution can establish
+policy acceptance under checked `workflows.prepare_feature.auto_accept: true`
+(explicit or package default), separately for requirements and design. A direct
+operation cannot infer it from config, a caller's success token or file presence.
+An explicit human request to approve either scope disables policy acceptance for
+that scope only; `false` keeps both manual. Material unresolved choices/conflicts
+still require human answers: policy eliminates formal confirmation, not interview.
+
+Producers retain the recoverable basis in the existing authorized document or
+decision section, not a sidecar, registry, new state file or tracker duplicate:
+exact complete content paths/sections/versions, a distinct policy-acceptance
+decision, checked setting/value and its provenance (selected config immutable
+revision/path/key or precise package-default rule/version and why default applied),
+attributable authorized prepare request/project/feature/session context and its
+explicit limits/overrides, and the acting author. For an absent optional root or
+omitted leaf, retain that checked fact; today's config alone is not historical
+evidence. Preserve enough request/override context in that document to recover
+the basis without the original chat. Local versions/immutable refs may be pending
+before publication, then resolve at the original decision commit as usual.
+
+Policy acceptance is neither human approval nor proof that content follows from
+accepted sources (inheritance). Never invent a human acceptor or label independent
+choices inherited. Existing direct acceptance remains valid unchanged. Any actual
+inherited/mixed basis supported by the integrated contracts retains its own source
+proof; this policy does not implement or require future inheritance work.
+
+Save owners, reviewer, publisher, decomposition, execution/implementation,
+verification and navigation consumers read the complete scopes and this saved
+basis just as they check other permitted acceptance. Check flow-only origin,
+setting/default validity at the time, scope-specific overrides, sufficiency,
+exact versions and current applicability; do not demand a nonexistent human
+approval merely because the basis is policy. Review never supplies acceptance.
+On repair, reassess changed scopes with their effective mode, record their new
+exact basis and retain unchanged original provenance. New material uncertainty
+returns to the human. On resume recover actual decisions/settings/limits and
+effects; do not retroactively create historical acceptance from current defaults.
+If the basis cannot be recovered, block the dependent action and obtain only the
+missing decision under a currently authorized route, honestly as a new decision.
 
 For a confirmed feature, new documents live at
 `sources.specs/<full feature ID>/spec.md` (default specs root `docs/specs/`).
