@@ -1,5 +1,5 @@
 ---
-description: Execute or resume one simple assigned request through independent review and verified direct publication.
+description: Execute or resume one bounded request or idea with conditional review and verified Git, local or mixed results.
 ---
 
 Load `ris-proj-flow-execute-simple-task` with the skill tool and follow its

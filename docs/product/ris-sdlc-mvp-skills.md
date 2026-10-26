@@ -175,14 +175,17 @@ AC-001–016 приёмка на итоговой ревизии ещё треб
 Исходник `ris-proj-flow-execute-simple-task` и `/risp-run-simple-task` интегрированы
 в `3e3d21d743fddef1ffd9b2da91942c0cabc1fb03` по [D2](../specs/fast-task-execution/design.md).
 Интеграция исходников не подтверждает обнаружение команды конкретным клиентом
-или поведение агента. Этот маршрут добавляет к полному маршруту fast-only путь:
-без обязательных подготовительных документов и файлов plan/log/review; основной
-агент применяет владельцев, отдельный `task-review` фактически ревьюит независимо.
-Собственная ветка и выделенный worktree обязательны; тот же preparer безопасно
-переиспользует подтверждённую копию между этапами/сессиями, без разработки в source folder.
-Проверки соразмерны с сохранением обязательных проектных проверок/TDD; краткий
-Beads-учёт в RIS обязателен. Full flow, прямой plan-task, feature/bug/TDD-контракты
-сохраняются. Детали исключения — в [01](01-architecture.md#адресное-исключение-простой-порученный-результат)
+или поведение агента. Нынешний scope по [ris-ci3.1 S1/D1](../specs/ris-ci3.1/spec.md)
+сохраняет тот же Fast для явного/естественного bounded поручения или идеи: один
+основной агент, default ноль субагентов, без обязательных подготовительных документов
+и plan/log/review-файлов. Допуск по последствиям/границам/проверяемости, не размеру;
+без product-logic/architecture/material-contract изменений и coordinated outcomes.
+Review условно по явному запросу, обязательной target policy или конкретному
+существенному риску; активный reviewer реально независим. Versioned — одна own
+branch/worktree с reuse, local-only — actual targets без фиктивной copy/SHA/push,
+mixed — обе проверенные части. Mandatory checks/TDD и краткий Beads в RIS сохранены.
+Full/feature/bug/direct-review gates не ослабляются; исторический plan-task не
+возвращается как действующая операция. Детали — в [01](01-architecture.md#адресное-исключение-простой-порученный-результат)
 и [08](08-sdlc-methodology.md). Исторические delivery-таблицы ниже не меняются.
 
 ### Локальная ретроспектива — исходники и исторические пределы
@@ -230,8 +233,9 @@ push не выполнен. Итоговое полное дерево ожид�
 ## 2. Роли и зависимости
 
 Текущий execution full/fast после task close/publication применяет общий
-`ris-proj-flow-execute-task/references/ancestor-completion.md`: один свежий
-`container-completion` субагент (init рекомендует `standard`) закрывает подходящих
+`ris-proj-flow-execute-task/references/ancestor-completion.md`: full/bug — один свежий
+`container-completion` субагент (init рекомендует `standard`), Fast — основной агент
+inline без обязательного субагента/роли. Исполнитель закрывает подходящих
 реальных предков через existing exact-container owner и отдельно подтверждает
 публикацию. Остановка на первом незавершённом/заблокированном родителе; explicit
 limits и leaf completion сохраняются. Bugfix наследует этот tail, direct

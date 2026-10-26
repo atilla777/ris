@@ -78,8 +78,9 @@ authorized task. `skill` authors autonomous source, without selecting the RIS
 author or installing it. Empty inputs, permissions, recovery and stopping points
 remain those of each linked owner. No aliases are shipped.
 
-`run-simple-task` executes only already assigned clear bounded work, with an
-optional existing ID; empty input asks for the request, never chooses the queue.
+`run-simple-task` executes/resumes one bounded request or idea, with optional ID;
+a suitable natural request can select the same Fast without knowing the command.
+Empty input asks for work, never chooses the queue.
 It adds one entry under the [D2 menu amendment](specs/compact-commands/spec.md#8-поправка-fast-task-execution-d2--один-новый-вход).
 
 `/ris-help` immediately displays fixed daily Markdown on empty/simple input,
@@ -178,7 +179,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-op-implement-task-tdd](../skills/ris-proj-op-implement-task-tdd/SKILL.md) | Claim-aware implementation with mandatory TDD |
 | [ris-proj-op-review-task](../skills/ris-proj-op-review-task/SKILL.md) | Checked project-change review with or without ID; one compact local ris.review/2 YAML (existing /1 continued conditionally), with explicit fast no-file exception |
 | [ris-proj-op-update-documentation](../skills/ris-proj-op-update-documentation/SKILL.md) | Authorized documentation synchronization |
-| [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Reviewed change or pre-ID document integration/push from an own branch; confirmed remote Git and optional safe primary-copy maintenance are separate results |
+| [ris-proj-op-publish-task](../skills/ris-proj-op-publish-task/SKILL.md) | Checked change or pre-ID document integration/push from an own branch/worktree; independent review except verified eligible Fast, remote Git and optional safe primary maintenance are separate results |
 | [ris-proj-op-complete-container](../skills/ris-proj-op-complete-container/SKILL.md) | Ordinary close/eligibility from closed direct children, explicit substantive verification, or administrative close |
 | [ris-proj-op-retrospect-session](../skills/ris-proj-op-retrospect-session/SKILL.md) | Selected OpenCode history plus project evidence |
 | [ris-proj-op-manage-okf-bundle](../skills/ris-proj-op-manage-okf-bundle/SKILL.md) | Explicit project/root/scope OKF operation |
@@ -188,7 +189,7 @@ checks its inputs. A missing slash facade does not remove the operation.
 | [ris-proj-flow-initialize-project](../skills/ris-proj-flow-initialize-project/SKILL.md) | Agreed checked local RIS setup, one dialogue, delegated document owners and separately offered publication |
 | [ris-proj-flow-prepare-feature](../skills/ris-proj-flow-prepare-feature/SKILL.md) | Early same-ID/copy, unified requirements/design dialogue, precise acceptance, independent review/Git and verified decomposition/tracker publication |
 | [ris-proj-flow-execute-task](../skills/ris-proj-flow-execute-task/SKILL.md) | One task's fresh run or safe resume through separate publications |
-| [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One clear assigned request, optional ID, proportionate checks, independent subagent review and verified direct push; separate tracker completion when used |
+| [ris-proj-flow-execute-simple-task](../skills/ris-proj-flow-execute-simple-task/SKILL.md) | One bounded request/idea, explicit or natural selection, one main agent/default zero subagents, conditional review, verified Git/local/mixed results and separate tracked completion |
 | [ris-proj-flow-fix-bug](../skills/ris-proj-flow-fix-bug/SKILL.md) | Exact native bug admission, necessary separately accepted design, reproducible versioned inputs and complete existing execution route |
 
 ## Shared instructions and adapters
@@ -264,20 +265,31 @@ ordinary content reconciliation and applies the existing full decomposition meth
 session or an executor. Inline sufficient design is a distinct accepted spec section;
 design.md/ADR are conditional. Independent review remains a separate context.
 
-For simple assigned work, `run-simple-task` judges clarity, consequences and
-checkability rather than diff size. The main agent applies portable implementation
-(`standard|tdd` as required), documentation and the existing publisher; only
-`task-review` must actually launch independently. No mandatory plan/log/review files
-by default: sufficient evidence stays in the session, plus short tracker accounting
-when used. RIS explicitly keeps mandatory short Beads accounting. Existing IDs
-retain type, accepted inputs, ownership, composition and blocker gates. A verified
-own branch in a suitable current copy is allowed; isolation/rules activate existing
-worktree owners. Material decisions stop dependent work for targeted acceptance;
-resume reconciles actual effects and repeats missing/inapplicable independent review.
-PR-only, forbidden push or missing mandatory checks/review block publication.
-This fast-only review-file exception preserves full task/bug/feature and TDD
-contracts; verified Git, result persistence, exact close and tracker publication
-remain separate effects.
+Fast admits one small, understood, local-consequence and checkable request/idea,
+not product-logic/architecture/material shared-contract changes, coordinated
+independent outcomes or broad/unknown effects. Judge consequences/boundaries/checks,
+not diff size or extension: code/config/docs/tools/versioned/ignored/external can
+qualify. Resolve minor ambiguity here; agree only necessary expansion, not a full
+SDLC restart. The main agent applies existing owners (`standard|tdd` as required),
+default zero subagents, without mandatory preparation/plan/log/handoff/review files.
+Self-check and mandatory checks/TDD remain. Independent review is required by explicit
+request, mandatory applicable target-project policy or concretely explained material
+risk, not code/external location/Git push alone. General RIS review wording does not
+override this exception; inactive review loads no role/format and needs no skip report
+or fictional approval. Required `task-review` is actually independent; high/medium need
+repair/checks/applicable reassessment. Unavailable required review blocks dependent gates.
+RIS keeps short Beads accounting; existing IDs retain native kind, inputs, claim,
+composition/blockers, never feature/bug/container downgrade. Versioned edits require
+one own branch/dedicated worktree through existing preparers with reuse, not source-folder
+development. Local-only uses actual authorized targets without empty copy/dummy Git;
+mixed preserves/checks both parts and shared resources separately. Git retains
+outgoing/integration/non-force/remote gates; local-only completion needs no Git SHA,
+no-change verifies existing state without empty commit/push. Result/exact close/Dolt
+remain separate; local files are not pushed by Dolt. Fast ascends actual parents inline,
+full/bug retains fresh delegation. Resume reconciles real effects using the same ID/copy,
+does not replay confirmed push/close or require absent inapplicable review; changed
+subjects get affected self-check/risk assessment and independent review when required.
+Full/feature/bug/direct-review/non-Fast publisher gates remain unchanged.
 
 Portable operations take supplied inputs; project operations add the applicable
 context, rules, paths and persistence. The RIS skill author composes the portable
@@ -342,14 +354,16 @@ inherently required; project-required tracking still applies. Ordinary project
 review saves one local `review.yaml` under the [format owner](../skills/ris-proj-op-review-task/references/report-format.md),
 with complete rounds, exact Git subject and actual independence provenance.
 No-ID save needs an explicit local path. Beads keeps only address/round, not copied
-verdict/findings; another machine is not promised access. Explicit fast permits
+verdict/findings; another machine is not promised access. Eligible Fast review is
+conditional as above; when active it permits
 sufficient independent session-only review; optional save uses the same format.
 Review uses the portable assessment method; actual independence belongs to its
 caller. Structural validity is separate from current subject/input/check approval
 applicability; later adverse/unknown rounds cannot be bypassed by old approval.
-Publication requires independent review of the complete snapshot, an already
-prepared own branch and a safe copy (current copy where suitable, separate worktree
-when isolation/rules require), whole outgoing authority and remote confirmation.
+Publication requires independent review of the complete snapshot except the publisher's
+verified eligible Fast no-review branch; arbitrary caller waiver and direct publication
+do not disable review. Versioned work always needs an already prepared own branch and
+dedicated worktree, whole outgoing authority and remote confirmation.
 The ordinary Beads task may preserve the accepted self-contained request instead
 of artificial specification links; supplied feature/bug contracts remain strict.
 

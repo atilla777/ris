@@ -228,7 +228,8 @@ Assess a concrete complete change and return findings. Does not repair or publis
 Ordinary project review saves one local `review.yaml`: new files use ris.review/2;
 existing /1 files continue unchanged under the format owner's conditional contract,
 without migration. No-ID saving needs an explicit path. Beads stores address/round
-only, not verdict/findings. Fast permits session-only independent review; optional
+only, not verdict/findings. Fast review is conditional as below; active review permits
+session-only independent evidence, and optional
 save follows the same new/existing-file schema rule. The single format owner is
 `ris-proj-op-review-task/references/report-format.md`.
 Valid YAML alone is not approval of the current snapshot and provenance.
@@ -275,12 +276,36 @@ standing shared-history policy or explicit authority, without automatic policy c
 
 **`/risp-run-simple-task <request>`**
 
-Execute clear bounded assigned work: own branch, proportionate checks, independent
-review and Git; separate tracker result/completion/publication when used. Then the
-same permitted ancestor tail runs in fresh `container-completion` context; no
-parent means no launch. No repeated child acceptance. No
-mandatory plan/log/review files by default; mandatory project rules and TDD remain.
-Not queue selection or a bypass for an unprepared feature/bug.
+Execute/resume one small, locally bounded, understood and checkable request or idea;
+a suitable natural request selects this same Fast without the command. Judge
+consequences/boundaries/checks, not file type/diff size or an operation allowlist:
+code/config/docs/tools/versioned/ignored/external can qualify. No product-logic,
+architecture/material-contract changes, coordinated independent outcomes, broad/unknown
+effects or insufficient checks. Resolve minor ambiguity here; agree only necessary
+expansion, not automatic full SDLC restart. Empty input asks for work, not queue choice.
+Existing feature/bug/container obligations remain, never downgraded to fit Fast.
+
+One main agent, default zero subagents; no mandatory preparation/plan/handoff/log/review
+files. Mandatory self-check/checks/TDD remain. Independent review only for explicit
+request, mandatory applicable target-project policy or concretely explained material
+risk; code, external location and Git push alone are not triggers. General RIS review
+wording does not cancel this exception. Inactive review loads no role/format or skip
+report; active review is really independent, high/medium need repair/checks/reassessment,
+unavailable required review blocks dependent gates. No fictional approval.
+
+Versioned edits use one own branch/dedicated worktree with reuse, never source-folder
+development. Local-only changes authorized actual targets without empty copy/dummy SHA/
+push; mixed preserves/checks both channels and shared-resource conflicts separately.
+Git retains outgoing/integration/non-force/remote gates; no-change checks needed existing
+state without empty commit/push. Local-only needs useful checked effects and honest
+availability limits, not Git SHA; partial mixed is unfinished. Separate tracker result,
+exact close/read-back and publication when used (short Beads mandatory in RIS); Dolt
+does not publish local files. Eligible ancestors close inline through the existing
+owner, without mandatory `container-completion` role/subagent; no parent is no-op.
+Full/bug retains fresh delegation and independent review; direct review is unchanged.
+Resume reuses ID/copy/foreign work, reconciles uncertain effects and never replays
+confirmed push/close or owes absent inapplicable review. Changed subjects get affected
+self-check/risk reassessment and independent reassessment when required.
 
 *Choose the whole workflow OR individual operations — not both. Listed stages
 are not extra mandatory calls on top of the workflow.*

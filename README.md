@@ -94,9 +94,10 @@ own snapshot, provenance and scope.
   children and checks parent blockers, without recursive acceptance/Git/review
   reconstruction. Closure-eligibility questions use those same reads without writes;
    zero-child features retain own-result verification. After confirmed task close
-   and tracker publication, full/simple execution (including bugfix via full)
+   and tracker publication, full execution (including bugfix via full)
    delegates the actual ancestor chain to one fresh `container-completion` subagent
-   (`standard` recommendation), closing eligible parents with separate publication.
+   (`standard` recommendation); Fast applies the same tail inline in the main agent,
+   without a mandatory closure role/subagent. Both close eligible parents with separate publication.
    It stops at the first unfinished/blocked parent; explicit limits win. Leaf
    completion and failed/unverified cascade effects are reported separately.
    Direct status/verification/container-close calls do not cascade. See the
@@ -116,11 +117,12 @@ own snapshot, provenance and scope.
   guarded session reassignment without another takeover question or proof the
   previous session ended. Reuse its verified worktree/branch and preserve changes;
   old actor/lease alone neither blocks that request nor authorizes unrequested work.
-  Lost review is restored exactly or replaced by honest new independent current
+  Lost required review is restored exactly or replaced by honest new independent current
   review; lost reproducible affected checks are rerun, and only lost acceptance
   scope needs a new human decision if the original cannot be found. None proves
   historical pass or requires replaying confirmed push/close. No handoff file,
-  registry or transition log is required. See the
+  registry or transition log is required. Eligible Fast never owes absent,
+  inapplicable review; known adverse findings remain. See the
   [execution contract](skills/ris-proj-flow-execute-task/SKILL.md).
 - **Evidence:** source/static checks establish instruction structure and consistency;
   actually executed program checks establish only their tested mechanisms/versions.
@@ -177,7 +179,7 @@ a slash command can be loaded directly by their exact technical skill name. Exam
 | Prepare a feature through one requirements/design dialogue and verified decomposition | `/risp-prepare-feature <ID, epic or context>` |
 | Independently decompose or resume decomposition of accepted published inputs | `/risp-decompose-feature <ID>` |
 | Execute or resume one project task | `/risp-run-task <ID>` |
-| Execute or resume one clear, already assigned simple request | `/risp-run-simple-task <request and optional ID>` |
+| Execute or resume one bounded request or idea (also selectable naturally) | `/risp-run-simple-task <request and optional ID>` |
 | See the complete unclosed plan and one next action | `/risp-status` or `/risp-status <ID>` |
 | Find the next step for selected work | `/risp-next <ID>` |
 
@@ -247,25 +249,46 @@ never writes or launches work, and does not certify readiness.
 Actual task continuation remains `/risp-next`, actual plan/status `/risp-status`.
 Package availability is not proof that the current client has discovered the command.
 
-Simple-task execution uses a clear bounded request without mandatory interview,
-spec/design, decomposition, plan or report files. The main agent implements and
-publishes through existing owners; a separate independent subagent reviews, with
-high/medium repair and re-review. It requires its own branch and dedicated worktree
-through the same preparation owner as full task, feature and bug work; reuse that
-copy across stages/sessions. The ordinary source folder is never a development
-workspace or a branch-return target. All versioned writes, including documents,
+Fast executes one small, understood, locally bounded and checkable request or idea,
+selected explicitly or by a suitable natural request. Judge consequences/boundaries/
+checks, not extension, diff size or an operation allowlist: code, config, docs, tools,
+versioned/ignored project parts and explicitly selected external files can qualify.
+Product-logic, architecture or material shared/public-contract changes, coordinated
+independent outcomes, broad/unknown consequences or insufficient verification do not.
+Resolve minor ambiguity here; agree only necessary expansion, never restart all SDLC
+automatically or downgrade existing feature/bug/container obligations.
+One main agent applies existing owners, **zero subagents by default**, without
+mandatory interview/spec/design/decomposition/plan/handoff/report files.
+Self-check and mandatory checks/TDD remain. Independent review is required only for
+an explicit request, mandatory applicable target-project policy or concretely explained
+material risk; code, external location and Git push alone are not triggers. General
+RIS review wording does not cancel this narrow exception. Inactive review loads no
+role/format and needs no skip report or fictional approval. Active review is actually
+independent; high/medium findings require repair/checks and applicable reassessment.
+Unavailable required review blocks dependent gates. A changed subject gets affected
+self-check and renewed admission/risk assessment, plus independent reassessment when required.
+For versioned edits, one own branch and dedicated worktree through the same preparer
+as full/feature/bug are mandatory; reuse the copy across stages/sessions.
+The ordinary source folder is never a development workspace or branch-return target.
+All versioned writes, including documents,
 `AGENTS.md` and `ris.yaml`, follow this rule. Installation/update keep their explicit
 target without Git; agreed pre-Git bootstrap permits local writes, but subsequent
 edits after a usable Git repository exists need a worktree and never automatically
 transfer dirty files.
 Busy/foreign/dirty copies remain protected; skipped/failed
 local updating neither invalidates remote Git nor blocks close/Dolt, and never
-calls for repeating a confirmed push. Checks are
-proportionate and mandatory project checks/TDD still apply. A supplied ID keeps
+calls for repeating a confirmed push. Ignored/external-only work changes its authorized
+actual effective targets, without an empty worktree, inert config replica or dummy Git.
+Mixed uses the own copy for versioned edits and actual local targets; shared resources
+and Beads are not isolated by the worktree and need separate conflict/preservation checks.
+A supplied ID keeps
 its real contract; mandatory project accounting creates/reconciles a short task
 (**Beads remains mandatory in RIS**). Empty input asks for work, never selects a
-queue item. Direct push requires rights, checks, independent review and remote
-confirmation; tracker result, exact close and publication are separate effects.
+queue item. Git-only retains outgoing/integration/non-force/remote confirmation
+and applicable review; local-only needs verified useful actual-target effects, no Git SHA,
+with honest availability/portability limits. Mixed requires both parts; no-change checks
+the required existing state without empty commit/push. Tracker result, exact close/read-back
+and Dolt publication remain separate; Dolt does not publish local files.
 Full task/bug execution likewise needs no saved plan or implementation report;
 its safe-copy, TDD, ordinary YAML review and publication/completion gates remain.
 
@@ -364,7 +387,8 @@ consumer/config changes, see the [namespace transition guide](docs/skill-command
 
 Ordinary project review saves one local `review.yaml` using
 [ris.review/2](skills/ris-proj-op-review-task/references/report-format.md); Beads
-keeps only its address/round. Fast retains independent session-only review, with
+keeps only its address/round. Fast review is conditional as above; when active it permits
+sufficient independent session-only evidence, with
 the same schema selection for optional saves. Existing /1 files continue under
 conditional compatibility without migration. Compact rounds keep new findings
 and dispositions instead of repeating prior findings or six coverage mappings.

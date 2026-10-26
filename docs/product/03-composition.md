@@ -213,8 +213,10 @@ ris-proj-lib-common → собственные тематические доку
 доказывает модель, запуск, независимость или использование Advanced для реализации;
 новые роли и изменения пользовательских bindings не следуют из выбора делегирования.
 Это не отменяет контракты владельцев, quality/file/copy/publication gates конкретного
-flow. В явно выбранном fast tracker/worktree/recovery-ресурсы читаются лишь при своих
-условиях, не вместе с ресурсами полного task flow.
+flow. В явно или естественно выбранном Fast tracker/worktree/recovery читаются лишь
+при своих условиях, не вместе с полным task flow. Default — один основной агент,
+ноль субагентов; review-role/format только при активной required-review ветке по
+[07](07-quality-and-verification.md), общий ancestor tail — inline, full/bug — fresh recipient.
 
 `ris-proj-flow-prepare-feature` применяет существующих владельцев в своём контексте либо делегирует ограниченный вклад без обязательного исполнителя каждого действия. Роли требуются только фактическому делегированию, независимое ревью реально выполняется отдельно. Один диалог сочетает interview/spec/design; один акт допустим для двух точных accepted scopes. После Git и сверки той же ordinary записи flow применяет полную existing decomposition, в своей сессии или исполнителе, и отдельно публикует трекер. Предметные методы не копируются; прямые specify/design/decompose не запускают друг друга. Это не меняет init, full execute или fast file contracts.
 

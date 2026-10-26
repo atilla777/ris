@@ -158,6 +158,22 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    capability gap and responsible decision needed. Do not invent a skill, alias,
    ref or long workaround performing the missing responsibility.
 
+For a next bounded ordinary result, consider the existing
+`ris-proj-flow-execute-simple-task` contract, explicitly or naturally selected:
+one small, local-consequence, understood and checkable request/idea, without
+product-logic, architecture or material shared/public-contract changes. Judge
+consequences and checks, not file type/diff size; code/config/docs/tools and
+versioned/ignored/external targets can qualify. Coordinated independent outcomes,
+broad/unknown consequences or insufficient checks do not. Do not downgrade an
+existing feature/bug/container or replace a proven ongoing full flow with Fast.
+Read the fitting installed owner as reference data, not a new dispatch table.
+Its default is one main agent/no subagents, mandatory self-check and conditional
+review (explicit request, mandatory target policy or concretely explained material
+risk), Git/local/mixed/no-change as applicable, Fast inline ancestor tail.
+Do not invent missing review/Git SHA debt for a local-only or no-review result;
+actual required evidence, known adverse findings and unfinished channels remain.
+Recommend only; admission, rights and current gates stay with that executing owner.
+
 Partial publication and interrupted/unknown effects are not new work. Recommend
 the corresponding owner reconcile its actual channel before retry; never blind
 create/push from an old flag. Known IDs/publications and unchanged decisions

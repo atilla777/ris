@@ -42,8 +42,8 @@ Existing /1 files continue conditionally without migration. New compact rounds
 use assessment, new findings and dispositions; no six fixed coverage mappings or
 repeated per-check tree. Machine approved/changes_required/blocked distinguishes
 proceed/repair/stop; invalid/unsupported/missing evidence is never a repair loop.
-Beads stores only address/round, not verdict/findings. Fast retains session-only
-independent review; optional save uses the same format. YAML parsing checks syntax,
+Beads stores only address/round, not verdict/findings. Fast review is conditional
+as below; active review permits session-only evidence, optional save uses the same format. YAML parsing checks syntax,
 not schema/approval: assess final subject, inputs, checks and actual independence
 separately. The owner documents the bundled read-only Python validator, its
 explicit venv dependency installation, CLI and distinct format/setup outcomes.
@@ -71,10 +71,11 @@ from project+ID and Git/config/tracker sources. Flows select the first missing o
 inapplicable result; context/copy/Git/history/guards/sandbox/Dolt algorithms and
 uncertain-effect reconciliation stay with their infrastructure owners. There is
 no receipt envelope, registry or transition journal. Missing review/check/acceptance
-never creates historical pass: restore exact evidence or obtain honest current
+never creates historical pass: restore required exact evidence or obtain honest current
 review/affected checks/only the lost human scope. Confirmed pushes and closed
 statuses are reused, not replayed. These are instruction contracts; static
-inspection does not establish live recovery behavior.
+inspection does not establish live recovery behavior. Eligible Fast owes no absent
+inapplicable review, but known adverse findings and changed risks remain material.
 
 Feature preparation follows the current [SDLC methodology](product/08-sdlc-methodology.md):
 early same-ID registration/copy, one requirements/design dialogue and precise
@@ -126,24 +127,36 @@ See [the read/action comparison and check limits](specs/worktree-preparation-sim
 Those historical checks remain tied to `d8c5bac6164eeb559d07e987f42c12467141477a`;
 this guide does not establish new live behavior or regrade the historical report.
 
-Only explicitly selected [simple-task execution](../skills/ris-proj-flow-execute-simple-task/SKILL.md)
-uses the rules' fast exception: no mandatory plan, implementation/execution log or
-review files; sufficient evidence stays in the session. **Short Beads accounting
-remains mandatory in RIS**, with existing-ID/type, identity, claim, composition and
-blocker checks. The main agent applies existing implementation/publication owners;
-`task-review` must actually launch as an independent subagent. A dedicated
-worktree on a verified own branch is required through the same preparer
-as full/feature/bug work. Reuse it across stages/sessions; the ordinary source
-folder is never a development workspace or branch-return target. All versioned
-documents/config/AGENTS writes follow this rule. Installation/update use their
-explicit target without Git, and agreed pre-Git bootstrap permits local writes;
-once a usable Git repository exists, further edits need a worktree without
-transferring dirty files.
-Checks remain proportionate and project-mandatory checks/TDD apply.
-Full task/bug/feature execution and the TDD operation retain their substantive
-gates without plan/implementation-report persistence. Result/Git SHA persistence, exact close and Dolt publication
-remain separate checked effects. Historical bases: [accepted D2](specs/fast-task-execution/design.md)
-and [ris-ppw S1/D1](specs/ris-ppw/spec.md), not alternate current algorithms.
+Explicitly or naturally selected [Fast](../skills/ris-proj-flow-execute-simple-task/SKILL.md)
+uses the [accepted ris-ci3.1 S1/D1](specs/ris-ci3.1/spec.md) boundary: one small,
+locally bounded, understood and checkable request/idea, without product-logic,
+architecture or material shared/public-contract changes. Code/config/docs/tools/
+ignored/external can qualify by consequences/checks, not extension/diff size.
+Coordinated independent outcomes, broad/unknown consequences or insufficient checks
+need targeted scope agreement, not automatic SDLC restart. Empty input asks for work.
+One main agent, default zero subagents; no mandatory preparation/plan/handoff/log/
+review files. **Short Beads accounting remains mandatory in RIS**, with same-ID/native
+kind, claim/composition/blocker guards and no feature/bug/container downgrade.
+Self-check and mandatory checks/TDD remain. Independent review is required by explicit
+request, mandatory applicable target-project policy or concretely explained material
+risk, not code/external location/Git push alone. General RIS review wording does not
+cancel this exception. Inactive review loads no role/format and needs no skip report;
+active `task-review` must actually be independent, with high/medium repair and applicable
+new consideration. Unavailable mandatory review blocks dependent gates. Changed snapshots
+get affected self-check and renewed admission/risk assessment, plus independent review when required.
+Versioned edits need one own branch/dedicated worktree through the existing preparer,
+reused across stages/sessions; the source folder is never a development or branch-return
+target. Local-only instead changes authorized actual targets without empty copy/dummy
+SHA/push. Mixed preserves both boundaries, foreign data and shared-resource conflict checks.
+Git-only retains outgoing/integration/non-force/remote gates; no-change verifies the
+necessary existing state without empty commit/push. Local-only completion needs useful
+actual-target evidence/availability limits, not Git SHA; mixed requires both parts.
+Result, exact close/read-back and Dolt publication stay separate; Dolt does not publish
+local files. Full/feature/bug/direct-review and non-Fast publisher gates remain unchanged.
+Installation/update and agreed pre-Git bootstrap keep their explicit-target exceptions;
+later versioned edits require worktree-first without dirty-file transfer. Historical
+[D2](specs/fast-task-execution/design.md) and [ris-ppw](specs/ris-ppw/spec.md) decisions
+retain their original versions, not alternate current algorithms.
 
 Ordinary container closure trusts a nonempty complete direct-child set (all
 `closed`) and checks parent blockers, without recursive delivery/acceptance audits.
@@ -151,9 +164,10 @@ Closure-feasibility questions use the same reads without writing. Explicit
 verify/verify-and-close remains substantive; zero-child features retain own-result
 verification. See the [current container rules](rules/development.md#отдельные-намерения-для-контейнера).
 
-After verified task close and tracker publication, full/simple execution delegates
+After verified task close and tracker publication, full execution (including bugfix) delegates
 the eligible ancestor chain to one fresh `container-completion` subagent (RIS:
-`standard`). The shared [flow tail](../skills/ris-proj-flow-execute-task/references/ancestor-completion.md)
+`standard`); Fast runs the same ascent inline in the main agent, with no mandatory
+closure role/subagent. The shared [flow tail](../skills/ris-proj-flow-execute-task/references/ancestor-completion.md)
 uses the existing exact-container owner at each level, confirms tracker publication,
 and stops at the first unfinished/blocked parent. Explicit restrictions win;
 no-parent is a no-op. Leaf completion survives cascade failure, whose remaining
@@ -177,7 +191,8 @@ native JSON remains a fallback; do not use the failing Go-template projections.
 Git publication uses native fetch/push `--quiet`; Dolt publication uses
 fetch/push `--silent` for progress. Preserve stderr, exit status and verified
 results without a mandatory new log. Git whole-outgoing-history checks, exact
-reviewed-tree publication and independent remote read-back remain required. Dolt
+whole-candidate publication and independent remote read-back remain required;
+review follows the narrow Fast exception above, otherwise remains independent. Dolt
 uses authorized shared-main scope, ordinary non-force publication and fresh remote
 revision/reachability assurance, with local exact-content checks kept separate.
 See the [Beads adapter](../skills/ris-proj-adapter-beads-tasks/SKILL.md) and

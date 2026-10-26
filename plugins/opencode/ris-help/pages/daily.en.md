@@ -42,7 +42,15 @@ task: the choice may differ from status. Blocked selected own work stops the flo
 With ID the target stays fixed; a container is not replaced by a child, and a
 multi-task container is not executed as a leaf task.
 
-**`/risp-run-simple-task <request>`** — execute a clear, bounded assigned change.
+**`/risp-run-simple-task <request or ID>`** — Fast: one small, bounded, checkable
+request/idea; a suitable natural request selects the same route. Code/config/docs/
+tools/local files may qualify; no product-logic/architecture/material-contract
+changes, coordinated outcomes or broad/unknown effects. Empty input asks for work.
+One main agent, no subagents by default; self-check/TDD remain. Review only for an
+explicit request, mandatory target policy or concrete material risk, not code/Git alone.
+Versioned edits use an own branch/worktree; local-only uses actual targets without
+dummy Git, mixed checks both. Separate tracker completion/publication when used
+(short Beads accounting mandatory in RIS); eligible ancestors close inline, not via a mandatory subagent.
 
 *Choose the whole workflow OR its individual stages — not both.*
 

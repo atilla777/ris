@@ -242,11 +242,15 @@ any child-level need with its exact ID; never silently substitute a child subjec
 5. Before presenting a slash prompt, verify the **actual installed command template**,
    its explicit owner target, client availability and required ID/locator/arguments.
    The continuation owner performs this check; inspect its evidence in the combined
-   result. Source-only `/risp-status`, a future `/risp-run-simple-task` or a skill name
+   result. A source-only command template or a technical skill name
    is not an installed command. Missing command blocks the slash form: say which is
    missing. An exact natural-language prompt is permissible only for an actually
    available compatible owner, with the slash gap explicit, never as an absent-owner
-   workaround or invented authority.
+   workaround or invented authority. A bounded ordinary request may fit the same
+   Fast owner via explicit `/risp-run-simple-task` or natural selection, subject to
+   continuation's inspected contract; no new dispatcher or readiness assertion.
+   Never impose full-task review/Git-only/delegated-ancestor obligations on an
+   eligible Fast recommendation or downgrade feature/bug/container work to fit it.
 6. Fresh-read the candidate and material membership/blocker/evidence facts before
    finalizing. Reconsider affected conclusions after concurrent change; if its new
    status changes selection, reconsider the affected candidate ordering. Do not claim

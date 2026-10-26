@@ -194,12 +194,23 @@ completion and tracker publication, or exact preserved remainder.
 Example: `/risp-run-task <ID>, actor <actor>`.
 
 ### ris-proj-flow-execute-simple-task
-[Owner](../../ris-proj-flow-execute-simple-task/SKILL.md). Purpose: clear assigned work.
-Choose when: bounded request with proportionate checks, not unassigned queue work.
+[Owner](../../ris-proj-flow-execute-simple-task/SKILL.md). Purpose: complete one bounded request/idea.
+Choose when: explicit or suitable natural request; small, locally bounded, understood,
+checkable work, not product-logic/architecture/material-contract changes, coordinated
+independent outcomes, broad/unknown effects or queue selection. File type/diff size
+is not the admission test; code/config/docs/tools/ignored/external can qualify.
 Inputs: project, attributable request/criteria, optional real ID, constraints/rights.
-Result/stop: dedicated-worktree implementation, independent review, verified direct Git;
-separate tracker result/close/publication when used. Mandatory project rules/TDD
-remain; no mandatory plan/log/review files by default, short Beads required in RIS.
+Result/stop: one main agent/default zero subagents, mandatory self-check/checks/TDD;
+independent review only for explicit request, mandatory target policy or explained
+material risk, not code/Git alone. Inactive review loads no role/format/skip report;
+active review is really independent with finding/repair gates, no mandatory YAML.
+Versioned edits use one own branch/worktree with reuse; local-only actual targets
+need no dummy Git, mixed checks both. Git/local/no-change outcomes and separate
+tracker result/exact close/publication when used, short Beads mandatory in RIS.
+Fast ancestor tail runs inline, full/bug delegation unchanged. No mandatory preparation/
+plan/log/handoff/review files; no feature/bug/container downgrade. Empty asks for work.
+Resume reconciles actual effects with same ID/copy and no confirmed push/close replay;
+absent inapplicable review is not debt. Scope expansion is targeted, not SDLC restart.
 Example: `/risp-run-simple-task correct the documented flag in <file>; check links`.
 
 ### ris-proj-op-prepare-task-worktree
@@ -233,7 +244,7 @@ Choose when: independent review/re-review, not repair or acceptance of design.
 Inputs: project, optional ID, full concrete snapshot, criteria and review purpose.
 Result/stop: one local review.yaml with compact ris.review/2 rounds (existing /1
 continues under conditional compatibility without migration); no-ID save
-needs an explicit path. Fast alone permits sufficient session-only review; optional
+needs an explicit path. Fast review is conditional; when active it permits sufficient session-only evidence, optional
 save uses the same format. Format validity is not approval applicability.
 Self-review does not supply independent publication approval.
 Example: `/risp-review-task <ID>, full candidate <snapshot>`.
@@ -243,6 +254,10 @@ Example: `/risp-review-task <ID>, full candidate <snapshot>`.
 Choose when: independently reviewed task/change or pre-ID documents need integration.
 Inputs: project, confirmed own branch/dedicated worktree, complete approved snapshot and check/
 independence evidence, destination and whole-outgoing direct-push authority.
+Only verified eligible Fast can supply its narrow no-required-review basis instead
+of independent approval; arbitrary waiver/direct documents/full/feature/bug cannot.
+Changed not-required Fast snapshots get affected self-check and renewed admission/risk
+assessment, not fictional independent approval; required review gets reassessment.
 Result/stop: integrated reviewed commit and fresh remote confirmation, remote-only
 without local authority; an explicit request or applicable accepted project policy
 permits separate safe FF, no branch switching. Caller checks/forwards actual policy

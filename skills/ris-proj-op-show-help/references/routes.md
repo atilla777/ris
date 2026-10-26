@@ -65,7 +65,7 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   publish inputs, update the same ID and verify decomposition/tracker publication.
   `/risp-decompose-feature <ID>` remains useful independently or on resume when
   accepted published inputs already exist; it is not mandatory after prepare.
-  If it might instead be an already assigned clear fix, clarify that distinction,
+  If it might instead be a bounded ordinary request/idea, clarify that distinction,
   or conditionally mention `/risp-run-simple-task <bounded request>`; do not
   demand the full SDLC for every simple change.
 - `prepare-feature` vs `specify-feature`: the former owns the combined preparation
@@ -105,16 +105,32 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
   completion and tracker publication. An explicit ID is the sole target; no ID
   reconciles own unfinished work before ready-task selection. A multi-task
   container is not executed as one leaf.
-- `run-simple-task` executes a clear already assigned request, optional ID, not
-  queue selection. No mandatory interview/spec/design/decomposition/plan or report
-  files by default; actual project rules and required TDD remain. RIS itself
-  requires short Beads accounting. Own branch, real independent review, verified
-  direct Git publication and separate tracker effects remain. Existing feature/
-  bug IDs retain their contracts; fast is no escape from required preparation.
+- `run-simple-task` is the same Fast for explicit or suitable natural requests/ideas,
+  optional ID, never empty-input queue choice. Admit one small, local-consequence,
+  understood and checkable task without product-logic/architecture/material shared-
+  contract changes, coordinated independent outcomes, broad/unknown effects or
+  insufficient verification. Code/config/docs/tools/versioned/ignored/external may
+  qualify by consequences/checks, not extension/diff size or an operation allowlist.
+  Resolve minor ambiguity here; agree only necessary expansion, not full SDLC restart.
+  One main agent/default zero subagents; no mandatory preparation/plan/handoff/log/
+  review files. Self-check and mandatory checks/TDD remain. Review only for explicit
+  request, mandatory applicable target-project policy or concretely explained material
+  risk, not code/external location/Git alone. General RIS wording does not override
+  this exception. Inactive review loads no role/format/skip report; required review
+  is actually independent, with repair/reassessment for high/medium and no unavailable
+  mandatory-review bypass. Versioned — one own branch/worktree with reuse, local-only
+  — actual targets/no dummy Git SHA, mixed — both checked channels and shared-resource
+  protection. Git gates and separate tracker result/exact close/Dolt remain; short
+  Beads in RIS is mandatory. Fast ancestors run inline, full/bug retain fresh delegation.
+  Resume reconciles actual effects, never replays confirmed push/close or requires
+  absent inapplicable review; changed risks can activate review or scope decisions.
+  Feature/bug/container obligations cannot be downgraded to fit Fast.
 - `implement-task-tdd` stops at checked code/tests/authorized docs, not independent
   approval or publication. `review-task` returns findings, does not repair or
-  publish. `publish-task` requires independently reviewed whole-snapshot inputs
+  publish. Direct `publish-task` requires independently reviewed whole-snapshot inputs
   and stops at verified Git, not task closure, tracker push or parent acceptance.
+  Only a verified eligible Fast invocation can use its conditional-review branch,
+  not arbitrary caller waiver; full/feature/bug/direct-review gates stay unchanged.
 
 ## Bug
 
