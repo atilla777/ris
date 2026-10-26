@@ -20,6 +20,9 @@ No adapter or execution role is required unless task reads are actually needed.
 For requirements/design claims consume common's `published-inputs.md` sufficient
 direct/inherited/mixed basis, preserving original source decisions and checking
 derivation/applicability instead of requiring new approval for inherited content.
+Also consume common's valid saved prepare policy basis with its original exact
+scope/config/default/overrides, without inventing human approval or originating
+automatic acceptance during documentation synchronization.
 Before versioned Git-project edits validate the supplied dedicated worktree and
 own association through common's worktree-first rule. Reuse the prepared copy;
 this owner does not create/switch branches or edit the ordinary source checkout.

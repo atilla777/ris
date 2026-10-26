@@ -10,6 +10,18 @@ actual candidate decisions are required only for new material or existing direct
 acceptance; inherited parts use original accepted source decisions and derivation.
 Do not require a new requirements decision/acceptor for wholly inherited content.
 
+For an explicitly identified internal `ris-proj-flow-prepare-feature` save, also
+apply common's **Policy acceptance inside feature preparation**. Read the complete
+candidate and checked policy decision with the flow request, effective scope mode,
+config/default provenance and overrides; verify sufficient answers and no unresolved
+material choices. Save that exact basis in the existing document/decision section,
+without human acceptor or inherited label. This branch skips full-text chat
+presentation and formal confirmation, including policy-mode review corrections;
+it does not skip content checks, independent review, copy or publication gates.
+The human-decision instructions below apply where human acceptance is actually
+used. A direct invocation cannot originate policy acceptance from config, but
+may consume an already valid saved policy basis unchanged under common's rules.
+
 ## Identify content and its sufficient basis
 
 Use project-relative `path` and `section: null` for a whole file or an unambiguous

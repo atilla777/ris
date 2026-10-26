@@ -22,6 +22,23 @@ RIS — набор готовых скиллов для AI-агентов, по�
 реестра/schema/sidecar/таблицы утверждений; Fast, bug historical basis и review
 serialization не меняются. Операционный project owner — common published-inputs.
 
+По [ris-ekg S1/D1](../specs/ris-ekg/spec.md) только полный prepare также допускает
+policy-принятие требований/дизайна: `workflows.prepare_feature.auto_accept` — strict
+boolean, default `true` при пропуске leaf/parents/optional root, `false` оставляет
+обычное согласование; invalid config не даёт fallback. Просьба явно согласовать
+названную область возвращает подтверждение только для неё. Содержательные вопросы
+всё ещё решает человек; формальный approval после достаточных ответов не нужен.
+Полные auto-тексты сохраняются в документах, в чате — краткий итог/ссылки без
+промежуточного формального ответа. Direct specify/design не включают auto от config.
+Policy basis по [product 06 §4](../product/06-artifacts-and-handoff.md#4-сохранение-согласованных-решений)
+проверяется producers/reviewer/publisher/decomposition/downstream наравне с другими
+допустимыми основаниями: exact scopes/versions, историческая настройка/default,
+поручение и overrides. Это не human approval или inheritance; новые существенные
+неопределённости возвращаются человеку, repair/resume сохраняют исходную provenance.
+Нового файла/schema/реестра нет; copy/claim/check/review/Git/Beads/Dolt gates и конец
+prepare без реализации/закрытия не ослабляются. Упоминания принятия ниже включают
+это допустимое basis, но не распространяют auto на другие операции.
+
 Проверенный remote Git-результат завершён
 независимо от локального обновления. Занятая/небезопасная основная копия остаётся
 нетронутой и не блокирует отдельные exact close/Dolt. Обязательное по применимой

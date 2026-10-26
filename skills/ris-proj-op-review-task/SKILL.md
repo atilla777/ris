@@ -56,9 +56,12 @@ For requirements/design apply common's `published-inputs.md` sufficient-basis
 contract to each independently selectable scope/version, including document-only
 review. Verify inherited derivation and original source authority/applicability;
 mere compatibility cannot decide materially different allowed choices. New
-material needs actual bounded human decisions in the full candidate context;
+material needs actual bounded human decisions in the full candidate context
+unless its resolved candidate has common's valid scoped prepare policy basis;
 wholly inherited content needs no new approval/acceptor. Review cannot supply
-that human choice. Keep the existing report format and independent whole-tree gate.
+that human choice. Verify policy origin/config/default/overrides and exact scope
+under common, without claiming human approval or inheritance. Keep the existing
+report format and independent whole-tree gate.
 
 For an active Fast local-only review, inspect exact actual authorized targets and
 useful effects, before/after state or accessible equivalent and current checks,

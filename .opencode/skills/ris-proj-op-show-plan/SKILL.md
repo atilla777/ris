@@ -176,7 +176,9 @@ Use a compact localized form such as:
   present, acceptance unverified; acceptance checked against exact version and
   sufficient direct/inherited/mixed basis under common's `published-inputs.md`;
   original sources/derivation may establish inherited content without new human
-  approval. Do not recommend reacceptance merely for an absent synthetic decision;
+  approval. Common's valid saved prepare policy basis also qualifies; check its
+  original scope/config/default/overrides without inventing human approval or
+  originating auto acceptance here. Do not recommend reacceptance merely for an absent synthetic decision;
   missing/stale/ambiguous authority or a new material choice remains a gap.
   Other evidence states are checked absent or unknown. Include explicitly confirmed early root features without
   inventing an epic or JSON: show actual missing documents/decisions as unfinished

@@ -13,7 +13,9 @@ description: >-
 # Accept and save a feature design in a RIS project
 
 Here, accepted requirements/design means sufficient direct/inherited/mixed basis
-under common's `published-inputs.md`, not unconditional new human approval.
+under common's `published-inputs.md`, not unconditional new human approval. Its
+scoped policy basis is also valid for authorized internal prepare contributions;
+a direct call never activates it merely from `auto_accept` config.
 
 For a confirmed feature read/apply installed `ris-proj-op-specify-feature`'s owned
 `references/stage-prerequisites.md` before dependent design work or saving.
@@ -141,7 +143,7 @@ new approved work scope; do not mutate it as open work.
 Apply common's `published-inputs.md` sufficient-basis contract to requirements
 and design independently, including direct/noninteractive acceptance-and-save.
 Accepted design and separate decisions below mean direct/inherited/mixed basis:
-new human acceptance is required only for new material, not a wholly inherited
+outside the verified internal prepare policy branch, new human acceptance is required only for new material, not a wholly inherited
 result. Transfer/check complete candidate scopes/versions, original sources and
 derivation plus applicable actual decisions; preserve unchanged provenance.
 
@@ -199,7 +201,8 @@ Read `references/acceptance-and-save.md` relative to this installed skill before
 choosing the exact scope, obtaining acceptance or writing either document or
 record. It owns the version/persistence protocol, including revisions and partial
 effects; if unavailable, block that part. Prepare independent content selectors.
-Before requesting acceptance of new design material not demonstrably inherited,
+Outside the verified internal prepare policy branch, before requesting
+acceptance of new design material not demonstrably inherited,
 explain it in plain language: essence, main flow, reused/new technologies and why,
 tradeoffs, material risks and irreversible/hard-to-reverse choices. Aim for roughly
 one screen, not a measured limit; never hide material decisions to fit it. Identify

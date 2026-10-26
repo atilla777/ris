@@ -56,6 +56,11 @@ ask only about new material not demonstrably inherited from checked accepted
 sources; wholly inherited content needs no new human approval or fictional acceptor.
 In mixed content decide new material in the context of the complete candidate,
 preserving independently identifiable requirements/design scopes and provenance.
+Under its scoped prepare policy, ask substantive unresolved questions but not a
+separate formal approval once answers suffice. Explicit requests for requirements/
+design approval restore confirmation only for named scopes. Keep full automatic
+candidates in documents, with a short linked result in chat; policy is neither
+human agreement nor inheritance and never applies automatically to direct calls.
 Agreement with one proposal does not approve other proposals. Record material decisions, open questions,
 and assumptions in the calling skill's designated result when writing is
 permitted; do not invent a separate dialogue log or write outside the allowed

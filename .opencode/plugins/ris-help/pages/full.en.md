@@ -112,6 +112,15 @@ direct/inherited/mixed basis: check original accepted sources and actual derivat
 not mere compatibility. Wholly inherited content needs no new approval/acceptor;
 mixed content decides only new material in the full candidate context. One act
 may decide new parts of both scopes; preserve original provenance.
+Only this flow uses strict boolean `workflows.prepare_feature.auto_accept`:
+`true` or omission (also absent optional root config) defaults to policy acceptance;
+`false` keeps the ordinary manual protocol. Invalid config/types, including `"true"`
+and null, stop automatic continuation. Explicit requests to approve requirements,
+design or both make only named scopes manual. Substantive questions remain, but
+sufficient answers need no separate formal reply or full-text chat dump: documents
+hold complete texts, the result is short with links. Policy provenance is recoverable,
+not human approval or inheritance; repairs/resume follow the same scope modes.
+Direct specify/design calls never enable auto from config. No closure follows.
 Independently review/publish inputs, update the same ID and apply existing
 decomposition through verified one-task or child-task/edge coverage and separate
 tracker publication. Sufficient inline design needs no design.md. No implementation.

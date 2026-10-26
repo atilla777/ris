@@ -17,6 +17,10 @@ assignee's; a recommendation does not authorize takeover.
 use one safe copy and requirements/design dialogue, establish each scope's
 direct/inherited/mixed basis (new approval only for new material),
 review/publish inputs and verify decomposition plus tracker publication.
+Prepare defaults to automatic requirements/design acceptance after substantive
+answers (`workflows.prepare_feature.auto_accept: false` keeps manual acceptance).
+Explicit approval requests make only named scopes manual; direct stages do not
+inherit auto from config. Full automatic texts stay in documents, with a short linked result.
 
 **Or use individual stages:**
 

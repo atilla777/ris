@@ -64,7 +64,8 @@ settings: `sources.rules`, `sources.product`, `sources.specs`,
 `adapters.tasks.options` (a mapping of adapter-owned data). The only other
 top-level keys are optional `workflows` and `execution`. Within `workflows` allow
 only `prepare_feature`, and within it only `auto_accept`: strictly a YAML boolean
-`true` or `false`, never strings (including `"true"`), null, numbers, lists or
+`true` or `false` (not YAML-1.1-style `yes`/`no`/`on`/`off`), never strings
+(including `"true"`), null, numbers, lists or
 mappings. Empty mappings at either parent mean omission; null/wrong-type parents
 are errors. Unknown workflow keys are errors even for callers not using them.
 Within `execution` only `roles` is allowed.

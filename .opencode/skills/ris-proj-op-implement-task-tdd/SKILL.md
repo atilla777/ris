@@ -45,7 +45,9 @@ document convention/bounded legacy discovery; require actual published requireme
 sufficient design and their independently sufficient direct/inherited/mixed basis
 under common's `published-inputs.md`. Check source derivation and original
 decisions for inherited parts, actual decisions for new/direct material, without
-requiring fictional new approval for wholly inherited results. Missing
+requiring fictional new approval for wholly inherited results. Common's valid saved
+prepare policy basis is also consumable, not a human approval or execution grant;
+implementation cannot originate it from config. Missing
 substantive inputs block dependent implementation; missing/old/malformed JSON alone
 does not. Preserve historical data without migration. Standalone work needs accepted technical constraints,
 not an invented feature record. Compare actual accepted content and contract

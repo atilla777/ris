@@ -21,7 +21,8 @@ without executing or closing the feature/tasks.
 Establish project/current copy, chosen feature or epic/roadmap context, actor,
 known answers, linked prior work and permitted claim, copy/setup, document/decision,
 Git and tracker effects. An epic is optional, never invented. Workflow permission
-does not accept unseen content or authorize unrelated source/structure changes.
+alone does not accept unseen content or authorize unrelated source/structure
+changes; checked policy acceptance below is a separate basis.
 For a full preparation request, these ordinary effects include registration/claim,
 one safe copy, accepted-document saving, checks/independent review and repairs,
 Git commit/integration/non-force push to the established target, same-ID record
@@ -42,7 +43,8 @@ rather than silently selecting local-only or full preparation. “Accept both an
 continue” in this flow preserves its endpoint, not a new local-save boundary.
 Apply installed `ris-proj-lib-common` and its applicable dialogue/artifact/quality/
 published-input resources; apply `ris-proj-op-resolve-context` with its owned
-configuration resource for relevant sources, tasks adapter and needed shared paths.
+configuration resource for relevant sources, tasks adapter, needed shared paths
+and `workflows.prepare_feature.auto_accept` with its checked provenance.
 For shared paths consume its checked Git-derived source-folder/current-copy
 association; never duplicate source-folder
 discovery or invent a task directory. Resolve a new-assignment actor through the
@@ -144,12 +146,40 @@ No mandatory transition journal, intermediate commit or draft file is introduced
 
 ## One requirements and design dialogue
 
+Determine effective acceptance **separately for requirements and design** from
+context's validated boolean: `true` (including omitted leaf/parents or absent
+optional root) enables policy acceptance; `false` retains the manual protocol
+below. Invalid/unreadable selected config blocks this branch, never defaults.
+An explicit request to approve requirements, design or both makes only the named
+scopes manual, without modifying config. Preserve attributable overrides and
+reassess them when the person changes the request; merely answering substantive
+interview questions is not an override or formal content approval.
+
+Apply common `published-inputs.md`'s **Policy acceptance inside feature preparation**
+for automatic scopes. Interview still resolves material choices, conflicts and
+missing answers; never treat silence, an unresolved alternative or a policy flag
+as that answer. Once inputs are sufficient, formulate/check complete candidates,
+establish their exact policy basis and save through the existing owners without
+requesting formal requirements/design confirmation or an intermediate reply.
+Keep full text in the authorized documents, not a chat dump; communicate a short
+result and links. Manual scopes alone use complete-candidate presentation and
+human approval where their basis needs it. An explicit request for confirmation
+is honored even when the named scope could otherwise be wholly inherited; it
+does not rewrite its original source provenance. `false` without such a request
+keeps the ordinary inherited/direct protocol. Mixed auto/manual scopes retain
+independent bases; sufficient inherited parts keep their original derivation.
+Enabling auto never renews unchanged existing acceptance or replaces a sufficient
+inherited basis with a fabricated policy event. Use policy for the candidate
+acceptance actually performed here, preserving every retained original basis.
+
 Apply common's `published-inputs.md` sufficient direct/inherited/mixed basis to
 requirements and design independently. This flow consumes that owner's discovery,
 version, original-decision, derivation and applicability checks; it does not
 redefine them. Inherited content needs no new human approval or invented acceptor.
-Only remaining new material choices need actual decisions in the full candidate
-context. Preserve original immutable provenance in direct and nested calls.
+Only remaining new material choices need actual decisions; policy may accept
+the formulated result after human answers have resolved material uncertainty,
+but cannot answer those choices for the person. Preserve original immutable
+provenance in direct and nested calls.
 
 Apply `ris-proj-op-interview-feature`'s **Map the material requirements** and
 **Check and hand off** to known answers, relevant product/rules and actual sources.
@@ -175,7 +205,7 @@ separation is useful or appending to already accepted whole-file requirements
 would change their scope. Absence of design.md is not a gap; insufficient design
 or missing sufficient design basis is. Ordinary specs are not OKF bundles.
 
-Before deciding new material show both **complete, distinguishable versions/scopes**, accessible
+For manual scopes, before deciding new material show the **complete, distinguishable versions/scopes**, accessible
 inline or at checked exact addresses. Explain design essence/flow, reused/new
 technologies and why, tradeoffs, material risks and hard-to-reverse choices in
 plain language; a short complete design can itself suffice. A summary never
@@ -186,8 +216,10 @@ One explicit human act may decide new material in **both** requirements and desi
 when it identifies both exact complete content selectors/versions and the new
 material accepted, with authorized acceptor provenance. Keep two independently
 identifiable sufficiently grounded results even if a decision address is shared.
-Wholly inherited scopes skip new human approval. Requirements acceptance alone
-does not accept design. Apply the specify/design owners' installed
+Wholly inherited scopes skip new human approval unless explicitly requested.
+Requirements acceptance alone
+does not accept design. Automatic scopes needing a new acceptance instead get
+their checked policy decision, never a fictional human act. Apply the specify/design owners' installed
 `references/acceptance-and-save.md` for their respective scope; each verifies its
 own complete candidate and sufficient basis, without demanding a second answer
 merely because it is called separately. No new acceptance schema/file is required.
@@ -199,7 +231,11 @@ accepted-input branch with the verified local requirements basis;
 the known ID remains the copy/review association, not a demand for already
 published requirements. Pass the same checked copy, exact destinations, complete
 sufficiently grounded text/version/selectors, original sources/derivation and
-applicable actual decisions plus write authority. Check basis/content read-back
+applicable actual decisions plus write authority. Identify these as internal
+prepare contributions with each scope's effective mode, checked setting/default
+provenance, attributable prepare-request authority and explicit limits/overrides.
+A config value alone never changes a direct owner's acceptance contract.
+Check basis/content read-back
 and preserved sections. Missing/changed/ambiguous
 inputs return here, never guessed acceptance or reformulation during save.
 These local-only limits are internal contributions, not limits on the full
@@ -209,7 +245,9 @@ or preserved documents into whole-flow completion; missing authority requires
 the concrete decision question, and technical failure the exact blocker.
 
 On revision preserve published pins and original decision addresses. Briefly
-identify material replacement and assess its basis; obtain decisions only for new material.
+identify material replacement and assess its basis under the scope's effective
+policy/manual mode; obtain human answers for new material uncertainty. Policy
+repairs require neither formal confirmation nor full-text chat duplication.
 Requirements changes require design-owner applicability review; compatible
 unchanged design keeps its acceptance. Uncertain applicability blocks dependent
 work, not independent analysis; unchanged compatible content is not reaccepted
@@ -226,7 +264,9 @@ applies. Apply its installed `references/report-format.md`: one full local YAML,
 explicit round, separate validity and external snapshot/input/check/provenance
 applicability, no fallback past later adverse/unknown rounds. Review is not human
 acceptance. Return high/medium findings to content owners, repair/check, obtain
-targeted decisions only for new material and fresh independent review.
+targeted decisions only for changed material under its effective policy/manual
+mode and fresh independent review. New material uncertainty returns to the human;
+review approval never supplies content acceptance.
 Use the machine verdict under that owner: applicable independent `approved`
 proceeds, `changes_required` repairs/re-reviews, `blocked` or missing/invalid/
 unsupported/inapplicable evidence stops dependent progression without a repair
@@ -297,7 +337,10 @@ On ambiguous/failed writes stop dependent mutations and use the corresponding
 owner to reconcile actual local/remote effects before retry. Keep the same ID,
 copy/path/branch, published commits/decision pins and known child IDs/keys/edges.
 Resume from current Git/Beads/accessible accepted inputs and applicable review,
-not a state file or stale success token. Unknown create/setup/push is inspected
+not a state file or stale success token. Recover each exact policy/manual basis,
+historical setting/default and explicit overrides from saved decisions before
+dependent work; today's config cannot manufacture prior acceptance.
+Unknown create/setup/push is inspected
 first; confirmed publication is not repeated for pending read-back, primary sync,
 record update, decomposition or tracker debt. Revalidate only affected inputs/
 checks/review; unchanged acceptance stays. No rollback of foreign work or blind

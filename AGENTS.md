@@ -80,6 +80,18 @@ acceptor; mixed — решение только по новому существ
 исходная immutable provenance сохраняется, новой schema/sidecar/registry нет.
 Fast admission, bug historical basis и review serialization не переопределяются.
 
+Только полный prepare применяет `workflows.prepare_feature.auto_accept` (строгий
+boolean, default true также при пропуске leaf/parents/optional root; invalid не
+fallback). Явный запрос согласования требований/дизайна возвращает approval только
+названным областям; содержательное интервью остаётся. После достаточных ответов
+auto сохраняет полные тексты и восстановимое policy basis в существующем документе,
+в чате — краткий итог/ссылки без формального ожидания. Direct specify/design не
+получают auto от config. Common published-inputs владеет точным policy basis
+(scope/version, historical config/default, prepare request и overrides), отличным
+от human approval и inheritance; producers/consumers проверяют его, включая repair/
+resume. Остальные gates и конец prepare Git/decomposition/Dolt без реализации/close
+сохранены. Никакого нового реестра/файла состояния; история решений не меняется.
+
 Текущая методика — [product 08](docs/product/08-sdlc-methodology.md), repo policy —
 [development rules](docs/rules/development.md), operational contracts — у владельцев.
 Исторические основания — [S1/D1 lifecycle](docs/specs/sdlc-feature-lifecycle/acceptance.md)

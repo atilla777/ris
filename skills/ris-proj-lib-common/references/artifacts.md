@@ -21,6 +21,8 @@ in the substantive artifact; no separate basis file or assertion table. In mixed
 results match the new decision to only its material scope in the full candidate
 context. On change/loss recover source derivation and original decisions first;
 only unresolved material needs a new human decision, never a fictional acceptor.
+For the flow-only policy case use the contract below instead of requiring a new
+human decision for a resolved candidate; explicit requested confirmation still wins.
 
 When writing is permitted, capture material accepted decisions in the
 designated artifact as work progresses, then compare the result with those

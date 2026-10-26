@@ -127,7 +127,9 @@ publication/result section; skip all assessment/persistence sections below.
 Only for explicit verify/verify-and-close or own-result closure of a zero-child feature
 apply common's `published-inputs.md` sufficient direct/inherited/mixed basis to
 requirements/design, preserving original source decisions and checking derivation
-instead of demanding a new human approval for wholly inherited content. Require the accepted
+instead of demanding a new human approval for wholly inherited content. Also
+consume common's valid saved prepare policy basis, not human approval or a closure
+grant; no auto acceptance is originated here. Require the accepted
 mandatory outcomes/member set (including any one-task feature), applicable
 criteria/decisions, integrated revision evidence and allowed tracker fields.
 Discover them from exact reads and linked versions before asking for missing

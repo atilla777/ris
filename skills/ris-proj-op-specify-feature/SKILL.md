@@ -13,7 +13,9 @@ description: >-
 # Specify a selected feature in a RIS project
 
 Here, accepted requirements means sufficient direct/inherited/mixed basis under
-common's `published-inputs.md`, not unconditional new human approval.
+common's `published-inputs.md`, not unconditional new human approval. Its scoped
+policy basis is also valid when supplied by an authorized internal prepare-flow
+contribution; direct invocation never enables it merely from `auto_accept` config.
 
 For requirements work on a confirmed feature, read/apply this skill's owned
 `references/stage-prerequisites.md` before the dependent action, independently
@@ -154,7 +156,7 @@ Apply common's `published-inputs.md` sufficient-basis contract to this result,
 including direct and bounded noninteractive saves. Accepted requirements below
 may be directly accepted, inherited or mixed. Transfer/check exact complete
 candidate scopes/versions plus original sources/derivation and only applicable
-actual decisions, not an unconditional new approval. Persist that basis in the
+actual decisions (or the checked internal prepare policy basis), not an unconditional new approval. Persist that basis in the
 substantive scope; this wrapper does not create a basis registry.
 
 Read `references/acceptance-and-save.md` relative to this installed skill before
@@ -199,7 +201,7 @@ resolution, not a silent edit of product or all existing feature documents.
 
 Before saving, check the sufficient basis for the **complete exact candidate**.
 Wholly inherited requirements require no new human approval or acceptor. For
-mixed/new content show the full candidate and ask the authorized person only
+mixed/new content outside the verified internal prepare policy branch, show the full candidate and ask the authorized person only
 about new material choices; record their actual bounded decision with recoverable
 scope/version/provenance. Generic action authority or formatting success is not
 that decision. Missing derivation/source authority or necessary new decisions

@@ -26,6 +26,10 @@ actual decisions only on new material in its full candidate context. Preserve
 original immutable provenance and independent scopes/versions. Below, separate
 decision checks apply to direct parts or original source decisions for inherited
 parts. Missing/stale/ambiguous evidence leaves only dependent claims unverified.
+Also consume supplied policy acceptance when its authority/context, exact scope/
+version, effective setting/default and explicit overrides are verifiable. It is
+not human approval or inheritance; unresolved material choices remain gaps.
+This base never enables automatic acceptance or discovers project configuration.
 
 Require the bounded feature identity, complete current accepted criteria and
 exclusions, independently accepted requirements/design references and their separate

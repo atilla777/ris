@@ -191,7 +191,10 @@ For feature-linked work apply common's published-inputs document convention and
 bounded legacy discovery to actual published requirements/design and their
 sufficient direct/inherited/mixed basis under that resource. Check original source
 decisions/derivation for inherited parts, actual decisions for new/direct material;
-no new approval is owed for wholly inherited content. Missing sufficient basis is a preparation gap;
+no new approval is owed for wholly inherited content. Also consume a valid saved
+prepare policy basis under common, without inventing human approval or inheritance;
+it grants no implementation authority and execution cannot originate it from config.
+Missing sufficient basis is a preparation gap;
 missing/old/malformed JSON alone is not. No epic is fabricated for a root feature.
 Check exact versions and current applicability without repinning unchanged
 acceptance, registry writes or migration. Membership is not a `blocks` edge; evaluate parent restrictions

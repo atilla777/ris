@@ -31,6 +31,10 @@ complete candidate context. Preserve independently selectable requirements/desig
 scopes and original provenance; missing/stale/ambiguous evidence blocks dependent
 units only. The acceptance evidence below means this sufficient basis, not an
 unconditional new decision. No project discovery, registry or schema is required.
+Supplied policy acceptance may also establish a scope: check actual policy
+authority/context, exact versions, effective setting/default and explicit limits.
+It is not human approval or proof of inheritance, and cannot resolve missing
+substantive choices. Do not originate automatic acceptance or read project config.
 
 Identify the feature goal, boundary, specification/version and its known
 acceptance status, observable criteria, constraints and exclusions, existing

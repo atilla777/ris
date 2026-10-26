@@ -8,7 +8,7 @@ source discovery/reading, not copy preparation, publication or content acceptanc
 ## Sufficient requirements/design basis
 
 For requirements and design, **accepted inputs/results** mean a sufficient
-direct, inherited or mixed basis, not necessarily a new human decision for each
+direct, inherited, mixed or scoped policy basis below, not necessarily a new human decision for each
 result. Keep the two complete content scopes and versions independently selectable.
 For each material part distinguish:
 
@@ -19,7 +19,9 @@ For each material part distinguish:
   Explain that derivation and applicability in the substantive requirements/design
   scope using precise source/decision locators. Compatibility or absence of conflict
   is insufficient: materially different allowed choices require a human decision.
-- **New/disputed:** obtain an authorized attributable decision only for those
+- **New/disputed:** resolve material uncertainty with the authorized human;
+  the scoped prepare policy below may accept the resulting complete candidate
+  without a second formal approval. Otherwise obtain an authorized attributable decision only for those
   material choices, in the context of the complete identified candidate. A mixed
   result preserves inherited provenance alongside that bounded decision. One act
   can decide new parts of both independently identified requirements/design scopes.
@@ -42,8 +44,8 @@ new approval if its changed material is demonstrably inherited. No new schema,
 sidecar, registry or full assertion table is required; use substantive text and
 existing links. Old sufficient inputs need no marker or migration. This does not
 change Fast admission, versioned bug-history retrieval or review serialization.
-Below, separate decisions are checked **where direct acceptance is used**; for
-inherited parts check the original source decisions and derivation instead.
+Below, separate decisions are checked **where direct or policy acceptance is used**;
+for inherited parts check the original source decisions and derivation instead.
 
 ## Discover exact sources and assess applicability
 
@@ -110,16 +112,16 @@ short-locator reconciliation; this reading method does not copy that algorithm.
 For lost checks/review and confirmed publication/closure use artifacts' recovery
 rules and the affected owner. Reading a source does not prove any of those effects.
 
-## Feature documents, not a tracker registry
-
-### Policy acceptance inside feature preparation
+## Policy acceptance inside feature preparation
 
 Only an authorized `ris-proj-flow-prepare-feature` contribution can establish
 policy acceptance under checked `workflows.prepare_feature.auto_accept: true`
 (explicit or package default), separately for requirements and design. A direct
 operation cannot infer it from config, a caller's success token or file presence.
 An explicit human request to approve either scope disables policy acceptance for
-that scope only; `false` keeps both manual. Material unresolved choices/conflicts
+that scope only, honoring the requested confirmation even for inherited content
+without changing its original provenance; `false` alone keeps the ordinary
+direct/inherited protocol for both. Material unresolved choices/conflicts
 still require human answers: policy eliminates formal confirmation, not interview.
 
 Producers retain the recoverable basis in the existing authorized document or
@@ -136,9 +138,13 @@ before publication, then resolve at the original decision commit as usual.
 
 Policy acceptance is neither human approval nor proof that content follows from
 accepted sources (inheritance). Never invent a human acceptor or label independent
-choices inherited. Existing direct acceptance remains valid unchanged. Any actual
-inherited/mixed basis supported by the integrated contracts retains its own source
-proof; this policy does not implement or require future inheritance work.
+choices inherited. Existing direct acceptance remains valid unchanged. An
+unchanged sufficient basis is retained, not renewed by turning auto on. Do not
+invent a policy event for content whose existing direct/inherited basis suffices.
+Any inherited/mixed basis retains its own source proof under the sufficient-basis
+contract above; policy acceptance complements it, never substitutes
+for derivation. New material needing human resolution remains a question even
+when formal acceptance is automatic.
 
 Save owners, reviewer, publisher, decomposition, execution/implementation,
 verification and navigation consumers read the complete scopes and this saved
@@ -152,6 +158,8 @@ returns to the human. On resume recover actual decisions/settings/limits and
 effects; do not retroactively create historical acceptance from current defaults.
 If the basis cannot be recovered, block the dependent action and obtain only the
 missing decision under a currently authorized route, honestly as a new decision.
+
+## Feature documents, not a tracker registry
 
 For a confirmed feature, new documents live at
 `sources.specs/<full feature ID>/spec.md` (default specs root `docs/specs/`).

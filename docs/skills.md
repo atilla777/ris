@@ -11,6 +11,16 @@ and passes `$ARGUMENTS` through its existing contract. The exception is `/ris-he
 [`plugins/opencode/ris-help/`](../plugins/opencode/ris-help/) owns the client command,
 not a Markdown slash facade. The menu has 19 agent commands plus this client entry.
 
+`/risp-prepare-feature` alone uses `workflows.prepare_feature.auto_accept`:
+strict boolean/default `true` (also omitted in existing v2 configs or absent
+optional root), `false` retains ordinary manual acceptance. Material questions
+remain; explicit approval requests override only named requirements/design
+scopes. Automatic scopes save full documents without a formal reply or chat dump,
+with recoverable policy provenance distinct from human approval/inheritance.
+Independent review, checks and separate Git/decomposition/tracker publication stay;
+no implementation/close. Direct specify/design do not enable auto from config.
+See [configuration](product/02-configuration.md).
+
 ## Naming
 
 Identifiers use `ris-<port|proj>-<op|flow|lib|adapter>-<verb-object|purpose>`:

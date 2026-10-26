@@ -119,7 +119,9 @@ no slug pin or accepted-ref registry. Apply common's `published-inputs.md`
 sufficient direct/inherited/mixed basis to both independently selectable content
 scopes at exact published versions. Check original source decisions and actual
 derivation for inherited parts, and actual decisions only for new/direct parts;
-do not invent a new approval for wholly inherited results. Match path/section/
+do not invent a new approval for wholly inherited results. A valid saved prepare
+policy basis under common is equally consumable, not human approval or inheritance;
+decomposition never originates automatic acceptance. Match path/section/
 version and applicable decision provenance; resolve `containing-commit` at the
 original decision, not a later copy. Confirm required content, sources and decisions
 are published in the selected remote. Missing sufficient requirements/design basis
