@@ -1,189 +1,185 @@
 ---
 name: ris-proj-flow-execute-simple-task
 description: >-
-  Execute or resume one already assigned, clear bounded project request through
-  proportionate checks, independent subagent review, verified direct Git push and
-  separate tracker completion when used. Use for simple work with optional ID,
-  including text, configuration or code; not queue selection, feature preparation,
-  registered-bug preparation, whole-container execution or a replacement for the
-  full task flow and mandatory TDD contracts.
+  Execute or resume one small, bounded, checkable request or idea through actual
+  Git, local or mixed results, conditional independent review and separate tracked
+  completion when applicable. Use for explicitly selected Fast or a suitable natural
+  request, with optional ID; not queue selection, product-logic/architecture/material
+  shared-contract changes, coordinated outcomes, feature/bug preparation or whole-container execution.
 ---
 
-# Execute one simple assigned task
+# Execute one bounded Fast task
 
-Own sufficiency, transitions, one human dialogue and the combined result. One
-project flow suffices: existing owners supply portable stage methods. The main
-agent loads and **applies** those owners directly for implementation, repairs,
-copy preparation, publication and tracker operations; independent review and the
-eligible-ancestor tail require separate subagents. Do not copy their algorithms
-or load the full task flow except its explicitly shared ancestor resource below.
-No new implementation wrapper, registry or state format.
+Own admission, sufficiency, transitions, one human dialogue and the combined
+result. One main agent directly loads and **applies** existing owners; by default
+there are no subagents. Loading an owner does not require another executor or
+transfer of your own context. Independent review is conditional below; the Fast
+ancestor tail runs inline. Do not copy infrastructure algorithms or load the full
+task flow except its explicitly shared ancestor resource. No new runtime, registry,
+state format or mandatory intermediate artifacts.
 
 ## Establish scope and permissions
 
-Accept an attributable assigned outcome, selected project, optional exact ID,
-available clarifications and accepted constraints. Natural requests such as “do
-this quickly”, or agent choice for work already assigned by the user, may select
-this route. Empty input asks what work to do; never choose from a queue or start
-unassigned work. Judge clarity, bounded consequences and checkability, not diff
-size or a closed list of change types. A clear request can suffice without an
-interview, spec/design document, decomposition or saved technical plan.
+Accept an attributable assigned outcome or bounded idea, selected project,
+optional exact ID and available clarifications. `/risp-run-simple-task`, a suitable
+natural request or agent selection for already authorized work may select this
+same contract; command knowledge is not required. Empty input asks for work,
+never selects a queue item or starts unassigned work.
 
-Read the selected project's instructions and relevant implementation. Load/apply
+Admit one small task with local, understood consequences and a sufficient way to
+check it, without changes to product logic, architecture or a material shared/public
+contract. Judge consequences, boundaries and checkability, not extension, line
+count or an operation allowlist: code, config, docs, tools, versioned/ignored
+project parts and explicitly selected external files can qualify. Installing a
+third-party skill is only an example. Multiple independent coordinated outcomes,
+broad/unknown material consequences or inadequate verification do not qualify.
+Resolve minor ambiguity in this dialogue. For an essential decision or exceeded
+boundary, explain the concrete reason and agree only necessary expansion or
+preparation; do not automatically restart the whole SDLC. Safe independent work
+may continue. Existing feature/bug/container obligations cannot be downgraded to
+ordinary work to fit Fast.
+
+Read actual target-project instructions and relevant implementation. Load/apply
 `ris-proj-lib-common` and its resources under their triggers. Apply
-`ris-proj-op-resolve-context` and its owned configuration resource for applicable
-rules and the required `task-review` role; request adapter settings, document or
-shared paths only when needed. Check status, provenance, diagnostics and rights.
-Missing unused paths or execution roles do not block work; direct work requires
-neither `task-execution` nor `task-implementation`. If delegating bounded work,
-resolve its corresponding configured role and verify host availability/permissions
-and actual launch; an unavailable role blocks that delegated route, without silent
-substitution. Context's configured agent name alone
-does not prove reviewer availability. Before fresh mutations verify the actual
-host can launch the configured reviewer independently of every author/repairer.
-No fallback agent, self-approval or model switch substitutes for that gate.
+`ris-proj-op-resolve-context` and its owned configuration resource only for needed
+settings/rules/paths/adapters; validate the entire selected config, but do not
+request unused shared paths or roles. No execution role is required for direct
+work. Resolve `task-review` only when independent review is required. Missing
+unused roles do not block the default route. Any separately delegated work needs
+its configured available executor and actual launch; no silent model substitution.
 
-A full invocation authorizes the agreed implementation/check/review/repair,
-commit and direct push cycle to the established project primary branch without
-another formal confirmation; when tracking applies it also authorizes separate
-selected-task completion and tracker publication under their actual gates.
-Explicitly narrower requests, environment permissions and mandatory project rules
-win. Do not infer content acceptance or rights from a command, status or claim.
-No PR, release or deploy fallback. No mandatory plan, execution/implementation log
-or review **file** by default: retain sufficient evidence in the session, with
-short tracker accounting when used. Required project checks still apply;
-this flow does not silently waive TDD or other substantive gates.
+A full invocation authorizes agreed implementation/checks, applicable review/repair
+and channel-specific publication/completion through existing owners without formal
+confirmation at each boundary. Narrower requests, permissions and applicable
+mandatory policies win. No hidden setup/scripts, dependency installation, access
+expansion or dirty-work transfer follows from copy/tool/claim availability.
+No required interview, spec/design, decomposition, plan, handoff, implementation/
+review file or journal; the request, targeted answers, material attributable
+decisions and checkable criteria suffice, without separate technical-card approval.
+Retain necessary evidence in the session and short accounting when applicable.
 
-Read resources from **this installed skill folder**, only before their triggers:
+Read resources from **this installed skill folder** only before their triggers:
 
-- `references/tracker.md` when an ID is supplied or project rules require task
-  accounting, before admission/claim and later tracker effects. A configured
-  adapter alone does not activate tracking. Otherwise load no task adapter,
-  create no record, invent no ID or task-note directory.
-- `references/worktree.md` before all versioned Git-project edits, to prepare or
-  reuse this work's dedicated worktree through the existing owner.
-- `references/recovery.md` on resume, prior/partial effects, interruption or an
-  ambiguous operation response, before selecting a transition or retry.
-- The installed `ris-proj-flow-execute-task/references/ancestor-completion.md`
-  shared tail after tracked task close/publication, or when recovering that tail;
-  no full-flow SKILL/evidence resources are required for this contribution.
+- `references/tracker.md` when an ID is supplied or project rules require accounting,
+  before admission/claim and later tracker effects. Adapter configuration alone
+  does not activate accounting. RIS itself requires short Beads accounting.
+- `references/worktree.md` before versioned Git edits; it also defines the boundary
+  with real local targets. Do not invoke preparers for local-only work.
+- `references/recovery.md` on resume, prior/partial effects or ambiguous responses,
+  before selecting a transition or retry.
+- Installed `ris-proj-flow-execute-task/references/ancestor-completion.md` after
+  tracked close/publication or recovery of that tail; apply its **Fast inline**
+  mode, not the full flow's fresh-subagent mode. Load no full-flow SKILL for this.
 
-Unavailable required dependencies/resources block only their dependent work.
-Loading an owner is not applying it; inspect its actual output before advancing.
-Reuse already available facts within this session. For bounded delegation use
-common's artifacts contract with only missing exact inputs, permissions and
-expected result; recipients load their owners without assumed chat inheritance.
-On recovery discover saved sources by project+ID (or the explicit no-ID subject),
-not a required prior final answer or handoff file.
+Unavailable dependencies block only dependent effects. Inspect actual owner
+results, not just success assertions. Reuse current facts within this session;
+new sessions discover saved inputs by project+ID or explicit no-ID locator,
+not a mandatory prior handoff. Common's artifacts contract governs any delegation.
 
-## Execute the fresh route or reconciled remainder
+## Understand and take → implement and check → finish applicable channels
 
-1. **Admit this work.** Establish outcome, boundaries, criteria, technical
-   constraints/material decisions and a sufficient check strategy from the
-   request and current facts. Apply the tracker branch if triggered; keep real
-   type, ownership, accepted inputs, mandatory composition and blockers. Minor
-   ambiguity gets a targeted clarification and continues fast. A material choice
-   about behavior, public contract, responsibility or architecture stops only
-   dependent actions: state affected criteria, available compatible results and
-   the exact decision needed from the person. Agree the necessary preparation or
-   full route, rather than automatically restarting the SDLC or redesigning here.
-2. **Prepare or reuse this work's dedicated worktree before edits.** Apply the
-   worktree resource, using the same claim-aware project preparer as full task,
-   feature and bug work when tracked. For genuinely no-ID work use its portable
-   preparation branch without inventing an ID. Consume the checked association,
-   copy/branch/base and preservation result; this flow owns no native create/switch
-   algorithm. Reuse one confirmed worktree across stages and sessions, not a new
-   copy per executor. The ordinary source folder is never a development copy,
-   even if clean or on an own branch. Preserve foreign and dirty work; do not
-   transfer it to a new copy automatically. Re-resolve context in the result copy
-   and verify current rules/config and shared tracker association before writes.
-3. **Implement and check in the main agent.** Load/apply
-   `ris-port-op-implement-change` with the accepted request/constraints, current
-   copy/base, allowed files/effects and `implementation_mode: standard|tdd`.
-   Use `tdd` when project rules require it or it is selected as useful; mandatory
-   TDD wins. This route never relaxes `ris-proj-op-implement-task-tdd`'s contract.
-   Refresh required ownership/blockers before each new change batch. For affected
-   authorized documentation apply `ris-proj-op-update-documentation`; do not
-   invent scope or accept new product/design decisions through documentation.
-   Text/word replacement: inspect actual result and diff; configuration: run its
-   applicable validation; logic: meaningful affected/regression tests and new tests
-   where substantively needed. Keep mandatory checks, no ceremonial text tests.
-   Apply target-project prohibitions on agent tests. Static instruction inspection
-   establishes prescriptions, never observed runtime reliability or speed.
-4. **Actually launch independent review.** Load/apply `ris-proj-op-review-task`
-   in a fresh invocation of the configured, available `task-review` subagent,
-   independent of all implementation/repair authors. Supply project/config/rules,
-   attributable request/clarifications/criteria, publication-gate purpose, accepted decisions and versions,
-   real ID only if used, copy/branch/base, full exact candidate and checks/limits.
-   Bind the complete publication tree/base and predeclared exclusions, including
-   additions/deletions/modes and unchanged base bytes, not HEAD alone or a dirty-tree
-   hash. Give the reviewer accessible bytes and bounded read-only
-   scope (report writes only when separately needed/authorized). Explicitly pass
-   this fast no-file exception: a sufficient independent result may remain in
-   session; absence of review.yaml alone does not block. If saving is requested,
-   use the installed review owner's references/report-format.md and the same
-   supported format (/2 new file; /1 only for an existing /1 file), never a Markdown twin. Ask for a checkable report,
-   early return on missing essential evidence or material conflict, not a live
-   agent test. Verify actual launch/context identity and returned subject/version,
-   coverage, stable findings with exactly one high/medium/low severity, verdict
-   and limits. Missing/unavailable/inapplicable independence blocks publication.
-   For a saved file apply the format owner's consumer gate with the expected
-   subject, inputs/checks and actual launch/all-author evidence; require its
-   applicable approval, not just a verdict. For session-only evidence check
-   substantive independence/snapshot/repair gates without loading YAML resources.
-   Review final results, not author logs or historical RED/GREEN runs.
-5. **Repair and recheck.** High/medium returns to the main agent applying the
-   implementation owner with finding IDs; repair, run affected checks and obtain
-   fresh independent review. Preserve links across rounds. Repeat until none
-   remains unresolved; a round limit cannot approve a blocker. Consider low
-   recommendations and record a reasoned disposition, collectively if suitable;
-   low alone requires no fix, task or extra round. Reassess evidence whenever
-   bytes/inputs change. If progress needs a material decision, return it to the
-   human dialogue with preserved results.
-   Apply the machine outcome explicitly: valid applicable independent `approved`
-   proceeds without another loop; `changes_required` repairs and re-reviews;
-   `blocked` or missing/invalid/unsupported/inapplicable evidence stops dependent
-   progression for the missing input/evidence, not an automatic repair loop.
-6. **Publish through the existing owner.** Main agent loads/applies
-   `ris-proj-op-publish-task`, Task/change branch, with exact independently
-   approved **whole** snapshot, check/review provenance, prepared own branch/copy,
-   accepted inputs and actual direct-push authority/target. Inspect its receipt,
-   not a success assertion. It owns Git integration, outgoing-history, commit/push
-   and remote confirmation. A changed integrated/hook/upstream/document snapshot
-   returns to affected checks and independent `task-review` whole-tree reassessment
-   **before push**, reusing compatible evidence with reasons. Never self-approve
-   or add after-the-fact exclusions. Require sent commit/tree/ref/remote and fresh
-   remote evidence; missing rights/checks/review or PR-only policy blocks this
-   route, and ambiguous effects activate recovery before retry.
-   Check applicable accepted project policy and pass its actual source/version/
-   acceptance and boundaries, or an explicit local-update request, to the
-   publisher. Without either, retain the remote-only default and request no
-   source-copy maintenance. Either activates its conditional safe-FF resource,
-   without branch switching/return; dependency refresh requires its own bounded
-   authorization. Retain any required unfinished local/dependency remainder in
-   the combined result, never call it complete; it does not block exact close/Dolt or
-   requires replay of confirmed remote publication.
-7. **Finish distinct effects.** Without tracking, verified Git plus the session
-   result ends the cycle. With tracking, use the already-triggered tracker
-   resource for short result/Git SHA persistence, separately verified exact close
-   and separately authorized tracker publication. No feature acceptance inferred
-   from a push or review. Then apply the installed full flow's shared
-   `references/ancestor-completion.md`: unless prohibited, confirmed parent
-   membership triggers one fresh configured `container-completion` subagent for
-   the entire eligible ancestor chain. No parent means no role/launch. Read only
-   that resource, not the full task engine. Preserve leaf completion and report
-   cascade closures/publications and normal stopping point or unfinished effects.
+1. **Admit and take.** Establish outcome, boundaries, criteria, sufficient checks,
+   constraints and material decisions. Apply accounting when triggered; retain
+   real type, accepted inputs, claim/ownership, composition and directed blockers.
+   Choose Git-only, local-only or mixed from the actual required effects, not from
+   repository presence. Identify exact permitted targets and preservation needs.
+2. **Isolate actual writes.** Versioned edits require one confirmed own branch and
+   dedicated worktree through the worktree resource's existing preparer; reuse
+   the suitable associated copy across stages/sessions. Never develop in the
+   ordinary source folder. Ignored/external edits instead use explicit actual
+   effective targets, with their permissions, owners, conflicts and side effects
+   checked separately. Local-only needs no empty worktree, dummy commit or inert
+   configuration copy. Mixed work retains both boundaries; a worktree does not
+   isolate Beads, ignored/external targets or shared resources. Preserve foreign
+   tracked/untracked/ignored data. Unclear effects block dependent mutation.
+3. **Implement and self-check.** Apply `ris-port-op-implement-change` with sufficient
+   accepted request/constraints, actual targets, allowed effects and
+   `implementation_mode: standard|tdd`; mandatory project TDD wins. For authorized
+   documentation synchronization apply `ris-proj-op-update-documentation`, not to
+   accept new product/design decisions. Target-specific owners/config rules still
+   apply outside the worktree. Before every new mutation batch refresh applicable
+   ownership/status/composition/blockers and actual-target conflicts. Check actual
+   text and diff, config validation, meaningful affected/regression logic tests,
+   and actual local/external target plus useful effect as applicable. Keep mandatory
+   checks/TDD; no ceremonial text tests or prohibited agent-behavior tests. Static
+   inspection establishes prescriptions, not measured speed, cost or reliability.
+4. **Apply review only when required.** Independent review is required by an explicit
+   human request, mandatory applicable target-project policy, or a concretely named
+   material risk with explained consequences (for example important data loss,
+   access/security breach or a substantial hard-to-reverse error not covered by
+   ordinary self-check). Code, external location and Git push alone are not triggers.
+   Ordinary general RIS review wording does not silently override this Fast exception;
+   a genuinely mandatory applicable Fast policy does. Risk does not make inadmissible
+   work admissible: broaden/clarify scope when consequences/checks exceed Fast.
+   Do not ask about review every time, write a skip receipt, or load review role,
+   owner/format on the inactive branch. Session scope, material grounds and current
+   checkable subject suffice; no schema/registry/mandatory file is introduced.
+
+   When required, resolve and actually launch the configured available `task-review`
+   subagent independently of **all** authors/repairers, applying
+   `ris-proj-op-review-task`. Before dependent mutations verify required reviewer
+   availability; missing/unavailable independence blocks the dependent gate, never
+   becomes self-approval. Pass bounded read-only scope, request/criteria/decisions,
+   project/rules/config, actual ID if used, exact accessible targets and checks/limits.
+   For Git bind the full publication tree/base and predeclared exclusions, including
+   additions/deletions/modes and unchanged base bytes, not HEAD/diff hash alone.
+   For local/mixed also bind the actual target state and effect. Require substantive
+   assessment, actual launch/context provenance, findings with stable IDs and one
+   high/medium/low severity, verdict and limits. Sufficient session evidence is the
+   default; only explicitly needed saves load the existing format owner (/2 new,
+   /1 existing compatibility). No live-agent test or mandatory review YAML.
+5. **Handle findings and changed subjects.** High/medium findings cannot be ignored:
+   repair in the main author context, run affected checks and obtain applicable new
+   independent consideration; preserve finding IDs/dispositions. Low gets a reasoned
+   decision, collectively if useful, not mandatory fix/task/round. Applicable
+   independent `approved` proceeds; `changes_required` repairs/re-reviews;
+   `blocked`/missing/invalid/unsupported evidence stops for the exact gap, not an
+   endless repair loop or old-approval fallback. Never erase a known adverse result
+   by reclassifying review. On changed bytes/inputs reassess criteria, Fast admission,
+   risks and evidence. Required review needs independent reassessment of the new
+   subject with justified unaffected evidence reuse; otherwise perform affected
+   author self-check, never call it independent approval. New consequences can
+   activate review or require a human scope decision.
+6. **Finish real output channels.** For Git changes apply `ris-proj-op-publish-task`,
+   Task/change branch, with prepared own copy/branch, whole candidate/base, checks,
+   accepted inputs, actual direct-push target/authority and the checkable Fast
+   admission/review-applicability basis. Required review forwards actual independent
+   evidence; inactive review forwards no fictional approval. The publisher verifies
+   the narrow exception and retains its one integration/outgoing/non-force/remote
+   algorithm. Changed upstream/merge/hook/doc snapshots follow step 5 before push.
+   PR-only/forbidden push or missing mandatory gates blocks dependent Git delivery.
+   Consume exact sent commit/tree/ref/remote and fresh remote confirmation.
+
+   No-change verifies the necessary existing state, checks and required remote
+   visibility without empty commit/push or invented SHA. Local-only uses applied,
+   checked actual targets and useful effect, not Git publisher/commit/SHA. Mixed
+   requires both verified parts; one successful channel does not finish the other.
+   State honest local availability/portability limits, never call local files pushed.
+
+   For Git publication check/forward any explicit maintenance request or applicable
+   accepted project's actual policy source/version/acceptance and boundaries. Without
+   either retain remote-only; with either publisher owns guarded safe FF, never
+   branch switching or implied dependency setup. Policy-required/requested maintenance
+   debt remains separate in the combined result, without undoing confirmed remote
+   Git or blocking permissible exact close/Dolt. Recovery checks effects first.
+7. **Finish distinct tracked effects and ancestors.** Without accounting, the verified
+   applicable channels plus session result end this request. With accounting use
+   tracker resource for short channel-specific result, separately verified exact
+   close and separate authorized tracker publication. Local-only needs no Git SHA;
+   partial mixed does not pass own-result completion. After confirmed close and
+   publication apply the shared ancestor resource inline through the existing
+   container owner. No parent is no-op; no `container-completion` role/subagent is
+   required for Fast. Preserve full/bug fresh-recipient obligations outside Fast.
 
 ## Assess the combined result and stop
 
-Return `ok|blocked|conflict|error`, subject and user-visible change, project/config/
-actor when applicable, actual copy/branch/base and final snapshot; attributable
-inputs/decisions, checks/results/limits, independent reviewer/version/verdict,
-repair/low dispositions, evidence content or exact accessible locators, and Git
-commit/tree/ref/remote confirmation. Give separate local tracker result, exact
-closure and tracker publication/read-back facts when used, plus the separate
-ancestor-chain closures/publications and stopping point or unfinished remainder. No artificial status
-store is needed. `ok` requires all effects promised by the actual scope verified;
-one channel cannot establish another. On partial/failed work preserve accessible
-changes/evidence, state the causal blocker, unknown effects and exact remaining
-operation/decision. Stop at this request; never select, claim or start next work.
+Return `ok|blocked|conflict|error`, actual subject and useful change; project/config/
+actor when used, exact targets, applicable copy/branch/base/whole snapshot, inputs/
+decisions, checks/limits, review applicability and actual independent evidence only
+when required/performed, findings/dispositions and accessible evidence. Separate
+Git commit/tree/ref/remote confirmation, actual local effects/limits, maintenance
+debt, tracker result/exact close/publication, and ancestor closures/publications/
+stopping point. `ok` requires all promised effects verified, not one channel standing
+for another. Preserve partial effects, exact blockers/unknowns and only the remaining
+operation or decision. No report/journal is required. Stop at this assigned request;
+never select, claim or start next work.

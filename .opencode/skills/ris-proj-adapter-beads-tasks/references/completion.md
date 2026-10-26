@@ -58,6 +58,21 @@ failed, historical or malformed verification to success.
   is not full feature verification or a distributed transaction. An unsupported
   explicitly required stronger guarantee returns its exact limitation.
 
+  Consume only **applicable** channel/review obligations, never invent Git or
+  approval evidence. A verified eligible Fast local-only subject uses passed own
+  criteria and actual authorized target/useful-effect evidence without Git SHA,
+  commit or push; review is conditional under that flow's actual request/policy/
+  risk grounds. This is ordinary verified completion, not administrative close.
+  Mixed Fast work needs both own required Git and local parts verified; partial
+  own-channel success cannot close it. No-change verifies the required existing
+  result without dummy commit/push. Known adverse findings and required unavailable
+  review still block dependent completion. Preserve mandatory full/feature/bug
+  review/publication obligations outside this narrow Fast scope. Separately owed
+  policy-required source maintenance retains its existing close/Dolt exception
+  after confirmed remote Git, while remaining explicit combined-result debt.
+  Result persistence, exact native close/read-back and authorized Dolt publication
+  remain separate effects; Dolt does not publish local target files.
+
 Feature **verified-work** completion uses the caller's current whole-feature criterion,
 accepted-document and integrated-revision assessment, with no mandatory saved
 verification/readiness record or duplicate refs. Leave historical payloads untouched.

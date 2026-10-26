@@ -147,15 +147,22 @@ Advertise only actual supported Beads operations:
 - **ordinary result persistence:** `update.md` using native `--append-notes` or
   authorized `--set-metadata key=value` where suitable, never stale whole-field
   replacement. Include exact ID/kind, own criteria/outcomes and disposition,
-  integrated revision(s), the accepted request/decisions and external refs when
-  present, check/review provenance,
+  applicable integrated revision(s), the accepted request/decisions and external refs when
+  present, check provenance and required/performed review provenance,
   mandatory composition/blockers, evidence addresses and limits. The short work
   result must be accessible without local ignored notes. For project change-review
   content, preserve only the local YAML address and round selector in Beads, not
   copied verdict/findings or a remote-availability promise. The caller assesses
   the report via the review owner's format/applicability contract; short work/check,
-  published SHA and completion facts remain sufficient tracker results, not a
-  second review report. Fast session-only review needs no invented file.
+  applicable published SHA and completion facts remain sufficient tracker results, not a
+  second review report. Fast session-only review needs no invented file. For a
+  verified eligible Fast invocation the caller owns conditional review applicability;
+  no independent approval or skip report is required on its inactive branch. Do not
+  erase known adverse findings or waive actually mandatory review. Git-only records
+  actual verified SHA/remote evidence; local-only records actual authorized targets,
+  checked useful effect and local availability/portability limits **without** Git
+  SHA, commit or push. Mixed records both; no-change records checked existing state
+  without invented revision. Do not persist secrets/full local configurations.
   Reconcile uncertain append before
   retry. Append/key merge protects only its native row operation; snapshot-bound
   evidence needs fresh applicability/composition checks, not an atomic freeze
@@ -171,7 +178,12 @@ Advertise only actual supported Beads operations:
   restrictions and report that status is not independent acceptance.
 - **ordinary verified exact close:** `completion.md` verified-work branch, separately from persistence, on one
   explicit ID with full mandatory scope/cancellation disposition and current
-  evidence supplied by the caller. Native transactional direct-child/blocker
+  evidence supplied by the caller. Verified Fast local-only completion consumes
+  passed criteria and actual-target evidence, not an inapplicable Git revision;
+  this is verified work, never administrative closure. Mixed work requires both
+  own Git and local results, not partial success. Existing policy-required source
+  maintenance debt retains its separate close/Dolt allowance after confirmed Git,
+  without concealing the combined remainder. Native transactional direct-child/blocker
   checks cover those predicates only; expected membership, descendants and
   external-evidence freshness are checked immediately before close and after it,
   without a manual window or global lock. Report native limits and any unsupported

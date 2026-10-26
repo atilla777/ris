@@ -35,7 +35,8 @@ adapter owns bounded tracker operations and their guarantees, not Git publicatio
    actual guarantees. Ambiguous/multiple matches stop creation for reconciliation.
    In RIS itself short Beads accounting remains mandatory, even for explicit fast.
 4. Before execution obtain or confirm the authorized own claim through the
-   adapter, with exact actor and confirmed task/copy association. Resolve a new
+   adapter, with exact actor and confirmed task association (and copy association
+   for versioned edits, not a fictitious local-only worktree). Resolve a new
    assignment's missing actor through that adapter's claim owner (explicit →
    applicable configured → verified current session ID) and forward it unchanged.
    Existing claim/copy continuation uses common's explicit-human authority and
@@ -53,18 +54,29 @@ For Beads, ordinary request/result/verified-close specifics belong to its
 and bug resources stay conditional on real kind. Adapter instructions own CLI,
 concurrency, identity reconciliation and write/read-back algorithms.
 
-## After verified Git publication: separate operations
+## After verified applicable output channels: separate operations
 
 - Recheck own criteria, mandatory composition/blockers and evidence applicability
-  on the actual published version. Apply the adapter's bounded result persistence:
-  short remotely sufficient outcome, checks/independent review and limits, published
-  Git SHA and actual decisions/refs. Ignored local reports cannot be required remote
+  on the actual completed subject. Mixed work requires both its Git and local
+  parts; partial own-result success cannot close the task. Separately authorized
+  policy-required source maintenance debt retains its existing close/Dolt exception,
+  not permission to omit this task's own required local targets. Apply the adapter's
+  bounded result persistence: short remotely sufficient outcome, actual checks,
+  applicable review provenance and limits, actual decisions/refs and channel facts.
+  Git includes its verified published SHA/remote evidence; local-only includes exact
+  actual targets, verified useful effect and availability/portability limits instead
+  of an inapplicable Git SHA. No-change records the checked existing result, never
+  a fictitious commit. Do not copy secrets or full local configuration into Beads.
+  Ignored local reports cannot be required remote
   inputs. Preserve foreign fields and original acceptance addresses; read back.
   For saved review, retain only its local YAML address and round ID in Beads,
   never a verdict/findings duplicate. No report file is mandatory for fast;
-  session-only review retains its sufficient provenance in the session. Local
+  session-only review retains its sufficient provenance in the session. Inactive
+  review requires neither approval nor a skip report; known adverse findings and
+  applicable mandatory review still constrain completion. Local
   report access from another machine is not promised. The short work outcome,
-  actual checks, Git SHA and completion facts remain distinct tracker content.
+  actual checks, applicable channel evidence and completion facts remain distinct
+  tracker content. Dolt publishes tracker history, not local target files.
 - Separately request **verified-work exact close** of this confirmed task, only
   after all required work/evidence and fresh native predicates pass. Use the
   adapter's normal close and independent read-back, never administrative close,

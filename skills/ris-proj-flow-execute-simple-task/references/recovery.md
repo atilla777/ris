@@ -6,7 +6,10 @@ first, then gate only the actual remaining effects through the same main route
 and owners. This is no second execution engine or mandatory journal.
 
 Establish the attributable request/decisions and exact project/repository/copy/
-branch association from available evidence. Inspect actual Git HEAD, commits,
+branch association where applicable from available evidence. For local-only work
+inspect the actual authorized targets, state/useful effects, permissions and
+conflicting writers, not a fictional Git copy; for mixed inspect both channels.
+For the Git part inspect actual Git HEAD, commits,
 index/files/untracked work, unfinished operations, registrations, target remote
 and relevant refs; distinguish ongoing execution from an interrupted one. If
 tracking applies, use the selected adapter for exact identity/kind/content,
@@ -18,31 +21,42 @@ itself authorizes session reassignment, not another question or proof the previo
 session ended. Reuse the associated copy and preserve unfinished changes/evidence.
 
 Recover full request/constraints, separate material decisions, exact candidate,
-check results/limits and independent review subject/launch provenance from
+check results/limits, review applicability and, only when required/performed,
+independent review subject/launch provenance from
 accessible session content or authorized saved evidence. No history is assumed
 available to a new session. Apply common's artifacts source/recovery contract:
 find the original acceptance or request a new human decision only for the lost
 material scope, not every known decision. Rerun lost reproducible affected checks.
 Do not invent acceptance, passing checks or review because no report was required.
-Lost independent review is restored from exact accessible evidence or obtained
+Do not create a debt for absent review that was not required. Reassess Fast
+admission, actual policy/request/risk grounds and changed consequences now; known
+adverse results or violations cannot disappear through reclassification.
+Lost required independent review is restored from exact accessible evidence or obtained
 by a fresh independent invocation of the exact available subject with current
 time/provenance, never an invented historical approval. If the old subject is
 unavailable, identify the current subject honestly.
-When an optional file was saved, read/apply the installed review owner's
+When consuming an optional saved review, read/apply the installed review owner's
 `references/report-format.md`: exact local YAML/round, validity separate from
 external applicability, actual provenance, and no old-approval fallback past later
 refuting/invalid/unsupported rounds. Without a file, accessible sufficient session
 review remains valid fast evidence; no YAML requirement is introduced. Beads
 contains only address/round for a saved review, not a verdict/findings copy.
 Compare current inputs and whole snapshot to evidence; reuse unchanged compatible
-results with reasons, rerun affected checks/review for changed parts under the
-main route's whole-snapshot publication gate. Material drift returns the affected
+results with reasons, rerun affected checks and required independent review for
+the changed subject under the main route's gate. Inactive review instead uses
+author self-check without review-role/format loading or fictional approval.
+Material drift returns the affected
 decision, not an automatic full preparation restart.
 
 Use the existing owner to reconcile each uncertain effect before repeating it:
 
 - Preparation: inspect existing association/copy/claim/setup; reuse verified
   effects, never recreate a branch/worktree or rerun non-idempotent setup blindly.
+- Local targets: reconcile actual applied state and useful effect before retry;
+  retain foreign data and successful parts without automatic rollback or blind
+  reapplication. Lost necessary reproducible checks are repeated at the actual
+  target. Missing access/state evidence is unknown, not a verified result. Mixed
+  work cannot finish while either own required output channel is incomplete.
 - Git: ask the publication owner to reconcile the exact sent revision/remote
   effect and consume its checked result. A local commit or timeout is not push proof.
   Confirmed publication is reused without recommit/redundant push; missing
@@ -62,8 +76,9 @@ Use the existing owner to reconcile each uncertain effect before repeating it:
 - Ancestor cascade: for an explicitly continued unfinished execution apply the
   installed full flow's shared `references/ancestor-completion.md`. Reconcile
   current parent links, already closed IDs and exact publication debt before
-  finishing only that tail in a fresh `container-completion` recipient. A lost
-  response requires actual-effect/live-writer reconciliation before relaunch.
+  finishing only that tail inline in the main Fast context through the same owner,
+  without a mandatory `container-completion` role/subagent. Uncertain effects or a
+  previously delegated writer require reconciliation before more writes.
   Do not reclose/reopen the leaf or parents, repeat confirmed pushes, or infer a
   new cascade from a closed-ID status query. Leaf success remains separate from
   failed/unverified cascade effects and normal ineligible stopping points.
@@ -77,7 +92,7 @@ semantic result, never a second CLI/retry procedure.
 
 Return the first missing/inapplicable operation within the main route, proven
 prerequisites, reusable evidence, unknown effects and exact remainder. Check
-current rights, own claim/blockers and reviewer availability only for remaining
+current rights, own claim/blockers and required reviewer availability only for remaining
 operations; completed implementation needs no implementation role. Conflicting
 ownership during the operation, observed conflicting live execution or missing essential evidence stops dependent
 effects with preserved work and a concrete cause, never a blind replay or rollback.

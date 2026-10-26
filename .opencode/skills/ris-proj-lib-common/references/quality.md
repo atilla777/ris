@@ -48,6 +48,18 @@ missing, block only the dependent action and continue independent work where
 possible. Verify the result within the current task when appropriate; neither
 verification nor review automatically starts another lifecycle stage.
 
+Fast (`ris-proj-flow-execute-simple-task`, explicitly or naturally selected) owns
+its bounded admission and independent-review applicability: explicit human request,
+mandatory applicable target-project policy or concretely explained material risk.
+This shared library does not classify work or start review itself. General RIS
+independent-review wording does not silently cancel that narrow exception; actual
+mandatory Fast policy still applies. Self-check, mandatory checks/TDD and known
+adverse findings remain. Inactive review needs no role/format/skip report or fictional
+approval; changed subjects get affected self-check and renewed applicability/risk
+assessment. Required review needs real independence and applicable reassessment;
+unavailable required review blocks dependent gates. Full/feature/bug/direct review
+and ordinary publisher obligations remain unchanged outside eligible Fast.
+
 When a project operation relies on a saved change-review gate, read/apply the
 installed `ris-proj-op-review-task/references/report-format.md`, the single owner
 of format/history and external approval predicates. Do not copy its schema here

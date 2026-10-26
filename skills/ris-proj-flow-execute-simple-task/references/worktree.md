@@ -4,6 +4,17 @@ Read before any versioned Git-project edits. Prepare or safely reuse the same
 dedicated worktree of this work, never develop in the ordinary source folder.
 Do not move dirty foreign work to a new branch/copy.
 
+Apply preparation only to versioned Git edits. For ignored/external-only work,
+inspect and change the explicitly authorized **actual effective target**, not an
+inert replica inside a worktree; require no empty copy, branch or dummy Git result.
+Mixed work uses the prepared copy for versioned files and the actual authorized
+local targets for its local part. Separately check permissions, relevant target
+owners/config, concurrent writers and protected tracked/untracked/ignored data.
+Worktree isolation does not cover these targets or shared Beads. Unknown material
+side effects block dependent mutation; setup, scripts, dependency installation and
+access expansion require their own bounded authority. Existing preparers remain
+Git-copy owners, not external-file managers.
+
 - With a real confirmed task ID, load/apply
   `ris-proj-op-prepare-task-worktree`. Pass exact project/ID/actor, current copy,
   context-checked source-folder association for shared paths, agreed task → repository/

@@ -1,7 +1,7 @@
 ---
 name: ris-proj-op-publish-task
 description: >-
-  Integrate an independently reviewed RIS project change with optional task ID, or a pre-ID document result, into the project's
+  Integrate a checked RIS project change (independent review required except verified eligible Fast), with optional task ID or pre-ID document result, into the project's
   established primary Git branch and verify authorized direct push; source-copy maintenance needs an explicit request or accepted project policy. Use for
   authorized Git publication, including requirements-only documents; not content acceptance, PR creation, deploy, tracker/Dolt publication,
   feature acceptance or task/container completion.
@@ -37,7 +37,7 @@ use Task/change and retain all implementation/snapshot guards below.
 - **Task/change:** selected project, attributable agreed request, outcome,
   boundaries/criteria, accepted technical constraints/material decisions and
   exact copy/branch/base/candidate, implementation/docs/check evidence and
-  independent review. A sufficient accepted request needs no separate spec/design/
+  independent review unless the narrow Fast exception below is verified. A sufficient accepted request needs no separate spec/design/
   plan files. The task ID is optional; no-ID implementation belongs here, not in
   Documents. Its absence does not waive project-required tracking or other gates.
   With an ID, load/apply the selected adapter, discover its applicable accepted
@@ -63,7 +63,38 @@ use Task/change and retain all implementation/snapshot guards below.
    requirements-only publication. Check its applicable identity/authority/blocker
    gates, but do not treat document publication as task execution or claim it.
 
-When consuming saved project review evidence, read/apply the installed
+### Narrow Fast review applicability
+
+Review is mandatory for direct ordinary publication, Documents, feature
+preparation, full task and registered-bug work. This publisher does not decide
+that arbitrary work is Fast or accept a bare caller assertion “review not needed”.
+Only a checked invocation of `ris-proj-flow-execute-simple-task` (explicit command
+or suitable natural selection) can supply its review-not-required basis: actual
+attributable request/scope/criteria, bounded admissibility, target-project rules,
+material grounds and current checkable full subject. Verify against those actual
+sources that no explicit human review request, applicable mandatory Fast policy
+or concretely named material risk requires independent review, and that native
+feature/bug/container obligations were not downgraded. Code or Git push alone is
+not a review trigger. General RIS review wording does not silently cancel the
+Fast exception; actual applicable mandatory Fast policy remains binding.
+Missing/contradictory basis blocks dependent push, not a general review bypass.
+
+For verified eligible Fast with inactive review, require current sufficient author
+self-check, never independent approval, a skip report or review-role/format load.
+No receipt schema/file/registry is added. Known adverse findings or violations
+remain effective. If review is required, all ordinary whole-subject independence,
+findings and evidence predicates below apply. On every integrated/hook/upstream/doc
+change reassess full subject, Fast admission, criteria and risks, rerun affected
+checks and use independent reassessment when required, otherwise author self-check.
+New grounds activate review; exceeded admission returns to the lead/human before
+dependent push. This exception changes no Git authority, outgoing, preservation,
+integration, checks, non-force or remote-confirmation gates. Local-only delivery
+does not call this Git owner; mixed delivery still owes its actual local targets
+separately, and this owner's Git success cannot prove them complete.
+
+### Apply the active review gate
+
+When review is required/performed and consuming saved project review evidence, read/apply the installed
 `ris-proj-op-review-task/references/report-format.md` before the gate. Ordinary
 project review requires one
 accessible local supported YAML (/2 for new files; conditional /1 compatibility)
@@ -75,7 +106,7 @@ is introduced there, and an optional save uses the same format. Keep format
 validity separate from approval applicability: apply that owner's two consumer
 results with expected work/scope, publication purpose, full tree/base/exclusions,
 input versions, sufficient assessment/checks and actual invocation/all-author evidence.
-Require its external approval gate before push. For fast session-only evidence
+Require its external approval gate before push when review is required. For fast session-only evidence
 check these substantive predicates and repair/history applicability without YAML;
 do not load serialization resources unless a saved review file is used.
 
@@ -86,9 +117,9 @@ stops the dependent gate, not an automatic implementation loop. Do not fall back
 to an old approval past later adverse or unknown evidence.
 
 Both branches converge here into the **one** Git algorithm below. Require exact
-checked/reviewed base and complete final publication snapshot: base plus overlays,
+checked base (independently reviewed when required) and complete final publication snapshot: base plus overlays,
 additions, deletions and modes, including unchanged base files and exclusions
-declared before review. Bind independent reviewer/context provenance to that
+declared before assessment. When review is required bind independent reviewer/context provenance to that
 whole subject, not only changed paths or a dirty-tree fingerprint. Require
 no unresolved high/medium findings, recorded low
 dispositions (one collective decision suffices; low alone requires no repair,
@@ -97,7 +128,7 @@ Read current project rules,
 Git status, diff, recent history, worktree mapping, remotes and tracking. Establish
 the primary branch and selected remote from project evidence; do not assume the
 literal name `main`, configure remotes or grant direct-write permission yourself.
-PR-only policy, forbidden direct push or missing target/permission/checks/reviewer
+PR-only policy, forbidden direct push or missing target/permission/checks/required reviewer
 blocks publication with useful local state reported. A task's in-progress status
 is not a publication gate.
 Publication does not accept content, create tracker records or enlarge the
@@ -108,7 +139,7 @@ source, subject, destination and exclusions; do not re-ask when already covered.
 An explicit project requirement for further approval remains binding. Return the
 exact missing authority to the lead (or ask the specific question on direct
 invocation), never reinterpret the parent's scope as local-only. This does not
-authorize unrelated outgoing commits, a new remote/ref, force or bypassed review.
+authorize unrelated outgoing commits, a new remote/ref, force or bypassed required review.
 
 ## Integrate, reassess, publish
 
@@ -127,9 +158,9 @@ progress, with the explicit selected remote/refspec required below. Keep stderr,
 command exit status and the verified result/receipt available; do not redirect
 errors away, mask failure with a pipeline or infer publication from silence.
 No new log file is required. Quiet output does not replace outgoing-history
-inspection, independent review or remote read-back.
+inspection, applicable review or remote read-back.
 
-1. Require an already prepared, confirmed own branch and safe working copy as the
+1. Before publication **writes**, require an already prepared, confirmed own branch and safe working copy as the
    publication workspace, with or without an ID (for pre-ID documents, its own
    authorized document branch/worktree). Require a registered dedicated worktree
    distinct from the ordinary source folder, also for simple or no-ID work. Ambiguous
@@ -138,12 +169,17 @@ inspection, independent review or remote read-back.
    This operation does not prepare worktrees or create work branches. All branch
    switching is forbidden, including a post-confirmation return to primary.
    Never reset primary/main or use the local primary branch for integration.
+   A genuinely no-change read/remote-verification call needs no new empty worktree
+   or invented branch; inspect its identified existing subject and proceed to
+   the no-change checks below. Existing unsent commits or needed integration/
+   content writes are not that exemption and require the prepared own copy first.
+   Any authorized source maintenance still has its separate guards.
    One publisher owns this subject, not every project's publication. Fetch the
    latest established primary branch from the selected remote and inspect its
    new code/contracts, divergence and the full outgoing commit/file set.
    Preserve dirty/untracked user work; stage only authorized files,
    inspect staged diff and exclude secrets/local workspace/tracker storage. Do not
-   send unrelated local commits just because this task's tip is approved. Use
+   send unrelated local commits just because this task's tip passed its applicable gate. Use
    project-established integration policy; no force push, destructive reset,
    hook bypass or silent conflict resolution. Conflicting accepted scope or
    authority returns to its owner; ordinary merge conflicts are resolved in this
@@ -156,26 +192,27 @@ inspection, independent review or remote read-back.
    project history style in this own branch/copy. Merge the fetched latest
    established primary remote branch into it, resolving conflicts there; do not
    use shared local main as an integration workspace. Record resulting commit and
-   exact integrated tree and current input versions. Compare it to the report's
-   complete approved publication snapshot,
+   exact integrated tree and current input versions. Compare it to the complete
+   assessed publication snapshot (independently approved when required),
    not a dirty working-tree fingerprint. Verify staged/committed path/content/
    modes against its manifest, including unchanged base files and predeclared
    exclusions. Local evidence is checked separately. Do not invent exclusions
    after review or justify differing committed bytes by calling them contextual;
-   obtain independent assessment of the new subject before push.
+   assess the new subject under the applicable review/self-check gate before push.
    If identical, document why evidence remains applicable. If changed
    (including compatible upstream edits, merge resolutions or doc adjustments),
    assess affected criteria, test seams, architecture fitness and doc claims;
-   rerun affected checks and obtain independent reassessment of the integrated version
-   before push. A clean merge or an unchanged task diff does not prove the old
-   review covers the new whole tree. The reassessment identifies the full new
+   rerun affected checks and obtain independent reassessment when required, or
+   author self-check for verified Fast with inactive review, before push. Recheck
+   Fast admission/review grounds too. A clean merge or unchanged task diff does not
+   prove old evidence covers the new whole tree. The reassessment identifies the full new
    snapshot and may reuse still-applicable review/check evidence for unaffected
    parts. Remote advancement alone does not restart planning/implementation,
    repeat all checks or renew acceptance of unchanged documents. Reaccept only
    substantively changed results through their owner. Do not reuse failed/unavailable checks.
 3. Confirm architecture documentation's factual claims on that actual integrated
    tree; pending-integration statements must now match facts. Any required doc
-   correction changes the tree and is subject to the same check/review gate.
+   correction changes the tree and is subject to the same applicable check/review gate.
 4. Reinspect target/remote and complete outgoing scope immediately before direct
    push; send the checked resulting own-branch commit to the authorized primary
    remote ref with an explicit source:destination refspec and normal non-force
@@ -209,7 +246,8 @@ inspection, independent review or remote read-back.
 Return `ok|blocked|conflict|error`, subject kind/identity and exact paths
 (confirmed ID only when applicable), source/target branches and remote,
 commits/tree/ref, input/result versions and separate decision locators,
-checks/review addresses, provenance and applicability, docs state, actual push
+checks, review applicability and actual review evidence only when required/performed,
+provenance and applicability, docs state, actual push
 and remote-read evidence, publication scope and remote-only default when no local
 authority applies. State the checked authority source (request or policy locator/
 version/acceptance), exact copy/remote/ref/effects and exclusions, or its absence/

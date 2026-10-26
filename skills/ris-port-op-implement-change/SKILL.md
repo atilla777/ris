@@ -15,6 +15,16 @@ project rules and explicit file/command permissions. Do not require
 RIS skills, configuration, directories or a tracker. The caller owns project
 identity, claim, documentation integration, independent approval and publication.
 
+Use the supplied actual authorized targets: versioned Git files in the caller's
+checked copy; ignored/external files at their effective destination, not an inert
+replica. Git base/tree fields below apply to the versioned subject only. Local-only
+work binds before/after actual-target state and useful-effect checks instead of
+inventing a Git base, branch or SHA; mixed work identifies and checks both parts.
+Inspect relevant target-specific rules, permissions, concurrent writers and side
+effects; a Git copy does not isolate external/shared resources. Preserve foreign
+tracked/untracked/ignored data. Unclear material effects block dependent mutation;
+never infer setup, dependency-installation or access-expansion rights from tools.
+
 Establish `implementation_mode: standard|tdd` from the caller, request and project
 rules; default to `standard` only when none requires TDD. This is a semantic input,
 not a host-loader argument or RIS config field. Conflicting requirements block the

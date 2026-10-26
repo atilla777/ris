@@ -15,18 +15,26 @@ specs, selected adapter or shared report paths, and `ris-port-op-review-change`
 for the assessment. Check dependency availability and actual results. A direct invocation
 needs no execution role or scenario skill.
 
+Fast calls this owner only for its active review branch (explicit human request,
+mandatory applicable target-project policy or explained concrete material risk).
+This includes suitable natural selection of `ris-proj-flow-execute-simple-task`,
+not only a slash command. The flow owns applicability; this review owner neither
+starts unsolicited review nor cancels a requested direct assessment. Conditional
+Fast review does not weaken this owner's substantive/independence gates or the
+full/feature/bug/direct review contracts. Self-check is never independent approval.
+
 Before producing/saving a project review **file** or consuming saved rounds, read
 `references/report-format.md` from this installed skill. It is the sole owner of
 supported serialization, types, history and approval applicability. New files use
 `ris.review/2`; existing /1 files continue under its conditional compatibility resource. Ordinary
-project review requires that complete YAML; explicit fast execution alone permits
+project review requires that complete YAML; selected Fast execution alone permits
 a sufficient session result without a file. An optional fast save uses the same
 format. No duplicate Markdown report or Beads verdict/findings copy.
 Use that resource's skill-local validator/setup instructions for mechanical file
 checks when available; keep operational/dependency errors separate from report
 invalidity. It neither establishes external evidence/independence nor replaces
 this assessment. Never install its dependency silently.
-For explicit fast session-only review, apply the portable assessment and this
+For selected Fast session-only review, apply the portable assessment and this
 skill's subject/independence gates without loading YAML serialization resources.
 Read `references/bug-subject.md` only for a supplied native bug, before selecting
 its document versus fix-implementation basis. Read resources relative to this
@@ -43,6 +51,16 @@ useful current-content analysis. Do not invent a feature design for a small repa
 Verify actual candidate bytes rather than approving HEAD alone or assuming an
 absent change from missing local evidence. A stale handoff is not a current input.
 Analysis requires neither claim mutation nor report-write permission.
+
+For an active Fast local-only review, inspect exact actual authorized targets and
+useful effects, before/after state or accessible equivalent and current checks,
+not an inert worktree replica or fictitious Git baseline/SHA. Mixed subjects bind
+both the whole Git candidate and actual local targets. Inaccessible targets or
+unproved useful effects limit/block the dependent conclusion; never infer them
+from Git publication. This does not turn the reviewer into a target writer or
+authorize disclosure of secrets. Bind session assessment to the checkable actual
+subject; changed targets require applicable independent reassessment just as changed
+Git bytes do. No new review schema or mandatory file is introduced.
 
 With a supplied ID, load/apply the selected available adapter and freshly read
 exact typed identity, content, membership and relevant dependencies. Discover the

@@ -1,4 +1,4 @@
-# Finish the ancestor chain in fresh context
+# Finish the actual ancestor chain
 
 Shared execution-flow tail, owned by `ris-proj-flow-execute-task`; full and tracked
 simple-task execution apply this resource after their selected task's exact close
@@ -6,7 +6,7 @@ and separate tracker publication are confirmed. Bugfix inherits the full route.
 This is not a new skill, tracker algorithm or substantive acceptance operation.
 Direct status, verification and exact-container close never activate this tail.
 
-## Lead: admit and delegate once
+## Caller: admit and select the execution mode
 
 A full execution request includes ordinary child-based closure of its task's
 eligible ancestors unless the user or applicable project rules prohibit it.
@@ -15,7 +15,15 @@ Read the completed task's actual parent relationship through the selected adapte
 not dotted ID prefixes or titles. Confirm no parent means a successful no-op,
 without requiring a role or launching an agent. Unknown is not absent.
 
-For an allowed chain resolve `container-completion` through context's execution-role
+For Fast (`ris-proj-flow-execute-simple-task`, including suitable natural selection),
+the main agent applies the ascent below **inline** through the same container owner
+and selected adapter. No `container-completion` role, fresh subagent or transfer of
+its own context is required. Load/apply common, context only for needed settings,
+the selected adapter and `ris-proj-op-complete-container` before their operations.
+Keep the same predicates, authority, separate publication and recovery below.
+
+For full task execution (including bugfix through full), retain mandatory fresh
+delegation. For an allowed chain resolve `container-completion` through context's execution-role
 resource, check the configured executor's availability and caller/child permissions,
 and **actually launch one fresh subagent for the entire chain**. Check a known
 needed role before dependent effects; unavailable delegation leaves the task's
@@ -32,7 +40,7 @@ The recipient loads/applies common, context, the selected adapter and the existi
 is the chain result below, not feature verification, repair or next-task execution.
 The lead checks actual invocation and returned effects before reporting success.
 
-## Recipient: ascend only the real parent chain
+## Acting owner (Fast lead or full-flow recipient): ascend only real parents
 
 1. Freshly confirm the starting task is exactly the supplied closed ID in the
    selected project. Resolve a unique immediate parent from actual membership.
@@ -65,7 +73,10 @@ The lead checks actual invocation and returned effects before reporting success.
 
 On timeout/lost response/failed close or push, stop dependent writes. Reconcile
 real status, membership and exact required publication revision through the same
-owners before retry; no blind relaunch while a previous recipient may still write.
+owners before retry; no blind inline continuation or relaunch while a previous
+writer/recipient may still write. Resume in the applicable caller mode: Fast inline,
+full/bug fresh recipient. Never weaken the full route by selecting Fast just for
+its tail.
 Reuse confirmed closed IDs and reachable revisions; never reopen/reclose, repeat
 confirmed pushes, or replace a known required revision with a newer tip to hide debt.
 An explicitly continued unfinished execution may finish only this authorized tail
