@@ -15,6 +15,15 @@ description: >-
 Here, accepted requirements/design means sufficient direct/inherited/mixed basis
 under common's `published-inputs.md`, not unconditional new human approval.
 
+For an explicitly bounded preparation contribution consume the lead's checked
+project/copy/preflight, exact candidate and independently sufficient input basis.
+Apply only the matching formulation/draft/local-save/record branch; do not restart
+standalone discovery, the dialogue or full publication. Validate the available
+results and refresh live write guards; repeat stable context only on material
+drift, copy change or loss under common. Return material gaps to the lead.
+Direct invocation retains its own input discovery and requested complete result;
+nesting alone never selects a limited mode.
+
 For a confirmed feature read/apply installed `ris-proj-op-specify-feature`'s owned
 `references/stage-prerequisites.md` before dependent design work or saving.
 Check readable prerequisite decisions independently from native blocks; unknown

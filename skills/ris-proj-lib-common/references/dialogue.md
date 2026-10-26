@@ -21,13 +21,15 @@ then ask the one concrete decision needed to proceed. Do not replace that questi
 with a final local-save report or a generic offer to continue. A technical blocker
 with no human decision needs a precise report, not an invented permission question.
 
-Ask **one user decision question at a time** and wait for the answer before
-choosing the next, even when questions are independent. Ask dependent questions
-only after their premises are resolved. This default applies to all RIS work
-using `ris-proj-lib-common`, not only to formal interviews. If the user explicitly asks
-for multiple questions together, honor that request while preserving the
-dependency order. When several methodologies need answers, coordinate one
-conversation rather than repeating interviews.
+Ask only new material decision questions. Usually ask one at a time; a compact
+related block is also appropriate when the person can understand the choices
+together in dependency order. Show conditional alternatives explicitly; do not
+assume an unanswered premise or ask a questionnaire of unrelated future choices.
+Wait for a prerequisite answer when it can materially change the later questions.
+Honor an explicit request for single questions or a related block. A material
+fork that prevents a useful candidate warrants an early question, not a forced
+draft first. When several methods contribute, maintain one dialogue and reuse
+known answers rather than restarting interviews at owner boundaries.
 
 Before each decision question, briefly explain its context and the consequences
 of choosing, in plain language. Adapt the detail to the person's familiarity;

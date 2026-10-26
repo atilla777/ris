@@ -119,6 +119,18 @@ The full request includes ordinary Git/tracker publication within its authority;
 no approval per internal step. Local saving is intermediate. Missing authority
 requires one concrete question; explicit restrictions remain. Unrelated Git commits
 and uncovered shared Dolt history are not authorized by one feature request.
+Reuse stable context/preflight until drift/copy change/loss; live ownership/status/
+action blockers remain fresh. Same-record native preparation assignment is not
+an extra execution claim. Internal contributions do not restart standalone steps.
+Ask only new material choices, in a related ordered block when useful; ask a
+blocking fork early. Draft review is optional, not a mandatory duplicate of final
+independent full-tree review/reassessment. Short spec/design has AC/how-to-check,
+not quotas/backlog/status/checklist or an architecture recap. Verify the complete
+one-task/child/edge coverage and assigned combined check; an obvious split needs
+no new approval, material scope/delivery/obligation changes do. Ordinary finish:
+Git → same record → full composition/edges → separate final Dolt publication, not
+push per step or atomic history. Partial resume finishes only missing effects from
+existing facts; no new readiness marker/count/matrix/report or history migration.
 
 ---
 

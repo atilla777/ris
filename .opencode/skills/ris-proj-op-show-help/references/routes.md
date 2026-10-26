@@ -61,8 +61,15 @@ obtain separate content acceptance, then save/check within <authorized scope>`.
 - "I want to add authorization": if this is a new feature needing decisions,
   explain `/risp-prepare-feature <ID or epic/context>`: early-register the chosen
   result, prepare its one safe ID-associated copy, work out requirements/design
-  in one dialogue, precisely accept both scopes (one act may cover both), review/
-  publish inputs, update the same ID and verify decomposition/tracker publication.
+  in one author context/dialogue, check both scopes' direct/inherited/mixed basis,
+  decide only new material (one act may cover both), independently review/publish
+  inputs, update the same ID and verify full decomposition/final tracker publication.
+  Stable preflight is reused while live guards stay fresh; native preparation
+  assignment is not another execution claim. Related ordered questions are valid,
+  draft review is optional, final independent review/reassessment remains required.
+  Short sufficient spec/design carries AC/how-to-check without backlog/quotas.
+  Partial preparation resumes only missing effects, not confirmed Git publication;
+  a new readiness marker/child count is neither required nor proof of completion.
   `/risp-decompose-feature <ID>` remains useful independently or on resume when
   accepted published inputs already exist; it is not mandatory after prepare.
   If it might instead be a bounded ordinary request/idea, clarify that distinction,

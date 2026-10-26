@@ -120,6 +120,18 @@ approval/acceptor; смешанное — решение только по но�
 без разрешения на каждый шаг. Локальное сохранение — промежуточный результат.
 При нехватке полномочий нужен один конкретный вопрос; явные запреты сохраняются.
 Поручение одной фичи не разрешает посторонние Git-коммиты и непокрытую Dolt-историю.
+Stable context/preflight переиспользуется до drift/copy change/loss; live ownership/
+status/action-blockers свежие. Native назначение той же записи на подготовку — не
+отдельный execution claim. Внутренние contributions не перезапускают standalone.
+Только новые существенные вопросы, связанный ordered блок допустим, мешающая
+развилка обсуждается раньше. Draft review условен, не обязательный дубль final
+independent full-tree review/reassessment. Короткая spec/design имеет AC/how-to-check,
+не квоты/backlog/status/checklist или пересказ архитектуры. Проверяются весь
+one-task/child/edge состав и назначенная combined check; obvious split не
+перепринимается, material scope/поставка/обязательства — человеку. Обычный финал:
+Git → same record → полный состав/связи → отдельная final Dolt publication, не push
+на каждый шаг и не атомарная история. Partial resume делает только остаток по
+существующим фактам, без нового marker/числа/matrix/report или миграции истории.
 
 ---
 

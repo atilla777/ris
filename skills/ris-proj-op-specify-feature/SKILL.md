@@ -15,6 +15,15 @@ description: >-
 Here, accepted requirements means sufficient direct/inherited/mixed basis under
 common's `published-inputs.md`, not unconditional new human approval.
 
+For an explicitly bounded contribution to preparation, consume the lead's checked
+project/copy/preflight, source basis and exact candidate for that action. Apply
+the matching registration, formulation, local-save or record-only branch below;
+do not repeat standalone discovery/dialogue or start this owner's full publication
+route. Validate sufficiency and refresh live write guards, redoing stable context
+only on material drift, copy change or loss under common. Missing facts/decisions
+return to the lead. Direct invocation still establishes its own necessary inputs
+and completes its requested result; mere nesting never silently narrows it.
+
 For requirements work on a confirmed feature, read/apply this skill's owned
 `references/stage-prerequisites.md` before the dependent action, independently
 of native blocks. Early registration still needs no spec/design/AC and reuses

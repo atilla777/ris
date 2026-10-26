@@ -222,6 +222,22 @@ publication; the same record then reaches verified decomposition and separate
 tracker publication. Direct specify/design/decompose calls remain scoped alternatives,
 not mandatory extra steps. Preparation does not start implementation.
 
+Preparation keeps one author context: internal contributions reuse checked stable
+context/preflight until material drift, copy change or loss; live rights, ownership,
+status/action blockers and publication conditions stay fresh. The same native
+assignment has purpose `feature-preparation`, not a separate execution claim or
+metadata record. Ask only new material choices, optionally as a related dependency-
+ordered block; ask a blocking fork before drafting. Draft review is optional, not
+a mandatory duplicate of final independent publication review/reassessment.
+Short sufficient spec/design includes AC/how-to-check, no quotas, task backlog,
+execution checklist or architecture recap. Obvious splitting needs no new approval;
+material scope/delivery/obligation changes do. Full decomposition assigns a combined
+check and verifies the whole composition, not a child count. Ordinary final order
+is Git → same-ID record → complete composition/edges → separate final Dolt
+publication, not push per internal step or an atomic-history promise. Resume
+reconstructs only the missing effects from existing sources; no readiness marker,
+matrix/report or migration is required. See [the owner](skills/ris-proj-flow-prepare-feature/SKILL.md).
+
 An authorized full preparation includes its normal Git and tracker publication
 without approval at every internal step. “Continue” retains that scope; a local-save
 child result is not the endpoint. Missing authority requires one concrete question,

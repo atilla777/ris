@@ -61,6 +61,25 @@ Dolt gates не ослабляются. Исторические специфи�
 
 `ris-proj-flow-prepare-feature` рано регистрирует выбранную фичу, использует одну ID-associated safe copy до документов и один requirements/design dialogue. Один явный акт может точно принять две полные различимые области/версии; каждый owner проверяет своё принятие, неизменённое не перепринимается. Достаточный inline design не требует design.md/ADR. После independent review и подтверждённой remote Git-публикации обновляется та же ordinary запись и применяется полная existing decomposition, в своей сессии либо исполнителе, до one-task или verified children/необходимых directed blocks и отдельной tracker publication. Для внутренних действий этого flow не обязателен отдельный executor; reviewer фактически независим от всех авторов/исправителей. Direct specify/design/decompose сохраняют scoped контракты, не запускают друг друга; prepare не запускает реализацию.
 
+По ris-ci3.2 один авторский контекст переиспользует stable context/preflight до
+существенного drift, смены copy или потери данных; внутренние contributions не
+перезапускают standalone-церемонии. Native assignment той же записи с purpose
+`feature-preparation` (`assignee/in_progress` в Beads) не отдельный execution claim,
+task или metadata. Live ownership/status/action-blockers/права и условия публикации
+перед dependent writes свежие; execution позже отдельно проверяет все свои gates.
+Только новые существенные вопросы, допускается связанный dependency-ordered блок
+и ранняя развилка до черновика. Draft review условен, нет обязательной одинаковой
+пары раундов; publication review полного final snapshot реально независимо,
+изменённый snapshot получает применимую независимую переоценку. Достаточная короткая
+spec/design содержит AC/how-to-check без квот, backlog/status/checklist и пересказа
+архитектуры. Full decomposition сохраняет полный состав/критерии/contracts/seams,
+необходимые directed blocks и назначенную combined check; obvious split не
+перепринимается, material scope/поставка/обязательства возвращаются человеку.
+Обычный финал — Git → same-ID reconciliation → полный состав/связи → final Dolt;
+не push на каждый шаг и не обещание атомарности/запрета иных публикаций. Partial
+отличается по фактам, resume делает только остаток; новый readiness marker,
+число детей, matrix/report/registry не требуются и не доказывают полноту.
+
 Full task/bug/direct
 implementation начинается из достаточных принятых входов и актуального кода без
 planner, сохранённого плана, его approval/readiness или omission-decision.

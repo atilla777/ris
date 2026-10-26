@@ -153,6 +153,14 @@ Distinguish these outcomes from inspectable facts, not presumed stage order:
    actual documents/decisions leave an exact input gap, not inferred acceptance.
    These are examples of needed results to match against current owner contracts,
    not an exhaustive lifecycle stage table.
+   A known preparation is not complete merely because Git succeeded, the record
+   was reconciled or some children exist. When this distinction matters, inspect
+   the full required one-task/child/edge coverage and separate final tracker
+   publication, reusing existing sources/evidence. A child count or a
+   `Preparation: complete` line is neither proof nor a required marker; absent
+   notes do not force migration of an old sufficient feature. Recommend the
+   same proven preparation flow for its actual remainder, not execution or
+   repeated confirmed Git publication. Unknown effects stay an evidence gap.
 4. **Return to caller:** for nested/component invocations return the bounded
    recommendation and evidence to the caller; do not take over its dialogue,
    transitions or combined result or silently change full/limited mode.

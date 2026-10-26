@@ -79,6 +79,13 @@ Do not remove/ignore edges, override native claim refusal or weaken execution
 gates to prepare a copy. Preserve legacy payloads; absent/old/malformed JSON alone
 does not block copy preparation or establish ordinary kind.
 
+Use the same native record assignment for this purpose, not an additional
+execution claim or preparation task. Purpose comes from the authorized request
+and calling contract, not a required tracker metadata field. Beads uses existing
+`assignee/in_progress` with the adapter's guards. A checked own preparation
+assignment is reused; later execution separately verifies authority, sufficient
+inputs and strict execution guards, without a replacement worktree.
+
 An exact native bug uses explicitly advertised ordinary bug reads, complete
 children/directed blockers and native claim (Beads `references/bug-execution.md`),
 not task-only feature APIs. Keep its native type and same ID/actor/copy association;

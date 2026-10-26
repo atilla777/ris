@@ -10,7 +10,7 @@ description: >-
 
 # Prepare one feature through verified decomposition
 
-Own transitions, one human dialogue and the **combined result**. Component owners
+Own transitions, one author context/dialogue and the **combined result**. Component owners
 retain their complete methods, scoped results and direct invocation; the adapter
 owns tracker encoding/operations/publication. This project scenario needs no new
 portable base. Stop after verified decomposition and separate tracker publication,
@@ -60,9 +60,15 @@ role through context and check availability/permissions and invocation evidence,
 not a configured name or assumed model tier.
 Unavailable required review blocks publication, not independent useful analysis.
 
-Each acting context loads/applies its selected owner and required resources before
-that operation; do not load every child method merely to route work. In the same
-session reuse available facts rather than restating them. For delegation apply
+Each acting context applies its selected owner's relevant method and required
+resources before that operation; do not load every child method merely to route
+work. In this context use bounded contributions, not repeated standalone entry
+ceremonies: validate supplied project/copy/input/preflight results for the action
+and do not restart discovery, dialogue, acceptance or publication already owned
+here. Common's stable-result reuse rule applies; repeat affected context/preflight
+only on material drift, copy change or loss. Live rights/ownership/status/blockers
+and current publication conditions remain fresh before dependent writes.
+For delegation apply
 common's artifacts handoff: goal, project+ID/checked copy, scope/permissions and full
 candidate text with distinguishable version/selectors or an accessible exact
 file/version, and attributable acceptance when saving. The recipient reads/checks
@@ -117,11 +123,18 @@ Before **any** document/evidence write, including optional drafts, apply
 and context-checked primary roots, known association, path/branch and explicit
 base or established remote/main rule. That owner composes the portable preparer
 and selected worktree adapter; do not duplicate creation/preservation algorithms.
-Require open own preparation work/claim, fresh action-specific directed-blocker
+Require open own preparation assignment, fresh action-specific directed-blocker
 checks and a safe own copy. Execution-only blockers do not automatically forbid
 clarification, but actual/unknown preparation blockers and native refusal are not
 bypassed. Keep execution gates unchanged. Recheck ownership/status/blockers before
 each mutation batch through the selected adapter.
+
+This is the same record's native assignment with purpose `feature-preparation`,
+not a separate execution claim, stage task or new metadata field. In Beads the
+existing `assignee/in_progress` and guarded assignment are sufficient; the request
+and calling contract convey purpose. Preparation ownership grants no permission
+to implement. Later execution rechecks its own inputs, authority and all native
+execution gates, preserving the associated copy and foreign-work protections.
 
 Consume the preparer's checked work/copy association and current-copy result,
 separate copy/environment readiness, setup effects and limits; do not reconstruct
@@ -162,6 +175,10 @@ against explicitly proposed requirements while exploring; it cannot be saved as
 accepted until requirements and design each have that sufficient basis.
 Resolve interdependent functional/technical choices in **this one dialogue**;
 reuse known answers, investigate factual questions and ask only material gaps.
+Prefer a compact requirements/design candidate from available sources and code,
+then ask only remaining new material choices. A related dependency-ordered block
+is allowed; a fork preventing a meaningful candidate is asked earlier. Neither
+an interview nor a fixed question count is mandatory.
 Use the existing focused technical interview method if genuinely needed, not a
 second functional questionnaire. Return behavior changes to the requirements
 candidate; do not silently accept them as design choices.
@@ -174,6 +191,12 @@ not ceremony. Prefer a sufficient design as its own unambiguous section in
 separation is useful or appending to already accepted whole-file requirements
 would change their scope. Absence of design.md is not a gap; insufficient design
 or missing sufficient design basis is. Ordinary specs are not OKF bundles.
+Keep the spec sufficient, not long: result/bounds/exclusions, observable AC with
+practical how-to-check, independently selectable sufficient design and material
+open questions. Do not maintain a task backlog, execution status or checklist in
+it. There are no section/length quotas. Design fills material gaps and cites
+applicable architecture/contracts instead of reciting them; domain-specific
+prompts and deferred parameters apply only when relevant.
 
 Before deciding new material show both **complete, distinguishable versions/scopes**, accessible
 inline or at checked exact addresses. Explain design essence/flow, reused/new
@@ -217,9 +240,19 @@ or repinned merely for save retries/integration.
 
 ## Independently review, publish Git and reconcile the same record
 
-Actually launch independent `ris-proj-op-review-task` for the **complete document
-subject**: requirements/design and decisions against rules, AC and architecture,
+Draft review before final decisions is optional, used when it can usefully expose
+material gaps. It is not a mandatory extra analysis round before publication
+review. A wholly inherited candidate can go directly to publication-purpose
+review. Reuse an already sufficient independent assessment only where its purpose,
+full final snapshot, inputs and checks are applicable under the review owner.
+After changes obtain necessary independent reassessment of the new full snapshot,
+possibly from the same still-independent reviewer using unaffected evidence.
+Human acceptance and review remain different facts; authors cannot self-approve.
+
+Require actual independent `ris-proj-op-review-task` assessment of the **complete
+document subject**: requirements/design and decisions against rules, AC and architecture,
 exact full base+overlay/add/delete/modes snapshot and all authors/repairers.
+Launch it when no already applicable independent assessment covers that subject.
 Use publication-gate purpose and context-checked primary
 `workspace.tasks/<confirmed-ID>/review.yaml` unless an exact authorized override
 applies. Apply its installed `references/report-format.md`: one full local YAML,
@@ -266,6 +299,8 @@ Use its entire portable/project method and readiness/coverage/reconciliation
 checks unchanged, in this session or a suitable executor without formal complexity
 thresholds. Do not substitute a short split algorithm or Markdown backlog.
 
+Do not ask the human to reapprove an obvious contract-preserving split. Return
+material changes to scope, delivery or obligations for a targeted decision.
 Check its complete result: for one unit, the existing feature itself has sufficient
 scope/criteria/accepted coverage, reconciled complete child set and directed
 blockers, without an artificial child. For multiple units, every child has own
@@ -307,6 +342,17 @@ historical pass or replay of confirmed push/close. Closed records stay closed;
 this flow grants no closure or implementation authority. Unknown ownership/setup/
 remaining process blocks dependent mutation. Infrastructure algorithms stay with
 their owners; inspect returned results and applicability.
+
+Reconstruct the actual preparation remainder: before Git, retain the candidate,
+basis, checks/review and copy; after Git but before reconciliation, reuse that
+publication and repair only the same record; after reconciliation or partial
+children/edges, compare the full required composition with actual records before
+adding only missing work; after verified composition, finish only tracker debt.
+Unknown channels remain unknown until their owner verifies them. Ordinary final
+notes may identify composition/coverage and remainder, but neither a child count
+nor a `Preparation: complete` line proves completion or becomes required. Without
+such notes resume/navigation can inspect existing documents, review, graph and
+publication evidence; old sufficient features need no marker or migration.
 
 Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
 provenance, exact feature/optional epic and document paths, separate accepted scopes and

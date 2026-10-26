@@ -110,6 +110,17 @@ acceptance and publication evidence expand only when they change the recommendat
 Unknown facts stay explicit. The executing owner checks current readiness,
 acceptance, ownership and permissions; navigation writes nothing and launches nothing.
 
+Feature preparation uses one author context/dialogue and native same-record
+preparation assignment, not another execution claim. Internal contributions reuse
+stable checked context/inputs without standalone restarts; live write guards stay
+fresh. Only new material choices need questions (a related ordered block is valid).
+Draft review is optional; independent final-tree review/reassessment is not.
+Short sufficient spec/design carries AC/how-to-check, not task backlog/checklists
+or length quotas. The full one-task/child/edge decomposition assigns the integrated
+combined check; obvious splits need no new approval, material scope/delivery changes
+do. Git → same record → full composition → separate final tracker publication;
+partial results resume from facts without a required marker/count/matrix/report.
+
 ### Explicit calls without a slash command
 
 Ask the agent to load the exact skill with its skill tool and supply the inputs:

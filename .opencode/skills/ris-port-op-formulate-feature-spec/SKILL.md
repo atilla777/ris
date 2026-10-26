@@ -76,6 +76,9 @@ required schema/table; no project discovery or persistence method is imported.
    IDs and meanings on revision; retire deleted IDs without reusing them for
    another meaning. When a permanent feature slug is supplied, references are
    `slug#AC-nnn`; do not invent a tracker identity or rename a supplied slug.
+   Give each criterion a practical way to check it: relevant input/condition,
+   observable outcome and usable oracle or inspection method. Match the check
+   to the actual artifact; do not imply agent-behavior tests for instruction text.
 4. Cross-check coverage of supplied decisions, exclusions, limits, significant
    failures and quality constraints. Detect contradictory statements, criteria
    with no supported behavior, unsupported assertions, missing verification
@@ -89,6 +92,14 @@ behavior/compatibility constraints remain requirements, but component ownership,
 implementation APIs and test seams belong to a separate design result. Supplied
 technical suggestions retain their status; they do not silently become accepted
 requirements or proof that a design exists. Do not approve or write either result.
+
+Prefer the shortest sufficient account of result/bounds/exclusions, behavior,
+AC/how-to-check and material open questions. Do not include a task backlog,
+execution statuses or implementation checklist. There is no minimum length or
+section quota. Domain prompts (for example game balance/frame/audio/softlock)
+and deferred parameters apply only when material to this feature, not as a
+generic questionnaire. A caller may combine these requirements with a separately
+identifiable sufficient inline/adjacent design; no extra design file is required.
 
 ## Result and stop
 

@@ -135,6 +135,12 @@ precise acceptance of both complete requirements/design scopes (one act allowed)
 independent review, published inputs and verified one-task or child-task/edge
 coverage with separate tracker publication. Sufficient inline design needs no
 design.md. Optional drafts are not acceptance/publication. No implementation/close.
+One author context reuses stable preflight, with fresh live guards and native
+preparation assignment, not a second execution claim. Only new material questions;
+related ordered blocks allowed. Draft review optional; final independent review/
+reassessment required. Short spec/design has AC/how-to-check, not a backlog.
+Full composition/combined check precedes final tracker publication; partial resume
+does only the missing effects, without a required readiness marker or child count.
 Example: `/risp-prepare-feature <existing feature ID>`; with an epic, choose existing
 needed-stage candidates; an empty epic first needs agreed graph planning. Parallel
 candidates remain visible; all-blocked diagnoses prerequisites, not new features.

@@ -62,12 +62,14 @@ limited; do not silently substitute a question count or time limit.
    fabricate a menu. When continuing, distinguish the confirmed previous
    answer from proposals before asking the next question; use the caller's
    dialogue presentation rules when provided, without requiring RIS or a
-   particular visual format for direct use. Ask **one decision question
-   per message**, wait for the answer, update its status and dependencies, then
-   recompute the frontier. Ask several independent questions in one message
-   only if the user expressly requests that; never ask a dependent question
-   before its prerequisite is answered. Do not equate agreement with one
-   recommendation to agreement with adjacent decisions.
+    particular visual format for direct use. Usually ask one decision question,
+    or a compact related block when the choices are understandable together in
+    dependency order. Make conditional branches explicit; wait for a prerequisite
+    answer when it changes which later questions are meaningful. Honor the
+    person's requested question style; do not turn the frontier into a fixed
+    questionnaire. After answers update statuses/dependencies and recompute the
+    frontier. A material fork may need a question before a useful draft exists.
+    Agreement with one recommendation never accepts adjacent choices.
 4. If a decision is deferred, retain it and its impact without guessing its
    descendants; continue investigating independent material branches. If an
    answer removes a branch or opens new ones, update the tree rather than

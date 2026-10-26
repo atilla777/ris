@@ -86,6 +86,19 @@ executors are optional; independent review is actually separate. Sufficient inli
 design needs no design.md. Direct component operations remain available. This does
 not start implementation after prepare.
 
+One author context reuses stable context/preflight until material drift/copy change/
+loss; internal contributions validate supplied results instead of restarting
+standalone ceremonies. Live write guards remain fresh. Native same-record
+`feature-preparation` assignment is not a second execution claim. Dialogue asks
+only new material choices (a related ordered block or early blocking fork is
+valid); draft review is optional, final independent publication review and changed-
+snapshot reassessment remain. Short sufficient spec/design includes AC/how-to-check,
+no quotas/backlog/status/checklist or architecture recap. Obvious splits need no
+new approval; changed scope/delivery/obligations do. Verify the full one-task or
+child/edge composition and assigned combined check, then separately publish final
+Dolt. Partial Git/record/children success is not complete; resume inspects existing
+sources and finishes only missing effects without new markers/matrices/reports.
+
 Full preparation carries ordinary Git/tracker publication authority across owners,
 subject to explicit project/user limits and the actual outgoing-history scope.
 Limited child saves return to the lead for continued review/publication/decomposition;

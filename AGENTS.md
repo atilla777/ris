@@ -23,6 +23,19 @@ TDD сохраняется, но история RED/GREEN не является 
 
 Подготовка фичи: ранний ID и одна safe copy, один диалог требований/дизайна с двумя точными accepted scopes (возможен один акт), независимое ревью/Git, та же ordinary запись и existing decomposition до проверенного one-task либо children/blocks и отдельной публикации трекера. Отдельный исполнитель каждого внутреннего действия не обязателен; reviewer реально независим. Direct specify/design/decompose сохраняют scoped результаты. Подготовка не разрешает реализацию автоматически.
 
+По [ris-ci3.2](docs/specs/ris-ci3.2/spec.md) внутренние contributions не повторяют
+standalone-церемонии; stable context/preflight переиспользуется до drift/copy
+change/loss, live права/ownership/status/action-blockers свежие. Purpose
+`feature-preparation` использует native assignment той же записи, не отдельный
+execution claim/task/metadata. Только новые существенные вопросы, допустим
+связанный блок и ранняя развилка; draft review условен, final publication review
+и применимая независимая переоценка полного changed snapshot сохраняются.
+Короткая sufficient spec/design с AC/how-to-check — без квот/backlog/status/checklist.
+Full decomposition сохраняет весь состав/необходимые edges/combined check;
+очевидное разбиение не перепринимается, material scope/поставка/обязательства — человеку.
+Partial/resume сверяет реальные документы/graph/effects и делает только остаток,
+без нового readiness marker/числа детей/matrix/журнала и повторных confirmed pushes.
+
 Новые feature-документы — `sources.specs/<full feature ID>/spec.md`, читаемый H1 и column-zero Feature-ID/Summary/optional Keywords; фактическое независимое принятие требований/дизайна сохраняется. Beads не дублирует accepted refs/readiness/verification. Старые ссылки/payload — только hints к реальным документам/решениям, без schema gate, миграции и переписывания истории. Нет нового реестра. Содержательная verify по умолчанию read-only, без обязательного saved verification.
 
 Bugfix использует versioned basis по [product §4.1](docs/product/06-artifacts-and-handoff.md#41-воспроизводимое-основание-bugfix):

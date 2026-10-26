@@ -34,6 +34,15 @@ isolation. Do not initiate another lifecycle stage.
 
 ## Confirm inputs and scope
 
+In an explicitly limited preparation contribution consume the lead's checked
+project/copy/preflight and published-input results without standalone restarts.
+Validate their sufficiency for decomposition; repeat affected stable facts only
+on material drift, copy change or loss under common, while ownership/status,
+action blockers and write conditions remain fresh. Apply the **entire** portable
+method, reconciliation and final coverage/read-back below, not a shortened split.
+Return its local result and publication remainder to the lead. Direct invocation
+establishes necessary inputs and retains full publication by default.
+
 Full finished invocation is default and includes required tracker publication.
 An explicitly limited contribution instead returns a proposal/read-only
 verification or checked authorized local writes; name exact boundary and remaining
@@ -207,14 +216,18 @@ lacks required content cannot be silently updated under `tasks` v1: return
 `blocked`/`conflict` with the gap, even if the base proposal is good. For
 multiple units, require exact authorized scope only
 for missing child or `blocks` writes; a fully persisted set can be verified
-read-only. Agree approved task content and stable retry keys scoped to the
-confirmed feature; preserve spec reference, requirement coverage, observable
+read-only. Derive task content and stable retry keys within the confirmed feature's
+authorized accepted scope; preserve spec reference, requirement coverage, observable
 criteria (`<ID>#AC-nnn` for new features; retain legacy qualifiers), own outcome/scope and exact applicable accepted content selectors and separate
 acceptance addresses, technical
 contracts/versions, test seams, exclusions and justified edge direction
 (blocked → blocker). Do not
 invent tracker IDs from titles, equate parent membership with a blocker, or
 turn a preferred order into a dependency.
+
+An obvious split preserving accepted scope, delivery and obligations needs no
+new human approval of the task list. Check its coverage yourself; return only a
+material scope/delivery/obligation change or disputed choice for a decision.
 
 Before each mutation, compare current all-status children, candidate identities
 and blockers with expected state. Recheck current accepted references, published

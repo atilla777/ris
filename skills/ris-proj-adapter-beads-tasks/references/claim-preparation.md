@@ -3,6 +3,13 @@
 Read with `claim.md` only for an explicitly requested `feature-preparation` claim
 of an explicitly confirmed feature, before admission or own-claim reuse.
 
+This purpose uses the same native record's `assignee/in_progress`, not a second
+execution claim, stage record or metadata registry. Determine purpose from the
+authorized request and caller contract; do not require a new persisted purpose
+field. Verify/reuse an existing own assignment through the same guards. This
+authorizes preparation only; execution later checks its own authority/inputs and
+all execution gates even if the actor and worktree remain the same.
+
 Also require the caller's stage-prerequisite assessment from installed
 specify-feature's owned `references/stage-prerequisites.md`. Verify readable
 requirements prerequisites independently of native blocks; a missing needed

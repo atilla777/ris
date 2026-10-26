@@ -88,6 +88,13 @@ a short justified confirmation of existing contracts and a minimal approach can
 be sufficient; do not manufacture design detail or claim requirements alone
 are a design. Return unresolved choices with their precise dependent scope.
 
+Fill only material design gaps. Cite supplied applicable architecture/contracts
+and explain the bounded approach/delta instead of restating the architecture.
+Keep sufficient ownership, flows/failures and AC/oracles above, but do not expand
+them into mandatory sections or length quotas. Inline design can suffice; no
+design.md or ADR is required for form. Apply domain-specific prompts and deferred
+parameter discussions only where relevant, never as a universal checklist.
+
 ## Return and stop
 
 Lead with a plain-language explanation of the design: its essence and main flow,

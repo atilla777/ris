@@ -142,6 +142,16 @@ folder/shared-path resolution; it grants no source-checkout mutation authority.
 
 ## Conditional resources
 
+Within one acting context, reuse checked context/preflight and source results
+while their material inputs, package/project configuration and copy association
+remain unchanged. Revalidate affected facts on drift, copy change or context loss,
+not merely because an internal owner is applied. Each owner still checks that
+the available result suffices for its own action; no saved context cache/registry
+is required. Live permissions, ownership/status/action-specific blockers and
+publication conditions must be fresh before dependent mutations, never treated
+as cached write authority. A delegate receives missing facts and checks their
+applicability; it does not assume access to the lead's context.
+
 Read these resources **before** the corresponding action, from the directory
 containing this `SKILL.md` (the skill's installed location):
 

@@ -17,6 +17,9 @@ assignee's; a recommendation does not authorize takeover.
 use one safe copy and requirements/design dialogue, establish each scope's
 direct/inherited/mixed basis (new approval only for new material),
 review/publish inputs and verify decomposition plus tracker publication.
+One author context, only new material questions (a related block is valid), short
+sufficient spec/design. Draft review is optional; final independent review remains.
+Resume finishes missing effects, not a new readiness checklist or repeated pushes.
 
 **Or use individual stages:**
 

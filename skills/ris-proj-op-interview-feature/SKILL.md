@@ -89,6 +89,13 @@ deciding whether an interview is needed, and check their resulting content
 before dependent acceptance. Reusing them is not an interview invocation and
 does not activate the interview-only evidence gathering or decision tree.
 
+For that bounded contribution reuse the lead's already checked sources/context
+and known answers, validating applicability instead of restarting standalone
+entry preparation. Apply common's stable-result/live-guard distinction. Keep
+coverage in the existing author dialogue, not another interview handoff/report;
+return only material gaps. Direct interviewing still establishes its own needed
+context and returns the full requested sourced handoff.
+
 Use the following **semantic map**, not mandatory headings or a questionnaire.
 Compare what is known with what this feature needs; mark an area inapplicable
 with a reason instead of manufacturing requirements. A project's applicable

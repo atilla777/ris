@@ -117,6 +117,13 @@ effect and boundary are explicit; do not pre-plan it as accepted scope.
    Revise the split or report each uncovered or unverified area and why. No
    claimed full coverage from task titles alone.
 
+An obvious split derived from sufficient accepted inputs is not another
+requirements-approval ceremony. Keep the whole necessary composition and one
+coverage assessment in the result; no persistent matrix/checklist/report is
+required. A material change to scope, delivery or obligations is a new decision
+for the authorized person, not a detail to hide in a task. This method proposes
+and checks; it never accepts such changes itself.
+
 ## Return and stop
 
 Return the feature/spec and independent design identities, scopes, versions and

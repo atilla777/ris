@@ -97,6 +97,13 @@ not independent approval. Missing required independence leaves that gate
 unverified, even if useful assessment is possible. Reassessment of affected fixes
 is required; independence of that reassessment follows project/caller rules.
 
+For feature preparation a pre-decision draft assessment is optional, not a
+mandatory duplicate of publication review. One applicable publication-purpose
+assessment of the complete final snapshot suffices. After change independently
+reassess the new full subject with affected checks; the same still-independent
+reviewer may reuse unaffected evidence. Never promote an inapplicable draft
+assessment or human acceptance alone to publication approval.
+
 Check assessment sufficiency: scope/version and baseline limits, applicable
 criterion/design/architecture/document coverage, evidence applicability, exactly
 one severity per finding, two groups (required high/medium; optional low), verdict
