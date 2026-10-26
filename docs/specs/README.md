@@ -3,6 +3,7 @@
 Верхнеуровневые нормативные требования, целевой каталог SDLC MVP, общие шаблоны, примеры, источники и материалы проверки находятся в [product-бандле RIS](../product/index.md). `docs/product/` и `docs/rules/` — самостоятельные OKF-бандлы по [профилю корпуса](../product/knowledge-profile.md); этот каталог спецификаций остаётся обычным Markdown без обязательных OKF-метаданных и `index.md`. Здесь остаются планы конкретных поставок:
 
 - [Основа и автор скилов](ris-foundation-and-skill-author.md).
+- [Адаптивная подготовка фич](ris-fmh/spec.md) — будущая поставка ris-fmh: auto/compact/full, три входа, one-task-first и разбиение по самостоятельным результатам. Подготовка плана не запускает реализацию.
 - [Миграция контрактов OKF](okf-contract-migration/spec.md) и [дизайн](okf-contract-migration/design.md); [прежняя спецификация](ris-okf-skills.md) сохранена как история.
 - [Первый срез roadmap RIS](ris-roadmap-first-slice.md).
 - [Дерево решений для `ris-interview-base`](ris-interview-base.md).
