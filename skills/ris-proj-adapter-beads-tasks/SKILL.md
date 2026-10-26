@@ -89,8 +89,12 @@ Require chosen project/workspace, exact operation, expected native type and IDs
 for existing records (plan overview may explicitly request discovery of actual type),
 needed fields/edge direction and expected outcome. Writes
 add explicit authority/allowed fields; claims add actor. Never guess an ID from
-a title. Check `bd version` (supported baseline 1.3.1), `bd where`/`bd context`
-in the selected project. An uninitialized, wrong, unavailable or read-only
+a title. Check `bd version` (supported baseline 1.3.1), workspace and required
+capabilities on entry unless sufficiently checked in this context. Reuse these
+results until tool/engine/project/environment changes or evidence is lost; a new
+bounded operation alone does not repeat version/help/workspace preflight. Fresh
+action-specific mutation/read-back and publication checks below remain mandatory.
+An uninitialized, wrong, unavailable or read-only
 workspace blocks dependent writes. Use `bd -C <project-root>` only for an existing
 Beads project; initialization needs the working directory and its separate owner
 resource. Do not use `--global`, `--db` or ambient fallback to bypass a missing

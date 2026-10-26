@@ -91,16 +91,17 @@ inputs/decisions, permissions, expected result and early-return conditions. They
 load their own owners; do not forward the accumulated history.
 
 The following identifies sources and responsibilities, not a runtime envelope,
-required field list or new persistence requirement. Read full necessary inputs,
-not copied summaries. Infrastructure owners perform their own algorithms; callers
+required field list or new persistence requirement. Read missing full necessary inputs,
+not copied summaries; reuse exact content and confirmed results already available.
+Infrastructure owners perform their own algorithms; callers
 check returned facts and applicability, not CLI/retry/guard procedures.
 
 | Fact: producer → consumer | Source / mutability | Recovery |
 | --- | --- | --- |
 | Goal/scope/criteria: setter → change owner/reviewer | Ordinary tracker content is mutable; accepted feature scopes/decisions have immutable Git addresses | Discover by project+ID and published-input convention; recover the original decision or obtain only the lost scope's new human acceptance. |
-| Paths: context → writers/copy/review | Current config and Git association are mutable | Re-resolve for the current copy; no saved context registry or forwarded primary address is required. |
+| Paths: context → writers/copy/review | Current config and Git association are mutable | Reuse checked paths in the same environment; refresh affected association/paths after copy/environment or relevant config change. No context registry or forwarded primary address. |
 | Claim/continuation rights: adapter → acting owner | Live assignment and attributable authority | Apply common's explicit-human continuation rule through the adapter without asking again; old actor/lease alone grants nothing. Fresh owner checks before mutation. |
-| Copy: preparer → writer/publisher | Live registration/path/branch/HEAD/files | Verify the existing work association through the preparer; a name alone is insufficient. Pass a nonstandard association addressably in an existing authorized channel. |
+| Copy: preparer → writer/publisher | Live registration/path/branch/HEAD/files | Consume confirmed association; invoke preparer for missing/uncertain association or setup, not each handoff. Writer checks current preservation predicates. A name alone is insufficient; nonstandard association uses an existing authorized channel. |
 | Bug basis: admission+adapter → execution/review/completion | Exact tracker-history version and immutable Git sources/decisions | Adapter retrieves complete used fields and reconciles the short basis locator; no duplicate snapshot. |
 | Checks: change owner → reviewer/publisher | Observation tied to exact content and inputs | Reuse accessible applicable results/limits; rerun lost reproducible affected checks, never invent their history. |
 | Review: independent reviewer → loop/publisher, only when required/performed | Local append-only review.yaml and round; Fast may use session evidence | Apply the review owner's exact-evidence/new-current-review rule for required evidence. Inactive eligible Fast review creates no recovery debt or skip report; retain known adverse findings and reassess changed risks/applicability. Beads stores only file/round for a saved review, not copied verdict/findings. |
@@ -140,28 +141,24 @@ An operation result or receipt is returned to the caller; it is not a required
 file. Create a receipt/log artifact only when the caller or an accepted project
 contract explicitly names one at an authorized address. Local notes are optional
 hints, never authority or a mandatory handoff input.
-For a requirements/design candidate, the caller (the lead in a flow) conveys
-the full exact text with its distinguishable version/scope, or a file accessible
-to the recipient at an exact address/version, together with its sufficient basis
-(original sources/derivation and applicable actual decisions). Requirements and
-design need independently identifiable sufficiently grounded scopes. One attributable act and
-decision address may cover both only when it explicitly identifies both complete
-content selectors/versions and acceptance of each; generic approval of one never
-accepts the other. Each receiving owner checks its own scope without re-asking
-unchanged acceptance. The recipient reads and validates complete
-content, version/scope and basis/provenance before dependent writes,
-then compares saved content with that candidate and its sufficient basis. Incomplete,
-inaccessible, ambiguous or changed candidates return to the caller; never infer
-foreign-chat content or reformulate accepted meaning. Optional candidate files
-need an authorized destination; no intermediate file or intermediate publication is required.
+For an unsaved requirements/design candidate convey exact full text or an accessible
+exact file/version, plus the sufficient basis under `published-inputs.md`. Scopes
+remain independently identifiable, even when one decision covers both. Consume
+checked scope/basis without re-asking acceptance or repeating derivation; read
+missing full content and let independent review assess it itself. Protect the
+destination before saving; read back exact candidate/basis/preserved sections.
+Incomplete, inaccessible, ambiguous or changed candidates return to the caller,
+not guessed foreign-chat content or reformulated acceptance. Optional candidate
+files need authority; no intermediate file/publication is required.
 These explicit transfers concern intermediate unsaved/not-yet-discoverable results,
 not a new session consuming a completed saved stage. For the latter apply common's
 `published-inputs.md`: project plus exact ID/saved associations must discover the
 content and decisions without a prior chat or receipt. Response-only content
 requires explicit forwarding to a new session. Local
 notes are usable only where accessible, never mandatory remote inputs for another
-copy. A receiver re-resolves paths and checks actual content/version, fresh
-permissions and, where required, ownership, blockers and write guarantees.
+copy. A receiver resolves only missing/changed local paths and checks the current
+action's content/version applicability, fresh permissions and required ownership,
+blockers and write guarantees; it does not repeat a universal entry preflight.
 Neither a handoff, old lease/window nor existing worktree supplies those gates.
 
 For partial results report the existing effect separately from the evidence

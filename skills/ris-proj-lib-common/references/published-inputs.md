@@ -5,6 +5,17 @@ or other linked project evidence. The calling owner selects the material sources
 checks their substantive sufficiency/applicability and owns its result. This is
 source discovery/reading, not copy preparation, publication or content acceptance.
 
+Apply common's entry/conditional/critical distinction. Establish the sufficient
+basis once for each exact content/decision scope and intended target, then reuse
+the checked result. Downstream owners need its sources, scope, applicability and
+limits, not another traversal of unchanged derivation/config/decision history.
+Perform the discovery below only for missing or invalidated facts. A direct call
+or new session restores necessary full inputs and basis from their exact sources;
+a success token or summary without recoverable evidence is insufficient.
+Independent review reads and assesses the full material content/basis itself,
+but can use supplied exact locators instead of rediscovering them. Refresh live
+tracker/write/publication predicates through their owners, not this reading method.
+
 ## Sufficient requirements/design basis
 
 For requirements and design, **accepted inputs/results** mean a sufficient
@@ -79,7 +90,7 @@ for inherited parts check the original source decisions and derivation instead.
    complete selected substantive content, not only the link or summary, when the
    conclusion depends on it. Verify publication separately where the owner needs it;
    local object availability alone does not establish remote reachability.
-4. Diagnose the current copy independently: exact HEAD, source presence and any
+4. Only when the action depends on the current checkout, diagnose exact HEAD, source presence and any
    difference from the pinned version and intended target revision. Missing files
    in an older checkout do not mean missing accepted inputs or revoked acceptance.
    Name **readable published input, stale checkout** when supported. Compare
@@ -101,10 +112,8 @@ and decisions at completion. Explicit candidate text/decision transfers remain
 necessary between components for unsaved or not-yet-discoverable intermediate
 results; that rule must not become a manual handoff requirement after completion.
 
-Consumers reuse already read exact content in the same context; they do not
-repeat source discovery merely for an internal boundary. After context loss,
-recover only missing facts through these sources and their owners. A lost
-acceptance decision is sought at its original address; if unavailable, recover
+On context loss recover only missing facts. Seek a lost acceptance decision
+at its original address; if unavailable, recover
 the actual basis below or return only that missing material scope for a new decision with actual provenance,
 not a fabricated historical acceptance or reacceptance of unchanged known scopes.
 For versioned bug inputs the adapter owns complete historical retrieval and
@@ -146,12 +155,13 @@ contract above; policy acceptance complements it, never substitutes
 for derivation. New material needing human resolution remains a question even
 when formal acceptance is automatic.
 
-Save owners, reviewer, publisher, decomposition, execution/implementation,
-verification and navigation consumers read the complete scopes and this saved
-basis just as they check other permitted acceptance. Check flow-only origin,
-setting/default validity at the time, scope-specific overrides, sufficiency,
-exact versions and current applicability; do not demand a nonexistent human
-approval merely because the basis is policy. Review never supplies acceptance.
+Establish flow-only origin, historical setting/default validity, overrides,
+sufficiency and exact scope/version under the same reuse rule as other bases.
+Save/publish/decompose/execute/verify/navigation consume that checked basis;
+do not retraverse historical configuration and request merely at each boundary.
+Missing or changed basis activates only its affected checks. Independent review
+still assesses material basis; policy needs no fictional human approval, and
+review never supplies acceptance.
 On repair, reassess changed scopes with their effective mode, record their new
 exact basis and retain unchanged original provenance. New material uncertainty
 returns to the human. On resume recover actual decisions/settings/limits and

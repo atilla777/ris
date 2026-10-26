@@ -145,15 +145,24 @@ folder/shared-path resolution; it grants no source-checkout mutation authority.
 
 ## Conditional resources
 
-Within one acting context, reuse checked context/preflight and source results
-while their material inputs, package/project configuration and copy association
-remain unchanged. Revalidate affected facts on drift, copy change or context loss,
-not merely because an internal owner is applied. Each owner still checks that
-the available result suffices for its own action; no saved context cache/registry
-is required. Live permissions, ownership/status/action-specific blockers and
-publication conditions must be fresh before dependent mutations, never treated
-as cached write authority. A delegate receives missing facts and checks their
-applicability; it does not assume access to the lead's context.
+Trust a confirmed owner's result unless relevant change, missing evidence,
+contradiction or a concrete risk makes it inapplicable. Consume exact facts,
+versions, scope and limits, not a bare `ok`. An owner boundary is not a trigger
+for rediscovery, rereading or universal preflight. Use three check classes:
+
+| Class / trigger | Owner and necessary check |
+| --- | --- |
+| Entry: missing sufficient inputs at action start/context restoration | Acting owner obtains only missing project/scope, sources/basis, copy/capabilities through their owners; not the whole lifecycle. |
+| Conditional: relevant content/config/target/association change, lost evidence, concrete conflict/risk | Affected fact owner checks changed dependencies/applicability. Copy change refreshes local paths/association/settings, not unchanged immutable acceptance. |
+| Critical: immediately before mutation/publication, then read-back | Acting owner checks fresh authority/live predicates/preservation. Adapter: expected fields/ownership/status/blocks; Git publisher: target/outgoing/full assessed tree/non-force/remote; Dolt owner: shared scope/direction/reachability. Prior preflight is not write authority. |
+
+Check a supplied result's coverage once for the action; do not rerun its producer's
+algorithm. Independent review still reads and assesses the necessary full subject
+and basis itself; it may reuse discovery, not the author's approval. A changed
+whole snapshot retains applicable checks but needs affected checks and required
+independent reassessment. No cache, registry, receipt format or extra artifact is
+introduced. Delegate only bounded useful work; pass missing exact inputs/results,
+versions, constraints and authority, never assumed foreign-chat access.
 
 Read these resources **before** the corresponding action, from the directory
 containing this `SKILL.md` (the skill's installed location):

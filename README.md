@@ -115,6 +115,11 @@ own snapshot, provenance and scope.
   acceptance and review/Git/close/Dolt remain separate gates. The current
   [artifact contract](docs/product/06-artifacts-and-handoff.md) owns these norms;
   the historical [ris-wcv decisions](docs/specs/ris-wcv/spec.md) retain their versions.
+- **Transitions:** reuse confirmed exact owner results, not bare success tokens.
+  Entry checks restore missing inputs; conditional checks follow relevant change,
+  evidence loss or concrete risk; critical mutation/publication checks stay fresh
+  with their action owner. An owner boundary does not restart universal preflight
+  or acceptance discovery. Independent substantive review and affected checks remain.
 - **Recovery:** task notes are local, not automatically synchronized or mandatory
   remote inputs. Resume discovers saved sources by project+ID and asks existing
   owners to reconcile actual effects, then continues only the missing operation.

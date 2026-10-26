@@ -16,7 +16,8 @@ question on direct invocation, not an invented local-only endpoint.
 ## Establish project, destination and authority
 
 The CLI forms were inspected with `bd` 1.3.1, embedded Dolt and native `dolt`
-2.4.1 on `main`. Verify installed versions/help and actual output; another
+2.4.1 on `main`. Reuse checked versions/help in an unchanged tool/engine context;
+verify missing capabilities and actual output. Another
 engine/branch needs a proven mapping before dependent effects. Failed commands
 are not empty results. Do not invent SQL or parse storage objects as a fallback.
 
@@ -39,10 +40,12 @@ are not empty results. Do not invent SQL or parse storage objects as a fallback.
     conflicting policy or actions outside permission block dependent publication;
     ask only the necessary substantive scope question, not a technical reapproval.
    Co-publication gives no right to edit, accept or close another agent's records.
-3. Before remote-gated record mutations, verify `bd --sandbox` and actual hooks/
-   auto-publication routes. Sandbox suppresses bd auto-push, not concurrent writers.
-   Preflight destination, shared scope and history direction using this route;
-    recheck before a later push. A preflight does not expand the applicable policy.
+3. At entry to remote-gated record work, establish sandbox/hooks, destination,
+   shared scope and publication feasibility once, or consume sufficient checked
+   results. Recheck affected facts on tool/workspace/target/policy/hook changes;
+   do not fetch/recheck remote history for each local record write. Actual push
+   retains fresh confirmation/direction/authority gates below. Sandbox suppresses
+   bd auto-push, not concurrent writers; preflight expands no policy.
 
 Do not configure/adopt remotes, use `--yes`, force, deletion/`--all` push, or
 silently pull, merge, reset, commit, checkout or change upstream. Fetch changes

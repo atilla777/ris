@@ -3,24 +3,14 @@
 Read before selecting accepted content, acceptance or persistence. This wrapper
 owns the requirements result; the adapter owns tracker encoding and operations.
 
-Apply common's `published-inputs.md` **Sufficient requirements/design basis**
-before selecting or saving content. Throughout this resource, accepted candidate,
-decision evidence and matching mean that sufficient direct/inherited/mixed basis:
-actual candidate decisions are required only for new material or existing direct
-acceptance; inherited parts use original accepted source decisions and derivation.
-Do not require a new requirements decision/acceptor for wholly inherited content.
-
-For an explicitly identified internal `ris-proj-flow-prepare-feature` save, also
-apply common's **Policy acceptance inside feature preparation**. Read the complete
-candidate and checked policy decision with the flow request, effective scope mode,
-config/default provenance and overrides; verify sufficient answers and no unresolved
-material choices. Save that exact basis in the existing document/decision section,
-without human acceptor or inherited label. This branch skips full-text chat
-presentation and formal confirmation, including policy-mode review corrections;
-it does not skip content checks, independent review, copy or publication gates.
-The human-decision instructions below apply where human acceptance is actually
-used. A direct invocation cannot originate policy acceptance from config, but
-may consume an already valid saved policy basis unchanged under common's rules.
+Apply common's `published-inputs.md` sufficient-basis and reuse rules; establish
+only missing/changed basis. Inherited parts retain original decisions/derivation,
+never a fictional new acceptor. For an identified internal prepare save consume
+the complete candidate and checked scope-specific policy basis/answers/overrides
+and save it in the existing document. This skips formal confirmation/full-text
+chat, including policy repairs, not content/copy/review/publication gates.
+Direct calls may consume valid saved policy basis, never originate it from config.
+Human-decision instructions below apply only where human acceptance is used.
 
 ## Identify content and its sufficient basis
 
@@ -39,9 +29,10 @@ an exact address/version (published Git commit/path/section or explicitly agreed
 local address/version). Both forms require destination path/section, independently sufficient
 requirements basis (original source locators/derivation and any actual new decision),
 authorized decision provenance where applicable and exact permitted
-writes. Read the complete candidate, sources and applicable decisions yourself; validate version/scope
-and that the basis covers this content, without assuming foreign-chat
-access. Return incomplete, inaccessible, ambiguous or changed candidates to the
+writes. Consume checked basis and exact content already available under common;
+read missing complete candidate/sources/decisions and establish scope coverage,
+without assuming foreign-chat access or repeating unchanged derivation. Return
+incomplete, inaccessible, ambiguous or changed candidates to the
 caller before dependent writes; do not invent answers or reformulate accepted meaning.
 Full text needs no intermediate file, mandatory hash, registry or intermediate publication.
 Optional candidate storage requires its own authorized destination; portable
@@ -94,7 +85,7 @@ destination/header convention. No tracker pin or accepted-ref encoding is needed
 actual acceptance and required publication still are. Do not create a second
 record/copy. Ordinary/document-only modes retain their no-artificial-ID contract.
 
-For full mode preflight the existing Git publisher and, when records are part
+For full mode establish missing entry preflight through the existing Git publisher and, when records are part
 of the result, adapter publication before dependent writes: exact subject,
 destinations, authority, whole outgoing scope and required guarantees. Missing
 publication prerequisites block the full claim, while independently authorized
@@ -159,8 +150,8 @@ Return its local record result and remainder.
    commit/push. A limited record-only call instead consumes an applicable existing
    Git receipt; a limited local save stops before review/publication.
 5. For combined mode require actual published content/decision before tracker
-   create/update. Consume the Git owner's checked remote result and read actual
-   content at full Git revision, semantic section and separate pinned decision.
+   create/update. Consume the Git owner's checked remote/content match and exact
+   content revision/section/decision; read only missing or invalidated inputs.
    Resolve containing-commit at its original decision and match actual content
    path/section/revision. Do not copy accepted refs into the tracker. The wrapper
    invokes the existing Git owner, never copies its algorithm.

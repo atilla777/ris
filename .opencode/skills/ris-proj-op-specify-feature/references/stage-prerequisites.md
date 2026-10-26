@@ -4,6 +4,11 @@ Owned by feature requirements: apply when a feature action or its dependent chil
 needs stage-specific prerequisite evidence. This is a substantive gate, not a
 lifecycle dispatcher, ready registry, claim engine or adapter encoding method.
 The invoking owner keeps its own input/acceptance/claim/copy/native refusal gates.
+Consume sufficient checked prerequisite results under common rather than repeat
+source/decision discovery for each owner. Establish missing basis on entry;
+reassess only prerequisites affected by scope/source/target/edge changes or lost
+evidence. The acting adapter still refreshes live blockers/ownership/status for
+the actual mutation. A stage boundary alone invalidates neither content nor basis.
 Ordinary standalone/document-only/native bug work retains its existing contracts;
 do not manufacture a parent feature for it.
 

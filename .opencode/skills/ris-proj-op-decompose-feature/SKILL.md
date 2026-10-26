@@ -95,7 +95,7 @@ adapter or a similarly named CLI command is not evidence of support; never
 bypass the adapter by calling `bd` or editing tracker storage. Read the selected
 task; for a feature confirm its `task` type, open status, optional epic parent, scoped identity, exact
 spec link and acceptance-evidence address **in either its readable content or the
-linked specification**, and reread the saved specification and decision.
+linked specification**. Consume the checked saved input/basis; read missing facts.
 Cross-check their identity and status; a closed feature or mismatched link
 blocks child creation. Read all existing direct children and relevant blockers,
 including closed tasks, before deciding whether new work is needed.
@@ -113,8 +113,8 @@ payloads stay unchanged; absent or malformed JSON does not prove standalone kind
 or block the document route. Independently accepted substantial
 design is required where material, especially for multi-task contracts/seams;
 a simple task can use sufficient accepted constraints without a design file.
-Read each exact accepted source/decision version, verify publication and compare
-current applicability as below. Name missing inputs instead of inventing them.
+Restore only missing exact source/basis/publication facts under common and compare
+affected applicability as below. Name missing inputs instead of inventing them.
 
 The following document/optional-parent/acceptance gates apply to the **feature branch**;
 the shared applicability, readiness, reconciliation and coverage checks apply
@@ -122,22 +122,13 @@ to both branches using their actual accepted inputs.
 
 Use native exact task/optional epic/children/blocker reads and supported child/edge
 operations without feature JSON capabilities. Apply common's published-inputs
-feature convention and bounded legacy discovery. New documents use
-`sources.specs/<full feature ID>/spec.md` with sufficient inline or adjacent design;
-no slug pin or accepted-ref registry. Apply common's `published-inputs.md`
-sufficient direct/inherited/mixed basis to both independently selectable content
-scopes at exact published versions. Check original source decisions and actual
-derivation for inherited parts, and actual decisions only for new/direct parts;
-do not invent a new approval for wholly inherited results. A valid saved prepare
-policy basis under common is equally consumable, not human approval or inheritance;
-decomposition never originates automatic acceptance. Match path/section/
-version and applicable decision provenance; resolve `containing-commit` at the
-original decision, not a later copy. Confirm required content, sources and decisions
-are published in the selected remote. Missing sufficient requirements/design basis
-blocks dependent decomposition. Missing/old/malformed JSON alone
-never does. Preserve legacy data/links; no schema gate, replacement block, migration
-or invented epic. Identity conflicts trigger bounded wider discovery, not global
-registry scans on every invocation.
+feature convention and bounded legacy discovery under common's `published-inputs.md`.
+Consume independently sufficient requirements/design scopes, original decision
+versions and confirmed publication/applicability, or restore missing facts there.
+Saved prepare policy is consumable, never originated by decomposition. Missing
+basis blocks dependent decomposition; legacy JSON alone never does. Preserve
+original provenance/data/links without repinning, registry, migration or invented
+epic. Identity conflicts trigger bounded wider discovery, not routine global scans.
 
 Apply common's conditional published-input reading method: an absent local
 `sources.specs`/file in an older checkout is a copy diagnostic, not missing accepted
@@ -155,8 +146,9 @@ revisions and comparison evidence. Material requirements changes return to the
 requirements owner; design gaps return to the design owner. Preserve unchanged
 accepted references and decisions, never repin them just to the latest commit.
 
-Compute action-specific sufficiency anew on every invocation; do not write a
-`ready` status.
+Establish action-specific sufficiency from checked results; restore missing facts
+on direct entry/resume and reassess only changed dependencies under common.
+An internal call does not repeat unchanged basis analysis; do not write a `ready` status.
 Check sufficient design/test seams, accessible applicable architectural
 contracts and versions, related product source currency, and resolved product/
 architecture conflicts. Missing source baselines leave currency unconfirmed;
@@ -283,10 +275,11 @@ no empty push. Missing authority or failed/ambiguous publication blocks full
 success, preserving known children/edges for only missing operations. Limited
 mode returns its actual boundary and exact publication remainder.
 
-Fresh-read the selected task/container and full child set, each task's actual content, status,
-parent and applicable links, and all required directed blockers. Recheck the
-applicable accepted requirements/design or sufficient constraints and their separate decisions for
-the same references and content applicability, and applicable contract currency; map
+Before final coverage, reconcile the actual task/container, complete child set,
+necessary content/links and directed blockers with the adapter's verified reads/
+read-backs; refresh mutable structure where composition predicates require it.
+Reuse checked immutable requirements/design, decisions and contract applicability;
+reassess only changed/lost inputs. Map
 every accepted criterion to the verified feature or child tasks, and name where
 combined behavior will be checked. Confirm no contradictory extras or cyclic
 dependencies. An unknown/disputed required contract or a missing

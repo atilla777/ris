@@ -138,9 +138,10 @@ Use live Git/Beads and accessible exact owner results at transitions; missing
 association, reviewed-snapshot identity or independence blocks only the dependent
 step. Ordinary creation without hooks/setup checks registrations, target/ref,
 pinned base and the new copy, without hashing all primary/sibling contents.
-Reuse and hooks/setup activate scoped preservation. Recipient context validates
-the entire selected config but compares only settings used by the operation and
-recipient; a valid unused product-source difference is not a handoff blocker.
+Reuse and hooks/setup activate scoped preservation. Context validates the entire
+config on selection/change, reuses unchanged validity and refreshes local paths/
+association after a copy change. It compares only settings used by the recipient;
+a valid unused product-source difference is not a handoff blocker.
 See [the read/action comparison and check limits](specs/worktree-preparation-simplification/delivery-checks.md).
 Those historical checks remain tied to `d8c5bac6164eeb559d07e987f42c12467141477a`;
 this guide does not establish new live behavior or regrade the historical report.

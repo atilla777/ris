@@ -70,16 +70,13 @@ and do not restart discovery, dialogue, acceptance or publication already owned
 here. Common's stable-result reuse rule applies; repeat affected context/preflight
 only on material drift, copy change or loss. Live rights/ownership/status/blockers
 and current publication conditions remain fresh before dependent writes.
-For delegation apply
-common's artifacts handoff: goal, project+ID/checked copy, scope/permissions and full
-candidate text with distinguishable version/selectors or an accessible exact
-file/version, and attributable acceptance when saving. The recipient reads/checks
-complete inputs without assumed foreign-chat access; noninteractive work returns
-questions here, never accepts for the human. Inspect actual saved/read-back
-results, effects and limitations, not just “done”. The lead checks sufficiency of
-the whole without copying owners' algorithms.
+For delegation use common's minimal artifacts handoff with exact accessible
+candidate/basis and permitted contribution. The recipient reads missing complete
+inputs without foreign-chat assumptions and returns material questions here,
+never accepts for the human. Inspect checked effects/limits, not just “done”;
+the lead checks the whole without copying owners' algorithms.
 
-Before dependent writes preflight the selected adapter's native task create/read/
+At entry, unless sufficiently checked here already, preflight the selected adapter's native task create/read/
 update, claim, child/edge and separate publication capabilities as needed, with
 local-write isolation, remote, entire outgoing-history authority and native limits.
 Preflight `ris-proj-op-publish-task` for the intended authorized document subject,
@@ -113,19 +110,20 @@ Require one confirmed task ID with approved goal and available scope/criteria, n
 replacement “ready” record. Preserve legacy payloads; missing/old/malformed JSON
 alone never blocks the new document route or proves ordinary kind.
 
-Before claim/copy and each dependent requirements/design/decomposition action,
-apply installed specify-feature's owned `references/stage-prerequisites.md`.
-Check readable requirements prerequisites separately from native implementation
-edges; wait for needed accepted decisions, not whole-feature closure. Same-ID
-preparation never manufactures a replacement record to escape a prerequisite.
+Apply installed specify-feature's `references/stage-prerequisites.md` to the
+requested preparation actions once; reuse confirmed accepted prerequisites.
+Refresh affected applicability on input/edge/scope change and live action blockers
+before dependent writes. Readable prerequisites differ from implementation edges;
+wait for needed decisions, not whole-feature closure or a replacement record.
 
-Before **any** document/evidence write, including optional drafts, apply
-`ris-proj-op-prepare-task-worktree` for this exact ID/actor with purpose
+Before the first document/evidence write, including drafts, require a checked
+copy result from `ris-proj-op-prepare-task-worktree` for this ID/actor with purpose
 `feature-preparation`. Pass authorized claim/copy/setup scope, repository/current
 and context-checked primary roots, known association, path/branch and explicit
 base or established remote/main rule. That owner composes the portable preparer
 and selected worktree adapter; do not duplicate creation/preservation algorithms.
-Require open own preparation assignment, fresh action-specific directed-blocker
+Reuse that result across writers, not another preparer call per write. Require
+open own preparation assignment, fresh action-specific directed-blocker
 checks and a safe own copy. Execution-only blockers do not automatically forbid
 clarification, but actual/unknown preparation blockers and native refusal are not
 bypassed. Keep execution gates unchanged. Recheck ownership/status/blockers before
@@ -142,8 +140,9 @@ Consume the preparer's checked work/copy association and current-copy result,
 separate copy/environment readiness, setup effects and limits; do not reconstruct
 its infrastructure observations as another handoff checklist.
 Setup not requested is not environment readiness. Use that same
-prepared copy as the document root; reapply context there and verify project/
-tracker/settings association before writers, review and publication. Never write
+prepared copy as the document root; refresh its local context/association once
+after the copy change. Writers, review and publication consume that result unless
+relevant settings/association drift or evidence is lost. Never write
 on shared main first or ask the publisher to branch later. Preserve user/foreign
 changes; no implicit reset/stash/move or dirty-primary transfer.
 
@@ -185,14 +184,11 @@ Enabling auto never renews unchanged existing acceptance or replaces a sufficien
 inherited basis with a fabricated policy event. Use policy for the candidate
 acceptance actually performed here, preserving every retained original basis.
 
-Apply common's `published-inputs.md` sufficient direct/inherited/mixed basis to
-requirements and design independently. This flow consumes that owner's discovery,
-version, original-decision, derivation and applicability checks; it does not
-redefine them. Inherited content needs no new human approval or invented acceptor.
-Only remaining new material choices need actual decisions; policy may accept
-the formulated result after human answers have resolved material uncertainty,
-but cannot answer those choices for the person. Preserve original immutable
-provenance in direct and nested calls.
+Common's `published-inputs.md` owns the independently sufficient requirements/
+design basis. Reuse its confirmed sources/decisions/derivation/applicability across
+saves, publication and decomposition; reassess only affected changes or missing
+evidence. Preserve original provenance. Policy can accept a resolved candidate,
+not choose unresolved material behavior for the person.
 
 Apply `ris-proj-op-interview-feature`'s **Map the material requirements** and
 **Check and hand off** to known answers, relevant product/rules and actual sources.
@@ -318,7 +314,8 @@ Any policy-required or explicitly requested local/dependency update remains an
 unfinished part of the combined result, not
 permission to replay a confirmed push or mutate a busy copy.
 
-Match published content and decisions to both accepted scopes. Resolve
+Consume the publisher's exact content/decision match for both accepted scopes,
+without rereading unchanged basis or repeating publication checks. Resolve
 decision-only `containing-commit` at the original immutable decision address.
 After verified required Git publication apply specify's **limited record-only
 reconciliation** to the same exact ID with expected prior state and approved
@@ -335,8 +332,8 @@ Apply `ris-proj-op-decompose-feature` with the same ID, current published accept
 requirements and sufficient design, constraints/contracts/test seams, existing
 task IDs and permitted child/edge effects. Explicitly request its **limited local
 write/verification contribution**; this flow owns the final tracker publication.
-Use its entire portable/project method and readiness/coverage/reconciliation
-checks unchanged, in this session or a suitable executor without formal complexity
+Use its entire portable/project method and coverage/reconciliation checks,
+reusing the checked published inputs under common, in this session or a suitable executor without formal complexity
 thresholds. Do not substitute a short split algorithm or Markdown backlog.
 
 Do not ask the human to reapprove an obvious contract-preserving split. Return
@@ -397,13 +394,12 @@ nor a `Preparation: complete` line proves completion or becomes required. Withou
 such notes resume/navigation can inspect existing documents, review, graph and
 publication evidence; old sufficient features need no marker or migration.
 
-Return `ok|blocked|conflict|error` for the **whole** scenario, project/config/copy
-provenance, exact feature/optional epic and document paths, separate accepted scopes and
-decision addresses, remote Git (local maintenance only under an explicit request or accepted project policy)
-and tracker publication evidence, review address/
-round, one-task justification or exact children/keys/statuses/directed edges,
-criterion coverage/integration prerequisites, actual effects and limitations.
-For partial results name each channel's confirmed state and only missing recovery.
+Return one combined `ok|blocked|conflict|error` with exact feature/docs and separate
+accepted scopes/decisions; confirmed Git, review address/round and separate tracker
+publication; sufficient one-task or actual children/edges/coverage/prerequisites.
+Include only needed project/copy provenance and effects/limits under common's
+minimal handoff; local maintenance remains separately scoped. For partial effects
+name confirmed channels and only missing recovery.
 `ok` requires reviewed accepted published documents, matching same feature record,
 verified sufficient decomposition and confirmed separate tracker publication;
 component `ok`, ID/copy existence or closed prerequisites alone are insufficient.

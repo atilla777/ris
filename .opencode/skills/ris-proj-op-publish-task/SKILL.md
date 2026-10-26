@@ -40,8 +40,9 @@ use Task/change and retain all implementation/snapshot guards below.
   independent review unless the narrow Fast exception below is verified. A sufficient accepted request needs no separate spec/design/
   plan files. The task ID is optional; no-ID implementation belongs here, not in
   Documents. Its absence does not waive project-required tracking or other gates.
-  With an ID, load/apply the selected adapter, discover its applicable accepted
-  requirements/design/contracts and freshly check typed identity, membership,
+  With an ID, consume checked requirements/design/contracts; discover only missing/
+  invalidated basis under common. Through the selected adapter freshly check
+  action-relevant typed identity, membership,
   blockers and ownership where execution requires
   claim; an old receipt/lease is neither permission nor general content/graph CAS.
   Active blockers or lost required ownership stop dependent publication. Recheck
@@ -49,14 +50,12 @@ use Task/change and retain all implementation/snapshot guards below.
   Without an ID do not require an adapter or fabricate a record/task directory.
   Supplied feature/ordinary/bug identities retain their real contracts; absent or
   malformed feature data cannot select ordinary admission.
-- **Documents (including pre-ID):** exact project-relative paths and subject/scope,
-  independently sufficient direct/inherited/mixed requirements/design basis under
-  common's `published-inputs.md`: original accepted sources/derivation for inherited
-  parts and actual decisions for new/direct material, not synthetic approval for
-  wholly inherited results. Also consume common's valid saved prepare policy
-  basis, checking exact scopes, historical config/default and explicit overrides;
-  publication cannot originate acceptance or turn it into human approval. Require substantive checks and
-  independent review of the full intended snapshot. Requirements-only publication
+- **Documents (including pre-ID):** exact project-relative paths/subject and
+  independently sufficient requirements/design basis under common's
+  `published-inputs.md`. Consume checked basis and exact candidate match; restore
+  only missing/invalidated provenance, never originate acceptance or relabel
+  policy/inheritance as human approval. Require substantive checks and independent
+  review of the full intended snapshot. Requirements-only publication
   requires no task ID, implementation evidence or not-yet-existing design. An
   explicitly authorized proposed document stays proposed after publication.
   Use `ris-port-op-review-change` for independent assessment of this concrete
@@ -129,8 +128,9 @@ whole subject, not only changed paths or a dirty-tree fingerprint. Require
 no unresolved high/medium findings, recorded low
 dispositions (one collective decision suffices; low alone requires no repair,
 task creation or new review round), integration and direct push authority.
-Read current project rules,
-Git status, diff, recent history, worktree mapping, remotes and tracking. Establish
+Reuse checked project rules and stable target/authority provenance; restore them
+on entry when missing and reassess relevant drift/limits, not an owner's boundary.
+Read current Git status, diff, relevant history, copy state, remotes and tracking. Establish
 the primary branch and selected remote from project evidence; do not assume the
 literal name `main`, configure remotes or grant direct-write permission yourself.
 PR-only policy, forbidden direct push or missing target/permission/checks/required reviewer
@@ -148,9 +148,10 @@ authorize unrelated outgoing commits, a new remote/ref, force or bypassed requir
 
 ## Integrate, reassess, publish
 
-Check applicable project instructions/rules for accepted local-maintenance policy
-on every invocation, including direct, no-change and recovery calls; verify any
-policy forwarded by the caller against its actual source and acceptance. Do not
+Establish applicable local-maintenance policy on entry when not already checked,
+including direct, no-change and recovery calls. Reuse checked actual source and
+acceptance; refresh its currency/boundaries before the local mutation under
+`primary-sync.md`, or reassess changed authority/target. Do not
 infer it from push rights, installed settings or an example. Without an explicit
 request or applicable accepted policy, keep the remote-only default: no local
 maintenance identity resolution or writes. With either authority source,

@@ -24,7 +24,9 @@ association, an actually observed conflicting writer or changed ownership during
 the operation blocks dependent mutation. Native refusal is binding; no force,
 alternate target or global lock circumvents it.
 
-Read the actual sufficient accepted own contract, its direct/inherited/mixed
+Recover only missing or invalidated facts needed by the remaining operation;
+do not reconstruct all completed stages for publication debt or local FF alone.
+When that remainder depends on content, read the sufficient accepted own contract, its direct/inherited/mixed
 or saved scoped prepare policy basis under common's `published-inputs.md`
 (original sources/derivation and applicable
 actual decisions, no new approval for wholly inherited content) and current

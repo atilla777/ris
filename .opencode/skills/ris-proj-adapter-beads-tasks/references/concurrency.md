@@ -8,7 +8,9 @@ Authorization and protection are separate: neither grants the other.
 
 ## Establish actual capabilities
 
-Check installed `bd version`, engine and the selected command's help. Baseline
+Establish installed `bd version`, engine and selected command support once per
+unchanged tool/workspace context; check only missing/new capabilities, not the
+same help on every mutation. Baseline
 CLI is 1.3.1; do not assume newer upstream flags exist locally. Source evidence
 for its transaction semantics is the pinned upstream
 [update implementation](https://github.com/steveyegge/beads/blob/v1.3.1/internal/storage/issueops/update.go),
@@ -45,8 +47,8 @@ content, stop observed conflicts and reconcile report/acceptance separately. An
 explicitly required stronger unsupported content predicate still blocks its write;
 status/assignee guards cannot satisfy it. Independent research remains possible.
 
-Before each mutation reread identity and expected target values; reread ownership,
-accepted sources and complete children/typed blockers only when its actual
+Before each mutation reread identity and expected target values; reread ownership
+and complete children/typed blockers only when its actual
 predicates depend on them. A simple title/priority/independent-key edit does not
 require delivery, acceptance or graph reconstruction. Changed accepted content,
 claim, membership/edge mutation and completion retain their specific checks.
@@ -54,8 +56,9 @@ Ordinary child-based container close checks the nonempty complete direct-child
 set (all closed) and parent blockers; administrative container
 status-only close checks direct native predicates. Neither requires recursive
 delivery/acceptance reconstruction or external Git/verification evidence.
-For operations depending on external evidence, check it at its
-actual pinned version and assess currency; these are substantive checks, not a
+For operations depending on external evidence, consume its checked pinned-version
+and applicability result; restore missing evidence or reassess relevant changes,
+not immutable source history on every write. These are substantive checks, not a
 requirement to freeze the graph or external documents through write/read-back.
 Afterward independently verify requested fields, preserved content and relevant
 structure. Unexpected changes stop dependent work and are reconciled with their

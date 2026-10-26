@@ -52,16 +52,13 @@ Verify actual candidate bytes rather than approving HEAD alone or assuming an
 absent change from missing local evidence. A stale handoff is not a current input.
 Analysis requires neither claim mutation nor report-write permission.
 
-For requirements/design apply common's `published-inputs.md` sufficient-basis
-contract to each independently selectable scope/version, including document-only
-review. Verify inherited derivation and original source authority/applicability;
-mere compatibility cannot decide materially different allowed choices. New
-material needs actual bounded human decisions in the full candidate context
-unless its resolved candidate has common's valid scoped prepare policy basis;
-wholly inherited content needs no new approval/acceptor. Review cannot supply
-that human choice. Verify policy origin/config/default/overrides and exact scope
-under common, without claiming human approval or inheritance. Keep the existing
-report format and independent whole-tree gate.
+For requirements/design independently assess each full scope/version and its
+sufficient basis under common's `published-inputs.md`, including derivation and
+original authority/applicability, not mere compatibility. Use supplied exact
+locators; do not repeat discovery. Policy basis needs its actual flow/config/
+overrides; it is not human approval or inheritance. Wholly inherited content needs
+no new acceptor; unresolved material choices return to the human. Review never
+supplies acceptance or changes the independent whole-tree/report gate.
 
 For an active Fast local-only review, inspect exact actual authorized targets and
 useful effects, before/after state or accessible equivalent and current checks,
@@ -73,10 +70,14 @@ authorize disclosure of secrets. Bind session assessment to the checkable actual
 subject; changed targets require applicable independent reassessment just as changed
 Git bytes do. No new review schema or mandatory file is introduced.
 
-With a supplied ID, load/apply the selected available adapter and freshly read
-exact typed identity, content, membership and relevant dependencies. Discover the
-ID's accepted versions/decisions from its links and current candidate evidence
-from the actual supplied tree, tests, documents and applicable checks. Do not
+With a supplied ID, consume exact checked identity/source locators or obtain
+missing identity, scope and relevant dependency facts through the selected adapter.
+Independently read and assess necessary full candidate content, accepted basis,
+tests/documents and applicable checks; supplied discovery is reusable, the author's
+conclusion is not independent review. Refresh mutable tracker facts only when
+the review conclusion or report-write predicate depends on their currency, or
+relevant drift/conflict is observed. No execution claim is required merely for
+read-only assessment. Do not
 discover or require implementation reports, saved plans or historical RED/GREEN
 logs as review admission evidence. Assess final correctness/test sufficiency,
 not the author's development chronology; executor TDD obligations remain theirs.

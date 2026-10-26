@@ -30,8 +30,12 @@ Obtain the calling operation, target project, needed configuration fields,
 input vs prospective output roles, parameters, and permitted scope from the
 request and applicable project instructions. If ambiguous, diagnose the
 affected part rather than inventing a root, document, ID, or permission.
-Prepare only the requested settings under `references/configuration.md`; validate
-the whole selected config even when some fields are unused. Missing unused fields
+Reuse sufficient checked settings in the same session. Select and validate the
+whole config on initial selection, config/package change or loss of that result,
+including present unused fields; do not reparse an unchanged checked config for
+each owner. After copy/environment change check association and local paths,
+compare the selected config with its checked version and validate it anew only
+if changed. Prepare only requested settings under `references/configuration.md`. Missing unused fields
 do not block independent preparation. From this installed folder read:
 
 - `references/paths.md` before resolving/checking document or workspace paths;

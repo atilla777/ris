@@ -5,27 +5,15 @@ or saving a draft or accepted result. The
 wrapper owns design/applicability decisions; the adapter owns tracker encoding
 and protected writes. No second feature registry or per-step skill is needed.
 
-Apply common's `published-inputs.md` **Sufficient requirements/design basis**
-before selecting or saving content. Throughout this resource, accepted candidate,
-separate acceptance and decision matching mean independently sufficient direct,
-inherited or mixed basis for requirements and design. A wholly inherited design
-needs no new human approval/acceptor; preserve original accepted sources and explain
-derivation in its substantive scope. In mixed content obtain an actual decision
-only for new material in the context of the complete exact candidate. All decision
-recording instructions below apply to actual direct/new decisions, not synthetic
-approval for inherited content. Drafts with unresolved material stay drafts.
-
-For an explicitly identified internal `ris-proj-flow-prepare-feature` save, also
-apply common's **Policy acceptance inside feature preparation**. Read complete
-requirements/design scopes and their independently sufficient bases, including
-the exact flow request, each effective scope mode, checked config/default and
-explicit overrides. Resolved substantive answers are still necessary. Save the
-distinct policy decision in the existing authorized document/decision section,
-not a fictional human approval or inheritance claim. This branch skips the
-manual full-text chat/confirmation steps below, including policy-mode corrections;
-it keeps independent review, content/copy and separate publication gates. Direct
-calls cannot originate it merely from config; consuming a previously saved valid
-policy basis does not enable auto acceptance of new standalone design changes.
+Apply common's `published-inputs.md` independently sufficient basis and reuse rules
+for requirements/design; establish only missing/changed basis. Preserve inherited
+sources/derivation and original decisions; new material needs its permitted basis,
+not fictional approval. Unresolved material stays draft. For an identified internal
+prepare save consume full scopes and checked policy bases/answers/overrides, then
+save their distinct decisions in the existing document. This skips formal
+confirmation/full-text chat, including policy repairs, not content/copy/review/
+publication gates. Direct calls may consume valid saved policy basis, never
+originate automatic acceptance of new design from config.
 
 ## Candidate and decision inputs
 
@@ -43,9 +31,9 @@ an exact address/version (published Git version or explicitly agreed local
 address/version). Both forms require destination path/section, separately accepted
 requirements and their sufficient basis, the independently sufficient design basis
 (source locators/derivation and any actual decision/provenance) and permitted writes.
-Read the complete candidate, sources and applicable decisions
-yourself; validate version/scope and that the design basis covers this
-content, without assuming foreign-chat access. Return incomplete, inaccessible,
+Consume checked exact candidate/basis already available under common; read missing
+full content/sources/decisions and establish scope coverage, without repeating
+unchanged derivation or assuming foreign-chat access. Return incomplete, inaccessible,
 ambiguous or changed candidates and missing decisions to the caller before
 dependent writes; do not ask the user, invent acceptance or reformulate accepted
 meaning. Optional local fingerprints detect changes but are not tracker refs or
@@ -150,7 +138,7 @@ the dependent action, not independently authorized work.
 
 ## Preflight, save, update, verify
 
-For full mode preflight the existing Git publisher and applicable adapter
+For full mode establish missing entry preflight through the existing Git publisher and applicable adapter
 publication before dependent writes, with exact subject/destination, authority,
 whole outgoing scope and actual guarantees. Missing prerequisites block full
 success; independently authorized local saving preserves useful effects. Full

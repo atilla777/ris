@@ -138,25 +138,19 @@ Apply the base's preparation/reuse, selected adapter and conditional environment
 method to the verified inputs. Keep shared tracker storage, primary task notes,
 nested worktrees and other shared mutable resources out of copied setup files;
 pass their actual paths and exclusions, including custom/external locations.
-Verify the combined result against the task association and permissions, using
-the base's actual independent Git observations. Reprepare context with
-`project_root` equal to the resulting copy's project directory and the checked
-source-folder association; verify paths, applicable rules and selected tracker workspace again.
+Verify the combined result against association/permissions using the base's
+independent Git observations. After a copy change refresh local context with
+`project_root` at the resulting copy and the checked source-folder association.
 Require the resulting work copy to be a registered linked worktree, distinct from
 the source folder, on its confirmed own branch; reuse that same copy for full,
 simple, feature-preparation, bug and document stages. No per-stage copy is needed.
-Validate the **entire** selected recipient config through context, including
-present unused fields; invalid or inaccessible selected config is an error, not
-grounds for defaults. Compare operation/recipient-relevant settings: project and
-tracker identity/workspace, applicable rules, checked primary and used shared
-paths, plus other sources/roles only when that recipient needs them. A valid
-unused difference (for example `sources.product`) alone does not block preparation.
-A different tracker or used shared path blocks the dependent handoff even when
-the Git copy exists; identify the exact difference and retain independent results.
-A missing required setting blocks its dependent part. Do not copy/substitute a
-config, supplement non-defaulted fields, or initialize another tracker. Context's
-two workspace leaf defaults apply even in a selected valid config. Shared tracker access
-must use the confirmed project workspace, not an ambient new database in the copy.
+Context compares config selection/content: reuse unchanged whole-config validity;
+new/changed config needs full validation, including present unused fields.
+Compare only recipient-relevant settings/paths/rules and confirmed tracker identity.
+Invalid/inaccessible config is an error, not defaults. A valid unused difference
+alone is not a blocker; a different tracker/used shared path blocks that handoff.
+Do not copy/substitute config, fill non-defaulted fields or initialize a tracker.
+Shared access uses the confirmed project workspace, not an ambient copy database.
 
 ## Handoff, optional evidence and stop
 
@@ -165,20 +159,14 @@ existing document/user changes; do not rename, create a draft store or second
 publication copy, or replay create/setup because a journal is absent. The base
 continues to own preservation, hooks/setup and confirmation-first partial recovery.
 
-Return the base's complete copy/environment result plus task ID, actor, purpose,
-the selected action and its blocker interpretation, fresh
-claim/status/blocker observations, current and primary project roots, confirmed
-tracker workspace, config provenance and re-resolved rules/shared paths. Include
-association evidence as exact forwarded facts or an accessible locator (unknown
-association is an explicit dependent gap),
-checked Git source-folder association, actual path/branch/HEAD, new-copy pinned base or n/a on
-reuse, index/staged/unstaged/untracked/operation state, tool/version, permissions,
-checks/limits and effects. Report copy and environment verdicts separately;
-unrequested setup is not proof of environment readiness. This handoff must be
-usable without chat history and does not establish implementation readiness.
-Apply common recoverable-result facts, including saved/accepted/publication
-channels and unfinished remainder. A receiver must freshly check rights, claim,
-blockers and operation-specific protection; the witness/lease is not a live gate.
+Return the base's checked copy/environment result, plus only missing project facts:
+ID/actor/purpose/action and blocker interpretation, claim/status, tracker/config/
+path provenance and limits. Do not repeat the base's observations in a second
+checklist. Forward exact association or its accessible locator; unknown association
+is a dependent gap. Keep copy/environment verdicts separate; unrequested setup
+does not establish environment or implementation readiness. Common governs
+minimal handoff/recovery. Receiving writers refresh their action's rights/claim/
+blockers and preservation, not the whole preparation algorithm.
 
 Direct invocation and full-flow preparation do not require creating or reading
 `worktree.md`, `execution.md` or an equivalent file/Beads transition journal.

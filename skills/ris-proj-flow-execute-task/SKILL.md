@@ -65,7 +65,7 @@ guarantees: use fresh reads, targeted native atomic/conditional operations and
 read-back, and shared-history tracker publication with remote revision assurance.
 Ordinary work needs no manual window, mandatory global lock or graph/external-evidence transaction.
 A claim, lease, sandbox or worktree is not general content/graph CAS. Apply
-read-only preflight through the selected adapter and Git publication owner for actual
+entry preflight once, or consume sufficient existing results, through the selected adapter and Git publication owner for actual
 capabilities, destination/ref, outgoing scope, restrictions and remote read-back.
 Missing guarantees block only dependent effects; preserve usable results.
 
@@ -110,13 +110,12 @@ Consume the owner's exact result/locator and material effects, limits and
 remainder, not a mandatory handoff field set. Common's artifacts resource owns
 fact sources and recovery; no envelope, file or registry is introduced.
 
-Before each transition verify actual executor/provenance (including launch when delegated), accessible exact results
-and current prerequisites from live Git/adapter facts and published input versions;
-unsupported “done” is insufficient. Bind checks/review to the complete candidate
-(base plus all additions/deletions/modes), inputs and independent reviewer; unknown
-snapshot, review independence or task/copy association blocks only its dependent
-step. Forward only missing verified inputs; mutable rights/claim/blocker/copy
-facts are checked by their receiving owners, not inherited from an old handoff.
+At a transition consume the preceding owner's confirmed result and its relevant
+limits; do not restart context, discovery or universal preflight. Restore only
+missing inputs and reassess facts invalidated by relevant change or concrete risk
+under common. Unsupported “done” is insufficient. Actual delegation/independence
+and full candidate/check/review binding remain required; verify them when first
+consumed or changed. Receiving owners refresh only their live mutation predicates.
 
 Do not require `worktree.md`, `execution.md` or an equivalent file/Beads transition
 journal, or a persisted entry for each handoff. No saved plan, implementation
@@ -187,21 +186,15 @@ must now be integrated/applicable and active or unresolved execution blockers
 stop dependent execution, even with an existing own claim. Preserve necessary
 directed blocks and native refusal; permission to plan/decompose is not permission
 to implement.
-For feature-linked work apply common's published-inputs document convention and
-bounded legacy discovery to actual published requirements/design and their
-sufficient direct/inherited/mixed basis under that resource. Check original source
-decisions/derivation for inherited parts, actual decisions for new/direct material;
-no new approval is owed for wholly inherited content. Also consume a valid saved
-prepare policy basis under common, without inventing human approval or inheritance;
-it grants no implementation authority and execution cannot originate it from config.
-Missing sufficient basis is a preparation gap;
-missing/old/malformed JSON alone is not. No epic is fabricated for a root feature.
-Check exact versions and current applicability without repinning unchanged
-acceptance, registry writes or migration. Membership is not a `blocks` edge; evaluate parent restrictions
-under project rules without inventing an edge.
-
-Discover these inputs from exact selected-adapter ID reads and linked versions,
-not a mandatory caller questionnaire. Explicit ordinary standalone leaf/child
+For feature-linked work consume checked published requirements/design and their
+independently sufficient basis under common's `published-inputs.md`; restore only
+missing/invalidated content or basis by exact ID/links, not a caller questionnaire.
+Execution still assesses needed integrated prerequisites and applicability to
+current code. Saved prepare policy is consumable, not human approval or execution
+authority; execution cannot originate it. Missing basis is a preparation gap;
+legacy JSON alone is not. Preserve exact versions/decisions without repinning,
+registry or migration. Membership is not `blocks`; evaluate actual parent restrictions,
+never invent an edge or epic. Explicit ordinary standalone leaf/child
 uses its own sufficient contract and accepted sources/constraints; structural
 parent need not be an epic or feature. A child is not feature-linked merely
 because it has a parent. Confirm actual kind from explicit scope/content/source
@@ -246,7 +239,9 @@ leading scenario authorizes each transition after inspecting the owner's receipt
 owners retain their full methods. Reconcile again after partial/uncertain effects
 or changed facts before deciding the next operation.
 
-1. Apply `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
+1. Consume an already sufficient checked claim/copy/environment result. Only for
+   missing/uncertain association, copy/setup or affected preservation evidence,
+   apply `ris-proj-op-prepare-task-worktree` with exact task, actor, permitted claim,
    copy/environment actions and applicable context. Check its verified claim,
    blockers, copy association, proportionate preservation observations/limits
    (ordinary new create versus reuse or hooks/setup) and separate copy/environment
@@ -254,13 +249,11 @@ or changed facts before deciding the next operation.
    a guessed branch/path. Refresh context after a copy change. Retain the
    verified work/copy association when needed by the recipient; it never replaces
    fresh permission/ownership/blocker/protection gates at the receiving stage.
-   If the caller already prepared this native bug's copy for necessary design,
-   pass its exact checked ID/repository/path/branch association and actual effects
-   to this same preparation owner for reuse, now with the sufficient accepted
-   execution basis and readable pinned historical inputs. Verify the same association
-   against live state; mismatch or unavailable association evidence blocks the
-   dependent step, not permission to choose a second copy. Reconcile partial
-   copy/setup effects before retry without replaying creation or completed setup.
+   This also applies to a bug copy prepared for design: retain its association,
+   perform execution admission with sufficient versioned inputs and live guards,
+   not a new copy/setup ceremony. Unknown association or partial setup goes to
+   its preparation owner before retry; never choose a replacement copy or replay
+   completed setup.
 2. Recheck actor ownership and blockers before each new change batch. Apply
    code behavior (including mixed code/text) to `ris-proj-op-implement-task-tdd`;
    apply its base method by actual slice, not the task's name. Behavior-changing
@@ -316,8 +309,11 @@ or changed facts before deciding the next operation.
    or Dolt publication. A policy-required or explicitly requested local update
    remains unfinished in the combined result; recover only that local
    effect through the publisher, never repeat confirmed push.
-6. Only after confirmed Git publication, verify criteria and mandatory scope on
-   the published version. For a leaf task, apply selected-adapter bounded
+6. Only after confirmed Git publication, establish criteria and mandatory scope on
+   the published version using applicable checks/review and the publisher's exact
+   snapshot match; do not rerun unchanged checks or reconstruct acceptance. Missing
+   coverage or a changed relevant input needs its affected assessment. For a leaf
+   task, apply selected-adapter bounded
    result persistence and separate native exact-ID completion (advertised tool-specific
    ordinary operations for standalone tasks or native bug fix-completion, not
    investigation disposition or feature-record/2) with criterion/check/review

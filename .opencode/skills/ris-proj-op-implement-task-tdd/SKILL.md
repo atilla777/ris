@@ -40,20 +40,16 @@ Git-project mutations or shared-path
 access. Missing/conflicting inputs block that part. Use the provided suitable copy;
 do not create/repair/switch/reset it or load preparation skills/worktree adapters.
 
-For a feature-linked task use exact native record reads and common's published-inputs
-document convention/bounded legacy discovery; require actual published requirements,
-sufficient design and their independently sufficient direct/inherited/mixed basis
-under common's `published-inputs.md`. Check source derivation and original
-decisions for inherited parts, actual decisions for new/direct material, without
-requiring fictional new approval for wholly inherited results. Common's valid saved
-prepare policy basis is also consumable, not a human approval or execution grant;
-implementation cannot originate it from config. Missing
-substantive inputs block dependent implementation; missing/old/malformed JSON alone
-does not. Preserve historical data without migration. Standalone work needs accepted technical constraints,
-not an invented feature record. Compare actual accepted content and contract
-versions with current code and relevant integration; labels alone do not prove
-applicability. Preserve accepted refs; material departures return to their owner.
-Discover own accepted inputs by ID and links. Old plans are optional context;
+For feature-linked work consume published requirements, sufficient design and
+their checked independently sufficient basis from admission under common's
+`published-inputs.md`; restore only missing/invalidated facts by exact ID/links.
+Do not repeat unchanged derivation/decision history. Compare affected content/
+contracts with current code when code, target or evidence changes; labels alone
+do not prove applicability. Missing substantive inputs block dependent edits;
+legacy JSON alone does not. Preserve history/refs without migration or repinning;
+material departures return to their owner. Saved prepare policy is consumable,
+never originated by implementation or treated as execution authority. Standalone
+work needs its own accepted constraints, not an invented feature. Old plans are optional context;
 their absence or staleness creates no planning stage or approval gate. Confirm actual
 feature linkage: structural parent alone does not imply a feature. Standalone
 children need their own scope/criteria/refs/seams, not copied global AC. Simple

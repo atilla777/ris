@@ -29,6 +29,12 @@ contract; do not require access to RIS's documentation repository at runtime.
 
 ## Schema and defaults
 
+Validate a selected config once per unchanged version/package context; reuse
+that result under common. After copy change compare actual selection/content and
+refresh local associations/paths; unchanged content retains whole-config validity.
+Changed or newly selected content requires full validation, including unused
+present fields. No persisted cache or mandatory digest is needed.
+
 When the optional root `ris.yaml` is absent, use these package values:
 
 ```yaml
@@ -129,4 +135,5 @@ leaf's explicit-config or package-default provenance. A missing optional `ris.ya
 is not an error. A missing goal or selected document is a caller input gap,
 not a reason to invent one. Never label a configured adapter installed or
 call a merely prepared path a completed artifact. The caller checks the
-result before use and rechecks mutable state before any subsequent writing.
+result's sufficiency before use; the acting owner refreshes only mutable
+predicates needed by its subsequent write, not this entire preparation procedure.
